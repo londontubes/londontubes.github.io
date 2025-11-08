@@ -207,7 +207,8 @@ export default function MapCanvas({
       disposeOverlays(overlaysRef.current)
       resetGoogleMapsLoader()
     }
-  }, [lines, stations, onStationSelect])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lines, stations])
 
   useEffect(() => {
     if (!googleRef.current) return
