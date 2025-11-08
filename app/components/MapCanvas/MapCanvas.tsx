@@ -284,7 +284,8 @@ export default function MapCanvas({
     if (selectedStation && !stationVisible(selectedStation, activeSet)) {
       onStationSelect(null)
     }
-  }, [activeSet, lines, onStationSelect, selectedStation, stations, activeLineCodes])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeSet, lines, selectedStation, stations, activeLineCodes])
 
   const fallbackStations = useMemo(() => {
     if (!activeSet) {
