@@ -2,8 +2,8 @@
 
 **Feature Branch**: `001-map-line-filter`  
 **Created**: 2025-11-07  
-**Updated**: 2025-11-08 (post production hardening & AdSense integration)  
-**Status**: Production Readiness Phase  
+**Updated**: 2025-11-08 (UX refinements, zoom behavior fixes, station alignment improvements)  
+**Status**: Production Hardening Phase  
 **Input**: User description: "I am building a modern London Tube website. I want it to show all the London Tube stations including DLR line and its stations over google maps. Website should provide a simple clickable feature to filter all the tube lines. The website should show selected tube lines with its stations overlay on top of the google maps."
 
 **Update (2025-11-08)**: (Superseded) Temporary Northern line–only default used to validate filtering mechanics.  
@@ -108,6 +108,9 @@ Visitors select multiple lines (e.g., Jubilee and DLR) to see how they intersect
  - **FR-016**: Include SEO-friendly metadata (OpenGraph, Twitter card) and static `robots.txt` + `sitemap.xml` assets.
  - **FR-017**: Integrate Google AdSense script in document head for monetization (post policy compliance).
  - **FR-018**: Build process MUST validate data schemas (`data:validate`) before transforming & exporting static site.
+- **FR-019**: Map MUST preserve user's zoom level when clicking station markers; auto-zoom MUST only trigger on explicit line filter changes.
+- **FR-020**: Station marker sizes MUST be sufficient to visually overlap with line polylines, accommodating TfL data alignment variance.
+- **FR-021**: System MUST support manual coordinate overrides for stations where TfL data misaligns with actual line polylines.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -168,6 +171,78 @@ Visitors select multiple lines (e.g., Jubilee and DLR) to see how they intersect
  - Branch visual distinction (thicker trunk vs branch stroke) not yet implemented.
  - Waterloo & City fix relies on manual endpoint snapping; consider algorithmic endpoint tolerance parameterization.
  - AdSense inclusion requires production domain verification; ads may not render until approval.
+ - TfL station coordinates may not perfectly align with line polylines; coordinate override system addresses critical misalignments.
+
+### Recent Bug Fixes (2025-11-08)
+
+#### Issue #1: MapExperience Component Empty
+**Problem**: MapExperience.tsx file became completely empty (0 bytes), causing catastrophic failure with "Unsupported Server Component type" error.
+
+**Root Cause**: File accidentally emptied (unknown cause).
+
+**Solution**: Restored full component content from commit 43679a3 using `git show`.
+
+**Commit**: 22a34f4 "fix: restore MapExperience component content"
+
+#### Issue #2: Auto-Zoom on Station Click (Multiple Attempts)
+**Problem**: When users zoomed in to inspect dense station areas (e.g., central London), clicking any station triggered unwanted zoom-out to show entire network, disrupting exploration UX.
+
+**Root Cause**: Map effects had callback dependencies (`onStationSelect`) that weren't memoized by parent component. Clicking station → parent re-render → new function reference → effect re-execution → `fitBounds()` call → unwanted zoom.
+
+**Initial Attempts**: 
+- Removed `onStationSelect` from first effect dependency array (line 210) - Partial fix
+- Removed `onStationSelect` from second effect dependency array (line 291) - Still not resolved
+
+**Final Solution**: Added `prevActiveLineCodesRef` to track when `activeLineCodes` actually changes vs. just re-renders. Effect now only animates zoom when filter truly changes AND exactly one line is selected.
+
+**Implementation**:
+```typescript
+const prevActiveLineCodesRef = useRef<string[]>(activeLineCodes)
+
+// In effect:
+const activeLineCodesChanged = 
+  prevActiveLineCodesRef.current.length !== activeLineCodes.length ||
+  prevActiveLineCodesRef.current.some((code, i) => code !== activeLineCodes[i])
+
+if (activeLineCodesChanged && activeLineCodes.length === 1) {
+  // Animate zoom only when filter actually changed
+}
+
+prevActiveLineCodesRef.current = activeLineCodes // Update ref
+```
+
+**Commits**: 
+- 3ed8c77 "fix: prevent auto zoom-out when clicking stations while zoomed in"
+- eef037e "fix: remove onStationSelect from filter effect dependency to prevent zoom re-trigger"
+- 47831f9 "fix: only animate zoom when line filter actually changes, not on station click"
+
+**Result**: Map now preserves user zoom level during station exploration; only auto-zooms on intentional line filter changes.
+
+#### Issue #3: Station-Line Visual Misalignment
+**Problem**: Station markers didn't visually connect with line polylines (e.g., Charing Cross on Northern line), especially visible when zoomed in. Lines appeared to pass beside stations rather than through them.
+
+**Root Cause**: TfL's official data has separate sources for station coordinates and line polylines. Station positions are geographic centroids while line polylines follow actual track routes, creating slight misalignments.
+
+**Solutions Implemented**:
+
+1. **Increased marker sizes** (progressive attempts):
+   - Initial: Interchange 6px/2px border, Regular 4px/1px border
+   - First increase: Interchange 8px/3px, Regular 5px/2px (commit 71f5d41)
+   - Final increase: Interchange 10px/3px, Regular 6px/2px (commit c127f4b)
+   - Added `zIndex: 1000` to ensure stations render above lines
+
+2. **Coordinate override system**:
+   - Created `station-overrides.json` configuration file for manual position corrections
+   - Updated `load-static-data.ts` to apply overrides at runtime
+   - Adjusted Charing Cross: `[-0.126137, 51.507819]` → `[-0.1249, 51.5081]`
+   - System extensible for future station corrections
+
+**Commits**:
+- 71f5d41 "fix: increase station marker size to better overlap with line polylines"
+- c127f4b "fix: further increase station marker size for better line connection visibility"
+- f9e8950 "fix: add coordinate override system and adjust Charing Cross position to align with Northern line"
+
+**Result**: Larger markers improve visual connection; override system allows surgical fixes for problematic stations without compromising TfL data integrity.
 
 ### File Format Change
 - **Original plan**: Use `.geojson` file extensions  
@@ -184,3 +259,24 @@ Visitors select multiple lines (e.g., Jubilee and DLR) to see how they intersect
  - Animation: Single-line activation triggers bounds fit simulation → captured target center/zoom → eased transition (cubic in/out, 700ms).
  - Performance: Overlay reuse instead of full map re-instantiation; visibility toggled by `setMap(null|map)` for markers/polylines.
  - Accessibility: Station marker ARIA labels list served lines; live region announces filter state changes.
+
+### Coordinate Override System (2025-11-08)
+ - **File**: `public/data/station-overrides.json`
+ - **Purpose**: Manual corrections for stations where TfL coordinates misalign with line polylines
+ - **Format**: JSON object mapping station IDs to corrected `[longitude, latitude]` coordinates with reason documentation
+ - **Integration**: `load-static-data.ts` applies overrides at runtime before rendering
+ - **Current Overrides**:
+   - `HUBCHX` (Charing Cross): Adjusted to align with Northern line polyline intersection
+ - **Extensibility**: Add new entries as misalignments are identified through user feedback or QA
+
+### Map Interaction Behavior (2025-11-08)
+ - **Zoom Preservation**: Station marker clicks update tooltip only; map zoom/pan state preserved
+ - **Auto-Zoom Triggers**: Only fires when line filter changes to exactly one line (intentional focus)
+ - **Implementation**: `prevActiveLineCodesRef` tracks actual filter changes vs. component re-renders
+ - **User Benefit**: Enables detailed exploration of dense station areas (central London) without disruptive viewport resets
+
+### Station Marker Sizing (2025-11-08)
+ - **Interchange Stations**: 10px radius, 3px border (white fill, dark stroke)
+ - **Regular Stations**: 6px radius, 2px border
+ - **Z-Index**: 1000 (ensures stations render above line polylines)
+ - **Rationale**: Larger markers compensate for TfL data alignment variance, improve click targets, enhance visual connection with lines
