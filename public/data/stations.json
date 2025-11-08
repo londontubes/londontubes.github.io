@@ -1,0 +1,5702 @@
+{
+  "generatedAt": "2025-11-08T14:21:15.285Z",
+  "stations": [
+    {
+      "stationId": "940GZZLUBST",
+      "displayName": "Baker Street Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.15713,
+          51.522883
+        ]
+      },
+      "lineCodes": [
+        "bakerloo",
+        "circle",
+        "hammersmith-city",
+        "jubilee",
+        "metropolitan"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Baker Street Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUEMB",
+      "displayName": "Embankment Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.122666,
+          51.507058
+        ]
+      },
+      "lineCodes": [
+        "bakerloo",
+        "circle",
+        "district",
+        "northern"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Embankment Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUERB",
+      "displayName": "Edgware Road (Bakerloo) Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.17015,
+          51.520299
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Edgware Road (Bakerloo) Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUKPK",
+      "displayName": "Kilburn Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.194232,
+          51.534979
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kilburn Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLULBN",
+      "displayName": "Lambeth North Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.112315,
+          51.498808
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Lambeth North Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUMVL",
+      "displayName": "Maida Vale Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.185758,
+          51.529777
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Maida Vale Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUOXC",
+      "displayName": "Oxford Circus Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.141903,
+          51.515224
+        ]
+      },
+      "lineCodes": [
+        "bakerloo",
+        "central",
+        "victoria"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Oxford Circus Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUPCC",
+      "displayName": "Piccadilly Circus Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.133798,
+          51.51005
+        ]
+      },
+      "lineCodes": [
+        "bakerloo",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Piccadilly Circus Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLURGP",
+      "displayName": "Regent's Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.146444,
+          51.523344
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Regent's Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWKA",
+      "displayName": "Warwick Avenue Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.183783,
+          51.523263
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Warwick Avenue Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBCHX",
+      "displayName": "Charing Cross",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.126137,
+          51.507819
+        ]
+      },
+      "lineCodes": [
+        "bakerloo",
+        "northern"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Charing Cross",
+      "order": 0
+    },
+    {
+      "stationId": "HUBEPH",
+      "displayName": "Elephant & Castle",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.099185,
+          51.494505
+        ]
+      },
+      "lineCodes": [
+        "bakerloo",
+        "northern"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Elephant & Castle",
+      "order": 0
+    },
+    {
+      "stationId": "HUBHDN",
+      "displayName": "Harlesden",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.257774,
+          51.536305
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Harlesden",
+      "order": 0
+    },
+    {
+      "stationId": "HUBHRW",
+      "displayName": "Harrow & Wealdstone",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.334896,
+          51.592216
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Harrow & Wealdstone",
+      "order": 0
+    },
+    {
+      "stationId": "HUBKNL",
+      "displayName": "Kensal Green",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.22505,
+          51.530545
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kensal Green",
+      "order": 0
+    },
+    {
+      "stationId": "HUBKNT",
+      "displayName": "Kenton",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.316946,
+          51.581786
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kenton",
+      "order": 0
+    },
+    {
+      "stationId": "HUBMYB",
+      "displayName": "Marylebone",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.163013,
+          51.521602
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Marylebone",
+      "order": 0
+    },
+    {
+      "stationId": "HUBNWB",
+      "displayName": "North Wembley",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.303992,
+          51.56258
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "North Wembley",
+      "order": 0
+    },
+    {
+      "stationId": "HUBPAD",
+      "displayName": "Paddington",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.17616,
+          51.516981
+        ]
+      },
+      "lineCodes": [
+        "bakerloo",
+        "circle",
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Paddington",
+      "order": 0
+    },
+    {
+      "stationId": "HUBQPW",
+      "displayName": "Queen's Park",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.204882,
+          51.534443
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Queen's Park",
+      "order": 0
+    },
+    {
+      "stationId": "HUBSBP",
+      "displayName": "Stonebridge Park",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.275859,
+          51.544041
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Stonebridge Park",
+      "order": 0
+    },
+    {
+      "stationId": "HUBSOK",
+      "displayName": "South Kenton",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.308448,
+          51.570229
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "South Kenton",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWAT",
+      "displayName": "Waterloo",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.113356,
+          51.504269
+        ]
+      },
+      "lineCodes": [
+        "bakerloo",
+        "jubilee",
+        "northern",
+        "waterloo-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Waterloo",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWIJ",
+      "displayName": "Willesden Junction",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.243006,
+          51.532556
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Willesden Junction",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWMB",
+      "displayName": "Wembley Central",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.296642,
+          51.55232
+        ]
+      },
+      "lineCodes": [
+        "bakerloo"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wembley Central",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBKE",
+      "displayName": "Barkingside Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.088585,
+          51.585689
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Barkingside Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBKH",
+      "displayName": "Buckhurst Hill Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.046757,
+          51.626605
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Buckhurst Hill Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBLG",
+      "displayName": "Bethnal Green Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.055506,
+          51.527222
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Bethnal Green Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCHL",
+      "displayName": "Chancery Lane Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.111583,
+          51.518247
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Chancery Lane Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCWL",
+      "displayName": "Chigwell Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.075041,
+          51.617916
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Chigwell Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUDBN",
+      "displayName": "Debden Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.083782,
+          51.645386
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Debden Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUEAN",
+      "displayName": "East Acton Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.247248,
+          51.516612
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "East Acton Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUEPG",
+      "displayName": "Epping Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.113767,
+          51.69368
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Epping Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUFLP",
+      "displayName": "Fairlop Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.091004,
+          51.595618
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Fairlop Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUGGH",
+      "displayName": "Grange Hill Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.092066,
+          51.613378
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Grange Hill Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUGTH",
+      "displayName": "Gants Hill Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.066185,
+          51.576544
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Gants Hill Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHBN",
+      "displayName": "Holborn Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.120475,
+          51.51758
+        ]
+      },
+      "lineCodes": [
+        "central",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Holborn Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHGR",
+      "displayName": "Hanger Lane Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.292704,
+          51.530177
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hanger Lane Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHLT",
+      "displayName": "Hainault Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.093482,
+          51.603659
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hainault Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHPK",
+      "displayName": "Holland Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.205679,
+          51.507143
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Holland Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLULGN",
+      "displayName": "Loughton Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.055476,
+          51.641443
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Loughton Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLULGT",
+      "displayName": "Lancaster Gate Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.175494,
+          51.511723
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Lancaster Gate Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLULYN",
+      "displayName": "Leyton Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.005523,
+          51.556589
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Leyton Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLULYS",
+      "displayName": "Leytonstone Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.008194,
+          51.568324
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Leytonstone Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUMBA",
+      "displayName": "Marble Arch Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.158953,
+          51.513424
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Marble Arch Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUMED",
+      "displayName": "Mile End Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.03364,
+          51.525122
+        ]
+      },
+      "lineCodes": [
+        "central",
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Mile End Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNAN",
+      "displayName": "North Acton Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.259755,
+          51.523524
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "North Acton Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNBP",
+      "displayName": "Newbury Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.090004,
+          51.575726
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Newbury Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNHG",
+      "displayName": "Notting Hill Gate Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.196104,
+          51.509128
+        ]
+      },
+      "lineCodes": [
+        "central",
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Notting Hill Gate Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNHT",
+      "displayName": "Northolt Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.368699,
+          51.548236
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Northolt Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUPVL",
+      "displayName": "Perivale Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.323446,
+          51.536717
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Perivale Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUQWY",
+      "displayName": "Queensway Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.187152,
+          51.510312
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Queensway Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLURBG",
+      "displayName": "Redbridge Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.04536,
+          51.576243
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Redbridge Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLURSG",
+      "displayName": "Ruislip Gardens Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.41071,
+          51.560736
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Ruislip Gardens Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLURVY",
+      "displayName": "Roding Valley Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.043647,
+          51.617199
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Roding Valley Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSNB",
+      "displayName": "Snaresbrook Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.02144,
+          51.580678
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Snaresbrook Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSPU",
+      "displayName": "St. Paul's Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.097567,
+          51.514936
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "St. Paul's Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSWF",
+      "displayName": "South Woodford Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.027338,
+          51.591907
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "South Woodford Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUTHB",
+      "displayName": "Theydon Bois Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.103085,
+          51.671759
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Theydon Bois Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWCY",
+      "displayName": "White City Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.224297,
+          51.511959
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "White City Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWOF",
+      "displayName": "Woodford Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.03397,
+          51.606899
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Woodford Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWSD",
+      "displayName": "Wanstead Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.028527,
+          51.575501
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wanstead Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWTA",
+      "displayName": "West Acton Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.28098,
+          51.518001
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West Acton Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBAN",
+      "displayName": "Bank",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.089095,
+          51.513395
+        ]
+      },
+      "lineCodes": [
+        "central",
+        "dlr",
+        "northern",
+        "waterloo-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Bank",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBDS",
+      "displayName": "Bond Street",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.148795,
+          51.513362
+        ]
+      },
+      "lineCodes": [
+        "central",
+        "jubilee"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Bond Street",
+      "order": 0
+    },
+    {
+      "stationId": "HUBEAL",
+      "displayName": "Ealing Broadway",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.302131,
+          51.514993
+        ]
+      },
+      "lineCodes": [
+        "central",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Ealing Broadway",
+      "order": 0
+    },
+    {
+      "stationId": "HUBGFD",
+      "displayName": "Greenford",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.345789,
+          51.542657
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Greenford",
+      "order": 0
+    },
+    {
+      "stationId": "HUBLST",
+      "displayName": "Liverpool Street",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.083162,
+          51.51794
+        ]
+      },
+      "lineCodes": [
+        "central",
+        "circle",
+        "hammersmith-city",
+        "metropolitan"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Liverpool Street",
+      "order": 0
+    },
+    {
+      "stationId": "HUBSPB",
+      "displayName": "Shepherd's Bush",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.219213,
+          51.504791
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Shepherd's Bush",
+      "order": 0
+    },
+    {
+      "stationId": "HUBSRA",
+      "displayName": "Stratford",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.00241,
+          51.541508
+        ]
+      },
+      "lineCodes": [
+        "central",
+        "dlr",
+        "jubilee"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Stratford",
+      "order": 0
+    },
+    {
+      "stationId": "HUBSRU",
+      "displayName": "South Ruislip",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.399076,
+          51.556893
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "South Ruislip",
+      "order": 0
+    },
+    {
+      "stationId": "HUBTCR",
+      "displayName": "Tottenham Court Road",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.130888,
+          51.516018
+        ]
+      },
+      "lineCodes": [
+        "central",
+        "northern"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Tottenham Court Road",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWRU",
+      "displayName": "West Ruislip",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.437816,
+          51.569721
+        ]
+      },
+      "lineCodes": [
+        "central"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West Ruislip",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUALD",
+      "displayName": "Aldgate Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.075689,
+          51.514246
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "metropolitan"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Aldgate Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBBN",
+      "displayName": "Barbican Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.097993,
+          51.520275
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city",
+        "metropolitan"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Barbican Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBWT",
+      "displayName": "Bayswater Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.187938,
+          51.512284
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Bayswater Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUERC",
+      "displayName": "Edgware Road (Circle Line) Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.167832,
+          51.519858
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Edgware Road (Circle Line) Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUESQ",
+      "displayName": "Euston Square Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.135829,
+          51.525604
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city",
+        "metropolitan"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Euston Square Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUGHK",
+      "displayName": "Goldhawk Road Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.226715,
+          51.502005
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Goldhawk Road Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUGPS",
+      "displayName": "Great Portland Street Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.144262,
+          51.52384
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city",
+        "metropolitan"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Great Portland Street Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUGTR",
+      "displayName": "Gloucester Road Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.182658,
+          51.494316
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Gloucester Road Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHSK",
+      "displayName": "High Street Kensington Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.192792,
+          51.501055
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "High Street Kensington Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLULAD",
+      "displayName": "Ladbroke Grove Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.210391,
+          51.517449
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Ladbroke Grove Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLULRD",
+      "displayName": "Latimer Road Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.217799,
+          51.513389
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Latimer Road Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUMMT",
+      "displayName": "Monument Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.085969,
+          51.5107
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Monument Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUMSH",
+      "displayName": "Mansion House Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.094009,
+          51.512117
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Mansion House Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLURYO",
+      "displayName": "Royal Oak Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.188748,
+          51.519113
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Royal Oak Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSBM",
+      "displayName": "Shepherd's Bush Market Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.226375,
+          51.505579
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Shepherd's Bush Market Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSJP",
+      "displayName": "St. James's Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.133608,
+          51.499544
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "St. James's Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSKS",
+      "displayName": "South Kensington Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.174138,
+          51.494094
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "South Kensington Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSSQ",
+      "displayName": "Sloane Square Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.156377,
+          51.49227
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Sloane Square Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUTMP",
+      "displayName": "Temple Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.11426,
+          51.511006
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Temple Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUTWH",
+      "displayName": "Tower Hill Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.076546,
+          51.509971
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Tower Hill Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWLA",
+      "displayName": "Wood Lane Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.22453,
+          51.509669
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Wood Lane Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWSP",
+      "displayName": "Westbourne Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.201065,
+          51.52111
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Westbourne Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBFR",
+      "displayName": "Blackfriars",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.104166,
+          51.509613
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Blackfriars",
+      "order": 0
+    },
+    {
+      "stationId": "HUBCST",
+      "displayName": "Cannon Street",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.090357,
+          51.511451
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Cannon Street",
+      "order": 0
+    },
+    {
+      "stationId": "HUBHMS",
+      "displayName": "Hammersmith",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.223619,
+          51.492304
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district",
+        "hammersmith-city",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Hammersmith",
+      "order": 0
+    },
+    {
+      "stationId": "HUBKGX",
+      "displayName": "King's Cross & St Pancras International",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.123538,
+          51.531683
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city",
+        "metropolitan",
+        "northern",
+        "piccadilly",
+        "victoria"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "King's Cross & St Pancras International",
+      "order": 0
+    },
+    {
+      "stationId": "HUBVIC",
+      "displayName": "Victoria",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.143826,
+          51.495812
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district",
+        "victoria"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Victoria",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWSM",
+      "displayName": "Westminster",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.125984,
+          51.501603
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "district",
+        "jubilee"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Westminster",
+      "order": 0
+    },
+    {
+      "stationId": "HUBZFD",
+      "displayName": "Farringdon",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.105054,
+          51.520214
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city",
+        "metropolitan"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Farringdon",
+      "order": 0
+    },
+    {
+      "stationId": "HUBZMG",
+      "displayName": "Moorgate",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.088627,
+          51.518338
+        ]
+      },
+      "lineCodes": [
+        "circle",
+        "hammersmith-city",
+        "metropolitan",
+        "northern"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Moorgate",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUACT",
+      "displayName": "Acton Town Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.280462,
+          51.503057
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Acton Town Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUADE",
+      "displayName": "Aldgate East Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.072384,
+          51.515037
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Aldgate East Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBBB",
+      "displayName": "Bromley-by-Bow Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.011538,
+          51.524839
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Bromley-by-Bow Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBEC",
+      "displayName": "Becontree Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.127016,
+          51.540331
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Becontree Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBSC",
+      "displayName": "Barons Court Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.213427,
+          51.490311
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Barons Court Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBWR",
+      "displayName": "Bow Road Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.025128,
+          51.52694
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Bow Road Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCWP",
+      "displayName": "Chiswick Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.267972,
+          51.494627
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Chiswick Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUDGE",
+      "displayName": "Dagenham East Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.166017,
+          51.544096
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Dagenham East Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUDGY",
+      "displayName": "Dagenham Heathway Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.147527,
+          51.541639
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Dagenham Heathway Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUECM",
+      "displayName": "Ealing Common Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.288265,
+          51.51014
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Ealing Common Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUECT",
+      "displayName": "Earl's Court Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.193378,
+          51.492063
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Earl's Court Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUEHM",
+      "displayName": "East Ham Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.051186,
+          51.538948
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "East Ham Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUEPK",
+      "displayName": "Elm Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.19864,
+          51.549775
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Elm Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUEPY",
+      "displayName": "East Putney Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.211,
+          51.459205
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "East Putney Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUFBY",
+      "displayName": "Fulham Broadway Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.195422,
+          51.480081
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Fulham Broadway Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHCH",
+      "displayName": "Hornchurch Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.219116,
+          51.554093
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hornchurch Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUPLW",
+      "displayName": "Plaistow Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.017451,
+          51.531341
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Plaistow Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUPSG",
+      "displayName": "Parsons Green Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.20117,
+          51.475277
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Parsons Green Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUPYB",
+      "displayName": "Putney Bridge Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.208731,
+          51.468262
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Putney Bridge Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLURVP",
+      "displayName": "Ravenscourt Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.235881,
+          51.494122
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Ravenscourt Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSFB",
+      "displayName": "Stamford Brook Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.245704,
+          51.494917
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Stamford Brook Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSFS",
+      "displayName": "Southfields Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.206602,
+          51.445073
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Southfields Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSGN",
+      "displayName": "Stepney Green Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.046596,
+          51.521858
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Stepney Green Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUTNG",
+      "displayName": "Turnham Green Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.254555,
+          51.495148
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Turnham Green Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUUPB",
+      "displayName": "Upminster Bridge Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.235809,
+          51.55856
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Upminster Bridge Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUUPK",
+      "displayName": "Upton Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.035263,
+          51.53534
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Upton Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUUPY",
+      "displayName": "Upney Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.10153,
+          51.538372
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Upney Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWIP",
+      "displayName": "Wimbledon Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.199719,
+          51.434573
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wimbledon Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWKN",
+      "displayName": "West Kensington Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.206636,
+          51.490459
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West Kensington Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBKG",
+      "displayName": "Barking",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.080988,
+          51.539413
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Barking",
+      "order": 0
+    },
+    {
+      "stationId": "HUBGUN",
+      "displayName": "Gunnersbury",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.275276,
+          51.491745
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Gunnersbury",
+      "order": 0
+    },
+    {
+      "stationId": "HUBKPA",
+      "displayName": "Kensington (Olympia)",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.210502,
+          51.496156
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kensington (Olympia)",
+      "order": 0
+    },
+    {
+      "stationId": "HUBKWG",
+      "displayName": "Kew Gardens",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.285148,
+          51.477069
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kew Gardens",
+      "order": 0
+    },
+    {
+      "stationId": "HUBRMD",
+      "displayName": "Richmond",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.301448,
+          51.463152
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Richmond",
+      "order": 0
+    },
+    {
+      "stationId": "HUBUPM",
+      "displayName": "Upminster",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.250855,
+          51.558659
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Upminster",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWBP",
+      "displayName": "West Brompton",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.195593,
+          51.487168
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West Brompton",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWEH",
+      "displayName": "West Ham",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.004997,
+          51.528178
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "dlr",
+        "hammersmith-city",
+        "jubilee"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "West Ham",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWIM",
+      "displayName": "Wimbledon",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.206444,
+          51.421505
+        ]
+      },
+      "lineCodes": [
+        "district"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wimbledon",
+      "order": 0
+    },
+    {
+      "stationId": "HUBZWL",
+      "displayName": "Whitechapel",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.059858,
+          51.519498
+        ]
+      },
+      "lineCodes": [
+        "district",
+        "hammersmith-city"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Whitechapel",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLABR",
+      "displayName": "Abbey Road DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.003737,
+          51.531926
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Abbey Road DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLALL",
+      "displayName": "All Saints DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.013135,
+          51.511
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "All Saints DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLBEC",
+      "displayName": "Beckton DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.061453,
+          51.514362
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Beckton DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLBLA",
+      "displayName": "Blackwall DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.006969,
+          51.507991
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Blackwall DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLBOW",
+      "displayName": "Bow Church DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.020936,
+          51.527858
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Bow Church DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLBPK",
+      "displayName": "Beckton Park DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.054932,
+          51.508793
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Beckton Park DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLCLA",
+      "displayName": "Crossharbour DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.014606,
+          51.495728
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Crossharbour DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLCYP",
+      "displayName": "Cyprus DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.063925,
+          51.508473
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Cyprus DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLDEP",
+      "displayName": "Deptford Bridge DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.022438,
+          51.474215
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Deptford Bridge DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLDEV",
+      "displayName": "Devons Road DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.017615,
+          51.522667
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Devons Road DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLEIN",
+      "displayName": "East India DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.002326,
+          51.509359
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "East India DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLELV",
+      "displayName": "Elverson Road DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.016728,
+          51.469074
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Elverson Road DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLGAL",
+      "displayName": "Gallions Reach DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.071555,
+          51.508941
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Gallions Reach DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLHEQ",
+      "displayName": "Heron Quays DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.021421,
+          51.503379
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Heron Quays DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLISL",
+      "displayName": "Island Gardens DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.010139,
+          51.487811
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Island Gardens DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLKGV",
+      "displayName": "King George V DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.062624,
+          51.502003
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "King George V DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLLDP",
+      "displayName": "Langdon Park DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.01415,
+          51.515172
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Langdon Park DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLMUD",
+      "displayName": "Mudchute DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.014738,
+          51.490704
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Mudchute DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLPDK",
+      "displayName": "Pontoon Dock DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.032115,
+          51.502212
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Pontoon Dock DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLPOP",
+      "displayName": "Poplar DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.017384,
+          51.507744
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Poplar DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLPRE",
+      "displayName": "Prince Regent DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.034158,
+          51.509263
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Prince Regent DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLPUD",
+      "displayName": "Pudding Mill Lane DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.012755,
+          51.534302
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Pudding Mill Lane DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLRAL",
+      "displayName": "Royal Albert DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.045935,
+          51.508357
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Royal Albert DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLSHS",
+      "displayName": "Stratford High Street DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.001078,
+          51.538196
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Stratford High Street DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLSIT",
+      "displayName": "Stratford International DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.009638,
+          51.545265
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Stratford International DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLSOQ",
+      "displayName": "South Quay DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.01597,
+          51.50005
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "South Quay DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLSTL",
+      "displayName": "Star Lane DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.004156,
+          51.520786
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Star Lane DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLWFE",
+      "displayName": "Westferry DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.02675,
+          51.509431
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Westferry DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLWIQ",
+      "displayName": "West India Quay DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.020311,
+          51.50703
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West India Quay DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZDLWSV",
+      "displayName": "West Silvertown DLR Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.02246,
+          51.502838
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West Silvertown DLR Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBCAN",
+      "displayName": "Canning Town",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.008025,
+          51.514029
+        ]
+      },
+      "lineCodes": [
+        "dlr",
+        "jubilee"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Canning Town",
+      "order": 0
+    },
+    {
+      "stationId": "HUBCAW",
+      "displayName": "Canary Wharf",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.019121,
+          51.503734
+        ]
+      },
+      "lineCodes": [
+        "dlr",
+        "jubilee"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Canary Wharf",
+      "order": 0
+    },
+    {
+      "stationId": "HUBCUS",
+      "displayName": "Custom House",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.027418,
+          51.518757
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Custom House",
+      "order": 0
+    },
+    {
+      "stationId": "HUBCUT",
+      "displayName": "Cutty Sark",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.010802,
+          51.481675
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Cutty Sark",
+      "order": 0
+    },
+    {
+      "stationId": "HUBGNW",
+      "displayName": "Greenwich",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.014096,
+          51.478235
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Greenwich",
+      "order": 0
+    },
+    {
+      "stationId": "HUBLCY",
+      "displayName": "London City Airport",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.048749,
+          51.503419
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "London City Airport",
+      "order": 0
+    },
+    {
+      "stationId": "HUBLEW",
+      "displayName": "Lewisham",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.013016,
+          51.465081
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Lewisham",
+      "order": 0
+    },
+    {
+      "stationId": "HUBLHS",
+      "displayName": "Limehouse",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.039799,
+          51.512469
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Limehouse",
+      "order": 0
+    },
+    {
+      "stationId": "HUBRVC",
+      "displayName": "Royal Victoria",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.018505,
+          51.50934
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Royal Victoria",
+      "order": 0
+    },
+    {
+      "stationId": "HUBSDE",
+      "displayName": "Shadwell",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.056782,
+          51.511492
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Shadwell",
+      "order": 0
+    },
+    {
+      "stationId": "HUBTOG",
+      "displayName": "Tower Gateway",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.074813,
+          51.510621
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Tower Gateway",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWWA",
+      "displayName": "Woolwich Arsenal",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.06917,
+          51.489962
+        ]
+      },
+      "lineCodes": [
+        "dlr"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Woolwich Arsenal",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBMY",
+      "displayName": "Bermondsey Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.063993,
+          51.49775
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Bermondsey Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCPK",
+      "displayName": "Canons Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.294693,
+          51.607701
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Canons Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUDOH",
+      "displayName": "Dollis Hill Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.239068,
+          51.551955
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Dollis Hill Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUFYR",
+      "displayName": "Finchley Road Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.179845,
+          51.546825
+        ]
+      },
+      "lineCodes": [
+        "jubilee",
+        "metropolitan"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Finchley Road Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUGPK",
+      "displayName": "Green Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.142787,
+          51.506947
+        ]
+      },
+      "lineCodes": [
+        "jubilee",
+        "piccadilly",
+        "victoria"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Green Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUKBN",
+      "displayName": "Kilburn Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.204248,
+          51.547183
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kilburn Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUKBY",
+      "displayName": "Kingsbury Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.27879,
+          51.584845
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kingsbury Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNDN",
+      "displayName": "Neasden Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.249837,
+          51.553986
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Neasden Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUQBY",
+      "displayName": "Queensbury Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.286219,
+          51.594188
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Queensbury Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSJW",
+      "displayName": "St. John's Wood Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.173948,
+          51.534521
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "St. John's Wood Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSTM",
+      "displayName": "Stanmore Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.303266,
+          51.619839
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Stanmore Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSWC",
+      "displayName": "Swiss Cottage Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.174894,
+          51.543681
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Swiss Cottage Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSWK",
+      "displayName": "Southwark Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.105331,
+          51.50427
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Southwark Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWIG",
+      "displayName": "Willesden Green Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.221537,
+          51.549146
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Willesden Green Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWYP",
+      "displayName": "Wembley Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.279262,
+          51.563198
+        ]
+      },
+      "lineCodes": [
+        "jubilee",
+        "metropolitan"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Wembley Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBLBG",
+      "displayName": "London Bridge",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.086807,
+          51.505881
+        ]
+      },
+      "lineCodes": [
+        "jubilee",
+        "northern"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "London Bridge",
+      "order": 0
+    },
+    {
+      "stationId": "HUBNGW",
+      "displayName": "North Greenwich",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.004295,
+          51.500474
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "North Greenwich",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWHD",
+      "displayName": "West Hampstead",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.191357,
+          51.547533
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West Hampstead",
+      "order": 0
+    },
+    {
+      "stationId": "HUBZCW",
+      "displayName": "Canada Water",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.049667,
+          51.498053
+        ]
+      },
+      "lineCodes": [
+        "jubilee"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Canada Water",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCSM",
+      "displayName": "Chesham Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.611247,
+          51.705208
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Chesham Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCXY",
+      "displayName": "Croxley Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.441718,
+          51.647044
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Croxley Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUEAE",
+      "displayName": "Eastcote Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.397373,
+          51.576506
+        ]
+      },
+      "lineCodes": [
+        "metropolitan",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Eastcote Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHGD",
+      "displayName": "Hillingdon Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.449828,
+          51.553715
+        ]
+      },
+      "lineCodes": [
+        "metropolitan",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Hillingdon Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUICK",
+      "displayName": "Ickenham Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.442001,
+          51.561992
+        ]
+      },
+      "lineCodes": [
+        "metropolitan",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Ickenham Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUMPK",
+      "displayName": "Moor Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.432454,
+          51.629845
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Moor Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNHA",
+      "displayName": "North Harrow Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.362408,
+          51.584872
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "North Harrow Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNKP",
+      "displayName": "Northwick Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.318056,
+          51.578481
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Northwick Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNOW",
+      "displayName": "Northwood Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.423829,
+          51.611053
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Northwood Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNWH",
+      "displayName": "Northwood Hills Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.409464,
+          51.600572
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Northwood Hills Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUPNR",
+      "displayName": "Pinner Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.381161,
+          51.592901
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Pinner Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUPRD",
+      "displayName": "Preston Road Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.295107,
+          51.571972
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Preston Road Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLURSM",
+      "displayName": "Ruislip Manor Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.412973,
+          51.573202
+        ]
+      },
+      "lineCodes": [
+        "metropolitan",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Ruislip Manor Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLURSP",
+      "displayName": "Ruislip Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.421898,
+          51.571354
+        ]
+      },
+      "lineCodes": [
+        "metropolitan",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Ruislip Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLURYL",
+      "displayName": "Rayners Lane Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.371127,
+          51.575147
+        ]
+      },
+      "lineCodes": [
+        "metropolitan",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Rayners Lane Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUUXB",
+      "displayName": "Uxbridge Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.477949,
+          51.546565
+        ]
+      },
+      "lineCodes": [
+        "metropolitan",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Uxbridge Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWAF",
+      "displayName": "Watford Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.417377,
+          51.657446
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Watford Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWHW",
+      "displayName": "West Harrow Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.3534,
+          51.57971
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West Harrow Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBAMR",
+      "displayName": "Amersham",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.60759,
+          51.674207
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Amersham",
+      "order": 0
+    },
+    {
+      "stationId": "HUBCFO",
+      "displayName": "Chalfont & Latimer",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.560519,
+          51.668109
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Chalfont & Latimer",
+      "order": 0
+    },
+    {
+      "stationId": "HUBCLW",
+      "displayName": "Chorleywood",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.518312,
+          51.654249
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Chorleywood",
+      "order": 0
+    },
+    {
+      "stationId": "HUBHOH",
+      "displayName": "Harrow-on-the-Hill",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.337226,
+          51.579197
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Harrow-on-the-Hill",
+      "order": 0
+    },
+    {
+      "stationId": "HUBRIC",
+      "displayName": "Rickmansworth",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.473273,
+          51.640247
+        ]
+      },
+      "lineCodes": [
+        "metropolitan"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Rickmansworth",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZBPSUST",
+      "displayName": "Battersea Power Station Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.142142,
+          51.479932
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Battersea Power Station Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUACY",
+      "displayName": "Archway Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.134819,
+          51.565478
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Archway Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUAGL",
+      "displayName": "Angel Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.105898,
+          51.532624
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Angel Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBOR",
+      "displayName": "Borough Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.09337,
+          51.501199
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Borough Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBTK",
+      "displayName": "Burnt Oak Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.264048,
+          51.602774
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Burnt Oak Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBTX",
+      "displayName": "Brent Cross Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.213622,
+          51.57665
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Brent Cross Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBZP",
+      "displayName": "Belsize Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.164783,
+          51.550529
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Belsize Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCFM",
+      "displayName": "Chalk Farm Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.153388,
+          51.544118
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Chalk Farm Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCND",
+      "displayName": "Colindale Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.249919,
+          51.595424
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Colindale Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCPC",
+      "displayName": "Clapham Common Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.138317,
+          51.461742
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Clapham Common Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCPN",
+      "displayName": "Clapham North Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.130016,
+          51.465135
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Clapham North Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCPS",
+      "displayName": "Clapham South Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.147582,
+          51.452654
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Clapham South Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCSD",
+      "displayName": "Colliers Wood Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.178086,
+          51.41816
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Colliers Wood Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCTN",
+      "displayName": "Camden Town Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.14274,
+          51.539292
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Camden Town Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUEFY",
+      "displayName": "East Finchley Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.165012,
+          51.587131
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "East Finchley Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUEGW",
+      "displayName": "Edgware Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.274928,
+          51.613653
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Edgware Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUFYC",
+      "displayName": "Finchley Central Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.192527,
+          51.600921
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Finchley Central Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUGDG",
+      "displayName": "Goodge Street Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.134361,
+          51.520599
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Goodge Street Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUGGN",
+      "displayName": "Golders Green Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.194039,
+          51.572259
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Golders Green Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHBT",
+      "displayName": "High Barnet Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.194298,
+          51.650541
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "High Barnet Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHCL",
+      "displayName": "Hendon Central Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.226424,
+          51.583301
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hendon Central Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHGT",
+      "displayName": "Highgate Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.145857,
+          51.577532
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Highgate Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHTD",
+      "displayName": "Hampstead Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.177464,
+          51.556239
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hampstead Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUKNG",
+      "displayName": "Kennington Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.105963,
+          51.488337
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kennington Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLULSQ",
+      "displayName": "Leicester Square Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.128426,
+          51.511386
+        ]
+      },
+      "lineCodes": [
+        "northern",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Leicester Square Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUMDN",
+      "displayName": "Morden Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.194839,
+          51.402142
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Morden Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUMHL",
+      "displayName": "Mill Hill East Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.209986,
+          51.608229
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Mill Hill East Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUMTC",
+      "displayName": "Mornington Crescent Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.138789,
+          51.534679
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Mornington Crescent Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUOVL",
+      "displayName": "Oval Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.112439,
+          51.48185
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Oval Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSKW",
+      "displayName": "Stockwell Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.122644,
+          51.472184
+        ]
+      },
+      "lineCodes": [
+        "northern",
+        "victoria"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Stockwell Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSWN",
+      "displayName": "South Wimbledon Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.192005,
+          51.415309
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "South Wimbledon Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUTAW",
+      "displayName": "Totteridge & Whetstone Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.17921,
+          51.630597
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Totteridge & Whetstone Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUTBC",
+      "displayName": "Tooting Bec Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.159736,
+          51.435678
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Tooting Bec Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUTBY",
+      "displayName": "Tooting Broadway Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.168374,
+          51.42763
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Tooting Broadway Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUTFP",
+      "displayName": "Tufnell Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.138433,
+          51.556822
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Tufnell Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWFN",
+      "displayName": "West Finchley Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.188362,
+          51.609426
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West Finchley Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWOP",
+      "displayName": "Woodside Park Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.18542,
+          51.618014
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Woodside Park Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWRR",
+      "displayName": "Warren Street Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.138321,
+          51.524951
+        ]
+      },
+      "lineCodes": [
+        "northern",
+        "victoria"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Warren Street Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZNEUGST",
+      "displayName": "Nine Elms Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.128476,
+          51.479912
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Nine Elms Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBAL",
+      "displayName": "Balham",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.152707,
+          51.443259
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Balham",
+      "order": 0
+    },
+    {
+      "stationId": "HUBEUS",
+      "displayName": "Euston",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.132754,
+          51.527365
+        ]
+      },
+      "lineCodes": [
+        "northern",
+        "victoria"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Euston",
+      "order": 0
+    },
+    {
+      "stationId": "HUBKTN",
+      "displayName": "Kentish Town",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.140545,
+          51.550409
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kentish Town",
+      "order": 0
+    },
+    {
+      "stationId": "HUBOLD",
+      "displayName": "Old Street",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.088193,
+          51.526065
+        ]
+      },
+      "lineCodes": [
+        "northern"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Old Street",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUALP",
+      "displayName": "Alperton Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.29961,
+          51.540627
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Alperton Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUASG",
+      "displayName": "Arnos Grove Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.133062,
+          51.616446
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Arnos Grove Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUASL",
+      "displayName": "Arsenal Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.107457,
+          51.558655
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Arsenal Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBDS",
+      "displayName": "Bounds Green Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.124235,
+          51.607034
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Bounds Green Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUBOS",
+      "displayName": "Boston Manor Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.324939,
+          51.495635
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Boston Manor Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCAR",
+      "displayName": "Caledonian Road Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.118493,
+          51.548519
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Caledonian Road Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCGN",
+      "displayName": "Covent Garden Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.124436,
+          51.513093
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Covent Garden Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUCKS",
+      "displayName": "Cockfosters Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.149171,
+          51.65152
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Cockfosters Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHNX",
+      "displayName": "Hatton Cross Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.423191,
+          51.466747
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hatton Cross Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHPC",
+      "displayName": "Hyde Park Corner Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.152441,
+          51.503035
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hyde Park Corner Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHWC",
+      "displayName": "Hounslow Central Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.366578,
+          51.471295
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hounslow Central Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHWE",
+      "displayName": "Hounslow East Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.356474,
+          51.473213
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hounslow East Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHWT",
+      "displayName": "Hounslow West Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.386544,
+          51.473469
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hounslow West Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUHWY",
+      "displayName": "Holloway Road Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.113244,
+          51.552697
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Holloway Road Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUKNB",
+      "displayName": "Knightsbridge Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.160508,
+          51.501669
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Knightsbridge Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUMRH",
+      "displayName": "Manor House Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.096118,
+          51.570738
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Manor House Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNEN",
+      "displayName": "North Ealing Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.288868,
+          51.517505
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "North Ealing Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUNFD",
+      "displayName": "Northfields Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.314719,
+          51.499319
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Northfields Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUOAK",
+      "displayName": "Oakwood Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.132182,
+          51.647726
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Oakwood Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUOSY",
+      "displayName": "Osterley Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.352224,
+          51.481274
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Osterley Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUPKR",
+      "displayName": "Park Royal Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.284341,
+          51.527123
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Park Royal Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLURSQ",
+      "displayName": "Russell Square Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.124285,
+          51.523073
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Russell Square Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSEA",
+      "displayName": "South Ealing Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.307424,
+          51.501003
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "South Ealing Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSGT",
+      "displayName": "Southgate Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.127816,
+          51.632315
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Southgate Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSHH",
+      "displayName": "South Harrow Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.352492,
+          51.564888
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "South Harrow Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSUH",
+      "displayName": "Sudbury Hill Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.336435,
+          51.556946
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Sudbury Hill Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUSUT",
+      "displayName": "Sudbury Town Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.315745,
+          51.550815
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Sudbury Town Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUTPN",
+      "displayName": "Turnpike Lane Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.102953,
+          51.590272
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Turnpike Lane Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUWOG",
+      "displayName": "Wood Green Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.109886,
+          51.597479
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wood Green Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBFPK",
+      "displayName": "Finsbury Park",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.105876,
+          51.564778
+        ]
+      },
+      "lineCodes": [
+        "piccadilly",
+        "victoria"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Finsbury Park",
+      "order": 0
+    },
+    {
+      "stationId": "HUBH13",
+      "displayName": "Heathrow Terminals 2 & 3",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.454037,
+          51.471618
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Heathrow Terminals 2 & 3",
+      "order": 0
+    },
+    {
+      "stationId": "HUBHX4",
+      "displayName": "Heathrow Airport Terminal 4",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.446419,
+          51.458837
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Heathrow Airport Terminal 4",
+      "order": 0
+    },
+    {
+      "stationId": "HUBHX5",
+      "displayName": "Heathrow Airport Terminal 5",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.489556,
+          51.471569
+        ]
+      },
+      "lineCodes": [
+        "piccadilly"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Heathrow Airport Terminal 5",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZLUPCO",
+      "displayName": "Pimlico Underground Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.133761,
+          51.489097
+        ]
+      },
+      "lineCodes": [
+        "victoria"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Pimlico Underground Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBHO",
+      "displayName": "Blackhorse Road",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.041185,
+          51.586768
+        ]
+      },
+      "lineCodes": [
+        "victoria"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Blackhorse Road",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBRX",
+      "displayName": "Brixton",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.114531,
+          51.462961
+        ]
+      },
+      "lineCodes": [
+        "victoria"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Brixton",
+      "order": 0
+    },
+    {
+      "stationId": "HUBHHY",
+      "displayName": "Highbury & Islington",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.103538,
+          51.546269
+        ]
+      },
+      "lineCodes": [
+        "victoria"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Highbury & Islington",
+      "order": 0
+    },
+    {
+      "stationId": "HUBSVS",
+      "displayName": "Seven Sisters",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.073306,
+          51.582931
+        ]
+      },
+      "lineCodes": [
+        "victoria"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Seven Sisters",
+      "order": 0
+    },
+    {
+      "stationId": "HUBTOM",
+      "displayName": "Tottenham Hale",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.06024,
+          51.588315
+        ]
+      },
+      "lineCodes": [
+        "victoria"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Tottenham Hale",
+      "order": 0
+    },
+    {
+      "stationId": "HUBVXH",
+      "displayName": "Vauxhall",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.123303,
+          51.485739
+        ]
+      },
+      "lineCodes": [
+        "victoria"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Vauxhall",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWHC",
+      "displayName": "Walthamstow Central",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.019842,
+          51.582948
+        ]
+      },
+      "lineCodes": [
+        "victoria"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Walthamstow Central",
+      "order": 0
+    }
+  ]
+}

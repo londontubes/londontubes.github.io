@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2025-11-08T14:21:15.287Z",
+  "source": {
+    "provider": "Transport for London",
+    "apiEndpoints": [
+      "https://api.tfl.gov.uk/Line/Mode/tube,dlr",
+      "https://api.tfl.gov.uk/Line/{id}/Route/Sequence/all"
+    ]
+  },
+  "datasetVersion": "1.0.0",
+  "lineCount": 12,
+  "stationCount": 310,
+  "lastRefresh": "2025-11-08T14:21:15.287Z"
+}

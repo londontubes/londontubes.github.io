@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://londontube.example.com/schemas/stations.schema.json",
+  "title": "StationCollection",
+  "type": "object",
+  "required": ["generatedAt", "stations"],
+  "properties": {
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "stations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "stationId",
+          "displayName",
+          "position",
+          "lineCodes",
+          "isInterchange",
+          "markerIcon"
+        ],
+        "properties": {
+          "stationId": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "position": {
+            "type": "object",
+            "required": ["type", "coordinates"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "Point"
+              },
+              "coordinates": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "lineCodes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z\\-]+$"
+            }
+          },
+          "isInterchange": {
+            "type": "boolean"
+          },
+          "markerIcon": {
+            "type": "string",
+            "enum": ["default", "accessible", "terminus"]
+          },
+          "accessibilityNotes": {
+            "type": "string"
+          },
+          "tooltipSummary": {
+            "type": "string",
+            "maxLength": 140
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
