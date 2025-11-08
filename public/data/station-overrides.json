@@ -1,0 +1,10 @@
+{
+  "comment": "Manual coordinate overrides for stations where TfL data doesn't align properly with line polylines",
+  "overrides": {
+    "HUBCHX": {
+      "displayName": "Charing Cross",
+      "coordinates": [-0.1249, 51.5081],
+      "reason": "Adjusted to align with Northern line polyline intersection"
+    }
+  }
+}
