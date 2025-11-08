@@ -150,8 +150,8 @@ export default function MapCanvas(props: MapCanvasProps) {
               fillColor: '#ffffff',
               fillOpacity: 1,
               strokeColor: '#333333',
-              strokeWeight: station.isInterchange ? 2 : 1,
-              scale: station.isInterchange ? 6 : 4,
+              strokeWeight: station.isInterchange ? 3 : 2,
+              scale: station.isInterchange ? 8 : 5,
             },
             map: shouldShow ? map : null,
           })
