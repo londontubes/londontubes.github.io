@@ -59,21 +59,15 @@ function disposeOverlays(overlays: MapOverlays) {
   overlays.markers.forEach(marker => marker.setMap(null))
 }
 
-export default function MapCanvas({
-  lines,
-  stations,
-  activeLineCodes,
-  selectedStation,
-  onStationSelect,
-  lineLabels,
-  onStatusChange,
-}: MapCanvasProps) {
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const overlaysRef = useRef<MapOverlays>({ ...INITIAL_OVERLAYS })
-  const googleRef = useRef<typeof google | null>(null)
+export default function MapCanvas(props: MapCanvasProps) {
+  const { lines, stations, activeLineCodes, selectedStation, onStationSelect, lineLabels, onStatusChange } = props
   const [status, setStatus] = useState<MapStatus>('idle')
   const [renderMode, setRenderMode] = useState<MapRenderMode>('google')
+  const googleRef = useRef<Awaited<ReturnType<typeof loadGoogleMaps>> | null>(null)
+  const overlaysRef = useRef<MapOverlays>(INITIAL_OVERLAYS)
+  const containerRef = useRef<HTMLDivElement | null>(null)
   const animationRef = useRef<number | null>(null)
+  const prevActiveLineCodesRef = useRef<string[]>(activeLineCodes)
 
   const activeSet = useMemo(
     () => (activeLineCodes.length ? new Set(activeLineCodes) : null),
@@ -230,8 +224,13 @@ export default function MapCanvas({
       marker.setMap(visible ? map : null)
     })
 
-    // Auto-fit only when exactly one line is active (user clicked a single line)
-    if (activeLineCodes.length === 1) {
+    // Check if activeLineCodes actually changed (not just re-rendered)
+    const activeLineCodesChanged = 
+      prevActiveLineCodesRef.current.length !== activeLineCodes.length ||
+      prevActiveLineCodesRef.current.some((code, i) => code !== activeLineCodes[i])
+
+    // Auto-fit only when exactly one line is active AND the filter actually changed
+    if (activeLineCodesChanged && activeLineCodes.length === 1) {
       const line = lines.find(l => l.lineCode === activeLineCodes[0])
       if (line) {
         const gmaps = googleRef.current.maps
@@ -284,6 +283,9 @@ export default function MapCanvas({
     if (selectedStation && !stationVisible(selectedStation, activeSet)) {
       onStationSelect(null)
     }
+
+    // Update the ref to track current activeLineCodes for next render
+    prevActiveLineCodesRef.current = activeLineCodes
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeSet, lines, selectedStation, stations, activeLineCodes])
 
