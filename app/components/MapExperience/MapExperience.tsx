@@ -5,6 +5,7 @@ import { useMemo, useState, useCallback, useEffect } from 'react'
 import { describeActiveLines } from '@/app/lib/a11y'
 import LineFilter from '@/app/components/LineFilter/LineFilter'
 import MapCanvas, { type MapStatus } from '@/app/components/MapCanvas/MapCanvas'
+import AdUnit from '@/app/components/ads/AdUnit'
 import type { Station, TransitDataset } from '@/app/types/transit'
 import { createLineLabelMap } from '@/app/lib/data/load-static-data'
 
@@ -51,31 +52,41 @@ export default function MapExperience({ dataset }: MapExperienceProps) {
   )
 
   return (
-  <div className="map-experience">
-      <header className="map-experience__header-inline">
-        <h1 className="map-title">London Tube &amp; DLR Network</h1>
-        <span className="map-stats" data-testid="network-stats">
-          {stations.length} stations · {lines.length} lines · {activeLineSummary}
-        </span>
-      </header>
+    <div className="map-experience" style={{ display: 'flex', flexDirection: 'row', gap: '1rem', alignItems: 'flex-start' }}>
+      <div className="map-experience__left" style={{ flex: 1, minWidth: 0 }}>
+        <header className="map-experience__header-inline">
+          <h1 className="map-title">London Tube &amp; DLR Network</h1>
+          <span className="map-stats" data-testid="network-stats">
+            {stations.length} stations · {lines.length} lines · {activeLineSummary}
+          </span>
+        </header>
 
-      <LineFilter
-        lines={lines}
-        activeLineCodes={activeLineCodes}
-        onChange={handleFilterChange}
-        stationCounts={stationCounts}
-        onAnnounce={handleAnnounce}
-      />
+        <LineFilter
+          lines={lines}
+          activeLineCodes={activeLineCodes}
+          onChange={handleFilterChange}
+          stationCounts={stationCounts}
+          onAnnounce={handleAnnounce}
+        />
 
-      <MapCanvas
-        lines={lines}
-        stations={stations}
-        activeLineCodes={activeLineCodes}
-        selectedStation={selectedStation}
-        onStationSelect={setSelectedStation}
-        lineLabels={lineLabels}
-        onStatusChange={setMapStatus}
-      />
+        <MapCanvas
+          lines={lines}
+          stations={stations}
+          activeLineCodes={activeLineCodes}
+          selectedStation={selectedStation}
+          onStationSelect={setSelectedStation}
+          lineLabels={lineLabels}
+          onStatusChange={setMapStatus}
+        />
+      </div>
+      <aside className="map-experience__right" style={{ width: '320px', flexShrink: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <AdUnit
+          style={{ display: 'block' }}
+          format="auto"
+          responsive="true"
+          layoutKey="-fb+5w+4e-db+86"
+        />
+      </aside>
     </div>
   )
 }
