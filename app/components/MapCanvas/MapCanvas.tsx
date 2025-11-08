@@ -151,9 +151,10 @@ export default function MapCanvas(props: MapCanvasProps) {
               fillOpacity: 1,
               strokeColor: '#333333',
               strokeWeight: station.isInterchange ? 3 : 2,
-              scale: station.isInterchange ? 8 : 5,
+              scale: station.isInterchange ? 10 : 6,
             },
             map: shouldShow ? map : null,
+            zIndex: 1000,
           })
 
           marker.setTitle(ariaTitle)
