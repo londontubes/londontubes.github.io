@@ -1,0 +1,8 @@
+# ads.txt file for londontubes.co.uk
+# This file specifies authorized digital sellers for advertising inventory
+
+# Add your Google AdSense publisher ID below
+# Format: google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# Example:
+# google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
