@@ -2,8 +2,8 @@
 
 **Feature Branch**: `001-map-line-filter`  
 **Created**: 2025-11-07  
-**Updated**: 2025-11-08 (UX refinements, zoom behavior fixes, station alignment improvements)  
-**Status**: Production Hardening Phase  
+**Updated**: 2025-11-09 (AdSense integration completion)  
+**Status**: Production Ready - Monetization Enabled  
 **Input**: User description: "I am building a modern London Tube website. I want it to show all the London Tube stations including DLR line and its stations over google maps. Website should provide a simple clickable feature to filter all the tube lines. The website should show selected tube lines with its stations overlay on top of the google maps."
 
 **Update (2025-11-08)**: (Superseded) Temporary Northern line–only default used to validate filtering mechanics.  
@@ -111,6 +111,8 @@ Visitors select multiple lines (e.g., Jubilee and DLR) to see how they intersect
 - **FR-019**: Map MUST preserve user's zoom level when clicking station markers; auto-zoom MUST only trigger on explicit line filter changes.
 - **FR-020**: Station marker sizes MUST be sufficient to visually overlap with line polylines, accommodating TfL data alignment variance.
 - **FR-021**: System MUST support manual coordinate overrides for stations where TfL data misaligns with actual line polylines.
+- **FR-022**: Site MUST include `ads.txt` file with authorized AdSense publisher ID accessible at root path for ad network verification.
+- **FR-023**: All pages MUST include Google AdSense account verification meta tag in document head for site ownership confirmation.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -244,6 +246,37 @@ prevActiveLineCodesRef.current = activeLineCodes // Update ref
 
 **Result**: Larger markers improve visual connection; override system allows surgical fixes for problematic stations without compromising TfL data integrity.
 
+### AdSense Monetization Setup (2025-11-09)
+
+**Implementation**: Completed full Google AdSense integration for revenue generation.
+
+**Components Added**:
+
+1. **ads.txt File** (commit 5948c83, 24e2597):
+   - Created `public/ads.txt` with authorized seller declaration
+   - Publisher ID: `pub-1802611351208013`
+   - Format: `google.com, pub-1802611351208013, DIRECT, f08c47fec0942fa0`
+   - Accessible at: `londontubes.co.uk/ads.txt`
+   - Purpose: Prevents unauthorized ad inventory sales, required by IAB standards
+
+2. **AdSense Verification Meta Tag** (commit 782de72):
+   - Added to `app/layout.tsx` in `<head>` section
+   - Tag: `<meta name="google-adsense-account" content="ca-pub-1802611351208013">`
+   - Required for Google to verify site ownership before serving ads
+   - Applied to all pages via root layout
+
+3. **Existing Integration**:
+   - AdSense script already present in layout from previous implementation
+   - Script: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1802611351208013`
+   - Loaded asynchronously with `crossOrigin="anonymous"`
+
+**Status**: Site now fully configured for AdSense. Awaiting Google approval before ads will display.
+
+**Commits**:
+- 5948c83 "feat: add ads.txt file for AdSense verification"
+- 24e2597 "feat: configure ads.txt with AdSense publisher ID"
+- 782de72 "feat: add Google AdSense account verification meta tag"
+
 ### File Format Change
 - **Original plan**: Use `.geojson` file extensions  
 - **Implementation**: Use `.json` file extensions (GeoJSON content preserved)  
@@ -280,3 +313,19 @@ prevActiveLineCodesRef.current = activeLineCodes // Update ref
  - **Regular Stations**: 6px radius, 2px border
  - **Z-Index**: 1000 (ensures stations render above line polylines)
  - **Rationale**: Larger markers compensate for TfL data alignment variance, improve click targets, enhance visual connection with lines
+ - **Design Note**: Interchange stations (serving 2+ lines) are visually larger to help users identify major transfer hubs at a glance
+
+### Production Readiness Checklist (2025-11-09)
+- ✅ Core map functionality with multi-line filtering
+- ✅ Google Maps integration with fallback UI
+- ✅ TfL data pipeline with validation
+- ✅ Accessibility features (ARIA labels, live regions, keyboard navigation)
+- ✅ SEO metadata (OpenGraph, Twitter cards)
+- ✅ Static assets (robots.txt, sitemap.xml)
+- ✅ Health endpoint for monitoring
+- ✅ GitHub Pages deployment workflow
+- ✅ Custom domain (londontubes.co.uk)
+- ✅ UX refinements (zoom preservation, station alignment)
+- ✅ AdSense integration (ads.txt, verification meta tag, script)
+- ⏳ Awaiting Google AdSense approval for ad serving
+
