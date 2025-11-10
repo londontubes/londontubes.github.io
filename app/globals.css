@@ -44,6 +44,7 @@ main {
   flex-direction: column;
   gap: 0.75rem;
   flex: 1 1 auto;
+  min-height: calc(100vh - 4rem); /* Ensure map is visible above fold */
 }
 
 .map-experience__header {
