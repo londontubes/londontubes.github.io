@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Station, TransitLine } from '@/app/types/transit'
+import type { UniversitiesDataset } from '@/app/types/university'
 import { loadGoogleMaps, resetGoogleMapsLoader } from '@/app/lib/map/google-loader'
 import { stationMarkerAriaLabel, describeActiveLines } from '@/app/lib/a11y'
 import StationTooltip from '@/app/components/StationTooltip/StationTooltip'
@@ -22,18 +23,25 @@ export interface MapCanvasProps {
   onStationSelect: (station: Station | null) => void
   lineLabels: Record<string, string>
   onStatusChange?: (status: MapStatus) => void
+  // University mode props (optional)
+  universities?: UniversitiesDataset
+  universityMode?: boolean
+  selectedUniversityId?: string | null
+  onUniversityClick?: (universityId: string) => void
 }
 
 type MapOverlays = {
   map: google.maps.Map | null
   polylines: Array<{ polyline: google.maps.Polyline; lineCode: string }>
   markers: google.maps.Marker[]
+  universityMarkers?: google.maps.Marker[]
 }
 
 const INITIAL_OVERLAYS: MapOverlays = {
   map: null,
   polylines: [],
   markers: [],
+  universityMarkers: [],
 }
 
 const toLatLngLiteral = (coords: [number, number]): google.maps.LatLngLiteral => ({
@@ -57,10 +65,23 @@ function stationVisible(station: Station, active: Set<string> | null): boolean {
 function disposeOverlays(overlays: MapOverlays) {
   overlays.polylines.forEach(({ polyline }) => polyline.setMap(null))
   overlays.markers.forEach(marker => marker.setMap(null))
+  overlays.universityMarkers?.forEach(marker => marker.setMap(null))
 }
 
 export default function MapCanvas(props: MapCanvasProps) {
-  const { lines, stations, activeLineCodes, selectedStation, onStationSelect, lineLabels, onStatusChange } = props
+  const { 
+    lines, 
+    stations, 
+    activeLineCodes, 
+    selectedStation, 
+    onStationSelect, 
+    lineLabels, 
+    onStatusChange,
+    universities,
+    universityMode,
+    selectedUniversityId,
+    onUniversityClick
+  } = props
   const [status, setStatus] = useState<MapStatus>('idle')
   const [renderMode, setRenderMode] = useState<MapRenderMode>('google')
   const googleRef = useRef<Awaited<ReturnType<typeof loadGoogleMaps>> | null>(null)
@@ -171,13 +192,69 @@ export default function MapCanvas(props: MapCanvasProps) {
         overlaysRef.current.polylines = polylines
         overlaysRef.current.markers = markers
 
+        // Render university markers if in university mode
+        if (props.universityMode && props.universities) {
+          const universityMarkers = props.universities.features.map(feature => {
+            const university = feature.properties
+            const coords = feature.geometry.coordinates
+            const universityId = university.universityId
+            const isSelected = selectedUniversityId === universityId
+            
+            const marker = new google.maps.Marker({
+              title: `${university.displayName}\nNearest station: ${university.campuses[0].nearestStation.name}`,
+              position: toLatLngLiteral(coords),
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                fillColor: isSelected ? '#FFD700' : '#DC241F', // Gold when selected, TfL red otherwise
+                fillOpacity: 1,
+                strokeColor: '#000000',
+                strokeWeight: 2,
+                scale: isSelected ? 16 : 12,
+              },
+              map: map,
+              zIndex: isSelected ? 3000 : 2000, // Higher when selected
+            })
+
+            // Add click handler
+            if (onUniversityClick) {
+              marker.addListener('click', () => {
+                onUniversityClick(universityId)
+              })
+            }
+
+            return marker
+          })
+
+          overlaysRef.current.universityMarkers = universityMarkers
+        }
+
         const visibleLines = lines.filter(line => !activeSet || activeSet.has(line.lineCode))
         const bounds = new google.maps.LatLngBounds()
-        visibleLines.forEach(line => {
-          getAllCoordinates(line).forEach(coord => bounds.extend(toLatLngLiteral(coord)))
-        })
-        if (!bounds.isEmpty()) {
-          map.fitBounds(bounds, 24)
+        
+        // If in university mode and a university is selected, center on that university
+        if (props.universityMode && selectedUniversityId && props.universities) {
+          const selectedFeature = props.universities.features.find(
+            f => f.properties.universityId === selectedUniversityId
+          )
+          if (selectedFeature) {
+            const coords = selectedFeature.geometry.coordinates
+            const center = toLatLngLiteral(coords)
+            map.setCenter(center)
+            map.setZoom(14) // Zoom in to show university and nearby area
+            
+            // Add visible lines to bounds for reference
+            visibleLines.forEach(line => {
+              getAllCoordinates(line).forEach(coord => bounds.extend(toLatLngLiteral(coord)))
+            })
+          }
+        } else {
+          // Default behavior: fit to all visible lines
+          visibleLines.forEach(line => {
+            getAllCoordinates(line).forEach(coord => bounds.extend(toLatLngLiteral(coord)))
+          })
+          if (!bounds.isEmpty()) {
+            map.fitBounds(bounds, 24)
+          }
         }
 
         setRenderMode('google')
@@ -289,6 +366,85 @@ export default function MapCanvas(props: MapCanvasProps) {
     prevActiveLineCodesRef.current = activeLineCodes
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeSet, lines, selectedStation, stations, activeLineCodes])
+
+  // Effect to zoom to selected university
+  useEffect(() => {
+    if (!googleRef.current || !universityMode || !universities) return
+    
+    const { map } = overlaysRef.current
+    if (!map) return
+
+    if (selectedUniversityId) {
+      const selectedFeature = universities.features.find(
+        f => f.properties.universityId === selectedUniversityId
+      )
+      if (selectedFeature) {
+        const coords = selectedFeature.geometry.coordinates
+        const center = toLatLngLiteral(coords)
+        
+        // Animate zoom to university
+        const gmaps = googleRef.current.maps
+        const fromCenter = map.getCenter()
+        const fromZoom = map.getZoom()
+        const toCenter = new gmaps.LatLng(center.lat, center.lng)
+        const toZoom = 14
+
+        if (!fromCenter || fromZoom == null) return
+
+        // Cancel any existing animation
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current)
+          animationRef.current = null
+        }
+
+        const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
+        const duration = 700
+        const start = performance.now()
+        const animate = (now: number) => {
+          const t = Math.min(1, (now - start) / duration)
+          const e = easeInOutCubic(t)
+          const lat = fromCenter.lat() + (toCenter.lat() - fromCenter.lat()) * e
+          const lng = fromCenter.lng() + (toCenter.lng() - fromCenter.lng()) * e
+          map.setCenter(new gmaps.LatLng(lat, lng))
+          const zoom = fromZoom + (toZoom - fromZoom) * e
+          map.setZoom(Math.round(zoom * 100) / 100)
+          if (t < 1) {
+            animationRef.current = requestAnimationFrame(animate)
+          } else {
+            animationRef.current = null
+          }
+        }
+        animationRef.current = requestAnimationFrame(animate)
+      }
+    }
+  }, [selectedUniversityId, universityMode, universities])
+
+  // Effect to update university marker styles when selection changes
+  useEffect(() => {
+    if (!googleRef.current || !universityMode || !universities) return
+    
+    const { map, universityMarkers } = overlaysRef.current
+    if (!map || !universityMarkers) return
+
+    // Update all university markers
+    universities.features.forEach((feature, index) => {
+      const marker = universityMarkers[index]
+      if (!marker) return
+
+      const universityId = feature.properties.universityId
+      const isSelected = selectedUniversityId === universityId
+
+      marker.setIcon({
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: isSelected ? '#FFD700' : '#DC241F',
+        fillOpacity: 1,
+        strokeColor: '#000000',
+        strokeWeight: 2,
+        scale: isSelected ? 16 : 12,
+      })
+      marker.setZIndex(isSelected ? 3000 : 2000)
+    })
+  }, [selectedUniversityId, universityMode, universities])
 
   const fallbackStations = useMemo(() => {
     if (!activeSet) {

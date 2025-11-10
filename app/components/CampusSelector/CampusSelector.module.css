@@ -1,0 +1,185 @@
+/**
+ * CampusSelector Styles
+ * 
+ * Modal dialog styling with overlay, focus trap, and responsive design.
+ * 
+ * Feature: 002-university-transit-filter
+ */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.campusList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.campusOption {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.campusOption:hover {
+  border-color: #0066cc;
+  background-color: #f5f5f5;
+}
+
+.campusOption:has(.radio:checked) {
+  border-color: #0066cc;
+  background-color: #e6f2ff;
+}
+
+.campusOption:has(.radio:focus) {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.radio {
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.campusInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.campusName {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.nearestStation {
+  font-size: 0.875rem;
+  color: #666666;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.primaryButton {
+  background-color: #0066cc;
+  color: #ffffff;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background-color: #0052a3;
+}
+
+.primaryButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.secondaryButton {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.secondaryButton:hover {
+  background-color: #e0e0e0;
+}
+
+.button:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .modal {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .campusOption {
+    padding: 0.75rem;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .campusOption {
+    border-width: 3px;
+  }
+
+  .button:focus {
+    outline-width: 3px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .campusOption,
+  .button {
+    transition: none;
+  }
+}

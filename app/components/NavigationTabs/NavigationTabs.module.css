@@ -1,0 +1,93 @@
+/**
+ * NavigationTabs Styles
+ * 
+ * Responsive horizontal tab navigation with active state indicators.
+ * Mobile-first design with touch-friendly targets.
+ * 
+ * Feature: 002-university-transit-filter
+ */
+
+.navigationTabs {
+  width: 100%;
+  background-color: #000000;
+  border-bottom: 2px solid #333333;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tabList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tab {
+  display: block;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.tab:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: -2px;
+}
+
+.tab.active {
+  color: #ffffff;
+  border-bottom-color: #0066cc;
+  background-color: #1a1a1a;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #0066cc;
+}
+
+/* Mobile responsive design */
+@media (max-width: 640px) {
+  .tab {
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .navigationTabs {
+    border-bottom-width: 3px;
+  }
+  
+  .tab:focus {
+    outline-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .tab {
+    transition: none;
+  }
+}
