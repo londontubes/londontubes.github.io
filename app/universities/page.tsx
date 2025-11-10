@@ -9,7 +9,20 @@
 
 import UniversityExperience from '@/app/components/UniversityExperience/UniversityExperience'
 import { loadStaticTransitData } from '@/app/lib/data/load-static-data'
+import { FAQ } from '@/app/components/FAQ'
 import type { UniversitiesDataset } from '@/app/types/university'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'London Universities Tube Map | Nearest Underground Stations to Universities 2025',
+  description: 'Find the nearest tube stations to major London universities including UCL, Imperial College, LSE, King\'s College, and QMUL. Interactive map showing university locations with DLR and Underground connections within 0.5 miles.',
+  keywords: 'london universities tube map, nearest tube station to university, ucl tube station, imperial college underground, lse metro station, kings college tube, student travel london, university transport',
+  openGraph: {
+    title: 'London Universities Tube Map | Find Nearest Underground Stations',
+    description: 'Interactive map of London universities with nearest tube and DLR stations. UCL, Imperial, LSE, King\'s College, QMUL and more. Filter by distance.',
+    type: 'website',
+  },
+}
 
 // Load universities data at build time
 async function loadUniversitiesData(): Promise<UniversitiesDataset> {
@@ -56,6 +69,7 @@ export default async function UniversitiesPage() {
         transitDataset={transitDataset}
         universitiesDataset={universitiesDataset}
       />
+      <FAQ />
     </main>
   )
 }

@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /out/
 
-Sitemap: /sitemap.xml
+# Crawl-delay to be respectful
+Crawl-delay: 0.5
+
+Sitemap: https://londontubes.co.uk/sitemap.xml
