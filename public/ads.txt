@@ -1,4 +1,4 @@
 # ads.txt file for londontubes.co.uk
 # This file specifies authorized digital sellers for advertising inventory
 
-google.com, pub-1802611351208013, DIRECT, f08c47fec0942fa0
+google.com, pub-2691145261785175, DIRECT, f08c47fec0942fa0
