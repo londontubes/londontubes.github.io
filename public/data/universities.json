@@ -1,0 +1,237 @@
+{
+  "type": "FeatureCollection",
+  "version": "1.0.0",
+  "generatedAt": "2025-11-09T12:00:00.000Z",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1339, 51.5246]
+      },
+      "properties": {
+        "universityId": "UCL",
+        "displayName": "University College London",
+        "isMultiCampus": false,
+        "primaryCampusId": "UCL-MAIN",
+        "campuses": [
+          {
+            "campusId": "UCL-MAIN",
+            "name": "Main Campus (Bloomsbury)",
+            "coordinates": [-0.1339, 51.5246],
+            "nearestStation": {
+              "stationId": "940GZZLUEUS",
+              "name": "Euston Square",
+              "distance": 0.2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1749, 51.4988]
+      },
+      "properties": {
+        "universityId": "IMPERIAL",
+        "displayName": "Imperial College London",
+        "isMultiCampus": true,
+        "primaryCampusId": "IMPERIAL-SK",
+        "campuses": [
+          {
+            "campusId": "IMPERIAL-SK",
+            "name": "South Kensington Campus",
+            "coordinates": [-0.1749, 51.4988],
+            "nearestStation": {
+              "stationId": "940GZZLUSKS",
+              "name": "South Kensington",
+              "distance": 0.1
+            }
+          },
+          {
+            "campusId": "IMPERIAL-WC",
+            "name": "White City Campus",
+            "coordinates": [-0.2239, 51.5173],
+            "nearestStation": {
+              "stationId": "940GZZLUWCY",
+              "name": "White City",
+              "distance": 0.15
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1168, 51.5134]
+      },
+      "properties": {
+        "universityId": "LSE",
+        "displayName": "London School of Economics",
+        "isMultiCampus": false,
+        "primaryCampusId": "LSE-MAIN",
+        "campuses": [
+          {
+            "campusId": "LSE-MAIN",
+            "name": "Main Campus (Holborn)",
+            "coordinates": [-0.1168, 51.5134],
+            "nearestStation": {
+              "stationId": "940GZZLUTCR",
+              "name": "Tottenham Court Road",
+              "distance": 0.3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1160, 51.5115]
+      },
+      "properties": {
+        "universityId": "KINGS",
+        "displayName": "King's College London",
+        "isMultiCampus": true,
+        "primaryCampusId": "KINGS-STRAND",
+        "campuses": [
+          {
+            "campusId": "KINGS-STRAND",
+            "name": "Strand Campus",
+            "coordinates": [-0.1160, 51.5115],
+            "nearestStation": {
+              "stationId": "940GZZLUTMP",
+              "name": "Temple",
+              "distance": 0.2
+            }
+          },
+          {
+            "campusId": "KINGS-WATERLOO",
+            "name": "Waterloo Campus",
+            "coordinates": [-0.1156, 51.5062],
+            "nearestStation": {
+              "stationId": "940GZZLUWLO",
+              "name": "Waterloo",
+              "distance": 0.3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.0433, 51.5246]
+      },
+      "properties": {
+        "universityId": "QMUL",
+        "displayName": "Queen Mary University of London",
+        "isMultiCampus": false,
+        "primaryCampusId": "QMUL-MILE-END",
+        "campuses": [
+          {
+            "campusId": "QMUL-MILE-END",
+            "name": "Mile End Campus",
+            "coordinates": [-0.0433, 51.5246],
+            "nearestStation": {
+              "stationId": "940GZZLUMND",
+              "name": "Mile End",
+              "distance": 0.2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1278, 51.5055]
+      },
+      "properties": {
+        "universityId": "CITY",
+        "displayName": "City, University of London",
+        "isMultiCampus": false,
+        "primaryCampusId": "CITY-MAIN",
+        "campuses": [
+          {
+            "campusId": "CITY-MAIN",
+            "name": "Main Campus (Islington)",
+            "coordinates": [-0.1278, 51.5055],
+            "nearestStation": {
+              "stationId": "940GZZLUAGL",
+              "name": "Angel",
+              "distance": 0.4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1426, 51.5225]
+      },
+      "properties": {
+        "universityId": "SOAS",
+        "displayName": "SOAS University of London",
+        "isMultiCampus": false,
+        "primaryCampusId": "SOAS-MAIN",
+        "campuses": [
+          {
+            "campusId": "SOAS-MAIN",
+            "name": "Main Campus (Bloomsbury)",
+            "coordinates": [-0.1426, 51.5225],
+            "nearestStation": {
+              "stationId": "940GZZLURSS",
+              "name": "Russell Square",
+              "distance": 0.2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1746, 51.5227]
+      },
+      "properties": {
+        "universityId": "WESTMINSTER",
+        "displayName": "University of Westminster",
+        "isMultiCampus": true,
+        "primaryCampusId": "WESTMINSTER-REGENT",
+        "campuses": [
+          {
+            "campusId": "WESTMINSTER-REGENT",
+            "name": "Regent Campus",
+            "coordinates": [-0.1746, 51.5227],
+            "nearestStation": {
+              "stationId": "940GZZLURYO",
+              "name": "Great Portland Street",
+              "distance": 0.3
+            }
+          },
+          {
+            "campusId": "WESTMINSTER-MARYLEBONE",
+            "name": "Marylebone Campus",
+            "coordinates": [-0.1634, 51.5226],
+            "nearestStation": {
+              "stationId": "940GZZLUBST",
+              "name": "Baker Street",
+              "distance": 0.2
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

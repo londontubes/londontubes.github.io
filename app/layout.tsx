@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { NavigationTabs } from './components/NavigationTabs'
 
 export const metadata: Metadata = {
   title: 'London Tube & DLR Network Map | Interactive Line Filter',
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body>
         {/* Basic SSR shell to avoid empty HTML responses */}
         <div id="app-shell">
+          <NavigationTabs />
           {children}
         </div>
         <div id="live-region" aria-live="polite" aria-atomic="true" className="visually-hidden" />

@@ -25,20 +25,22 @@ Users access a dedicated "Universities Filter" page via top navigation tab, wher
 
 ### User Story 2 - Discover Nearby Transit Lines (Priority: P2)
 
-Users click a university marker on the map and the system automatically highlights and selects only the tube and DLR lines within the current radius setting (default 0.5 miles) of that university, hiding other lines to provide focused transit options. For multi-campus universities, users first select the specific campus before filtering is applied.
+Users click a university marker on the map or select a university from the name list, and the system automatically highlights and selects only the tube and DLR lines within the current radius setting (default 0.5 miles) of that university, hiding other lines to provide focused transit options. The map zooms and centers on the selected university for better visibility. For multi-campus universities, users first select the specific campus before filtering is applied.
 
 **Why this priority**: Directly addresses the core value proposition of helping students and visitors identify convenient transit options for reaching specific universities.
 
-**Independent Test**: Click any university marker and verify that only lines within the set radius are highlighted, with all stations on those lines displayed, while distant lines are hidden or de-emphasized.
+**Independent Test**: Click any university marker or name button and verify that only lines within the set radius are highlighted, the map zooms to the university, with all stations on those lines displayed, while distant lines are hidden or de-emphasized.
 
 **Acceptance Scenarios**:
 
-1. **Given** the university view is displayed with all lines visible, **When** a user clicks on a single-campus university marker (e.g., University College London), **Then** only tube and DLR lines within 0.5 miles (default) of that university are highlighted and selected, while other lines fade or hide, and the marker tooltip shows the university name and nearest station.
-2. **Given** the university view is displayed, **When** a user clicks on a multi-campus university marker (e.g., Imperial College), **Then** a campus selector UI appears listing available campuses (e.g., "South Kensington Campus", "White City Campus").
-3. **Given** a campus selector is displayed, **When** the user selects a specific campus, **Then** the proximity filtering is applied based on that campus's coordinates and the marker displays the campus-specific nearest station.
-4. **Given** a university is selected, **When** the filtering applies, **Then** all stations on the nearby lines remain visible with standard station markers, and the university marker remains prominently displayed.
-5. **Given** a university is selected, **When** the user views the line filter control, **Then** it updates to show which specific lines are auto-selected based on proximity (e.g., Northern, Central lines for UCL).
-6. **Given** a selected university with filtered lines, **When** the user clicks the same university marker again or clicks a "clear selection" action, **Then** the map returns to showing all tube and DLR lines with all universities visible.
+1. **Given** the university view is displayed with all lines visible, **When** a user clicks on a single-campus university marker or name button (e.g., University College London), **Then** only tube and DLR lines within 0.5 miles (default) of that university are highlighted and selected, the map smoothly zooms to the university location (zoom level 14), the university marker changes to gold color and increases in size, while other lines fade or hide, and other university markers become smaller.
+2. **Given** the university view is displayed, **When** a user clicks on a multi-campus university marker or name button (e.g., Imperial College), **Then** a campus selector modal appears with radio buttons listing available campuses showing campus name, nearest station, and distance (e.g., "South Kensington Campus - Nearest: South Kensington (0.1 mi)").
+3. **Given** a campus selector is displayed, **When** the user selects a specific campus and clicks "Apply", **Then** the proximity filtering is applied based on that campus's coordinates, the map zooms to that campus location, and the modal closes.
+4. **Given** a campus selector is displayed, **When** the user presses Escape or clicks "Cancel" or clicks outside the modal, **Then** the modal closes without applying any filter.
+5. **Given** a university is selected, **When** the filtering applies, **Then** all stations on the nearby lines remain visible with standard station markers, the selected university marker is displayed prominently in gold with larger size (scale 16), and the map view is centered on the university.
+6. **Given** a university is selected, **When** the user views the line filter control, **Then** it updates to show which specific lines are auto-selected based on proximity (e.g., Northern, Central lines for UCL).
+7. **Given** a selected university with filtered lines, **When** the user clicks the same university marker or name button again, **Then** the university is deselected, the map returns to showing all tube and DLR lines with all universities visible at normal size and color, and the map zoom returns to show the full network.
+8. **Given** the university view is displayed, **When** the user views the Universities section below the line filter, **Then** all 8 universities are listed alphabetically by name as clickable buttons, with multi-campus universities showing a badge indicating the number of campuses.
 
 ---
 
@@ -94,10 +96,14 @@ Users can click different university markers sequentially to compare which trans
 - **FR-002**: Navigation to the universities page MUST preserve browser history, allowing users to use back/forward buttons to switch between the line filter and university filter views.
 - **FR-003**: The university filter page MUST display the full London Underground and DLR network (all lines and stations) as the base map layer, matching the visual styling of the main line filter page.
 - **FR-004**: System MUST overlay markers for all major London universities on the map, positioned at their primary campus coordinates.
-- **FR-005**: University markers MUST be visually distinct from station markers using different icon styling (shape, size, or color) to prevent confusion.
-- **FR-006**: University markers MUST be clickable and display a tooltip or info panel showing the university name on hover or focus.
-- **FR-007**: When a user clicks a university marker, the system MUST calculate which tube and DLR stations are within 0.5 miles (straight-line distance) of that university's coordinates.
-- **FR-008**: System MUST automatically filter the map to highlight only the lines serving stations within the 0.5-mile radius, updating the view within 500 ms of the click.
+- **FR-005**: University markers MUST be visually distinct from station markers using different icon styling (shape, size, or color) to prevent confusion. Selected university markers MUST be displayed in gold (#FFD700) with larger size (scale 16), while unselected markers use TfL red (#DC241F) with standard size (scale 12).
+- **FR-006**: University markers MUST be clickable and display a tooltip showing the university name and nearest station on hover or focus.
+- **FR-006b**: System MUST provide a "Universities" section below the line filter displaying all universities as clickable name buttons in alphabetical order, allowing users to select universities by name in addition to clicking map markers.
+- **FR-006c**: University name buttons MUST show the university display name and, for multi-campus institutions, display a badge indicating the number of campuses (e.g., "2 campuses").
+- **FR-006d**: Selected university name buttons MUST be visually highlighted with blue background (#e6f2ff), blue border (#0066cc, 3px), and blue text color to indicate active selection state.
+- **FR-007**: When a user clicks a university marker or name button, the system MUST calculate which tube and DLR stations are within the current radius (default 0.5 miles, straight-line distance) of that university's coordinates.
+- **FR-007b**: When a university is selected, the map MUST smoothly animate to center on the university location and zoom to level 14 within 700ms to provide better visibility of the nearby transit options.
+- **FR-008**: System MUST automatically filter the map to highlight only the lines serving stations within the selected radius, updating the view within 500 ms of the selection.
 - **FR-009**: Stations outside the 0.5-mile radius MUST either be hidden or significantly de-emphasized (e.g., reduced opacity) to focus attention on relevant transit options.
 - **FR-010**: The line filter control MUST update to show which lines are currently selected based on the university proximity calculation, maintaining consistency with the main filter page behavior.
 - **FR-011**: Users MUST be able to manually modify the auto-selected line filter after a university selection, with changes reflected immediately on the map.
@@ -109,34 +115,40 @@ Users can click different university markers sequentially to compare which trans
 - **FR-017**: Page MUST degrade gracefully when university data fails to load, showing the full transport network with an error notification and maintaining navigation functionality.
 - **FR-018**: System MUST log university selection interactions for analytics while respecting privacy requirements.
 - **FR-019**: System MUST provide a user-adjustable distance radius control (slider ranging from 0.25 to 1 mile) allowing users to customize the proximity threshold for filtering nearby transit lines.
-- **FR-020**: When multiple campuses exist for one institution, system MUST display a single marker at a representative location; clicking the marker MUST present a campus selector UI (dropdown or modal) allowing users to choose which campus to use for proximity filtering.
-- **FR-021**: University markers MUST display the university name and the name of the nearest tube/DLR station in the tooltip or info panel to provide helpful context for users.
+- **FR-020**: When multiple campuses exist for one institution, system MUST display a single marker at a representative location; clicking the marker or name button MUST present a campus selector modal with radio buttons allowing users to choose which campus to use for proximity filtering.
+- **FR-020b**: Campus selector modal MUST implement a focus trap (Tab and Shift+Tab cycle within modal), support Escape key to close, and provide Apply/Cancel buttons with clear visual feedback.
+- **FR-020c**: Campus selector modal MUST show each campus with its name, nearest station name, and distance from campus to nearest station (e.g., "South Kensington Campus - Nearest: South Kensington (0.1 mi)").
+- **FR-021**: University markers MUST display the university name and the name of the nearest tube/DLR station in the tooltip to provide helpful context for users.
 - **FR-022**: The distance radius control MUST default to 0.5 miles on initial page load.
-- **FR-023**: When a user adjusts the radius slider, the system MUST immediately recalculate and update the filtered lines if a university is currently selected, with updates completing within 300 ms.
-- **FR-024**: The campus selector UI MUST clearly list all campuses for a multi-campus university with their specific location names (e.g., "Strand Campus", "Waterloo Campus").
-- **FR-025**: After selecting a specific campus from the selector, the system MUST filter lines based on that campus's exact coordinates and the current radius setting.
+- **FR-023**: When a user adjusts the radius slider, the system MUST debounce updates by 200ms and recalculate the filtered lines if a university is currently selected, with updates completing within 300 ms of the final slider position.
+- **FR-023b**: The radius slider MUST be disabled (visually grayed out with cursor: not-allowed) when no university is selected, with a hint message "Select a university to adjust radius".
+- **FR-024**: The campus selector modal MUST clearly list all campuses for a multi-campus university with their specific location names using radio buttons for single-selection (e.g., "Strand Campus", "Waterloo Campus").
+- **FR-025**: After selecting a specific campus from the selector and clicking Apply, the system MUST filter lines based on that campus's exact coordinates and the current radius setting, close the modal, and zoom the map to the selected campus location.
 
 ### Key Entities
 
 - **University**: Represents a higher education institution in London; attributes include official name, marker coordinates (latitude/longitude for map placement), campus list (for multi-campus institutions), and nearest station reference.
 - **Campus**: Represents a specific campus location for multi-campus universities; attributes include campus name, exact coordinates, parent university reference, and nearest station calculation.
 - **ProximityFilter**: Represents the automatic line selection state; attributes include selected university/campus ID, user-selected distance radius (0.25-1 mile), calculated nearby station IDs (within radius), derived line codes, and filter timestamp.
-- **UniversityMarker**: Map overlay element representing a university; attributes include display position, icon styling, tooltip content (name + nearest station), click interaction state, and multi-campus indicator flag.
-- **RadiusControl**: UI component for distance adjustment; attributes include current radius value (0.25-1 mile), slider position, default value (0.5 miles), and change event handlers.
+- **UniversityMarker**: Map overlay element representing a university; attributes include display position, icon styling (gold #FFD700 scale 16 when selected, TfL red #DC241F scale 12 when not selected), tooltip content (name + nearest station), click interaction state, z-index (3000 when selected, 2000 otherwise), and multi-campus indicator flag.
+- **UniversitySelector**: UI component displaying list of universities by name; attributes include university list (alphabetically sorted), selected university ID, click handlers, visual styling for selected state (blue background, border, text), and multi-campus badges showing campus count.
+- **CampusSelector**: Modal dialog for campus selection; attributes include university name, campus list with radio buttons, selected campus ID, Apply/Cancel buttons, focus trap implementation, Escape key handler, and overlay click-to-close behavior.
+- **RadiusControl**: UI component for distance adjustment; attributes include current radius value (0.25-1 mile), slider position, default value (0.5 miles), debounce timer (200ms), disabled state when no university selected, change event handlers, and live value display.
+- **MapZoomAnimation**: Animation controller for smooth map transitions; attributes include from/to center coordinates, from/to zoom levels, easing function (cubic ease-in-out), duration (700ms), current animation frame, and cancellation handler.
 
 ## Success Criteria *(mandatory)*
 
 ### Measurable Outcomes
 
 - **SC-001**: 90% of users successfully navigate from the main page to the university filter page via the navigation tab within 5 seconds of page load.
-- **SC-002**: University marker clicks trigger line filtering and map updates within 500 ms on standard 3G connections across latest two major versions of mobile browsers.
-- **SC-003**: Users can identify relevant transit lines for any university within three interactions (click university marker, optionally select campus if multi-campus, review highlighted lines).
+- **SC-002**: University marker clicks and name button clicks trigger line filtering, marker style updates, and map zoom animation completing within 700 ms on standard 3G connections across latest two major versions of mobile browsers.
+- **SC-003**: Users can identify relevant transit lines for any university within two interactions (click university marker/name button, optionally select campus if multi-campus, view highlighted lines and zoomed map).
 - **SC-004**: 95% of proximity calculations correctly identify all stations within the selected radius with no false negatives (missing nearby stations) across all radius settings (0.25, 0.5, 0.75, 1 mile).
-- **SC-005**: Page maintains performance with 50+ university markers displayed simultaneously without degrading map responsiveness (zoom, pan remain smooth).
-- **SC-006**: Accessibility audit scores maintain WCAG 2.1 AA compliance including keyboard navigation between university markers, radius slider control, campus selector, and screen reader announcements for university selections and radius changes.
-- **SC-007**: 85% of test users can successfully compare transit options between at least two universities within 1 minute of viewing the page.
-- **SC-008**: Radius slider adjustments trigger line filter updates within 300 ms when a university is selected, with smooth visual transitions.
-- **SC-009**: Campus selector UI (for multi-campus universities) loads and displays within 200 ms of marker click, with all campuses listed clearly.
+- **SC-005**: Page maintains performance with 8 university markers displayed simultaneously and all university name buttons rendered without degrading map responsiveness (zoom, pan remain smooth at 60fps).
+- **SC-006**: Accessibility audit scores maintain WCAG 2.1 AA compliance including keyboard navigation between university markers, university name buttons, radius slider control, campus selector modal with focus trap, and screen reader announcements for university selections, campus selections, and radius changes.
+- **SC-007**: 85% of test users can successfully compare transit options between at least two universities within 45 seconds of viewing the page using either map markers or name buttons.
+- **SC-008**: Radius slider adjustments trigger debounced line filter updates within 500 ms total (200ms debounce + 300ms calculation) when a university is selected, with smooth visual transitions and disabled state when no selection exists.
+- **SC-009**: Campus selector modal loads and displays within 200 ms of marker/button click, with all campuses listed clearly with radio buttons, nearest stations, distances, and functional focus trap (Tab/Shift+Tab cycling, Escape to close).
 
 ## Assumptions
 
@@ -149,4 +161,11 @@ Users can click different university markers sequentially to compare which trans
 - The same Google Maps integration used for the main line filter page is reused for the university view, with no additional API keys or services required.
 - University location data is relatively stable and updated quarterly or as needed when new institutions open, campuses relocate, or nearest station calculations change.
 - The line filter control UI component from the main page can be reused with minor modifications to display auto-selected lines from university proximity.
-- The radius slider UI is intuitive and accessible, with clear visual indication of the current distance setting (e.g., "0.5 miles" label) and smooth interaction on both desktop and mobile devices.
+- The radius slider UI is intuitive and accessible, with clear visual indication of the current distance setting (e.g., "0.50 mi" label next to slider) and smooth interaction on both desktop and mobile devices, with 200ms debounce to prevent excessive recalculation.
+- The university name list provides an alternative selection method to map markers, particularly useful on mobile devices or for users who prefer text-based navigation over map interaction.
+- The implementation reuses the existing LineFilter component for consistency, adding UniversitySelector, RadiusSlider, and CampusSelector as new components.
+- Map zoom animations use cubic ease-in-out timing function over 700ms duration for smooth, natural-feeling transitions that don't cause motion sickness.
+- University markers are rendered using Google Maps Circle symbols with conditional styling based on selection state, updating dynamically via useEffect hooks.
+- The system stores 8 universities in universities.json (UCL, Imperial, LSE, King's, QMUL, City, SOAS, Westminster) with 11 total campuses, including pre-calculated nearest station data to optimize initial load performance.
+- Campus selector modal implements proper modal accessibility patterns including focus trap, ARIA attributes (role="dialog", aria-modal="true"), and keyboard navigation (Tab/Shift+Tab cycling, Escape to close, Enter to apply).
+- Screen reader announcements use ARIA live regions to communicate university selection ("Selected UCL, showing 3 nearby lines within 0.5 miles"), campus selection, radius changes, and deselection events.

@@ -1,0 +1,107 @@
+.container {
+  padding: 16px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.heading {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+
+.universityButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.universityButton:hover {
+  background-color: #e9ecef;
+  border-color: #0066cc;
+}
+
+.universityButton:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.universityButton.selected {
+  background-color: #e6f2ff;
+  border-color: #0066cc;
+  border-width: 3px;
+}
+
+.universityName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.4;
+}
+
+.selected .universityName {
+  color: #0066cc;
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 11px;
+  color: #666;
+  background-color: #fff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+.selected .badge {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 12px;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .universityButton {
+    border-width: 3px;
+  }
+
+  .universityButton:focus {
+    outline-width: 4px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .universityButton {
+    transition: none;
+  }
+}
