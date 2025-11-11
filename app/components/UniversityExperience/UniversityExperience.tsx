@@ -10,7 +10,6 @@
 'use client'
 
 import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
-import { describeActiveLines } from '@/app/lib/a11y'
 import styles from './UniversityExperience.module.css'
 import LineFilter from '@/app/components/LineFilter/LineFilter'
 import MapCanvas from '@/app/components/MapCanvas/MapCanvasWrapper'
@@ -340,10 +339,6 @@ export default function UniversityExperience({
   const [selectedStation, setSelectedStation] = useState<Station | null>(null)
 
   const lineLabels = useMemo(() => createLineLabelMap(lines), [lines])
-  const activeLineSummary = useMemo(
-    () => describeActiveLines(activeLineCodes, lineLabels),
-    [activeLineCodes, lineLabels]
-  )
 
   const radiusSliderValue = distanceUnit === 'mi'
     ? Number(radiusMiles.toFixed(2))

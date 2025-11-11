@@ -7,7 +7,6 @@ import type { Station, TransitLine } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
 import type { TravelTimeResult } from '@/app/lib/map/travelTime'
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
-import StationTooltip from '@/app/components/StationTooltip/StationTooltip'
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
 const DEFAULT_ZOOM = 11

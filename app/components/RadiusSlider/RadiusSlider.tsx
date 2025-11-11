@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from './RadiusSlider.module.css'
 
 export interface RadiusSliderProps {
@@ -91,30 +91,10 @@ export function RadiusSlider({
   // Format value for display
   const displayValue = localValue.toFixed(2)
   const unitReadable = unit === 'mi' ? 'miles' : 'kilometres'
-  const unitDisplay = unit === 'mi' ? 'miles' : 'km'
-  const alternateReadable = unit === 'mi' ? 'kilometres' : 'miles'
-  const alternateDisplay = unit === 'mi' ? 'km' : 'miles'
   const ariaValueText = `${displayValue} ${unitReadable}`
-  const formattedStep = step >= 1 ? step.toFixed(0) : step.toFixed(2)
-  const decimals = step < 1 ? 2 : 0
-  const minDisplay = Number(min.toFixed(decimals)).toString()
-  const maxDisplay = Number(max.toFixed(decimals)).toString()
 
   // Derived fill percentage for styling
   const fillPercent = ((localValue - min) / (max - min)) * 100
-
-  // Increment / Decrement with clamp
-  const applyValue = useCallback((next: number) => {
-    const clamped = Math.min(max, Math.max(min, parseFloat(next.toFixed(2))))
-    setLocalValue(clamped)
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-    }
-    timeoutRef.current = setTimeout(() => onChange(clamped), 10)
-  }, [max, min, onChange])
-
-  const handleIncrement = () => applyValue(localValue + step)
-  const handleDecrement = () => applyValue(localValue - step)
 
   // Calculate bubble position accounting for 20px margin on each side
   const bubbleXStyle = { left: `calc(20px + ${fillPercent}% * (100% - 40px) / 100%)` } as React.CSSProperties
