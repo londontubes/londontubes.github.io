@@ -156,7 +156,7 @@ Open [http://localhost:3000/universities](http://localhost:3000/universities)
 - Navigation tabs appear at top (Line Filter | University Filter)
 - Map loads centered on London
 - University markers appear as graduation cap icons
-- Clicking marker selects university and filters lines within 0.5 mile radius
+- Clicking marker selects university and filters lines within the current radius (default 0.25 mile)
 
 ### 2. File Structure
 
@@ -328,7 +328,7 @@ console.log(`Distance: ${distance.toFixed(2)} miles`); // Should be ~0.08 miles
 // Test nearby stations
 const imperialCoords = [-0.1749, 51.4988];
 const nearby = findNearbyStations(imperialCoords, 0.5, stations);
-console.log(`Found ${nearby.length} stations within 0.5 miles`);
+console.log(`Found ${nearby.length} stations within ${radiusMiles} miles (default now 0.25)`);
 ```
 
 ### Performance Benchmarks

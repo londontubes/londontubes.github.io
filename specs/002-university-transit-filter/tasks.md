@@ -107,7 +107,7 @@
 
 ## Phase 4: User Story 2 - Discover Nearby Transit Lines (P2)
 
-**Goal**: Users click a university marker on the map and the system automatically highlights and selects only the tube and DLR lines within the current radius setting (default 0.5 miles) of that university, hiding other lines to provide focused transit options.
+**Goal**: Users click a university marker on the map and the system automatically highlights and selects only the tube and DLR lines within the current radius setting (default 0.25 miles) of that university, hiding other lines to provide focused transit options.
 
 **Independent Test**: Click any university marker and verify that only lines within the set radius are highlighted, with all stations on those lines displayed, while distant lines are hidden or de-emphasized.
 
@@ -119,7 +119,7 @@
 - [ ] T026 [P] [US2] Style CampusSelector modal in app/components/CampusSelector/CampusSelector.module.css (centered overlay, mobile-responsive, focus trap)
 - [ ] T027 [US2] Implement university marker click handler in app/universities/page.tsx (check isMultiCampus, show CampusSelector if needed, calculate proximity)
 - [ ] T028 [US2] Implement ProximityFilter state management in app/universities/page.tsx (useState for selected university, campus, radius, nearby stations, filtered lines)
-- [ ] T029 [US2] Calculate nearby stations on university selection using lib/map/proximity.ts functions (call findNearbyStations with 0.5 mile default radius)
+- [ ] T029 [US2] Calculate nearby stations on university selection using lib/map/proximity.ts functions (call findNearbyStations with current radius; initial default now 0.25 miles)
 - [ ] T030 [US2] Derive filtered line codes from nearby stations using deriveLineCodes function in lib/map/proximity.ts
 - [ ] T031 [US2] Update MapCanvas to highlight only filtered lines in app/components/MapCanvas/ (dim or hide non-selected lines, keep filtered lines at full opacity)
 - [ ] T032 [US2] Display university tooltip on marker hover showing university name and nearest station in app/components/UniversityMarker/
@@ -131,7 +131,7 @@
 **Test Criteria**:
 - Clicking single-campus university filters lines within 500ms
 - Multi-campus universities show campus selector before filtering
-- Only lines within 0.5 miles are highlighted
+- Only lines within the current radius (initial default 0.25 miles) are highlighted
 - Tooltip shows university name + nearest station
 - Clicking same marker again deselects and shows all lines
 
@@ -145,7 +145,7 @@
 
 **Tasks**:
 
-- [ ] T033 [P] [US3] Create RadiusSlider component in app/components/RadiusSlider/RadiusSlider.tsx (HTML5 range input, min=0.25, max=1, step=0.05, default=0.5)
+- [ ] T033 [P] [US3] Create RadiusSlider component in app/components/RadiusSlider/RadiusSlider.tsx (HTML5 range input, min=0.25, max=1, step=0.05, default=0.25)
 - [ ] T034 [P] [US3] Style RadiusSlider component in app/components/RadiusSlider/RadiusSlider.module.css (thumb styling, track fill, value label display)
 - [ ] T035 [P] [US3] Add ARIA labels to RadiusSlider in app/components/RadiusSlider/RadiusSlider.tsx (aria-label="Distance radius in miles", aria-valuetext with current value)
 - [ ] T036 [US3] Implement debounced onChange handler in app/components/RadiusSlider/RadiusSlider.tsx (200ms debounce using useMemo or useCallback)

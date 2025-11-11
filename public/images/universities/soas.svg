@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="soas-title">
+  <title id="soas-title">SOAS University of London Logo</title>
+  <rect width="200" height="200" fill="#00563F"/>
+  <g transform="translate(100,100)">
+    <!-- SOAS Geometric pattern inspired by African/Asian art -->
+    <g fill="#D4AF37">
+      <circle cx="0" cy="-20" r="18" fill="none" stroke="#D4AF37" stroke-width="2"/>
+      <circle cx="0" cy="-20" r="12" fill="none" stroke="#D4AF37" stroke-width="2"/>
+      <circle cx="0" cy="-20" r="6"/>
+      <polygon points="0,-38 -8,-28 -16,-32 -10,-20 -18,-12 -6,-16 0,-4 6,-16 18,-12 10,-20 16,-32 8,-28"/>
+    </g>
+    <!-- Text -->
+    <text x="0" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="32" font-weight="700" fill="#FFFFFF" letter-spacing="4">SOAS</text>
+    <text x="0" y="38" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#D4AF37" letter-spacing="0.5">UNIVERSITY OF LONDON</text>
+    <text x="0" y="52" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#FFFFFF" opacity="0.8">SCHOOL OF ORIENTAL</text>
+    <text x="0" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#FFFFFF" opacity="0.8">AND AFRICAN STUDIES</text>
+  </g>
+</svg>

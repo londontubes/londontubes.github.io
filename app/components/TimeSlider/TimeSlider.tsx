@@ -1,59 +1,52 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
-import styles from './RadiusSlider.module.css'
+import styles from './TimeSlider.module.css'
 
-export interface RadiusSliderProps {
+export interface TimeSliderProps {
   /**
-   * Current radius value in miles
+   * Current time value in minutes
    */
   value: number
   /**
    * Callback when slider value changes (debounced by 200ms)
    */
-  onChange: (newRadius: number) => void
+  onChange: (newTime: number) => void
   /**
-   * Minimum radius in miles
+   * Minimum time in minutes
    */
   min?: number
   /**
-   * Maximum radius in miles
+   * Maximum time in minutes
    */
   max?: number
   /**
-   * Step size in miles
+   * Step size in minutes
    */
   step?: number
   /**
    * Disable the slider (e.g., when no university selected)
    */
   disabled?: boolean
-  /** Show inline +/- buttons and bubble tooltip */
   enhancedUI?: boolean
-  /** Display unit label (e.g. 'mi' or 'km') */
-  unit?: 'mi' | 'km'
-  /** Toggle handler for switching between units */
-  onToggleUnit?: () => void
 }
 
 /**
- * RadiusSlider Component
+ * TimeSlider Component
  * 
- * HTML5 range input for adjusting proximity radius.
+ * HTML5 range input for adjusting travel time duration.
  * Includes debounced onChange (200ms) to avoid excessive recalculations.
  * Full keyboard and screen reader support.
  */
-export function RadiusSlider({
+export function TimeSlider({
   value,
   onChange,
-  min = 0.25,
-  max = 10.0,
-  step = 0.05,
+  min = 5,
+  max = 60,
+  step = 1,
   disabled = false,
   enhancedUI = true,
-  unit = 'mi',
-  onToggleUnit,
-}: RadiusSliderProps) {
+}: TimeSliderProps) {
   // Local state for immediate UI updates (before debounce)
   const [localValue, setLocalValue] = useState(value)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -65,7 +58,7 @@ export function RadiusSlider({
 
   // Handle slider change with debounce
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = parseFloat(e.target.value)
+    const newValue = parseInt(e.target.value, 10)
     setLocalValue(newValue)
 
     // Clear previous timeout
@@ -89,23 +82,15 @@ export function RadiusSlider({
   }, [])
 
   // Format value for display
-  const displayValue = localValue.toFixed(2)
-  const unitReadable = unit === 'mi' ? 'miles' : 'kilometres'
-  const unitDisplay = unit === 'mi' ? 'miles' : 'km'
-  const alternateReadable = unit === 'mi' ? 'kilometres' : 'miles'
-  const alternateDisplay = unit === 'mi' ? 'km' : 'miles'
-  const ariaValueText = `${displayValue} ${unitReadable}`
-  const formattedStep = step >= 1 ? step.toFixed(0) : step.toFixed(2)
+  const displayValue = localValue
+  const ariaValueText = `${displayValue} minutes`
+  const fillPercent = ((localValue - min) / (max - min)) * 100
   const decimals = step < 1 ? 2 : 0
   const minDisplay = Number(min.toFixed(decimals)).toString()
   const maxDisplay = Number(max.toFixed(decimals)).toString()
 
-  // Derived fill percentage for styling
-  const fillPercent = ((localValue - min) / (max - min)) * 100
-
-  // Increment / Decrement with clamp
   const applyValue = useCallback((next: number) => {
-    const clamped = Math.min(max, Math.max(min, parseFloat(next.toFixed(2))))
+    const clamped = Math.min(max, Math.max(min, next))
     setLocalValue(clamped)
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
@@ -121,21 +106,9 @@ export function RadiusSlider({
 
   return (
     <div className={styles.container}>
-      <div className={styles.labelRow}>
-        <label htmlFor="radius-slider" className={styles.label}>
-          Distance Radius <span className={styles.unitLabel}>(in {unitDisplay})</span>
-        </label>
-        {onToggleUnit && (
-          <button
-            type="button"
-            className={styles.unitToggleInline}
-            onClick={onToggleUnit}
-            aria-label={`Show distance radius in ${alternateReadable}`}
-          >
-            (in {alternateDisplay})
-          </button>
-        )}
-      </div>
+      <label htmlFor="time-slider" className={styles.label}>
+        Travel Time
+      </label>
       <div className={styles.sliderRow}>
         {enhancedUI && (
           <button
@@ -143,14 +116,14 @@ export function RadiusSlider({
             className={styles.adjustBtn}
             onClick={handleDecrement}
             disabled={disabled}
-            aria-label={`Decrease radius by ${formattedStep} ${unitReadable}`}
+            aria-label={`Decrease time by ${step} minutes`}
           >
             −
           </button>
         )}
         <div className={styles.sliderWrapper}>
           <input
-            id="radius-slider"
+            id="time-slider"
             type="range"
             min={min}
             max={max}
@@ -159,7 +132,7 @@ export function RadiusSlider({
             onChange={handleChange}
             disabled={disabled}
             className={styles.slider}
-            aria-label={`Distance radius in ${unitReadable}`}
+            aria-label="Travel time in minutes"
             aria-valuemin={min}
             aria-valuemax={max}
             aria-valuenow={localValue}
@@ -172,7 +145,7 @@ export function RadiusSlider({
               style={bubbleXStyle}
               aria-hidden="true"
             >
-              {displayValue} {unit}
+              {displayValue} min
             </div>
           )}
         </div>
@@ -182,7 +155,7 @@ export function RadiusSlider({
             className={styles.adjustBtn}
             onClick={handleIncrement}
             disabled={disabled}
-            aria-label={`Increase radius by ${formattedStep} ${unitReadable}`}
+            aria-label={`Increase time by ${step} minutes`}
           >
             +
           </button>
@@ -190,15 +163,15 @@ export function RadiusSlider({
       </div>
       {disabled && (
         <span className={styles.hint}>
-          Select a university to adjust radius
+          Select a university to adjust time
         </span>
       )}
       <div className={styles.rangeLabels} aria-hidden="true">
-        <span>{minDisplay} {unit}</span>
-        <span>{maxDisplay} {unit}</span>
+        <span>{minDisplay} min</span>
+        <span>{maxDisplay} min</span>
       </div>
     </div>
   )
 }
 
-export default RadiusSlider
+export default TimeSlider

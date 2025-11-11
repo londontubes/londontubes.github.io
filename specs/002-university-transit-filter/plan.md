@@ -7,7 +7,7 @@
 
 ## Summary
 
-Add a new "Universities Filter" page to the existing London Tube map application that displays all London universities as clickable markers on an interactive Google Maps canvas. When users click a university marker, the system automatically filters and highlights only the tube and DLR lines within a user-adjustable radius (0.25-1 mile, default 0.5 miles). Multi-campus universities present a campus selector before filtering. The page reuses existing map infrastructure while introducing navigation tabs, university data layer, proximity calculation logic, radius adjustment controls, and campus selection UI to help students and visitors identify convenient transit options for reaching universities.
+Add a new "Universities Filter" page to the existing London Tube map application that displays all London universities as clickable markers on an interactive Google Maps canvas. When users click a university marker, the system automatically filters and highlights only the tube and DLR lines within a user-adjustable radius (0.25-1 mile, default 0.25 miles after revision). Multi-campus universities present a campus selector before filtering. The page reuses existing map infrastructure while introducing navigation tabs, university data layer, proximity calculation logic, radius adjustment controls, and campus selection UI to help students and visitors identify convenient transit options for reaching universities.
 
 ## Technical Context
 

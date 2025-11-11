@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
+import { getUniversityLogoMeta } from '@/app/config/universityLogos'
 import type { UniversitiesDataset } from '@/app/types/university'
 import styles from './UniversitySelector.module.css'
 
@@ -8,6 +9,7 @@ export interface UniversitySelectorProps {
   universities: UniversitiesDataset
   selectedUniversityId: string | null
   onUniversitySelect: (universityId: string) => void
+  inline?: boolean
 }
 
 /**
@@ -20,6 +22,7 @@ export function UniversitySelector({
   universities,
   selectedUniversityId,
   onUniversitySelect,
+  inline = false,
 }: UniversitySelectorProps) {
   // Sort universities alphabetically by name
   const sortedUniversities = useMemo(() => {
@@ -29,29 +32,36 @@ export function UniversitySelector({
   }, [universities])
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.heading}>Universities</h2>
-      <div className={styles.grid}>
+    <div className={inline ? `${styles.inlineContainer}` : styles.container}>
+      {!inline && <h2 className={styles.heading}>Universities</h2>}
+      <div className={inline ? styles.inlineRow : styles.grid}>
         {sortedUniversities.map(feature => {
           const university = feature.properties
           const isSelected = selectedUniversityId === university.universityId
+          const logoMeta = getUniversityLogoMeta(university.universityId)
+          const logoSrc = logoMeta ? `/images/universities/${logoMeta.filename}` : `/images/universities/${university.universityId.toLowerCase()}.svg`
+          const altText = logoMeta?.alt || `${university.displayName} logo`
+          const brandStyle: React.CSSProperties = logoMeta ? { backgroundColor: '#fff', boxShadow: `0 0 0 1px rgba(0,0,0,0.1)` } : {}
           
           return (
             <button
               key={university.universityId}
               onClick={() => onUniversitySelect(university.universityId)}
-              className={`${styles.universityButton} ${isSelected ? styles.selected : ''}`}
+              className={`${styles.universityIconButton} ${isSelected ? styles.selected : ''}`}
               aria-pressed={isSelected}
+              aria-label={`${university.displayName}${university.isMultiCampus ? ` – ${university.campuses.length} campuses` : ''}`}
               title={`${university.displayName}${university.isMultiCampus ? ' (Multiple campuses)' : ''}`}
             >
-              <span className={styles.universityName}>
-                {university.displayName}
-              </span>
-              {university.isMultiCampus && (
-                <span className={styles.badge} aria-label="Multiple campuses">
-                  {university.campuses.length} campuses
-                </span>
-              )}
+              <img
+                src={logoSrc}
+                alt=""
+                loading="lazy"
+                className={styles.logoOnly}
+                width={56}
+                height={56}
+                aria-hidden="true"
+                style={brandStyle}
+              />
             </button>
           )
         })}
