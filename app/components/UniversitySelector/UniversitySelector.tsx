@@ -34,7 +34,6 @@ export function UniversitySelector({
 
   return (
     <div className={inline ? `${styles.inlineContainer}` : styles.container}>
-      {!inline && <h2 className={styles.heading}>Universities</h2>}
       <div className={inline ? styles.inlineRow : styles.grid}>
         {sortedUniversities.map(feature => {
           const university = feature.properties

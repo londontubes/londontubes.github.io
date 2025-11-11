@@ -13,7 +13,7 @@ import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
 import { describeActiveLines } from '@/app/lib/a11y'
 import styles from './UniversityExperience.module.css'
 import LineFilter from '@/app/components/LineFilter/LineFilter'
-import MapCanvas from '@/app/components/MapCanvas/MapCanvas'
+import MapCanvas from '@/app/components/MapCanvas/MapCanvasWrapper'
 import { CampusSelector } from '@/app/components/CampusSelector'
 import { RadiusSlider } from '@/app/components/RadiusSlider'
 import { TimeSlider } from '@/app/components/TimeSlider'
@@ -46,8 +46,8 @@ export default function UniversityExperience({
   const [showCampusSelector, setShowCampusSelector] = useState(false)
   const [campusSelectorUniversity, setCampusSelectorUniversity] = useState<University | null>(null)
   
-  // Default radius in miles (tight proximity focus per latest requirement)
-  const [radiusMiles, setRadiusMiles] = useState(MIN_RADIUS_MILES)
+  // Default radius: 0.5 miles
+  const [radiusMiles, setRadiusMiles] = useState(0.5)
   const [distanceUnit, setDistanceUnit] = useState<'mi' | 'km'>('mi')
   
   // Travel time filter state (in minutes)
@@ -363,13 +363,6 @@ export default function UniversityExperience({
 
   return (
     <div className="map-experience">
-      <header className="map-experience__header-inline">
-        <h1 className="map-title">London Universities & Transit</h1>
-        <span className="map-stats" data-testid="network-stats">
-          {universitiesDataset.features.length} universities · {stations.length} stations · {lines.length} lines · {activeLineSummary}
-        </span>
-      </header>
-
       <LineFilter
         lines={lines}
         activeLineCodes={activeLineCodes}
@@ -378,66 +371,79 @@ export default function UniversityExperience({
         onAnnounce={handleAnnounce}
       />
 
-      <div className={styles.universityInlineBar} aria-label="University selection and distance radius">
-        <div className={styles.iconsArea}>
+      {/* Show university selection grid when no university is selected */}
+      {!selectedUniversityId ? (
+        <div style={{ padding: '0.5rem 0' }}>
           <UniversitySelector
             universities={universitiesDataset}
             selectedUniversityId={selectedUniversityId}
             onUniversitySelect={handleUniversityClick}
-            inline
+            inline={false}
           />
         </div>
-        <div className={styles.inlineSliderWrap}>
-          <div 
-            className={`${styles.sliderContainer} ${selectedUniversityId && filterMode === 'radius' ? styles.active : styles.inactive}`}
-            onClick={() => selectedUniversityId && setFilterMode('radius')}
-            role="button"
-            tabIndex={selectedUniversityId ? 0 : -1}
-            aria-label="Distance radius filter"
-            aria-pressed={filterMode === 'radius'}
-            onKeyDown={(e) => {
-              if (selectedUniversityId && (e.key === 'Enter' || e.key === ' ')) {
-                e.preventDefault()
-                setFilterMode('radius')
-              }
-            }}
-          >
-            <RadiusSlider
-              value={radiusSliderValue}
-              onChange={handleRadiusChange}
-              min={radiusMinValue}
-              max={radiusMaxValue}
-              step={radiusStepValue}
-              disabled={!selectedUniversityId || filterMode !== 'radius'}
-              unit={distanceUnit}
-              onToggleUnit={toggleDistanceUnit}
+      ) : (
+        /* Show inline controls when a university is selected */
+        <div className={styles.universityInlineBar} aria-label="University selection and distance radius">
+          <div className={styles.iconsArea}>
+            <UniversitySelector
+              universities={universitiesDataset}
+              selectedUniversityId={selectedUniversityId}
+              onUniversitySelect={handleUniversityClick}
+              inline
             />
           </div>
-          <div 
-            className={`${styles.sliderContainer} ${selectedUniversityId && filterMode === 'time' ? styles.active : styles.inactive}`}
-            onClick={() => selectedUniversityId && setFilterMode('time')}
-            role="button"
-            tabIndex={selectedUniversityId ? 0 : -1}
-            aria-label="Travel time filter"
-            aria-pressed={filterMode === 'time'}
-            onKeyDown={(e) => {
-              if (selectedUniversityId && (e.key === 'Enter' || e.key === ' ')) {
-                e.preventDefault()
-                setFilterMode('time')
-              }
-            }}
-          >
-            <TimeSlider
-              value={travelTimeMins}
-              onChange={handleTimeChange}
-              min={5}
-              max={60}
-              step={1}
-              disabled={!selectedUniversityId || filterMode !== 'time'}
-            />
+          <div className={styles.filterModeContainer}>
+            <div 
+              className={`${styles.filterOption} ${filterMode === 'radius' ? styles.active : styles.inactive}`}
+              onClick={() => selectedUniversityId && setFilterMode('radius')}
+              role="radio"
+              tabIndex={selectedUniversityId ? 0 : -1}
+              aria-label="Distance radius filter"
+              aria-checked={filterMode === 'radius'}
+              onKeyDown={(e) => {
+                if (selectedUniversityId && (e.key === 'Enter' || e.key === ' ')) {
+                  e.preventDefault()
+                  setFilterMode('radius')
+                }
+              }}
+            >
+              <RadiusSlider
+                value={radiusSliderValue}
+                onChange={handleRadiusChange}
+                min={radiusMinValue}
+                max={radiusMaxValue}
+                step={radiusStepValue}
+                disabled={!selectedUniversityId || filterMode !== 'radius'}
+                unit={distanceUnit}
+                onToggleUnit={toggleDistanceUnit}
+              />
+            </div>
+            <div 
+              className={`${styles.filterOption} ${filterMode === 'time' ? styles.active : styles.inactive}`}
+              onClick={() => selectedUniversityId && setFilterMode('time')}
+              role="radio"
+              tabIndex={selectedUniversityId ? 0 : -1}
+              aria-label="Travel time filter"
+              aria-checked={filterMode === 'time'}
+              onKeyDown={(e) => {
+                if (selectedUniversityId && (e.key === 'Enter' || e.key === ' ')) {
+                  e.preventDefault()
+                  setFilterMode('time')
+                }
+              }}
+            >
+              <TimeSlider
+                value={travelTimeMins}
+                onChange={handleTimeChange}
+                min={5}
+                max={60}
+                step={1}
+                disabled={!selectedUniversityId || filterMode !== 'time'}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <MapCanvas
         lines={lines}
