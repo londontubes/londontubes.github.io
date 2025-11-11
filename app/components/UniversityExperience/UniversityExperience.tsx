@@ -357,7 +357,7 @@ export default function UniversityExperience({
     : Number((STEP_RADIUS_MILES * MILES_TO_KILOMETRES).toFixed(2))
 
   return (
-    <div className="map-experience">
+    <div className="map-experience university-experience">
       <LineFilter
         lines={lines}
         activeLineCodes={activeLineCodes}

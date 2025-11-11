@@ -77,8 +77,17 @@ main {
 }
 
 @media (max-width: 640px) {
-  .map-title { font-size: 1.35rem; }
-  .map-stats { font-size: 0.7rem; }
+  .map-title { 
+    font-size: 1.35rem; 
+  }
+  .map-stats { 
+    font-size: 0.7rem; 
+  }
+  
+  /* Hide header in line filter page on mobile */
+  .map-experience__header-inline {
+    display: none;
+  }
 }
 
 .map-experience__meta {
@@ -324,8 +333,15 @@ main {
     min-height: calc(100vh - 8rem);
   }
 
-  /* Hide line filter on mobile */
+  /* Show line filter above map on mobile for main page */
   .line-filter {
+    display: flex;
+    order: -1; /* Ensure filter appears before map */
+    margin-bottom: 0.75rem;
+  }
+
+  /* Hide line filter on mobile in university experience */
+  .university-experience .line-filter {
     display: none !important;
   }
 }

@@ -329,37 +329,80 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
 
   // Prepare transit line paths
   const linePaths = useMemo(() => {
-    return lines
-      .filter(line => !activeSet || activeSet.has(line.lineCode))
-      .map(line => {
-        const coords = line.polyline.type === 'MultiLineString'
-          ? (line.polyline.coordinates as [number, number][][]).flat()
-          : (line.polyline.coordinates as [number, number][])
+    const result: Array<{
+      lineCode: string
+      displayName: string
+      brandColor: string
+      positions: [number, number][]
+      segmentIndex: number
+    }> = []
 
-        return {
-          lineCode: line.lineCode,
-          displayName: line.displayName,
-          brandColor: line.brandColor,
-          positions: coords.map(([lng, lat]) => [lat, lng] as [number, number]),
+    lines
+      .filter(line => !activeSet || activeSet.has(line.lineCode))
+      .forEach(line => {
+        if (line.polyline.type === 'MultiLineString') {
+          // Handle MultiLineString: each segment separately
+          const segments = line.polyline.coordinates as [number, number][][]
+          segments.forEach((segment, index) => {
+            result.push({
+              lineCode: line.lineCode,
+              displayName: line.displayName,
+              brandColor: line.brandColor,
+              positions: segment.map(([lng, lat]) => [lat, lng] as [number, number]),
+              segmentIndex: index,
+            })
+          })
+        } else {
+          // Handle LineString: single segment
+          const coords = line.polyline.coordinates as [number, number][]
+          result.push({
+            lineCode: line.lineCode,
+            displayName: line.displayName,
+            brandColor: line.brandColor,
+            positions: coords.map(([lng, lat]) => [lat, lng] as [number, number]),
+            segmentIndex: 0,
+          })
         }
       })
+
+    return result
   }, [lines, activeSet])
 
   // Prepare inactive lines (greyed out)
   const inactiveLinePaths = useMemo(() => {
     if (!activeSet) return []
-    return lines
-      .filter(line => !activeSet.has(line.lineCode))
-      .map(line => {
-        const coords = line.polyline.type === 'MultiLineString'
-          ? (line.polyline.coordinates as [number, number][][]).flat()
-          : (line.polyline.coordinates as [number, number][])
+    
+    const result: Array<{
+      lineCode: string
+      positions: [number, number][]
+      segmentIndex: number
+    }> = []
 
-        return {
-          lineCode: line.lineCode,
-          positions: coords.map(([lng, lat]) => [lat, lng] as [number, number]),
+    lines
+      .filter(line => !activeSet.has(line.lineCode))
+      .forEach(line => {
+        if (line.polyline.type === 'MultiLineString') {
+          // Handle MultiLineString: each segment separately
+          const segments = line.polyline.coordinates as [number, number][][]
+          segments.forEach((segment, index) => {
+            result.push({
+              lineCode: line.lineCode,
+              positions: segment.map(([lng, lat]) => [lat, lng] as [number, number]),
+              segmentIndex: index,
+            })
+          })
+        } else {
+          // Handle LineString: single segment
+          const coords = line.polyline.coordinates as [number, number][]
+          result.push({
+            lineCode: line.lineCode,
+            positions: coords.map(([lng, lat]) => [lat, lng] as [number, number]),
+            segmentIndex: 0,
+          })
         }
       })
+
+    return result
   }, [lines, activeSet])
 
   const handleMapClick = () => {
@@ -406,7 +449,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
         {/* Inactive lines (grey) */}
         {inactiveLinePaths.map(line => (
           <Polyline
-            key={`inactive-${line.lineCode}`}
+            key={`inactive-${line.lineCode}-${line.segmentIndex}`}
             positions={line.positions}
             pathOptions={{
               color: '#cccccc',
@@ -419,7 +462,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
         {/* Active lines */}
         {linePaths.map(line => (
           <Polyline
-            key={line.lineCode}
+            key={`${line.lineCode}-${line.segmentIndex}`}
             positions={line.positions}
             pathOptions={{
               color: line.brandColor,
