@@ -5,14 +5,13 @@
  */
 
 import { calculateProximityFilter } from '../app/lib/map/proximity'
-import type { Station, TransitLine } from '../app/types/transit'
+import type { Station } from '../app/types/transit'
 
 /**
  * Compare old vs new filtering approach for UCL Main Campus
  */
 function demonstrateFilteringImprovement(
-  stations: Station[],
-  lines: TransitLine[]
+  stations: Station[]
 ) {
   const uclCoordinates: [number, number] = [-0.1339, 51.5246] // UCL Main Campus
   const radius = 0.25 // Quarter mile
@@ -24,8 +23,7 @@ function demonstrateFilteringImprovement(
   const filter = calculateProximityFilter(
     uclCoordinates,
     radius,
-    stations,
-    lines
+    stations
   )
 
   // OLD APPROACH: Show all stations on filtered lines
@@ -77,8 +75,7 @@ function demonstrateFilteringImprovement(
  * Test multiple universities at different radii
  */
 function compareAcrossUniversities(
-  stations: Station[],
-  lines: TransitLine[]
+  stations: Station[]
 ) {
   const testCases = [
     { name: 'UCL Main', coords: [-0.1339, 51.5246] as [number, number] },
@@ -99,8 +96,7 @@ function compareAcrossUniversities(
       const filter = calculateProximityFilter(
         testCase.coords,
         radius,
-        stations,
-        lines
+        stations
       )
 
       const oldCount = stations.filter(s =>

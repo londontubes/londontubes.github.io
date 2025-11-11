@@ -83,7 +83,8 @@ function stationVisible(
   return station.lineCodes.some(code => active.has(code))
 }
 
-function disposeOverlays(overlays: MapOverlays) {
+function disposeOverlays(overlays: MapOverlays | null) {
+  if (!overlays) return
   overlays.polylines.forEach(({ polyline }) => polyline.setMap(null))
   overlays.markers.forEach(marker => marker.setMap(null))
   overlays.universityMarkers?.forEach(marker => marker.setMap(null))
@@ -154,7 +155,8 @@ export default function MapCanvas(props: MapCanvasProps) {
   }, [status, onStatusChange])
 
   useEffect(() => {
-    let cancelled = false
+  let cancelled = false
+  const overlaysForCleanup = overlaysRef.current
     const container = containerRef.current
 
     if (!container) {
@@ -446,7 +448,7 @@ export default function MapCanvas(props: MapCanvasProps) {
         cancelAnimationFrame(animationRef.current)
         animationRef.current = null
       }
-      disposeOverlays(overlaysRef.current)
+  disposeOverlays(overlaysForCleanup)
       resetGoogleMapsLoader()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

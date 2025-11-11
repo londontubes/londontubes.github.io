@@ -1,6 +1,4 @@
 import { test, expect } from '@playwright/test'
-
-const E2E_TIMEOUT = 30_000
 test.describe('London Tube map baseline', () => {
   test('renders landing heading and data timestamp', async ({ page }) => {
     await page.goto('/')

@@ -10,6 +10,8 @@ interface TfLLine {
   modeName: string
 }
 
+type TfLRouteSequence = unknown
+
 async function ensureCacheDir() {
   await fs.mkdir(CACHE_DIR, { recursive: true })
 }
@@ -41,12 +43,12 @@ async function fetchTfLLines(): Promise<TfLLine[]> {
   return lines
 }
 
-async function fetchLineRouteSequence(lineId: string) {
+async function fetchLineRouteSequence(lineId: string): Promise<TfLRouteSequence> {
   console.log(`Fetching route sequence for ${lineId}...`)
   const url = `${TFL_API_BASE}/Line/${lineId}/Route/Sequence/all`
   
   const response = await fetchWithRetry(url)
-  const data = await response.json()
+  const data: TfLRouteSequence = await response.json()
   
   return data
 }
@@ -65,7 +67,7 @@ async function main() {
     )
     
     // Fetch route sequences for each line
-    const routeData: Record<string, any> = {}
+  const routeData: Record<string, TfLRouteSequence> = {}
     
     for (const line of lines) {
       try {

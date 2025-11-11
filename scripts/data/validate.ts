@@ -1,11 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
-import { fileURLToPath } from 'url'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 
 const DATA_DIR = path.join(process.cwd(), 'public', 'data')
 const CONTRACTS_DIR = path.join(process.cwd(), 'specs', '001-map-line-filter', 'contracts')

@@ -15,7 +15,7 @@ import {
   isValidCoordinates,
   type Coordinates,
 } from '@/app/lib/map/proximity'
-import type { Station, TransitLine } from '@/app/types/transit'
+import type { Station } from '@/app/types/transit'
 
 describe('proximity calculations', () => {
   describe('calculateDistance', () => {

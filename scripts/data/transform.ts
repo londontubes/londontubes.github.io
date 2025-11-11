@@ -26,11 +26,47 @@ interface RawLine {
   modeName: string
 }
 
-interface RawStation {
+interface RawRouteStation {
   id: string
-  name: string
-  lat: number
-  lon: number
+  name?: string
+  lat?: number | null
+  lon?: number | null
+}
+
+interface RawRoute {
+  stations?: RawRouteStation[]
+  lineStrings?: string[]
+  [key: string]: unknown
+}
+
+interface TransformedLine {
+  lineCode: string
+  displayName: string
+  brandColor: string
+  textColor: string
+  mode: 'tube' | 'dlr'
+  strokeWeight: number
+  polyline: {
+    type: 'LineString' | 'MultiLineString'
+    coordinates: [number, number][] | [number, number][][]
+  }
+  bounds?: [[number, number], [number, number]]
+  stationIds: string[]
+  lastUpdated: string
+}
+
+interface TransformedStation {
+  stationId: string
+  displayName: string
+  position: {
+    type: 'Point'
+    coordinates: [number, number]
+  }
+  lineCodes: string[]
+  isInterchange: boolean
+  markerIcon: string
+  tooltipSummary: string
+  order: number
 }
 
 async function loadRawData() {
@@ -39,31 +75,31 @@ async function loadRawData() {
   
   return {
     lines: JSON.parse(linesRaw) as RawLine[],
-    routes: JSON.parse(routesRaw) as Record<string, any>,
+    routes: JSON.parse(routesRaw) as Record<string, RawRoute>,
   }
 }
 
-function transformLines(lines: RawLine[], routes: Record<string, any>) {
-  const transformed = lines.map(line => {
+function transformLines(lines: RawLine[], routes: Record<string, RawRoute>) {
+  const transformed: TransformedLine[] = lines.map(line => {
     const colors = LINE_COLORS[line.id] || { brand: '#666666', text: '#FFFFFF' }
     const route = routes[line.id]
     
     // Extract stations from route
     const stationIds: string[] = []
-  let allCoordinates: [number, number][][] = []
+    let allCoordinates: [number, number][][] = []
     
-    if (route && route.stations) {
-      route.stations.forEach((station: any) => {
+    if (route?.stations) {
+      route.stations.forEach((station: RawRouteStation) => {
         stationIds.push(station.id)
       })
     }
     
     // Use TfL lineStrings for proper route paths (includes branches/forks)
-    if (route && route.lineStrings && route.lineStrings.length > 0) {
+    if (route?.lineStrings && route.lineStrings.length > 0) {
       // Parse ALL lineStrings to handle branches (e.g., Northern line has multiple branches)
       route.lineStrings.forEach((lineStringJson: string, index: number) => {
         try {
-          const lineString = JSON.parse(lineStringJson)
+          const lineString = JSON.parse(lineStringJson) as unknown
           // TfL lineStrings structure: array containing one array of coordinates
           if (Array.isArray(lineString) && lineString.length > 0 && Array.isArray(lineString[0])) {
             const coordArray = lineString[0]
@@ -85,8 +121,8 @@ function transformLines(lines: RawLine[], routes: Record<string, any>) {
       // Fallback to station coordinates if no valid lineStrings parsed
       if (allCoordinates.length === 0 && route.stations) {
         const fallbackCoords: [number, number][] = []
-        route.stations.forEach((station: any) => {
-          if (station.lat && station.lon) {
+        route.stations.forEach((station: RawRouteStation) => {
+          if (typeof station.lat === 'number' && typeof station.lon === 'number') {
             fallbackCoords.push([station.lon, station.lat])
           }
         })
@@ -94,11 +130,11 @@ function transformLines(lines: RawLine[], routes: Record<string, any>) {
           allCoordinates.push(fallbackCoords)
         }
       }
-    } else if (route && route.stations) {
+    } else if (route?.stations) {
       // Fallback: use station coordinates
       const fallbackCoords: [number, number][] = []
-      route.stations.forEach((station: any) => {
-        if (station.lat && station.lon) {
+      route.stations.forEach((station: RawRouteStation) => {
+        if (typeof station.lat === 'number' && typeof station.lon === 'number') {
           fallbackCoords.push([station.lon, station.lat])
         }
       })
@@ -109,10 +145,10 @@ function transformLines(lines: RawLine[], routes: Record<string, any>) {
     
     // Connectivity correction for two-station lines (e.g., Waterloo & City):
     // If we have exactly two stations and multiple segments that are simple reversals, unify them and snap endpoints to station coordinates.
-    if (stationIds.length === 2 && route && route.stations && route.stations.length >= 2 && allCoordinates.length >= 1) {
+    if (stationIds.length === 2 && route?.stations && route.stations.length >= 2 && allCoordinates.length >= 1) {
       const stationPosMap: Record<string, [number, number]> = {}
-      route.stations.forEach((s: any) => {
-        if (s.id && s.lat && s.lon) {
+      route.stations.forEach((s: RawRouteStation) => {
+        if (s.id && typeof s.lat === 'number' && typeof s.lon === 'number') {
           stationPosMap[s.id] = [s.lon, s.lat]
         }
       })
@@ -137,19 +173,17 @@ function transformLines(lines: RawLine[], routes: Record<string, any>) {
       }
 
       // Snap endpoints if they differ from station positions by > ~150m (approx 0.0015 deg lat/lon)
-      const SNAP_THRESHOLD = 0.0015
       if (aPos && bPos) {
         allCoordinates = allCoordinates.map(segment => {
-          const first = segment[0]
-          const last = segment[segment.length - 1]
+          if (segment.length === 0) return segment
+          const [first] = segment
           const dist = (p: [number, number], q: [number, number]) => Math.hypot(p[0] - q[0], p[1] - q[1])
-          const newFirst = dist(first, aPos) > SNAP_THRESHOLD && dist(first, bPos) < dist(first, aPos) ? first : aPos
-          const newLast = dist(last, bPos) > SNAP_THRESHOLD && dist(last, aPos) < dist(last, bPos) ? last : bPos
-          // Ensure we orient from aPos to bPos consistently
-          const oriented = dist(newFirst, aPos) <= dist(newFirst, bPos) ? segment : [...segment].reverse()
+          const oriented = dist(first, aPos) <= dist(first, bPos) ? [...segment] : [...segment].reverse()
           const adjusted = [...oriented]
-          adjusted[0] = aPos
-          adjusted[adjusted.length - 1] = bPos
+          if (adjusted.length > 0) {
+            adjusted[0] = aPos
+            adjusted[adjusted.length - 1] = bPos
+          }
           return adjusted
         })
       }
@@ -159,7 +193,7 @@ function transformLines(lines: RawLine[], routes: Record<string, any>) {
     const allPoints: [number, number][] = allCoordinates.flat()
     const lons = allPoints.map((c: [number, number]) => c[0])
     const lats = allPoints.map((c: [number, number]) => c[1])
-    const bounds = allPoints.length > 0 ? [
+    const bounds: [[number, number], [number, number]] | undefined = allPoints.length > 0 ? [
       [Math.min(...lons), Math.min(...lats)],
       [Math.max(...lons), Math.max(...lats)],
     ] : undefined
@@ -197,31 +231,32 @@ function transformLines(lines: RawLine[], routes: Record<string, any>) {
   }
 }
 
-function transformStations(routes: Record<string, any>) {
-  const stationMap = new Map<string, any>()
+function transformStations(routes: Record<string, RawRoute>) {
+  const stationMap = new Map<string, TransformedStation>()
   
   // Collect all unique stations across lines
   Object.entries(routes).forEach(([lineId, route]) => {
-    if (!route || !route.stations) return
+    if (!route?.stations) return
     
-    route.stations.forEach((station: any) => {
+    route.stations.forEach((station: RawRouteStation) => {
       if (!stationMap.has(station.id)) {
-        stationMap.set(station.id, {
+        const transformedStation: TransformedStation = {
           stationId: station.id,
           displayName: station.name || station.id,
           position: {
             type: 'Point',
-            coordinates: [station.lon || 0, station.lat || 0],
+            coordinates: [typeof station.lon === 'number' ? station.lon : 0, typeof station.lat === 'number' ? station.lat : 0],
           },
           lineCodes: [lineId],
           isInterchange: false,
           markerIcon: 'default',
           tooltipSummary: station.name || station.id,
           order: 0,
-        })
+        }
+        stationMap.set(station.id, transformedStation)
       } else {
         const existing = stationMap.get(station.id)
-        if (!existing.lineCodes.includes(lineId)) {
+        if (existing && !existing.lineCodes.includes(lineId)) {
           existing.lineCodes.push(lineId)
           existing.isInterchange = existing.lineCodes.length > 1
         }
