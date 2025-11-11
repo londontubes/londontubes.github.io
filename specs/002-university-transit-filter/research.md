@@ -47,7 +47,7 @@ Use Haversine formula for straight-line (great-circle) distance calculation betw
 - **Performance**: Haversine calculation is O(1) per station; filtering 450 stations takes ~1-2ms client-side
 - **Accuracy**: Great-circle distance provides reasonable approximation for walking distance at scales < 5 miles
 - **Simplicity**: No external routing API required; works offline; deterministic results
-- **User expectation**: Users understand "within 0.5 miles" as approximate walking distance
+- **User expectation (updated)**: Users understand the tighter default "within 0.25 miles" as focusing on immediately adjacent transit; they can expand to 0.5–1 mile for broader options
 
 ### Alternatives Considered
 1. **Google Maps Distance Matrix API**: Actual walking distances and times

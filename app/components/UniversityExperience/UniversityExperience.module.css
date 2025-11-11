@@ -1,0 +1,89 @@
+.universityInlineBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.iconsArea {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.inlineSliderWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 50%;
+  min-width: 400px;
+  flex-wrap: wrap;
+}
+
+.inlineSliderWrap :global(.RadiusSlider_container) {
+  width: 100%;
+}
+
+.sliderContainer {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.sliderContainer:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sliderContainer.active {
+  border-color: #0066cc;
+  background: #f8fafc;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+.sliderContainer.inactive {
+  opacity: 0.5;
+  cursor: pointer;
+  background: #f8fafc;
+}
+
+.sliderContainer.inactive:hover {
+  opacity: 0.7;
+  border-color: #94a3b8;
+}
+
+.sliderContainer.active > * {
+  pointer-events: auto;
+}
+
+.sliderContainer.inactive > * {
+  pointer-events: none;
+}
+
+@media (max-width: 800px) {
+  .universityInlineBar {
+    flex-wrap: wrap;
+  }
+  .inlineSliderWrap {
+    flex: 1 1 100%;
+    order: 2;
+    min-width: 0;
+  }
+  .iconsArea {
+    flex: 1 1 100%;
+    order: 1;
+  }
+}

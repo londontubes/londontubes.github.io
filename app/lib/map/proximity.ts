@@ -9,6 +9,7 @@
  */
 
 import type { Station, TransitLine } from '@/app/types/transit'
+import { calculateTravelTimes, deriveReachableLines, type TravelTimeResult } from './travelTime'
 
 // Earth's radius in miles
 const EARTH_RADIUS_MILES = 3958.8
@@ -260,4 +261,65 @@ export function isValidCoordinates(coords: unknown): coords is Coordinates {
   const isLngValid = lng >= -0.6 && lng <= 0.3
 
   return isLatValid && isLngValid
+}
+
+/**
+ * Calculate time-based proximity filter using Google Distance Matrix API.
+ * 
+ * Instead of using Haversine radius, this queries real transit/walking times
+ * and returns all stations reachable within the given duration.
+ * 
+ * @param campusCoords - Campus location [longitude, latitude]
+ * @param travelTimeMinutes - Maximum travel time in minutes
+ * @param allStations - All available stations
+ * @param allLines - All available lines
+ * @param mode - Travel mode: 'TRANSIT' (default), 'WALKING', or 'BICYCLING'
+ * @returns Object with reachable station IDs, filtered line codes, and travel time details
+ * 
+ * @example
+ * const filter = await calculateTimeBasedFilter(
+ *   [-0.1339, 51.5246], // UCL
+ *   15, // 15 minutes
+ *   stations,
+ *   lines,
+ *   'TRANSIT'
+ * );
+ * // Returns: {
+ * //   reachableStationIds: ["940GZZLUEUS", "940GZZLUGTR", ...],
+ * //   filteredLineCodes: ["circle", "northern", "piccadilly"],
+ * //   travelTimes: [{ stationId: "940GZZLUEUS", durationMinutes: 3.2, ... }, ...]
+ * // }
+ */
+export async function calculateTimeBasedFilter(
+  campusCoords: Coordinates,
+  travelTimeMinutes: number,
+  allStations: Station[],
+  allLines: TransitLine[],
+  mode: 'TRANSIT' | 'WALKING' | 'BICYCLING' = 'TRANSIT'
+): Promise<{
+  reachableStationIds: string[]
+  filteredLineCodes: string[]
+  travelTimes: TravelTimeResult[]
+}> {
+  // Convert [lng, lat] to [lat, lng] for Distance Matrix API
+  const origin: [number, number] = [campusCoords[1], campusCoords[0]]
+
+  // Calculate travel times to all stations
+  const travelTimes = await calculateTravelTimes(origin, allStations, {
+    mode,
+    maxDurationMinutes: travelTimeMinutes,
+    batchSize: 25,
+  })
+
+  // Extract reachable station IDs
+  const reachableStationIds = travelTimes.map((t) => t.stationId)
+
+  // Derive line codes from reachable stations
+  const filteredLineCodes = deriveReachableLines(travelTimes, allStations)
+
+  return {
+    reachableStationIds,
+    filteredLineCodes,
+    travelTimes,
+  }
 }
