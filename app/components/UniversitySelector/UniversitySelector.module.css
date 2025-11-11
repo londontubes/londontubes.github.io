@@ -1,28 +1,32 @@
 .container {
-  padding: 16px;
+  padding: 8px 12px;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .heading {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  margin: 0 0 12px 0;
+  margin: 0 0 8px 0;
   color: #333;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: nowrap;
   gap: 8px;
+  align-items: center;
+  overflow-x: auto;
 }
 
 .inlineRow {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow-x: auto;
+  align-items: center;
 }
 
 .inlineContainer {
@@ -37,15 +41,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 4px;
   background-color: transparent;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease;
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .universityIconButton:hover {
@@ -101,16 +106,16 @@
 /* Mobile responsive */
 @media (max-width: 640px) {
   .grid {
-    grid-template-columns: 1fr;
+    justify-content: center;
   }
 
   .container {
-    padding: 12px;
+    padding: 8px;
   }
 
   .universityIconButton {
-    width: 90px;
-    height: 90px;
+    width: 55px;
+    height: 55px;
   }
 }
 

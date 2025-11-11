@@ -101,7 +101,8 @@ export function TimeSlider({
   const handleIncrement = () => applyValue(localValue + step)
   const handleDecrement = () => applyValue(localValue - step)
 
-  const bubbleXStyle = { left: `${fillPercent}%` } as React.CSSProperties
+  // Calculate bubble position accounting for 20px margin on each side
+  const bubbleXStyle = { left: `calc(20px + ${fillPercent}% * (100% - 40px) / 100%)` } as React.CSSProperties
   const showBubble = enhancedUI && !disabled
 
   return (
@@ -110,17 +111,6 @@ export function TimeSlider({
         Travel Time
       </label>
       <div className={styles.sliderRow}>
-        {enhancedUI && (
-          <button
-            type="button"
-            className={styles.adjustBtn}
-            onClick={handleDecrement}
-            disabled={disabled}
-            aria-label={`Decrease time by ${step} minutes`}
-          >
-            −
-          </button>
-        )}
         <div className={styles.sliderWrapper}>
           <input
             id="time-slider"
@@ -149,26 +139,6 @@ export function TimeSlider({
             </div>
           )}
         </div>
-        {enhancedUI && (
-          <button
-            type="button"
-            className={styles.adjustBtn}
-            onClick={handleIncrement}
-            disabled={disabled}
-            aria-label={`Increase time by ${step} minutes`}
-          >
-            +
-          </button>
-        )}
-      </div>
-      {disabled && (
-        <span className={styles.hint}>
-          Select a university to adjust time
-        </span>
-      )}
-      <div className={styles.rangeLabels} aria-hidden="true">
-        <span>{minDisplay} min</span>
-        <span>{maxDisplay} min</span>
       </div>
     </div>
   )
