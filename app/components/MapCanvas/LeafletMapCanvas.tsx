@@ -95,6 +95,7 @@ function StationMarkers({
   selectedStation,
   onStationSelect,
   lineLabels,
+  lines,
 }: {
   stations: Station[]
   activeSet: Set<string> | null
@@ -104,7 +105,17 @@ function StationMarkers({
   travelTimeResults?: TravelTimeResult[]
   filterMode?: 'radius' | 'time'
   lineLabels: Record<string, string>
+  lines: TransitLine[]
 }) {
+  // Create a map of line code to brand color
+  const lineColorMap = useMemo(() => {
+    const map: Record<string, string> = {}
+    lines.forEach(line => {
+      map[line.lineCode] = line.brandColor
+    })
+    return map
+  }, [lines])
+
   const visibleStations = stations.filter(s => stationVisible(s, activeSet, filteredStationSet))
 
   return (
@@ -158,22 +169,22 @@ function StationMarkers({
                   <h3 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 'bold' }}>
                     {station.displayName}
                   </h3>
-                  <div style={{ fontSize: '14px' }}>
+                  <div style={{ fontSize: '14px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                     {station.lineCodes.map(code => (
-                      <div key={code} style={{ marginBottom: '4px' }}>
-                        <span style={{ 
+                      <span 
+                        key={code} 
+                        style={{ 
                           display: 'inline-block',
-                          padding: '2px 8px',
-                          backgroundColor: '#0066cc',
+                          padding: '4px 10px',
+                          backgroundColor: lineColorMap[code] || '#0066cc',
                           color: 'white',
                           borderRadius: '4px',
-                          marginRight: '8px',
-                          fontSize: '12px'
-                        }}>
-                          {code}
-                        </span>
+                          fontSize: '12px',
+                          fontWeight: '600',
+                        }}
+                      >
                         {lineLabels[code] || code}
-                      </div>
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -213,12 +224,12 @@ function UniversityMarkers({
           <CircleMarker
             key={uni.universityId}
             center={[feature.geometry.coordinates[1], feature.geometry.coordinates[0]]}
-            radius={isSelected ? 12 : 10}
+            radius={isSelected ? 14 : 10}
             pathOptions={{
               fillColor: isSelected ? '#FFD700' : '#FFA500',
               fillOpacity: 0.9,
               color: isSelected ? '#0066cc' : '#000000',
-              weight: isSelected ? 3 : 2,
+              weight: isSelected ? 4 : 2,
             }}
             eventHandlers={{
               click: (e: L.LeafletMouseEvent) => {
@@ -436,6 +447,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           selectedStation={selectedStation}
           onStationSelect={onStationSelect}
           lineLabels={lineLabels}
+          lines={lines}
         />
 
         {/* University markers */}
