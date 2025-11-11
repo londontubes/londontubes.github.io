@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
+import Image from 'next/image'
 import { getUniversityLogoMeta } from '@/app/config/universityLogos'
 import type { UniversitiesDataset } from '@/app/types/university'
 import styles from './UniversitySelector.module.css'
@@ -40,7 +41,6 @@ export function UniversitySelector({
           const isSelected = selectedUniversityId === university.universityId
           const logoMeta = getUniversityLogoMeta(university.universityId)
           const logoSrc = logoMeta ? `/images/universities/${logoMeta.filename}` : `/images/universities/${university.universityId.toLowerCase()}.svg`
-          const altText = logoMeta?.alt || `${university.displayName} logo`
           const brandStyle: React.CSSProperties = logoMeta ? { backgroundColor: '#fff', boxShadow: `0 0 0 1px rgba(0,0,0,0.1)` } : {}
           
           return (
@@ -52,7 +52,7 @@ export function UniversitySelector({
               aria-label={`${university.displayName}${university.isMultiCampus ? ` – ${university.campuses.length} campuses` : ''}`}
               title={`${university.displayName}${university.isMultiCampus ? ' (Multiple campuses)' : ''}`}
             >
-              <img
+              <Image
                 src={logoSrc}
                 alt=""
                 loading="lazy"

@@ -50,8 +50,6 @@ export function StationInfoCard({
         point.y * scale
       )
 
-      const mapDiv = mapInstance.getDiv()
-      const mapBounds = mapDiv.getBoundingClientRect()
       const mapTopLeft = projection.fromLatLngToPoint(
         mapInstance.getBounds()?.getNorthEast() || new google.maps.LatLng(0, 0)
       )

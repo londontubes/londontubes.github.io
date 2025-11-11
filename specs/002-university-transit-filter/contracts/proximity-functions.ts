@@ -60,21 +60,18 @@ export function findNearbyStations(
  * 
  * @param stationIds - Array of station IDs
  * @param allStations - All available stations
- * @param allLines - All available lines
  * @returns Array of unique line codes serving those stations
  * 
  * @example
  * const lineCodes = deriveLineCodes(
  *   ["940GZZLUSKS", "940GZZLUGTR"],
- *   stations,
- *   lines
+ *   stations
  * );
  * // Returns: ["circle", "district", "piccadilly"]
  */
 export function deriveLineCodes(
   stationIds: string[],
-  allStations: Station[],
-  allLines: TransitLine[]
+  allStations: Station[]
 ): string[];
 
 /**
@@ -115,8 +112,7 @@ export function findNearestStation(
  * const filter = calculateProximityFilter(
  *   [-0.1749, 51.4988],
  *   0.5,
- *   stations,
- *   lines
+ *   stations
  * );
  * // Returns: {
  * //   nearbyStationIds: ["940GZZLUSKS", "940GZZLUGTR"],
@@ -126,8 +122,7 @@ export function findNearestStation(
 export function calculateProximityFilter(
   campusCoords: Coordinates,
   radiusMiles: number,
-  allStations: Station[],
-  allLines: TransitLine[]
+  allStations: Station[]
 ): {
   nearbyStationIds: string[];
   filteredLineCodes: string[];

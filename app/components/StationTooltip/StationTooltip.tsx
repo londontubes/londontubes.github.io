@@ -48,8 +48,6 @@ export default function StationTooltip({ station, lineLabels, onClose, mapInstan
         point.y * scale
       )
 
-      const mapDiv = mapInstance.getDiv()
-      const mapBounds = mapDiv.getBoundingClientRect()
       const mapTopLeft = projection.fromLatLngToPoint(bounds.getNorthEast())
 
       if (!mapTopLeft) return

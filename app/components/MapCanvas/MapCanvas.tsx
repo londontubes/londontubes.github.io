@@ -5,7 +5,7 @@ import type { Station, TransitLine } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
 import type { TravelTimeResult } from '@/app/lib/map/travelTime'
 import { loadGoogleMaps, resetGoogleMapsLoader } from '@/app/lib/map/google-loader'
-import { stationMarkerAriaLabel, describeActiveLines } from '@/app/lib/a11y'
+import { stationMarkerAriaLabel } from '@/app/lib/a11y'
 import StationTooltip from '@/app/components/StationTooltip/StationTooltip'
 
 const LONDON_CENTER = {
@@ -458,8 +458,6 @@ export default function MapCanvas(props: MapCanvasProps) {
     const { map, polylines, markers } = overlaysRef.current
     if (!map) return
 
-    const visibleLines = lines.filter(line => !activeSet || activeSet.has(line.lineCode))
-
     // Determine which lines to show based on context
     let linesToShow: Set<string> | null = null
     
@@ -774,11 +772,6 @@ export default function MapCanvas(props: MapCanvasProps) {
     }
     return stations.filter(station => stationVisible(station, activeSet, filteredStationSet))
   }, [activeSet, filteredStationSet, stations])
-
-  const activeLineSummary = useMemo(
-    () => describeActiveLines(activeLineCodes, lineLabels),
-    [activeLineCodes, lineLabels]
-  )
 
   return (
     <section

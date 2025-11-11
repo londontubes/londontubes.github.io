@@ -12,9 +12,9 @@ export function SEOContent() {
           <p>
             Welcome to the most comprehensive <strong>London Tube Map</strong> online. Our interactive 
             map displays all 11 <strong>London Underground lines</strong>, the <strong>DLR network</strong>, 
-            and over 270 stations across Greater London. Whether you're planning your daily commute, 
+            and over 270 stations across Greater London. Whether you&apos;re planning your daily commute, 
             exploring tourist destinations, or finding the nearest tube station to London universities, 
-            our map provides the easiest way to navigate the capital's transport network.
+            our map provides the easiest way to navigate the capital&apos;s transport network.
           </p>
 
           <h3>Why Use Our London Underground Map?</h3>
@@ -22,12 +22,12 @@ export function SEOContent() {
           <ul className={styles.features}>
             <li>
               <strong>Interactive Line Filtering:</strong> Click any of the 11 tube lines 
-              (Bakerloo, Central, Circle, District, Hammersmith & City, Jubilee, Metropolitan, 
-              Northern, Piccadilly, Victoria, Waterloo & City) to view only that route
+              (Bakerloo, Central, Circle, District, Hammersmith &amp; City, Jubilee, Metropolitan, 
+              Northern, Piccadilly, Victoria, Waterloo &amp; City) to view only that route
             </li>
             <li>
               <strong>University Transit Finder:</strong> Discover which tube stations serve major 
-              London universities including UCL, Imperial College, LSE, King's College, QMUL, 
+              London universities including UCL, Imperial College, LSE, King&apos;s College, QMUL, 
               City University, SOAS, and Westminster
             </li>
             <li>
@@ -51,10 +51,10 @@ export function SEOContent() {
           <h3>About the London Underground Network</h3>
           
           <p>
-            The <strong>London Underground</strong>, commonly known as the Tube, is the world's 
+            The <strong>London Underground</strong>, commonly known as the Tube, is the world&apos;s 
             oldest metro system, serving Greater London since 1863. Today it operates 11 lines 
             covering 402 kilometers (250 miles) with 270 stations across 9 fare zones. Combined 
-            with the automated DLR system, London's rapid transit network carries over 5 million 
+            with the automated DLR system, London&apos;s rapid transit network carries over 5 million 
             passengers daily.
           </p>
 
@@ -112,7 +112,7 @@ export function SEOContent() {
           <p>
             Use the interactive map above to plan your journey across London. Filter by specific 
             tube lines, find connections between stations, or use our University Filter page to 
-            discover which campuses are nearest to Underground and DLR stations. Whether you're 
+            discover which campuses are nearest to Underground and DLR stations. Whether you&apos;re 
             a tourist, student, or daily commuter, our London tube map makes navigating the 
             capital simple and stress-free.
           </p>

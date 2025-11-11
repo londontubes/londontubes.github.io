@@ -166,34 +166,9 @@ describe('proximity calculations', () => {
       },
     ]
 
-    const mockLines: TransitLine[] = [
-      {
-        lineCode: 'central',
-        displayName: 'Central',
-        brandColor: '#DC241F',
-        textColor: '#FFFFFF',
-        mode: 'tube',
-        strokeWeight: 3,
-        polyline: { type: 'LineString', coordinates: [] },
-        stationIds: ['STATION_A'],
-        lastUpdated: '2025-11-09',
-      },
-      {
-        lineCode: 'northern',
-        displayName: 'Northern',
-        brandColor: '#000000',
-        textColor: '#FFFFFF',
-        mode: 'tube',
-        strokeWeight: 3,
-        polyline: { type: 'LineString', coordinates: [] },
-        stationIds: ['STATION_A', 'STATION_B'],
-        lastUpdated: '2025-11-09',
-      },
-    ]
-
     it('should derive unique line codes from station IDs', () => {
       const stationIds = ['STATION_A', 'STATION_B']
-      const lineCodes = deriveLineCodes(stationIds, mockStations, mockLines)
+      const lineCodes = deriveLineCodes(stationIds, mockStations)
       
       expect(lineCodes).toContain('central')
       expect(lineCodes).toContain('northern')
@@ -202,20 +177,20 @@ describe('proximity calculations', () => {
 
     it('should return alphabetically sorted line codes', () => {
       const stationIds = ['STATION_C', 'STATION_A']
-      const lineCodes = deriveLineCodes(stationIds, mockStations, mockLines)
+      const lineCodes = deriveLineCodes(stationIds, mockStations)
       
       const expected = ['central', 'district', 'northern', 'piccadilly'].sort()
       expect(lineCodes).toEqual(expected)
     })
 
     it('should handle empty station IDs array', () => {
-      const lineCodes = deriveLineCodes([], mockStations, mockLines)
+      const lineCodes = deriveLineCodes([], mockStations)
       expect(lineCodes).toHaveLength(0)
     })
 
     it('should handle invalid station IDs gracefully', () => {
       const stationIds = ['INVALID_ID', 'STATION_A']
-      const lineCodes = deriveLineCodes(stationIds, mockStations, mockLines)
+      const lineCodes = deriveLineCodes(stationIds, mockStations)
       
       expect(lineCodes).toContain('central')
       expect(lineCodes).toContain('northern')
@@ -296,34 +271,9 @@ describe('proximity calculations', () => {
       },
     ]
 
-    const mockLines: TransitLine[] = [
-      {
-        lineCode: 'central',
-        displayName: 'Central',
-        brandColor: '#DC241F',
-        textColor: '#FFFFFF',
-        mode: 'tube',
-        strokeWeight: 3,
-        polyline: { type: 'LineString', coordinates: [] },
-        stationIds: ['STATION_A'],
-        lastUpdated: '2025-11-09',
-      },
-      {
-        lineCode: 'northern',
-        displayName: 'Northern',
-        brandColor: '#000000',
-        textColor: '#FFFFFF',
-        mode: 'tube',
-        strokeWeight: 3,
-        polyline: { type: 'LineString', coordinates: [] },
-        stationIds: ['STATION_A', 'STATION_B'],
-        lastUpdated: '2025-11-09',
-      },
-    ]
-
     it('should combine proximity and line derivation', () => {
       const center: Coordinates = [-0.1339, 51.5246]
-      const filter = calculateProximityFilter(center, 0.5, mockStations, mockLines)
+      const filter = calculateProximityFilter(center, 0.5, mockStations)
       
       expect(filter.nearbyStationIds).toHaveLength(2)
       expect(filter.filteredLineCodes).toContain('central')
@@ -332,7 +282,7 @@ describe('proximity calculations', () => {
 
     it('should return empty arrays when no stations nearby', () => {
       const center: Coordinates = [-0.1339, 51.5246]
-      const filter = calculateProximityFilter(center, 0.001, mockStations, mockLines)
+      const filter = calculateProximityFilter(center, 0.001, mockStations)
       
       expect(filter.nearbyStationIds).toHaveLength(0)
       expect(filter.filteredLineCodes).toHaveLength(0)

@@ -4,7 +4,7 @@
 import { useMemo, useState, useCallback, useEffect } from 'react'
 import { describeActiveLines } from '@/app/lib/a11y'
 import LineFilter from '@/app/components/LineFilter/LineFilter'
-import MapCanvas, { type MapStatus } from '@/app/components/MapCanvas/MapCanvas'
+import MapCanvas from '@/app/components/MapCanvas/MapCanvas'
 import type { Station, TransitDataset } from '@/app/types/transit'
 import { createLineLabelMap } from '@/app/lib/data/load-static-data'
 
@@ -13,7 +13,7 @@ interface MapExperienceProps {
 }
 
 export default function MapExperience({ dataset }: MapExperienceProps) {
-  const { lines, stations, metadata } = dataset
+  const { lines, stations } = dataset
   // Empty array => show all lines (MapCanvas treats no active codes as full network)
   const [activeLineCodes, setActiveLineCodes] = useState<string[]>([])
   const [liveMessage, setLiveMessage] = useState<string>('')
@@ -42,7 +42,6 @@ export default function MapExperience({ dataset }: MapExperienceProps) {
     }
   }, [liveMessage])
   const [selectedStation, setSelectedStation] = useState<Station | null>(null)
-  const [mapStatus, setMapStatus] = useState<MapStatus>('idle')
 
   const lineLabels = useMemo(() => createLineLabelMap(lines), [lines])
   const activeLineSummary = useMemo(
@@ -74,7 +73,6 @@ export default function MapExperience({ dataset }: MapExperienceProps) {
         selectedStation={selectedStation}
         onStationSelect={setSelectedStation}
         lineLabels={lineLabels}
-        onStatusChange={setMapStatus}
       />
     </div>
   )

@@ -13,7 +13,7 @@ import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
 import { describeActiveLines } from '@/app/lib/a11y'
 import styles from './UniversityExperience.module.css'
 import LineFilter from '@/app/components/LineFilter/LineFilter'
-import MapCanvas, { type MapStatus } from '@/app/components/MapCanvas/MapCanvas'
+import MapCanvas from '@/app/components/MapCanvas/MapCanvas'
 import { CampusSelector } from '@/app/components/CampusSelector'
 import { RadiusSlider } from '@/app/components/RadiusSlider'
 import { TimeSlider } from '@/app/components/TimeSlider'
@@ -38,7 +38,7 @@ export default function UniversityExperience({
   transitDataset,
   universitiesDataset 
 }: UniversityExperienceProps) {
-  const { lines, stations, metadata } = transitDataset
+  const { lines, stations } = transitDataset
   
   // University selection state
   const [selectedUniversityId, setSelectedUniversityId] = useState<string | null>(null)
@@ -147,8 +147,7 @@ export default function UniversityExperience({
     const filter = calculateProximityFilter(
       campus.coordinates,
       radiusMiles,
-      stations,
-      lines
+      stations
     )
     
     setActiveLineCodes(filter.filteredLineCodes)
@@ -158,7 +157,7 @@ export default function UniversityExperience({
     handleAnnounce(
       `Selected ${university.displayName}, showing ${filter.nearbyStationIds.length} stations within ${formatDistance(radiusMiles)} on ${filter.filteredLineCodes.length} lines`
     )
-  }, [selectedUniversityId, universitiesDataset, radiusMiles, stations, lines, handleAnnounce, formatDistance])
+  }, [selectedUniversityId, universitiesDataset, radiusMiles, stations, handleAnnounce, formatDistance])
 
   // Handle campus selection from modal
   const handleCampusSelect = useCallback((campusId: string) => {
@@ -175,8 +174,7 @@ export default function UniversityExperience({
     const filter = calculateProximityFilter(
       campus.coordinates,
       radiusMiles,
-      stations,
-      lines
+      stations
     )
 
     setActiveLineCodes(filter.filteredLineCodes)
@@ -186,7 +184,7 @@ export default function UniversityExperience({
     handleAnnounce(
       `Selected ${campus.name}, showing ${filter.nearbyStationIds.length} stations within ${formatDistance(radiusMiles)} on ${filter.filteredLineCodes.length} lines`
     )
-  }, [campusSelectorUniversity, radiusMiles, stations, lines, handleAnnounce, formatDistance])
+  }, [campusSelectorUniversity, radiusMiles, stations, handleAnnounce, formatDistance])
 
   // Handle campus selector cancel
   const handleCampusCancel = useCallback(() => {
@@ -229,8 +227,7 @@ export default function UniversityExperience({
     const filter = calculateProximityFilter(
       campus.coordinates,
       newRadiusMiles,
-      stations,
-      lines
+      stations
     )
 
     setActiveLineCodes(filter.filteredLineCodes)
@@ -246,7 +243,7 @@ export default function UniversityExperience({
         `Radius adjusted to ${formatDistance(newRadiusMiles)}, showing ${filter.nearbyStationIds.length} stations on ${filter.filteredLineCodes.length} lines`
       )
     }
-  }, [distanceUnit, selectedUniversityId, selectedCampusId, universitiesDataset, stations, lines, handleAnnounce, formatDistance])
+  }, [distanceUnit, selectedUniversityId, selectedCampusId, universitiesDataset, stations, handleAnnounce, formatDistance])
 
   const toggleDistanceUnit = useCallback(() => {
     setDistanceUnit(prev => {
@@ -341,7 +338,6 @@ export default function UniversityExperience({
   }, [selectedUniversityId])
   
   const [selectedStation, setSelectedStation] = useState<Station | null>(null)
-  const [mapStatus, setMapStatus] = useState<MapStatus>('idle')
 
   const lineLabels = useMemo(() => createLineLabelMap(lines), [lines])
   const activeLineSummary = useMemo(
@@ -450,7 +446,6 @@ export default function UniversityExperience({
         selectedStation={selectedStation}
         onStationSelect={setSelectedStation}
         lineLabels={lineLabels}
-        onStatusChange={setMapStatus}
         universities={universitiesDataset}
         universityMode={true}
         selectedUniversityId={selectedUniversityId}

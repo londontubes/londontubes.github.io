@@ -137,7 +137,7 @@ export function TimeSlider({
             aria-valuemax={max}
             aria-valuenow={localValue}
             aria-valuetext={ariaValueText}
-            style={{ ['--fill-percent' as any]: `${fillPercent}%` }}
+            style={{ ['--fill-percent']: `${fillPercent}%` } as React.CSSProperties}
           />
           {showBubble && (
             <div

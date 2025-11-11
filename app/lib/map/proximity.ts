@@ -106,21 +106,18 @@ export function findNearbyStations(
  * 
  * @param stationIds - Array of station IDs
  * @param allStations - All available stations
- * @param allLines - All available lines
  * @returns Array of unique line codes serving those stations
  * 
  * @example
  * const lineCodes = deriveLineCodes(
  *   ["940GZZLUSKS", "940GZZLUGTR"],
- *   stations,
- *   lines
+ *   stations
  * );
  * // Returns: ["circle", "district", "piccadilly"]
  */
 export function deriveLineCodes(
   stationIds: string[],
-  allStations: Station[],
-  allLines: TransitLine[]
+  allStations: Station[]
 ): string[] {
   // Create a Set to store unique line codes
   const lineCodeSet = new Set<string>()
@@ -195,15 +192,13 @@ export function findNearestStation(
  * @param campusCoords - Campus location [longitude, latitude]
  * @param radiusMiles - Search radius in miles
  * @param allStations - All available stations
- * @param allLines - All available lines
  * @returns Object with nearby station IDs and filtered line codes
  * 
  * @example
  * const filter = calculateProximityFilter(
  *   [-0.1749, 51.4988],
  *   0.5,
- *   stations,
- *   lines
+ *   stations
  * );
  * // Returns: {
  * //   nearbyStationIds: ["940GZZLUSKS", "940GZZLUGTR"],
@@ -213,8 +208,7 @@ export function findNearestStation(
 export function calculateProximityFilter(
   campusCoords: Coordinates,
   radiusMiles: number,
-  allStations: Station[],
-  allLines: TransitLine[]
+  allStations: Station[]
 ): {
   nearbyStationIds: string[]
   filteredLineCodes: string[]
@@ -227,8 +221,7 @@ export function calculateProximityFilter(
 
   const filteredLineCodes = deriveLineCodes(
     nearbyStationIds,
-    allStations,
-    allLines
+    allStations
   )
 
   return {
