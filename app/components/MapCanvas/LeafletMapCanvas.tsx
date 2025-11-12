@@ -276,12 +276,16 @@ function RadiusCircle({
     <Circle
       center={[uni.geometry.coordinates[1], uni.geometry.coordinates[0]]}
       radius={radiusMeters}
+      interactive={false}
+      bubblingMouseEvents={false}
       pathOptions={{
         color: '#4CAF50',
         fillColor: '#4CAF50',
         fillOpacity: 0.1,
         weight: 2,
         dashArray: '5, 10',
+        // Disable pointer events to ensure station markers beneath remain clickable
+        pane: 'overlayPane'
       }}
     />
   )
