@@ -3,6 +3,8 @@ import 'leaflet/dist/leaflet.css'
 import './globals.css'
 import { NavigationTabs } from './components/NavigationTabs'
 import Analytics from './components/Analytics/Analytics'
+import PageViewTracker from './components/Analytics/PageViewTracker'
+import ConsentBanner from './components/Analytics/ConsentBanner'
 
 export const metadata: Metadata = {
   title: 'London Tube Map 2025 | Interactive Underground & DLR Network Map with Line Filter',
@@ -102,6 +104,8 @@ export default function RootLayout({
         <div id="live-region" aria-live="polite" aria-atomic="true" className="visually-hidden" />
         {/* Google Analytics (GA4) */}
         <Analytics />
+        <PageViewTracker />
+        <ConsentBanner />
       </body>
     </html>
   )

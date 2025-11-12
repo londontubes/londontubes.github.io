@@ -123,3 +123,22 @@ export function setAnalyticsConsent(options: { analytics_storage?: 'granted' | '
   if (!enabled()) return
   ;(window as any).gtag('consent', 'update', options)
 }
+
+// Outbound link click helper (semantic wrapper)
+export function trackOutboundClick(url: string) {
+  trackEvent({
+    action: 'outbound_click',
+    category: 'outbound',
+    label: url,
+  })
+}
+
+// Web Vitals helper
+export function trackWebVital(metricName: string, value: number, id: string) {
+  trackEvent({
+    action: metricName.toLowerCase(),
+    category: 'web_vitals',
+    label: id,
+    value: Math.round(value),
+  })
+}
