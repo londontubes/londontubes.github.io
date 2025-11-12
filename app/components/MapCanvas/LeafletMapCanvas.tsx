@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { MapContainer, TileLayer, Polyline, CircleMarker, Circle, Popup, useMap, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents } from 'react-leaflet'
 import { trackStationSelect, trackMapZoom } from '@/app/lib/analytics'
 import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
@@ -273,41 +273,6 @@ function UniversityMarkers({
   )
 }
 
-// Radius circle component
-function RadiusCircle({
-  selectedUniversityId,
-  universities,
-  radiusMiles,
-}: {
-  selectedUniversityId?: string | null
-  universities?: UniversitiesDataset
-  radiusMiles?: number
-}) {
-  if (!selectedUniversityId || !universities || !radiusMiles) return null
-
-  const uni = universities.features.find((u) => u.properties.universityId === selectedUniversityId)
-  if (!uni) return null
-
-  const radiusMeters = radiusMiles * 1609.34
-
-  return (
-    <Circle
-      center={[uni.geometry.coordinates[1], uni.geometry.coordinates[0]]}
-      radius={radiusMeters}
-      interactive={false}
-      bubblingMouseEvents={false}
-      pathOptions={{
-        color: '#4CAF50',
-        fillColor: '#4CAF50',
-        fillOpacity: 0.1,
-        weight: 2,
-        dashArray: '5, 10',
-        // Disable pointer events to ensure station markers beneath remain clickable
-        pane: 'overlayPane'
-      }}
-    />
-  )
-}
 
 export default function LeafletMapCanvas(props: MapCanvasProps) {
   const {
@@ -650,12 +615,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           </Polyline>
         ))}
 
-        {/* Radius circle around selected university */}
-        <RadiusCircle
-          selectedUniversityId={selectedUniversityId}
-          universities={universities}
-          radiusMiles={radiusMiles}
-        />
+        {/* Radius circle removed per requirement: no green boundary when adjusting walk time */}
 
         {/* Walking route polyline (real OSRM road-following or fallback) */}
         {filterMode === 'radius' && walkingRoute.length > 1 && (
