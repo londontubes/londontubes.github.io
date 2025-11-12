@@ -3,6 +3,9 @@
 import dynamic from 'next/dynamic'
 import type { MapCanvasProps } from './LeafletMapCanvas'
 
+// Legacy Google Maps implementation file `MapCanvas.tsx` has been removed.
+// This wrapper now exclusively serves the Leaflet implementation.
+
 // Dynamically import the Leaflet map component with SSR disabled
 const LeafletMapCanvas = dynamic(() => import('./LeafletMapCanvas'), {
   ssr: false,
