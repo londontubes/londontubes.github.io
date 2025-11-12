@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import 'leaflet/dist/leaflet.css'
 import './globals.css'
 import { NavigationTabs } from './components/NavigationTabs'
 
@@ -98,6 +99,7 @@ export default function RootLayout({
           {children}
         </div>
         <div id="live-region" aria-live="polite" aria-atomic="true" className="visually-hidden" />
+        {/* (Analytics components omitted on this branch) */}
       </body>
     </html>
   )
