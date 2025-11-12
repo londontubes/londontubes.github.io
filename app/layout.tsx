@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import 'leaflet/dist/leaflet.css'
 import './globals.css'
 import { NavigationTabs } from './components/NavigationTabs'
+import Analytics from './components/Analytics/Analytics'
 
 export const metadata: Metadata = {
   title: 'London Tube Map 2025 | Interactive Underground & DLR Network Map with Line Filter',
@@ -99,6 +100,8 @@ export default function RootLayout({
           {children}
         </div>
         <div id="live-region" aria-live="polite" aria-atomic="true" className="visually-hidden" />
+        {/* Google Analytics (GA4) */}
+        <Analytics />
       </body>
     </html>
   )

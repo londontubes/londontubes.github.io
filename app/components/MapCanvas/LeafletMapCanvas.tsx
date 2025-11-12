@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Circle, Popup, useMap, useMapEvents } from 'react-leaflet'
+import { trackStationSelect } from '@/app/lib/analytics'
 import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
@@ -113,6 +114,12 @@ function StationMarkers({
       map[line.lineCode] = line.brandColor
     })
     return map
+  // Track popup opens (station selection)
+  useEffect(() => {
+    if (selectedStation) {
+      trackStationSelect(selectedStation.stationId)
+    }
+  }, [selectedStation])
   }, [lines])
 
   const visibleStations = stations.filter(s => stationVisible(s, activeSet, filteredStationSet))

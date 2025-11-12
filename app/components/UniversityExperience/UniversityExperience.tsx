@@ -10,6 +10,7 @@
 'use client'
 
 import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
+import { trackUniversitySelect, trackUniversityDeselect, trackCampusApply, trackLineFilterChange } from '@/app/lib/analytics'
 import styles from './UniversityExperience.module.css'
 import LineFilter from '@/app/components/LineFilter/LineFilter'
 import MapCanvas from '@/app/components/MapCanvas/MapCanvasWrapper'
@@ -108,6 +109,7 @@ export default function UniversityExperience({
       // Record deselection to suppress immediate reselect on double click
       ;(lastDeselectionRef.current = { id: universityId, time: Date.now() })
       handleAnnounce('University deselected, map reset to show all lines and stations')
+      trackUniversityDeselect(universityId)
       return
     }
 
@@ -134,13 +136,15 @@ export default function UniversityExperience({
       setCampusSelectorUniversity(university)
       setShowCampusSelector(true)
       setSelectedUniversityId(universityId)
+      trackUniversitySelect(universityId)
       return
     }
 
     // Single campus - apply filter immediately
     const campus = university.campuses[0]
-    setSelectedUniversityId(universityId)
+  setSelectedUniversityId(universityId)
     setSelectedCampusId(campus.campusId)
+  trackUniversitySelect(universityId)
     
     // Calculate proximity filter
     const filter = calculateProximityFilter(
@@ -162,7 +166,7 @@ export default function UniversityExperience({
   const handleCampusSelect = useCallback((campusId: string) => {
     if (!campusSelectorUniversity) return
 
-    setSelectedCampusId(campusId)
+  setSelectedCampusId(campusId)
     setShowCampusSelector(false)
 
     // Find the selected campus
@@ -183,6 +187,7 @@ export default function UniversityExperience({
     handleAnnounce(
       `Selected ${campus.name}, showing ${filter.nearbyStationIds.length} stations within ${formatDistance(radiusMiles)} on ${filter.filteredLineCodes.length} lines`
     )
+  trackCampusApply(campusSelectorUniversity.universityId, campusId)
   }, [campusSelectorUniversity, radiusMiles, stations, handleAnnounce, formatDistance])
 
   // Handle campus selector cancel
@@ -328,6 +333,11 @@ export default function UniversityExperience({
       }
     }
   }, [filterMode, selectedUniversityId, handleAnnounce])
+
+  // Track line filter changes driven by university proximity or campus selection
+  useEffect(() => {
+    trackLineFilterChange(activeLineCodes)
+  }, [activeLineCodes])
 
   // Ensure when university is deselected, we're in radius mode
   useEffect(() => {
