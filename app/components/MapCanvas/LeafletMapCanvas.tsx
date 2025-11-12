@@ -7,6 +7,7 @@ import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
 import type { TravelTimeResult } from '@/app/lib/map/travelTime'
+import { calculateDistance, WALK_SPEED_MPH, WALK_OVERHEAD_MINUTES, WALK_ROUTE_FACTOR } from '@/app/lib/map/proximity'
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
@@ -362,6 +363,8 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
   const [walkingRoute, setWalkingRoute] = useState<[number, number][]>([])
   const [walkingRouteError, setWalkingRouteError] = useState<string | null>(null)
   const [walkingRouteLoading, setWalkingRouteLoading] = useState(false)
+  const [walkingRouteDistanceMiles, setWalkingRouteDistanceMiles] = useState<number | null>(null)
+  const [walkingRouteDurationMinutes, setWalkingRouteDurationMinutes] = useState<number | null>(null)
 
   // Fetch real walking route using OSRM public demo server (no key required)
   useEffect(() => {
@@ -396,7 +399,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
     setWalkingRouteError(null)
 
     const controller = new AbortController()
-    const url = `https://router.project-osrm.org/route/v1/foot/${campusLng},${campusLat};${stationLng},${stationLat}?overview=full&geometries=geojson&alternatives=false&steps=false`
+    const url = `https://router.project-osrm.org/route/v1/foot/${campusLng},${campusLat};${stationLng},${stationLat}?overview=full&geometries=geojson&alternatives=true&steps=false`
     fetch(url, { signal: controller.signal })
       .then(r => r.json())
       .then(data => {
@@ -404,12 +407,20 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
         if (data.code !== 'Ok' || !data.routes?.length) {
           throw new Error('No route')
         }
-        const geometry = data.routes[0].geometry
+        // Pick shortest distance route among alternatives
+        const bestRoute = data.routes.reduce((min: any, r: any) => (r.distance < min.distance ? r : min), data.routes[0])
+        const geometry = bestRoute.geometry
         if (!geometry || geometry.type !== 'LineString') {
           throw new Error('Bad geometry')
         }
         const coords: [number, number][] = geometry.coordinates.map(([lng, lat]: [number, number]) => [lat, lng])
         setWalkingRoute(coords)
+        // distance (meters) -> miles
+        const distanceMiles = bestRoute.distance / 1609.34
+        // duration (seconds) -> minutes; OSRM already accounts for realistic speed
+        const durationMinutes = bestRoute.duration / 60
+        setWalkingRouteDistanceMiles(distanceMiles)
+        setWalkingRouteDurationMinutes(durationMinutes)
         setWalkingRouteLoading(false)
         if (typeof window !== 'undefined') {
           try { sessionStorage.setItem(`walkRoute:${routeKey}`, JSON.stringify(coords)) } catch {}
@@ -425,6 +436,12 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           [stationLat, stationLng],
         ]
         setWalkingRoute(fallback)
+        // Approximate fallback metrics using heuristic inflation
+        const straightMiles = calculateDistance([campusLng, campusLat], [stationLng, stationLat])
+        const routeMiles = straightMiles * WALK_ROUTE_FACTOR
+        const minutes = (routeMiles / WALK_SPEED_MPH) * 60 + WALK_OVERHEAD_MINUTES
+        setWalkingRouteDistanceMiles(routeMiles)
+        setWalkingRouteDurationMinutes(minutes)
       })
     return () => {
       abort = true
@@ -617,7 +634,13 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
                   <strong>Walking route</strong><br />
                   {walkingRouteLoading && 'Loading real route…'}
                   {!walkingRouteLoading && walkingRouteError && `Fallback (straight line). Error: ${walkingRouteError}`}
-                  {!walkingRouteLoading && !walkingRouteError && 'Road-following route (OSRM)'}
+                  {!walkingRouteLoading && !walkingRouteError && 'Shortest road route (OSRM)'}
+                  <br />
+                  {walkingRouteDistanceMiles !== null && walkingRouteDurationMinutes !== null && (
+                    <span>
+                      Distance: {walkingRouteDistanceMiles.toFixed(2)} mi · Time: {Math.round(walkingRouteDurationMinutes)} min
+                    </span>
+                  )}
                 </div>
               </Popup>
             )}
