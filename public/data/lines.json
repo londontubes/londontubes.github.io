@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-11T21:56:48.476Z",
+  "generatedAt": "2025-11-12T19:32:34.608Z",
   "source": {
     "provider": "Transport for London",
     "dataset": "GeoJSON"
@@ -258,7 +258,7 @@
         "HUBWIJ",
         "HUBWMB"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.475Z"
+      "lastUpdated": "2025-11-12T19:32:34.607Z"
     },
     {
       "lineCode": "central",
@@ -1729,7 +1729,7 @@
         "HUBTCR",
         "HUBWRU"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.475Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     },
     {
       "lineCode": "circle",
@@ -2090,7 +2090,7 @@
         "HUBZFD",
         "HUBZMG"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.475Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     },
     {
       "lineCode": "district",
@@ -3628,7 +3628,7 @@
         "HUBWSM",
         "HUBZWL"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.475Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     },
     {
       "lineCode": "dlr",
@@ -4283,7 +4283,7 @@
         "HUBWEH",
         "HUBWWA"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.476Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     },
     {
       "lineCode": "hammersmith-city",
@@ -4574,7 +4574,7 @@
         "HUBZMG",
         "HUBZWL"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.476Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     },
     {
       "lineCode": "jubilee",
@@ -4847,7 +4847,7 @@
         "HUBWSM",
         "HUBZCW"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.476Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     },
     {
       "lineCode": "metropolitan",
@@ -5635,7 +5635,7 @@
         "HUBZFD",
         "HUBZMG"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.476Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     },
     {
       "lineCode": "northern",
@@ -7577,7 +7577,7 @@
         "HUBWAT",
         "HUBZMG"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.476Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     },
     {
       "lineCode": "piccadilly",
@@ -8608,7 +8608,7 @@
         "HUBHX5",
         "HUBKGX"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.476Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     },
     {
       "lineCode": "victoria",
@@ -8782,7 +8782,7 @@
         "HUBVXH",
         "HUBWHC"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.476Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     },
     {
       "lineCode": "waterloo-city",
@@ -8818,7 +8818,7 @@
         "HUBBAN",
         "HUBWAT"
       ],
-      "lastUpdated": "2025-11-11T21:56:48.476Z"
+      "lastUpdated": "2025-11-12T19:32:34.608Z"
     }
   ]
 }

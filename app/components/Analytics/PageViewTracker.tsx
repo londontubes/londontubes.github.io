@@ -39,7 +39,7 @@ export function PageViewTracker() {
       }
     }
     document.addEventListener('click', handleClick, { capture: true })
-    return () => document.removeEventListener('click', handleClick, { capture: true } as any)
+    return () => document.removeEventListener('click', handleClick, { capture: true })
   }, [])
 
   return null

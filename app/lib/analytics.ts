@@ -1,14 +1,18 @@
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 
-function enabled() {
-  return typeof window !== 'undefined' && !!GA_ID && typeof (window as any).gtag === 'function'
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void
+  }
+}
+
+function enabled(): boolean {
+  return typeof window !== 'undefined' && !!GA_ID && typeof window.gtag === 'function'
 }
 
 export function trackPageView(url: string) {
   if (!enabled()) return
-  ;(window as any).gtag('config', GA_ID, {
-    page_path: url,
-  })
+  window.gtag?.('config', GA_ID as string, { page_path: url })
 }
 
 interface AnalyticsEvent {
@@ -20,7 +24,7 @@ interface AnalyticsEvent {
 
 export function trackEvent({ action, category, label, value }: AnalyticsEvent) {
   if (!enabled()) return
-  ;(window as any).gtag('event', action, {
+  window.gtag?.('event', action, {
     event_category: category,
     event_label: label,
     value,
@@ -121,7 +125,7 @@ export function trackScrollDepth(percent: number) {
 // Consent mode stub (optional use)
 export function setAnalyticsConsent(options: { analytics_storage?: 'granted' | 'denied'; ad_storage?: 'granted' | 'denied' }) {
   if (!enabled()) return
-  ;(window as any).gtag('consent', 'update', options)
+  window.gtag?.('consent', 'update', options)
 }
 
 // Outbound link click helper (semantic wrapper)

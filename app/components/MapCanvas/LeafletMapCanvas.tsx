@@ -114,13 +114,14 @@ function StationMarkers({
       map[line.lineCode] = line.brandColor
     })
     return map
+  }, [lines])
+
   // Track popup opens (station selection)
   useEffect(() => {
     if (selectedStation) {
       trackStationSelect(selectedStation.stationId)
     }
   }, [selectedStation])
-  }, [lines])
 
   const visibleStations = stations.filter(s => stationVisible(s, activeSet, filteredStationSet))
 

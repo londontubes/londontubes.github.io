@@ -1,14 +1,10 @@
-import type { ReportHandler } from 'web-vitals'
 import { trackWebVital } from '@/app/lib/analytics'
 
-export const reportWebVitals: ReportHandler = (metric) => {
-  // Names: CLS, FCP, LCP, INP, TTFB (FID deprecated replaced by INP)
-  // Round value for consistency
+// Next.js calls this with a metric object containing: id, name, startTime, value, label
+export function reportWebVitals(metric: { id: string; name: string; value: number }) {
   try {
     trackWebVital(metric.name, metric.value, metric.id)
-  } catch (e) {
-    // Fail silently if analytics not ready
+  } catch {
+    // Silently ignore if analytics not initialized
   }
 }
-
-export default reportWebVitals
