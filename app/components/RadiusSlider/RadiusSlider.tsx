@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from './RadiusSlider.module.css'
 
 // Repurposed: RadiusSlider now represents WALK TIME (minutes) not distance.
@@ -78,19 +78,7 @@ export function RadiusSlider({
   // Derived fill percentage for styling
   const fillPercent = ((localValue - min) / (max - min)) * 100
 
-  // Increment / Decrement with clamp
-  const applyValue = useCallback((next: number) => {
-    const clamped = Math.min(max, Math.max(min, next))
-    setLocalValue(clamped)
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-    }
-    timeoutRef.current = setTimeout(() => onChange(clamped), 10)
-  }, [max, min, onChange])
-
-  const handleIncrement = () => applyValue(localValue + step)
-  const handleDecrement = () => applyValue(localValue - step)
-
+  // (Increment/decrement handlers removed; slider only changes via drag)
   // Calculate bubble position accounting for 20px margin on each side
   const bubbleXStyle = { left: `calc(20px + ${fillPercent}% * (100% - 40px) / 100%)` } as React.CSSProperties
   const showBubble = enhancedUI && !disabled

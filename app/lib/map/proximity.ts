@@ -61,25 +61,17 @@ export function calculateDistance(
   const distance = EARTH_RADIUS_MILES * c
 
   return distance
+
 }
+
 
 /**
  * Find all stations within a given radius of a point
- * 
+ *
  * @param centerCoords - Origin point [longitude, latitude]
  * @param radiusMiles - Search radius in miles
  * @param allStations - Array of all available stations
  * @returns Array of station IDs within radius
- * 
- * @performance Target: <2ms for 450 stations
- * 
- * @example
- * const nearbyStations = findNearbyStations(
- *   [-0.1749, 51.4988], // Imperial College South Kensington
- *   0.5, // 0.5 mile radius
- *   stations
- * );
- * // Returns: ["940GZZLUSKS", "940GZZLUGTR", ...]
  */
 export function findNearbyStations(
   centerCoords: Coordinates,
@@ -100,20 +92,11 @@ export function findNearbyStations(
 
   return nearbyStationIds
 }
-
 /**
  * Derive line codes from station IDs
- * 
  * @param stationIds - Array of station IDs
  * @param allStations - All available stations
  * @returns Array of unique line codes serving those stations
- * 
- * @example
- * const lineCodes = deriveLineCodes(
- *   ["940GZZLUSKS", "940GZZLUGTR"],
- *   stations
- * );
- * // Returns: ["circle", "district", "piccadilly"]
  */
 export function deriveLineCodes(
   stationIds: string[],
@@ -257,31 +240,11 @@ export function isValidCoordinates(coords: unknown): coords is Coordinates {
 }
 
 /**
- * Calculate time-based proximity filter using Google Distance Matrix API.
- * 
- * Instead of using Haversine radius, this queries real transit/walking times
- * and returns all stations reachable within the given duration.
- * 
- * @param campusCoords - Campus location [longitude, latitude]
- * @param travelTimeMinutes - Maximum travel time in minutes
- * @param allStations - All available stations
- * @param allLines - All available lines
- * @param mode - Travel mode: 'TRANSIT' (default), 'WALKING', or 'BICYCLING'
- * @returns Object with reachable station IDs, filtered line codes, and travel time details
- * 
- * @example
- * const filter = await calculateTimeBasedFilter(
- *   [-0.1339, 51.5246], // UCL
- *   15, // 15 minutes
- *   stations,
- *   lines,
- *   'TRANSIT'
- * );
- * // Returns: {
- * //   reachableStationIds: ["940GZZLUEUS", "940GZZLUGTR", ...],
- * //   filteredLineCodes: ["circle", "northern", "piccadilly"],
- * //   travelTimes: [{ stationId: "940GZZLUEUS", durationMinutes: 3.2, ... }, ...]
- * // }
+ * Calculate time-based proximity filter (offline heuristic).
+ *
+ * Uses straight-line distance + average mode speeds + fixed overhead
+ * (see travelTime.ts) to approximate reachability within a maximum duration.
+ * No external API calls. Suitable for coarse UI filtering only.
  */
 export async function calculateTimeBasedFilter(
   campusCoords: Coordinates,

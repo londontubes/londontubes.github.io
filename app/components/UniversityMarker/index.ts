@@ -1,2 +1,2 @@
-export { createUniversityMarker } from './UniversityMarker'
-export type { UniversityMarkerProps } from './UniversityMarker'
+// Deprecated exports removed (Google Maps implementation deleted).
+export {}

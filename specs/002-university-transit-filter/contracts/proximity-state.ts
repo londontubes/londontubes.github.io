@@ -44,8 +44,8 @@ export interface UniversityMarkerState {
   isSelected: boolean;
   /** Whether to show campus selector on click */
   isMultiCampus: boolean;
-  /** Custom SVG icon configuration */
-  icon: google.maps.Icon;
+  /** Custom SVG icon configuration (placeholder, Google removed) */
+  icon: unknown;
 }
 
 /**

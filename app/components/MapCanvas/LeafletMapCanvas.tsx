@@ -2,12 +2,12 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Circle, Popup, useMap, useMapEvents } from 'react-leaflet'
+import { trackStationSelect, trackMapZoom } from '@/app/lib/analytics'
 import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
 import type { TravelTimeResult } from '@/app/lib/map/travelTime'
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
-import StationTooltip from '@/app/components/StationTooltip/StationTooltip'
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
 const DEFAULT_ZOOM = 11
@@ -116,15 +116,22 @@ function StationMarkers({
     return map
   }, [lines])
 
+  // Track popup opens (station selection)
+  useEffect(() => {
+    if (selectedStation) {
+      trackStationSelect(selectedStation.stationId)
+    }
+  }, [selectedStation])
+
   const visibleStations = stations.filter(s => stationVisible(s, activeSet, filteredStationSet))
 
   return (
     <>
       {visibleStations.map(station => {
-        const isSelected = selectedStation?.stationId === station.stationId
-        const isFiltered = filteredStationSet?.has(station.stationId)
-        
-        let color = '#4CAF50' // Green for filtered/visible stations
+  const isSelected = selectedStation?.stationId === station.stationId
+  const isFiltered = filteredStationSet?.has(station.stationId)
+  let color = '#FFFFFF' // White for filtered/visible stations
+
         let radius = 8
         
         if (!isFiltered && filteredStationSet) {
@@ -330,42 +337,98 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
 
   // Prepare transit line paths
   const linePaths = useMemo(() => {
-    return lines
-      .filter(line => !activeSet || activeSet.has(line.lineCode))
-      .map(line => {
-        const coords = line.polyline.type === 'MultiLineString'
-          ? (line.polyline.coordinates as [number, number][][]).flat()
-          : (line.polyline.coordinates as [number, number][])
+    const result: Array<{
+      lineCode: string
+      displayName: string
+      brandColor: string
+      positions: [number, number][]
+      segmentIndex: number
+    }> = []
 
-        return {
-          lineCode: line.lineCode,
-          displayName: line.displayName,
-          brandColor: line.brandColor,
-          positions: coords.map(([lng, lat]) => [lat, lng] as [number, number]),
+    lines
+      .filter(line => !activeSet || activeSet.has(line.lineCode))
+      .forEach(line => {
+        if (line.polyline.type === 'MultiLineString') {
+          // Handle MultiLineString: each segment separately
+          const segments = line.polyline.coordinates as [number, number][][]
+          segments.forEach((segment, index) => {
+            result.push({
+              lineCode: line.lineCode,
+              displayName: line.displayName,
+              brandColor: line.brandColor,
+              positions: segment.map(([lng, lat]) => [lat, lng] as [number, number]),
+              segmentIndex: index,
+            })
+          })
+        } else {
+          // Handle LineString: single segment
+          const coords = line.polyline.coordinates as [number, number][]
+          result.push({
+            lineCode: line.lineCode,
+            displayName: line.displayName,
+            brandColor: line.brandColor,
+            positions: coords.map(([lng, lat]) => [lat, lng] as [number, number]),
+            segmentIndex: 0,
+          })
         }
       })
+
+    return result
   }, [lines, activeSet])
 
   // Prepare inactive lines (greyed out)
   const inactiveLinePaths = useMemo(() => {
     if (!activeSet) return []
-    return lines
-      .filter(line => !activeSet.has(line.lineCode))
-      .map(line => {
-        const coords = line.polyline.type === 'MultiLineString'
-          ? (line.polyline.coordinates as [number, number][][]).flat()
-          : (line.polyline.coordinates as [number, number][])
+    
+    const result: Array<{
+      lineCode: string
+      positions: [number, number][]
+      segmentIndex: number
+    }> = []
 
-        return {
-          lineCode: line.lineCode,
-          positions: coords.map(([lng, lat]) => [lat, lng] as [number, number]),
+    lines
+      .filter(line => !activeSet.has(line.lineCode))
+      .forEach(line => {
+        if (line.polyline.type === 'MultiLineString') {
+          // Handle MultiLineString: each segment separately
+          const segments = line.polyline.coordinates as [number, number][][]
+          segments.forEach((segment, index) => {
+            result.push({
+              lineCode: line.lineCode,
+              positions: segment.map(([lng, lat]) => [lat, lng] as [number, number]),
+              segmentIndex: index,
+            })
+          })
+        } else {
+          // Handle LineString: single segment
+          const coords = line.polyline.coordinates as [number, number][]
+          result.push({
+            lineCode: line.lineCode,
+            positions: coords.map(([lng, lat]) => [lat, lng] as [number, number]),
+            segmentIndex: 0,
+          })
         }
       })
+
+    return result
   }, [lines, activeSet])
 
   const handleMapClick = () => {
     onStationSelect(null)
   }
+
+  // Track zoom changes
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map) return
+    const onZoom = () => {
+      trackMapZoom(map.getZoom())
+    }
+    map.on('zoomend', onZoom)
+    return () => {
+      map.off('zoomend', onZoom)
+    }
+  }, [mapRef])
 
   return (
     <section className="map-shell">
@@ -407,7 +470,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
         {/* Inactive lines (grey) */}
         {inactiveLinePaths.map(line => (
           <Polyline
-            key={`inactive-${line.lineCode}`}
+            key={`inactive-${line.lineCode}-${line.segmentIndex}`}
             positions={line.positions}
             pathOptions={{
               color: '#cccccc',
@@ -420,7 +483,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
         {/* Active lines */}
         {linePaths.map(line => (
           <Polyline
-            key={line.lineCode}
+            key={`${line.lineCode}-${line.segmentIndex}`}
             positions={line.positions}
             pathOptions={{
               color: line.brandColor,

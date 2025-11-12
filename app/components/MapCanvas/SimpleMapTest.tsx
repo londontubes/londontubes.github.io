@@ -1,6 +1,12 @@
 'use client'
 
-export default function SimpleMapTest(props: any) {
+interface SimpleMapTestProps {
+  lines?: unknown[]
+  stations?: unknown[]
+  [key: string]: unknown
+}
+
+export default function SimpleMapTest(props: SimpleMapTestProps) {
   console.log('SimpleMapTest received props:', Object.keys(props))
   
   return (

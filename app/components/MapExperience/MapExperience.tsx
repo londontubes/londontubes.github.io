@@ -2,9 +2,9 @@
 // Restored client directive so that stateful hooks and map initialization run properly.
 
 import { useMemo, useState, useCallback, useEffect } from 'react'
-import { describeActiveLines } from '@/app/lib/a11y'
+import { trackLineFilterChange } from '@/app/lib/analytics'
 import LineFilter from '@/app/components/LineFilter/LineFilter'
-import MapCanvas from '@/app/components/MapCanvas/MapCanvas'
+import MapCanvas from '@/app/components/MapCanvas/MapCanvasWrapper'
 import type { Station, TransitDataset } from '@/app/types/transit'
 import { createLineLabelMap } from '@/app/lib/data/load-static-data'
 
@@ -41,13 +41,18 @@ export default function MapExperience({ dataset }: MapExperienceProps) {
       region.textContent = liveMessage
     }
   }, [liveMessage])
+  // Track line filter changes for analytics
+  useEffect(() => {
+    trackLineFilterChange(activeLineCodes)
+  }, [activeLineCodes])
   const [selectedStation, setSelectedStation] = useState<Station | null>(null)
 
   const lineLabels = useMemo(() => createLineLabelMap(lines), [lines])
-  const activeLineSummary = useMemo(
-    () => describeActiveLines(activeLineCodes, lineLabels),
-    [activeLineCodes, lineLabels]
-  )
+  const activeLineSummary = useMemo(() => {
+    if (activeLineCodes.length === 0) return 'All lines'
+    if (activeLineCodes.length === 1) return `${lineLabels[activeLineCodes[0]] || activeLineCodes[0]}`
+    return `${activeLineCodes.length} lines selected`
+  }, [activeLineCodes, lineLabels])
 
   return (
     <div className="map-experience">

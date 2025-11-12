@@ -12,7 +12,7 @@ export default function NotFound() {
       <h1 style={{ fontSize: '72px', margin: '0' }}>404</h1>
       <h2 style={{ margin: '20px 0' }}>Page Not Found</h2>
       <p style={{ color: '#666', marginBottom: '30px' }}>
-        The page you're looking for doesn't exist.
+        The page you&apos;re looking for doesn&apos;t exist.
       </p>
       <a 
         href="/"
