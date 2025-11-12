@@ -21,11 +21,17 @@ import { UniversitySelector } from '@/app/components/UniversitySelector'
 import type { Station, TransitDataset } from '@/app/types/transit'
 import type { UniversitiesDataset, University } from '@/app/types/university'
 import { createLineLabelMap } from '@/app/lib/data/load-static-data'
-import { calculateProximityFilter, calculateTimeBasedFilter } from '@/app/lib/map/proximity'
+import { calculateWalkingTimeFilter, calculateTimeBasedFilter, WALK_SPEED_MPH, WALK_ROUTE_FACTOR, WALK_OVERHEAD_MINUTES } from '@/app/lib/map/proximity'
 import { type TravelTimeResult } from '@/app/lib/map/travelTime'
 
-// Walk speed (3 mph) used to convert walk minutes -> miles (radius for proximity)
-const MILES_PER_MINUTE_WALK = 3 / 60 // 0.05 miles per minute
+// Derive straight-line radius (miles) from walk minutes using walking-time heuristic
+// Inverse of: minutes = ((distanceMiles * WALK_ROUTE_FACTOR) / WALK_SPEED_MPH) * 60 + WALK_OVERHEAD_MINUTES
+function straightLineRadiusFromMinutes(minutes: number): number {
+  const effective = Math.max(0, minutes - WALK_OVERHEAD_MINUTES)
+  const routeMiles = (effective / 60) * WALK_SPEED_MPH
+  const straightLineMiles = routeMiles / WALK_ROUTE_FACTOR
+  return straightLineMiles
+}
 const MIN_WALK_MINUTES = 5
 const MAX_WALK_MINUTES = 60
 const STEP_WALK_MINUTES = 1
@@ -141,19 +147,19 @@ export default function UniversityExperience({
     setSelectedCampusId(campus.campusId)
     trackUniversitySelect(universityId)
     
-    // Calculate proximity filter
-    const filter = calculateProximityFilter(
+    // Calculate walking-time based filter
+    const filter = calculateWalkingTimeFilter(
       campus.coordinates,
-      walkMinutes * MILES_PER_MINUTE_WALK,
+      walkMinutes,
       stations
     )
-    
+
     setActiveLineCodes(filter.filteredLineCodes)
-    setFilteredStationIds(filter.nearbyStationIds)
+    setFilteredStationIds(filter.reachableStationIds)
     setFilterMode('radius') // Ensure we're in radius mode
     setTravelTimeResults([]) // Clear time-based results
     handleAnnounce(
-      `Selected ${university.displayName}, showing ${filter.nearbyStationIds.length} stations within ${formatWalkTime(walkMinutes)} on ${filter.filteredLineCodes.length} lines`
+      `Selected ${university.displayName}, showing ${filter.reachableStationIds.length} stations reachable within ${formatWalkTime(walkMinutes)} on ${filter.filteredLineCodes.length} lines`
     )
   }, [selectedUniversityId, universitiesDataset, walkMinutes, stations, handleAnnounce, formatWalkTime])
 
@@ -168,19 +174,19 @@ export default function UniversityExperience({
     const campus = campusSelectorUniversity.campuses.find(c => c.campusId === campusId)
     if (!campus) return
 
-    // Calculate proximity filter
-    const filter = calculateProximityFilter(
+    // Calculate walking-time based filter
+    const filter = calculateWalkingTimeFilter(
       campus.coordinates,
-      walkMinutes * MILES_PER_MINUTE_WALK,
+      walkMinutes,
       stations
     )
 
     setActiveLineCodes(filter.filteredLineCodes)
-    setFilteredStationIds(filter.nearbyStationIds)
+    setFilteredStationIds(filter.reachableStationIds)
     setFilterMode('radius') // Ensure we're in radius mode
     setTravelTimeResults([]) // Clear time-based results
     handleAnnounce(
-      `Selected ${campus.name}, showing ${filter.nearbyStationIds.length} stations within ${formatWalkTime(walkMinutes)} on ${filter.filteredLineCodes.length} lines`
+      `Selected ${campus.name}, showing ${filter.reachableStationIds.length} stations reachable within ${formatWalkTime(walkMinutes)} on ${filter.filteredLineCodes.length} lines`
     )
     trackCampusApply(campusSelectorUniversity.universityId, campusId)
   }, [campusSelectorUniversity, walkMinutes, stations, handleAnnounce, formatWalkTime])
@@ -222,15 +228,15 @@ export default function UniversityExperience({
     const campus = university.campuses.find(c => c.campusId === selectedCampusId)
     if (!campus) return
 
-    // Recalculate proximity filter with new radius
-    const filter = calculateProximityFilter(
+    // Recalculate walking-time filter with new max minutes
+    const filter = calculateWalkingTimeFilter(
       campus.coordinates,
-      candidateMinutes * MILES_PER_MINUTE_WALK,
+      candidateMinutes,
       stations
     )
 
     setActiveLineCodes(filter.filteredLineCodes)
-    setFilteredStationIds(filter.nearbyStationIds)
+    setFilteredStationIds(filter.reachableStationIds)
     trackRadiusChange(rawMinutes, selectedUniversityId || '')
 
     // Announce change
@@ -240,7 +246,7 @@ export default function UniversityExperience({
       )
     } else {
       handleAnnounce(
-        `Walk time adjusted to ${candidateMinutes} min, showing ${filter.nearbyStationIds.length} stations on ${filter.filteredLineCodes.length} lines`
+        `Walk time adjusted to ${candidateMinutes} min, showing ${filter.reachableStationIds.length} stations on ${filter.filteredLineCodes.length} lines`
       )
     }
   }, [selectedUniversityId, selectedCampusId, universitiesDataset, stations, handleAnnounce])
@@ -445,7 +451,7 @@ export default function UniversityExperience({
   travelTimeResults={travelTimeResults}
         filterMode={filterMode}
         filteredStationIds={filteredStationIds}
-  radiusMiles={walkMinutes * MILES_PER_MINUTE_WALK}
+  radiusMiles={straightLineRadiusFromMinutes(walkMinutes)}
       />
 
       {showCampusSelector && campusSelectorUniversity && (

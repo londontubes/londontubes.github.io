@@ -64,6 +64,11 @@ export function calculateDistance(
 
 }
 
+// Walking model constants (exported for UI components)
+export const WALK_SPEED_MPH = 3 // average walking speed
+export const WALK_ROUTE_FACTOR = 1.3 // factor to inflate straight-line distance to approximate street routing
+export const WALK_OVERHEAD_MINUTES = 2 // fixed overhead (traffic lights, orientation)
+
 
 /**
  * Find all stations within a given radius of a point
@@ -210,6 +215,49 @@ export function calculateProximityFilter(
   return {
     nearbyStationIds,
     filteredLineCodes,
+  }
+}
+
+/**
+ * Calculate walking-time based filter (approximate street shortest route).
+ *
+ * Instead of simple radius inclusion (straight-line distance), this converts
+ * each campus->station distance to an estimated walking time using:
+ *   routeDistanceMiles = straightLineMiles * WALK_ROUTE_FACTOR
+ *   walkingMinutes = (routeDistanceMiles / WALK_SPEED_MPH) * 60 + WALK_OVERHEAD_MINUTES
+ * Stations whose walkingMinutes <= maxWalkMinutes are included.
+ *
+ * This is an offline heuristic approximation; for production-grade accuracy,
+ * replace with real pedestrian network routing (e.g. OSM graph + Dijkstra/A*).
+ */
+export function calculateWalkingTimeFilter(
+  campusCoords: Coordinates,
+  maxWalkMinutes: number,
+  allStations: Station[]
+): {
+  reachableStationIds: string[]
+  filteredLineCodes: string[]
+  walkingTimes: Array<{ stationId: string; minutes: number }>
+} {
+  const reachableStationIds: string[] = []
+  const walkingTimes: Array<{ stationId: string; minutes: number }> = []
+
+  for (const station of allStations) {
+    const distanceMiles = calculateDistance(campusCoords, station.position.coordinates)
+    const routeMiles = distanceMiles * WALK_ROUTE_FACTOR
+    const minutes = (routeMiles / WALK_SPEED_MPH) * 60 + WALK_OVERHEAD_MINUTES
+    if (minutes <= maxWalkMinutes) {
+      reachableStationIds.push(station.stationId)
+    }
+    walkingTimes.push({ stationId: station.stationId, minutes: Math.round(minutes * 10) / 10 })
+  }
+
+  const filteredLineCodes = deriveLineCodes(reachableStationIds, allStations)
+
+  return {
+    reachableStationIds,
+    filteredLineCodes,
+    walkingTimes,
   }
 }
 
