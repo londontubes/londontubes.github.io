@@ -155,18 +155,20 @@ export default function MapCanvas(props: MapCanvasProps) {
   }, [status, onStatusChange])
 
   useEffect(() => {
-  let cancelled = false
-  const overlaysForCleanup = overlaysRef.current
+    let cancelled = false
+    const overlaysForCleanup = overlaysRef.current
     const container = containerRef.current
 
     if (!container) {
       return
     }
 
-    setStatus('loading')
+      setStatus('loading')
 
-    loadGoogleMaps({ libraries: ['marker'] })
-      .then(google => {
+      try {
+        const loaderPromise = loadGoogleMaps({ libraries: ['marker'] })
+        loaderPromise
+          .then(google => {
         if (cancelled) {
           return
         }
@@ -432,15 +434,20 @@ export default function MapCanvas(props: MapCanvasProps) {
         setRenderMode('google')
         setStatus('ready')
 
-        return () => {
-          markerClickHandlers.forEach(listener => listener.remove())
-        }
-      })
-      .catch(error => {
-        console.error('Google Maps failed to load. Falling back to offline renderer.', error)
-        setRenderMode('fallback')
-        setStatus('ready')
-      })
+          return () => {
+            markerClickHandlers.forEach(listener => listener.remove())
+          }
+        })
+        .catch(error => {
+          console.error('Google Maps failed to load asynchronously. Falling back to offline renderer.', error)
+          setRenderMode('fallback')
+          setStatus('ready')
+        })
+    } catch (error) {
+      console.error('Google Maps failed to initialize (likely missing API key).', error)
+      setRenderMode('fallback')
+      setStatus('error')
+    }
 
     return () => {
       cancelled = true
@@ -813,6 +820,12 @@ export default function MapCanvas(props: MapCanvasProps) {
       {status === 'loading' && (
         <div className="map-status" role="status">
           <p>Loading network map…</p>
+        </div>
+      )}
+
+      {status === 'error' && (
+        <div className="map-status" role="alert">
+          <p>Map unavailable. Set a valid NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to enable interactive map. Showing fallback if possible.</p>
         </div>
       )}
 

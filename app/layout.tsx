@@ -103,7 +103,7 @@ export default function RootLayout({
           {children}
         </div>
         <div id="live-region" aria-live="polite" aria-atomic="true" className="visually-hidden" />
-        {/* Google Analytics (GA4) */}
+        {/* Google Ads already present above; inject Analytics + trackers */}
         <Analytics />
         <Suspense fallback={null}>
           <PageViewTracker />
