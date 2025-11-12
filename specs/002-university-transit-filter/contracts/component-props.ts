@@ -43,8 +43,7 @@ export interface UniversityExperienceProps {
   lines: TransitLine[];
   /** Tube/DLR stations loaded from stations.json */
   stations: Station[];
-  /** Google Maps API key for map rendering */
-  googleMapsApiKey: string;
+  /** Removed Google Maps API key dependency. */
 }
 
 /**
@@ -103,10 +102,10 @@ export interface UniversityMarkerProps {
   isSelected: boolean;
   /** Callback when user clicks marker */
   onClick: (universityId: string) => void;
-  /** Google Maps instance for marker rendering */
-  map: google.maps.Map;
-  /** Optional icon override (for testing) */
-  icon?: google.maps.Icon;
+  /** Generic map instance placeholder (Leaflet) */
+  map: unknown;
+  /** Optional icon override placeholder */
+  icon?: unknown;
 }
 
 /**
@@ -127,8 +126,6 @@ export interface MapCanvasPropsExtended {
   proximityFilter?: ProximityFilter | null;
   /** Operating mode ("lines" | "universities") */
   mode: "lines" | "universities";
-  /** Google Maps API key */
-  googleMapsApiKey: string;
   /** Map center override */
   center?: { lat: number; lng: number };
   /** Map zoom override */
