@@ -68,3 +68,58 @@ export function trackStationSelect(stationId: string) {
     label: stationId,
   })
 }
+
+// Radius slider change (fires on commit, not every tiny movement ideally)
+export function trackRadiusChange(miles: number, universityId?: string) {
+  trackEvent({
+    action: 'radius_change',
+    category: 'filter_radius',
+    label: universityId ? `${universityId}:${miles.toFixed(2)}` : miles.toFixed(2),
+    value: Math.round(miles * 100), // scaled to avoid float issues
+  })
+}
+
+// Travel time slider change
+export function trackTimeFilterChange(minutes: number, universityId?: string) {
+  trackEvent({
+    action: 'time_filter_change',
+    category: 'filter_time',
+    label: universityId ? `${universityId}:${minutes}` : String(minutes),
+    value: minutes,
+  })
+}
+
+// Filter mode toggle
+export function trackFilterModeChange(mode: 'radius' | 'time') {
+  trackEvent({
+    action: 'filter_mode_change',
+    category: 'filter_mode',
+    label: mode,
+  })
+}
+
+// Map zoom level
+export function trackMapZoom(zoom: number) {
+  trackEvent({
+    action: 'map_zoom',
+    category: 'map',
+    label: String(zoom),
+    value: zoom,
+  })
+}
+
+// Scroll depth tracking (0-100 thresholds fired once)
+export function trackScrollDepth(percent: number) {
+  trackEvent({
+    action: 'scroll_depth',
+    category: 'engagement',
+    label: String(percent),
+    value: percent,
+  })
+}
+
+// Consent mode stub (optional use)
+export function setAnalyticsConsent(options: { analytics_storage?: 'granted' | 'denied'; ad_storage?: 'granted' | 'denied' }) {
+  if (!enabled()) return
+  ;(window as any).gtag('consent', 'update', options)
+}

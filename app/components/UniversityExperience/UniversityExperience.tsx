@@ -10,7 +10,7 @@
 'use client'
 
 import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
-import { trackUniversitySelect, trackUniversityDeselect, trackCampusApply, trackLineFilterChange } from '@/app/lib/analytics'
+import { trackUniversitySelect, trackUniversityDeselect, trackCampusApply, trackLineFilterChange, trackRadiusChange, trackTimeFilterChange, trackFilterModeChange } from '@/app/lib/analytics'
 import styles from './UniversityExperience.module.css'
 import LineFilter from '@/app/components/LineFilter/LineFilter'
 import MapCanvas from '@/app/components/MapCanvas/MapCanvasWrapper'
@@ -212,6 +212,7 @@ export default function UniversityExperience({
 
     // Switch back to radius-based filtering mode
     setFilterMode('radius')
+    trackFilterModeChange('radius')
     setTravelTimeResults([])
 
     // If a university is selected, recalculate proximity filter
@@ -234,8 +235,9 @@ export default function UniversityExperience({
       stations
     )
 
-    setActiveLineCodes(filter.filteredLineCodes)
+  setActiveLineCodes(filter.filteredLineCodes)
     setFilteredStationIds(filter.nearbyStationIds)
+  trackRadiusChange(newRadiusMiles, selectedUniversityId)
 
     // Announce change
     if (filter.filteredLineCodes.length === 0) {
@@ -263,10 +265,12 @@ export default function UniversityExperience({
     
     // Switch to time-based filtering mode
     setFilterMode('time')
+    trackFilterModeChange('time')
     
     // If no university selected, just update state
     if (!selectedUniversityId || !selectedCampusId) {
       handleAnnounce(`Travel time filter set to ${newTime} minutes`)
+      trackTimeFilterChange(newTime)
       return
     }
 
@@ -305,6 +309,7 @@ export default function UniversityExperience({
           `Found ${filter.reachableStationIds.length} stations reachable within ${newTime} minutes, showing ${filter.filteredLineCodes.length} lines`
         )
       }
+      trackTimeFilterChange(newTime, selectedUniversityId)
     } catch (error) {
       console.error('Travel time calculation error:', error)
       handleAnnounce(`Error calculating travel times. Please try again.`)

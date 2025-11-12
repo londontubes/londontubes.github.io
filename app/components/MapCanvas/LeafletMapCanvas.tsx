@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Circle, Popup, useMap, useMapEvents } from 'react-leaflet'
-import { trackStationSelect } from '@/app/lib/analytics'
+import { trackStationSelect, trackMapZoom } from '@/app/lib/analytics'
 import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
@@ -415,6 +415,19 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
   const handleMapClick = () => {
     onStationSelect(null)
   }
+
+  // Track zoom changes
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map) return
+    const onZoom = () => {
+      trackMapZoom(map.getZoom())
+    }
+    map.on('zoomend', onZoom)
+    return () => {
+      map.off('zoomend', onZoom)
+    }
+  }, [mapRef])
 
   return (
     <section className="map-shell">
