@@ -96,6 +96,7 @@ function StationMarkers({
   onStationSelect,
   lineLabels,
   lines,
+  filterMode,
 }: {
   stations: Station[]
   activeSet: Set<string> | null
@@ -130,13 +131,28 @@ function StationMarkers({
       {visibleStations.map(station => {
   const isSelected = selectedStation?.stationId === station.stationId
   const isFiltered = filteredStationSet?.has(station.stationId)
-  let color = '#FFFFFF' // White for filtered/visible stations
+  // Default marker styling
+  let color = '#FFFFFF'
 
         let radius = 8
         
-        if (!isFiltered && filteredStationSet) {
-          color = '#333333' // Grey for non-filtered
-          radius = 6
+        if (filteredStationSet) {
+          if (filterMode === 'radius') {
+            // Walking-time filter active: green for reachable stations, grey for others
+            if (isFiltered) {
+              color = '#4CAF50'
+              radius = 9
+            } else {
+              color = '#333333'
+              radius = 6
+            }
+          } else {
+            // Time-based (tube) filter: keep previous scheme (white for reachable, grey for others)
+            if (!isFiltered) {
+              color = '#333333'
+              radius = 6
+            }
+          }
         }
 
         if (isSelected) {
@@ -515,6 +531,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           onStationSelect={onStationSelect}
           lineLabels={lineLabels}
           lines={lines}
+          filterMode={props.filterMode}
         />
 
         {/* University markers */}
