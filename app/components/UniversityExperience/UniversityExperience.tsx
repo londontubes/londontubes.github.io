@@ -24,10 +24,11 @@ import { createLineLabelMap } from '@/app/lib/data/load-static-data'
 import { calculateProximityFilter, calculateTimeBasedFilter } from '@/app/lib/map/proximity'
 import { type TravelTimeResult } from '@/app/lib/map/travelTime'
 
-const MILES_TO_KILOMETRES = 1.60934
-const MIN_RADIUS_MILES = 0.25
-const MAX_RADIUS_MILES = 10
-const STEP_RADIUS_MILES = 0.05
+// Walk speed (3 mph) used to convert walk minutes -> miles (radius for proximity)
+const MILES_PER_MINUTE_WALK = 3 / 60 // 0.05 miles per minute
+const MIN_WALK_MINUTES = 5
+const MAX_WALK_MINUTES = 60
+const STEP_WALK_MINUTES = 1
 
 interface UniversityExperienceProps {
   transitDataset: TransitDataset
@@ -46,9 +47,8 @@ export default function UniversityExperience({
   const [showCampusSelector, setShowCampusSelector] = useState(false)
   const [campusSelectorUniversity, setCampusSelectorUniversity] = useState<University | null>(null)
   
-  // Default radius: 0.5 miles
-  const [radiusMiles, setRadiusMiles] = useState(0.5)
-  const [distanceUnit, setDistanceUnit] = useState<'mi' | 'km'>('mi')
+  // Walk time (minutes) replacing distance radius (default 10 mins ~0.5 miles)
+  const [walkMinutes, setWalkMinutes] = useState(10)
   
   // Travel time filter state (in minutes)
   const [travelTimeMins, setTravelTimeMins] = useState(15)
@@ -72,12 +72,7 @@ export default function UniversityExperience({
     setActiveLineCodes(codes)
   }, [])
 
-  const formatDistance = useCallback((miles: number) => {
-    if (distanceUnit === 'mi') {
-      return `${miles.toFixed(2)} miles`
-    }
-    return `${(miles * MILES_TO_KILOMETRES).toFixed(2)} kilometres`
-  }, [distanceUnit])
+  const formatWalkTime = useCallback((minutes: number) => `${minutes} min walk`, [])
   
   const stationCounts = useMemo(() => {
     const counts: Record<string, number> = {}
@@ -103,8 +98,8 @@ export default function UniversityExperience({
       setSelectedCampusId(null)
       setActiveLineCodes([]) // Show all lines
       setFilteredStationIds([]) // Show all stations
-      setTravelTimeResults([]) // Clear travel time results
-      setRadiusMiles(MIN_RADIUS_MILES) // Reset radius to minimum
+  setTravelTimeResults([]) // Clear tube time results
+  setWalkMinutes(MIN_WALK_MINUTES) // Reset walk time to minimum
       setFilterMode('radius') // Reset to radius mode
       // Record deselection to suppress immediate reselect on double click
       ;(lastDeselectionRef.current = { id: universityId, time: Date.now() })
@@ -146,7 +141,7 @@ export default function UniversityExperience({
     // Calculate proximity filter
     const filter = calculateProximityFilter(
       campus.coordinates,
-      radiusMiles,
+      walkMinutes * MILES_PER_MINUTE_WALK,
       stations
     )
     
@@ -155,9 +150,9 @@ export default function UniversityExperience({
     setFilterMode('radius') // Ensure we're in radius mode
     setTravelTimeResults([]) // Clear time-based results
     handleAnnounce(
-      `Selected ${university.displayName}, showing ${filter.nearbyStationIds.length} stations within ${formatDistance(radiusMiles)} on ${filter.filteredLineCodes.length} lines`
+  `Selected ${university.displayName}, showing ${filter.nearbyStationIds.length} stations within ${formatWalkTime(walkMinutes)} on ${filter.filteredLineCodes.length} lines`
     )
-  }, [selectedUniversityId, universitiesDataset, radiusMiles, stations, handleAnnounce, formatDistance])
+  }, [selectedUniversityId, universitiesDataset, walkMinutes, stations, handleAnnounce, formatWalkTime])
 
   // Handle campus selection from modal
   const handleCampusSelect = useCallback((campusId: string) => {
@@ -173,7 +168,7 @@ export default function UniversityExperience({
     // Calculate proximity filter
     const filter = calculateProximityFilter(
       campus.coordinates,
-      radiusMiles,
+      walkMinutes * MILES_PER_MINUTE_WALK,
       stations
     )
 
@@ -182,9 +177,9 @@ export default function UniversityExperience({
     setFilterMode('radius') // Ensure we're in radius mode
     setTravelTimeResults([]) // Clear time-based results
     handleAnnounce(
-      `Selected ${campus.name}, showing ${filter.nearbyStationIds.length} stations within ${formatDistance(radiusMiles)} on ${filter.filteredLineCodes.length} lines`
+  `Selected ${campus.name}, showing ${filter.nearbyStationIds.length} stations within ${formatWalkTime(walkMinutes)} on ${filter.filteredLineCodes.length} lines`
     )
-  }, [campusSelectorUniversity, radiusMiles, stations, handleAnnounce, formatDistance])
+  }, [campusSelectorUniversity, walkMinutes, stations, handleAnnounce, formatWalkTime])
 
   // Handle campus selector cancel
   const handleCampusCancel = useCallback(() => {
@@ -194,24 +189,23 @@ export default function UniversityExperience({
     setSelectedCampusId(null)
     setActiveLineCodes([]) // Show all lines
     setFilteredStationIds([]) // Show all stations
-    setTravelTimeResults([]) // Clear travel time results
-    setRadiusMiles(MIN_RADIUS_MILES) // Reset radius to minimum
+  setTravelTimeResults([]) // Clear tube time results
+  setWalkMinutes(MIN_WALK_MINUTES) // Reset walk time to minimum
     setFilterMode('radius') // Reset to radius mode
     handleAnnounce('Selection cancelled, map reset')
   }, [handleAnnounce])
 
   // Handle radius change
-  const handleRadiusChange = useCallback((rawValue: number) => {
-    const candidateMiles = distanceUnit === 'mi' ? rawValue : rawValue / MILES_TO_KILOMETRES
-    const newRadiusMiles = Math.min(MAX_RADIUS_MILES, Math.max(MIN_RADIUS_MILES, candidateMiles))
-    setRadiusMiles(newRadiusMiles)
+  const handleRadiusChange = useCallback((rawMinutes: number) => {
+    const candidateMinutes = Math.min(MAX_WALK_MINUTES, Math.max(MIN_WALK_MINUTES, rawMinutes))
+    setWalkMinutes(candidateMinutes)
 
     // Switch back to radius-based filtering mode
     setFilterMode('radius')
     setTravelTimeResults([])
 
     // If a university is selected, recalculate proximity filter
-    if (!selectedUniversityId || !selectedCampusId) return
+  if (!selectedUniversityId || !selectedCampusId) return
 
     // Find the selected university and campus
     const universityFeature = universitiesDataset.features.find(
@@ -226,7 +220,7 @@ export default function UniversityExperience({
     // Recalculate proximity filter with new radius
     const filter = calculateProximityFilter(
       campus.coordinates,
-      newRadiusMiles,
+      candidateMinutes * MILES_PER_MINUTE_WALK,
       stations
     )
 
@@ -236,22 +230,16 @@ export default function UniversityExperience({
     // Announce change
     if (filter.filteredLineCodes.length === 0) {
       handleAnnounce(
-        `No tube or DLR stations within ${formatDistance(newRadiusMiles)} of ${campus.name}`
+        `No stations within ${candidateMinutes} min walk of ${campus.name}`
       )
     } else {
       handleAnnounce(
-        `Radius adjusted to ${formatDistance(newRadiusMiles)}, showing ${filter.nearbyStationIds.length} stations on ${filter.filteredLineCodes.length} lines`
+        `Walk time adjusted to ${candidateMinutes} min, showing ${filter.nearbyStationIds.length} stations on ${filter.filteredLineCodes.length} lines`
       )
     }
-  }, [distanceUnit, selectedUniversityId, selectedCampusId, universitiesDataset, stations, handleAnnounce, formatDistance])
+  }, [selectedUniversityId, selectedCampusId, universitiesDataset, stations, handleAnnounce])
 
-  const toggleDistanceUnit = useCallback(() => {
-    setDistanceUnit(prev => {
-      const next = prev === 'mi' ? 'km' : 'mi'
-      handleAnnounce(`Distance radius now shown in ${next === 'mi' ? 'miles' : 'kilometres'}`)
-      return next
-    })
-  }, [handleAnnounce])
+  // Distance unit toggle removed (walk time in minutes only)
 
   // Handle travel time change
   const handleTimeChange = useCallback(async (newTime: number) => {
@@ -262,7 +250,7 @@ export default function UniversityExperience({
     
     // If no university selected, just update state
     if (!selectedUniversityId || !selectedCampusId) {
-      handleAnnounce(`Travel time filter set to ${newTime} minutes`)
+  handleAnnounce(`Tube time filter set to ${newTime} minutes`)
       return
     }
 
@@ -276,7 +264,7 @@ export default function UniversityExperience({
     const campus = university.campuses.find(c => c.campusId === selectedCampusId)
     if (!campus) return
 
-    handleAnnounce(`Calculating stations reachable within ${newTime} minutes from ${campus.name}...`)
+  handleAnnounce(`Calculating stations reachable via tube within ${newTime} minutes from ${campus.name}...`)
 
     try {
       // Calculate time-based filter
@@ -298,12 +286,12 @@ export default function UniversityExperience({
         )
       } else {
         handleAnnounce(
-          `Found ${filter.reachableStationIds.length} stations reachable within ${newTime} minutes, showing ${filter.filteredLineCodes.length} lines`
+          `Found ${filter.reachableStationIds.length} stations reachable within ${newTime} min tube time, showing ${filter.filteredLineCodes.length} lines`
         )
       }
     } catch (error) {
-      console.error('Travel time calculation error:', error)
-      handleAnnounce(`Error calculating travel times. Please try again.`)
+  console.error('Tube time calculation error:', error)
+  handleAnnounce(`Error calculating tube times. Please try again.`)
     }
   }, [selectedUniversityId, selectedCampusId, universitiesDataset, stations, lines, handleAnnounce])
 
@@ -325,7 +313,7 @@ export default function UniversityExperience({
       setTravelTimeResults([])
       
       if (selectedUniversityId) {
-        handleAnnounce('Travel time mode activated. Adjust the slider to filter stations.')
+        handleAnnounce('Tube time mode activated. Adjust the slider to filter stations.')
       }
     }
   }, [filterMode, selectedUniversityId, handleAnnounce])
@@ -345,21 +333,10 @@ export default function UniversityExperience({
     [activeLineCodes, lineLabels]
   )
 
-  const radiusSliderValue = distanceUnit === 'mi'
-    ? Number(radiusMiles.toFixed(2))
-    : Number((radiusMiles * MILES_TO_KILOMETRES).toFixed(2))
-
-  const radiusMinValue = distanceUnit === 'mi'
-    ? MIN_RADIUS_MILES
-    : Number((MIN_RADIUS_MILES * MILES_TO_KILOMETRES).toFixed(2))
-
-  const radiusMaxValue = distanceUnit === 'mi'
-    ? MAX_RADIUS_MILES
-    : Number((MAX_RADIUS_MILES * MILES_TO_KILOMETRES).toFixed(2))
-
-  const radiusStepValue = distanceUnit === 'mi'
-    ? STEP_RADIUS_MILES
-    : Number((STEP_RADIUS_MILES * MILES_TO_KILOMETRES).toFixed(2))
+  const radiusSliderValue = walkMinutes
+  const radiusMinValue = MIN_WALK_MINUTES
+  const radiusMaxValue = MAX_WALK_MINUTES
+  const radiusStepValue = STEP_WALK_MINUTES
 
   return (
     <div className="map-experience">
@@ -383,7 +360,7 @@ export default function UniversityExperience({
         </div>
       ) : (
         /* Show inline controls when a university is selected */
-        <div className={styles.universityInlineBar} aria-label="University selection and distance radius">
+  <div className={styles.universityInlineBar} aria-label="University selection and walk time">
           <div className={styles.iconsArea}>
             <UniversitySelector
               universities={universitiesDataset}
@@ -398,7 +375,7 @@ export default function UniversityExperience({
               onClick={() => selectedUniversityId && setFilterMode('radius')}
               role="radio"
               tabIndex={selectedUniversityId ? 0 : -1}
-              aria-label="Distance radius filter"
+              aria-label="Walk time filter"
               aria-checked={filterMode === 'radius'}
               onKeyDown={(e) => {
                 if (selectedUniversityId && (e.key === 'Enter' || e.key === ' ')) {
@@ -414,8 +391,7 @@ export default function UniversityExperience({
                 max={radiusMaxValue}
                 step={radiusStepValue}
                 disabled={!selectedUniversityId || filterMode !== 'radius'}
-                unit={distanceUnit}
-                onToggleUnit={toggleDistanceUnit}
+                // value represents minutes of walking time
               />
             </div>
             <div 
@@ -423,7 +399,7 @@ export default function UniversityExperience({
               onClick={() => selectedUniversityId && setFilterMode('time')}
               role="radio"
               tabIndex={selectedUniversityId ? 0 : -1}
-              aria-label="Travel time filter"
+              aria-label="Tube time filter"
               aria-checked={filterMode === 'time'}
               onKeyDown={(e) => {
                 if (selectedUniversityId && (e.key === 'Enter' || e.key === ' ')) {
@@ -456,10 +432,10 @@ export default function UniversityExperience({
         universityMode={true}
         selectedUniversityId={selectedUniversityId}
         onUniversityClick={handleUniversityClick}
-        travelTimeResults={travelTimeResults}
+  travelTimeResults={travelTimeResults}
         filterMode={filterMode}
         filteredStationIds={filteredStationIds}
-        radiusMiles={radiusMiles}
+  radiusMiles={walkMinutes * MILES_PER_MINUTE_WALK}
       />
 
       {showCampusSelector && campusSelectorUniversity && (

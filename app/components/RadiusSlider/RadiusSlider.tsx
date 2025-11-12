@@ -3,37 +3,22 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import styles from './RadiusSlider.module.css'
 
+// Repurposed: RadiusSlider now represents WALK TIME (minutes) not distance.
+// We keep the component name to avoid broader refactors.
 export interface RadiusSliderProps {
-  /**
-   * Current radius value in miles
-   */
+  /** Current walk time value in minutes */
   value: number
-  /**
-   * Callback when slider value changes (debounced by 200ms)
-   */
-  onChange: (newRadius: number) => void
-  /**
-   * Minimum radius in miles
-   */
+  /** Callback when slider value changes (debounced by 200ms) */
+  onChange: (newMinutes: number) => void
+  /** Minimum walk time in minutes */
   min?: number
-  /**
-   * Maximum radius in miles
-   */
+  /** Maximum walk time in minutes */
   max?: number
-  /**
-   * Step size in miles
-   */
+  /** Step size in minutes */
   step?: number
-  /**
-   * Disable the slider (e.g., when no university selected)
-   */
+  /** Disable the slider (e.g., when no university selected) */
   disabled?: boolean
-  /** Show inline +/- buttons and bubble tooltip */
   enhancedUI?: boolean
-  /** Display unit label (e.g. 'mi' or 'km') */
-  unit?: 'mi' | 'km'
-  /** Toggle handler for switching between units */
-  onToggleUnit?: () => void
 }
 
 /**
@@ -46,13 +31,11 @@ export interface RadiusSliderProps {
 export function RadiusSlider({
   value,
   onChange,
-  min = 0.25,
-  max = 10.0,
-  step = 0.05,
+  min = 5,
+  max = 60,
+  step = 1,
   disabled = false,
   enhancedUI = true,
-  unit = 'mi',
-  onToggleUnit,
 }: RadiusSliderProps) {
   // Local state for immediate UI updates (before debounce)
   const [localValue, setLocalValue] = useState(value)
@@ -89,23 +72,15 @@ export function RadiusSlider({
   }, [])
 
   // Format value for display
-  const displayValue = localValue.toFixed(2)
-  const unitReadable = unit === 'mi' ? 'miles' : 'kilometres'
-  const unitDisplay = unit === 'mi' ? 'miles' : 'km'
-  const alternateReadable = unit === 'mi' ? 'kilometres' : 'miles'
-  const alternateDisplay = unit === 'mi' ? 'km' : 'miles'
-  const ariaValueText = `${displayValue} ${unitReadable}`
-  const formattedStep = step >= 1 ? step.toFixed(0) : step.toFixed(2)
-  const decimals = step < 1 ? 2 : 0
-  const minDisplay = Number(min.toFixed(decimals)).toString()
-  const maxDisplay = Number(max.toFixed(decimals)).toString()
+  const displayValue = localValue
+  const ariaValueText = `${displayValue} minutes walk time`
 
   // Derived fill percentage for styling
   const fillPercent = ((localValue - min) / (max - min)) * 100
 
   // Increment / Decrement with clamp
   const applyValue = useCallback((next: number) => {
-    const clamped = Math.min(max, Math.max(min, parseFloat(next.toFixed(2))))
+    const clamped = Math.min(max, Math.max(min, next))
     setLocalValue(clamped)
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
@@ -124,39 +99,7 @@ export function RadiusSlider({
     <div className={styles.container}>
       <div className={styles.labelRow}>
         <label htmlFor="radius-slider" className={styles.label}>
-          Distance Radius <span className={styles.unitLabel}>(in </span>
-          {onToggleUnit ? (
-            <>
-              {unit === 'mi' ? (
-                <>
-                  <span className={styles.unitLabel}>miles/</span>
-                  <button
-                    type="button"
-                    className={styles.unitToggleInline}
-                    onClick={onToggleUnit}
-                    aria-label="Switch to kilometers"
-                  >
-                    km
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button
-                    type="button"
-                    className={styles.unitToggleInline}
-                    onClick={onToggleUnit}
-                    aria-label="Switch to miles"
-                  >
-                    miles
-                  </button>
-                  <span className={styles.unitLabel}>/km</span>
-                </>
-              )}
-            </>
-          ) : (
-            <span className={styles.unitLabel}>{unit === 'mi' ? 'miles' : 'km'}</span>
-          )}
-          <span className={styles.unitLabel}>)</span>
+          Walk Time <span className={styles.unitLabel}>(minutes)</span>
         </label>
       </div>
       <div className={styles.sliderRow}>
@@ -171,7 +114,7 @@ export function RadiusSlider({
             onChange={handleChange}
             disabled={disabled}
             className={styles.slider}
-            aria-label={`Distance radius in ${unitReadable}`}
+            aria-label="Walk time in minutes"
             aria-valuemin={min}
             aria-valuemax={max}
             aria-valuenow={localValue}
@@ -184,7 +127,7 @@ export function RadiusSlider({
               style={bubbleXStyle}
               aria-hidden="true"
             >
-              {displayValue} {unit}
+              {displayValue} min
             </div>
           )}
         </div>

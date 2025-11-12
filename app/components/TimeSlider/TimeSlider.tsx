@@ -108,7 +108,7 @@ export function TimeSlider({
   return (
     <div className={styles.container}>
       <label htmlFor="time-slider" className={styles.label}>
-        Travel Time
+        Tube Time
       </label>
       <div className={styles.sliderRow}>
         <div className={styles.sliderWrapper}>
@@ -122,7 +122,7 @@ export function TimeSlider({
             onChange={handleChange}
             disabled={disabled}
             className={styles.slider}
-            aria-label="Travel time in minutes"
+            aria-label="Tube time in minutes"
             aria-valuemin={min}
             aria-valuemax={max}
             aria-valuenow={localValue}
