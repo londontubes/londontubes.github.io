@@ -30,6 +30,7 @@ export interface MapCanvasProps {
   filterMode?: 'radius' | 'time'
   filteredStationIds?: string[]
   radiusMiles?: number
+  campusCoordinates?: [number, number] // [lng, lat] of selected campus
 }
 
 // Helper functions
@@ -321,6 +322,8 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
     onUniversityClick,
     filteredStationIds = [],
     radiusMiles,
+    campusCoordinates,
+    filterMode,
   } = props
 
   const mapRef = useRef<L.Map | null>(null)
@@ -522,6 +525,22 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           radiusMiles={radiusMiles}
         />
 
+        {/* Walking route polyline (approximate) */}
+        {filterMode === 'radius' && campusCoordinates && selectedStation && filteredStationSet?.has(selectedStation.stationId) && (
+          <Polyline
+            positions={generateApproxRoute(campusCoordinates, selectedStation.position.coordinates)}
+            pathOptions={{
+              color: '#0066cc',
+              weight: 4,
+              opacity: 0.9,
+              dashArray: '2,6',
+            }}
+          >
+            <title>{`Approximate walking route to ${selectedStation.displayName}`}</title>
+            <Popup autoClose={false} closeButton={true}>Approximate walking route (heuristic)</Popup>
+          </Polyline>
+        )}
+
         {/* Station markers */}
         <StationMarkers
           stations={stations}
@@ -556,4 +575,32 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
       </div>
     </section>
   )
+}
+
+// Heuristic route generator: creates a polyline with gentle bends instead of a straight line.
+// Converts [lng, lat] inputs to Leaflet [lat, lng] positions.
+function generateApproxRoute(startLngLat: [number, number], endLngLat: [number, number]): [number, number][] {
+  const [startLng, startLat] = startLngLat
+  const [endLng, endLat] = endLngLat
+
+  const steps = 8
+  const points: [number, number][] = []
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps
+    // Ease curve factor to simulate slight detours (quadratic bezier-ish)
+    const curve = Math.sin(Math.PI * t) * 0.15 // up to 15% lateral variation
+    const lat = startLat + (endLat - startLat) * t
+    const lngMid = startLng + (endLng - startLng) * t
+    // Apply lateral offset perpendicular to main direction using bearing approximation
+    const dLng = endLng - startLng
+    const dLat = endLat - startLat
+    const mag = Math.sqrt(dLng * dLng + dLat * dLat) || 1
+    // Perpendicular vector (rotate 90 degrees)
+    const perpLng = -(dLat / mag)
+    const perpLat = dLng / mag
+    const lng = lngMid + perpLng * curve * (endLng - startLng)
+    const latOffset = lat + perpLat * curve * (endLat - startLat)
+    points.push([latOffset, lng])
+  }
+  return points
 }

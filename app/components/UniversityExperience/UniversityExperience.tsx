@@ -354,6 +354,15 @@ export default function UniversityExperience({
   const radiusMaxValue = MAX_WALK_MINUTES
   const radiusStepValue = STEP_WALK_MINUTES
 
+  // Current selected campus coordinates (lng, lat) or null
+  const campusCoordinates = useMemo(() => {
+    if (!selectedUniversityId || !selectedCampusId) return null
+    const uniFeature = universitiesDataset.features.find(f => f.properties.universityId === selectedUniversityId)
+    if (!uniFeature) return null
+    const campus = uniFeature.properties.campuses.find(c => c.campusId === selectedCampusId)
+    return campus ? campus.coordinates : null
+  }, [selectedUniversityId, selectedCampusId, universitiesDataset.features])
+
   return (
     <div className="map-experience university-experience">
       <LineFilter
@@ -452,6 +461,7 @@ export default function UniversityExperience({
         filterMode={filterMode}
         filteredStationIds={filteredStationIds}
   radiusMiles={straightLineRadiusFromMinutes(walkMinutes)}
+    campusCoordinates={campusCoordinates || undefined}
       />
 
       {showCampusSelector && campusSelectorUniversity && (
