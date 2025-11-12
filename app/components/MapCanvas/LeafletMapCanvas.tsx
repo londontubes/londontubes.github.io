@@ -417,14 +417,21 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
         const osrmDistanceMiles = bestRoute.distance / 1609.34
         const osrmDurationMinutes = bestRoute.duration / 60
 
+  // Attempt route optimization by removing small detours (ignoring one-way vehicle constraints for pedestrians).
+  // Example scenario: LSE Old Building -> Covent Garden where OSRM may loop rather than staying on Aldwych -> Catherine St -> Bow St -> Floral St.
+  const optimizedOsrmCoords = optimizeWalkingPolyline(osrmCoords)
+  // Recalculate distance if optimization shortened path.
+  const optDistanceMiles = polylineDistanceMiles(optimizedOsrmCoords)
+  const optDurationMinutes = (optDistanceMiles / WALK_SPEED_MPH) * 60 + WALK_OVERHEAD_MINUTES
+
         // Compare with straight-line distance to optionally ignore one-way detours
         const straightMiles = calculateDistance([campusLng, campusLat], [stationLng, stationLat])
         const detourRatio = osrmDistanceMiles / straightMiles
         // Threshold: if OSRM path is >15% longer than straight line, treat as excessive detour (likely one-way constraints)
         const EXCESS_DETOUR_THRESHOLD = 1.15
 
-        let chosenCoords: [number, number][] = osrmCoords
-        if (straightMiles > 0 && detourRatio > EXCESS_DETOUR_THRESHOLD) {
+  let chosenCoords: [number, number][] = optimizedOsrmCoords
+  if (straightMiles > 0 && detourRatio > EXCESS_DETOUR_THRESHOLD) {
           // Ignore one-way: use direct straight path with small midpoint nudge to emulate realistic walkway
           const midLat = (campusLat + stationLat) / 2 + (stationLat - campusLat) * 0.02
           const midLng = (campusLng + stationLng) / 2 + (stationLng - campusLng) * -0.02
@@ -441,10 +448,19 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           setWalkingRouteError('One-way detours ignored for shorter walking path')
           chosenCoords = directCoords
         } else {
-          setWalkingRoute(osrmCoords)
-          setWalkingRouteDistanceMiles(osrmDistanceMiles)
-          setWalkingRouteDurationMinutes(osrmDurationMinutes)
-          chosenCoords = osrmCoords
+          // Prefer optimized route if it is at least 4% shorter than original OSRM result
+          if (optDistanceMiles < osrmDistanceMiles * 0.96) {
+            setWalkingRoute(optimizedOsrmCoords)
+            setWalkingRouteDistanceMiles(optDistanceMiles)
+            setWalkingRouteDurationMinutes(optDurationMinutes)
+            chosenCoords = optimizedOsrmCoords
+            setWalkingRouteError('Minor detours removed for shorter pedestrian route')
+          } else {
+            setWalkingRoute(osrmCoords)
+            setWalkingRouteDistanceMiles(osrmDistanceMiles)
+            setWalkingRouteDurationMinutes(osrmDurationMinutes)
+            chosenCoords = osrmCoords
+          }
         }
         setWalkingRouteLoading(false)
         if (typeof window !== 'undefined') {
@@ -709,3 +725,45 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
 }
 
 // Removed heuristic curve generator (replaced by real OSRM fetch + fallback)
+
+// Calculate total polyline distance in miles (coords are [lat,lng])
+function polylineDistanceMiles(coords: [number, number][]): number {
+  if (coords.length < 2) return 0
+  let total = 0
+  for (let i = 1; i < coords.length; i++) {
+    const [prevLat, prevLng] = coords[i - 1]
+    const [lat, lng] = coords[i]
+    total += calculateDistance([prevLng, prevLat], [lng, lat])
+  }
+  return total
+}
+
+// Optimize walking polyline by shortcutting small detours.
+// Strategy: attempt to remove intermediate points when direct segment reduces distance by >= MIN_IMPROVEMENT_RATIO.
+function optimizeWalkingPolyline(original: [number, number][]): [number, number][] {
+  const MIN_IMPROVEMENT_RATIO = 0.94 // resulting distance must be <= 94% of original segment chain
+  const coords = [...original]
+  let changed = true
+  let passSafety = 0
+  while (changed && passSafety < 8) { // cap iterations
+    changed = false
+    passSafety++
+    for (let i = 0; i < coords.length - 2; i++) {
+      for (let j = i + 2; j < Math.min(coords.length, i + 8); j++) { // local window
+        const segmentSlice = coords.slice(i, j + 1)
+        const chainDist = polylineDistanceMiles(segmentSlice)
+        const directDist = calculateDistance([coords[i][1], coords[i][0]], [coords[j][1], coords[j][0]])
+        if (directDist <= chainDist * MIN_IMPROVEMENT_RATIO) {
+          // Replace intermediate points with direct connection, preserving endpoints
+          const before = coords.slice(0, i + 1)
+          const after = coords.slice(j)
+          coords.splice(0, coords.length, ...before, ...after) // mutate in place
+          changed = true
+          break
+        }
+      }
+      if (changed) break
+    }
+  }
+  return coords
+}
