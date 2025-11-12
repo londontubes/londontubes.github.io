@@ -358,6 +358,80 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
     [filteredStationIds]
   )
 
+  // Walking route state (road-following path from campus to selected station)
+  const [walkingRoute, setWalkingRoute] = useState<[number, number][]>([])
+  const [walkingRouteError, setWalkingRouteError] = useState<string | null>(null)
+  const [walkingRouteLoading, setWalkingRouteLoading] = useState(false)
+
+  // Fetch real walking route using OSRM public demo server (no key required)
+  useEffect(() => {
+    // Only in walk radius mode, with campus + selected reachable station
+    if (filterMode !== 'radius' || !campusCoordinates || !selectedStation || !filteredStationSet?.has(selectedStation.stationId)) {
+      setWalkingRoute([])
+      setWalkingRouteError(null)
+      return
+    }
+
+    const [campusLng, campusLat] = campusCoordinates
+    const [stationLng, stationLat] = selectedStation.position.coordinates
+    const routeKey = `${campusLng},${campusLat}|${stationLng},${stationLat}`
+
+    // Basic cache in sessionStorage to avoid repeated calls
+    if (typeof window !== 'undefined') {
+      const cached = sessionStorage.getItem(`walkRoute:${routeKey}`)
+      if (cached) {
+        try {
+          const coords: [number, number][] = JSON.parse(cached)
+          setWalkingRoute(coords)
+          setWalkingRouteError(null)
+          return
+        } catch {
+          // ignore parse error
+        }
+      }
+    }
+
+    let abort = false
+    setWalkingRouteLoading(true)
+    setWalkingRouteError(null)
+
+    const controller = new AbortController()
+    const url = `https://router.project-osrm.org/route/v1/foot/${campusLng},${campusLat};${stationLng},${stationLat}?overview=full&geometries=geojson&alternatives=false&steps=false`
+    fetch(url, { signal: controller.signal })
+      .then(r => r.json())
+      .then(data => {
+        if (abort) return
+        if (data.code !== 'Ok' || !data.routes?.length) {
+          throw new Error('No route')
+        }
+        const geometry = data.routes[0].geometry
+        if (!geometry || geometry.type !== 'LineString') {
+          throw new Error('Bad geometry')
+        }
+        const coords: [number, number][] = geometry.coordinates.map(([lng, lat]: [number, number]) => [lat, lng])
+        setWalkingRoute(coords)
+        setWalkingRouteLoading(false)
+        if (typeof window !== 'undefined') {
+          try { sessionStorage.setItem(`walkRoute:${routeKey}`, JSON.stringify(coords)) } catch {}
+        }
+      })
+      .catch(err => {
+        if (abort) return
+        setWalkingRouteLoading(false)
+        setWalkingRouteError(err.message || 'Route error')
+        // Fallback: simple straight polyline so user still sees a connection
+        const fallback: [number, number][] = [
+          [campusLat, campusLng],
+          [stationLat, stationLng],
+        ]
+        setWalkingRoute(fallback)
+      })
+    return () => {
+      abort = true
+      controller.abort()
+    }
+  }, [filterMode, campusCoordinates, selectedStation, filteredStationSet])
+
   // Prepare transit line paths
   const linePaths = useMemo(() => {
     const result: Array<{
@@ -525,10 +599,10 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           radiusMiles={radiusMiles}
         />
 
-        {/* Walking route polyline (approximate) */}
-        {filterMode === 'radius' && campusCoordinates && selectedStation && filteredStationSet?.has(selectedStation.stationId) && (
+        {/* Walking route polyline (real OSRM road-following or fallback) */}
+        {filterMode === 'radius' && walkingRoute.length > 1 && (
           <Polyline
-            positions={generateApproxRoute(campusCoordinates, selectedStation.position.coordinates)}
+            positions={walkingRoute}
             pathOptions={{
               color: '#0066cc',
               weight: 4,
@@ -536,8 +610,17 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
               dashArray: '2,6',
             }}
           >
-            <title>{`Approximate walking route to ${selectedStation.displayName}`}</title>
-            <Popup autoClose={false} closeButton={true}>Approximate walking route (heuristic)</Popup>
+            <title>{selectedStation ? `Walking route to ${selectedStation.displayName}` : 'Walking route'}</title>
+            {selectedStation && (
+              <Popup autoClose={false} closeButton={true}>
+                <div style={{ fontSize: '13px' }}>
+                  <strong>Walking route</strong><br />
+                  {walkingRouteLoading && 'Loading real route…'}
+                  {!walkingRouteLoading && walkingRouteError && `Fallback (straight line). Error: ${walkingRouteError}`}
+                  {!walkingRouteLoading && !walkingRouteError && 'Road-following route (OSRM)'}
+                </div>
+              </Popup>
+            )}
           </Polyline>
         )}
 
@@ -577,30 +660,4 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
   )
 }
 
-// Heuristic route generator: creates a polyline with gentle bends instead of a straight line.
-// Converts [lng, lat] inputs to Leaflet [lat, lng] positions.
-function generateApproxRoute(startLngLat: [number, number], endLngLat: [number, number]): [number, number][] {
-  const [startLng, startLat] = startLngLat
-  const [endLng, endLat] = endLngLat
-
-  const steps = 8
-  const points: [number, number][] = []
-  for (let i = 0; i <= steps; i++) {
-    const t = i / steps
-    // Ease curve factor to simulate slight detours (quadratic bezier-ish)
-    const curve = Math.sin(Math.PI * t) * 0.15 // up to 15% lateral variation
-    const lat = startLat + (endLat - startLat) * t
-    const lngMid = startLng + (endLng - startLng) * t
-    // Apply lateral offset perpendicular to main direction using bearing approximation
-    const dLng = endLng - startLng
-    const dLat = endLat - startLat
-    const mag = Math.sqrt(dLng * dLng + dLat * dLat) || 1
-    // Perpendicular vector (rotate 90 degrees)
-    const perpLng = -(dLat / mag)
-    const perpLat = dLng / mag
-    const lng = lngMid + perpLng * curve * (endLng - startLng)
-    const latOffset = lat + perpLat * curve * (endLat - startLat)
-    points.push([latOffset, lng])
-  }
-  return points
-}
+// Removed heuristic curve generator (replaced by real OSRM fetch + fallback)
