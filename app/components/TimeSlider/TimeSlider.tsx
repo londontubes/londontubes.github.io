@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from './TimeSlider.module.css'
 
 export interface TimeSliderProps {
@@ -85,23 +85,9 @@ export function TimeSlider({
   const displayValue = localValue
   const ariaValueText = `${displayValue} minutes`
   const fillPercent = ((localValue - min) / (max - min)) * 100
-  const decimals = step < 1 ? 2 : 0
-  const minDisplay = Number(min.toFixed(decimals)).toString()
-  const maxDisplay = Number(max.toFixed(decimals)).toString()
 
-  const applyValue = useCallback((next: number) => {
-    const clamped = Math.min(max, Math.max(min, next))
-    setLocalValue(clamped)
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-    }
-    timeoutRef.current = setTimeout(() => onChange(clamped), 10)
-  }, [max, min, onChange])
-
-  const handleIncrement = () => applyValue(localValue + step)
-  const handleDecrement = () => applyValue(localValue - step)
-
-  const bubbleXStyle = { left: `${fillPercent}%` } as React.CSSProperties
+  // Calculate bubble position accounting for 20px margin on each side
+  const bubbleXStyle = { left: `calc(20px + ${fillPercent}% * (100% - 40px) / 100%)` } as React.CSSProperties
   const showBubble = enhancedUI && !disabled
 
   return (
@@ -110,17 +96,6 @@ export function TimeSlider({
         Travel Time
       </label>
       <div className={styles.sliderRow}>
-        {enhancedUI && (
-          <button
-            type="button"
-            className={styles.adjustBtn}
-            onClick={handleDecrement}
-            disabled={disabled}
-            aria-label={`Decrease time by ${step} minutes`}
-          >
-            −
-          </button>
-        )}
         <div className={styles.sliderWrapper}>
           <input
             id="time-slider"
@@ -149,26 +124,6 @@ export function TimeSlider({
             </div>
           )}
         </div>
-        {enhancedUI && (
-          <button
-            type="button"
-            className={styles.adjustBtn}
-            onClick={handleIncrement}
-            disabled={disabled}
-            aria-label={`Increase time by ${step} minutes`}
-          >
-            +
-          </button>
-        )}
-      </div>
-      {disabled && (
-        <span className={styles.hint}>
-          Select a university to adjust time
-        </span>
-      )}
-      <div className={styles.rangeLabels} aria-hidden="true">
-        <span>{minDisplay} min</span>
-        <span>{maxDisplay} min</span>
       </div>
     </div>
   )

@@ -128,10 +128,10 @@ function StationMarkers({
   return (
     <>
       {visibleStations.map(station => {
-        const isSelected = selectedStation?.stationId === station.stationId
-        const isFiltered = filteredStationSet?.has(station.stationId)
-        
-  let color = '#FFFFFF' // White for filtered/visible stations (was green)
+  const isSelected = selectedStation?.stationId === station.stationId
+  const isFiltered = filteredStationSet?.has(station.stationId)
+  let color = '#FFFFFF' // White for filtered/visible stations
+
         let radius = 8
         
         if (!isFiltered && filteredStationSet) {

@@ -37,27 +37,8 @@ async function loadUniversitiesData(): Promise<UniversitiesDataset> {
 }
 
 export default async function UniversitiesPage() {
-  let transitDataset
-  let universitiesDataset
-
-  try {
-    transitDataset = loadStaticTransitData()
-    universitiesDataset = await loadUniversitiesData()
-  } catch (error) {
-    console.error('Failed to load universities data:', error)
-    return (
-      <div className="error-container" style={{ padding: '20px', textAlign: 'center' }}>
-        <h1>Unable to Load Universities Data</h1>
-        <p>
-          There was an error loading the universities dataset. 
-          Please check that the data files exist and are properly formatted.
-        </p>
-        <p style={{ fontSize: '14px', color: '#666' }}>
-          Expected file: <code>public/data/universities.json</code>
-        </p>
-      </div>
-    )
-  }
+  const transitDataset = loadStaticTransitData()
+  const universitiesDataset = await loadUniversitiesData()
 
   return (
     <main>
