@@ -413,17 +413,42 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
         if (!geometry || geometry.type !== 'LineString') {
           throw new Error('Bad geometry')
         }
-        const coords: [number, number][] = geometry.coordinates.map(([lng, lat]: [number, number]) => [lat, lng])
-        setWalkingRoute(coords)
-        // distance (meters) -> miles
-        const distanceMiles = bestRoute.distance / 1609.34
-        // duration (seconds) -> minutes; OSRM already accounts for realistic speed
-        const durationMinutes = bestRoute.duration / 60
-        setWalkingRouteDistanceMiles(distanceMiles)
-        setWalkingRouteDurationMinutes(durationMinutes)
+        const osrmCoords: [number, number][] = geometry.coordinates.map(([lng, lat]: [number, number]) => [lat, lng])
+        const osrmDistanceMiles = bestRoute.distance / 1609.34
+        const osrmDurationMinutes = bestRoute.duration / 60
+
+        // Compare with straight-line distance to optionally ignore one-way detours
+        const straightMiles = calculateDistance([campusLng, campusLat], [stationLng, stationLat])
+        const detourRatio = osrmDistanceMiles / straightMiles
+        // Threshold: if OSRM path is >15% longer than straight line, treat as excessive detour (likely one-way constraints)
+        const EXCESS_DETOUR_THRESHOLD = 1.15
+
+        let chosenCoords: [number, number][] = osrmCoords
+        if (straightMiles > 0 && detourRatio > EXCESS_DETOUR_THRESHOLD) {
+          // Ignore one-way: use direct straight path with small midpoint nudge to emulate realistic walkway
+          const midLat = (campusLat + stationLat) / 2 + (stationLat - campusLat) * 0.02
+          const midLng = (campusLng + stationLng) / 2 + (stationLng - campusLng) * -0.02
+          const directCoords: [number, number][] = [
+            [campusLat, campusLng],
+            [midLat, midLng],
+            [stationLat, stationLng],
+          ]
+          // Estimate duration using heuristic (inflated route factor removed to reflect shorter allowance)
+          const directMinutes = (straightMiles / WALK_SPEED_MPH) * 60 + WALK_OVERHEAD_MINUTES
+          setWalkingRoute(directCoords)
+          setWalkingRouteDistanceMiles(straightMiles)
+          setWalkingRouteDurationMinutes(directMinutes)
+          setWalkingRouteError('One-way detours ignored for shorter walking path')
+          chosenCoords = directCoords
+        } else {
+          setWalkingRoute(osrmCoords)
+          setWalkingRouteDistanceMiles(osrmDistanceMiles)
+          setWalkingRouteDurationMinutes(osrmDurationMinutes)
+          chosenCoords = osrmCoords
+        }
         setWalkingRouteLoading(false)
         if (typeof window !== 'undefined') {
-          try { sessionStorage.setItem(`walkRoute:${routeKey}`, JSON.stringify(coords)) } catch {}
+          try { sessionStorage.setItem(`walkRoute:${routeKey}`, JSON.stringify(chosenCoords)) } catch {}
         }
       })
       .catch(err => {
@@ -633,8 +658,8 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
                 <div style={{ fontSize: '13px' }}>
                   <strong>Walking route</strong><br />
                   {walkingRouteLoading && 'Loading real route…'}
-                  {!walkingRouteLoading && walkingRouteError && `Fallback (straight line). Error: ${walkingRouteError}`}
-                  {!walkingRouteLoading && !walkingRouteError && 'Shortest road route (OSRM)'}
+                  {!walkingRouteLoading && walkingRouteError && walkingRouteError}
+                  {!walkingRouteLoading && !walkingRouteError && 'Shortest walking route'}
                   <br />
                   {walkingRouteDistanceMiles !== null && walkingRouteDurationMinutes !== null && (
                     <span>
