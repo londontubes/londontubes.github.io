@@ -125,6 +125,14 @@ function StationMarkers({
   universityMode?: boolean
   purpleReachInfo?: Record<string, { originStationId: string; minutes: number }>
 }) {
+  const map = useMap()
+  const zoom = map.getZoom()
+  // Compute scaling factor relative to DEFAULT_ZOOM (11)
+  const scalingFactor = useMemo(() => {
+    // Linear adjustment then clamp
+    const raw = 1 + (zoom - DEFAULT_ZOOM) * 0.12
+    return Math.min(2.2, Math.max(0.55, raw))
+  }, [zoom])
   // Create a map of line code to brand color
   const lineColorMap = useMemo(() => {
     const map: Record<string, string> = {}
@@ -171,41 +179,39 @@ function StationMarkers({
 
   return (
     <>
-        {visibleStations.map(station => {
-  const isSelected = selectedStation?.stationId === station.stationId
-  const isFiltered = filteredStationSet?.has(station.stationId)
-  const isPurple = filterMode === 'radius' && purpleStationSet?.has(station.stationId) && !isFiltered
-  // Default marker styling
-  let color = '#FFFFFF'
+      {visibleStations.map(station => {
+        const isSelected = selectedStation?.stationId === station.stationId
+        const isFiltered = filteredStationSet?.has(station.stationId)
+        const isPurple = filterMode === 'radius' && purpleStationSet?.has(station.stationId) && !isFiltered
 
-        let radius = 8
-        
+        // Color + base radius logic combining filtered/time/purple semantics
+        let color = '#FFFFFF'
+        let baseRadius = 8
+
         if (filterMode === 'radius') {
-          // Walk/tube layered proximity coloring always active (including university mode)
           if (isFiltered) {
             color = '#4CAF50'
-            radius = 9
+            baseRadius = 9
           } else if (isPurple) {
             color = '#7e57c2'
-            radius = 8
+            baseRadius = 8
           } else {
-            // Non-reachable stations: in university landing map keep white, else dark gray
             color = universityMode ? '#FFFFFF' : '#333333'
-            radius = 6
+            baseRadius = 6
           }
         } else if (filterMode === 'time' && filteredStationSet) {
-          // Original time mode semantics
           if (!isFiltered) {
             color = '#333333'
-            radius = 6
+            baseRadius = 6
           }
         }
 
         if (isSelected) {
-          color = '#0066cc' // Blue for selected
-          radius = 10
+          color = '#0066cc'
+          baseRadius = 10
         }
 
+        const radius = Math.round(baseRadius * scalingFactor)
         const icon = buildRoundelIcon(
           station,
           radius,
