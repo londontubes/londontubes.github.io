@@ -577,6 +577,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
       lineCode: string
       displayName: string
       brandColor: string
+      strokeWeight: number
       positions: [number, number][]
       segmentIndex: number
     }> = []
@@ -592,6 +593,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
               lineCode: line.lineCode,
               displayName: line.displayName,
               brandColor: line.brandColor,
+              strokeWeight: line.strokeWeight,
               positions: segment.map(([lng, lat]) => [lat, lng] as [number, number]),
               segmentIndex: index,
             })
@@ -603,6 +605,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
             lineCode: line.lineCode,
             displayName: line.displayName,
             brandColor: line.brandColor,
+            strokeWeight: line.strokeWeight,
             positions: coords.map(([lng, lat]) => [lat, lng] as [number, number]),
             segmentIndex: 0,
           })
@@ -723,8 +726,8 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
             positions={line.positions}
             pathOptions={{
               color: line.brandColor,
-              weight: 4,
-              opacity: 0.8,
+              weight: line.strokeWeight || 4,
+              opacity: line.lineCode === 'circle' ? 1.0 : 0.85,
             }}
           >
             <title>{line.displayName}</title>

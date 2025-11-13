@@ -11,7 +11,7 @@
       "brandColor": "#B36305",
       "textColor": "#FFFFFF",
       "mode": "tube",
-      "strokeWeight": 4,
+      "strokeWeight": 6,
       "polyline": {
         "type": "MultiLineString",
         "coordinates": [
