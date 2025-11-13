@@ -186,6 +186,7 @@ function StationMarkers({
     })
   }
 
+
   return (
     <>
       {visibleStations.map(station => {
@@ -193,32 +194,33 @@ function StationMarkers({
         const isFiltered = filteredStationSet?.has(station.stationId)
         const isPurple = filterMode === 'radius' && purpleStationSet?.has(station.stationId) && !isFiltered
 
+        // Enlarged base radii integrating previous size increase request
         let color = '#FFFFFF'
-        let baseRadius = 8
+        let baseRadius = 9 // default
         if (filterMode === 'radius') {
           if (isFiltered) {
             color = '#4CAF50'
-            baseRadius = 9
+            baseRadius = 10 // filtered (green) slightly larger
           } else if (isPurple) {
             color = '#7e57c2'
-            baseRadius = 8
+            baseRadius = 9 // purple same as default
           } else {
             color = universityMode ? '#FFFFFF' : '#333333'
-            baseRadius = 6
+            baseRadius = 7 // inactive within radius context
           }
         } else if (filterMode === 'time' && filteredStationSet) {
           if (!isFiltered) {
             color = '#333333'
-            baseRadius = 6
+            baseRadius = 7
           }
         } else if (!isFiltered && filteredStationSet) {
           // fallback for non-time non-radius modes
           color = '#333333'
-          baseRadius = 6
+          baseRadius = 7
         }
         if (isSelected) {
           color = '#0066cc'
-          baseRadius = 10
+          baseRadius = 12 // selected larger
         }
 
         const radius = Math.round(baseRadius * scale)
