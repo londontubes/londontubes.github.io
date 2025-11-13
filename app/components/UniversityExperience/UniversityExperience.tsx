@@ -216,6 +216,7 @@ export default function UniversityExperience({
     setFilterMode('radius')
     trackFilterModeChange('radius')
     setTravelTimeResults([])
+    setPurpleStationIds([]) // Clear layered tube results when walk minutes change
 
     // If a university is selected, recalculate proximity filter
     if (!selectedUniversityId || !selectedCampusId) return
@@ -275,10 +276,8 @@ export default function UniversityExperience({
       }
       handleAnnounce(`Calculating tube reachability within ${newTime} minutes from ${filteredStationIds.length} walk-reachable stations...`)
       try {
-        // Build union of tube reachable stations
         const greenSet = new Set(filteredStationIds)
         const union = new Set<string>()
-        // Limit origins to avoid heavy computation if extremely large
         const MAX_ORIGINS = 40
         const origins = filteredStationIds.slice(0, MAX_ORIGINS)
         for (const originId of origins) {
@@ -290,8 +289,10 @@ export default function UniversityExperience({
             if (!greenSet.has(r.stationId)) union.add(r.stationId)
           })
         }
-        setPurpleStationIds(Array.from(union))
-        handleAnnounce(`Tube time ${newTime} min adds ${union.size} additional stations reachable from walk set`)
+        const layered = Array.from(union)
+        setPurpleStationIds(layered)
+        handleAnnounce(`Tube time ${newTime} min adds ${layered.length} additional stations reachable from walk set`)
+        trackTimeFilterChange(newTime, selectedUniversityId || undefined)
       } catch (e) {
         console.error('Multi-source tube time error', e)
         handleAnnounce('Error calculating multi-source tube reachability')
@@ -363,10 +364,11 @@ export default function UniversityExperience({
   
   const [selectedStation, setSelectedStation] = useState<Station | null>(null)
 
-  const isSelectedStationGreen = useMemo(() => {
-    if (!selectedStation) return false
-    return filteredStationIds.includes(selectedStation.stationId)
-  }, [selectedStation, filteredStationIds])
+  // Previously required a selected green station; now enable tube time slider whenever
+  // there is at least one walk-reachable (green) station while in walk mode.
+  const canLayerTubeTime = useMemo(() => {
+    return filterMode === 'radius' && filteredStationIds.length > 0 && !!selectedUniversityId
+  }, [filterMode, filteredStationIds, selectedUniversityId])
 
   const lineLabels = useMemo(() => createLineLabelMap(lines), [lines])
 
@@ -441,9 +443,9 @@ export default function UniversityExperience({
               />
             </div>
             <div 
-              className={`${styles.filterOption} ${isSelectedStationGreen ? styles.active : styles.inactive}`}
+              className={`${styles.filterOption} ${canLayerTubeTime ? styles.active : styles.inactive}`}
               role="group"
-              aria-label="Tube time filter (enabled after selecting a green station)"
+              aria-label="Tube time layering (adjust to show additional purple stations reachable via tube from all green stations)"
             >
               <TimeSlider
                 value={travelTimeMins}
@@ -451,7 +453,7 @@ export default function UniversityExperience({
                 min={5}
                 max={60}
                 step={1}
-                disabled={!selectedUniversityId || !(filterMode === 'radius' && isSelectedStationGreen)}
+                disabled={!canLayerTubeTime}
               />
             </div>
           </div>
