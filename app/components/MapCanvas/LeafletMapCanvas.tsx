@@ -126,13 +126,22 @@ function StationMarkers({
   purpleReachInfo?: Record<string, { originStationId: string; minutes: number }>
 }) {
   const map = useMap()
-  const zoom = map.getZoom()
-  // Compute scaling factor relative to DEFAULT_ZOOM (11)
-  const scalingFactor = useMemo(() => {
-    // Linear adjustment then clamp
-    const raw = 1 + (zoom - DEFAULT_ZOOM) * 0.12
-    return Math.min(2.2, Math.max(0.55, raw))
-  }, [zoom])
+  const [zoomLevel, setZoomLevel] = useState(map.getZoom())
+
+  // Subscribe to zoom changes to recompute marker sizes
+  useEffect(() => {
+    const handler = () => setZoomLevel(map.getZoom())
+    map.on('zoomend', handler)
+    return () => {
+      map.off('zoomend', handler)
+    }
+  }, [map])
+
+  // Scale factor: linear relative to DEFAULT_ZOOM, clamped for usability
+  const scale = useMemo(() => {
+    const raw = 1 + (zoomLevel - DEFAULT_ZOOM) * 0.12 // ~12% size change per zoom step
+    return Math.min(2.4, Math.max(0.5, raw))
+  }, [zoomLevel])
   // Create a map of line code to brand color
   const lineColorMap = useMemo(() => {
     const map: Record<string, string> = {}
@@ -184,10 +193,8 @@ function StationMarkers({
         const isFiltered = filteredStationSet?.has(station.stationId)
         const isPurple = filterMode === 'radius' && purpleStationSet?.has(station.stationId) && !isFiltered
 
-        // Color + base radius logic combining filtered/time/purple semantics
         let color = '#FFFFFF'
         let baseRadius = 8
-
         if (filterMode === 'radius') {
           if (isFiltered) {
             color = '#4CAF50'
@@ -204,19 +211,22 @@ function StationMarkers({
             color = '#333333'
             baseRadius = 6
           }
+        } else if (!isFiltered && filteredStationSet) {
+          // fallback for non-time non-radius modes
+          color = '#333333'
+          baseRadius = 6
         }
-
         if (isSelected) {
           color = '#0066cc'
           baseRadius = 10
         }
 
-        const radius = Math.round(baseRadius * scalingFactor)
+        const radius = Math.round(baseRadius * scale)
         const icon = buildRoundelIcon(
           station,
           radius,
           isSelected,
-          color,
+            color,
           isFiltered ? 'green' : isPurple ? 'purple' : 'normal'
         )
         return (
