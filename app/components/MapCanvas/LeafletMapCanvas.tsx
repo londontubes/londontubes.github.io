@@ -484,19 +484,48 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
         ))}
 
         {/* Active lines */}
-        {linePaths.map(line => (
-          <Polyline
-            key={`${line.lineCode}-${line.segmentIndex}`}
-            positions={line.positions}
-            pathOptions={{
-              color: line.brandColor,
-              weight: line.strokeWeight || 4,
-              opacity: line.lineCode === 'circle' ? 1.0 : 0.85,
-            }}
-          >
-            <title>{line.displayName}</title>
-          </Polyline>
-        ))}
+        {linePaths.map(line => {
+          if (line.lineCode === 'circle') {
+            // Render outline + inner stroke for better contrast
+            return (
+              <>
+                <Polyline
+                  key={`circle-outline-${line.segmentIndex}`}
+                  positions={line.positions}
+                  pathOptions={{
+                    color: '#000000',
+                    weight: (line.strokeWeight || 7) + 2,
+                    opacity: 0.9,
+                  }}
+                />
+                <Polyline
+                  key={`circle-inner-${line.segmentIndex}`}
+                  positions={line.positions}
+                  pathOptions={{
+                    color: line.brandColor,
+                    weight: line.strokeWeight || 7,
+                    opacity: 1.0,
+                  }}
+                >
+                  <title>{line.displayName}</title>
+                </Polyline>
+              </>
+            )
+          }
+          return (
+            <Polyline
+              key={`${line.lineCode}-${line.segmentIndex}`}
+              positions={line.positions}
+              pathOptions={{
+                color: line.brandColor,
+                weight: line.strokeWeight || 4,
+                opacity: 0.85,
+              }}
+            >
+              <title>{line.displayName}</title>
+            </Polyline>
+          )
+        })}
 
         {/* Radius circle around selected university */}
         <RadiusCircle
