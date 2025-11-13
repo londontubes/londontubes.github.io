@@ -107,22 +107,36 @@ function StationMarkers({
   lineLabels: Record<string, string>
   lines: TransitLine[]
 }) {
+  // Use map zoom to dynamically size station markers: smaller when zoomed out
   const map = useMap()
   const [zoomLevel, setZoomLevel] = useState(map.getZoom())
 
-  // Subscribe to zoom changes to recompute marker sizes
   useEffect(() => {
-    const handler = () => setZoomLevel(map.getZoom())
-    map.on('zoomend', handler)
-    return () => {
-      map.off('zoomend', handler)
-    }
+    const onZoom = () => setZoomLevel(map.getZoom())
+    map.on('zoomend', onZoom)
+    return () => { map.off('zoomend', onZoom) }
   }, [map])
 
-  // Scale factor: linear relative to DEFAULT_ZOOM, clamped for usability
-  const scale = useMemo(() => {
-    const raw = 1 + (zoomLevel - DEFAULT_ZOOM) * 0.12 // ~12% size change per zoom step
-    return Math.min(2.4, Math.max(0.5, raw))
+  // Piecewise scaling giving strong shrink at low zoom and modest growth near max zoom
+  const computeScaledRadius = useMemo(() => {
+    return (base: number) => {
+      const z = zoomLevel
+      let factor: number
+      if (z <= 7) factor = 0.35
+      else if (z <= 8) factor = 0.4
+      else if (z <= 9) factor = 0.48
+      else if (z <= 10) factor = 0.58
+      else if (z <= 11) factor = 0.72
+      else if (z <= 12) factor = 0.85
+      else if (z <= 13) factor = 1.0
+      else if (z <= 14) factor = 1.15
+      else if (z <= 15) factor = 1.3
+      else if (z <= 16) factor = 1.45
+      else factor = 1.6
+      const radius = Math.round(base * factor)
+      // Ensure at least 3px for visibility
+      return Math.max(3, radius)
+    }
   }, [zoomLevel])
   // Create a map of line code to brand color
   const lineColorMap = useMemo(() => {
@@ -147,17 +161,17 @@ function StationMarkers({
       {visibleStations.map(station => {
         const isSelected = selectedStation?.stationId === station.stationId
         const isFiltered = filteredStationSet?.has(station.stationId)
-        let color = '#FFFFFF'
-        let baseRadius = 8
+        let color = '#FFFFFF' // Default visible
+        let base = 8
         if (!isFiltered && filteredStationSet) {
           color = '#333333'
-          baseRadius = 6
+          base = 6
         }
         if (isSelected) {
           color = '#0066cc'
-          baseRadius = 10
+          base = 10
         }
-        const radius = Math.round(baseRadius * scale)
+        const radius = computeScaledRadius(base)
 
         return (
           <CircleMarker
