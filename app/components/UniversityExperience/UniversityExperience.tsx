@@ -363,6 +363,11 @@ export default function UniversityExperience({
   
   const [selectedStation, setSelectedStation] = useState<Station | null>(null)
 
+  const isSelectedStationGreen = useMemo(() => {
+    if (!selectedStation) return false
+    return filteredStationIds.includes(selectedStation.stationId)
+  }, [selectedStation, filteredStationIds])
+
   const lineLabels = useMemo(() => createLineLabelMap(lines), [lines])
 
   const radiusSliderValue = walkMinutes
@@ -436,18 +441,9 @@ export default function UniversityExperience({
               />
             </div>
             <div 
-              className={`${styles.filterOption} ${filterMode === 'time' ? styles.active : styles.inactive}`}
-              onClick={() => selectedUniversityId && setFilterMode('time')}
-              role="radio"
-              tabIndex={selectedUniversityId ? 0 : -1}
-              aria-label="Tube time filter"
-              aria-checked={filterMode === 'time'}
-              onKeyDown={(e) => {
-                if (selectedUniversityId && (e.key === 'Enter' || e.key === ' ')) {
-                  e.preventDefault()
-                  setFilterMode('time')
-                }
-              }}
+              className={`${styles.filterOption} ${isSelectedStationGreen ? styles.active : styles.inactive}`}
+              role="group"
+              aria-label="Tube time filter (enabled after selecting a green station)"
             >
               <TimeSlider
                 value={travelTimeMins}
@@ -455,7 +451,7 @@ export default function UniversityExperience({
                 min={5}
                 max={60}
                 step={1}
-                disabled={!selectedUniversityId || filterMode !== 'time'}
+                disabled={!selectedUniversityId || !(filterMode === 'radius' && isSelectedStationGreen)}
               />
             </div>
           </div>
