@@ -71,6 +71,9 @@ export async function calculateTravelTimesHeuristic(
   return results.filter(r => r.durationMinutes <= opts.maxDurationMinutes)
 }
 
+// Backward-compatible alias (legacy import name in proximity.ts)
+export const calculateTravelTimes = calculateTravelTimesHeuristic;
+
 // Graph-based multi-leg transit times (in-network) starting from an origin stationId.
 export function calculateGraphTransitTimes(
   originStationId: string,
