@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker } from 'react-leaflet'
 import { trackStationSelect, trackMapZoom } from '@/app/lib/analytics'
 import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
@@ -125,6 +125,23 @@ function StationMarkers({
   universityMode?: boolean
   purpleReachInfo?: Record<string, { originStationId: string; minutes: number }>
 }) {
+  const map = useMap()
+  const [zoomLevel, setZoomLevel] = useState(map.getZoom())
+
+  // Subscribe to zoom changes to recompute marker sizes
+  useEffect(() => {
+    const handler = () => setZoomLevel(map.getZoom())
+    map.on('zoomend', handler)
+    return () => {
+      map.off('zoomend', handler)
+    }
+  }, [map])
+
+  // Scale factor: linear relative to DEFAULT_ZOOM, clamped for usability
+  const scale = useMemo(() => {
+    const raw = 1 + (zoomLevel - DEFAULT_ZOOM) * 0.12 // ~12% size change per zoom step
+    return Math.min(2.4, Math.max(0.5, raw))
+  }, [zoomLevel])
   // Create a map of line code to brand color
   const lineColorMap = useMemo(() => {
     const map: Record<string, string> = {}
@@ -143,54 +160,82 @@ function StationMarkers({
 
   const visibleStations = stations.filter(s => stationVisible(s, activeSet, filteredStationSet, purpleStationSet))
 
+  // Build roundel icon
+  const buildRoundelIcon = (station: Station, radius: number, isSelected: boolean, fillColor: string, barVariant: 'normal' | 'green' | 'purple') => {
+    const diameter = radius * 2
+    const ringThickness = Math.max(2, Math.round(radius * 0.3))
+    const barHeight = Math.max(4, Math.round(radius * 0.6))
+    const barWidth = Math.round(diameter * 0.95)
+    const ringColor = '#D40000'
+    let barColor = '#003d7a'
+    if (barVariant === 'green') barColor = '#2e7d32'
+    if (barVariant === 'purple') barColor = '#5e35b1'
+    if (isSelected) barColor = '#004a99'
+    const label = stationMarkerAriaLabel(station)
+    const html = `
+      <div class="roundel-wrapper" aria-label="${label}" style="position:relative;width:${diameter}px;height:${diameter}px;">
+        <div class="roundel-ring" style="position:absolute;inset:0;border:${ringThickness}px solid ${ringColor};border-radius:50%;background:${fillColor};box-sizing:border-box;${isSelected ? 'box-shadow:0 0 6px 2px rgba(0,0,0,0.45);' : ''}"></div>
+        <div class="roundel-bar" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:${barWidth}px;height:${barHeight}px;background:${barColor};border-radius:2px;"></div>
+      </div>`
+    return L.divIcon({
+      html,
+      className: 'station-roundel-icon',
+      iconSize: [diameter, diameter],
+      iconAnchor: [diameter / 2, diameter / 2],
+      popupAnchor: [0, -radius]
+    })
+  }
+
+
   return (
     <>
-        {visibleStations.map(station => {
-  const isSelected = selectedStation?.stationId === station.stationId
-  const isFiltered = filteredStationSet?.has(station.stationId)
-  const isPurple = filterMode === 'radius' && purpleStationSet?.has(station.stationId) && !isFiltered
-  // Default marker styling
-  let color = '#FFFFFF'
+      {visibleStations.map(station => {
+        const isSelected = selectedStation?.stationId === station.stationId
+        const isFiltered = filteredStationSet?.has(station.stationId)
+        const isPurple = filterMode === 'radius' && purpleStationSet?.has(station.stationId) && !isFiltered
 
-        let radius = 8
-        
+        // Enlarged base radii integrating previous size increase request
+        let color = '#FFFFFF'
+        let baseRadius = 9 // default
         if (filterMode === 'radius') {
-          // Walk/tube layered proximity coloring always active (including university mode)
           if (isFiltered) {
             color = '#4CAF50'
-            radius = 9
+            baseRadius = 10 // filtered (green) slightly larger
           } else if (isPurple) {
             color = '#7e57c2'
-            radius = 8
+            baseRadius = 9 // purple same as default
           } else {
-            // Non-reachable stations: in university landing map keep white, else dark gray
             color = universityMode ? '#FFFFFF' : '#333333'
-            radius = 6
+            baseRadius = 7 // inactive within radius context
           }
         } else if (filterMode === 'time' && filteredStationSet) {
-          // Original time mode semantics
           if (!isFiltered) {
             color = '#333333'
-            radius = 6
+            baseRadius = 7
           }
+        } else if (!isFiltered && filteredStationSet) {
+          // fallback for non-time non-radius modes
+          color = '#333333'
+          baseRadius = 7
         }
-
         if (isSelected) {
-          color = '#0066cc' // Blue for selected
-          radius = 10
+          color = '#0066cc'
+          baseRadius = 12 // selected larger
         }
 
+        const radius = Math.round(baseRadius * scale)
+        const icon = buildRoundelIcon(
+          station,
+          radius,
+          isSelected,
+            color,
+          isFiltered ? 'green' : isPurple ? 'purple' : 'normal'
+        )
         return (
-          <CircleMarker
+          <Marker
             key={station.stationId}
-            center={[station.position.coordinates[1], station.position.coordinates[0]]}
-            radius={radius}
-            pathOptions={{
-              fillColor: color,
-              fillOpacity: 0.8,
-              color: isSelected ? '#0066cc' : '#000000',
-              weight: 2,
-            }}
+            position={[station.position.coordinates[1], station.position.coordinates[0]]}
+            icon={icon}
             eventHandlers={{
               click: (e: L.LeafletMouseEvent) => {
                 L.DomEvent.stopPropagation(e)
@@ -198,12 +243,9 @@ function StationMarkers({
               },
             }}
           >
-            {/* Accessibility title */}
-            <title>{stationMarkerAriaLabel(station)}</title>
-            {/* Show popup for selected station */}
             {isSelected && (
               <Popup
-                offset={[0, -10]}
+                offset={[0, -radius]}
                 closeButton={true}
                 autoClose={false}
                 closeOnClick={false}
@@ -214,9 +256,9 @@ function StationMarkers({
                   </h3>
                   <div style={{ fontSize: '14px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                     {station.lineCodes.map(code => (
-                      <span 
-                        key={code} 
-                        style={{ 
+                      <span
+                        key={code}
+                        style={{
                           display: 'inline-block',
                           padding: '4px 10px',
                           backgroundColor: lineColorMap[code] || '#0066cc',
@@ -230,7 +272,6 @@ function StationMarkers({
                       </span>
                     ))}
                   </div>
-                  {/* Append tube time explanation if purple */}
                   {isPurple && purpleReachInfo && purpleReachInfo[station.stationId] && (
                     <PurpleTubeTime
                       originId={purpleReachInfo[station.stationId].originStationId}
@@ -242,7 +283,7 @@ function StationMarkers({
                 </div>
               </Popup>
             )}
-          </CircleMarker>
+          </Marker>
         )
       })}
     </>
@@ -570,6 +611,32 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
       controller.abort()
     }
   }, [filterMode, campusCoordinates, selectedStation, filteredStationSet])
+  // Auto zoom & center: maximize zoom while keeping all selected line stations visible
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map) return
+    if (!activeSet || activeSet.size === 0) return
+  if (selectedUniversityId) return // suppress when university focus active
+    const targetStations = stations.filter(s => s.lineCodes.some(c => activeSet.has(c)))
+    if (!targetStations.length) return
+
+    const latLngs = targetStations.map(s => L.latLng(s.position.coordinates[1], s.position.coordinates[0]))
+    const bounds = L.latLngBounds(latLngs)
+    const center = bounds.getCenter()
+    const maxZoomCap = 18
+    const minZoomCap = typeof map.getMinZoom === 'function' && map.getMinZoom() !== undefined ? map.getMinZoom() : 0
+    let appliedZoom = map.getZoom()
+    for (let z = maxZoomCap; z >= minZoomCap; z--) {
+      map.setView(center, z, { animate: false })
+      const viewBounds = map.getBounds()
+      const allVisible = latLngs.every(ll => viewBounds.contains(ll))
+      if (allVisible) {
+        appliedZoom = z
+        break
+      }
+    }
+    map.setView(center, appliedZoom, { animate: true })
+  }, [activeSet, stations, selectedUniversityId])
 
   // Prepare transit line paths
   const linePaths = useMemo(() => {
@@ -577,6 +644,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
       lineCode: string
       displayName: string
       brandColor: string
+      strokeWeight: number
       positions: [number, number][]
       segmentIndex: number
     }> = []
@@ -592,6 +660,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
               lineCode: line.lineCode,
               displayName: line.displayName,
               brandColor: line.brandColor,
+              strokeWeight: line.strokeWeight,
               positions: segment.map(([lng, lat]) => [lat, lng] as [number, number]),
               segmentIndex: index,
             })
@@ -603,6 +672,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
             lineCode: line.lineCode,
             displayName: line.displayName,
             brandColor: line.brandColor,
+            strokeWeight: line.strokeWeight,
             positions: coords.map(([lng, lat]) => [lat, lng] as [number, number]),
             segmentIndex: 0,
           })
@@ -716,20 +786,42 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           />
         ))}
 
-        {/* Active lines */}
-        {linePaths.map(line => (
-          <Polyline
-            key={`${line.lineCode}-${line.segmentIndex}`}
-            positions={line.positions}
-            pathOptions={{
-              color: line.brandColor,
-              weight: 4,
-              opacity: 0.8,
-            }}
-          >
-            <title>{line.displayName}</title>
-          </Polyline>
-        ))}
+        {/* Active lines with universal outline for clarity */}
+        {linePaths.map(line => {
+          // Adaptive outline: light inner color gets dark outline; dark inner gets light outline
+          const hex = line.brandColor.replace('#', '')
+          const r = parseInt(hex.substring(0, 2), 16)
+          const g = parseInt(hex.substring(2, 4), 16)
+          const b = parseInt(hex.substring(4, 6), 16)
+          const brightness = (r * 299 + g * 587 + b * 114) / 1000
+          const outlineColor = brightness < 90 ? '#FFFFFF' : '#000000'
+          const innerWeight = line.strokeWeight || 4
+          const outlineWeight = innerWeight + 2
+          return (
+            <>
+              <Polyline
+                key={`${line.lineCode}-outline-${line.segmentIndex}`}
+                positions={line.positions}
+                pathOptions={{
+                  color: outlineColor,
+                  weight: outlineWeight,
+                  opacity: 0.9,
+                }}
+              />
+              <Polyline
+                key={`${line.lineCode}-inner-${line.segmentIndex}`}
+                positions={line.positions}
+                pathOptions={{
+                  color: line.brandColor,
+                  weight: innerWeight,
+                  opacity: 1.0,
+                }}
+              >
+                <title>{line.displayName}</title>
+              </Polyline>
+            </>
+          )
+        })}
 
         {/* Radius circle removed per requirement: no green boundary when adjusting walk time */}
 
