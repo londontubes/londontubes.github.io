@@ -6,22 +6,28 @@ import { Suspense } from 'react'
 import Analytics from './components/Analytics/Analytics'
 import PageViewTracker from './components/Analytics/PageViewTracker'
 import ConsentBanner from './components/Analytics/ConsentBanner'
+import { faqItems } from './data/faqData'
 
 export const metadata: Metadata = {
-  title: 'London Tube Map 2025 | Interactive Underground & DLR Network Map with Line Filter',
-  description: 'Free interactive London Tube map showing all Underground, DLR & Overground lines. Find nearest stations, filter by line, view university locations. Real-time London metro map with 270+ stations across 11 lines. Plan your journey on the London subway network.',
-  keywords: 'london tube map, london underground map, tfl map, london metro map, london subway map, tube stations, nearest tube station, london underground lines, dlr map, london transport map, interactive tube map, university tube stations',
+  title: 'Interactive London Tube Map - Line Filters & University Journey Planner',
+  description:
+    'Interactive London Tube map with line filters, university journey planning, and TfL Underground, DLR & Overground coverage. Explore 270+ stations, find nearby universities, and plan routes with real-time London transport insights.',
+  keywords:
+    'london tube map, london underground planner, tfl tube lines map, london university commute, interactive tube map, london transport planner, dlr map, london subway map',
   openGraph: {
-    title: 'London Tube Map 2025 | Interactive Underground & DLR Line Filter',
-    description: 'Interactive London Underground map with 270+ stations. Filter by tube line, find nearest stations to universities, explore the complete TfL network. Free London metro map.',
+    title: 'Interactive London Tube Map - Plan Your TfL Journey',
+    description:
+      'London Underground, DLR, and Overground map with dynamic line filters, university station finder, and real-time journey planning tools.',
     type: 'website',
     siteName: 'London Tube Map',
     locale: 'en_GB',
+    url: 'https://londontubes.co.uk',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'London Tube Map 2025 | Interactive Underground Network',
-    description: 'Filter London Underground & DLR lines, find nearest tube stations, explore university transit options. 270+ stations, 11 lines.',
+    title: 'Interactive London Tube Map - Line Filters & Universities',
+    description:
+      'Filter TfL tube lines, see nearby universities, and plan journeys across 270+ London stations with our free interactive map.',
   },
   robots: {
     index: true,
@@ -43,6 +49,86 @@ export const viewport: Viewport = {
   themeColor: '#000000',
 }
 
+const webAppStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'London Tube Map',
+  url: 'https://londontubes.co.uk',
+  description:
+    'Interactive London Underground and DLR network map with line filtering, university commute planning, and station insights.',
+  applicationCategory: 'TravelApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  sameAs: [
+    'https://github.com/londontubes/londontubes.github.io',
+    'https://londontubes.co.uk',
+  ],
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'GBP',
+  },
+  creator: {
+    '@type': 'Organization',
+    name: 'London Tube Map',
+    url: 'https://londontubes.co.uk',
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'technical support',
+      url: 'https://github.com/londontubes/londontubes.github.io/issues',
+      availableLanguage: ['en'],
+    },
+  ],
+  keywords:
+    'london tube map, london underground planner, tfl tube lines map, london university commute, interactive tube map, london transport planner, dlr map, london subway map',
+  inLanguage: 'en-GB',
+  audience: {
+    '@type': 'Audience',
+    geographicArea: {
+      '@type': 'City',
+      name: 'London',
+      containedInPlace: {
+        '@type': 'Country',
+        name: 'United Kingdom',
+      },
+    },
+  },
+}
+
+const breadcrumbStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://londontubes.co.uk',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Universities Filter',
+      item: 'https://londontubes.co.uk/universities',
+    },
+  ],
+}
+
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -62,37 +148,19 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebApplication',
-              name: 'London Tube Map',
-              url: 'https://londontubes.co.uk',
-              description: 'Interactive London Underground and DLR network map with line filtering and university transit finder',
-              applicationCategory: 'NavigationApplication',
-              operatingSystem: 'Any',
-              offers: {
-                '@type': 'Offer',
-                price: '0',
-                priceCurrency: 'GBP',
-              },
-              creator: {
-                '@type': 'Organization',
-                name: 'London Tube Map',
-              },
-              keywords: 'london tube map, london underground, tfl map, metro map, subway map, tube stations, dlr map',
-              inLanguage: 'en-GB',
-              audience: {
-                '@type': 'Audience',
-                geographicArea: {
-                  '@type': 'City',
-                  name: 'London',
-                  containedInPlace: {
-                    '@type': 'Country',
-                    name: 'United Kingdom',
-                  },
-                },
-              },
-            }),
+            __html: JSON.stringify(webAppStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqStructuredData),
           }}
         />
       </head>
