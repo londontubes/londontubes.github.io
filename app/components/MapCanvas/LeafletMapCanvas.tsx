@@ -719,47 +719,40 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           />
         ))}
 
-        {/* Active lines */}
+        {/* Active lines with universal outline for clarity */}
         {linePaths.map(line => {
-          if (line.lineCode === 'circle') {
-            // Render outline + inner stroke for better contrast
-            return (
-              <>
-                <Polyline
-                  key={`circle-outline-${line.segmentIndex}`}
-                  positions={line.positions}
-                  pathOptions={{
-                    color: '#000000',
-                    weight: (line.strokeWeight || 7) + 2,
-                    opacity: 0.9,
-                  }}
-                />
-                <Polyline
-                  key={`circle-inner-${line.segmentIndex}`}
-                  positions={line.positions}
-                  pathOptions={{
-                    color: line.brandColor,
-                    weight: line.strokeWeight || 7,
-                    opacity: 1.0,
-                  }}
-                >
-                  <title>{line.displayName}</title>
-                </Polyline>
-              </>
-            )
-          }
+          // Adaptive outline: light inner color gets dark outline; dark inner gets light outline
+          const hex = line.brandColor.replace('#', '')
+          const r = parseInt(hex.substring(0, 2), 16)
+          const g = parseInt(hex.substring(2, 4), 16)
+          const b = parseInt(hex.substring(4, 6), 16)
+          const brightness = (r * 299 + g * 587 + b * 114) / 1000
+          const outlineColor = brightness < 90 ? '#FFFFFF' : '#000000'
+          const innerWeight = line.strokeWeight || 4
+          const outlineWeight = innerWeight + 2
           return (
-            <Polyline
-              key={`${line.lineCode}-${line.segmentIndex}`}
-              positions={line.positions}
-              pathOptions={{
-                color: line.brandColor,
-                weight: line.strokeWeight || 4,
-                opacity: 0.85,
-              }}
-            >
-              <title>{line.displayName}</title>
-            </Polyline>
+            <>
+              <Polyline
+                key={`${line.lineCode}-outline-${line.segmentIndex}`}
+                positions={line.positions}
+                pathOptions={{
+                  color: outlineColor,
+                  weight: outlineWeight,
+                  opacity: 0.9,
+                }}
+              />
+              <Polyline
+                key={`${line.lineCode}-inner-${line.segmentIndex}`}
+                positions={line.positions}
+                pathOptions={{
+                  color: line.brandColor,
+                  weight: innerWeight,
+                  opacity: 1.0,
+                }}
+              >
+                <title>{line.displayName}</title>
+              </Polyline>
+            </>
           )
         })}
 
