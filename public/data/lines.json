@@ -1734,10 +1734,10 @@
     {
       "lineCode": "circle",
       "displayName": "Circle",
-      "brandColor": "#FFD300",
+      "brandColor": "#FFC107",
       "textColor": "#000000",
       "mode": "tube",
-      "strokeWeight": 4,
+      "strokeWeight": 7,
       "polyline": {
         "type": "MultiLineString",
         "coordinates": [
