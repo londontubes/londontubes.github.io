@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker } from 'react-leaflet'
 import { trackStationSelect, trackMapZoom } from '@/app/lib/analytics'
 import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
@@ -143,6 +143,32 @@ function StationMarkers({
 
   const visibleStations = stations.filter(s => stationVisible(s, activeSet, filteredStationSet, purpleStationSet))
 
+  // Build roundel icon
+  const buildRoundelIcon = (station: Station, radius: number, isSelected: boolean, fillColor: string, barVariant: 'normal' | 'green' | 'purple') => {
+    const diameter = radius * 2
+    const ringThickness = Math.max(2, Math.round(radius * 0.3))
+    const barHeight = Math.max(4, Math.round(radius * 0.6))
+    const barWidth = Math.round(diameter * 0.95)
+    const ringColor = '#D40000'
+    let barColor = '#003d7a'
+    if (barVariant === 'green') barColor = '#2e7d32'
+    if (barVariant === 'purple') barColor = '#5e35b1'
+    if (isSelected) barColor = '#004a99'
+    const label = stationMarkerAriaLabel(station)
+    const html = `
+      <div class="roundel-wrapper" aria-label="${label}" style="position:relative;width:${diameter}px;height:${diameter}px;">
+        <div class="roundel-ring" style="position:absolute;inset:0;border:${ringThickness}px solid ${ringColor};border-radius:50%;background:${fillColor};box-sizing:border-box;${isSelected ? 'box-shadow:0 0 6px 2px rgba(0,0,0,0.45);' : ''}"></div>
+        <div class="roundel-bar" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:${barWidth}px;height:${barHeight}px;background:${barColor};border-radius:2px;"></div>
+      </div>`
+    return L.divIcon({
+      html,
+      className: 'station-roundel-icon',
+      iconSize: [diameter, diameter],
+      iconAnchor: [diameter / 2, diameter / 2],
+      popupAnchor: [0, -radius]
+    })
+  }
+
   return (
     <>
         {visibleStations.map(station => {
@@ -180,17 +206,18 @@ function StationMarkers({
           radius = 10
         }
 
+        const icon = buildRoundelIcon(
+          station,
+          radius,
+          isSelected,
+          color,
+          isFiltered ? 'green' : isPurple ? 'purple' : 'normal'
+        )
         return (
-          <CircleMarker
+          <Marker
             key={station.stationId}
-            center={[station.position.coordinates[1], station.position.coordinates[0]]}
-            radius={radius}
-            pathOptions={{
-              fillColor: color,
-              fillOpacity: 0.8,
-              color: isSelected ? '#0066cc' : '#000000',
-              weight: 2,
-            }}
+            position={[station.position.coordinates[1], station.position.coordinates[0]]}
+            icon={icon}
             eventHandlers={{
               click: (e: L.LeafletMouseEvent) => {
                 L.DomEvent.stopPropagation(e)
@@ -198,12 +225,9 @@ function StationMarkers({
               },
             }}
           >
-            {/* Accessibility title */}
-            <title>{stationMarkerAriaLabel(station)}</title>
-            {/* Show popup for selected station */}
             {isSelected && (
               <Popup
-                offset={[0, -10]}
+                offset={[0, -radius]}
                 closeButton={true}
                 autoClose={false}
                 closeOnClick={false}
@@ -214,9 +238,9 @@ function StationMarkers({
                   </h3>
                   <div style={{ fontSize: '14px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                     {station.lineCodes.map(code => (
-                      <span 
-                        key={code} 
-                        style={{ 
+                      <span
+                        key={code}
+                        style={{
                           display: 'inline-block',
                           padding: '4px 10px',
                           backgroundColor: lineColorMap[code] || '#0066cc',
@@ -230,7 +254,6 @@ function StationMarkers({
                       </span>
                     ))}
                   </div>
-                  {/* Append tube time explanation if purple */}
                   {isPurple && purpleReachInfo && purpleReachInfo[station.stationId] && (
                     <PurpleTubeTime
                       originId={purpleReachInfo[station.stationId].originStationId}
@@ -242,7 +265,7 @@ function StationMarkers({
                 </div>
               </Popup>
             )}
-          </CircleMarker>
+          </Marker>
         )
       })}
     </>
@@ -570,6 +593,28 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
       controller.abort()
     }
   }, [filterMode, campusCoordinates, selectedStation, filteredStationSet])
+  // Auto zoom to selected line(s): show all stations at maximal zoom containing bounds
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map) return
+    if (!activeSet || activeSet.size === 0) return
+    if (selectedUniversityId) return
+    const targetStations = stations.filter(s => s.lineCodes.some(c => activeSet.has(c)))
+    if (targetStations.length === 0) return
+    const latLngs = targetStations.map(s => L.latLng(s.position.coordinates[1], s.position.coordinates[0]))
+    const bounds = L.latLngBounds(latLngs)
+    map.fitBounds(bounds, { padding: [50, 50], maxZoom: 16, animate: true })
+    const originalBounds = bounds
+    const currentZoom = map.getZoom()
+    const MAX_ATTEMPT_ZOOM = 18
+    for (let z = currentZoom + 1; z <= MAX_ATTEMPT_ZOOM; z++) {
+      map.setZoom(z)
+      if (!map.getBounds().contains(originalBounds)) {
+        map.setZoom(z - 1)
+        break
+      }
+    }
+  }, [activeSet, stations, selectedUniversityId])
 
   // Prepare transit line paths
   const linePaths = useMemo(() => {
