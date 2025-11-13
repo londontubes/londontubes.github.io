@@ -1,4 +1,5 @@
-import type { Station } from '@/app/types/transit'
+import type { Station, TransitLine } from '@/app/types/transit'
+import { getCachedGraph, shortestPathsFrom, type PathResult } from './stationGraph'
 
 /**
  * Offline approximate travel time heuristics replacing Google Distance Matrix.
@@ -45,8 +46,9 @@ function haversineMeters(lat1: number, lng1: number, lat2: number, lng2: number)
   return R * c
 }
 
-export async function calculateTravelTimes(
-  origin: [number, number], // [lat, lng]
+// Legacy heuristic retained as fallback
+export async function calculateTravelTimesHeuristic(
+  origin: [number, number],
   stations: Station[],
   options: TravelTimeOptions = {}
 ): Promise<TravelTimeResult[]> {
@@ -54,13 +56,11 @@ export async function calculateTravelTimes(
   const speedMph = SPEEDS_MPH[opts.mode]
   const overhead = OVERHEAD_MINUTES[opts.mode]
   const [originLat, originLng] = origin
-
-  const results: TravelTimeResult[] = stations.map((station) => {
-    const [lng, lat] = station.position.coordinates // [lng, lat]
+  const results: TravelTimeResult[] = stations.map(station => {
+    const [lng, lat] = station.position.coordinates
     const distanceMeters = haversineMeters(originLat, originLng, lat, lng)
     const distanceMiles = distanceMeters / 1609.34
     const travelMinutes = (distanceMiles / speedMph) * 60 + overhead
-
     return {
       stationId: station.stationId,
       durationMinutes: Math.round(travelMinutes * 10) / 10,
@@ -68,8 +68,24 @@ export async function calculateTravelTimes(
       status: 'OK',
     }
   })
-
   return results.filter(r => r.durationMinutes <= opts.maxDurationMinutes)
+}
+
+// Graph-based multi-leg transit times (in-network) starting from an origin stationId.
+export function calculateGraphTransitTimes(
+  originStationId: string,
+  stations: Station[],
+  lines: TransitLine[],
+  maxDurationMinutes: number
+): TravelTimeResult[] {
+  const graph = getCachedGraph(lines, stations)
+  const paths: PathResult[] = shortestPathsFrom(originStationId, graph, maxDurationMinutes)
+  return paths.map(p => ({
+    stationId: p.stationId,
+    durationMinutes: p.minutes,
+    distance: 0, // distance not computed for multi-leg aggregate (could sum edges if needed)
+    status: 'OK',
+  }))
 }
 
 export function deriveReachableLines(
@@ -97,4 +113,10 @@ export function getReachableStationCoordinates(
     .filter((s) => reachableIds.has(s.stationId))
     .map((s) => s.position.coordinates as [number, number])
 }
+
+export function isGraphAvailable(stations: Station[], lines: TransitLine[]): boolean {
+  // Minimal check: ensure every line has at least 2 valid stations present.
+  return lines.some(l => l.stationIds.filter(id => stations.find(s => s.stationId === id)).length >= 2)
+}
+
 

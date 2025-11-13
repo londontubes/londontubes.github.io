@@ -3,17 +3,62 @@
 // Leaflet-only simplified StationInfoCard.
 // Previous Google Maps projection logic removed.
 import type { Station } from '@/app/types/transit'
+import { fetchJourneyDuration } from '@/app/lib/map/journeyPlanner'
+import { useEffect, useState } from 'react'
 import styles from './StationInfoCard.module.css'
 
 export interface StationInfoCardProps {
   station: Station | null
   lineLabels: Record<string, string>
   onClose: () => void
+  purpleReachInfo?: Record<string, { originStationId: string; minutes: number }>
+  greenStationIds?: Set<string>
+  stations?: Station[]
 }
 
-export function StationInfoCard({ station, lineLabels, onClose }: StationInfoCardProps) {
+export function StationInfoCard({ station, lineLabels, onClose, purpleReachInfo, greenStationIds, stations }: StationInfoCardProps) {
   if (!station) return null
   const lineNames = station.lineCodes.map(code => lineLabels[code] || code)
+  const [liveMinutes, setLiveMinutes] = useState<number | null>(null)
+  // Determine purple status and origin info up front
+  const purpleInfo = purpleReachInfo ? purpleReachInfo[station.stationId] : undefined
+  const isPurple = Boolean(purpleInfo)
+  const originStation = isPurple && stations ? stations.find(s => s.stationId === purpleInfo!.originStationId) : null
+  const originName = originStation?.displayName || (purpleInfo?.originStationId || '')
+
+  // Reset live minutes when station changes
+  useEffect(() => {
+    setLiveMinutes(null)
+  }, [station?.stationId])
+
+  // Fetch TfL journey time once for purple station
+  useEffect(() => {
+    if (!isPurple || !purpleInfo) return
+    if (liveMinutes != null) return
+    let cancelled = false
+    fetchJourneyDuration(purpleInfo.originStationId, station.stationId, { modes: 'tube' })
+      .then(res => {
+        if (cancelled) return
+        if (res && res.durationMinutes) {
+          setLiveMinutes(res.durationMinutes)
+        } else {
+          setLiveMinutes(-1)
+        }
+      })
+      .catch(() => !cancelled && setLiveMinutes(-1))
+    return () => { cancelled = true }
+  }, [isPurple, purpleInfo, station.stationId, liveMinutes])
+
+  let purpleExplanation: string | null = null
+  if (isPurple && originName) {
+    if (liveMinutes == null) {
+      purpleExplanation = `Tube reachable from walk station ${originName}. Fetching TfL journey time…`
+    } else if (liveMinutes > 0) {
+      purpleExplanation = `Tube reachable from walk station ${originName}. TfL journey time: ${liveMinutes} min.`
+    } else if (liveMinutes === -1) {
+      purpleExplanation = `Tube reachable from walk station ${originName}. TfL journey time unavailable.`
+    }
+  }
   return (
     <div
       className={styles.card}
@@ -46,6 +91,9 @@ export function StationInfoCard({ station, lineLabels, onClose }: StationInfoCar
               <li key={idx} className={styles.lineItem}>{name}</li>
             ))}
           </ul>
+          {purpleExplanation && (
+            <p className={styles.explanation}>{purpleExplanation}</p>
+          )}
         </div>
         {station.isInterchange && (
           <div className={styles.badge}>

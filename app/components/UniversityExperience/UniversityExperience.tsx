@@ -21,8 +21,8 @@ import { UniversitySelector } from '@/app/components/UniversitySelector'
 import type { Station, TransitDataset } from '@/app/types/transit'
 import type { UniversitiesDataset, University } from '@/app/types/university'
 import { createLineLabelMap } from '@/app/lib/data/load-static-data'
-import { calculateWalkingTimeFilter, calculateTimeBasedFilter, WALK_SPEED_MPH, WALK_ROUTE_FACTOR, WALK_OVERHEAD_MINUTES } from '@/app/lib/map/proximity'
-import { type TravelTimeResult } from '@/app/lib/map/travelTime'
+import { calculateWalkingTimeFilter, calculateTimeBasedFilter, WALK_SPEED_MPH, WALK_ROUTE_FACTOR, WALK_OVERHEAD_MINUTES, calculateDistance } from '@/app/lib/map/proximity'
+import { type TravelTimeResult, calculateTravelTimesHeuristic, calculateGraphTransitTimes, isGraphAvailable } from '@/app/lib/map/travelTime'
 
 // Derive straight-line radius (miles) from walk minutes using walking-time heuristic
 // Inverse of: minutes = ((distanceMiles * WALK_ROUTE_FACTOR) / WALK_SPEED_MPH) * 60 + WALK_OVERHEAD_MINUTES
@@ -61,6 +61,10 @@ export default function UniversityExperience({
   
   // Travel time results (populated when time-based filtering is active)
   const [travelTimeResults, setTravelTimeResults] = useState<TravelTimeResult[]>([])
+  // Purple tube-time reachable station IDs (multi-source from all walk-reachable stations while in walk mode)
+  const [purpleStationIds, setPurpleStationIds] = useState<string[]>([])
+  // Mapping of purple stationId -> { originStationId, minutes } for explanation of why shown
+  const [purpleReachInfo, setPurpleReachInfo] = useState<Record<string, { originStationId: string; minutes: number }>>({})
   
   // Filter mode: 'radius' (default) or 'time'
   const [filterMode, setFilterMode] = useState<'radius' | 'time'>('radius')
@@ -214,6 +218,8 @@ export default function UniversityExperience({
     setFilterMode('radius')
     trackFilterModeChange('radius')
     setTravelTimeResults([])
+    setPurpleStationIds([]) // Clear layered tube results when walk minutes change
+    setPurpleReachInfo({})
 
     // If a university is selected, recalculate proximity filter
     if (!selectedUniversityId || !selectedCampusId) return
@@ -256,59 +262,134 @@ export default function UniversityExperience({
   // Handle travel time change
   const handleTimeChange = useCallback(async (newTime: number) => {
     setTravelTimeMins(newTime)
-    
-    // Switch to time-based filtering mode
-    setFilterMode('time')
-    trackFilterModeChange('time')
-    
-    // If no university selected, just update state
+    trackTimeFilterChange(newTime)
+
+    // If no university/campus selected, just announce
     if (!selectedUniversityId || !selectedCampusId) {
-      handleAnnounce(`Tube time filter set to ${newTime} minutes`)
-      trackTimeFilterChange(newTime)
+      handleAnnounce(`Tube time set to ${newTime} minutes`)
       return
     }
 
-    // Find the selected university and campus
-    const universityFeature = universitiesDataset.features.find(
-      f => f.properties.universityId === selectedUniversityId
-    )
-    if (!universityFeature) return
+    // When in walk (radius) mode: layer purple stations reachable within tube time from ANY green (walk-reachable) station
+    if (filterMode === 'radius') {
+      if (!filteredStationIds.length) {
+        setPurpleStationIds([])
+        setPurpleReachInfo({})
+        handleAnnounce(`No walk-reachable stations to expand by tube within ${newTime} minutes`)
+        return
+      }
+      handleAnnounce(`Calculating tube reachability within ${newTime} minutes from ${filteredStationIds.length} walk-reachable stations…`)
+      try {
+        const greenSet = new Set(filteredStationIds)
+        // Compute travel times concurrently for all walk-reachable station origins (cap for safety)
+        const MAX_ORIGINS = 150
+        const origins = filteredStationIds.slice(0, MAX_ORIGINS)
+        const originStations = origins.map(id => stations.find(s => s.stationId === id)).filter(Boolean) as Station[]
+        const useGraph = isGraphAvailable(stations, lines)
+        const resultsArrays = useGraph
+          ? originStations.map(originStation => calculateGraphTransitTimes(originStation.stationId, stations, lines, newTime))
+          : await Promise.all(originStations.map(originStation => {
+              const [lng, lat] = originStation.position.coordinates
+              return calculateTravelTimesHeuristic([lat, lng], stations, { mode: 'TRANSIT', maxDurationMinutes: newTime })
+            }))
+        const union = new Set<string>()
+        const reachInfo: Record<string, { originStationId: string; minutes: number }> = {}
+        resultsArrays.forEach((arr, idx) => {
+          const originId = originStations[idx].stationId
+          arr.forEach(r => {
+            if (greenSet.has(r.stationId)) return // skip green (walk) stations
+            union.add(r.stationId)
+            const existing = reachInfo[r.stationId]
+            if (!existing || r.durationMinutes < existing.minutes) {
+              reachInfo[r.stationId] = { originStationId: originId, minutes: r.durationMinutes }
+            }
+          })
+        })
+        // After initial reachInfo build, override originStationId with nearest green (walk) station
+        const greenStations = filteredStationIds
+          .map(id => stations.find(s => s.stationId === id))
+          .filter(Boolean) as Station[]
+        if (greenStations.length) {
+          const allGreenCoords = greenStations.map(s => ({ id: s.stationId, lat: s.position.coordinates[1], lng: s.position.coordinates[0], lines: s.lineCodes }))
+          Array.from(union).forEach(purpleId => {
+            const purpleStation = stations.find(s => s.stationId === purpleId)
+            if (!purpleStation) return
+            const purpleLines = new Set(purpleStation.lineCodes)
+            // Prefer green stations sharing at least one line with the purple station
+            const sharedLineCandidates = allGreenCoords.filter(g => g.lines.some(code => purpleLines.has(code)))
+            const candidateSet = sharedLineCandidates.length ? sharedLineCandidates : allGreenCoords
+            const pLat = purpleStation.position.coordinates[1]
+            const pLng = purpleStation.position.coordinates[0]
+            let nearestId: string | null = null
+            let nearestDist = Infinity
+            candidateSet.forEach(g => {
+              const d = calculateDistance([pLng, pLat], [g.lng, g.lat])
+              if (d < nearestDist) {
+                nearestDist = d
+                nearestId = g.id
+              }
+            })
+            if (nearestId && reachInfo[purpleId]) {
+              reachInfo[purpleId].originStationId = nearestId
+            }
+          })
+          // If using graph, recompute minutes for each purple with its nearest origin so minutes reflect that pair
+          if (useGraph) {
+            Array.from(union).forEach(purpleId => {
+              const originId = reachInfo[purpleId]?.originStationId
+              if (!originId) return
+              const pairResults = calculateGraphTransitTimes(originId, stations, lines, newTime)
+              const target = pairResults.find(r => r.stationId === purpleId)
+              if (target) {
+                reachInfo[purpleId].minutes = target.durationMinutes
+              }
+            })
+          }
+        }
+        // Fallback: if no additional stations found, optionally widen origins or report zero
+        if (union.size === 0) {
+          setPurpleStationIds([])
+          setPurpleReachInfo({})
+          handleAnnounce(`No additional stations reachable within ${newTime} min tube time beyond walk set`)
+        } else {
+          const layered = Array.from(union)
+          setPurpleStationIds(layered)
+          setPurpleReachInfo(reachInfo)
+          handleAnnounce(`Tube time ${newTime} min adds ${layered.length} stations reachable via tube from walk set`)
+        }
+        trackTimeFilterChange(newTime, selectedUniversityId || undefined)
+      } catch (e) {
+        console.error('Multi-source tube time error', e)
+        handleAnnounce('Error calculating multi-source tube reachability')
+      }
+      return
+    }
 
+    // If in time mode: retain existing single-source campus-based logic
+    setFilterMode('time')
+    trackFilterModeChange('time')
+    const universityFeature = universitiesDataset.features.find(f => f.properties.universityId === selectedUniversityId)
+    if (!universityFeature) return
     const university = universityFeature.properties
     const campus = university.campuses.find(c => c.campusId === selectedCampusId)
     if (!campus) return
-
     handleAnnounce(`Calculating stations reachable via tube within ${newTime} minutes from ${campus.name}...`)
-
     try {
-      // Calculate time-based filter
-      const filter = await calculateTimeBasedFilter(
-        campus.coordinates,
-        newTime,
-        stations,
-        lines,
-        'TRANSIT'
-      )
-
+      const filter = await calculateTimeBasedFilter(campus.coordinates, newTime, stations, lines, 'TRANSIT')
       setTravelTimeResults(filter.travelTimes)
       setActiveLineCodes(filter.filteredLineCodes)
       setFilteredStationIds(filter.reachableStationIds)
-
+      setPurpleStationIds([]) // Clear layered purple when switching modes
       if (filter.filteredLineCodes.length === 0) {
-        handleAnnounce(
-          `No stations reachable within ${newTime} minutes from ${campus.name}`
-        )
+        handleAnnounce(`No stations reachable within ${newTime} minutes from ${campus.name}`)
       } else {
-        handleAnnounce(
-          `Found ${filter.reachableStationIds.length} stations reachable within ${newTime} min tube time, showing ${filter.filteredLineCodes.length} lines`
-        )
+        handleAnnounce(`Found ${filter.reachableStationIds.length} stations reachable within ${newTime} min tube time, showing ${filter.filteredLineCodes.length} lines`)
       }
-  trackTimeFilterChange(newTime, selectedUniversityId)
     } catch (error) {
-    console.error('Tube time calculation error:', error)
-    handleAnnounce(`Error calculating tube times. Please try again.`)
+      console.error('Tube time calculation error:', error)
+      handleAnnounce('Error calculating tube times. Please try again.')
     }
-  }, [selectedUniversityId, selectedCampusId, universitiesDataset, stations, lines, handleAnnounce])
+  }, [filterMode, selectedUniversityId, selectedCampusId, filteredStationIds, universitiesDataset, stations, lines, handleAnnounce])
 
   // Push announcements into hidden live region in layout
   useEffect(() => {
@@ -326,6 +407,8 @@ export default function UniversityExperience({
       setActiveLineCodes([])
       setFilteredStationIds([])
       setTravelTimeResults([])
+      setPurpleStationIds([])
+      setPurpleReachInfo({})
       
       if (selectedUniversityId) {
         handleAnnounce('Tube time mode activated. Adjust the slider to filter stations.')
@@ -346,6 +429,12 @@ export default function UniversityExperience({
   }, [selectedUniversityId])
   
   const [selectedStation, setSelectedStation] = useState<Station | null>(null)
+
+  // Previously required a selected green station; now enable tube time slider whenever
+  // there is at least one walk-reachable (green) station while in walk mode.
+  const canLayerTubeTime = useMemo(() => {
+    return filterMode === 'radius' && filteredStationIds.length > 0 && !!selectedUniversityId
+  }, [filterMode, filteredStationIds, selectedUniversityId])
 
   const lineLabels = useMemo(() => createLineLabelMap(lines), [lines])
 
@@ -420,18 +509,9 @@ export default function UniversityExperience({
               />
             </div>
             <div 
-              className={`${styles.filterOption} ${filterMode === 'time' ? styles.active : styles.inactive}`}
-              onClick={() => selectedUniversityId && setFilterMode('time')}
-              role="radio"
-              tabIndex={selectedUniversityId ? 0 : -1}
-              aria-label="Tube time filter"
-              aria-checked={filterMode === 'time'}
-              onKeyDown={(e) => {
-                if (selectedUniversityId && (e.key === 'Enter' || e.key === ' ')) {
-                  e.preventDefault()
-                  setFilterMode('time')
-                }
-              }}
+              className={`${styles.filterOption} ${canLayerTubeTime ? styles.active : styles.inactive}`}
+              role="group"
+              aria-label="Tube time layering (adjust to show additional purple stations reachable via tube from all green stations)"
             >
               <TimeSlider
                 value={travelTimeMins}
@@ -439,7 +519,7 @@ export default function UniversityExperience({
                 min={5}
                 max={60}
                 step={1}
-                disabled={!selectedUniversityId || filterMode !== 'time'}
+                disabled={!canLayerTubeTime}
               />
             </div>
           </div>
@@ -462,6 +542,8 @@ export default function UniversityExperience({
         filteredStationIds={filteredStationIds}
   radiusMiles={straightLineRadiusFromMinutes(walkMinutes)}
     campusCoordinates={campusCoordinates || undefined}
+        purpleStationIds={purpleStationIds}
+        purpleReachInfo={purpleReachInfo}
       />
 
       {showCampusSelector && campusSelectorUniversity && (
@@ -474,6 +556,7 @@ export default function UniversityExperience({
           isOpen={showCampusSelector}
         />
       )}
+      {/* Unified station popup now contains line info + tube time; card removed */}
     </div>
   )
 }
