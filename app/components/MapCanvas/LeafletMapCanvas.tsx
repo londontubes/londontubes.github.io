@@ -335,6 +335,34 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
     [filteredStationIds]
   )
 
+  // Auto zoom to selected line(s): show all stations at maximal zoom containing bounds
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map) return
+    if (!activeSet || activeSet.size === 0) return
+    // Skip if university focus active
+    if (selectedUniversityId) return
+    // Collect stations belonging to any active line
+    const targetStations = stations.filter(s => s.lineCodes.some(c => activeSet.has(c)))
+    if (targetStations.length === 0) return
+    const latLngs = targetStations.map(s => L.latLng(s.position.coordinates[1], s.position.coordinates[0]))
+    const bounds = L.latLngBounds(latLngs)
+    // Fit bounds first with padding and generous maxZoom
+    map.fitBounds(bounds, { padding: [50, 50], maxZoom: 16, animate: true })
+    // Attempt to increase zoom while all stations remain visible
+    const originalBounds = bounds
+    let currentZoom = map.getZoom()
+    const MAX_ATTEMPT_ZOOM = 18
+    for (let z = currentZoom + 1; z <= MAX_ATTEMPT_ZOOM; z++) {
+      map.setZoom(z)
+      // If the map's pixel bounds no longer fully contain the original bounds, revert and stop
+      if (!map.getBounds().contains(originalBounds)) {
+        map.setZoom(z - 1)
+        break
+      }
+    }
+  }, [activeSet, stations, selectedUniversityId])
+
   // Prepare transit line paths
   const linePaths = useMemo(() => {
     const result: Array<{
