@@ -274,24 +274,30 @@ export default function UniversityExperience({
         handleAnnounce(`No walk-reachable stations to expand by tube within ${newTime} minutes`)
         return
       }
-      handleAnnounce(`Calculating tube reachability within ${newTime} minutes from ${filteredStationIds.length} walk-reachable stations...`)
+      handleAnnounce(`Calculating tube reachability within ${newTime} minutes from ${filteredStationIds.length} walk-reachable stations…`)
       try {
         const greenSet = new Set(filteredStationIds)
-        const union = new Set<string>()
-        const MAX_ORIGINS = 40
+        // Compute travel times concurrently for all walk-reachable station origins (cap for safety)
+        const MAX_ORIGINS = 150
         const origins = filteredStationIds.slice(0, MAX_ORIGINS)
-        for (const originId of origins) {
-          const originStation = stations.find(s => s.stationId === originId)
-          if (!originStation) continue
+        const originStations = origins.map(id => stations.find(s => s.stationId === id)).filter(Boolean) as Station[]
+        const resultsArrays = await Promise.all(originStations.map(originStation => {
           const [lng, lat] = originStation.position.coordinates
-          const results = await calculateTravelTimes([lat, lng], stations, { mode: 'TRANSIT', maxDurationMinutes: newTime })
-          results.forEach(r => {
-            if (!greenSet.has(r.stationId)) union.add(r.stationId)
-          })
+          return calculateTravelTimes([lat, lng], stations, { mode: 'TRANSIT', maxDurationMinutes: newTime })
+        }))
+        const union = new Set<string>()
+        resultsArrays.forEach(arr => {
+          arr.forEach(r => { if (!greenSet.has(r.stationId)) union.add(r.stationId) })
+        })
+        // Fallback: if no additional stations found, optionally widen origins or report zero
+        if (union.size === 0) {
+          setPurpleStationIds([])
+          handleAnnounce(`No additional stations reachable within ${newTime} min tube time beyond walk set`)
+        } else {
+          const layered = Array.from(union)
+          setPurpleStationIds(layered)
+          handleAnnounce(`Tube time ${newTime} min adds ${layered.length} stations reachable via tube from walk set`)
         }
-        const layered = Array.from(union)
-        setPurpleStationIds(layered)
-        handleAnnounce(`Tube time ${newTime} min adds ${layered.length} additional stations reachable from walk set`)
         trackTimeFilterChange(newTime, selectedUniversityId || undefined)
       } catch (e) {
         console.error('Multi-source tube time error', e)
