@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker, Tooltip } from 'react-leaflet'
 import { trackStationSelect, trackMapZoom } from '@/app/lib/analytics'
 import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
@@ -231,6 +231,51 @@ function StationMarkers({
             color,
           isFiltered ? 'green' : isPurple ? 'purple' : 'normal'
         )
+        const renderStationCard = (includePurpleDetails: boolean) => (
+          <div
+            className="station-hover-card"
+            style={{
+              minWidth: '220px',
+              padding: '10px 12px',
+              backgroundColor: '#ffffff',
+              borderRadius: '10px',
+              boxShadow: '0 12px 32px rgba(15, 23, 42, 0.22)',
+              border: '1px solid rgba(15, 23, 42, 0.08)',
+              color: '#1f2937',
+            }}
+          >
+            <h3 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 'bold', color: '#0f172a' }}>
+              {station.displayName}
+            </h3>
+            <div style={{ fontSize: '14px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+              {station.lineCodes.map(code => (
+                <span
+                  key={code}
+                  style={{
+                    display: 'inline-block',
+                    padding: '4px 10px',
+                    backgroundColor: lineColorMap[code] || '#0066cc',
+                    color: 'white',
+                    borderRadius: '4px',
+                    fontSize: '12px',
+                    fontWeight: '600',
+                  }}
+                >
+                  {lineLabels[code] || code}
+                </span>
+              ))}
+            </div>
+            {includePurpleDetails && isPurple && purpleReachInfo && purpleReachInfo[station.stationId] && (
+              <PurpleTubeTime
+                originId={purpleReachInfo[station.stationId].originStationId}
+                targetId={station.stationId}
+                stations={stations}
+                lines={lines}
+              />
+            )}
+          </div>
+        )
+
         return (
           <Marker
             key={station.stationId}
@@ -243,6 +288,15 @@ function StationMarkers({
               },
             }}
           >
+            <Tooltip
+              direction="top"
+              offset={[0, -radius]}
+              opacity={1}
+              className="station-hover-tooltip"
+              interactive
+            >
+              {renderStationCard(false)}
+            </Tooltip>
             {isSelected && (
               <Popup
                 offset={[0, -radius]}
@@ -250,37 +304,7 @@ function StationMarkers({
                 autoClose={false}
                 closeOnClick={false}
               >
-                <div style={{ minWidth: '220px' }}>
-                  <h3 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 'bold' }}>
-                    {station.displayName}
-                  </h3>
-                  <div style={{ fontSize: '14px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
-                    {station.lineCodes.map(code => (
-                      <span
-                        key={code}
-                        style={{
-                          display: 'inline-block',
-                          padding: '4px 10px',
-                          backgroundColor: lineColorMap[code] || '#0066cc',
-                          color: 'white',
-                          borderRadius: '4px',
-                          fontSize: '12px',
-                          fontWeight: '600',
-                        }}
-                      >
-                        {lineLabels[code] || code}
-                      </span>
-                    ))}
-                  </div>
-                  {isPurple && purpleReachInfo && purpleReachInfo[station.stationId] && (
-                    <PurpleTubeTime
-                      originId={purpleReachInfo[station.stationId].originStationId}
-                      targetId={station.stationId}
-                      stations={stations}
-                      lines={lines}
-                    />
-                  )}
-                </div>
+                {renderStationCard(true)}
               </Popup>
             )}
           </Marker>
