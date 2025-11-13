@@ -107,6 +107,14 @@ function StationMarkers({
   lineLabels: Record<string, string>
   lines: TransitLine[]
 }) {
+  const map = useMap()
+  const zoom = map.getZoom()
+  // Compute scaling factor relative to DEFAULT_ZOOM (11)
+  const scalingFactor = useMemo(() => {
+    // Linear adjustment then clamp
+    const raw = 1 + (zoom - DEFAULT_ZOOM) * 0.12
+    return Math.min(2.2, Math.max(0.55, raw))
+  }, [zoom])
   // Create a map of line code to brand color
   const lineColorMap = useMemo(() => {
     const map: Record<string, string> = {}
@@ -128,21 +136,23 @@ function StationMarkers({
   return (
     <>
       {visibleStations.map(station => {
-  const isSelected = selectedStation?.stationId === station.stationId
-  const isFiltered = filteredStationSet?.has(station.stationId)
-  let color = '#FFFFFF' // White for filtered/visible stations
+        const isSelected = selectedStation?.stationId === station.stationId
+        const isFiltered = filteredStationSet?.has(station.stationId)
+        let color = '#FFFFFF' // White for filtered/visible stations
 
-        let radius = 8
-        
+        let baseRadius = 8
+
         if (!isFiltered && filteredStationSet) {
           color = '#333333' // Grey for non-filtered
-          radius = 6
+          baseRadius = 6
         }
 
         if (isSelected) {
           color = '#0066cc' // Blue for selected
-          radius = 10
+          baseRadius = 10
         }
+
+        const radius = Math.round(baseRadius * scalingFactor)
 
         return (
           <CircleMarker
