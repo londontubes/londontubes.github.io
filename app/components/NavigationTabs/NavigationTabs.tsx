@@ -20,9 +20,9 @@ export interface NavigationTabsProps {
 
 export function NavigationTabs({ className }: NavigationTabsProps) {
   const pathname = usePathname()
-  
+
   const isLinesActive = pathname === '/'
-  const isUniversitiesActive = pathname === '/universities'
+  const isUniversitiesActive = pathname?.startsWith('/universities') ?? false
 
   return (
     <nav className={`${styles.navigationTabs} ${className || ''}`} aria-label="Main navigation">
