@@ -335,32 +335,37 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
     [filteredStationIds]
   )
 
-  // Auto zoom to selected line(s): show all stations at maximal zoom containing bounds
+  // Auto zoom & center: maximize zoom while keeping all selected line stations visible
   useEffect(() => {
     const map = mapRef.current
     if (!map) return
     if (!activeSet || activeSet.size === 0) return
-    // Skip if university focus active
-    if (selectedUniversityId) return
-    // Collect stations belonging to any active line
+    if (selectedUniversityId) return // suppress when university focus active
+
     const targetStations = stations.filter(s => s.lineCodes.some(c => activeSet.has(c)))
-    if (targetStations.length === 0) return
+    if (!targetStations.length) return
+
     const latLngs = targetStations.map(s => L.latLng(s.position.coordinates[1], s.position.coordinates[0]))
     const bounds = L.latLngBounds(latLngs)
-    // Fit bounds first with padding and generous maxZoom
-    map.fitBounds(bounds, { padding: [50, 50], maxZoom: 16, animate: true })
-    // Attempt to increase zoom while all stations remain visible
-    const originalBounds = bounds
-    let currentZoom = map.getZoom()
-    const MAX_ATTEMPT_ZOOM = 18
-    for (let z = currentZoom + 1; z <= MAX_ATTEMPT_ZOOM; z++) {
-      map.setZoom(z)
-      // If the map's pixel bounds no longer fully contain the original bounds, revert and stop
-      if (!map.getBounds().contains(originalBounds)) {
-        map.setZoom(z - 1)
+    const center = bounds.getCenter()
+
+    // Determine zoom search range
+    const maxZoomCap = 18 // Leaflet default tile availability upper bound
+    const minZoomCap = typeof map.getMinZoom === 'function' && map.getMinZoom() !== undefined ? map.getMinZoom() : 0
+
+    // Start from max zoom descending until all stations visible
+    let appliedZoom = map.getZoom()
+    for (let z = maxZoomCap; z >= minZoomCap; z--) {
+      map.setView(center, z, { animate: false })
+      const viewBounds = map.getBounds()
+      const allVisible = latLngs.every(ll => viewBounds.contains(ll))
+      if (allVisible) {
+        appliedZoom = z
         break
       }
     }
+    // Final animated settle at chosen zoom for smoother UX
+    map.setView(center, appliedZoom, { animate: true })
   }, [activeSet, stations, selectedUniversityId])
 
   // Prepare transit line paths
