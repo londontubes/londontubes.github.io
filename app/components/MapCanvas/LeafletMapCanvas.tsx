@@ -122,21 +122,20 @@ function StationMarkers({
     return (base: number) => {
       const z = zoomLevel
       let factor: number
-      // More aggressive shrink at low zoom, capped modest growth at high zoom
-      if (z <= 7) factor = 0.25
-      else if (z <= 8) factor = 0.30
-      else if (z <= 9) factor = 0.36
-      else if (z <= 10) factor = 0.45
-      else if (z <= 11) factor = 0.55
-      else if (z <= 12) factor = 0.70
-      else if (z <= 13) factor = 0.85
-      else if (z <= 14) factor = 1.0
-      else if (z <= 15) factor = 1.1
-      else if (z <= 16) factor = 1.2
-      else factor = 1.3
+      // Slightly larger than previous settings while staying proportionate
+      if (z <= 7) factor = 0.30
+      else if (z <= 8) factor = 0.35
+      else if (z <= 9) factor = 0.42
+      else if (z <= 10) factor = 0.50
+      else if (z <= 11) factor = 0.60
+      else if (z <= 12) factor = 0.75
+      else if (z <= 13) factor = 0.90
+      else if (z <= 14) factor = 1.05
+      else if (z <= 15) factor = 1.15
+      else if (z <= 16) factor = 1.25
+      else factor = 1.35
       const radius = Math.round(base * factor)
-      // Ensure at least 2px for visibility
-      return Math.max(2, radius)
+      return Math.max(3, radius) // ensure minimum 3px
     }
   }, [zoomLevel])
   // Create a map of line code to brand color
@@ -163,14 +162,14 @@ function StationMarkers({
         const isSelected = selectedStation?.stationId === station.stationId
         const isFiltered = filteredStationSet?.has(station.stationId)
         let color = '#FFFFFF' // Default visible
-        let base = 5
+        let base = 6
         if (!isFiltered && filteredStationSet) {
           color = '#333333'
-          base = 4
+          base = 5
         }
         if (isSelected) {
           color = '#0066cc'
-          base = 7
+          base = 8
         }
         const radius = computeScaledRadius(base)
 
