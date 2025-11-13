@@ -593,27 +593,31 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
       controller.abort()
     }
   }, [filterMode, campusCoordinates, selectedStation, filteredStationSet])
-  // Auto zoom to selected line(s): show all stations at maximal zoom containing bounds
+  // Auto zoom & center: maximize zoom while keeping all selected line stations visible
   useEffect(() => {
     const map = mapRef.current
     if (!map) return
     if (!activeSet || activeSet.size === 0) return
-    if (selectedUniversityId) return
+  if (selectedUniversityId) return // suppress when university focus active
     const targetStations = stations.filter(s => s.lineCodes.some(c => activeSet.has(c)))
-    if (targetStations.length === 0) return
+    if (!targetStations.length) return
+
     const latLngs = targetStations.map(s => L.latLng(s.position.coordinates[1], s.position.coordinates[0]))
     const bounds = L.latLngBounds(latLngs)
-    map.fitBounds(bounds, { padding: [50, 50], maxZoom: 16, animate: true })
-    const originalBounds = bounds
-    const currentZoom = map.getZoom()
-    const MAX_ATTEMPT_ZOOM = 18
-    for (let z = currentZoom + 1; z <= MAX_ATTEMPT_ZOOM; z++) {
-      map.setZoom(z)
-      if (!map.getBounds().contains(originalBounds)) {
-        map.setZoom(z - 1)
+    const center = bounds.getCenter()
+    const maxZoomCap = 18
+    const minZoomCap = typeof map.getMinZoom === 'function' && map.getMinZoom() !== undefined ? map.getMinZoom() : 0
+    let appliedZoom = map.getZoom()
+    for (let z = maxZoomCap; z >= minZoomCap; z--) {
+      map.setView(center, z, { animate: false })
+      const viewBounds = map.getBounds()
+      const allVisible = latLngs.every(ll => viewBounds.contains(ll))
+      if (allVisible) {
+        appliedZoom = z
         break
       }
     }
+    map.setView(center, appliedZoom, { animate: true })
   }, [activeSet, stations, selectedUniversityId])
 
   // Prepare transit line paths
