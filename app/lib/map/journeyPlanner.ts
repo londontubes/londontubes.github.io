@@ -7,6 +7,16 @@ export interface JourneyLegSummary {
   legs: Array<{ mode: string; duration: number; lineName?: string }>
 }
 
+interface RawJourneyLeg {
+  duration: number
+  mode?: { name?: string; id?: string }
+  routeOptions?: Array<{ name?: string }>
+}
+
+interface JourneyPlannerResponse {
+  journeys?: Array<{ duration: number; legs?: RawJourneyLeg[] }>
+}
+
 export async function fetchJourneyDuration(
   from: string, // NaPTAN id or coordinates "lat,lon"
   to: string,
@@ -22,10 +32,10 @@ export async function fetchJourneyDuration(
     const url = `https://api.tfl.gov.uk/Journey/JourneyResults/${encodeURIComponent(from)}/to/${encodeURIComponent(to)}?${params.toString()}`
     const res = await fetch(url)
     if (!res.ok) return null
-    const data = await res.json()
-    if (!data?.journeys?.length) return null
+    const data = await res.json() as JourneyPlannerResponse
+    if (!data.journeys?.length) return null
     const j = data.journeys[0]
-    const legs = (j.legs || []).map((l: any) => ({ mode: l.mode?.name || l.mode?.id || 'unknown', duration: l.duration, lineName: l.routeOptions?.[0]?.name }))
+    const legs = (j.legs || []).map((l: RawJourneyLeg) => ({ mode: l.mode?.name || l.mode?.id || 'unknown', duration: l.duration, lineName: l.routeOptions?.[0]?.name }))
     return { durationMinutes: j.duration, legs }
   } catch (e) {
     console.warn('Journey Planner fetch failed', e)

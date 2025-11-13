@@ -16,12 +16,14 @@ export interface StationInfoCardProps {
   stations?: Station[]
 }
 
-export function StationInfoCard({ station, lineLabels, onClose, purpleReachInfo, greenStationIds, stations }: StationInfoCardProps) {
-  if (!station) return null
-  const lineNames = station.lineCodes.map(code => lineLabels[code] || code)
+export function StationInfoCard({ station, lineLabels, onClose, purpleReachInfo, stations }: StationInfoCardProps) {
+  // Hooks must be called unconditionally; derive identifiers safely.
+  const stationId = station?.stationId
   const [liveMinutes, setLiveMinutes] = useState<number | null>(null)
-  // Determine purple status and origin info up front
-  const purpleInfo = purpleReachInfo ? purpleReachInfo[station.stationId] : undefined
+
+  // Compute derived data without conditional hook paths.
+  const lineNames = station ? station.lineCodes.map(code => lineLabels[code] || code) : []
+  const purpleInfo = stationId && purpleReachInfo ? purpleReachInfo[stationId] : undefined
   const isPurple = Boolean(purpleInfo)
   const originStation = isPurple && stations ? stations.find(s => s.stationId === purpleInfo!.originStationId) : null
   const originName = originStation?.displayName || (purpleInfo?.originStationId || '')
@@ -29,14 +31,14 @@ export function StationInfoCard({ station, lineLabels, onClose, purpleReachInfo,
   // Reset live minutes when station changes
   useEffect(() => {
     setLiveMinutes(null)
-  }, [station?.stationId])
+  }, [stationId])
 
   // Fetch TfL journey time once for purple station
   useEffect(() => {
-    if (!isPurple || !purpleInfo) return
+    if (!stationId || !isPurple || !purpleInfo) return
     if (liveMinutes != null) return
     let cancelled = false
-    fetchJourneyDuration(purpleInfo.originStationId, station.stationId, { modes: 'tube' })
+    fetchJourneyDuration(purpleInfo.originStationId, stationId, { modes: 'tube' })
       .then(res => {
         if (cancelled) return
         if (res && res.durationMinutes) {
@@ -47,7 +49,7 @@ export function StationInfoCard({ station, lineLabels, onClose, purpleReachInfo,
       })
       .catch(() => !cancelled && setLiveMinutes(-1))
     return () => { cancelled = true }
-  }, [isPurple, purpleInfo, station.stationId, liveMinutes])
+  }, [isPurple, purpleInfo, stationId, liveMinutes])
 
   let purpleExplanation: string | null = null
   if (isPurple && originName) {
@@ -59,6 +61,9 @@ export function StationInfoCard({ station, lineLabels, onClose, purpleReachInfo,
       purpleExplanation = `Tube reachable from walk station ${originName}. TfL journey time unavailable.`
     }
   }
+
+  if (!station) return null
+
   return (
     <div
       className={styles.card}

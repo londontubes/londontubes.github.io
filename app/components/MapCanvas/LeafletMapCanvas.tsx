@@ -301,7 +301,6 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
   const originStation = stations.find(s => s.stationId === originId)
   const originName = originStation?.displayName || originId
   const targetStation = stations.find(s => s.stationId === targetId)
-  const targetName = targetStation?.displayName || targetId
   const sharedLines = originStation && targetStation ? originStation.lineCodes.filter(c => targetStation.lineCodes.includes(c)) : []
 
   // Map line code to display name for direct line phrasing
