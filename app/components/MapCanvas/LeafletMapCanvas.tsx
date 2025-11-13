@@ -32,6 +32,7 @@ export interface MapCanvasProps {
   filteredStationIds?: string[]
   radiusMiles?: number
   campusCoordinates?: [number, number] // [lng, lat] of selected campus
+  purpleStationIds?: string[] // multi-source tube-time reachable (layered over walk mode)
 }
 
 // Helper functions
@@ -99,6 +100,7 @@ function StationMarkers({
   lineLabels,
   lines,
   filterMode,
+  purpleStationSet,
 }: {
   stations: Station[]
   activeSet: Set<string> | null
@@ -109,6 +111,7 @@ function StationMarkers({
   filterMode?: 'radius' | 'time'
   lineLabels: Record<string, string>
   lines: TransitLine[]
+  purpleStationSet: Set<string> | null
 }) {
   // Create a map of line code to brand color
   const lineColorMap = useMemo(() => {
@@ -133,6 +136,7 @@ function StationMarkers({
       {visibleStations.map(station => {
   const isSelected = selectedStation?.stationId === station.stationId
   const isFiltered = filteredStationSet?.has(station.stationId)
+  const isPurple = filterMode === 'radius' && purpleStationSet?.has(station.stationId) && !isFiltered
   // Default marker styling
   let color = '#FFFFFF'
 
@@ -145,8 +149,13 @@ function StationMarkers({
               color = '#4CAF50'
               radius = 9
             } else {
-              color = '#333333'
-              radius = 6
+              if (isPurple) {
+                color = '#7e57c2' // purple for tube-time reachable via any green station
+                radius = 8
+              } else {
+                color = '#333333'
+                radius = 6
+              }
             }
           } else {
             // Time-based (tube) filter: keep previous scheme (white for reachable, grey for others)
@@ -290,6 +299,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
     // radiusMiles removed (legacy miles-based radius no longer used)
     campusCoordinates,
     filterMode,
+    purpleStationIds = [],
   } = props
 
   const mapRef = useRef<L.Map | null>(null)
@@ -322,6 +332,11 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
   const filteredStationSet = useMemo(
     () => (filteredStationIds.length ? new Set(filteredStationIds) : null),
     [filteredStationIds]
+  )
+
+  const purpleStationSet = useMemo(
+    () => (purpleStationIds.length ? new Set<string>(purpleStationIds) : null),
+    [purpleStationIds]
   )
 
   // Walking route state (road-following path from campus to selected station)
@@ -623,6 +638,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           lineLabels={lineLabels}
           lines={lines}
           filterMode={props.filterMode}
+          purpleStationSet={purpleStationSet}
         />
 
         {/* University markers */}
