@@ -160,29 +160,35 @@ function StationMarkers({
 
   const visibleStations = stations.filter(s => stationVisible(s, activeSet, filteredStationSet, purpleStationSet))
 
-  // Build roundel icon
-  const buildRoundelIcon = (station: Station, radius: number, isSelected: boolean, fillColor: string, barVariant: 'normal' | 'green' | 'purple') => {
+  // Build simple circular icon (white default)
+  const buildStationIcon = (
+    station: Station,
+    radius: number,
+    isSelected: boolean,
+    fillColor: string,
+    emphasis: 'normal' | 'green' | 'purple'
+  ) => {
     const diameter = radius * 2
-    const ringThickness = Math.max(2, Math.round(radius * 0.3))
-    const barHeight = Math.max(4, Math.round(radius * 0.6))
-    const barWidth = Math.round(diameter * 0.95)
-    const ringColor = '#D40000'
-    let barColor = '#003d7a'
-    if (barVariant === 'green') barColor = '#2e7d32'
-    if (barVariant === 'purple') barColor = '#5e35b1'
-    if (isSelected) barColor = '#004a99'
+    const borderWidth = Math.max(2, Math.round(radius * 0.35))
     const label = stationMarkerAriaLabel(station)
+    let borderColor = '#0f172a'
+    if (emphasis === 'green') borderColor = '#2e7d32'
+    if (emphasis === 'purple') borderColor = '#5e35b1'
+    if (isSelected) borderColor = '#1d4ed8'
+    const boxShadow = isSelected ? '0 0 10px rgba(29, 78, 216, 0.45)' : '0 2px 6px rgba(15, 23, 42, 0.22)'
     const html = `
-      <div class="roundel-wrapper" aria-label="${label}" style="position:relative;width:${diameter}px;height:${diameter}px;">
-        <div class="roundel-ring" style="position:absolute;inset:0;border:${ringThickness}px solid ${ringColor};border-radius:50%;background:${fillColor};box-sizing:border-box;${isSelected ? 'box-shadow:0 0 6px 2px rgba(0,0,0,0.45);' : ''}"></div>
-        <div class="roundel-bar" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:${barWidth}px;height:${barHeight}px;background:${barColor};border-radius:2px;"></div>
-      </div>`
+      <div
+        class="station-circle-icon"
+        aria-label="${label}"
+        style="width:${diameter}px;height:${diameter}px;border-radius:50%;background:${fillColor};border:${borderWidth}px solid ${borderColor};box-shadow:${boxShadow};"
+      ></div>`
     return L.divIcon({
       html,
-      className: 'station-roundel-icon',
+      className: 'station-circle-icon-wrapper',
       iconSize: [diameter, diameter],
       iconAnchor: [diameter / 2, diameter / 2],
-      popupAnchor: [0, -radius]
+      popupAnchor: [0, -radius],
+      tooltipAnchor: [0, -radius * 0.7],
     })
   }
 
@@ -224,7 +230,7 @@ function StationMarkers({
         }
 
         const radius = Math.round(baseRadius * scale)
-        const icon = buildRoundelIcon(
+        const icon = buildStationIcon(
           station,
           radius,
           isSelected,
