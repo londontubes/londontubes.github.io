@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
+import type { MutableRefObject } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker, Tooltip } from 'react-leaflet'
 import { trackStationSelect, trackMapZoom } from '@/app/lib/analytics'
 import L from 'leaflet'
@@ -9,6 +10,8 @@ import type { UniversitiesDataset } from '@/app/types/university'
 import type { TravelTimeResult } from '@/app/lib/map/travelTime'
 import { calculateDistance, WALK_SPEED_MPH, WALK_OVERHEAD_MINUTES, WALK_ROUTE_FACTOR } from '@/app/lib/map/proximity'
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
+import { getCachedGraph, shortestPathsFrom } from '@/app/lib/map/stationGraph'
+import { getStaticTubeJourney } from '@/app/lib/map/staticTubeTimes'
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
 const DEFAULT_ZOOM = 11
@@ -95,9 +98,180 @@ function UniversityFocusHandler({
   return null
 }
 
-// Station markers component
-import { fetchJourneyDuration } from '@/app/lib/map/journeyPlanner'
-import { getCachedGraph, shortestPathsFrom } from '@/app/lib/map/stationGraph'
+type HoverPreviewStatus = 'idle' | 'ready' | 'error'
+
+interface HoverJourneyPreview {
+  totalMinutes: number | null
+  durationSource: 'static' | 'unavailable'
+  notice?: string
+  fetchingLive: false
+  source?: string
+}
+
+function useHoverJourneyPreview(
+  origin: Station | null,
+  target: Station | null,
+  journeyCache: MutableRefObject<Map<string, HoverJourneyPreview>>
+): { preview: HoverJourneyPreview | null; status: HoverPreviewStatus } {
+  return useMemo(() => {
+    if (!origin || !target || origin.stationId === target.stationId) {
+      return { preview: null, status: origin && target ? 'ready' : 'idle' }
+    }
+
+    const cacheKey = `${origin.stationId}->${target.stationId}`
+    const cached = journeyCache.current.get(cacheKey)
+    if (cached) {
+      return {
+        preview: cached,
+        status: cached.totalMinutes !== null ? 'ready' : 'error',
+      }
+    }
+
+    const journey = getStaticTubeJourney(origin.stationId, target.stationId)
+    let preview: HoverJourneyPreview
+    let status: HoverPreviewStatus
+
+    if (journey) {
+      preview = {
+        totalMinutes: journey.minutes,
+        durationSource: 'static',
+        fetchingLive: false,
+        notice: journey.source ? `Source: ${journey.source}` : undefined,
+        source: journey.source,
+      }
+      status = 'ready'
+    } else {
+      preview = {
+        totalMinutes: null,
+        durationSource: 'unavailable',
+        fetchingLive: false,
+        notice: 'Static tube time unavailable.',
+      }
+      status = 'error'
+    }
+
+    journeyCache.current.set(cacheKey, preview)
+    return { preview, status }
+  }, [origin, target, journeyCache])
+}
+
+interface StationCardContentProps {
+  station: Station
+  lineLabels: Record<string, string>
+  lineColorMap: Record<string, string>
+  includePurpleDetails: boolean
+  isPurple: boolean
+  purpleReachInfo?: Record<string, { originStationId: string; minutes: number }>
+  selectedStation: Station | null
+  showHoverJourney: boolean
+  lines: TransitLine[]
+  stations: Station[]
+  journeyCache: MutableRefObject<Map<string, HoverJourneyPreview>>
+}
+
+function StationCardContent({
+  station,
+  lineLabels,
+  lineColorMap,
+  includePurpleDetails,
+  isPurple,
+  purpleReachInfo,
+  selectedStation,
+  showHoverJourney,
+  lines,
+  stations,
+  journeyCache,
+}: StationCardContentProps) {
+  const { preview } = useHoverJourneyPreview(
+    selectedStation,
+    showHoverJourney ? station : null,
+    journeyCache
+  )
+
+  const formatMinutes = (value: number | null) => {
+    if (value === null || value === undefined) return 'N/A'
+    const rounded = Math.round(value * 10) / 10
+    return Number.isInteger(rounded) ? `${rounded} min${rounded === 1 ? '' : 's'}` : `${rounded.toFixed(1)} mins`
+  }
+
+  const summaryText = (() => {
+    if (!showHoverJourney || !selectedStation) return ''
+    if (!preview) return ''
+    if (preview.totalMinutes !== null) {
+      return `Static ${formatMinutes(preview.totalMinutes)} from ${selectedStation.displayName} to ${station.displayName}.`
+    }
+    return preview.notice
+      ? `${preview.notice} (${selectedStation.displayName} to ${station.displayName}).`
+      : `Static tube time unavailable from ${selectedStation.displayName} to ${station.displayName}.`
+  })()
+
+  const travelMinutesLabel = (() => {
+    if (!showHoverJourney || !selectedStation) return null
+    if (!preview) return null
+    if (preview.totalMinutes === null) return preview.notice ?? 'Unavailable'
+    return formatMinutes(preview.totalMinutes)
+  })()
+
+  const cardTitle = travelMinutesLabel ? `${station.displayName} (${travelMinutesLabel})` : station.displayName
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const region = document.getElementById('live-region')
+    if (!region) return
+    if (!showHoverJourney || !summaryText) {
+      region.textContent = ''
+      return
+    }
+    region.textContent = summaryText
+  }, [showHoverJourney, summaryText])
+
+  return (
+    <div
+      className="station-hover-card"
+      style={{
+        minWidth: '220px',
+        padding: '10px 12px',
+        backgroundColor: '#ffffff',
+        borderRadius: '10px',
+        boxShadow: '0 12px 32px rgba(15, 23, 42, 0.22)',
+        border: '1px solid rgba(15, 23, 42, 0.08)',
+        color: '#1f2937',
+      }}
+    >
+      <h3 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 'bold', color: '#0f172a' }}>
+        {cardTitle}
+      </h3>
+      <div style={{ fontSize: '14px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+        {station.lineCodes.map(code => (
+          <span
+            key={code}
+            style={{
+              display: 'inline-block',
+              padding: '4px 10px',
+              backgroundColor: lineColorMap[code] || '#0066cc',
+              color: 'white',
+              borderRadius: '4px',
+              fontSize: '12px',
+              fontWeight: 600,
+            }}
+          >
+            {lineLabels[code] || code}
+          </span>
+        ))}
+      </div>
+      {includePurpleDetails && isPurple && purpleReachInfo && purpleReachInfo[station.stationId] && (
+        <div style={{ marginTop: '10px' }}>
+          <PurpleTubeTime
+            originId={purpleReachInfo[station.stationId].originStationId}
+            targetId={station.stationId}
+            stations={stations}
+            lines={lines}
+          />
+        </div>
+      )}
+    </div>
+  )
+}
 
 function StationMarkers({
   stations,
@@ -111,6 +285,7 @@ function StationMarkers({
   purpleStationSet,
   universityMode,
   purpleReachInfo,
+  selectedStationVisible,
 }: {
   stations: Station[]
   activeSet: Set<string> | null
@@ -124,9 +299,11 @@ function StationMarkers({
   purpleStationSet: Set<string> | null
   universityMode?: boolean
   purpleReachInfo?: Record<string, { originStationId: string; minutes: number }>
+  selectedStationVisible: boolean
 }) {
   const map = useMap()
   const [zoomLevel, setZoomLevel] = useState(map.getZoom())
+  const journeyCache = useRef<Map<string, HoverJourneyPreview>>(new Map())
 
   // Subscribe to zoom changes to recompute marker sizes
   useEffect(() => {
@@ -198,7 +375,7 @@ function StationMarkers({
       {visibleStations.map(station => {
         const isSelected = selectedStation?.stationId === station.stationId
         const isFiltered = filteredStationSet?.has(station.stationId)
-        const isPurple = filterMode === 'radius' && purpleStationSet?.has(station.stationId) && !isFiltered
+        const isPurple = !!(filterMode === 'radius' && purpleStationSet?.has(station.stationId) && !isFiltered)
 
         // Enlarged base radii integrating previous size increase request
         let color = '#FFFFFF'
@@ -238,48 +415,19 @@ function StationMarkers({
           isFiltered ? 'green' : isPurple ? 'purple' : 'normal'
         )
         const renderStationCard = (includePurpleDetails: boolean) => (
-          <div
-            className="station-hover-card"
-            style={{
-              minWidth: '220px',
-              padding: '10px 12px',
-              backgroundColor: '#ffffff',
-              borderRadius: '10px',
-              boxShadow: '0 12px 32px rgba(15, 23, 42, 0.22)',
-              border: '1px solid rgba(15, 23, 42, 0.08)',
-              color: '#1f2937',
-            }}
-          >
-            <h3 style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: 'bold', color: '#0f172a' }}>
-              {station.displayName}
-            </h3>
-            <div style={{ fontSize: '14px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
-              {station.lineCodes.map(code => (
-                <span
-                  key={code}
-                  style={{
-                    display: 'inline-block',
-                    padding: '4px 10px',
-                    backgroundColor: lineColorMap[code] || '#0066cc',
-                    color: 'white',
-                    borderRadius: '4px',
-                    fontSize: '12px',
-                    fontWeight: '600',
-                  }}
-                >
-                  {lineLabels[code] || code}
-                </span>
-              ))}
-            </div>
-            {includePurpleDetails && isPurple && purpleReachInfo && purpleReachInfo[station.stationId] && (
-              <PurpleTubeTime
-                originId={purpleReachInfo[station.stationId].originStationId}
-                targetId={station.stationId}
-                stations={stations}
-                lines={lines}
-              />
-            )}
-          </div>
+          <StationCardContent
+            station={station}
+            lineLabels={lineLabels}
+            lineColorMap={lineColorMap}
+            includePurpleDetails={includePurpleDetails}
+            isPurple={isPurple}
+            purpleReachInfo={purpleReachInfo}
+            selectedStation={selectedStation}
+            showHoverJourney={!!selectedStation && selectedStationVisible && selectedStation.stationId !== station.stationId}
+            lines={lines}
+            stations={stations}
+            journeyCache={journeyCache}
+          />
         )
 
         return (
@@ -321,37 +469,19 @@ function StationMarkers({
 }
 
 function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: string; targetId: string; stations: Station[]; lines: TransitLine[] }) {
-  const [liveMinutes, setLiveMinutes] = useState<number | null>(null)
-  const [journeyBreakdown, setJourneyBreakdown] = useState<null | { segments: { from: string; to: string; line: string; minutes: number }[]; transfers: number; totalGraphMinutes: number }>(null)
   const [showDetails, setShowDetails] = useState(false)
 
-  // Fetch TfL authoritative duration
-  useEffect(() => {
-    setLiveMinutes(null)
-    let cancelled = false
-    fetchJourneyDuration(originId, targetId, { modes: 'tube' })
-      .then(res => {
-        if (cancelled) return
-        if (res && res.durationMinutes) {
-          setLiveMinutes(res.durationMinutes)
-        } else {
-          setLiveMinutes(-1)
-        }
-      })
-      .catch(() => !cancelled && setLiveMinutes(-1))
-    return () => { cancelled = true }
-  }, [originId, targetId])
+  const staticJourney = useMemo(() => getStaticTubeJourney(originId, targetId), [originId, targetId])
 
-  // Compute graph path breakdown (internal model) for explanation & transfers
-  useEffect(() => {
+  const journeyBreakdown = useMemo(() => {
     const origin = stations.find(s => s.stationId === originId)
     const target = stations.find(s => s.stationId === targetId)
-    if (!origin || !target) return
+    if (!origin || !target) return null
     const graph = getCachedGraph(lines, stations)
     const maxMinutes = 120 // generous cap to find path
     const paths = shortestPathsFrom(originId, graph, maxMinutes)
     const targetPath = paths.find(p => p.stationId === targetId)
-    if (!targetPath) return
+    if (!targetPath) return null
     const via = targetPath.via
     const segments: { from: string; to: string; line: string; minutes: number }[] = []
     for (let i = 0; i < via.length - 1; i++) {
@@ -361,45 +491,52 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
       if (!edge) continue
       segments.push({ from, to, line: edge.lineCode, minutes: Math.round(edge.runMinutes * 10) / 10 })
     }
-    // Count transfers (line changes between consecutive segments)
     let transfers = 0
     for (let i = 1; i < segments.length; i++) {
       if (segments[i].line !== segments[i - 1].line) transfers++
     }
-    setJourneyBreakdown({ segments, transfers, totalGraphMinutes: targetPath.minutes })
+    return { segments, transfers, totalGraphMinutes: targetPath.minutes }
   }, [originId, targetId, stations, lines])
+
+  useEffect(() => {
+    setShowDetails(false)
+  }, [originId, targetId])
 
   const originStation = stations.find(s => s.stationId === originId)
   const originName = originStation?.displayName || originId
   const targetStation = stations.find(s => s.stationId === targetId)
   const sharedLines = originStation && targetStation ? originStation.lineCodes.filter(c => targetStation.lineCodes.includes(c)) : []
 
-  // Map line code to display name for direct line phrasing
   const lineDisplayMap: Record<string, string> = {}
   lines.forEach(l => { lineDisplayMap[l.lineCode] = l.displayName })
   const directLine = sharedLines.length ? sharedLines[0] : null
   const directLineName = directLine ? (lineDisplayMap[directLine] || directLine) : null
 
+  const formatMinutes = (minutes: number) => {
+    const rounded = Math.round(minutes * 10) / 10
+    return Number.isInteger(rounded) ? `${rounded} min${rounded === 1 ? '' : 's'}` : `${rounded.toFixed(1)} mins`
+  }
+
   let summaryText: string
-  if (liveMinutes && liveMinutes > 0) {
+  if (staticJourney) {
+    const minutesLabel = formatMinutes(staticJourney.minutes)
     if (directLineName) {
-      summaryText = `${liveMinutes} mins from ${originName} via ${directLineName} line.`
+      summaryText = `${minutesLabel} (static) from ${originName} via ${directLineName} line.`
     } else {
-      summaryText = `${liveMinutes} mins from ${originName} (transfers required).`
+      summaryText = `${minutesLabel} (static) from ${originName} (transfers required).`
     }
-  } else if (liveMinutes === -1) {
-    summaryText = directLineName
-      ? `TfL time unavailable from ${originName} (direct ${directLineName} line).`
-      : `TfL time unavailable from ${originName} (transfers required).`
   } else {
     summaryText = directLineName
-      ? `Fetching TfL time… from ${originName} via ${directLineName} line.`
-      : `Fetching TfL time… from ${originName} (transfers required).`
+      ? `Static tube time unavailable from ${originName} (direct ${directLineName} line).`
+      : `Static tube time unavailable from ${originName} (transfers required).`
   }
 
   return (
     <div style={{ marginTop: '8px' }}>
       <p style={{ fontSize: '12px', lineHeight: '1.4', color: '#333', margin: 0 }}>{summaryText}</p>
+      {staticJourney?.source && (
+        <p style={{ fontSize: '11px', lineHeight: '1.4', color: '#555', margin: '2px 0 0 0' }}>Source: {staticJourney.source}</p>
+      )}
       {journeyBreakdown && (
         <div style={{ marginTop: '4px' }}>
           {!showDetails && (
@@ -512,24 +649,16 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
   const mapRef = useRef<L.Map | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    console.log('LeafletMapCanvas mounted, lines:', lines.length, 'stations:', stations.length)
-    console.log('Universities:', universities?.features.length || 0)
-    console.log('Selected university:', selectedUniversityId)
-    onStatusChange?.('ready')
-  }, [onStatusChange, lines.length, stations.length, universities, selectedUniversityId])
+  const stationIndex = useMemo(() => {
+    const idx: Record<string, Station> = {}
+    stations.forEach(station => {
+      idx[station.stationId] = station
+    })
+    return idx
+  }, [stations])
 
-  useEffect(() => {
-    // Check if we can create Leaflet map
-    try {
-      if (typeof window !== 'undefined') {
-        console.log('Window is defined, Leaflet available:', typeof L !== 'undefined')
-      }
-    } catch (e) {
-      console.error('Error checking Leaflet:', e)
-      setError(`Error: ${e}`)
-    }
-  }, [])
+  const activeLinesKey = useMemo(() => [...activeLineCodes].sort().join('|'), [activeLineCodes])
+  const previousActiveLinesKeyRef = useRef(activeLinesKey)
 
   const activeSet = useMemo(
     () => (activeLineCodes.length ? new Set(activeLineCodes) : null),
@@ -545,6 +674,100 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
     () => (purpleStationIds.length ? new Set<string>(purpleStationIds) : null),
     [purpleStationIds]
   )
+
+  const selectedStationVisible = useMemo(() => {
+    if (!selectedStation) return false
+    return stationVisible(selectedStation, activeSet, filteredStationSet, purpleStationSet)
+  }, [selectedStation, activeSet, filteredStationSet, purpleStationSet])
+
+  useEffect(() => {
+    console.log('LeafletMapCanvas mounted, lines:', lines.length, 'stations:', stations.length)
+    console.log('Universities:', universities?.features.length || 0)
+    console.log('Selected university:', selectedUniversityId)
+    onStatusChange?.('ready')
+  }, [onStatusChange, lines.length, stations.length, universities, selectedUniversityId])
+
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        console.log('Window is defined, Leaflet available:', typeof L !== 'undefined')
+      }
+    } catch (e) {
+      console.error('Error checking Leaflet:', e)
+      setError(`Error: ${e}`)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (previousActiveLinesKeyRef.current === activeLinesKey) return
+    previousActiveLinesKeyRef.current = activeLinesKey
+    if (selectedStation) {
+      onStationSelect(null)
+    }
+  }, [activeLinesKey, selectedStation, onStationSelect])
+
+  useEffect(() => {
+    if (selectedStation && !selectedStationVisible) {
+      onStationSelect(null)
+    }
+  }, [selectedStation, selectedStationVisible, onStationSelect])
+
+  const stationConnectors = useMemo(() => {
+    const connectors: Array<{ key: string; positions: [number, number][]; color: string }> = []
+    const thresholdMiles = 0.01 // ~16 meters, prevents redundant connectors when already aligned
+
+    const lineVerticesCache = new Map<string, [number, number][]>()
+
+    const getLineVertices = (line: TransitLine): [number, number][] => {
+      const cached = lineVerticesCache.get(line.lineCode)
+      if (cached) return cached
+      let verts: [number, number][] = []
+      if (line.polyline.type === 'MultiLineString') {
+        const segments = line.polyline.coordinates as [number, number][][]
+        verts = segments.flat()
+      } else {
+        verts = line.polyline.coordinates as [number, number][]
+      }
+      lineVerticesCache.set(line.lineCode, verts)
+      return verts
+    }
+
+    lines.forEach(line => {
+      const vertices = getLineVertices(line)
+      if (!vertices.length) return
+      const isActive = !activeSet || activeSet.has(line.lineCode)
+      const connectorColor = isActive ? line.brandColor : '#cccccc'
+
+      line.stationIds.forEach(stationId => {
+        const station = stationIndex[stationId]
+        if (!station) return
+        const [stationLng, stationLat] = station.position.coordinates
+        let bestVertex: [number, number] | null = null
+        let bestDistance = Number.POSITIVE_INFINITY
+        for (const vertex of vertices) {
+          const distance = calculateDistance(vertex, [stationLng, stationLat])
+          if (distance < bestDistance) {
+            bestDistance = distance
+            bestVertex = vertex
+          }
+        }
+        if (!bestVertex || bestDistance <= thresholdMiles) {
+          return
+        }
+        const [vertexLng, vertexLat] = bestVertex
+        connectors.push({
+          key: `${line.lineCode}-${stationId}`,
+          positions: [
+            [stationLat, stationLng],
+            [vertexLat, vertexLng],
+          ],
+          color: connectorColor,
+        })
+      })
+    })
+
+    return connectors
+  }, [lines, stationIndex, activeSet])
 
   // Walking route state (road-following path from campus to selected station)
   const [walkingRoute, setWalkingRoute] = useState<[number, number][]>([])
@@ -769,6 +992,20 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
   return (
     <section className="map-shell">
       <div className="map-canvas">
+        <div
+          id="live-region"
+          aria-live="polite"
+          style={{
+            position: 'absolute',
+            width: '1px',
+            height: '1px',
+            margin: '-1px',
+            border: 0,
+            padding: 0,
+            clip: 'rect(0 0 0 0)',
+            overflow: 'hidden',
+          }}
+        />
         {error && (
           <div style={{
             position: 'absolute',
@@ -853,6 +1090,15 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           )
         })}
 
+        {/* Station connectors to ensure markers touch their lines visually */}
+        {stationConnectors.map(connector => (
+          <Polyline
+            key={`connector-${connector.key}`}
+            positions={connector.positions}
+            pathOptions={{ color: connector.color, weight: 3, opacity: 0.9 }}
+          />
+        ))}
+
         {/* Radius circle removed per requirement: no green boundary when adjusting walk time */}
 
         {/* Walking route polyline (real OSRM road-following or fallback) */}
@@ -899,6 +1145,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           purpleStationSet={purpleStationSet}
           universityMode={props.universityMode}
           purpleReachInfo={props.purpleReachInfo}
+          selectedStationVisible={selectedStationVisible}
         />
 
         {/* University markers */}

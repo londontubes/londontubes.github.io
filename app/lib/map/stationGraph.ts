@@ -1,4 +1,5 @@
 import type { Station, TransitLine } from '@/app/types/transit'
+import { getStaticTubeGraph, staticTubeGraphPenalties } from './staticTubeTimes'
 
 export interface StationGraphEdge {
   to: string
@@ -11,10 +12,9 @@ export interface StationGraph {
   [stationId: string]: StationGraphEdge[]
 }
 
-// Baseline assumptions until timetable API integration replaced:
-// Average in-train speed (mph) excludes station dwell; dwell added separately.
-const DEFAULT_LINE_SPEED_MPH = 22 // approximate average inclusive of acceleration/deceleration
-const DEFAULT_DWELL_MINUTES = 0.5 // assumed dwell per stop (not added to final edge time here; kept lightweight)
+// Baseline assumptions for fallback heuristic when static timetable graph is unavailable.
+const FALLBACK_LINE_SPEED_MPH = 22
+const FALLBACK_DWELL_MINUTES = 0.5
 
 function haversineMeters(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const R = 6371000
@@ -30,7 +30,35 @@ function haversineMeters(lat1: number, lng1: number, lat2: number, lng2: number)
  * Build an undirected adjacency graph using the ordered stationIds list on each line.
  * Each consecutive pair becomes an edge annotated with straight-line distance and baseline run time.
  */
-export function buildStationGraph(lines: TransitLine[], stations: Station[]): StationGraph {
+function buildStaticGraph(stations: Station[]): StationGraph | null {
+  const staticGraph = getStaticTubeGraph()
+  if (!staticGraph || staticGraph.size === 0) return null
+  const stationMap: Record<string, Station> = {}
+  stations.forEach(s => { stationMap[s.stationId] = s })
+  const graph: StationGraph = {}
+  for (const [fromStationId, edges] of staticGraph.entries()) {
+    const prepared = edges.map(edge => {
+      const fromStation = stationMap[fromStationId]
+      const toStation = stationMap[edge.toStationId]
+      let distanceMeters = 0
+      if (fromStation && toStation) {
+        const [fromLng, fromLat] = fromStation.position.coordinates
+        const [toLng, toLat] = toStation.position.coordinates
+        distanceMeters = haversineMeters(fromLat, fromLng, toLat, toLng)
+      }
+      return {
+        to: edge.toStationId,
+        lineCode: edge.lineCode,
+        distanceMeters,
+        runMinutes: edge.runMinutes,
+      }
+    })
+    graph[fromStationId] = prepared
+  }
+  return graph
+}
+
+function buildHeuristicGraph(lines: TransitLine[], stations: Station[]): StationGraph {
   const stationMap: Record<string, Station> = {}
   stations.forEach(s => { stationMap[s.stationId] = s })
   const graph: StationGraph = {}
@@ -47,14 +75,17 @@ export function buildStationGraph(lines: TransitLine[], stations: Station[]): St
       const [bLng, bLat] = b.position.coordinates
       const distMeters = haversineMeters(aLat, aLng, bLat, bLng)
       const distMiles = distMeters / 1609.34
-      // Baseline runtime (in-train only) + minimal dwell at destination to approximate timetable segment
-      const runMinutes = (distMiles / DEFAULT_LINE_SPEED_MPH) * 60 + DEFAULT_DWELL_MINUTES
+      const runMinutes = (distMiles / FALLBACK_LINE_SPEED_MPH) * 60 + FALLBACK_DWELL_MINUTES
       ensure(a.stationId); ensure(b.stationId)
       graph[a.stationId].push({ to: b.stationId, lineCode: line.lineCode, distanceMeters: distMeters, runMinutes })
       graph[b.stationId].push({ to: a.stationId, lineCode: line.lineCode, distanceMeters: distMeters, runMinutes })
     }
   }
   return graph
+}
+
+export function buildStationGraph(lines: TransitLine[], stations: Station[]): StationGraph {
+  return buildStaticGraph(stations) ?? buildHeuristicGraph(lines, stations)
 }
 
 export interface PathResult {
@@ -71,12 +102,15 @@ export function shortestPathsFrom(
   originId: string,
   graph: StationGraph,
   maxMinutes: number,
-  transferPenaltyMinutes = 1
+  penalties: { boardingWaitMinutes?: number; transferWalkMinutes?: number } = {}
 ): PathResult[] {
   if (!graph[originId]) return []
-  const dist: Record<string, number> = { [originId]: 0 }
-  const prev: Record<string, string | null> = { [originId]: null }
-  const prevLine: Record<string, string | null> = { [originId]: null }
+  const boardingWaitMinutes = penalties.boardingWaitMinutes ?? staticTubeGraphPenalties.boardingWaitMinutes ?? 0
+  const transferWalkMinutes = penalties.transferWalkMinutes ?? staticTubeGraphPenalties.transferWalkMinutes ?? 0
+  const hubWalkMinutes = penalties.hubWalkMinutes ?? staticTubeGraphPenalties.hubWalkMinutes ?? 0
+  const dist = new Map<string, number>([[originId, 0]])
+  const prev = new Map<string, string | null>([[originId, null]])
+  const prevLine = new Map<string, string | null>([[originId, null]])
   const visited = new Set<string>()
   type QNode = { id: string; minutes: number }
   const queue: QNode[] = [{ id: originId, minutes: 0 }]
@@ -100,39 +134,44 @@ export function shortestPathsFrom(
     visited.add(id)
     const edges = graph[id] || []
     for (const e of edges) {
-      const base = dist[id]
-      const lineChange = prevLine[id] && prevLine[id] !== e.lineCode ? transferPenaltyMinutes : 0
-      const candidate = base + e.runMinutes + lineChange
+      const base = dist.get(id) ?? 0
+      const previousLine = prevLine.get(id)
+      const boardingPenalty = previousLine === null ? boardingWaitMinutes : 0
+      const transferPenalty = previousLine && previousLine !== e.lineCode ? transferWalkMinutes + boardingWaitMinutes : 0
+      const hubPenalty = (id.startsWith('HUB') || e.to.startsWith('HUB')) ? hubWalkMinutes : 0
+      const candidate = base + e.runMinutes + boardingPenalty + transferPenalty + hubPenalty
       if (candidate > maxMinutes) continue
-      const prevBest = dist[e.to]
+      const prevBest = dist.get(e.to)
       if (prevBest === undefined || candidate < prevBest) {
-        dist[e.to] = candidate
-        prev[e.to] = id
-        prevLine[e.to] = e.lineCode
+        dist.set(e.to, candidate)
+        prev.set(e.to, id)
+        prevLine.set(e.to, e.lineCode)
         queue.push({ id: e.to, minutes: candidate })
       }
     }
   }
 
   const results: PathResult[] = []
-  Object.keys(dist).forEach(stationId => {
-    if (stationId === originId) return
-    const minutes = Math.round(dist[stationId] * 10) / 10
-    // Reconstruct path
+  for (const [stationId, value] of dist.entries()) {
+    if (stationId === originId) continue
+    const minutes = Math.round(value * 10) / 10
     const path: string[] = []
     let cursor: string | null = stationId
     while (cursor) {
       path.push(cursor)
-      cursor = prev[cursor] || null
+      cursor = prev.get(cursor) ?? null
     }
     path.reverse()
-    // Build encountered lines list in order
+    if (path[0] === originId) {
+      path.shift()
+    }
     const linesEncountered: string[] = []
     let lastLine: string | null = null
-    for (let i = 0; i < path.length - 1; i++) {
-      const from = path[i]
-      const to = path[i + 1]
-      const edge = graph[from].find(ed => ed.to === to)
+    const sequence = [originId, ...path]
+    for (let i = 0; i < sequence.length - 1; i++) {
+      const from = sequence[i]
+      const to = sequence[i + 1]
+      const edge = graph[from]?.find(ed => ed.to === to)
       if (!edge) continue
       if (edge.lineCode !== lastLine) {
         linesEncountered.push(edge.lineCode)
@@ -140,7 +179,7 @@ export function shortestPathsFrom(
       }
     }
     results.push({ stationId, minutes, via: [originId, ...path], lines: linesEncountered })
-  })
+  }
   return results
 }
 
