@@ -102,7 +102,7 @@ export function shortestPathsFrom(
   originId: string,
   graph: StationGraph,
   maxMinutes: number,
-  penalties: { boardingWaitMinutes?: number; transferWalkMinutes?: number } = {}
+  penalties: { boardingWaitMinutes?: number; transferWalkMinutes?: number; hubWalkMinutes?: number } = {}
 ): PathResult[] {
   if (!graph[originId]) return []
   const boardingWaitMinutes = penalties.boardingWaitMinutes ?? staticTubeGraphPenalties.boardingWaitMinutes ?? 0

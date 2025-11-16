@@ -24,6 +24,7 @@ const FETCH_CONCURRENCY = 4
 const RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504])
 const FALLBACK_LINE_SPEED_MPH = 22
 const FALLBACK_DWELL_MINUTES = 0.5
+const stopPointAliasCache = new Map()
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
@@ -70,6 +71,27 @@ function haversineMeters(lat1, lng1, lat2, lng2) {
   const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
   return R * c
+}
+
+async function resolveStationId(id, stationMap) {
+  if (!id) return null
+  if (stationMap.has(id)) return id
+  if (stopPointAliasCache.has(id)) return stopPointAliasCache.get(id)
+  let canonical = null
+  try {
+    const data = await fetchJson(`${API_BASE}/StopPoint/${id}`)
+    const candidates = [data?.id, data?.stationId, data?.hubNaptanCode, data?.naptanId, data?.stationNaptan, data?.icsCode]
+    for (const candidate of candidates) {
+      if (candidate && stationMap.has(candidate)) {
+        canonical = candidate
+        break
+      }
+    }
+  } catch (error) {
+    console.warn(`Unable to resolve stop ${id}: ${error.message}`)
+  }
+  stopPointAliasCache.set(id, canonical)
+  return canonical
 }
 
 function pooledMap(concurrency, items, iterator) {
@@ -120,21 +142,28 @@ async function getRouteData(lineCode, stationMap) {
     const routes = Array.isArray(data?.orderedLineRoutes) ? data.orderedLineRoutes : []
     for (const route of routes) {
       const ids = Array.isArray(route?.naptanIds) ? route.naptanIds : []
-      const filtered = ids.filter(id => stationMap.has(id))
-      if (filtered.length < 2) continue
-      sequences.push({ lineCode, direction, stops: filtered })
-      const originId = filtered[0]
-      const key = `${direction}|${originId}`
+      if (!ids.length) continue
+      const resolved = []
+      for (const rawId of ids) {
+        const canonical = await resolveStationId(rawId, stationMap)
+        if (!canonical) continue
+        if (resolved.length && resolved[resolved.length - 1] === canonical) continue
+        resolved.push(canonical)
+      }
+      if (resolved.length < 2) continue
+      sequences.push({ lineCode, direction, stops: resolved })
+      const originRawId = ids[0]
+      const key = `${direction}|${originRawId}`
       if (!requestMap.has(key)) {
         requestMap.set(key, {
           lineCode,
           direction,
-          originId,
+          originId: originRawId,
           routeStations: new Set(),
         })
       }
       const entry = requestMap.get(key)
-      for (const id of filtered) {
+      for (const id of resolved) {
         entry.routeStations.add(id)
         coveredStations.add(id)
       }
@@ -345,7 +374,8 @@ function shortestPathsFrom(originId, graph) {
       const previousLine = prevLine.get(id)
       const boardingPenalty = previousLine === null ? BOARDING_WAIT_MINUTES : 0
       const transferPenalty = previousLine && previousLine !== edge.lineCode ? TRANSFER_WALK_MINUTES + BOARDING_WAIT_MINUTES : 0
-      const hubPenalty = (id.startsWith('HUB') || edge.to.startsWith('HUB')) ? HUB_WALK_MINUTES : 0
+      const isOrigin = id === originId
+      const hubPenalty = isOrigin && id.startsWith('HUB') ? HUB_WALK_MINUTES : 0
       const candidate = base + edge.runMinutes + boardingPenalty + transferPenalty + hubPenalty
       if (candidate > MAX_MINUTES) continue
       if (!dist.has(edge.to) || candidate < dist.get(edge.to)) {
@@ -359,7 +389,8 @@ function shortestPathsFrom(originId, graph) {
   const results = {}
   for (const [stationId, minutes] of dist.entries()) {
     if (stationId === originId) continue
-    results[stationId] = Math.round(minutes * 10) / 10
+    const adjusted = minutes + (stationId.startsWith('HUB') ? HUB_WALK_MINUTES : 0)
+    results[stationId] = Math.round(adjusted * 10) / 10
   }
   return results
 }

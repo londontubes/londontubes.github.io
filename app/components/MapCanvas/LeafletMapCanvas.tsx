@@ -194,6 +194,18 @@ function StationCardContent({
     return Number.isInteger(rounded) ? `${rounded} min${rounded === 1 ? '' : 's'}` : `${rounded.toFixed(1)} mins`
   }
 
+  const purpleOriginInfo = isPurple && purpleReachInfo ? purpleReachInfo[station.stationId] : null
+  const purpleOriginStation = purpleOriginInfo ? stations.find(s => s.stationId === purpleOriginInfo.originStationId) : null
+  const purpleOriginName = purpleOriginStation?.displayName || purpleOriginInfo?.originStationId || null
+  const ensureStationSuffix = (name: string) => {
+    const trimmed = name.trim()
+    return trimmed.toLowerCase().endsWith(' station') ? trimmed : `${trimmed} station`
+  }
+  const purpleOriginLabel = purpleOriginName ? ensureStationSuffix(purpleOriginName) : null
+  const purpleStaticLabel = purpleOriginInfo && typeof purpleOriginInfo.minutes === 'number' && purpleOriginInfo.minutes > 0
+    ? formatMinutes(purpleOriginInfo.minutes)
+    : null
+
   const summaryText = (() => {
     if (!showHoverJourney || !selectedStation) return ''
     if (!preview) return ''
@@ -259,6 +271,11 @@ function StationCardContent({
           </span>
         ))}
       </div>
+      {isPurple && purpleOriginInfo && purpleOriginName && (
+        <p style={{ fontSize: '12px', lineHeight: '1.4', color: '#374151', margin: '10px 0 0 0' }}>
+          From {purpleOriginLabel}{purpleStaticLabel ? ` (${purpleStaticLabel})` : ''}
+        </p>
+      )}
       {includePurpleDetails && isPurple && purpleReachInfo && purpleReachInfo[station.stationId] && (
         <div style={{ marginTop: '10px' }}>
           <PurpleTubeTime
