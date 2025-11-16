@@ -27,6 +27,19 @@ export function StationInfoCard({ station, lineLabels, onClose, purpleReachInfo,
   const isPurple = Boolean(purpleInfo)
   const originStation = isPurple && stations ? stations.find(s => s.stationId === purpleInfo!.originStationId) : null
   const originName = originStation?.displayName || (purpleInfo?.originStationId || '')
+  const staticMinutes = purpleInfo?.minutes ?? null
+
+  const formatMinutes = (value: number | null | undefined) => {
+    if (value === null || value === undefined || value <= 0) return null
+    const rounded = Math.round(value * 10) / 10
+    return Number.isInteger(rounded) ? `${rounded} min${rounded === 1 ? '' : 's'}` : `${rounded.toFixed(1)} mins`
+  }
+  const staticLabel = formatMinutes(staticMinutes)
+  const ensureStationSuffix = (name: string) => {
+    const trimmed = name.trim()
+    return trimmed.toLowerCase().endsWith(' station') ? trimmed : `${trimmed} station`
+  }
+  const originLabel = originName ? ensureStationSuffix(originName) : null
 
   // Reset live minutes when station changes
   useEffect(() => {
@@ -51,16 +64,21 @@ export function StationInfoCard({ station, lineLabels, onClose, purpleReachInfo,
     return () => { cancelled = true }
   }, [isPurple, purpleInfo, stationId, liveMinutes])
 
-  let purpleExplanation: string | null = null
+  const explanationLines: string[] = []
+  if (isPurple && originLabel) {
+    explanationLines.push(`From ${originLabel}${staticLabel ? ` (${staticLabel})` : ''}`)
+  }
   if (isPurple && originName) {
     if (liveMinutes == null) {
-      purpleExplanation = `Tube reachable from walk station ${originName}. Fetching TfL journey time…`
+      explanationLines.push('Fetching TfL journey time…')
     } else if (liveMinutes > 0) {
-      purpleExplanation = `Tube reachable from walk station ${originName}. TfL journey time: ${liveMinutes} min.`
+      explanationLines.push(`TfL journey time: ${formatMinutes(liveMinutes) ?? `${liveMinutes} mins`}.`)
     } else if (liveMinutes === -1) {
-      purpleExplanation = `Tube reachable from walk station ${originName}. TfL journey time unavailable.`
+      explanationLines.push('TfL journey time unavailable.')
     }
   }
+
+  const purpleExplanation = explanationLines.length ? explanationLines.join(' ') : null
 
   if (!station) return null
 
