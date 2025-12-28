@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title-westminster-view desc-westminster-view">
+  <title id="title-westminster-view">Westminster landmark</title>
+  <desc id="desc-westminster-view">Big Ben and the Houses of Parliament beside the Thames.</desc>
+  <defs>
+    <linearGradient id="bg-westminster" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" rx="34" fill="url(#bg-westminster)" />
+  <path d="M0 220 C200 200 400 250 800 210 L800 360 L0 360 Z" fill="#041c30" />
+  <rect x="280" y="140" width="60" height="160" fill="#dbeafe" />
+  <rect x="280" y="110" width="60" height="30" fill="#fcd34d" />
+  <rect x="340" y="160" width="120" height="140" fill="#c6e8ff" />
+  <rect x="470" y="130" width="40" height="170" fill="#fcd34d" />
+  <circle cx="310" cy="180" r="18" fill="#0f172a" stroke="#fcd34d" stroke-width="4" />
+  <path d="M470 120 L470 130 L510 130 L510 120 Z" fill="#f9fafb" />
+  <path d="M360 220 L360 300" stroke="#e0e7ff" stroke-width="8" />
+  <path d="M360 220 L500 220" stroke="#e0e7ff" stroke-width="12" stroke-linecap="round" />
+  <rect x="100" y="180" width="140" height="120" fill="#1e293b" />
+  <rect x="520" y="190" width="120" height="100" fill="#1e293b" />
+  <line x1="520" y1="220" x2="640" y2="220" stroke="#94a3b8" stroke-width="6" />
+  <text x="40" y="50" fill="#e0f2fe" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">Big Ben + Parliament</text>
+  <text x="40" y="80" fill="#bfdbfe" font-family="Inter, system-ui, sans-serif" font-size="16">Circle · District · Jubilee</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title-kings-cross desc-kings-cross">
+  <title id="title-kings-cross">King's Cross to Shoreditch stretch</title>
+  <desc id="desc-kings-cross">The industrial arches of King's Cross opening toward Shoreditch neon towers.</desc>
+  <defs>
+    <linearGradient id="bg-kings-cross" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#be185d" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" rx="34" fill="url(#bg-kings-cross)" />
+  <rect x="120" y="220" width="180" height="100" fill="#fef08a" rx="10" />
+  <path d="M120 220 Q210 140 300 220" fill="#fef3c7" />
+  <rect x="320" y="180" width="200" height="140" fill="#0f172a" stroke="#f97316" stroke-width="6" />
+  <rect x="540" y="190" width="160" height="130" fill="#1f2937" stroke="#fb7185" stroke-width="5" />
+  <circle cx="680" cy="120" r="40" fill="#f472b6" opacity="0.8" />
+  <path d="M680 120 L720 160" stroke="#fde68a" stroke-width="6" />
+  <path d="M200 260 L360 260" stroke="#fbcfe8" stroke-width="14" stroke-linecap="round" />
+  <path d="M360 260 L520 260" stroke="#f97316" stroke-width="12" stroke-linecap="round" />
+  <rect x="240" y="260" width="120" height="40" fill="#0f0f17" opacity="0.6" />
+  <text x="40" y="50" fill="#fee2e2" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">King's Cross ↔ Shoreditch</text>
+  <text x="40" y="80" fill="#fbcfe8" font-family="Inter, system-ui, sans-serif" font-size="16">Rail arches · KX goods yard</text>
+</svg>

@@ -1,0 +1,130 @@
+.page {
+  min-height: 100vh;
+  padding: 3rem clamp(1.5rem, 4vw, 4rem);
+  background: radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.15), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(129, 140, 248, 0.2), transparent 55%),
+    #020617;
+  color: #e2e8f0;
+}
+
+.header {
+  max-width: 760px;
+  margin-bottom: 2rem;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: rgba(148, 163, 184, 0.95);
+  margin-bottom: 1rem;
+}
+
+.breadcrumb a {
+  color: rgba(148, 163, 184, 0.95);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.title {
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.lead {
+  font-size: 1rem;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.body {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.paragraph {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.tutorial {
+  max-width: 900px;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.tutorialTitle {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-bottom: 2rem;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.tutorialSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.tutorialStep {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tutorialStep:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.stepImage {
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.stepImage img {
+  display: block;
+}
+
+.stepDescription {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(226, 232, 240, 0.9);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 2.25rem 1.25rem;
+  }
+
+  .tutorial {
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+
+  .tutorialStep {
+    padding: 1.5rem;
+  }
+
+  .tutorialSteps {
+    gap: 2rem;
+  }
+}

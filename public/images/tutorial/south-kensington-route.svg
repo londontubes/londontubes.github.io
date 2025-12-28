@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title-south-kensington desc-south-kensington">
+  <title id="title-south-kensington">South Kensington museums</title>
+  <desc id="desc-south-kensington">Elegant facades of the Natural History and Science Museums with classical columns.</desc>
+  <defs>
+    <linearGradient id="bg-south-kensington" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#021b79" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" rx="34" fill="url(#bg-south-kensington)" />
+  <rect x="120" y="180" width="160" height="140" fill="#f1f5f9" stroke="#2563eb" stroke-width="6" />
+  <rect x="320" y="170" width="200" height="150" fill="#e0f2fe" stroke="#3b82f6" stroke-width="6" />
+  <rect x="540" y="200" width="120" height="120" fill="#bfdbfe" stroke="#60a5fa" stroke-width="6" />
+  <rect x="320" y="130" width="200" height="40" fill="#f59e0b" />
+  <rect x="280" y="200" width="20" height="120" fill="#0ea5e9" />
+  <rect x="340" y="200" width="20" height="120" fill="#0ea5e9" />
+  <rect x="420" y="200" width="20" height="120" fill="#0ea5e9" />
+  <rect x="500" y="200" width="20" height="120" fill="#0ea5e9" />
+  <path d="M240 280 L560 280" stroke="#0f172a" stroke-width="12" />
+  <circle cx="400" cy="120" r="40" fill="#e0f2fe" stroke="#fcd34d" stroke-width="6" />
+  <text x="50" y="50" fill="#e0e7ff" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">Museum mile</text>
+  <text x="50" y="80" fill="#a5b4fc" font-family="Inter, system-ui, sans-serif" font-size="16">Free galleries · South Kensington</text>
+</svg>

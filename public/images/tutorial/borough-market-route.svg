@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title-borough-market desc-borough-market">
+  <title id="title-borough-market">Borough Market morning</title>
+  <desc id="desc-borough-market">Market stalls, string lights, and produce carts at Borough Market.</desc>
+  <defs>
+    <linearGradient id="bg-borough" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" rx="34" fill="url(#bg-borough)" />
+  <rect x="60" y="160" width="680" height="140" fill="#070b24" stroke="#fde047" stroke-width="4" rx="16" />
+  <path d="M70 220 A40 30 0 0 1 150 220 L150 200 A40 30 0 0 0 70 200 Z" fill="#f97316" />
+  <path d="M200 220 A40 30 0 0 1 280 220 L280 200 A40 30 0 0 0 200 200 Z" fill="#facc15" />
+  <path d="M330 220 A40 30 0 0 1 410 220 L410 200 A40 30 0 0 0 330 200 Z" fill="#38bdf8" />
+  <path d="M460 220 A40 30 0 0 1 540 220 L540 200 A40 30 0 0 0 460 200 Z" fill="#a5b4fc" />
+  <path d="M590 220 A40 30 0 0 1 670 220 L670 200 A40 30 0 0 0 590 200 Z" fill="#f472b6" />
+  <rect x="140" y="240" width="120" height="40" fill="#fde68a" />
+  <rect x="420" y="240" width="120" height="40" fill="#fcd34d" />
+  <path d="M90 140 L150 110 L210 140" stroke="#fff" stroke-width="4" />
+  <line x1="90" y1="150" x2="210" y2="150" stroke="#fde68a" stroke-width="4" />
+  <text x="50" y="50" fill="#fefce8" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">Borough Market stalls</text>
+  <text x="50" y="80" fill="#fbbf24" font-family="Inter, system-ui, sans-serif" font-size="16">Morning produce · Coffee · Crowds</text>
+</svg>

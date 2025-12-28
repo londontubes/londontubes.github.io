@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title-camden desc-camden">
+  <title id="title-camden">Camden canal market</title>
+  <desc id="desc-camden">Regent's Canal, market stalls, and the lively Camden Town vibe.</desc>
+  <defs>
+    <linearGradient id="bg-camden" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" rx="34" fill="url(#bg-camden)" />
+  <rect x="0" y="210" width="800" height="80" fill="#0f172a" />
+  <path d="M0 240 C150 220 300 240 450 220 C600 200 750 220 800 210" fill="#0f172a" opacity="0.8" />
+  <rect x="80" y="180" width="200" height="80" fill="#fde68a" rx="12" />
+  <rect x="320" y="180" width="180" height="80" fill="#fbbf24" rx="12" />
+  <rect x="540" y="180" width="140" height="80" fill="#34d399" rx="12" />
+  <path d="M260 260 L540 260" stroke="#e0f2fe" stroke-width="8" stroke-linecap="round" />
+  <rect x="120" y="240" width="160" height="70" fill="#0f172a" />
+  <rect x="120" y="270" width="160" height="10" fill="#a5b4fc" />
+  <rect x="490" y="240" width="140" height="70" fill="#0f172a" />
+  <rect x="490" y="270" width="140" height="10" fill="#f97316" />
+  <path d="M160 150 L200 120 L240 150" stroke="#c084fc" stroke-width="6" />
+  <circle cx="360" cy="90" r="44" fill="#fef3c7" opacity="0.8" />
+  <text x="50" y="50" fill="#fef9c3" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">Camden Town canal</text>
+  <text x="50" y="80" fill="#c7d2fe" font-family="Inter, system-ui, sans-serif" font-size="16">Northern line · Regent's Canal</text>
+</svg>

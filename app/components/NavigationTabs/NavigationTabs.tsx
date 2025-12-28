@@ -23,11 +23,12 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
 
   const isLinesActive = pathname === '/'
   const isUniversitiesActive = pathname?.startsWith('/universities') ?? false
+  const isBlogActive = pathname?.startsWith('/blog') ?? false
 
   return (
     <nav className={`${styles.navigationTabs} ${className || ''}`} aria-label="Main navigation">
       <ul className={styles.tabList} role="tablist">
-        <li role="presentation">
+        <li role="presentation" className={styles.tabItem}>
           <Link
             href="/"
             className={`${styles.tab} ${isLinesActive ? styles.active : ''}`}
@@ -38,7 +39,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
             Line Filter
           </Link>
         </li>
-        <li role="presentation">
+        <li role="presentation" className={styles.tabItem}>
           <Link
             href="/universities"
             className={`${styles.tab} ${isUniversitiesActive ? styles.active : ''}`}
@@ -47,6 +48,17 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
             aria-current={isUniversitiesActive ? 'page' : undefined}
           >
             Universities Filter
+          </Link>
+        </li>
+        <li role="presentation" className={styles.blogItem}>
+          <Link
+            href="/blog"
+            className={`${styles.tab} ${isBlogActive ? styles.active : ''}`}
+            role="tab"
+            aria-selected={isBlogActive}
+            aria-current={isBlogActive ? 'page' : undefined}
+          >
+            Blog
           </Link>
         </li>
       </ul>

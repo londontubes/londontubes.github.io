@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title-southbank-view desc-southbank-view">
+  <title id="title-southbank-view">South Bank promenade</title>
+  <desc id="desc-southbank-view">Thames riverwalk with the London Eye wheel and Tower Bridge lit along the horizon.</desc>
+  <defs>
+    <linearGradient id="bg-southbank" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" rx="34" fill="url(#bg-southbank)" />
+  <path d="M0 230 C200 200 400 240 800 190 L800 360 L0 360 Z" fill="#042a3f" opacity="0.9" />
+  <rect x="0" y="260" width="800" height="50" fill="#051524" />
+  <rect x="30" y="250" width="740" height="20" fill="#0f172a" />
+  <circle cx="300" cy="200" r="50" fill="none" stroke="#f1f5f9" stroke-width="6" opacity="0.9" />
+  <circle cx="300" cy="200" r="30" fill="none" stroke="#38bdf8" stroke-width="4" opacity="0.8" />
+  <rect x="520" y="140" width="30" height="110" fill="#cbd5f5" />
+  <rect x="620" y="140" width="30" height="110" fill="#cbd5f5" />
+  <rect x="520" y="120" width="130" height="20" fill="#93c5fd" />
+  <path d="M540 180 C560 160 600 160 620 180" fill="none" stroke="#93c5fd" stroke-width="4" />
+  <path d="M480 190 L480 240" stroke="#e0e7ff" stroke-width="6" stroke-linecap="round" />
+  <path d="M680 200 L750 220" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+  <text x="50" y="50" fill="#e0f2fe" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">South Bank scene</text>
+  <text x="50" y="80" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="16">Riverwalk · London Eye · Tower Bridge</text>
+</svg>

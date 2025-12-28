@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title-bloomsbury-view desc-bloomsbury-view">
+  <title id="title-bloomsbury-view">Bloomsbury square view</title>
+  <desc id="desc-bloomsbury-view">Georgian terraces, bookshops, and leafy squares around Bloomsbury.</desc>
+  <defs>
+    <linearGradient id="bg-bloomsbury" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#4c1d95" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" rx="34" fill="url(#bg-bloomsbury)" />
+  <rect x="100" y="200" width="520" height="120" fill="#1e1b4b" />
+  <rect x="120" y="180" width="100" height="120" fill="#dbeafe" />
+  <rect x="240" y="160" width="100" height="140" fill="#e0f2fe" />
+  <rect x="360" y="180" width="100" height="120" fill="#bfdbfe" />
+  <rect x="480" y="170" width="120" height="130" fill="#cfe2ff" />
+  <rect x="120" y="250" width="480" height="60" fill="#0f172a" opacity="0.8" />
+  <circle cx="200" cy="150" r="36" fill="#0f172a" stroke="#c4b5fd" stroke-width="8" />
+  <circle cx="580" cy="150" r="36" fill="#0f172a" stroke="#c4b5fd" stroke-width="8" />
+  <rect x="250" y="280" width="40" height="60" fill="#f472b6" />
+  <rect x="320" y="280" width="40" height="60" fill="#f472b6" />
+  <text x="40" y="50" fill="#fce7f3" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">Bloomsbury squares</text>
+  <text x="40" y="80" fill="#d8b4fe" font-family="Inter, system-ui, sans-serif" font-size="16">Gardens · Bookshops · Quiet streets</text>
+</svg>

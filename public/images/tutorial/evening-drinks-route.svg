@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title-evening-drinks-view desc-evening-drinks-view">
+  <title id="title-evening-drinks-view">Evening rooftop drinks</title>
+  <desc id="desc-evening-drinks-view">A city skyline at dusk with a glowing cocktail glass and rooftop lights.</desc>
+  <defs>
+    <linearGradient id="bg-evening-drinks" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" rx="34" fill="url(#bg-evening-drinks)" />
+  <rect x="40" y="190" width="120" height="120" fill="#020617" stroke="#4b5563" stroke-width="3" />
+  <rect x="190" y="160" width="120" height="150" fill="#020617" stroke="#6b7280" stroke-width="3" />
+  <rect x="340" y="180" width="140" height="130" fill="#020617" stroke="#9ca3af" stroke-width="3" />
+  <rect x="510" y="150" width="170" height="160" fill="#020617" stroke="#e5e7eb" stroke-width="3" />
+  <rect x="60" y="210" width="10" height="20" fill="#facc15" />
+  <rect x="90" y="230" width="10" height="18" fill="#f97316" />
+  <rect x="220" y="210" width="10" height="22" fill="#facc15" />
+  <rect x="250" y="235" width="10" height="18" fill="#22c55e" />
+  <rect x="370" y="215" width="10" height="22" fill="#f97316" />
+  <rect x="400" y="240" width="10" height="18" fill="#facc15" />
+  <rect x="540" y="210" width="12" height="22" fill="#22d3ee" />
+  <rect x="580" y="235" width="12" height="18" fill="#f97316" />
+  <circle cx="650" cy="120" r="34" fill="#a855f7" opacity="0.9" />
+  <path d="M640 90 L670 150" stroke="#fef9c3" stroke-width="6" />
+  <path d="M630 150 L670 150 L660 190 L640 190 Z" fill="#fef3c7" opacity="0.9" />
+  <path d="M640 190 L640 205" stroke="#fef9c3" stroke-width="5" />
+  <path d="M40 310 L760 310" stroke="#111827" stroke-width="14" />
+  <circle cx="120" cy="290" r="4" fill="#fee2e2" />
+  <circle cx="260" cy="290" r="4" fill="#fee2e2" />
+  <circle cx="420" cy="290" r="4" fill="#fee2e2" />
+  <circle cx="600" cy="290" r="4" fill="#fee2e2" />
+  <text x="50" y="50" fill="#fef9c3" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">Evening drinks skyline</text>
+  <text x="50" y="80" fill="#e5e7eb" font-family="Inter, system-ui, sans-serif" font-size="16">Rooftop bars · City lights</text>
+</svg>

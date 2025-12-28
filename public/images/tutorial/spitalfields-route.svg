@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title-spitalfields-view desc-spitalfields-view">
+  <title id="title-spitalfields-view">Spitalfields Market arches</title>
+  <desc id="desc-spitalfields-view">Red-brick arches and covered stalls of Old Spitalfields Market at dusk.</desc>
+  <defs>
+    <linearGradient id="bg-spitalfields" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" rx="34" fill="url(#bg-spitalfields)" />
+  <rect x="60" y="160" width="680" height="150" fill="#0b1120" stroke="#f97316" stroke-width="5" rx="18" />
+  <rect x="80" y="190" width="120" height="90" fill="#b91c1c" />
+  <rect x="230" y="190" width="120" height="90" fill="#dc2626" />
+  <rect x="380" y="190" width="120" height="90" fill="#f97316" />
+  <rect x="530" y="190" width="120" height="90" fill="#fbbf24" />
+  <path d="M80 190 Q140 150 200 190" fill="#fef3c7" />
+  <path d="M230 190 Q290 150 350 190" fill="#ffedd5" />
+  <path d="M380 190 Q440 150 500 190" fill="#fee2e2" />
+  <path d="M530 190 Q590 150 650 190" fill="#fef3c7" />
+  <rect x="90" y="250" width="100" height="40" fill="#111827" />
+  <rect x="240" y="250" width="100" height="40" fill="#111827" />
+  <rect x="390" y="250" width="100" height="40" fill="#111827" />
+  <rect x="540" y="250" width="100" height="40" fill="#111827" />
+  <circle cx="160" cy="145" r="10" fill="#fde68a" />
+  <circle cx="320" cy="140" r="8" fill="#f97316" />
+  <circle cx="480" cy="145" r="10" fill="#facc15" />
+  <circle cx="640" cy="140" r="8" fill="#fbbf24" />
+  <text x="50" y="50" fill="#dcfce7" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">Spitalfields Market</text>
+  <text x="50" y="80" fill="#a7f3d0" font-family="Inter, system-ui, sans-serif" font-size="16">Arched halls · Food stalls · Designers</text>
+</svg>
