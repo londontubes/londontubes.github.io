@@ -29,6 +29,13 @@ export function StationInfoCard({ station, lineLabels, onClose, purpleReachInfo,
   const originName = originStation?.displayName || (purpleInfo?.originStationId || '')
   const staticMinutes = purpleInfo?.minutes ?? null
 
+  // Derive shared tube lines between the green (origin) and purple (target) stations
+  const sharedLineCodes = station && originStation
+    ? originStation.lineCodes.filter(code => station.lineCodes.includes(code))
+    : []
+  const sharedLineNames = sharedLineCodes.map(code => lineLabels[code] || code)
+  const sharedLineLabel = sharedLineNames.length ? sharedLineNames.join(', ') : null
+
   const formatMinutes = (value: number | null | undefined) => {
     if (value === null || value === undefined || value <= 0) return null
     const rounded = Math.round(value * 10) / 10
@@ -66,13 +73,22 @@ export function StationInfoCard({ station, lineLabels, onClose, purpleReachInfo,
 
   const explanationLines: string[] = []
   if (isPurple && originLabel) {
-    explanationLines.push(`From ${originLabel}${staticLabel ? ` (${staticLabel})` : ''}`)
+    let base = `From ${originLabel}`
+    if (staticLabel && sharedLineLabel) {
+      base += ` (${staticLabel} via ${sharedLineLabel})`
+    } else if (staticLabel) {
+      base += ` (${staticLabel})`
+    } else if (sharedLineLabel) {
+      base += ` (via ${sharedLineLabel})`
+    }
+    explanationLines.push(base)
   }
   if (isPurple && originName) {
     if (liveMinutes == null) {
       explanationLines.push('Fetching TfL journey time…')
     } else if (liveMinutes > 0) {
-      explanationLines.push(`TfL journey time: ${formatMinutes(liveMinutes) ?? `${liveMinutes} mins`}.`)
+      const liveLabel = formatMinutes(liveMinutes) ?? `${liveMinutes} mins`
+      explanationLines.push(`TfL journey time: ${liveLabel}${sharedLineLabel ? ` via ${sharedLineLabel}` : ''}.`)
     } else if (liveMinutes === -1) {
       explanationLines.push('TfL journey time unavailable.')
     }

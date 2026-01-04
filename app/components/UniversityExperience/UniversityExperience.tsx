@@ -281,6 +281,17 @@ export default function UniversityExperience({
       handleAnnounce(`Calculating tube reachability within ${newTime} minutes from ${filteredStationIds.length} walk-reachable stations…`)
       try {
         const greenSet = new Set(filteredStationIds)
+
+        // Precompute the set of tube lines that any green (walk-reachable) station belongs to.
+        // We will only keep purple stations that are on at least one of these lines.
+        const greenStations = filteredStationIds
+          .map(id => stations.find(s => s.stationId === id))
+          .filter(Boolean) as Station[]
+        const allowedLineCodes = new Set<string>()
+        greenStations.forEach(s => {
+          s.lineCodes.forEach(code => allowedLineCodes.add(code))
+        })
+
         // Compute travel times concurrently for all walk-reachable station origins (cap for safety)
         const MAX_ORIGINS = 150
         const origins = filteredStationIds.slice(0, MAX_ORIGINS)
@@ -298,6 +309,12 @@ export default function UniversityExperience({
           const originId = originStations[idx].stationId
           arr.forEach(r => {
             if (greenSet.has(r.stationId)) return // skip green (walk) stations
+            const destStation = stations.find(s => s.stationId === r.stationId)
+            if (!destStation) return
+            // Only consider destinations that are on at least one of the lines
+            // that any green station belongs to.
+            const sharesAllowedLine = destStation.lineCodes.some(code => allowedLineCodes.has(code))
+            if (!sharesAllowedLine) return
             union.add(r.stationId)
             const existing = reachInfo[r.stationId]
             if (!existing || r.durationMinutes < existing.minutes) {
@@ -306,9 +323,6 @@ export default function UniversityExperience({
           })
         })
         // After initial reachInfo build, override originStationId with nearest green (walk) station
-        const greenStations = filteredStationIds
-          .map(id => stations.find(s => s.stationId === id))
-          .filter(Boolean) as Station[]
         if (greenStations.length) {
           const allGreenCoords = greenStations.map(s => ({ id: s.stationId, lat: s.position.coordinates[1], lng: s.position.coordinates[0], lines: s.lineCodes }))
           Array.from(union).forEach(purpleId => {
@@ -317,7 +331,15 @@ export default function UniversityExperience({
             const purpleLines = new Set(purpleStation.lineCodes)
             // Prefer green stations sharing at least one line with the purple station
             const sharedLineCandidates = allGreenCoords.filter(g => g.lines.some(code => purpleLines.has(code)))
-            const candidateSet = sharedLineCandidates.length ? sharedLineCandidates : allGreenCoords
+            // New behaviour: only keep purple stations that share at least one line with
+            // at least one green (walk-reachable) station. If there is no same-line
+            // green station, drop this purple station from the layered results.
+            if (!sharedLineCandidates.length) {
+              union.delete(purpleId)
+              delete reachInfo[purpleId]
+              return
+            }
+            const candidateSet = sharedLineCandidates
             const pLat = purpleStation.position.coordinates[1]
             const pLng = purpleStation.position.coordinates[0]
             let nearestId: string | null = null
