@@ -56,8 +56,8 @@ export default function UniversityExperience({
   // Walk time (minutes) replacing distance radius (default 10 mins ~0.5 miles)
   const [walkMinutes, setWalkMinutes] = useState(10)
   
-  // Travel time filter state (in minutes)
-  const [travelTimeMins, setTravelTimeMins] = useState(15)
+  // Travel time filter state (in minutes) – default tube time starts at 5 min
+  const [travelTimeMins, setTravelTimeMins] = useState(5)
   
   // Travel time results (populated when time-based filtering is active)
   const [travelTimeResults, setTravelTimeResults] = useState<TravelTimeResult[]>([])

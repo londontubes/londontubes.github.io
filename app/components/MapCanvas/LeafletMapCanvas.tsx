@@ -12,9 +12,18 @@ import { calculateDistance, WALK_SPEED_MPH, WALK_OVERHEAD_MINUTES, WALK_ROUTE_FA
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
 import { getCachedGraph, shortestPathsFrom } from '@/app/lib/map/stationGraph'
 import { getStaticTubeJourney } from '@/app/lib/map/staticTubeTimes'
+import { RIGHTMOVE_STATION_TEMPLATE, type RightmoveStationTemplateEntry } from '@/docs/rightmove-station-template'
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
 const DEFAULT_ZOOM = 11
+
+const RIGHTMOVE_STATION_MAP: Record<string, RightmoveStationTemplateEntry> = RIGHTMOVE_STATION_TEMPLATE.reduce(
+  (acc, entry) => {
+    acc[entry.stationId] = entry
+    return acc
+  },
+  {} as Record<string, RightmoveStationTemplateEntry>
+)
 
 export type MapStatus = 'idle' | 'loading' | 'ready' | 'error'
 
@@ -486,8 +495,6 @@ function StationMarkers({
 }
 
 function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: string; targetId: string; stations: Station[]; lines: TransitLine[] }) {
-  const [showDetails, setShowDetails] = useState(false)
-
   const staticJourney = useMemo(() => getStaticTubeJourney(originId, targetId), [originId, targetId])
 
   const journeyBreakdown = useMemo(() => {
@@ -515,10 +522,6 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
     return { segments, transfers, totalGraphMinutes: targetPath.minutes }
   }, [originId, targetId, stations, lines])
 
-  useEffect(() => {
-    setShowDetails(false)
-  }, [originId, targetId])
-
   const originStation = stations.find(s => s.stationId === originId)
   const originName = originStation?.displayName || originId
   const targetStation = stations.find(s => s.stationId === targetId)
@@ -533,6 +536,65 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
     const rounded = Math.round(minutes * 10) / 10
     return Number.isInteger(rounded) ? `${rounded} min${rounded === 1 ? '' : 's'}` : `${rounded.toFixed(1)} mins`
   }
+
+  const rightmoveUrl = useMemo(() => {
+    const rawName = targetStation?.displayName || targetId
+    const cleanedName = rawName
+      .replace(/underground/gi, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+    const mappingEntry = targetStation ? RIGHTMOVE_STATION_MAP[targetStation.stationId] : undefined
+    let baseSearchLocation = mappingEntry?.searchLocation || cleanedName
+
+    // Ensure the human-readable searchLocation ends with " Station" so the
+    // encoded query string will end with "%20Station" as requested.
+    if (!/\bStation$/i.test(baseSearchLocation)) {
+      baseSearchLocation = `${baseSearchLocation} Station`
+    }
+
+    // Blackfriars: use a station-based URL with Rightmove's internal identifier
+   // if (targetStation?.stationId === 'HUBBFR') {
+      // https://www.rightmove.co.uk/property-to-rent/find.html?searchLocation=Blackfriars+Station&useLocationIdentifier=true&locationIdentifier=STATION%5E1040&rent=To+rent&radius=0.5&maxPrice=2000&minBedrooms=1&maxBedrooms=2&propertyTypes=flat&_includeLetAgreed=off&dontShow=houseShare%2Cretirement&sortType=6&channel=RENT&transactionType=LETTING&displayLocationIdentifier=Blackfriars-Station&viewType=MAP&index=0
+    //  const blackfriarsSearchLocation = encodeQuery('Blackfriars Station')
+     // const locationIdentifier = encodeURIComponent('STATION^1040')
+     // const displayLocationIdentifier = encodeQuery('Blackfriars-Station')
+     // return `https://www.rightmove.co.uk/property-to-rent/find.html?searchLocation=${blackfriarsSearchLocation}&useLocationIdentifier=true&locationIdentifier=${locationIdentifier}&rent=To+rent&radius=0.5&maxPrice=2000&minBedrooms=1&maxBedrooms=2&propertyTypes=flat&_includeLetAgreed=off&dontShow=houseShare%2Cretirement&sortType=6&channel=RENT&transactionType=LETTING&displayLocationIdentifier=${displayLocationIdentifier}&viewType=MAP&index=0`
+    //}
+
+    // Default: use station-specific template data when available; otherwise fall back to name-based search
+    const baseUrl = new URL('https://www.rightmove.co.uk/property-to-rent/find.html')
+    const params = baseUrl.searchParams
+
+    params.set('searchLocation', baseSearchLocation)
+
+    if (mappingEntry?.locationIdentifier) {
+      const locationIdentifier = mappingEntry.locationIdentifier
+      params.set('useLocationIdentifier', 'true')
+      // Build station-based identifier so the encoded value becomes
+      // "STATION%5E<id>" in the final URL.
+      params.set('locationIdentifier', `STATION^${locationIdentifier}`)
+    }
+
+    // Common filters
+    params.set('rent', 'To rent')
+    params.set('radius', '1.0')
+    params.set('maxPrice', '2000')
+    params.set('minBedrooms', '1')
+    params.set('maxBedrooms', '2')
+    params.set('propertyTypes', 'flat')
+    params.set('_includeLetAgreed', 'off')
+    params.set('dontShow', 'houseShare,retirement')
+    params.set('sortType', '6')
+    params.set('channel', 'RENT')
+    params.set('transactionType', 'LETTING')
+    params.set('viewType', 'MAP')
+
+    if (mappingEntry?.displayLocationIdentifier) {
+      params.set('displayLocationIdentifier', mappingEntry.displayLocationIdentifier)
+    }
+
+    return baseUrl.toString()
+  }, [targetStation, targetId])
 
   let summaryText: string
   if (staticJourney) {
@@ -556,36 +618,34 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
       )}
       {journeyBreakdown && (
         <div style={{ marginTop: '4px' }}>
-          {!showDetails && (
-            <button
-              type="button"
-              style={{ background: '#0066cc', color: 'white', border: 'none', padding: '4px 8px', fontSize: '11px', borderRadius: '4px', cursor: 'pointer' }}
-              onClick={() => setShowDetails(true)}
-            >
-              Show journey breakdown
-            </button>
-          )}
-          {showDetails && (
-            <div style={{ fontSize: '11px', lineHeight: '1.4', background: '#f7f9fc', border: '1px solid #e0e6ed', padding: '6px 8px', borderRadius: '4px' }}>
-              <strong style={{ display: 'block', marginBottom: '4px' }}>Journey path ({journeyBreakdown.transfers} transfer{journeyBreakdown.transfers !== 1 ? 's' : ''}, graph est. {journeyBreakdown.totalGraphMinutes} min)</strong>
-              <ol style={{ margin: 0, paddingLeft: '16px' }}>
-                {journeyBreakdown.segments.map((seg, idx) => (
-                  <li key={idx} style={{ marginBottom: '2px' }}>
-                    <span>{stations.find(s => s.stationId === seg.from)?.displayName || seg.from} → {stations.find(s => s.stationId === seg.to)?.displayName || seg.to} </span>
-                    <span style={{ background: '#004d99', color: 'white', padding: '1px 4px', borderRadius: '3px', fontSize: '10px', marginLeft: '4px' }}>{seg.line}</span>
-                    <span style={{ marginLeft: '4px', color: '#555' }}>{seg.minutes} min</span>
-                  </li>
-                ))}
-              </ol>
-              <button
-                type="button"
-                onClick={() => setShowDetails(false)}
-                style={{ marginTop: '6px', background: '#ccc', color: '#222', border: 'none', padding: '3px 6px', fontSize: '11px', borderRadius: '4px', cursor: 'pointer' }}
-              >
-                Hide breakdown
-              </button>
-            </div>
-          )}
+          <p
+            style={{
+              fontSize: '10px',
+              lineHeight: '1.4',
+              color: '#555',
+              margin: '0 0 4px 0',
+              wordBreak: 'break-all',
+            }}
+          >
+            {rightmoveUrl}
+          </p>
+          <a
+            href={rightmoveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              background: '#0066cc',
+              color: 'white',
+              borderRadius: '4px',
+              padding: '4px 8px',
+              fontSize: '11px',
+              textDecoration: 'none',
+              display: 'inline-block',
+              cursor: 'pointer',
+            }}
+          >
+            Rightmove flat search
+          </a>
         </div>
       )}
     </div>
@@ -636,6 +696,13 @@ function UniversityMarkers({
             }}
           >
             <title>{uni.displayName}</title>
+            <Tooltip
+              direction="top"
+              offset={[0, -12]}
+              opacity={0.95}
+            >
+              {uni.displayName}
+            </Tooltip>
           </CircleMarker>
         )
       })}
@@ -1006,6 +1073,15 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
     }
   }, [mapRef])
 
+  // In university mode, hide the tube network when there are no matching stations
+  const isUniversityMode = !!props.universityMode
+  const hasAnyStations = !!(
+    (filteredStationSet && filteredStationSet.size > 0) ||
+    (purpleStationSet && purpleStationSet.size > 0) ||
+    selectedStationVisible
+  )
+  const hideNetworkForNoMatches = isUniversityMode && !hasAnyStations
+
   return (
     <section className="map-shell">
       <div className="map-canvas">
@@ -1057,64 +1133,68 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           maxZoom={19}
         />
 
-        {/* Inactive lines (grey) */}
-        {inactiveLinePaths.map(line => (
-          <Polyline
-            key={`inactive-${line.lineCode}-${line.segmentIndex}`}
-            positions={line.positions}
-            pathOptions={{
-              color: '#cccccc',
-              weight: 3,
-              opacity: 0.6,
-            }}
-          />
-        ))}
-
-        {/* Active lines with universal outline for clarity */}
-        {linePaths.map(line => {
-          // Adaptive outline: light inner color gets dark outline; dark inner gets light outline
-          const hex = line.brandColor.replace('#', '')
-          const r = parseInt(hex.substring(0, 2), 16)
-          const g = parseInt(hex.substring(2, 4), 16)
-          const b = parseInt(hex.substring(4, 6), 16)
-          const brightness = (r * 299 + g * 587 + b * 114) / 1000
-          const outlineColor = brightness < 90 ? '#FFFFFF' : '#000000'
-          const innerWeight = line.strokeWeight || 4
-          const outlineWeight = innerWeight + 2
-          return (
-            <>
+        {!hideNetworkForNoMatches && (
+          <>
+            {/* Inactive lines (grey) */}
+            {inactiveLinePaths.map(line => (
               <Polyline
-                key={`${line.lineCode}-outline-${line.segmentIndex}`}
+                key={`inactive-${line.lineCode}-${line.segmentIndex}`}
                 positions={line.positions}
                 pathOptions={{
-                  color: outlineColor,
-                  weight: outlineWeight,
-                  opacity: 0.9,
+                  color: '#cccccc',
+                  weight: 3,
+                  opacity: 0.6,
                 }}
               />
-              <Polyline
-                key={`${line.lineCode}-inner-${line.segmentIndex}`}
-                positions={line.positions}
-                pathOptions={{
-                  color: line.brandColor,
-                  weight: innerWeight,
-                  opacity: 1.0,
-                }}
-              >
-                <title>{line.displayName}</title>
-              </Polyline>
-            </>
-          )
-        })}
+            ))}
 
-        {/* Station connectors to ensure markers touch their lines visually */}
-        {stationConnectors.map(connector => (
-          <Polyline
-            key={`connector-${connector.key}`}
-            positions={connector.positions}
-            pathOptions={{ color: connector.color, weight: 3, opacity: 0.9 }}
-          />
-        ))}
+            {/* Active lines with universal outline for clarity */}
+            {linePaths.map(line => {
+              // Adaptive outline: light inner color gets dark outline; dark inner gets light outline
+              const hex = line.brandColor.replace('#', '')
+              const r = parseInt(hex.substring(0, 2), 16)
+              const g = parseInt(hex.substring(2, 4), 16)
+              const b = parseInt(hex.substring(4, 6), 16)
+              const brightness = (r * 299 + g * 587 + b * 114) / 1000
+              const outlineColor = brightness < 90 ? '#FFFFFF' : '#000000'
+              const innerWeight = line.strokeWeight || 4
+              const outlineWeight = innerWeight + 2
+              return (
+                <>
+                  <Polyline
+                    key={`${line.lineCode}-outline-${line.segmentIndex}`}
+                    positions={line.positions}
+                    pathOptions={{
+                      color: outlineColor,
+                      weight: outlineWeight,
+                      opacity: 0.9,
+                    }}
+                  />
+                  <Polyline
+                    key={`${line.lineCode}-inner-${line.segmentIndex}`}
+                    positions={line.positions}
+                    pathOptions={{
+                      color: line.brandColor,
+                      weight: innerWeight,
+                      opacity: 1.0,
+                    }}
+                  >
+                    <title>{line.displayName}</title>
+                  </Polyline>
+                </>
+              )
+            })}
+
+            {/* Station connectors to ensure markers touch their lines visually */}
+            {stationConnectors.map(connector => (
+              <Polyline
+                key={`connector-${connector.key}`}
+                positions={connector.positions}
+                pathOptions={{ color: connector.color, weight: 3, opacity: 0.9 }}
+              />
+            ))}
+          </>
+        )}
 
         {/* Radius circle removed per requirement: no green boundary when adjusting walk time */}
 
@@ -1149,21 +1229,23 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           </Polyline>
         )}
 
-        {/* Station markers */}
-        <StationMarkers
-          stations={stations}
-          activeSet={activeSet}
-          filteredStationSet={filteredStationSet}
-          selectedStation={selectedStation}
-          onStationSelect={onStationSelect}
-          lineLabels={lineLabels}
-          lines={lines}
-          filterMode={props.filterMode}
-          purpleStationSet={purpleStationSet}
-          universityMode={props.universityMode}
-          purpleReachInfo={props.purpleReachInfo}
-          selectedStationVisible={selectedStationVisible}
-        />
+        {/* Station markers: in university mode, hide when there are no matching stations */}
+        {(!isUniversityMode || hasAnyStations) && (
+          <StationMarkers
+            stations={stations}
+            activeSet={activeSet}
+            filteredStationSet={filteredStationSet}
+            selectedStation={selectedStation}
+            onStationSelect={onStationSelect}
+            lineLabels={lineLabels}
+            lines={lines}
+            filterMode={props.filterMode}
+            purpleStationSet={purpleStationSet}
+            universityMode={props.universityMode}
+            purpleReachInfo={props.purpleReachInfo}
+            selectedStationVisible={selectedStationVisible}
+          />
+        )}
 
         {/* University markers */}
         <UniversityMarkers

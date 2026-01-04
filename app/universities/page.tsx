@@ -12,14 +12,18 @@ import { loadStaticTransitData } from '@/app/lib/data/load-static-data'
 import { FAQ } from '@/app/components/FAQ'
 import type { UniversitiesDataset } from '@/app/types/university'
 import type { Metadata } from 'next'
+import { UniversitySEOContent } from '@/app/components/SEOContent/UniversitySEOContent'
 
 export const metadata: Metadata = {
-  title: 'London Universities Tube Map | Nearest Underground Stations to Universities 2025',
-  description: 'Find the nearest tube stations to major London universities including UCL, Imperial College, LSE, King\'s College, and QMUL. Interactive map showing university locations with DLR and Underground connections within 0.5 miles.',
-  keywords: 'london universities tube map, nearest tube station to university, ucl tube station, imperial college underground, lse metro station, kings college tube, student travel london, university transport',
+  title: 'Where to Live as a London Student | University Tube Map & Areas to Live 2025',
+  description:
+    'Use our London university tube map to find the best areas to live as a student. See which neighbourhoods and tube stations are within a short walk or tube ride from UCL, Imperial, LSE, King\'s, QMUL and more.',
+  keywords:
+    'where to live in london as students, best areas to live near london universities, ucl student areas, imperial college student accommodation areas, lse where to live, kings college london student housing, london university commute, student neighbourhoods london, london universities tube map',
   openGraph: {
-    title: 'London Universities Tube Map | Find Nearest Underground Stations',
-    description: 'Interactive map of London universities with nearest tube and DLR stations. UCL, Imperial, LSE, King\'s College, QMUL and more. Filter by distance.',
+    title: 'Where to Live Near London Universities | Student Tube & Area Finder',
+    description:
+      'Interactive London universities map for students choosing where to live. Explore tube stations and neighbourhoods within walking or tube time of your campus.',
     type: 'website',
   },
 }
@@ -50,6 +54,7 @@ export default async function UniversitiesPage() {
         transitDataset={transitDataset}
         universitiesDataset={universitiesDataset}
       />
+      <UniversitySEOContent />
       <FAQ />
     </main>
   )

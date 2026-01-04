@@ -16,7 +16,7 @@ export interface BlogQuestion {
 export const blogQuestions: BlogQuestion[] = [
   {
     slug: 'london-where-to-visit',
-    question: 'London where to visit',
+    question: 'Where to visit in London',
     shortAnswer:
       'Start with the Thames, then mix historic neighbourhoods like Bloomsbury with creative hubs such as Shoreditch and the South Bank.',
     body: [
@@ -27,7 +27,7 @@ export const blogQuestions: BlogQuestion[] = [
   },
   {
     slug: 'where-is-london-located',
-    question: 'where is London located',
+    question: 'Where is London located',
     shortAnswer:
       'London sits in south‑east England on the River Thames, around 80 km (50 miles) inland from the North Sea.',
     body: [
@@ -71,7 +71,7 @@ export const blogQuestions: BlogQuestion[] = [
   },
   {
     slug: 'what-happen-in-london',
-    question: 'what happen in London',
+    question: "What's on in London",
     shortAnswer:
       'There is always something on: theatre in the West End, football and concerts, food markets, exhibitions and seasonal festivals.',
     body: [
@@ -82,7 +82,7 @@ export const blogQuestions: BlogQuestion[] = [
   },
   {
     slug: 'where-to-eat-in-london',
-    question: 'where to eat in London',
+    question: 'Where to eat in London',
     shortAnswer:
       'Try markets like Borough and Spitalfields for casual food, then explore Soho, Shoreditch and Brixton for restaurants and bars.',
     body: [
@@ -93,24 +93,13 @@ export const blogQuestions: BlogQuestion[] = [
   },
   {
     slug: 'what-to-do-in-london',
-    question: 'what to do in London',
+    question: 'What to do in London',
     shortAnswer:
       'Mix museums, parks and neighbourhood walks with a show or live music in the evening.',
     body: [
       'A balanced London day might start with a museum or gallery, move into a park in the afternoon, and end with a theatre performance or live music.',
       'Parks like Hyde Park, Regent’s Park and Hampstead Heath are all easy to reach on the Tube and give you huge green spaces inside the city.',
       'For evenings, consider a West End show, a comedy night, or a small gig in areas like Camden, Dalston or Peckham.',
-    ],
-  },
-  {
-    slug: 'when-london-christmas-lights',
-    question: 'when london Christmas Lights',
-    shortAnswer:
-      'Most central London Christmas lights switch on in mid‑November and stay up until early January.',
-    body: [
-      'Oxford Street, Regent Street, Carnaby Street and Covent Garden usually turn on their lights between early and mid‑November.',
-      'The displays normally run through Christmas and into the first week of January, with the busiest evenings in the run‑up to Christmas Day.',
-      'For a calmer experience, visit on a weekday evening and, if possible, later at night when the after‑work crowds have thinned out.',
     ],
   },
   {
@@ -122,6 +111,22 @@ export const blogQuestions: BlogQuestion[] = [
       'London has a temperate, maritime climate. Winters are usually cold and damp rather than extremely snowy, while summers are mild with occasional hot spells.',
       'Because the weather can change quickly, layers are your best friend. A light waterproof jacket and comfortable shoes will work in most seasons.',
       'For an accurate picture of today’s conditions, check a live forecast from a trusted weather app rather than relying on averages.',
+    ],
+  },
+  {
+    slug: 'where-to-live-london-student',
+    question: 'Where to live in London as students',
+    shortAnswer:
+      'Use the London universities tube map to compare student-friendly areas like Camden, Kentish Town, Earl’s Court, Hammersmith and Mile End by real walking and tube time to campus.',
+    body: [
+      'Working out where to live as a London student is really a question of journey time. Rent, nightlife and vibe all matter, but if your commute is awkward you will feel it every single day.',
+      'A simple way to start is with the universities filter on our London Tube Map. Pick your university, set a realistic walking time, then add a short tube-time layer. The green stations show where you can reasonably walk from campus; the purple stations show areas that are a quick ride away on the same tube lines.',
+      'As you move the sliders, look for clusters of green and purple stations. Those clusters usually correspond to neighbourhoods that work well for students because they balance rent with a straightforward journey.',
+      'For UCL, SOAS and other Bloomsbury universities, popular areas include Camden, Kentish Town, Tufnell Park and Finsbury Park, as well as parts of Islington and Holloway. These are all tied together by the Northern, Piccadilly and Victoria lines plus strong bus routes.',
+      'Imperial College students often look at Earl’s Court, West Kensington, Fulham and Hammersmith. Staying on or near the District, Piccadilly or Circle lines keeps the daily trip to South Kensington simple even if you move a zone or two out to save on rent.',
+      'For LSE and King’s College London in central London, students spread out along the Northern, Jubilee, Bakerloo, Central and District lines — think Waterloo, London Bridge, Elephant & Castle, Bermondsey, Clerkenwell and Mile End. The map helps you see which of these areas gives you a direct route with minimal changes.',
+      'Once you have a shortlist from the map, cross-check it against your budget, the kind of flatshare or halls you want, and how late you will typically travel. Night Tube routes and last-train times can be just as important as the morning commute when you are balancing study, work and a social life.',
+      'There is no single “best” student area in London, but by combining the university tube map with your own needs, you can quickly narrow the city down to a handful of neighbourhoods that make everyday life manageable and enjoyable.',
     ],
   },
 ]
