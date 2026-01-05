@@ -537,7 +537,7 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
     return Number.isInteger(rounded) ? `${rounded} min${rounded === 1 ? '' : 's'}` : `${rounded.toFixed(1)} mins`
   }
 
-  const rightmoveUrl = useMemo(() => {
+  const zooplaUrl = useMemo(() => {
     const rawName = targetStation?.displayName || targetId
     const cleanedName = rawName
       .replace(/underground/gi, '')
@@ -561,37 +561,32 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
      // return `https://www.rightmove.co.uk/property-to-rent/find.html?searchLocation=${blackfriarsSearchLocation}&useLocationIdentifier=true&locationIdentifier=${locationIdentifier}&rent=To+rent&radius=0.5&maxPrice=2000&minBedrooms=1&maxBedrooms=2&propertyTypes=flat&_includeLetAgreed=off&dontShow=houseShare%2Cretirement&sortType=6&channel=RENT&transactionType=LETTING&displayLocationIdentifier=${displayLocationIdentifier}&viewType=MAP&index=0`
     //}
 
-    // Default: use station-specific template data when available; otherwise fall back to name-based search
-    const baseUrl = new URL('https://www.rightmove.co.uk/property-to-rent/find.html')
+    // Build Zoopla station-based rental search URL, e.g.
+    // https://www.zoopla.co.uk/to-rent/flats/station/tube/oxford-circus/?...&q=Oxford+Circus+Station%2C+London
+
+    // Slug for the station path segment (strip trailing " Station", lower-case, kebab-case)
+    const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
+    const slug = slugBase
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+
+    const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/station/tube/${slug}/`)
     const params = baseUrl.searchParams
 
-    params.set('searchLocation', baseSearchLocation)
-
-    if (mappingEntry?.locationIdentifier) {
-      const locationIdentifier = mappingEntry.locationIdentifier
-      params.set('useLocationIdentifier', 'true')
-      // Build station-based identifier so the encoded value becomes
-      // "STATION%5E<id>" in the final URL.
-      params.set('locationIdentifier', `STATION^${locationIdentifier}`)
-    }
-
-    // Common filters
-    params.set('rent', 'To rent')
-    params.set('radius', '1.0')
-    params.set('maxPrice', '2000')
-    params.set('minBedrooms', '1')
-    params.set('maxBedrooms', '2')
-    params.set('propertyTypes', 'flat')
-    params.set('_includeLetAgreed', 'off')
-    params.set('dontShow', 'houseShare,retirement')
-    params.set('sortType', '6')
-    params.set('channel', 'RENT')
-    params.set('transactionType', 'LETTING')
-    params.set('viewType', 'MAP')
-
-    if (mappingEntry?.displayLocationIdentifier) {
-      params.set('displayLocationIdentifier', mappingEntry.displayLocationIdentifier)
-    }
+    // Match the provided Zoopla example filters
+    params.set('beds_max', '2')
+    params.set('beds_min', '0')
+    params.set('is_retirement_home', 'false')
+    params.set('is_shared_accommodation', 'false')
+    params.set('price_frequency', 'per_month')
+    params.set('price_max', '2000')
+    params.set('q', `${baseSearchLocation}, London`)
+    params.set('radius', '1')
+    params.set('search_source', 'to-rent')
+    params.set('results_sort', 'lowest_price')
+    params.set('pn', '1')
+    params.set('map_app', 'true')
 
     return baseUrl.toString()
   }, [targetStation, targetId])
@@ -617,20 +612,9 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
         <p style={{ fontSize: '11px', lineHeight: '1.4', color: '#555', margin: '2px 0 0 0' }}>Source: {staticJourney.source}</p>
       )}
       {journeyBreakdown && (
-        <div style={{ marginTop: '4px' }}>
-          <p
-            style={{
-              fontSize: '10px',
-              lineHeight: '1.4',
-              color: '#555',
-              margin: '0 0 4px 0',
-              wordBreak: 'break-all',
-            }}
-          >
-            {rightmoveUrl}
-          </p>
+        <div style={{ marginTop: '6px' }}>
           <a
-            href={rightmoveUrl}
+            href={zooplaUrl}
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -644,7 +628,7 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
               cursor: 'pointer',
             }}
           >
-            Rightmove flat search
+            Zoopla flat search
           </a>
         </div>
       )}

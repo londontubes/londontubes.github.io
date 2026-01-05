@@ -9,12 +9,13 @@
     "start": "next start",
     "start:static": "npx serve@latest out",
     "lint": "next lint",
-  "audit:accessibility": "lighthouse-ci autorun",
+    "audit:accessibility": "lighthouse-ci autorun",
     "data:refresh": "tsx scripts/data/fetch-tfl.ts && tsx scripts/data/transform.ts",
     "data:validate": "tsx scripts/data/validate.ts"
   },
   "dependencies": {
     "@types/leaflet": "1.9.8",
+    "axios": "1.13.2",
     "leaflet": "1.9.4",
     "next": "^14.2.0",
     "react": "^18.3.0",
