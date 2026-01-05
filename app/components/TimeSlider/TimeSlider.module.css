@@ -30,6 +30,13 @@
   white-space: nowrap;
 }
 
+.unitLabel {
+  font-weight: 400;
+  font-size: 11px;
+  color: #666;
+  margin-left: 4px;
+}
+
 .sliderRow {
   display: flex;
   align-items: center;
