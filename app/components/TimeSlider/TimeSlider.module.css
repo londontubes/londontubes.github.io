@@ -11,10 +11,23 @@
 }
 
 .label {
-  font-size: 12px;
   font-weight: 500;
+  font-size: 14px;
   color: #333;
+  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
   margin: 0;
+}
+
+.labelRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .sliderRow {
@@ -22,8 +35,8 @@
   align-items: center;
   gap: 6px;
   margin-top: auto;
-  padding-top: 24px;
-  padding-bottom: 4px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .controls {
@@ -70,12 +83,12 @@
 }
 .adjustBtn:disabled { opacity: .4; cursor: not-allowed; }
 
-.sliderWrapper { position: relative; flex: 1; height: 44px; display: flex; align-items: center; padding: 8px 0; max-width: 100%; margin: 0; }
+.sliderWrapper { position: relative; flex: 1; height: 44px; display: flex; align-items: center; padding: 8px 12px; max-width: 100%; margin: 0; }
 
 .slider {
   width: 100%;
   height: 14px;
-  margin: 0 20px;
+  margin: 0;
   border-radius: 999px;
   background: linear-gradient(to right, 
     #0066cc 0%, 
@@ -86,7 +99,6 @@
   appearance: none;
   -webkit-appearance: none;
   cursor: grab;
-  margin: 0 20px;
   box-shadow: 
     inset 0 2px 4px rgba(0, 0, 0, 0.08),
     inset 0 0 0 1px rgba(0, 0, 0, 0.05),

@@ -172,6 +172,7 @@ export default function UniversityExperience({
     if (!campusSelectorUniversity) return
 
     setSelectedCampusId(campusId)
+    setSelectedUniversityId(campusSelectorUniversity.universityId)
     setShowCampusSelector(false)
 
     // Find the selected campus
@@ -487,62 +488,68 @@ export default function UniversityExperience({
       {/* Show university selection grid when no university is selected */}
       {!selectedUniversityId ? (
         <div style={{ padding: '0.5rem 0' }}>
-          <UniversitySelector
-            universities={universitiesDataset}
-            selectedUniversityId={selectedUniversityId}
-            onUniversitySelect={handleUniversityClick}
-            inline={false}
-          />
-        </div>
-      ) : (
-        /* Show inline controls when a university is selected */
-  <div className={styles.universityInlineBar} aria-label="University selection and walk time">
-          <div className={styles.iconsArea}>
+          <div className={styles.selectorLanding}> 
             <UniversitySelector
               universities={universitiesDataset}
               selectedUniversityId={selectedUniversityId}
               onUniversitySelect={handleUniversityClick}
-              inline
+              inline={false}
             />
+            <div className={styles.landingInstructions}>
+              <p className={styles.instructionsIntro}>Tap a university to begin.</p>
+              <p className={styles.landingInstructionLine}>Adjust the walk time first, then adjust the tube time.</p>
+            </div>
           </div>
-          <div className={styles.filterModeContainer}>
-            <div 
-              className={`${styles.filterOption} ${filterMode === 'radius' ? styles.active : styles.inactive}`}
-              onClick={() => selectedUniversityId && setFilterMode('radius')}
-              role="radio"
-              tabIndex={selectedUniversityId ? 0 : -1}
-              aria-label="Walk time filter"
-              aria-checked={filterMode === 'radius'}
-              onKeyDown={(e) => {
-                if (selectedUniversityId && (e.key === 'Enter' || e.key === ' ')) {
-                  e.preventDefault()
-                  setFilterMode('radius')
-                }
-              }}
-            >
-              <RadiusSlider
-                value={radiusSliderValue}
-                onChange={handleRadiusChange}
-                min={radiusMinValue}
-                max={radiusMaxValue}
-                step={radiusStepValue}
-                disabled={!selectedUniversityId || filterMode !== 'radius'}
-                // value represents minutes of walking time
+        </div>
+      ) : (
+        <div className={styles.universityInlineBar} aria-label="University selection and walk time">
+          <div className={styles.inlineTopRow}>
+            <div className={styles.iconsArea}>
+              <UniversitySelector
+                universities={universitiesDataset}
+                selectedUniversityId={selectedUniversityId}
+                onUniversitySelect={handleUniversityClick}
+                inline
               />
             </div>
-            <div 
-              className={`${styles.filterOption} ${canLayerTubeTime ? styles.active : styles.inactive}`}
-              role="group"
-              aria-label="Tube time layering (adjust to show additional purple stations reachable via tube from all green stations)"
-            >
-              <TimeSlider
-                value={travelTimeMins}
-                onChange={handleTimeChange}
-                min={5}
-                max={60}
-                step={1}
-                disabled={!canLayerTubeTime}
-              />
+            <div className={styles.filterModeContainer}>
+              <div
+                className={`${styles.filterOption} ${filterMode === 'radius' ? styles.active : styles.inactive}`}
+                onClick={() => selectedUniversityId && setFilterMode('radius')}
+                role="radio"
+                tabIndex={selectedUniversityId ? 0 : -1}
+                aria-label="Walk time filter"
+                aria-checked={filterMode === 'radius'}
+                onKeyDown={(e) => {
+                  if (selectedUniversityId && (e.key === 'Enter' || e.key === ' ')) {
+                    e.preventDefault()
+                    setFilterMode('radius')
+                  }
+                }}
+              >
+                <RadiusSlider
+                  value={radiusSliderValue}
+                  onChange={handleRadiusChange}
+                  min={radiusMinValue}
+                  max={radiusMaxValue}
+                  step={radiusStepValue}
+                  disabled={!selectedUniversityId || filterMode !== 'radius'}
+                />
+              </div>
+              <div
+                className={`${styles.filterOption} ${canLayerTubeTime ? styles.active : styles.inactive}`}
+                role="group"
+                aria-label="Tube time layering (adjust to show additional purple stations reachable via tube from all green stations)"
+              >
+                <TimeSlider
+                  value={travelTimeMins}
+                  onChange={handleTimeChange}
+                  min={5}
+                  max={60}
+                  step={1}
+                  disabled={!canLayerTubeTime}
+                />
+              </div>
             </div>
           </div>
         </div>

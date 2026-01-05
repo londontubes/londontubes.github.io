@@ -57,12 +57,12 @@ function stationVisible(
 ): boolean {
   // If we have any layered proximity sets (green or purple), show union of both
   const hasLayering = (filteredIds && filteredIds.size > 0) || (purpleIds && purpleIds.size > 0)
+  const matchesLineFilter = !active || station.lineCodes.some(code => active.has(code))
   if (hasLayering) {
-    return !!(filteredIds?.has(station.stationId) || purpleIds?.has(station.stationId))
+    return matchesLineFilter && !!(filteredIds?.has(station.stationId) || purpleIds?.has(station.stationId))
   }
-  // Otherwise default to line activation visibility
-  if (!active) return true
-  return station.lineCodes.some(code => active.has(code))
+  // Otherwise default to line activation visibility (or all when no filter)
+  return matchesLineFilter
 }
 
 // Component to handle map events
