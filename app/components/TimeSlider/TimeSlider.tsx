@@ -92,9 +92,11 @@ export function TimeSlider({
 
   return (
     <div className={styles.container}>
-      <label htmlFor="time-slider" className={styles.label}>
-        Tube Time
-      </label>
+      <div className={styles.labelRow}>
+        <label htmlFor="time-slider" className={styles.label}>
+          Tube Time <span className={styles.unitLabel}>(in minutes)</span>
+        </label>
+      </div>
       <div className={styles.sliderRow}>
         <div className={styles.sliderWrapper}>
           <input

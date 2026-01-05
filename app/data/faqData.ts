@@ -44,6 +44,18 @@ export const faqItems: FAQItem[] = [
     ],
   },
   {
+    question: 'Can I search for flats near a tube station?',
+    answer:
+      'Yes. When you click a purple station on the map, the station info card includes a “Zoopla flat search” button. This opens Zoopla in map view centred on that station, pre-filtered for 0–2 bedroom flats up to around £2,000 per month within roughly a mile. It is a quick way to see rental options that match the journey times you have already explored on the map.',
+    keywords: [
+      'flats near tube station',
+      'zoopla flat search',
+      'rent near london station',
+      'student flats london map',
+      'london rental search zoopla',
+    ],
+  },
+  {
     question: 'Is the London tube map free to use?',
     answer:
       'Yes! This interactive London tube map is completely free to use. No registration or payment required. Access the full London Underground, DLR, and Overground network map with real-time filtering, university locations, and station information.',

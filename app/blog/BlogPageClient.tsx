@@ -31,17 +31,22 @@ export function BlogPageClient() {
 
   return (
     <main className={styles.page}>
-      <header className={styles.header}>
-        <p className={styles.kicker}>London FAQ blog</p>
-        <h1 className={styles.title}>Answers to the questions people actually ask about London</h1>
-        <p className={styles.lead}>
-          A simple, no‑nonsense guide to London. Start with these quick answers,
-          then dive into a full page for each question when you need more detail.
-        </p>
-      </header>
+      <div className={styles.content}>
+        <header className={styles.header}>
+          <p className={styles.kicker}>London FAQ blog</p>
+          <h1 className={styles.title}>Answers to the questions people actually ask about London</h1>
+          <p className={styles.lead}>
+            A simple, no‑nonsense guide to London. Start with these quick answers,
+            then dive into a full page for each question when you need more detail.
+          </p>
+        </header>
 
-      <section className={styles.sliderSection} aria-label="Featured London questions slideshow">
-        <div className={styles.sliderShell}>
+        <section className={styles.sliderSection} aria-label="Featured London questions slideshow">
+          <div className={styles.sectionHeaderRow}>
+            <h2 className={styles.sectionTitle}>Featured questions</h2>
+          </div>
+
+          <div className={styles.sliderShell}>
           <button
             type="button"
             className={styles.sliderArrow}
@@ -91,22 +96,30 @@ export function BlogPageClient() {
             />
           ))}
         </div>
-      </section>
+        </section>
 
-      <section className={styles.grid} aria-label="All London frequently asked questions">
-        {blogQuestions.map((q) => (
-          <article key={q.slug} className={styles.card}>
-            <Link href={`/blog/${q.slug}`} className={styles.cardLink}>
-              <h2 className={styles.cardQuestion}>{q.question}</h2>
-              <p className={styles.cardExcerpt}>{q.shortAnswer}</p>
-              <span className={styles.cardMeta}>
-                <span>Read full answer</span>
-                <span>→</span>
-              </span>
-            </Link>
-          </article>
-        ))}
-      </section>
+        <section className={styles.allQuestionsSection} aria-label="All London frequently asked questions">
+          <div className={styles.sectionHeaderRow}>
+            <h2 className={styles.sectionTitle}>All questions</h2>
+            <p className={styles.sectionSubtitle}>Browse every London FAQ in one place.</p>
+          </div>
+
+          <div className={styles.grid}>
+            {blogQuestions.map((q) => (
+              <article key={q.slug} className={styles.card}>
+                <Link href={`/blog/${q.slug}`} className={styles.cardLink}>
+                  <h3 className={styles.cardQuestion}>{q.question}</h3>
+                  <p className={styles.cardExcerpt}>{q.shortAnswer}</p>
+                  <span className={styles.cardMeta}>
+                    <span>Read full answer</span>
+                    <span>→</span>
+                  </span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
     </main>
   )
 }

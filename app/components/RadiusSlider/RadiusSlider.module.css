@@ -23,6 +23,7 @@
 .labelRow {
   display: flex;
   align-items: baseline;
+  justify-content: center;
   gap: 4px;
   flex-wrap: nowrap;
   white-space: nowrap;

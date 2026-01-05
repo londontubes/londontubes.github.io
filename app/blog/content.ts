@@ -26,30 +26,8 @@ export const blogQuestions: BlogQuestion[] = [
     ],
   },
   {
-    slug: 'where-is-london-located',
-    question: 'Where is London located',
-    shortAnswer:
-      'London sits in south‑east England on the River Thames, around 80 km (50 miles) inland from the North Sea.',
-    body: [
-      'London is in the south‑east of England and forms the capital of both England and the United Kingdom.',
-      'The city spreads out from the River Thames and is surrounded by a ring road known as the M25. When people talk about "Greater London" they usually mean the area inside this ring.',
-      'On a map, London is roughly at 51.5° north, 0.1° west. That means you are in a temperate, maritime climate with fairly mild winters and changeable weather year‑round.',
-    ],
-  },
-  {
-    slug: 'london-which-country',
-    question: 'London which country',
-    shortAnswer:
-      'London is the capital city of the United Kingdom and is also the largest city in England.',
-    body: [
-      'London is part of the United Kingdom of Great Britain and Northern Ireland. Politically, it is both the capital of the UK and the capital of the country of England.',
-      'It is home to the UK Parliament, government departments, and many national institutions such as the Supreme Court and the Bank of England.',
-      'On a local level, the city is divided into 32 boroughs plus the historic City of London, each with its own local council.',
-    ],
-  },
-  {
     slug: 'london-what-to-see',
-    question: 'London what to see',
+    question: 'What to see in London',
     shortAnswer:
       'Blend big icons like Westminster and Tower Bridge with free viewpoints such as Sky Garden and Tate Modern.',
     body: [
@@ -60,7 +38,7 @@ export const blogQuestions: BlogQuestion[] = [
   },
   {
     slug: 'london-what-to-visit',
-    question: 'London what to visit',
+    question: 'What to visit in London',
     shortAnswer:
       'Group your days: one for museums in South Kensington, one for the river and Westminster, and one for markets and canals.',
     body: [
@@ -104,7 +82,7 @@ export const blogQuestions: BlogQuestion[] = [
   },
   {
     slug: 'london-weather-today',
-    question: 'London weather today',
+    question: 'Live weather forecast in London',
     shortAnswer:
       'Expect changeable conditions: carry a light waterproof and layers, and always check a live forecast on the day.',
     body: [
@@ -122,11 +100,25 @@ export const blogQuestions: BlogQuestion[] = [
       'Working out where to live as a London student is really a question of journey time. Rent, nightlife and vibe all matter, but if your commute is awkward you will feel it every single day.',
       'A simple way to start is with the universities filter on our London Tube Map. Pick your university, set a realistic walking time, then add a short tube-time layer. The green stations show where you can reasonably walk from campus; the purple stations show areas that are a quick ride away on the same tube lines.',
       'As you move the sliders, look for clusters of green and purple stations. Those clusters usually correspond to neighbourhoods that work well for students because they balance rent with a straightforward journey.',
+      'When you click on a promising purple station, the station card includes a “Zoopla flat search” button. This opens Zoopla in map view centred on that station, already filtered for smaller flats within a sensible budget and walking radius so you can jump straight from journey times to real listings.',
       'For UCL, SOAS and other Bloomsbury universities, popular areas include Camden, Kentish Town, Tufnell Park and Finsbury Park, as well as parts of Islington and Holloway. These are all tied together by the Northern, Piccadilly and Victoria lines plus strong bus routes.',
       'Imperial College students often look at Earl’s Court, West Kensington, Fulham and Hammersmith. Staying on or near the District, Piccadilly or Circle lines keeps the daily trip to South Kensington simple even if you move a zone or two out to save on rent.',
       'For LSE and King’s College London in central London, students spread out along the Northern, Jubilee, Bakerloo, Central and District lines — think Waterloo, London Bridge, Elephant & Castle, Bermondsey, Clerkenwell and Mile End. The map helps you see which of these areas gives you a direct route with minimal changes.',
       'Once you have a shortlist from the map, cross-check it against your budget, the kind of flatshare or halls you want, and how late you will typically travel. Night Tube routes and last-train times can be just as important as the morning commute when you are balancing study, work and a social life.',
       'There is no single “best” student area in London, but by combining the university tube map with your own needs, you can quickly narrow the city down to a handful of neighbourhoods that make everyday life manageable and enjoyable.',
+    ],
+  },
+  {
+    slug: 'how-to-use-university-filter-flat-search',
+    question: 'How to use the university filter for flat search',
+    shortAnswer:
+      'Open the Universities Filter, pick your campus, then use the green walking time and purple tube time sliders to find good areas and jump straight into Zoopla flat searches from promising stations.',
+    body: [
+      'The Universities Filter is designed to turn your campus into the centre of your search. Start by opening the Universities tab at the top of the map, then choose your university and, if needed, the specific campus you are based at.',
+      'Next, set a realistic walking time using the green slider. Green stations show places where you can comfortably walk from your front door to campus each day without needing to get on a tube.',
+      'After that, add some tube time using the purple slider. Purple stations mark areas that are a simple, fast ride away from your university on the same lines. Together, the green and purple rings give you a clear picture of where daily travel will actually feel easy.',
+      'Once you see clusters of green and purple stations you like the look of, click on one of the purple stations. In the station card, use the “Zoopla flat search” button to open Zoopla in map view centred on that station, pre-filtered for smaller flats within a sensible budget and walking radius.',
+      'From there you can adjust filters on Zoopla as needed, but the heavy lifting is already done: you are only looking at flats in neighbourhoods that match the real journey times you have just checked on the university map.',
     ],
   },
 ]

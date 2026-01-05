@@ -87,7 +87,7 @@ export function RadiusSlider({
     <div className={styles.container}>
       <div className={styles.labelRow}>
         <label htmlFor="radius-slider" className={styles.label}>
-          Walk Time <span className={styles.unitLabel}>(minutes)</span>
+          Walk Time <span className={styles.unitLabel}>(in minutes)</span>
         </label>
       </div>
       <div className={styles.sliderRow}>

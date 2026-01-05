@@ -16,17 +16,29 @@
 .grid {
   display: flex;
   flex-wrap: nowrap;
-  gap: 8px;
+  gap: 18px;
   align-items: center;
   overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.grid::-webkit-scrollbar {
+  display: none;
 }
 
 .inlineRow {
   display: flex;
   flex-wrap: nowrap;
-  gap: 8px;
+  gap: 18px;
   overflow-x: auto;
+  overflow-y: hidden;
   align-items: center;
+  scrollbar-width: none;
+}
+
+.inlineRow::-webkit-scrollbar {
+  display: none;
 }
 
 .inlineContainer {
