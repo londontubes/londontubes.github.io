@@ -9,6 +9,7 @@ import ConsentBanner from './components/Analytics/ConsentBanner'
 import { faqItems } from './data/faqData'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://londontubes.co.uk'),
   title: 'Interactive London Tube Map - Line Filters & University Journey Planner',
   description:
     'Interactive London Tube map with line filters, university journey planning, and TfL Underground, DLR & Overground coverage. Explore 270+ stations, find nearby universities, and plan routes with real-time London transport insights.',
@@ -39,9 +40,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  alternates: {
-    canonical: 'https://londontubes.co.uk',
   },
 }
 
