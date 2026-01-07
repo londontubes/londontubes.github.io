@@ -10,7 +10,6 @@ import type { UniversitiesDataset } from '@/app/types/university'
 import type { TravelTimeResult } from '@/app/lib/map/travelTime'
 import { calculateDistance, WALK_SPEED_MPH, WALK_OVERHEAD_MINUTES, WALK_ROUTE_FACTOR } from '@/app/lib/map/proximity'
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
-import { getCachedGraph, shortestPathsFrom } from '@/app/lib/map/stationGraph'
 import { getStaticTubeJourney } from '@/app/lib/map/staticTubeTimes'
 import { RIGHTMOVE_STATION_TEMPLATE, type RightmoveStationTemplateEntry } from '@/docs/rightmove-station-template'
 
