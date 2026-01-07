@@ -555,31 +555,6 @@ function StationMarkers({
 function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: string; targetId: string; stations: Station[]; lines: TransitLine[] }) {
   const staticJourney = useMemo(() => getStaticTubeJourney(originId, targetId), [originId, targetId])
 
-  const journeyBreakdown = useMemo(() => {
-    const origin = stations.find(s => s.stationId === originId)
-    const target = stations.find(s => s.stationId === targetId)
-    if (!origin || !target) return null
-    const graph = getCachedGraph(lines, stations)
-    const maxMinutes = 120 // generous cap to find path
-    const paths = shortestPathsFrom(originId, graph, maxMinutes)
-    const targetPath = paths.find(p => p.stationId === targetId)
-    if (!targetPath) return null
-    const via = targetPath.via
-    const segments: { from: string; to: string; line: string; minutes: number }[] = []
-    for (let i = 0; i < via.length - 1; i++) {
-      const from = via[i]
-      const to = via[i + 1]
-      const edge = graph[from].find(e => e.to === to)
-      if (!edge) continue
-      segments.push({ from, to, line: edge.lineCode, minutes: Math.round(edge.runMinutes * 10) / 10 })
-    }
-    let transfers = 0
-    for (let i = 1; i < segments.length; i++) {
-      if (segments[i].line !== segments[i - 1].line) transfers++
-    }
-    return { segments, transfers, totalGraphMinutes: targetPath.minutes }
-  }, [originId, targetId, stations, lines])
-
   const originStation = stations.find(s => s.stationId === originId)
   const originName = originStation?.displayName || originId
   const targetStation = stations.find(s => s.stationId === targetId)
