@@ -251,15 +251,43 @@
 @media (max-width: 800px) {
   .universityInlineBar {
     flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: visible;
+    padding: 10px 12px;
   }
   .filterModeContainer {
     flex: 1 1 100%;
     order: 2;
     min-width: 0;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
   }
   .iconsArea {
     flex: 1 1 100%;
     order: 1;
+    width: 100%;
+    max-height: none;
+    flex-wrap: wrap;
+  }
+  .filterOption {
+    min-width: 0;
+    width: 100%;
+    padding: 8px;
+  }
+  .inlineTopRow {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .universityInlineBar {
+    gap: 8px;
+  }
+  .filterModeContainer {
+    gap: 10px;
   }
 }

@@ -15,12 +15,11 @@
 
 .grid {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 18px;
   align-items: center;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
+  justify-content: space-evenly;
+  align-content: flex-start;
 }
 
 .grid::-webkit-scrollbar {
@@ -35,6 +34,16 @@
   overflow-y: hidden;
   align-items: center;
   scrollbar-width: none;
+}
+@media (max-width: 640px) {
+  .inlineRow {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .inlineRow::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .inlineRow::-webkit-scrollbar {
@@ -118,6 +127,7 @@
 /* Mobile responsive */
 @media (max-width: 640px) {
   .grid {
+    gap: 12px;
     justify-content: center;
   }
 

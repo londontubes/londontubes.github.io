@@ -65,6 +65,43 @@ function stationVisible(
   return matchesLineFilter
 }
 
+function buildZooplaStationUrl(station?: Station, fallbackName?: string): string | null {
+  const rawName = station?.displayName || fallbackName
+  if (!rawName) return null
+  const cleanedName = rawName
+    .replace(/underground/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  const mappingEntry = station ? RIGHTMOVE_STATION_MAP[station.stationId] : undefined
+  let baseSearchLocation = mappingEntry?.searchLocation || cleanedName
+
+  if (!/\bStation$/i.test(baseSearchLocation)) {
+    baseSearchLocation = `${baseSearchLocation} Station`
+  }
+
+  const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
+  const slug = slugBase
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+
+  const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/station/tube/${slug}/`)
+  const params = baseUrl.searchParams
+  params.set('beds_max', '1')
+  params.set('beds_min', '0')
+  params.set('is_retirement_home', 'false')
+  params.set('is_shared_accommodation', 'false')
+  params.set('price_frequency', 'per_month')
+  params.set('price_max', '1500')
+  params.set('q', `${baseSearchLocation}, London`)
+  params.set('radius', '0.25')
+  params.set('search_source', 'to-rent')
+  params.set('results_sort', 'lowest_price')
+  params.set('pn', '1')
+  params.set('map_app', 'true')
+  return baseUrl.toString()
+}
+
 // Component to handle map events
 function MapEventHandler({
   onMapClick,
@@ -126,7 +163,6 @@ function useHoverJourneyPreview(
     if (!origin || !target || origin.stationId === target.stationId) {
       return { preview: null, status: origin && target ? 'ready' : 'idle' }
     }
-
     const cacheKey = `${origin.stationId}->${target.stationId}`
     const cached = journeyCache.current.get(cacheKey)
     if (cached) {
@@ -234,6 +270,7 @@ function StationCardContent({
   })()
 
   const cardTitle = travelMinutesLabel ? `${station.displayName} (${travelMinutesLabel})` : station.displayName
+  const zooplaUrl = useMemo(() => buildZooplaStationUrl(station), [station])
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -293,6 +330,27 @@ function StationCardContent({
             stations={stations}
             lines={lines}
           />
+        </div>
+      )}
+      {zooplaUrl && (
+        <div style={{ marginTop: '12px' }}>
+          <a
+            href={zooplaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              background: '#0066cc',
+              color: 'white',
+              borderRadius: '4px',
+              padding: '6px 10px',
+              fontSize: '13px',
+              textDecoration: 'none',
+              display: 'inline-block',
+              cursor: 'pointer',
+            }}
+          >
+            Zoopla flat search
+          </a>
         </div>
       )}
     </div>
@@ -537,60 +595,6 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
     return Number.isInteger(rounded) ? `${rounded} min${rounded === 1 ? '' : 's'}` : `${rounded.toFixed(1)} mins`
   }
 
-  const zooplaUrl = useMemo(() => {
-    const rawName = targetStation?.displayName || targetId
-    const cleanedName = rawName
-      .replace(/underground/gi, '')
-      .replace(/\s+/g, ' ')
-      .trim()
-    const mappingEntry = targetStation ? RIGHTMOVE_STATION_MAP[targetStation.stationId] : undefined
-    let baseSearchLocation = mappingEntry?.searchLocation || cleanedName
-
-    // Ensure the human-readable searchLocation ends with " Station" so the
-    // encoded query string will end with "%20Station" as requested.
-    if (!/\bStation$/i.test(baseSearchLocation)) {
-      baseSearchLocation = `${baseSearchLocation} Station`
-    }
-
-    // Blackfriars: use a station-based URL with Rightmove's internal identifier
-   // if (targetStation?.stationId === 'HUBBFR') {
-      // https://www.rightmove.co.uk/property-to-rent/find.html?searchLocation=Blackfriars+Station&useLocationIdentifier=true&locationIdentifier=STATION%5E1040&rent=To+rent&radius=0.5&maxPrice=2000&minBedrooms=1&maxBedrooms=2&propertyTypes=flat&_includeLetAgreed=off&dontShow=houseShare%2Cretirement&sortType=6&channel=RENT&transactionType=LETTING&displayLocationIdentifier=Blackfriars-Station&viewType=MAP&index=0
-    //  const blackfriarsSearchLocation = encodeQuery('Blackfriars Station')
-     // const locationIdentifier = encodeURIComponent('STATION^1040')
-     // const displayLocationIdentifier = encodeQuery('Blackfriars-Station')
-     // return `https://www.rightmove.co.uk/property-to-rent/find.html?searchLocation=${blackfriarsSearchLocation}&useLocationIdentifier=true&locationIdentifier=${locationIdentifier}&rent=To+rent&radius=0.5&maxPrice=2000&minBedrooms=1&maxBedrooms=2&propertyTypes=flat&_includeLetAgreed=off&dontShow=houseShare%2Cretirement&sortType=6&channel=RENT&transactionType=LETTING&displayLocationIdentifier=${displayLocationIdentifier}&viewType=MAP&index=0`
-    //}
-
-    // Build Zoopla station-based rental search URL, e.g.
-    // https://www.zoopla.co.uk/to-rent/flats/station/tube/oxford-circus/?...&q=Oxford+Circus+Station%2C+London
-
-    // Slug for the station path segment (strip trailing " Station", lower-case, kebab-case)
-    const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
-    const slug = slugBase
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '')
-
-    const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/station/tube/${slug}/`)
-    const params = baseUrl.searchParams
-
-    // Match the provided Zoopla example filters
-    params.set('beds_max', '2')
-    params.set('beds_min', '0')
-    params.set('is_retirement_home', 'false')
-    params.set('is_shared_accommodation', 'false')
-    params.set('price_frequency', 'per_month')
-    params.set('price_max', '2000')
-    params.set('q', `${baseSearchLocation}, London`)
-    params.set('radius', '1')
-    params.set('search_source', 'to-rent')
-    params.set('results_sort', 'lowest_price')
-    params.set('pn', '1')
-    params.set('map_app', 'true')
-
-    return baseUrl.toString()
-  }, [targetStation, targetId])
-
   let summaryText: string
   if (staticJourney) {
     const minutesLabel = formatMinutes(staticJourney.minutes)
@@ -610,27 +614,6 @@ function PurpleTubeTime({ originId, targetId, stations, lines }: { originId: str
       <p style={{ fontSize: '12px', lineHeight: '1.4', color: '#333', margin: 0 }}>{summaryText}</p>
       {staticJourney?.source && (
         <p style={{ fontSize: '11px', lineHeight: '1.4', color: '#555', margin: '2px 0 0 0' }}>Source: {staticJourney.source}</p>
-      )}
-      {journeyBreakdown && (
-        <div style={{ marginTop: '6px' }}>
-          <a
-            href={zooplaUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              background: '#0066cc',
-              color: 'white',
-              borderRadius: '4px',
-              padding: '4px 8px',
-              fontSize: '11px',
-              textDecoration: 'none',
-              display: 'inline-block',
-              cursor: 'pointer',
-            }}
-          >
-            Zoopla flat search
-          </a>
-        </div>
       )}
     </div>
   )
