@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import type { TransportOptions } from 'nodemailer'
 
 const DESTINATION_EMAIL = 'londontubespropertyfinder@gmail.com'
 const MAX_WORDS = 500
@@ -32,7 +33,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: `Description must not exceed ${MAX_WORDS} words.` }, { status: 400 })
   }
 
-  const transportConfig: any = {
+  const transportConfig: TransportOptions = {
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT ?? 587),
     secure: process.env.SMTP_SECURE === 'true',
