@@ -28,6 +28,17 @@
   padding: 0.85rem 1rem;
 }
 
+.input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #3e3e80;
+  background: #0f0f18;
+  color: #f1f1ff;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.85rem 1rem;
+}
+
 .select:focus,
 .textarea:focus {
   outline: 2px solid #8da3ff;
@@ -83,6 +94,10 @@
 
 .statusSuccess {
   color: #4ed08d;
+}
+
+.statusError {
+  color: #f386a1;
 }
 
 .statusHint {

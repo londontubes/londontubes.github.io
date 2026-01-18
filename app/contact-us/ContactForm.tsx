@@ -16,8 +16,12 @@ function countWords(value: string) {
 export default function ContactForm() {
   const [category, setCategory] = useState<'feedback' | 'improvement'>('feedback')
   const [description, setDescription] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
   const [limitReached, setLimitReached] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [statusMessage, setStatusMessage] = useState<string | null>(null)
+  const [statusType, setStatusType] = useState<'success' | 'error' | null>(null)
 
   const wordCount = useMemo(() => countWords(description), [description])
 
@@ -27,29 +31,120 @@ export default function ContactForm() {
     if (words.length <= MAX_WORDS) {
       setDescription(value)
       setLimitReached(false)
-      setSubmitted(false)
+      setStatusMessage(null)
+      setStatusType(null)
       return
     }
     setLimitReached(true)
   }
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setSubmitted(true)
-    setDescription('')
-    setCategory('feedback')
-    setLimitReached(false)
+  const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value)
+    setStatusMessage(null)
+    setStatusType(null)
   }
 
-  const canSubmit = wordCount > 0 && description.trim().length > 0
+  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value)
+    setStatusMessage(null)
+    setStatusType(null)
+  }
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setIsSubmitting(true)
+    setStatusMessage(null)
+    setStatusType(null)
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: name.trim(),
+        email: email.trim(),
+        category,
+        description: description.trim(),
+      }),
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          const payload = await response.json().catch(() => ({}))
+          throw new Error(payload.message || 'Unable to send your message at this time.')
+        }
+        setStatusMessage('Thanks for sharing your thoughts—we will review them and follow up where appropriate.')
+        setStatusType('success')
+        setDescription('')
+        setCategory('feedback')
+        setName('')
+        setEmail('')
+        setLimitReached(false)
+      })
+      .catch((error) => {
+        console.error('Contact form submission failed', error)
+        setStatusMessage('Something went wrong while sending your message. Please try again later.')
+        setStatusType('error')
+      })
+      .finally(() => {
+        setIsSubmitting(false)
+      })
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const isEmailValid = emailPattern.test(email.trim())
+  const canSubmit =
+    wordCount > 0 &&
+    description.trim().length > 0 &&
+    name.trim().length > 0 &&
+    isEmailValid &&
+    !limitReached &&
+    !isSubmitting
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      {submitted && (
-        <p className={`${styles.statusMessage} ${styles.statusSuccess}`} aria-live="polite">
-          Thanks for sharing your thoughts—we will review them and follow up where appropriate.
+      {statusMessage && (
+        <p
+          className={`${styles.statusMessage} ${
+            statusType === 'error' ? styles.statusError : styles.statusSuccess
+          }`}
+          aria-live="polite"
+        >
+          {statusMessage}
         </p>
       )}
+      <div className={styles.field}>
+        <label htmlFor="contact-name" className={styles.label}>
+          Your name
+        </label>
+        <input
+          id="contact-name"
+          type="text"
+          className={styles.input}
+          value={name}
+          onChange={handleNameChange}
+          placeholder="How should we address you?"
+        />
+      </div>
+      <div className={styles.field}>
+        <label htmlFor="contact-email" className={styles.label}>
+          Your email
+        </label>
+        <input
+          id="contact-email"
+          type="email"
+          className={styles.input}
+          value={email}
+          onChange={handleEmailChange}
+          placeholder="name@example.com"
+          aria-invalid={email.length > 0 && !isEmailValid}
+        />
+        {email.length > 0 && !isEmailValid && (
+          <span className={styles.helper} aria-live="polite">
+            Please provide a valid email address so we can reply if needed.
+          </span>
+        )}
+      </div>
       <div className={styles.field}>
         <label htmlFor="contact-category" className={styles.label}>
           I am submitting:
