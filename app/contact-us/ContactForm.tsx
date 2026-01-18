@@ -37,7 +37,7 @@ export default function ContactForm() {
   const handleDescriptionChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const value = event.target.value
     const words = countWords(value)
-    if (words.length <= MAX_WORDS) {
+    if (words <= MAX_WORDS) {
       setDescription(value)
       setLimitReached(false)
       setStatusMessage(null)
