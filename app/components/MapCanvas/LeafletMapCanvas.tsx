@@ -64,6 +64,11 @@ function stationVisible(
   return matchesLineFilter
 }
 
+function sanitizeZooplaSearchLocation(value: string): string {
+  // Zoopla slugs omit apostrophes, so mirror that here before creating the URL.
+  return value.replace(/['’]/g, '')
+}
+
 function buildZooplaStationUrl(station?: Station, fallbackName?: string): string | null {
   const rawName = station?.displayName || fallbackName
   if (!rawName) return null
@@ -77,6 +82,8 @@ function buildZooplaStationUrl(station?: Station, fallbackName?: string): string
   if (!/\bStation$/i.test(baseSearchLocation)) {
     baseSearchLocation = `${baseSearchLocation} Station`
   }
+
+  baseSearchLocation = sanitizeZooplaSearchLocation(baseSearchLocation)
 
   const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
   const slug = slugBase
