@@ -1,7 +1,8 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
+import { trackEvent } from '@/app/lib/analytics'
 import styles from './ContactForm.module.css'
 
 const MAX_WORDS = 500
@@ -24,6 +25,14 @@ export default function ContactForm() {
   const [statusType, setStatusType] = useState<'success' | 'error' | null>(null)
 
   const wordCount = useMemo(() => countWords(description), [description])
+
+  useEffect(() => {
+    trackEvent({
+      action: 'contact_page_view',
+      category: 'contact',
+      label: 'visit',
+    })
+  }, [])
 
   const handleDescriptionChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const value = event.target.value
@@ -80,6 +89,11 @@ export default function ContactForm() {
         setName('')
         setEmail('')
         setLimitReached(false)
+        trackEvent({
+          action: 'contact_form_submit',
+          category: 'contact',
+          label: category,
+        })
       })
       .catch((error) => {
         console.error('Contact form submission failed', error)
