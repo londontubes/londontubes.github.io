@@ -24,6 +24,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
   const isLinesActive = pathname === '/'
   const isUniversitiesActive = pathname?.startsWith('/universities') ?? false
   const isBlogActive = pathname?.startsWith('/blog') ?? false
+  const isFeedbackActive = pathname?.startsWith('/contact-us') ?? false
 
   return (
     <nav className={`${styles.navigationTabs} ${className || ''}`} aria-label="Main navigation">
@@ -59,6 +60,14 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
             aria-current={isBlogActive ? 'page' : undefined}
           >
             Blog
+          </Link>
+        </li>
+        <li role="presentation" className={styles.feedbackItem}>
+          <Link
+            href="/contact-us"
+            className={`${styles.feedbackButton} ${isFeedbackActive ? styles.feedbackButtonActive : ''}`}
+          >
+            Feedback
           </Link>
         </li>
       </ul>

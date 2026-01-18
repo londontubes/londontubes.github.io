@@ -1,0 +1,46 @@
+.page {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.kicker {
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #8da3ff;
+}
+
+.heading {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  margin: 0;
+  font-weight: 600;
+}
+
+.summary {
+  color: #d7dbef;
+  margin: 0;
+  max-width: 720px;
+}
+
+.formShell {
+  background: #111111;
+  border: 1px solid #282828;
+  border-radius: 18px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 640px) {
+  .formShell {
+    padding: 1.5rem;
+  }
+}
