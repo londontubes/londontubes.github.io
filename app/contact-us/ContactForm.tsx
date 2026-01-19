@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import type { ChangeEvent, FormEvent } from 'react'
+import type { ChangeEvent, MouseEvent } from 'react'
 import { trackEvent } from '@/app/lib/analytics'
 import styles from './ContactForm.module.css'
 
@@ -20,9 +20,6 @@ export default function ContactForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [limitReached, setLimitReached] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [statusMessage, setStatusMessage] = useState<string | null>(null)
-  const [statusType, setStatusType] = useState<'success' | 'error' | null>(null)
 
   const wordCount = useMemo(() => countWords(description), [description])
 
@@ -40,93 +37,64 @@ export default function ContactForm() {
     if (words <= MAX_WORDS) {
       setDescription(value)
       setLimitReached(false)
-      setStatusMessage(null)
-      setStatusType(null)
       return
     }
+
     setLimitReached(true)
   }
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
-    setStatusMessage(null)
-    setStatusType(null)
   }
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value)
-    setStatusMessage(null)
-    setStatusType(null)
   }
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setIsSubmitting(true)
-    setStatusMessage(null)
-    setStatusType(null)
-
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: name.trim(),
-        email: email.trim(),
-        category,
-        description: description.trim(),
-      }),
-    })
-      .then(async (response) => {
-        if (!response.ok) {
-          const payload = await response.json().catch(() => ({}))
-          throw new Error(payload.message || 'Unable to send your message at this time.')
-        }
-        setStatusMessage('Thanks for sharing your thoughts—we will review them and follow up where appropriate.')
-        setStatusType('success')
-        setDescription('')
-        setCategory('feedback')
-        setName('')
-        setEmail('')
-        setLimitReached(false)
-        trackEvent({
-          action: 'contact_form_submit',
-          category: 'contact',
-          label: category,
-        })
-      })
-      .catch((error) => {
-        console.error('Contact form submission failed', error)
-        setStatusMessage('Something went wrong while sending your message. Please try again later.')
-        setStatusType('error')
-      })
-      .finally(() => {
-        setIsSubmitting(false)
-      })
-  }
-
+  const trimmedName = name.trim()
+  const trimmedEmail = email.trim()
+  const trimmedDescription = description.trim()
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  const isEmailValid = emailPattern.test(email.trim())
+  const isEmailValid = emailPattern.test(trimmedEmail)
   const canSubmit =
     wordCount > 0 &&
-    description.trim().length > 0 &&
-    name.trim().length > 0 &&
+    trimmedDescription.length > 0 &&
+    trimmedName.length > 0 &&
     isEmailValid &&
-    !limitReached &&
-    !isSubmitting
+    !limitReached
+
+  const mailtoHref = useMemo(() => {
+    const params = new URLSearchParams()
+    const subject = `London Tube Map ${category === 'improvement' ? 'Improvement' : 'Feedback'}`
+    params.set('subject', subject)
+
+    const bodyLines = [
+      `Name: ${trimmedName || 'N/A'}`,
+      `Email: ${trimmedEmail || 'N/A'}`,
+      `Category: ${category}`,
+      '',
+      trimmedDescription || 'No message provided.',
+    ]
+
+    params.set('body', bodyLines.join('\n'))
+    return `mailto:londontubespropertyfinder@gmail.com?${params.toString()}`
+  }, [category, trimmedName, trimmedEmail, trimmedDescription])
+
+  const handleMailtoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!canSubmit) {
+      event.preventDefault()
+      return
+    }
+
+    trackEvent({
+      action: 'contact_form_submit',
+      category: 'contact',
+      label: category,
+    })
+  }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      {statusMessage && (
-        <p
-          className={`${styles.statusMessage} ${
-            statusType === 'error' ? styles.statusError : styles.statusSuccess
-          }`}
-          aria-live="polite"
-        >
-          {statusMessage}
-        </p>
-      )}
+    <form className={styles.form} aria-label="Contact form">
       <div className={styles.field}>
         <label htmlFor="contact-name" className={styles.label}>
           Your name
@@ -193,9 +161,16 @@ export default function ContactForm() {
           Word count: {wordCount} / {MAX_WORDS} {limitReached && '— maximum reached'}
         </p>
       </div>
-      <button type="submit" className={styles.submitButton} disabled={!canSubmit}>
+      <a
+        className={`${styles.submitButton} ${!canSubmit ? styles.submitButtonDisabled : ''}`}
+        href={canSubmit ? mailtoHref : undefined}
+        role="button"
+        aria-disabled={!canSubmit}
+        tabIndex={canSubmit ? 0 : -1}
+        onClick={handleMailtoClick}
+      >
         Submit
-      </button>
+      </a>
     </form>
   )
 }

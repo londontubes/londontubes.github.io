@@ -9,6 +9,9 @@ export const metadata: Metadata = {
 }
 
 export default function ContactUsPage() {
+  const mailtoHref =
+    'mailto:londontubespropertyfinder@gmail.com?subject=London%20Tube%20Map%20Feedback&body=Name%3A%20%0AEmail%3A%20%0ACategory%3A%20%0A%0AMessage%3A%20'
+
   return (
     <main className={styles.page}>
       <div className={styles.intro}>
@@ -22,6 +25,23 @@ export default function ContactUsPage() {
       </div>
       <section className={styles.formShell} aria-label="Contact form">
         <ContactForm />
+      </section>
+      <section className={styles.directEmail}>
+        <p>
+          Want to launch your email client instead? Send your thoughts straight to our inbox.
+        </p>
+        <h4>
+          <a
+            className={styles.mailtoLink}
+            href={mailtoHref}
+          >
+            londontubespropertyfinder@gmail.com
+          </a>
+        </h4>
+        <p>
+          If clicking the link doesn’t open an email app, copy the address and send us your message from
+          whichever mail client you prefer.
+        </p>
       </section>
     </main>
   )

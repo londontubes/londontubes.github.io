@@ -66,7 +66,6 @@
 
 .submitButton {
   align-self: flex-start;
-  border: none;
   border-radius: 999px;
   padding: 0.85rem 2.5rem;
   background: #0066cc;
@@ -74,16 +73,21 @@
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
 }
 
-.submitButton:disabled {
+.submitButtonDisabled {
   background: #31344a;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
-.submitButton:not(:disabled):hover,
-.submitButton:not(:disabled):focus-visible {
+.submitButton:not(.submitButtonDisabled):hover,
+.submitButton:not(.submitButtonDisabled):focus-visible {
   background: #0051a3;
 }
 
