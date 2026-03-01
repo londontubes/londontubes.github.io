@@ -24,6 +24,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   return {
     title: `${entry.question} – London Tube Blog`,
     description: entry.shortAnswer,
+    alternates: {
+      canonical: `/blog/${params.slug}/`,
+    },
   }
 }
 
@@ -35,7 +38,7 @@ export default function BlogArticlePage({ params }: PageProps) {
       <main className={styles.page}>
         <div className={styles.header}>
           <p className={styles.breadcrumb}>
-            <Link href="/blog">Blog</Link> / Not found
+            <Link href="/blog/">Blog</Link> / Not found
           </p>
           <h1 className={styles.title}>We could not find that article.</h1>
           <p className={styles.lead}>
@@ -51,7 +54,7 @@ export default function BlogArticlePage({ params }: PageProps) {
     <main className={styles.page}>
       <header className={styles.header}>
         <p className={styles.breadcrumb}>
-          <Link href="/blog">Blog</Link> / <span>{entry.question}</span>
+          <Link href="/blog/">Blog</Link> / <span>{entry.question}</span>
         </p>
         <h1 className={styles.title}>{entry.question}</h1>
         <p className={styles.lead}>{entry.shortAnswer}</p>

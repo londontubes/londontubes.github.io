@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     'Use our London university tube map to find the best areas to live as a student. See which neighbourhoods and tube stations are within a short walk or tube ride from UCL, Imperial, LSE, King\'s, QMUL and more.',
   keywords:
     'where to live in london as students, best areas to live near london universities, ucl student areas, imperial college student accommodation areas, lse where to live, kings college london student housing, london university commute, student neighbourhoods london, london universities tube map',
+  alternates: {
+    canonical: '/universities/',
+  },
   openGraph: {
     title: 'Where to Live Near London Universities | Student Tube & Area Finder',
     description:

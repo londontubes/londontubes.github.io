@@ -42,7 +42,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
         </li>
         <li role="presentation" className={styles.tabItem}>
           <Link
-            href="/universities"
+            href="/universities/"
             className={`${styles.tab} ${isUniversitiesActive ? styles.active : ''}`}
             role="tab"
             aria-selected={isUniversitiesActive}
@@ -53,7 +53,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
         </li>
         <li role="presentation" className={styles.blogItem}>
           <Link
-            href="/blog"
+            href="/blog/"
             className={`${styles.tab} ${isBlogActive ? styles.active : ''}`}
             role="tab"
             aria-selected={isBlogActive}
@@ -64,7 +64,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
         </li>
         <li role="presentation" className={styles.feedbackItem}>
           <Link
-            href="/contact-us"
+            href="/contact-us/"
             className={`${styles.feedbackButton} ${isFeedbackActive ? styles.feedbackButtonActive : ''}`}
           >
             Feedback

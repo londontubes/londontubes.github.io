@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Contact us',
   description:
     'Send feedback or improvement suggestions to the London Tube Map team. Choose a topic, explain your idea, and help us make the map better for everyone.',
+  alternates: {
+    canonical: '/contact-us/',
+  },
 }
 
 export default function ContactUsPage() {

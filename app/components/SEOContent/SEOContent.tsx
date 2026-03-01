@@ -181,7 +181,7 @@ export function SEOContent() {
           <div className={styles.cta}>
             <p>
               <strong>Looking for university transit options?</strong>{' '}
-              <a href="/universities">View our Universities Tube Map →</a>
+              <a href="/universities/">View our Universities Tube Map →</a>
             </p>
           </div>
         </article>
