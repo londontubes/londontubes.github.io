@@ -1,13 +1,40 @@
 'use client'
 
+import type { MouseEvent } from 'react'
 import styles from './SEOContent.module.css'
 
+const HEATHROW_EXPRESS_AFFILIATE_URL =
+  process.env.NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL
+
+const AMBER_UCL_AFFILIATE_URL = process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL
+
 export function SEOContent() {
+  function affiliateLinkProps(url: string | undefined, labelForDev: string) {
+    if (url) {
+      return {
+        href: url,
+        target: '_blank',
+        rel: 'noopener noreferrer nofollow sponsored',
+      }
+    }
+
+    return {
+      href: '#',
+      'aria-disabled': true as const,
+      onClick: (e: MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault()
+        if (process.env.NODE_ENV === 'development') {
+          console.warn(`[SEOContent] Missing affiliate URL for: ${labelForDev}`)
+        }
+      },
+    }
+  }
+
   return (
     <section className={styles.seoSection}>
       <div className={styles.container}>
         <article className={styles.content}>
-          <h2>Interactive London Tube Map 2025 - Your Complete Underground Network Guide</h2>
+          <h2>Interactive London Tube Map 2026 - Your Complete Underground Network Guide</h2>
           
           <p>
             Welcome to the most comprehensive <strong>London Tube Map</strong> online. Our interactive 
@@ -86,6 +113,40 @@ export function SEOContent() {
                 <strong>West End Theatres:</strong> Leicester Square or Piccadilly Circus
               </p>
             </div>
+          </div>
+
+          <div className={styles.cta}>
+            <h4>Heathrow to Central London in 15 Minutes</h4>
+            <p>
+              Skip the 60-minute Piccadilly line slog. Book the Heathrow Express or Elizabeth line in advance for guaranteed seats and luggage space.
+            </p>
+            <p>
+              <a
+                {...affiliateLinkProps(
+                  HEATHROW_EXPRESS_AFFILIATE_URL,
+                  'NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL',
+                )}
+              >
+                Book Heathrow Express Tickets →
+              </a>
+            </p>
+          </div>
+
+          <div className={styles.cta}>
+            <h4>Find a Room Near UCL in 48 Hours</h4>
+            <p>
+              Compare verified student flats and studio apartments within a 15-minute commute using Amberstudent. Filter by budget, ensuite, and move-in dates.
+            </p>
+            <p>
+              <a
+                {...affiliateLinkProps(
+                  AMBER_UCL_AFFILIATE_URL,
+                  'NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL',
+                )}
+              >
+                Browse UCL Rooms on Amber →
+              </a>
+            </p>
           </div>
 
           <h3>London Tube Zones Explained</h3>

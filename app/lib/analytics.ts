@@ -149,3 +149,33 @@ export function trackWebVital(metricName: string, value: number, id: string) {
     value: Math.round(value),
   })
 }
+
+// Marketing / conversion events
+export function trackAffiliateCtaClick(label: string, value = 1) {
+  trackEvent({
+    action: 'cta_click',
+    category: 'Affiliate',
+    label,
+    value,
+  })
+}
+
+export function trackHeathrowExpressCtaClick() {
+  trackAffiliateCtaClick('Heathrow Express', 1)
+}
+
+export function trackNewsletterSignup() {
+  trackEvent({
+    action: 'newsletter_signup',
+    category: 'Lead',
+    value: 1,
+  })
+}
+
+export function trackProductSale(price: number) {
+  trackEvent({
+    action: 'product_sale',
+    category: 'Digital Product',
+    value: price,
+  })
+}

@@ -15,7 +15,7 @@ import type { Metadata } from 'next'
 import { UniversitySEOContent } from '@/app/components/SEOContent/UniversitySEOContent'
 
 export const metadata: Metadata = {
-  title: 'Where to Live as a London Student | University Tube Map & Areas to Live 2025',
+  title: 'Where to Live as a London Student | University Tube Map & Areas to Live 2026',
   description:
     'Use our London university tube map to find the best areas to live as a student. See which neighbourhoods and tube stations are within a short walk or tube ride from UCL, Imperial, LSE, King\'s, QMUL and more.',
   keywords:

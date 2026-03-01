@@ -1,7 +1,7 @@
 "use client"
 import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { trackPageView, trackEvent } from '@/app/lib/analytics'
+import { trackPageView, trackEvent, trackHeathrowExpressCtaClick } from '@/app/lib/analytics'
 
 // Tracks pageviews and outbound link clicks globally.
 export function PageViewTracker() {
@@ -24,6 +24,15 @@ export function PageViewTracker() {
       if (!href) return
       // Ignore hash/local anchors
       if (href.startsWith('#')) return
+
+      const text = (anchor.textContent || '').trim().toLowerCase()
+      const hrefLower = href.toLowerCase()
+      const looksLikeHeathrowExpress =
+        text.includes('heathrow express') ||
+        (hrefLower.includes('heathrow') && hrefLower.includes('express'))
+      if (looksLikeHeathrowExpress) {
+        trackHeathrowExpressCtaClick()
+      }
       // Determine if external
       try {
         const url = new URL(href, window.location.href)
