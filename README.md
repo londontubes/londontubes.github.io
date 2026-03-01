@@ -34,6 +34,8 @@ Create a `.env.local` file (see `.env.example` for the authoritative list):
 
 ```
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your-google-maps-browser-key
+NEXT_PUBLIC_GA4_MEASUREMENT_ID=G-XXXXXXXXXX  # optional (GA4)
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=...     # optional (Search Console)
 TFL_APP_ID=your-tfl-app-id (optional)
 TFL_APP_KEY=your-tfl-app-key (optional)
 ```

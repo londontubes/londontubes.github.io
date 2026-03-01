@@ -8,6 +8,13 @@ import PageViewTracker from './components/Analytics/PageViewTracker'
 import ConsentBanner from './components/Analytics/ConsentBanner'
 import { faqItems } from './data/faqData'
 
+const GA4_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID ??
+  process.env.NEXT_PUBLIC_GA_ID ??
+  'G-9Q194F9FKG'
+
+const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://londontubes.co.uk'),
   title: 'Interactive London Tube Map - Line Filters & University Journey Planner',
@@ -135,6 +142,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {GOOGLE_SITE_VERIFICATION ? (
+          <meta
+            name="google-site-verification"
+            content={GOOGLE_SITE_VERIFICATION}
+          />
+        ) : null}
+
         <meta name="google-adsense-account" content="ca-pub-2691145261785175" />
         {/* Google AdSense */}
         <script
@@ -161,6 +175,24 @@ export default function RootLayout({
             __html: JSON.stringify(faqStructuredData),
           }}
         />
+
+        {GA4_MEASUREMENT_ID ? (
+          <>
+            {/* Google tag (gtag.js) */}
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA4_MEASUREMENT_ID}');`,
+              }}
+            />
+          </>
+        ) : null}
       </head>
       <body>
         {/* Basic SSR shell to avoid empty HTML responses */}
