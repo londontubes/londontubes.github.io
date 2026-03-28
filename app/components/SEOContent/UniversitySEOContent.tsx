@@ -1,4 +1,26 @@
+'use client'
+
+import type { MouseEvent } from 'react'
 import styles from './SEOContent.module.css'
+import { trackAmberClick } from '@/app/lib/analytics'
+
+const AMBER_UCL_AFFILIATE_URL = process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL
+
+function amberLinkProps(context: string) {
+  if (AMBER_UCL_AFFILIATE_URL) {
+    return {
+      href: AMBER_UCL_AFFILIATE_URL,
+      target: '_blank' as const,
+      rel: 'noopener noreferrer nofollow sponsored',
+      onClick: () => trackAmberClick(context),
+    }
+  }
+  return {
+    href: '#',
+    'aria-disabled': true as const,
+    onClick: (e: MouseEvent<HTMLAnchorElement>) => e.preventDefault(),
+  }
+}
 
 export function UniversitySEOContent() {
   return (
@@ -97,6 +119,20 @@ export function UniversitySEOContent() {
             to help you quickly see which tube stations and neighbourhoods make daily life at
             your London university practical and affordable.
           </p>
+
+          <div className={styles.cta}>
+            <h4>Find Verified Student Rooms Near Your Campus</h4>
+            <p>
+              Once you have a shortlist of areas from the map, compare verified student flats,
+              studios, and en-suite rooms on Amber. Filter by university, budget, and move-in
+              date — and book directly without agency fees.
+            </p>
+            <p>
+              <a {...amberLinkProps('universities-page')}>
+                Browse student rooms on Amber →
+              </a>
+            </p>
+          </div>
         </article>
       </div>
     </section>

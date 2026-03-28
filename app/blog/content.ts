@@ -11,11 +11,13 @@ export interface BlogQuestion {
   shortAnswer: string
   body: string[]
   tutorialSteps?: TutorialStep[]
+  ctaSlot?: 'student-housing' | 'heathrow-express'
 }
 
 export const blogQuestions: BlogQuestion[] = [
   {
     slug: 'london-where-to-visit',
+    ctaSlot: 'heathrow-express',
     question: 'Where to visit in London',
     shortAnswer:
       'Start with the Thames, then mix historic neighbourhoods like Bloomsbury with creative hubs such as Shoreditch and the South Bank.',
@@ -27,6 +29,7 @@ export const blogQuestions: BlogQuestion[] = [
   },
   {
     slug: 'london-what-to-see',
+    ctaSlot: 'heathrow-express',
     question: 'What to see in London',
     shortAnswer:
       'Blend big icons like Westminster and Tower Bridge with free viewpoints such as Sky Garden and Tate Modern.',
@@ -38,6 +41,7 @@ export const blogQuestions: BlogQuestion[] = [
   },
   {
     slug: 'london-what-to-visit',
+    ctaSlot: 'heathrow-express',
     question: 'What to visit in London',
     shortAnswer:
       'Group your days: one for museums in South Kensington, one for the river and Westminster, and one for markets and canals.',
@@ -93,6 +97,7 @@ export const blogQuestions: BlogQuestion[] = [
   },
   {
     slug: 'where-to-live-london-student',
+    ctaSlot: 'student-housing',
     question: 'Where to live in London as students',
     shortAnswer:
       'Use the London universities tube map to compare student-friendly areas like Camden, Kentish Town, Earl’s Court, Hammersmith and Mile End by real walking and tube time to campus.',
@@ -110,6 +115,7 @@ export const blogQuestions: BlogQuestion[] = [
   },
   {
     slug: 'how-to-use-university-filter-flat-search',
+    ctaSlot: 'student-housing',
     question: 'How to use the university filter for flat search',
     shortAnswer:
       'Open the Universities Filter, pick your campus, then use the green walking time and purple tube time sliders to find good areas and jump straight into Zoopla flat searches from promising stations.',

@@ -164,6 +164,14 @@ export function trackHeathrowExpressCtaClick() {
   trackAffiliateCtaClick('Heathrow Express', 1)
 }
 
+export function trackZooplaClick(stationName: string) {
+  trackAffiliateCtaClick(`Zoopla: ${stationName}`, 1)
+}
+
+export function trackAmberClick(context: string) {
+  trackAffiliateCtaClick(`Amber: ${context}`, 1)
+}
+
 export function trackNewsletterSignup() {
   trackEvent({
     action: 'newsletter_signup',
