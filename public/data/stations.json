@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-13T09:24:09.764Z",
+  "generatedAt": "2026-03-28T13:52:05.037Z",
   "stations": [
     {
       "stationId": "940GZZLUBST",
@@ -3239,8 +3239,8 @@
       "position": {
         "type": "Point",
         "coordinates": [
-          0.026699,
-          51.509716
+          0.027418,
+          51.518757
         ]
       },
       "lineCodes": [
@@ -3661,9 +3661,10 @@
         ]
       },
       "lineCodes": [
-        "jubilee"
+        "jubilee",
+        "metropolitan"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Willesden Green Underground Station",
       "order": 0
@@ -4295,8 +4296,8 @@
       "position": {
         "type": "Point",
         "coordinates": [
-          -0.164783,
-          51.550529
+          -0.164648,
+          51.550311
         ]
       },
       "lineCodes": [
