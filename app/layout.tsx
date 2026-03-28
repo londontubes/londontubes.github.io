@@ -1,6 +1,13 @@
 import type { Metadata, Viewport } from 'next'
+import { Inter } from 'next/font/google'
 import 'leaflet/dist/leaflet.css'
 import './globals.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 import { NavigationTabs } from './components/NavigationTabs'
 import { Suspense } from 'react'
 import Analytics from './components/Analytics/Analytics'
@@ -146,7 +153,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         {GOOGLE_SITE_VERIFICATION ? (
           <meta
