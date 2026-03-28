@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import styles from '../BlogArticle.module.css'
 import { blogQuestions, getBlogQuestion } from '../content'
 
+const BASE_URL = 'https://londontubes.co.uk'
+
 interface PageProps {
   params: { slug: string }
 }
@@ -26,6 +28,14 @@ export function generateMetadata({ params }: PageProps): Metadata {
     description: entry.shortAnswer,
     alternates: {
       canonical: `/blog/${params.slug}/`,
+    },
+    openGraph: {
+      title: `${entry.question} – London Tube Blog`,
+      description: entry.shortAnswer,
+      type: 'article',
+      url: `${BASE_URL}/blog/${params.slug}/`,
+      siteName: 'London Tube Map',
+      locale: 'en_GB',
     },
   }
 }
@@ -50,8 +60,45 @@ export default function BlogArticlePage({ params }: PageProps) {
     )
   }
 
+  const articleUrl = `${BASE_URL}/blog/${entry.slug}/`
+
+  const articleStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: entry.question,
+    description: entry.shortAnswer,
+    url: articleUrl,
+    publisher: {
+      '@type': 'Organization',
+      name: 'London Tube Map',
+      url: BASE_URL,
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleUrl,
+    },
+  }
+
+  const breadcrumbStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${BASE_URL}/blog/` },
+      { '@type': 'ListItem', position: 3, name: entry.question, item: articleUrl },
+    ],
+  }
+
   return (
     <main className={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+      />
       <header className={styles.header}>
         <p className={styles.breadcrumb}>
           <Link href="/blog/">Blog</Link> / <span>{entry.question}</span>
