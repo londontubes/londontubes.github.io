@@ -110,13 +110,19 @@ const breadcrumbStructuredData = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://londontubes.co.uk',
+      item: 'https://londontubes.co.uk/',
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Universities Filter',
-      item: 'https://londontubes.co.uk/universities',
+      item: 'https://londontubes.co.uk/universities/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Blog',
+      item: 'https://londontubes.co.uk/blog/',
     },
   ],
 }
