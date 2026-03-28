@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { MutableRefObject } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker, Tooltip } from 'react-leaflet'
-import { trackStationSelect, trackMapZoom, trackZooplaClick } from '@/app/lib/analytics'
+import { trackStationSelect, trackMapZoom, trackZooplaClick, trackAmberClick } from '@/app/lib/analytics'
 import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
@@ -15,6 +15,18 @@ import { RIGHTMOVE_STATION_TEMPLATE, type RightmoveStationTemplateEntry } from '
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
 const DEFAULT_ZOOM = 11
+
+// Per-university Amber affiliate URLs (set in environment variables)
+const AMBER_URLS: Record<string, string | undefined> = {
+  UCL: process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL,
+  IMPERIAL: process.env.NEXT_PUBLIC_AMBER_IMPERIAL_AFFILIATE_URL,
+  LSE: process.env.NEXT_PUBLIC_AMBER_LSE_AFFILIATE_URL,
+  KINGS: process.env.NEXT_PUBLIC_AMBER_KINGS_AFFILIATE_URL,
+  QMUL: process.env.NEXT_PUBLIC_AMBER_QMUL_AFFILIATE_URL,
+  CITY: process.env.NEXT_PUBLIC_AMBER_CITY_AFFILIATE_URL,
+  SOAS: process.env.NEXT_PUBLIC_AMBER_SOAS_AFFILIATE_URL,
+  WESTMINSTER: process.env.NEXT_PUBLIC_AMBER_WESTMINSTER_AFFILIATE_URL,
+}
 
 const RIGHTMOVE_STATION_MAP: Record<string, RightmoveStationTemplateEntry> = RIGHTMOVE_STATION_TEMPLATE.reduce(
   (acc, entry) => {
@@ -219,6 +231,8 @@ interface StationCardContentProps {
   lines: TransitLine[]
   stations: Station[]
   journeyCache: MutableRefObject<Map<string, HoverJourneyPreview>>
+  amberUrl?: string
+  universityName?: string
 }
 
 function StationCardContent({
@@ -233,6 +247,8 @@ function StationCardContent({
   lines,
   stations,
   journeyCache,
+  amberUrl,
+  universityName,
 }: StationCardContentProps) {
   const { preview } = useHoverJourneyPreview(
     selectedStation,
@@ -340,7 +356,7 @@ function StationCardContent({
         </div>
       )}
       {zooplaUrl && (
-        <div style={{ marginTop: '12px' }}>
+        <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
           <a
             href={zooplaUrl}
             target="_blank"
@@ -359,6 +375,26 @@ function StationCardContent({
           >
             Zoopla flat search
           </a>
+          {amberUrl && (
+            <a
+              href={amberUrl}
+              target="_blank"
+              rel="noopener noreferrer nofollow sponsored"
+              onClick={() => trackAmberClick(universityName ?? 'station-popup')}
+              style={{
+                background: '#7c3aed',
+                color: 'white',
+                borderRadius: '4px',
+                padding: '6px 10px',
+                fontSize: '13px',
+                textDecoration: 'none',
+                display: 'inline-block',
+                cursor: 'pointer',
+              }}
+            >
+              {universityName ? `Rooms near ${universityName}` : 'Student rooms'}
+            </a>
+          )}
         </div>
       )}
     </div>
@@ -378,6 +414,8 @@ function StationMarkers({
   universityMode,
   purpleReachInfo,
   selectedStationVisible,
+  selectedUniversityId,
+  universityDisplayName,
 }: {
   stations: Station[]
   activeSet: Set<string> | null
@@ -392,6 +430,8 @@ function StationMarkers({
   universityMode?: boolean
   purpleReachInfo?: Record<string, { originStationId: string; minutes: number }>
   selectedStationVisible: boolean
+  selectedUniversityId?: string | null
+  universityDisplayName?: string
 }) {
   const map = useMap()
   const [zoomLevel, setZoomLevel] = useState(map.getZoom())
@@ -506,6 +546,9 @@ function StationMarkers({
             color,
           isFiltered ? 'green' : isPurple ? 'purple' : 'normal'
         )
+        const amberUrl = universityMode && selectedUniversityId
+          ? AMBER_URLS[selectedUniversityId]
+          : undefined
         const renderStationCard = (includePurpleDetails: boolean) => (
           <StationCardContent
             station={station}
@@ -519,6 +562,8 @@ function StationMarkers({
             lines={lines}
             stations={stations}
             journeyCache={journeyCache}
+            amberUrl={amberUrl}
+            universityName={universityDisplayName}
           />
         )
 
@@ -1194,6 +1239,12 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
             universityMode={props.universityMode}
             purpleReachInfo={props.purpleReachInfo}
             selectedStationVisible={selectedStationVisible}
+            selectedUniversityId={selectedUniversityId}
+            universityDisplayName={
+              selectedUniversityId
+                ? universities?.features.find(f => f.properties.universityId === selectedUniversityId)?.properties.displayName
+                : undefined
+            }
           />
         )}
 
