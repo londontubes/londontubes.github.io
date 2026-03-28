@@ -74,6 +74,7 @@ function buildZooplaStationUrl(station?: Station, fallbackName?: string): string
   if (!rawName) return null
   const cleanedName = rawName
     .replace(/underground/gi, '')
+    .replace(/\bdlr\b/gi, '')
     .replace(/\s+/g, ' ')
     .trim()
   const mappingEntry = station ? RIGHTMOVE_STATION_MAP[station.stationId] : undefined
