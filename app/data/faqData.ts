@@ -91,4 +91,28 @@ export const faqItems: FAQItem[] = [
       'Use our interactive map to visualize your route. Filter by specific lines to see connections, click stations to view details, and check university locations if traveling for education. For real-time journey planning with times, use TfL Journey Planner alongside our visual map.',
     keywords: ['journey planner', 'route planning', 'how to travel'],
   },
+  {
+    question: 'Where can I find a free London Tube map?',
+    answer:
+      'You can view and use the free interactive London Tube map right here at londontubes.co.uk. It shows all 11 Underground lines plus the DLR with real-time filtering — no download required. For a printable PDF version, Transport for London (TfL) offers the official static tube map at tfl.gov.uk.',
+    keywords: ['free london tube map', 'download tube map', 'london underground map free'],
+  },
+  {
+    question: 'Is this the official London Underground map?',
+    answer:
+      'This is an independent interactive version of the London Tube map built using TfL open data. It is not the official TfL map, but it includes all the same lines and stations. The advantage is live filtering, university proximity search, and mobile optimisation not available on the official static map.',
+    keywords: ['official london tube map', 'tfl tube map', 'london underground official map'],
+  },
+  {
+    question: 'What is the London Underground map called?',
+    answer:
+      'The London Underground map is officially called the "Tube map" and was first designed by Harry Beck in 1931. It is a schematic (not geographically accurate) diagram showing the connections between all 11 Underground lines, the DLR, Overground, and Elizabeth line. Our interactive London Tube map is based on TfL open data and updated for 2026.',
+    keywords: ['london underground map name', 'harry beck tube map', 'what is tube map'],
+  },
+  {
+    question: 'How do I get from one side of London to the other by tube?',
+    answer:
+      'For east–west journeys use the Central, District, or Elizabeth line. For north–south, the Northern and Victoria lines are fastest. The Circle line connects major stations in a loop. Use our interactive London Tube map to click a line and see exactly which stations it serves, then find your interchange point.',
+    keywords: ['cross london by tube', 'tube route planner', 'london underground journey'],
+  },
 ]

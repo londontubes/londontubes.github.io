@@ -14,13 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${baseUrl}/`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-03-28'),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${baseUrl}/universities/`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-03-28'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },

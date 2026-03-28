@@ -35,14 +35,22 @@ export function SEOContent() {
     <section className={styles.seoSection}>
       <div className={styles.container}>
         <article className={styles.content}>
-          <h2>Interactive London Tube Map 2026 - Your Complete Underground Network Guide</h2>
-          
+          <h2>London Tube Map 2026 – Your Free Interactive Underground &amp; DLR Network Guide</h2>
+
           <p>
-            Welcome to the most comprehensive <strong>London Tube Map</strong> online. Our interactive 
-            map displays all 11 <strong>London Underground lines</strong>, the <strong>DLR network</strong>, 
-            and over 270 stations across Greater London. Whether you&apos;re planning your daily commute, 
-            exploring tourist destinations, or finding the nearest tube station to London universities, 
+            Welcome to the most comprehensive <strong>London Tube Map</strong> online. Our interactive
+            map displays all 11 <strong>London Underground lines</strong>, the <strong>DLR network</strong>,
+            and over 270 stations across Greater London. Whether you&apos;re planning your daily commute,
+            exploring tourist destinations, or finding the nearest tube station to London universities,
             our map provides the easiest way to navigate the capital&apos;s transport network.
+          </p>
+
+          <p>
+            Our <strong>London Underground map</strong> is updated for 2026 and reflects the complete TfL
+            network including the Elizabeth line, Overground, and all 11 classic tube lines. Unlike a static
+            PDF, our interactive version lets you click any line or station to get instant information —
+            making it the most useful <strong>London tube map</strong> for daily commuters, tourists, and
+            students alike.
           </p>
 
           <h3>Why Use Our London Underground Map?</h3>
@@ -169,6 +177,16 @@ export function SEOContent() {
             Central, Jubilee, Northern, Piccadilly, and Victoria. These 24-hour services connect 
             central London with suburbs throughout the night, perfect for weekend entertainment 
             and shift workers. Use our line filter to view these specific routes.
+          </p>
+
+          <h3>London Tube Map PDF &amp; Official Resources</h3>
+
+          <p>
+            Prefer a printable version? The official <strong>TfL tube map PDF</strong> is available from
+            Transport for London. Our interactive map complements the paper version with real-time filtering,
+            journey planning, and university station data that a static map cannot provide. Bookmark this
+            page as your go-to <strong>London Underground map</strong> for fast, mobile-friendly access at
+            any time.
           </p>
 
           <h3>Start Exploring the London Underground</h3>
