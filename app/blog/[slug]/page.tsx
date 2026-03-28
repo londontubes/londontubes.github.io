@@ -62,6 +62,9 @@ export default function BlogArticlePage({ params }: PageProps) {
 
   const articleUrl = `${BASE_URL}/blog/${entry.slug}/`
 
+  const amberUrl = process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL
+  const heathrowUrl = process.env.NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL
+
   const articleStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -114,6 +117,32 @@ export default function BlogArticlePage({ params }: PageProps) {
           </p>
         ))}
       </section>
+
+      {entry.ctaSlot === 'student-housing' && amberUrl && (
+        <aside className={styles.articleCta}>
+          <h4>Find a Student Room Near Your Campus</h4>
+          <p>
+            Compare verified student flats, studios, and en-suite rooms near London universities
+            on Amber. Filter by university, budget, and move-in date — no agency fees.
+          </p>
+          <a href={amberUrl} target="_blank" rel="noopener noreferrer nofollow sponsored">
+            Browse student rooms on Amber →
+          </a>
+        </aside>
+      )}
+
+      {entry.ctaSlot === 'heathrow-express' && heathrowUrl && (
+        <aside className={styles.articleCta}>
+          <h4>Getting to London from Heathrow?</h4>
+          <p>
+            Skip the 60-minute Piccadilly line. Book the Heathrow Express for a guaranteed seat
+            and 15-minute journey into Paddington.
+          </p>
+          <a href={heathrowUrl} target="_blank" rel="noopener noreferrer nofollow sponsored">
+            Book Heathrow Express tickets →
+          </a>
+        </aside>
+      )}
     </main>
   )
 }

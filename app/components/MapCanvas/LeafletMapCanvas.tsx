@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { MutableRefObject } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker, Tooltip } from 'react-leaflet'
-import { trackStationSelect, trackMapZoom } from '@/app/lib/analytics'
+import { trackStationSelect, trackMapZoom, trackZooplaClick } from '@/app/lib/analytics'
 import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
@@ -345,6 +345,7 @@ function StationCardContent({
             href={zooplaUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackZooplaClick(station.displayName)}
             style={{
               background: '#0066cc',
               color: 'white',
