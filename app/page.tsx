@@ -6,21 +6,21 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/',
+    canonical: 'https://londontubes.co.uk/',
   },
 }
-
-// Dynamic import of MapExperience with SSR disabled can cause blank HTML if nothing is rendered.
-// Instead we keep MapExperience SSR-capable and provide a static skeleton to ensure non-empty HTML.
 
 export default function HomePage() {
   const dataset = loadStaticTransitData()
 
   return (
     <main>
-      {/* SSR skeleton to ensure content for crawlers / curl */}
+      {/* H1 is the primary on-page SEO signal — visible to crawlers and screen readers */}
+      <h1 className="sr-only">
+        London Tube Map – Free Interactive Underground &amp; DLR Network Map 2026
+      </h1>
       <noscript>
-        <p>Interactive map requires JavaScript. Enable it to view the network.</p>
+        <p>Interactive London Tube map requires JavaScript. Enable it to explore 270+ Underground and DLR stations.</p>
       </noscript>
       <MapExperience dataset={dataset} />
       <SEOContent />

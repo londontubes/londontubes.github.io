@@ -26,6 +26,7 @@ export const blogQuestions: BlogQuestion[] = [
       'If this is your first time in London, anchor your plans around the Thames. You can cover a huge amount of the skyline just by walking the river between Westminster, the South Bank, and Tower Bridge.',
       'For daytime wandering, Bloomsbury gives you leafy garden squares, independent bookshops, and the British Museum. In the evening, head east to Shoreditch for street art, food markets, and late-night bars.',
       'The key is to group areas that are close together on the Tube map so you spend more time exploring and less time changing lines.',
+      'Plan your route between attractions using our free interactive London Tube map at londontubes.co.uk — filter by line to see exactly which stations connect your chosen neighbourhoods.',
     ],
   },
   {
@@ -38,6 +39,7 @@ export const blogQuestions: BlogQuestion[] = [
       'The classic first‑time highlights are Westminster (Big Ben, Parliament and Westminster Abbey), Buckingham Palace, the London Eye, Tower Bridge and the Tower of London.',
       'For modern skyline views that do not require expensive tickets, book a free slot at Sky Garden or head to the viewing level at Tate Modern.',
       'Outside the centre, neighbourhoods like Greenwich, Hampstead and Notting Hill give you more local streets, parks, and markets to explore.',
+      'Before you set out, use the London Underground map at londontubes.co.uk to check which tube lines and stations are closest to each attraction — it makes grouping your day much easier.',
     ],
   },
   {
@@ -50,6 +52,7 @@ export const blogQuestions: BlogQuestion[] = [
       'To make the most of your time, build days around areas that sit on the same Tube lines.',
       'One classic day is South Kensington: the Natural History Museum, Science Museum and Victoria & Albert Museum sit almost next to each other and are all free to enter.',
       'Another day can focus on the river, starting in Westminster and walking the South Bank, then ending near Tower Bridge. A third day might be markets and canals around Camden, King’s Cross and Shoreditch.',
+      'Our interactive London Tube map lets you click any line to highlight its route and stations — the easiest way to plan an area-grouped day in London.',
     ],
   },
   {

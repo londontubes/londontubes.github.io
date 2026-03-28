@@ -24,25 +24,40 @@ const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATIO
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://londontubes.co.uk'),
-  title: 'Interactive London Tube Map - Line Filters & University Journey Planner',
+  title: {
+    default: 'London Tube Map – Interactive Underground & DLR Network 2026',
+    template: '%s | London Tube Map',
+  },
   description:
-    'Interactive London Tube map with line filters, university journey planning, and TfL Underground, DLR & Overground coverage. Explore 270+ stations, find nearby universities, and plan routes with real-time London transport insights.',
+    'Free interactive London Tube map — all 11 Underground lines, DLR network, 270+ stations. Filter by line, find stations near universities, plan your journey. Updated 2026.',
   keywords:
-    'london tube map, london underground planner, tfl tube lines map, london university commute, interactive tube map, london transport planner, dlr map, london subway map',
+    'london tube map, london underground map, interactive tube map, tfl map, london metro map, london subway map, dlr map, london underground stations, tube lines map, london transport map 2026',
+  authors: [{ name: 'London Tube Map', url: 'https://londontubes.co.uk' }],
+  creator: 'London Tube Map',
+  publisher: 'London Tube Map',
   openGraph: {
-    title: 'Interactive London Tube Map - Plan Your TfL Journey',
+    title: 'London Tube Map – Interactive Underground & DLR Network 2026',
     description:
-      'London Underground, DLR, and Overground map with dynamic line filters, university station finder, and real-time journey planning tools.',
+      'Free interactive London Tube map with all 11 Underground lines, DLR, and 270+ stations. Filter by line, find university connections, and plan your journey.',
     type: 'website',
     siteName: 'London Tube Map',
     locale: 'en_GB',
-    url: 'https://londontubes.co.uk',
+    url: 'https://londontubes.co.uk/',
+    images: [
+      {
+        url: 'https://londontubes.co.uk/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Interactive London Tube Map showing all Underground and DLR lines',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Interactive London Tube Map - Line Filters & Universities',
+    title: 'London Tube Map – Interactive Underground & DLR Network 2026',
     description:
-      'Filter TfL tube lines, see nearby universities, and plan journeys across 270+ London stations with our free interactive map.',
+      'Free interactive London Tube map with all 11 Underground lines, DLR, and 270+ stations.',
+    images: ['https://londontubes.co.uk/og-image.png'],
   },
   robots: {
     index: true,
@@ -55,6 +70,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: 'https://londontubes.co.uk/',
+  },
 }
 
 export const viewport: Viewport = {
@@ -63,14 +81,40 @@ export const viewport: Viewport = {
 
 const webAppStructuredData = {
   '@context': 'https://schema.org',
-  '@type': 'WebApplication',
+  '@type': ['WebApplication', 'Map'],
   name: 'London Tube Map',
+  alternateName: ['London Underground Map', 'TfL Tube Map', 'London Metro Map'],
   url: 'https://londontubes.co.uk',
   description:
-    'Interactive London Underground and DLR network map with line filtering, university commute planning, and station insights.',
+    'Free interactive London Tube map showing all 11 Underground lines, DLR, and 270+ stations. Filter by line, plan journeys, and find university connections.',
   applicationCategory: 'TravelApplication',
   operatingSystem: 'Any',
   isAccessibleForFree: true,
+  image: {
+    '@type': 'ImageObject',
+    url: 'https://londontubes.co.uk/og-image.png',
+    width: 1200,
+    height: 630,
+    description: 'Interactive London Tube Map showing Underground and DLR lines',
+  },
+  about: {
+    '@type': 'Place',
+    name: 'London Underground',
+    alternateName: 'The Tube',
+    description: 'The London Underground (the Tube) is a rapid transit system serving Greater London since 1863, with 11 lines and 270+ stations.',
+    geo: {
+      '@type': 'GeoShape',
+      addressCountry: 'GB',
+    },
+  },
+  featureList: [
+    'Interactive line filtering for all 11 Underground lines',
+    'DLR Docklands Light Railway network',
+    'University proximity finder',
+    '270+ station information',
+    'Mobile optimised',
+    'Free to use',
+  ],
   sameAs: [
     'https://github.com/londontubes/londontubes.github.io',
     'https://londontubes.co.uk',
@@ -85,28 +129,8 @@ const webAppStructuredData = {
     name: 'London Tube Map',
     url: 'https://londontubes.co.uk',
   },
-  contactPoint: [
-    {
-      '@type': 'ContactPoint',
-      contactType: 'technical support',
-      url: 'https://github.com/londontubes/londontubes.github.io/issues',
-      availableLanguage: ['en'],
-    },
-  ],
-  keywords:
-    'london tube map, london underground planner, tfl tube lines map, london university commute, interactive tube map, london transport planner, dlr map, london subway map',
   inLanguage: 'en-GB',
-  audience: {
-    '@type': 'Audience',
-    geographicArea: {
-      '@type': 'City',
-      name: 'London',
-      containedInPlace: {
-        '@type': 'Country',
-        name: 'United Kingdom',
-      },
-    },
-  },
+  dateModified: '2026-03-28',
 }
 
 const breadcrumbStructuredData = {
