@@ -2,6 +2,7 @@
 
 import type { MouseEvent } from 'react'
 import styles from './SEOContent.module.css'
+import AdUnit from '@/app/components/ads/AdUnit'
 
 const HEATHROW_EXPRESS_AFFILIATE_URL =
   process.env.NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL
@@ -158,6 +159,8 @@ export function SEOContent() {
             the outermost areas of Greater London. Fares are calculated based on the zones traveled, 
             with Oyster card and contactless payment offering the best value.
           </p>
+
+          <AdUnit style={{ margin: '1.5rem 0' }} />
 
           <h3>Night Tube Services</h3>
           

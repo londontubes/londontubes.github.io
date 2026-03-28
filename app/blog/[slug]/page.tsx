@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 
 import styles from '../BlogArticle.module.css'
 import { blogQuestions, getBlogQuestion } from '../content'
+import AdUnit from '@/app/components/ads/AdUnit'
 
 const BASE_URL = 'https://londontubes.co.uk'
 
@@ -110,6 +111,8 @@ export default function BlogArticlePage({ params }: PageProps) {
         <p className={styles.lead}>{entry.shortAnswer}</p>
       </header>
 
+      <AdUnit style={{ marginBottom: '1.5rem', maxWidth: '760px' }} />
+
       <section className={styles.body} aria-label="Detailed answer">
         {entry.body.map((paragraph, index) => (
           <p key={index} className={styles.paragraph}>
@@ -117,6 +120,8 @@ export default function BlogArticlePage({ params }: PageProps) {
           </p>
         ))}
       </section>
+
+      <AdUnit style={{ marginTop: '2rem', maxWidth: '760px' }} />
 
       {entry.ctaSlot === 'student-housing' && amberUrl && (
         <aside className={styles.articleCta}>
