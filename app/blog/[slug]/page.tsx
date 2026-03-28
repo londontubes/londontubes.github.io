@@ -7,6 +7,17 @@ import AdUnit from '@/app/components/ads/AdUnit'
 
 const BASE_URL = 'https://londontubes.co.uk'
 
+const AMBER_URLS: Record<string, string | undefined> = {
+  UCL: process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL,
+  IMPERIAL: process.env.NEXT_PUBLIC_AMBER_IMPERIAL_AFFILIATE_URL,
+  LSE: process.env.NEXT_PUBLIC_AMBER_LSE_AFFILIATE_URL,
+  KINGS: process.env.NEXT_PUBLIC_AMBER_KINGS_AFFILIATE_URL,
+  QMUL: process.env.NEXT_PUBLIC_AMBER_QMUL_AFFILIATE_URL,
+  CITY: process.env.NEXT_PUBLIC_AMBER_CITY_AFFILIATE_URL,
+  SOAS: process.env.NEXT_PUBLIC_AMBER_SOAS_AFFILIATE_URL,
+  WESTMINSTER: process.env.NEXT_PUBLIC_AMBER_WESTMINSTER_AFFILIATE_URL,
+}
+
 interface PageProps {
   params: { slug: string }
 }
@@ -63,7 +74,9 @@ export default function BlogArticlePage({ params }: PageProps) {
 
   const articleUrl = `${BASE_URL}/blog/${entry.slug}/`
 
-  const amberUrl = process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL
+  const amberUrl = entry.universityId
+    ? AMBER_URLS[entry.universityId]
+    : process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL
   const heathrowUrl = process.env.NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL
 
   const articleStructuredData = {
