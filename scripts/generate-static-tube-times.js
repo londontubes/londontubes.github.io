@@ -24,7 +24,28 @@ const FETCH_CONCURRENCY = 4
 const RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504])
 const FALLBACK_LINE_SPEED_MPH = 22
 const FALLBACK_DWELL_MINUTES = 0.5
-const stopPointAliasCache = new Map()
+// Elizabeth line interchange stations use 910G* NaPTAN IDs in TfL route
+// sequences but HUB* IDs in our station data. Pre-seed the alias cache so
+// resolveStationId doesn't need rate-limited StopPoint API calls.
+const ELIZABETH_STATION_ALIASES = {
+  '910GABWDXR': 'HUBABW',
+  '910GBONDST': 'HUBBDS',
+  '910GCANWHRF': 'HUBCAW',
+  '910GCUSTMHS': 'HUBCUS',
+  '910GEALINGB': 'HUBEAL',
+  '910GFRNDXR': 'HUBZFD',
+  '910GHTRWAPT': 'HUBH13',
+  '910GHTRWTM4': 'HUBHX4',
+  '910GHTRWTM5': 'HUBHX5',
+  '910GLIVST': 'HUBLST',
+  '910GLIVSTLL': 'HUBLST',
+  '910GPADTLL': 'HUBPAD',
+  '910GPADTON': 'HUBPAD',
+  '910GSTFD': 'HUBSRA',
+  '910GTOTCTRD': 'HUBTCR',
+  '910GWCHAPXR': 'HUBZWL',
+}
+const stopPointAliasCache = new Map(Object.entries(ELIZABETH_STATION_ALIASES))
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
@@ -413,7 +434,7 @@ async function main() {
   const stations = Array.isArray(stationData?.stations) ? stationData.stations : []
   const stationMap = new Map(stations.map(station => [station.stationId, station]))
   const lineData = await loadJson(LINES_PATH)
-  const lines = Array.isArray(lineData?.lines) ? lineData.lines.filter(line => line.mode === 'tube') : []
+  const lines = Array.isArray(lineData?.lines) ? lineData.lines.filter(line => line.mode === 'tube' || line.mode === 'elizabeth-line') : []
 
   const timetableRequests = []
   const routeSequences = []
