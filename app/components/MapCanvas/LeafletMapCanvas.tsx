@@ -82,12 +82,14 @@ function sanitizeZooplaSearchLocation(value: string): string {
 }
 
 // Stations whose auto-generated Zoopla slug doesn't match Zoopla's catalogue.
-// Format: stationId → { slug, type? } where type defaults to auto-detection.
-const ZOOPLA_SLUG_OVERRIDES: Record<string, { slug: string; type?: 'tube' | 'rail' | 'dlr' }> = {
+// `path` overrides the entire /to-rent/map/flats/... path (for area-based fallbacks).
+// `slug` + optional `type` override just the station slug and transport type.
+const ZOOPLA_SLUG_OVERRIDES: Record<string, { slug?: string; type?: 'tube' | 'rail' | 'dlr'; path?: string }> = {
   '910GBNHAM': { slug: 'burnham-bucks' },                               // Zoopla uses "Bucks" not "Berks"
   '910GWOLWXR': { slug: 'woolwich-arsenal', type: 'rail' },             // Woolwich Elizabeth has no own Zoopla slug
   '940GZZDLCLA': { slug: 'crossharbour-and-london-arena' },            // Zoopla uses full historic name
   '940GZZLUERC': { slug: 'edgware-road-circle' },                      // Zoopla drops "Line" suffix
+  'HUBCFO': { path: 'chalfont-st-giles' },                             // Station slug broken on Zoopla; area fallback
   'HUBKGX': { slug: 'kings-cross-st-pancras' },                        // Zoopla uses shorter slug
   'HUBH13': { slug: 'heathrow-terminals-1-2-3' },                      // Zoopla includes Terminal 1
   'HUBHX4': { slug: 'heathrow-terminal-4' },                           // Zoopla drops "Airport" from name
@@ -115,6 +117,12 @@ function buildZooplaStationUrl(station?: Station, fallbackName?: string): string
   }
 
   baseSearchLocation = sanitizeZooplaSearchLocation(baseSearchLocation)
+
+  // Area-based fallback when station slug is broken on Zoopla
+  if (override?.path) {
+    const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/${override.path}/`)
+    return baseUrl.toString()
+  }
 
   const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
   const slug = override?.slug ?? slugBase
