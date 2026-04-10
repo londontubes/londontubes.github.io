@@ -87,6 +87,7 @@ function buildZooplaStationUrl(station?: Station, fallbackName?: string): string
   const cleanedName = rawName
     .replace(/underground/gi, '')
     .replace(/\bdlr\b/gi, '')
+    .replace(/\brail\b/gi, '')
     .replace(/\s+/g, ' ')
     .trim()
   const mappingEntry = station ? RIGHTMOVE_STATION_MAP[station.stationId] : undefined
@@ -100,11 +101,15 @@ function buildZooplaStationUrl(station?: Station, fallbackName?: string): string
 
   const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
   const slug = slugBase
+    .replace(/&/g, 'and')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
 
-  const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/station/tube/${slug}/`)
+  // Elizabeth line-only stations use /station/rail/ on Zoopla
+  const isRailOnly = station?.lineCodes.length === 1 && station.lineCodes[0] === 'elizabeth'
+  const stationType = isRailOnly ? 'rail' : 'tube'
+  const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/station/${stationType}/${slug}/`)
   const params = baseUrl.searchParams
   params.set('beds_max', '1')
   params.set('beds_min', '0')
