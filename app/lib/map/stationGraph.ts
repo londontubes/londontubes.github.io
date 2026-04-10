@@ -1,5 +1,5 @@
 import type { Station, TransitLine } from '@/app/types/transit'
-import { getStaticTubeGraph, staticTubeGraphPenalties } from './staticTubeTimes'
+import { getStaticTubeGraph } from './staticTubeTimes'
 
 export interface StationGraphEdge {
   to: string
@@ -96,18 +96,14 @@ export interface PathResult {
 }
 
 /**
- * Dijkstra shortest path limited by maxMinutes. Transfer penalty applies when line changes between edges.
+ * Dijkstra shortest path limited by maxMinutes using the summed run time of each segment.
  */
 export function shortestPathsFrom(
   originId: string,
   graph: StationGraph,
-  maxMinutes: number,
-  penalties: { boardingWaitMinutes?: number; transferWalkMinutes?: number; hubWalkMinutes?: number } = {}
+  maxMinutes: number
 ): PathResult[] {
   if (!graph[originId]) return []
-  const boardingWaitMinutes = penalties.boardingWaitMinutes ?? staticTubeGraphPenalties.boardingWaitMinutes ?? 0
-  const transferWalkMinutes = penalties.transferWalkMinutes ?? staticTubeGraphPenalties.transferWalkMinutes ?? 0
-  const hubWalkMinutes = penalties.hubWalkMinutes ?? staticTubeGraphPenalties.hubWalkMinutes ?? 0
   const dist = new Map<string, number>([[originId, 0]])
   const prev = new Map<string, string | null>([[originId, null]])
   const prevLine = new Map<string, string | null>([[originId, null]])
@@ -135,11 +131,7 @@ export function shortestPathsFrom(
     const edges = graph[id] || []
     for (const e of edges) {
       const base = dist.get(id) ?? 0
-      const previousLine = prevLine.get(id)
-      const boardingPenalty = previousLine === null ? boardingWaitMinutes : 0
-      const transferPenalty = previousLine && previousLine !== e.lineCode ? transferWalkMinutes + boardingWaitMinutes : 0
-      const hubPenalty = (id.startsWith('HUB') || e.to.startsWith('HUB')) ? hubWalkMinutes : 0
-      const candidate = base + e.runMinutes + boardingPenalty + transferPenalty + hubPenalty
+      const candidate = base + e.runMinutes
       if (candidate > maxMinutes) continue
       const prevBest = dist.get(e.to)
       if (prevBest === undefined || candidate < prevBest) {

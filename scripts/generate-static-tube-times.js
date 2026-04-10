@@ -15,9 +15,6 @@ const LINES_PATH = path.join(__dirname, '../public/data/lines.json')
 const API_BASE = 'https://api.tfl.gov.uk'
 const DIRECTIONS = ['outbound', 'inbound']
 const MAX_MINUTES = 240
-const BOARDING_WAIT_MINUTES = 4.5
-const TRANSFER_WALK_MINUTES = 6.5
-const HUB_WALK_MINUTES = 4.5
 const MAX_RETRIES = 4
 const RETRY_BASE_DELAY_MS = 750
 const FETCH_CONCURRENCY = 4
@@ -392,12 +389,7 @@ function shortestPathsFrom(originId, graph) {
     const edges = graph.get(id) || []
     for (const edge of edges) {
       const base = dist.get(id)
-      const previousLine = prevLine.get(id)
-      const boardingPenalty = previousLine === null ? BOARDING_WAIT_MINUTES : 0
-      const transferPenalty = previousLine && previousLine !== edge.lineCode ? TRANSFER_WALK_MINUTES + BOARDING_WAIT_MINUTES : 0
-      const isOrigin = id === originId
-      const hubPenalty = isOrigin && id.startsWith('HUB') ? HUB_WALK_MINUTES : 0
-      const candidate = base + edge.runMinutes + boardingPenalty + transferPenalty + hubPenalty
+      const candidate = base + edge.runMinutes
       if (candidate > MAX_MINUTES) continue
       if (!dist.has(edge.to) || candidate < dist.get(edge.to)) {
         dist.set(edge.to, candidate)
@@ -410,8 +402,7 @@ function shortestPathsFrom(originId, graph) {
   const results = {}
   for (const [stationId, minutes] of dist.entries()) {
     if (stationId === originId) continue
-    const adjusted = minutes + (stationId.startsWith('HUB') ? HUB_WALK_MINUTES : 0)
-    results[stationId] = Math.round(adjusted * 10) / 10
+    results[stationId] = Math.round(minutes * 10) / 10
   }
   return results
 }
@@ -484,7 +475,6 @@ async function main() {
   const payload = {
     generatedAt: new Date().toISOString(),
     source: 'tfl-timetables-v1',
-    transferPenaltyMinutes: TRANSFER_WALK_MINUTES + BOARDING_WAIT_MINUTES,
     generatedWith: 'scripts/generate-static-tube-times.js',
     metadata: {
       timetableRequests: timetableRequests.length,
@@ -492,9 +482,6 @@ async function main() {
       fallbackEdges,
       graphStations: graph.size,
       graphEdges: [...graph.values()].reduce((sum, edges) => sum + edges.length, 0),
-      boardingWaitMinutes: BOARDING_WAIT_MINUTES,
-      transferWalkMinutes: TRANSFER_WALK_MINUTES,
-      hubWalkMinutes: HUB_WALK_MINUTES,
     },
     graphEdges,
     journeys,
