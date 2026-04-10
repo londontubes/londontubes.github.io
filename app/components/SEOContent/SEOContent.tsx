@@ -35,31 +35,31 @@ export function SEOContent() {
     <section className={styles.seoSection}>
       <div className={styles.container}>
         <article className={styles.content}>
-          <h2>London Tube Map 2026 – Your Free Interactive Underground &amp; DLR Network Guide</h2>
+          <h2>London Tube Map 2026 – Free Interactive Underground, Elizabeth Line &amp; DLR Guide</h2>
 
           <p>
-            Welcome to the most comprehensive <strong>London Tube Map</strong> online. Our interactive
-            map displays all 11 <strong>London Underground lines</strong>, the <strong>DLR network</strong>,
-            and over 270 stations across Greater London. Whether you&apos;re planning your daily commute,
-            exploring tourist destinations, or finding the nearest tube station to London universities,
-            our map provides the easiest way to navigate the capital&apos;s transport network.
+            Welcome to the most comprehensive <strong>interactive London Tube map</strong> online. Our
+            map displays all 11 <strong>London Underground lines</strong>, the <strong>Elizabeth line</strong> (Crossrail),
+            the <strong>DLR network</strong>, and over 330 stations across Greater London. Whether you&apos;re
+            planning your daily commute, exploring tourist destinations, or finding the nearest tube station
+            to London universities, our map provides the easiest way to navigate the capital&apos;s transport network.
           </p>
 
           <p>
-            Our <strong>London Underground map</strong> is updated for 2026 and reflects the complete TfL
-            network including the Elizabeth line, Overground, and all 11 classic tube lines. Unlike a static
-            PDF, our interactive version lets you click any line or station to get instant information —
-            making it the most useful <strong>London tube map</strong> for daily commuters, tourists, and
-            students alike.
+            Our <strong>London Underground map 2026</strong> reflects the complete TfL network including
+            the <strong>Elizabeth line</strong> running from Reading and Heathrow in the west through
+            central London to Shenfield and Abbey Wood in the east. Unlike a static PDF, our interactive
+            version lets you filter any line or station to get instant information — making it the most
+            useful <strong>London tube map</strong> for daily commuters, tourists, and students alike.
           </p>
 
           <h3>Why Use Our London Underground Map?</h3>
           
           <ul className={styles.features}>
             <li>
-              <strong>Interactive Line Filtering:</strong> Click any of the 11 tube lines 
-              (Bakerloo, Central, Circle, District, Hammersmith &amp; City, Jubilee, Metropolitan, 
-              Northern, Piccadilly, Victoria, Waterloo &amp; City) to view only that route
+              <strong>Interactive Line Filtering:</strong> Filter any of the 11 tube lines
+              (Bakerloo, Central, Circle, District, Hammersmith &amp; City, Jubilee, Metropolitan,
+              Northern, Piccadilly, Victoria, Waterloo &amp; City) plus the Elizabeth line to view only that route
             </li>
             <li>
               <strong>University Transit Finder:</strong> Discover which tube stations serve major 
@@ -67,7 +67,7 @@ export function SEOContent() {
               City University, SOAS, and Westminster
             </li>
             <li>
-              <strong>Station Information:</strong> Click any of the 270+ stations to see which 
+              <strong>Station Information:</strong> Click any of the 330+ stations to see which
               lines serve that location and plan connections
             </li>
             <li>
@@ -87,11 +87,12 @@ export function SEOContent() {
           <h3>About the London Underground Network</h3>
           
           <p>
-            The <strong>London Underground</strong>, commonly known as the Tube, is the world&apos;s 
-            oldest metro system, serving Greater London since 1863. Today it operates 11 lines 
-            covering 402 kilometers (250 miles) with 270 stations across 9 fare zones. Combined 
-            with the automated DLR system, London&apos;s rapid transit network carries over 5 million 
-            passengers daily.
+            The <strong>London Underground</strong>, commonly known as the Tube, is the world&apos;s
+            oldest metro system, serving Greater London since 1863. Today it operates 11 tube lines
+            covering 402 kilometres (250 miles) with 272 stations across 9 fare zones. The <strong>Elizabeth
+            line</strong> (Crossrail) adds another 41 stations spanning 118 km from Reading to Shenfield.
+            Combined with the automated DLR system, London&apos;s rapid transit network carries over
+            5 million passengers daily.
           </p>
 
           <h3>Key Transport Hubs & Popular Routes</h3>
@@ -100,7 +101,7 @@ export function SEOContent() {
             <div className={styles.routeCard}>
               <h4>🛫 Airport Connections</h4>
               <p>
-                <strong>Heathrow Airport:</strong> Piccadilly line direct to Zone 1 (45-60 minutes)<br />
+                <strong>Heathrow Airport:</strong> Elizabeth line or Piccadilly line direct to Zone 1 (30-60 minutes)<br />
                 <strong>City Airport:</strong> DLR from Bank or Tower Gateway (20-25 minutes)
               </p>
             </div>
@@ -210,12 +211,14 @@ export function SEOContent() {
         <aside className={styles.keywords}>
           <p className={styles.keywordText}>
             <small>
-              <strong>Related searches:</strong> london tube map, london underground map, 
-              tfl map, london metro map, london subway map, tube stations, underground lines, 
-              dlr map, night tube, tube zones, nearest tube station, london transport map, 
-              interactive tube map, london underground stations, piccadilly line, central line, 
-              northern line, victoria line, jubilee line, district line, circle line, 
-              bakerloo line, metropolitan line, hammersmith city line, waterloo city line, 
+              <strong>Related searches:</strong> london tube map 2026, london underground map 2026,
+              interactive tube map, tfl map, london metro map, london subway map, elizabeth line map,
+              crossrail map, dlr map, tube stations, underground lines, night tube, tube zones,
+              nearest tube station, london transport map, london underground stations, 2026 tube map,
+              map of london underground 2026, london interactive tube map, mapa metro de londres,
+              mapa metro londres, elizabeth line stations, piccadilly line, central line,
+              northern line, victoria line, jubilee line, district line, circle line,
+              bakerloo line, metropolitan line, hammersmith city line, waterloo city line,
               heathrow tube, university tube stations
             </small>
           </p>

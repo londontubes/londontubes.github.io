@@ -25,20 +25,20 @@ const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATIO
 export const metadata: Metadata = {
   metadataBase: new URL('https://londontubes.co.uk'),
   title: {
-    default: 'London Tube Map – Interactive Underground & DLR Network 2026',
+    default: 'London Tube Map 2026 – Interactive Underground, Elizabeth Line & DLR',
     template: '%s | London Tube Map',
   },
   description:
-    'Free interactive London Tube map — all 11 Underground lines, DLR network, 270+ stations. Filter by line, find stations near universities, plan your journey. Updated 2026.',
+    'Free interactive London Tube map 2026 — all 11 Underground lines, Elizabeth line, DLR & 330+ stations. Filter by line, find stations near universities, plan your journey.',
   keywords:
-    'london tube map, london underground map, interactive tube map, tfl map, london metro map, london subway map, dlr map, london underground stations, tube lines map, london transport map 2026',
+    'london tube map 2026, london underground map 2026, interactive tube map, tfl map, london metro map, london subway map, elizabeth line map, crossrail map, dlr map, london underground stations, tube lines map, mapa metro londres, london transport map',
   authors: [{ name: 'London Tube Map', url: 'https://londontubes.co.uk' }],
   creator: 'London Tube Map',
   publisher: 'London Tube Map',
   openGraph: {
-    title: 'London Tube Map – Interactive Underground & DLR Network 2026',
+    title: 'London Tube Map 2026 – Interactive Underground, Elizabeth Line & DLR',
     description:
-      'Free interactive London Tube map with all 11 Underground lines, DLR, and 270+ stations. Filter by line, find university connections, and plan your journey.',
+      'Free interactive London Tube map 2026 with all 11 Underground lines, Elizabeth line, DLR & 330+ stations. Filter by line, find university connections, plan your journey.',
     type: 'website',
     siteName: 'London Tube Map',
     locale: 'en_GB',
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'London Tube Map – Interactive Underground & DLR Network 2026',
+    title: 'London Tube Map 2026 – Interactive Underground, Elizabeth Line & DLR',
     description:
-      'Free interactive London Tube map with all 11 Underground lines, DLR, and 270+ stations.',
+      'Free interactive London Tube map 2026 with all 11 Underground lines, Elizabeth line, DLR & 330+ stations.',
     images: ['https://londontubes.co.uk/og-image.png'],
   },
   robots: {
@@ -83,10 +83,10 @@ const webAppStructuredData = {
   '@context': 'https://schema.org',
   '@type': ['WebApplication', 'Map'],
   name: 'London Tube Map',
-  alternateName: ['London Underground Map', 'TfL Tube Map', 'London Metro Map'],
+  alternateName: ['London Underground Map', 'TfL Tube Map', 'London Metro Map', 'Mapa Metro Londres', 'London Subway Map'],
   url: 'https://londontubes.co.uk',
   description:
-    'Free interactive London Tube map showing all 11 Underground lines, DLR, and 270+ stations. Filter by line, plan journeys, and find university connections.',
+    'Free interactive London Tube map 2026 showing all 11 Underground lines, Elizabeth line, DLR & 330+ stations. Filter by line, plan journeys, and find university connections.',
   applicationCategory: 'TravelApplication',
   operatingSystem: 'Any',
   isAccessibleForFree: true,
@@ -101,17 +101,18 @@ const webAppStructuredData = {
     '@type': 'Place',
     name: 'London Underground',
     alternateName: 'The Tube',
-    description: 'The London Underground (the Tube) is a rapid transit system serving Greater London since 1863, with 11 lines and 270+ stations.',
+    description: 'The London Underground (the Tube) is a rapid transit system serving Greater London since 1863, with 11 tube lines, the Elizabeth line, DLR, and 330+ stations.',
     geo: {
       '@type': 'GeoShape',
       addressCountry: 'GB',
     },
   },
   featureList: [
-    'Interactive line filtering for all 11 Underground lines',
+    'Interactive line filtering for all 11 Underground lines and Elizabeth line',
+    'Elizabeth line (Crossrail) with 41 stations from Reading to Shenfield',
     'DLR Docklands Light Railway network',
     'University proximity finder',
-    '270+ station information',
+    '330+ station information',
     'Mobile optimised',
     'Free to use',
   ],
@@ -130,7 +131,7 @@ const webAppStructuredData = {
     url: 'https://londontubes.co.uk',
   },
   inLanguage: 'en-GB',
-  dateModified: '2026-03-28',
+  dateModified: '2026-04-10',
 }
 
 const breadcrumbStructuredData = {
