@@ -63,7 +63,7 @@
           },
           "mode": {
             "type": "string",
-            "enum": ["tube", "dlr"]
+            "enum": ["tube", "dlr", "elizabeth-line"]
           },
           "strokeWeight": {
             "type": "integer",

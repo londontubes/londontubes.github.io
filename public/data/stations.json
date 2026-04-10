@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T13:52:05.037Z",
+  "generatedAt": "2026-04-10T09:25:25.949Z",
   "stations": [
     {
       "stationId": "940GZZLUBST",
@@ -351,6 +351,7 @@
         "bakerloo",
         "circle",
         "district",
+        "elizabeth",
         "hammersmith-city"
       ],
       "isInterchange": true,
@@ -1191,6 +1192,7 @@
       },
       "lineCodes": [
         "central",
+        "elizabeth",
         "jubilee"
       ],
       "isInterchange": true,
@@ -1210,7 +1212,8 @@
       },
       "lineCodes": [
         "central",
-        "district"
+        "district",
+        "elizabeth"
       ],
       "isInterchange": true,
       "markerIcon": "default",
@@ -1248,6 +1251,7 @@
       "lineCodes": [
         "central",
         "circle",
+        "elizabeth",
         "hammersmith-city",
         "metropolitan"
       ],
@@ -1287,6 +1291,7 @@
       "lineCodes": [
         "central",
         "dlr",
+        "elizabeth",
         "jubilee"
       ],
       "isInterchange": true,
@@ -1324,6 +1329,7 @@
       },
       "lineCodes": [
         "central",
+        "elizabeth",
         "northern"
       ],
       "isInterchange": true,
@@ -1907,6 +1913,7 @@
       },
       "lineCodes": [
         "circle",
+        "elizabeth",
         "hammersmith-city",
         "metropolitan"
       ],
@@ -2648,6 +2655,7 @@
       },
       "lineCodes": [
         "district",
+        "elizabeth",
         "hammersmith-city"
       ],
       "isInterchange": true,
@@ -3111,7 +3119,7 @@
       "position": {
         "type": "Point",
         "coordinates": [
-          -0.01597,
+          -0.015975,
           51.50005
         ]
       },
@@ -3226,6 +3234,7 @@
       },
       "lineCodes": [
         "dlr",
+        "elizabeth",
         "jubilee"
       ],
       "isInterchange": true,
@@ -3244,9 +3253,10 @@
         ]
       },
       "lineCodes": [
-        "dlr"
+        "dlr",
+        "elizabeth"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Custom House",
       "order": 0
@@ -3411,6 +3421,567 @@
       "isInterchange": false,
       "markerIcon": "default",
       "tooltipSummary": "Woolwich Arsenal",
+      "order": 0
+    },
+    {
+      "stationId": "910GACTONML",
+      "displayName": "Acton Main Line Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.266756,
+          51.51718
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Acton Main Line Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GBNHAM",
+      "displayName": "Burnham (Berks) Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.646374,
+          51.523506
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Burnham (Berks) Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GBRTWOOD",
+      "displayName": "Brentwood Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.299586,
+          51.613605
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Brentwood Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GCHDWLHT",
+      "displayName": "Chadwell Heath Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.128958,
+          51.568039
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Chadwell Heath Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GFRSTGT",
+      "displayName": "Forest Gate Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.024353,
+          51.549432
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Forest Gate Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GGIDEAPK",
+      "displayName": "Gidea Park Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.205964,
+          51.581904
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Gidea Park Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GGODMAYS",
+      "displayName": "Goodmayes Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.110807,
+          51.565579
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Goodmayes Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHANWELL",
+      "displayName": "Hanwell Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.338583,
+          51.511835
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hanwell Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHAYESAH",
+      "displayName": "Hayes & Harlington Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.420683,
+          51.503096
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hayes & Harlington Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHRLDWOD",
+      "displayName": "Harold Wood Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.233129,
+          51.592766
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Harold Wood Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GILFORD",
+      "displayName": "Ilford Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.06968,
+          51.559118
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Ilford Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GIVER",
+      "displayName": "Iver Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.506726,
+          51.508503
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Iver Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GLANGLEY",
+      "displayName": "Langley (Berks) Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.541756,
+          51.508062
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Langley (Berks) Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GMANRPK",
+      "displayName": "Manor Park Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.046342,
+          51.552477
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Manor Park Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GMDNHEAD",
+      "displayName": "Maidenhead Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.72266,
+          51.518669
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Maidenhead Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GMRYLAND",
+      "displayName": "Maryland Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.005815,
+          51.546081
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Maryland Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GRDNGSTN",
+      "displayName": "Reading Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.971863,
+          51.458786
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Reading Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GROMFORD",
+      "displayName": "Romford Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.183237,
+          51.574829
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Romford Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSHENFLD",
+      "displayName": "Shenfield Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.329851,
+          51.630877
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Shenfield Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSLOUGH",
+      "displayName": "Slough Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.59151,
+          51.51188
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Slough Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSTHALL",
+      "displayName": "Southall Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.37861,
+          51.505957
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Southall Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSVNKNGS",
+      "displayName": "Seven Kings Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.0971,
+          51.564026
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Seven Kings Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GTAPLOW",
+      "displayName": "Taplow Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.68137,
+          51.523562
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Taplow Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GTWYFORD",
+      "displayName": "Twyford Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.863293,
+          51.475534
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Twyford Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWDRYTON",
+      "displayName": "West Drayton Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.472234,
+          51.510055
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West Drayton Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWEALING",
+      "displayName": "West Ealing Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.320133,
+          51.513506
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "West Ealing Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWOLWXR",
+      "displayName": "Woolwich",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.07138,
+          51.4914
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Woolwich",
+      "order": 0
+    },
+    {
+      "stationId": "HUBABW",
+      "displayName": "Abbey Wood",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.121057,
+          51.491247
+        ]
+      },
+      "lineCodes": [
+        "elizabeth"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Abbey Wood",
+      "order": 0
+    },
+    {
+      "stationId": "HUBH13",
+      "displayName": "Heathrow Terminals 2 & 3",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.454037,
+          51.471618
+        ]
+      },
+      "lineCodes": [
+        "elizabeth",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Heathrow Terminals 2 & 3",
+      "order": 0
+    },
+    {
+      "stationId": "HUBHX4",
+      "displayName": "Heathrow Airport Terminal 4",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.446419,
+          51.458837
+        ]
+      },
+      "lineCodes": [
+        "elizabeth",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Heathrow Airport Terminal 4",
+      "order": 0
+    },
+    {
+      "stationId": "HUBHX5",
+      "displayName": "Heathrow Airport Terminal 5",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.489556,
+          51.471569
+        ]
+      },
+      "lineCodes": [
+        "elizabeth",
+        "piccadilly"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Heathrow Airport Terminal 5",
       "order": 0
     },
     {
@@ -4296,8 +4867,8 @@
       "position": {
         "type": "Point",
         "coordinates": [
-          -0.164648,
-          51.550311
+          -0.164783,
+          51.550529
         ]
       },
       "lineCodes": [
@@ -5499,60 +6070,6 @@
       "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Finsbury Park",
-      "order": 0
-    },
-    {
-      "stationId": "HUBH13",
-      "displayName": "Heathrow Terminals 2 & 3",
-      "position": {
-        "type": "Point",
-        "coordinates": [
-          -0.454037,
-          51.471618
-        ]
-      },
-      "lineCodes": [
-        "piccadilly"
-      ],
-      "isInterchange": false,
-      "markerIcon": "default",
-      "tooltipSummary": "Heathrow Terminals 2 & 3",
-      "order": 0
-    },
-    {
-      "stationId": "HUBHX4",
-      "displayName": "Heathrow Airport Terminal 4",
-      "position": {
-        "type": "Point",
-        "coordinates": [
-          -0.446419,
-          51.458837
-        ]
-      },
-      "lineCodes": [
-        "piccadilly"
-      ],
-      "isInterchange": false,
-      "markerIcon": "default",
-      "tooltipSummary": "Heathrow Airport Terminal 4",
-      "order": 0
-    },
-    {
-      "stationId": "HUBHX5",
-      "displayName": "Heathrow Airport Terminal 5",
-      "position": {
-        "type": "Point",
-        "coordinates": [
-          -0.489556,
-          51.471569
-        ]
-      },
-      "lineCodes": [
-        "piccadilly"
-      ],
-      "isInterchange": false,
-      "markerIcon": "default",
-      "tooltipSummary": "Heathrow Airport Terminal 5",
       "order": 0
     },
     {

@@ -18,6 +18,197 @@ const LINE_COLORS: Record<string, { brand: string; text: string }> = {
   'piccadilly': { brand: '#003688', text: '#FFFFFF' },
   'victoria': { brand: '#0098D4', text: '#FFFFFF' },
   'waterloo-city': { brand: '#95CDBA', text: '#000000' },
+  'elizabeth': { brand: '#6950A1', text: '#FFFFFF' },
+}
+
+/**
+ * Deduplicate overlapping route segments from TfL API.
+ * TfL returns full origin-to-destination routes for every journey combination,
+ * so branching lines (Elizabeth, Northern, etc.) have the shared central section
+ * duplicated many times. This extracts unique point-to-point edges and
+ * reconstructs minimal polylines between branch points / terminals.
+ */
+function deduplicateTrackSegments(segments: [number, number][][]): [number, number][][] {
+  if (segments.length <= 1) return segments
+
+  // --- Phase 1: Snap nearby coordinates together ---
+  // TfL uses slightly different coordinates for the same station across route
+  // variants (e.g. Paddington at -0.177107 vs -0.176174). Cluster points within
+  // ~150m and replace with a single representative coordinate.
+  const SNAP_THRESHOLD = 0.002 // ~150m at London latitude
+
+  const allCoords: [number, number][] = []
+  for (const seg of segments) {
+    for (const c of seg) allCoords.push(c)
+  }
+
+  // Union-Find for clustering
+  const parent = new Map<number, number>()
+  function find(i: number): number {
+    while (parent.get(i) !== i) {
+      parent.set(i, parent.get(parent.get(i)!)!)
+      i = parent.get(i)!
+    }
+    return i
+  }
+  function union(a: number, b: number) {
+    const ra = find(a), rb = find(b)
+    if (ra !== rb) parent.set(rb, ra)
+  }
+
+  // Deduplicate allCoords by exact value first to limit N^2 comparisons
+  const uniqueMap = new Map<string, number>() // exactKey → first index
+  const indexToUnique: number[] = [] // allCoords index → unique representative index
+  const uniqueCoords: [number, number][] = []
+
+  for (let i = 0; i < allCoords.length; i++) {
+    const key = `${allCoords[i][0]},${allCoords[i][1]}`
+    if (!uniqueMap.has(key)) {
+      uniqueMap.set(key, uniqueCoords.length)
+      parent.set(uniqueCoords.length, uniqueCoords.length)
+      uniqueCoords.push(allCoords[i])
+    }
+    indexToUnique.push(uniqueMap.get(key)!)
+  }
+
+  // Cluster unique coords within threshold
+  for (let i = 0; i < uniqueCoords.length; i++) {
+    for (let j = i + 1; j < uniqueCoords.length; j++) {
+      const dx = uniqueCoords[i][0] - uniqueCoords[j][0]
+      const dy = uniqueCoords[i][1] - uniqueCoords[j][1]
+      if (Math.abs(dx) < SNAP_THRESHOLD && Math.abs(dy) < SNAP_THRESHOLD) {
+        union(i, j)
+      }
+    }
+  }
+
+  // Build representative coord per cluster (use the first member)
+  const clusterRep = new Map<number, [number, number]>()
+  for (let i = 0; i < uniqueCoords.length; i++) {
+    const root = find(i)
+    if (!clusterRep.has(root)) clusterRep.set(root, uniqueCoords[root])
+  }
+
+  // Apply snapping: rebuild segments with normalized coordinates
+  let ci = 0
+  const snapped: [number, number][][] = segments.map(seg =>
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    seg.map(_=> clusterRep.get(find(indexToUnique[ci++]))!)
+  )
+
+  // --- Phase 2: Edge deduplication ---
+  function coordKey(c: [number, number]): string {
+    return `${c[0].toFixed(6)},${c[1].toFixed(6)}`
+  }
+
+  function edgeKey(a: string, b: string): string {
+    return a < b ? `${a}|${b}` : `${b}|${a}`
+  }
+
+  const edgeSet = new Set<string>()
+  const adj = new Map<string, Set<string>>()
+  const coordLookup = new Map<string, [number, number]>()
+
+  for (const seg of snapped) {
+    for (let i = 0; i < seg.length - 1; i++) {
+      const ka = coordKey(seg[i])
+      const kb = coordKey(seg[i + 1])
+      if (ka === kb) continue
+      coordLookup.set(ka, seg[i])
+      coordLookup.set(kb, seg[i + 1])
+      const ek = edgeKey(ka, kb)
+      if (!edgeSet.has(ek)) {
+        edgeSet.add(ek)
+        if (!adj.has(ka)) adj.set(ka, new Set())
+        if (!adj.has(kb)) adj.set(kb, new Set())
+        adj.get(ka)!.add(kb)
+        adj.get(kb)!.add(ka)
+      }
+    }
+  }
+
+  // --- Phase 3: Remove shortcut edges ---
+  // TfL sometimes skips intermediate stations in a route variant, creating
+  // direct edges (e.g. Liverpool St → Stratford) that bypass the real route
+  // (Liverpool St → Whitechapel → Stratford). These form triangles in the
+  // graph. Remove the longest edge of each triangle (the geometric shortcut).
+  function dist(a: string, b: string): number {
+    const ca = coordLookup.get(a)!, cb = coordLookup.get(b)!
+    return Math.hypot(ca[0] - cb[0], ca[1] - cb[1])
+  }
+
+  const shortcutsToRemove = new Set<string>()
+  for (const [nodeA, neighborsA] of adj) {
+    for (const nodeB of neighborsA) {
+      for (const nodeC of neighborsA) {
+        if (nodeB >= nodeC) continue // avoid duplicate triangle checks
+        if (!adj.get(nodeB)!.has(nodeC)) continue // B-C edge must exist
+        // Triangle A-B-C found. Remove the longest edge.
+        const dAB = dist(nodeA, nodeB)
+        const dAC = dist(nodeA, nodeC)
+        const dBC = dist(nodeB, nodeC)
+        const maxDist = Math.max(dAB, dAC, dBC)
+        if (maxDist === dAB) shortcutsToRemove.add(edgeKey(nodeA, nodeB))
+        else if (maxDist === dAC) shortcutsToRemove.add(edgeKey(nodeA, nodeC))
+        else shortcutsToRemove.add(edgeKey(nodeB, nodeC))
+      }
+    }
+  }
+
+  for (const ek of shortcutsToRemove) {
+    edgeSet.delete(ek)
+    const [ka, kb] = ek.split('|')
+    adj.get(ka)?.delete(kb)
+    adj.get(kb)?.delete(ka)
+    // Clean up isolated nodes
+    if (adj.get(ka)?.size === 0) adj.delete(ka)
+    if (adj.get(kb)?.size === 0) adj.delete(kb)
+  }
+
+  // Trace polylines: walk edges, splitting at branch points (degree != 2)
+  const visitedEdges = new Set<string>()
+  const polylines: [number, number][][] = []
+
+  // Start from terminals / branch points (degree != 2)
+  const startNodes = [...adj.entries()]
+    .filter(([, neighbors]) => neighbors.size !== 2)
+    .map(([key]) => key)
+
+  // If all degree-2 (a loop), start from any node
+  if (startNodes.length === 0 && adj.size > 0) {
+    startNodes.push(adj.keys().next().value!)
+  }
+
+  for (const start of startNodes) {
+    for (const firstNeighbor of adj.get(start)!) {
+      const ek = edgeKey(start, firstNeighbor)
+      if (visitedEdges.has(ek)) continue
+
+      const path: [number, number][] = [coordLookup.get(start)!]
+      let prev = start
+      let curr = firstNeighbor
+
+      while (true) {
+        visitedEdges.add(edgeKey(prev, curr))
+        path.push(coordLookup.get(curr)!)
+
+        // Stop at terminals / branch points
+        if (adj.get(curr)!.size !== 2) break
+
+        const next = [...adj.get(curr)!].find(n => n !== prev)
+        if (!next || visitedEdges.has(edgeKey(curr, next))) break
+
+        prev = curr
+        curr = next
+      }
+
+      if (path.length >= 2) {
+        polylines.push(path)
+      }
+    }
+  }
+
+  return polylines.length > 0 ? polylines : segments
 }
 
 interface RawLine {
@@ -44,7 +235,7 @@ interface TransformedLine {
   displayName: string
   brandColor: string
   textColor: string
-  mode: 'tube' | 'dlr'
+  mode: 'tube' | 'dlr' | 'elizabeth-line'
   strokeWeight: number
   polyline: {
     type: 'LineString' | 'MultiLineString'
@@ -143,6 +334,9 @@ function transformLines(lines: RawLine[], routes: Record<string, RawRoute>) {
       }
     }
     
+    // Deduplicate overlapping route segments from TfL API
+    allCoordinates = deduplicateTrackSegments(allCoordinates)
+
     // Connectivity correction for two-station lines (e.g., Waterloo & City):
     // If we have exactly two stations and multiple segments that are simple reversals, unify them and snap endpoints to station coordinates.
     if (stationIds.length === 2 && route?.stations && route.stations.length >= 2 && allCoordinates.length >= 1) {
@@ -209,7 +403,7 @@ function transformLines(lines: RawLine[], routes: Record<string, RawRoute>) {
       displayName: line.name,
       brandColor: colors.brand,
       textColor: colors.text,
-      mode: line.modeName === 'dlr' ? 'dlr' : 'tube',
+      mode: line.modeName === 'dlr' ? 'dlr' : line.modeName === 'elizabeth-line' ? 'elizabeth-line' : 'tube',
       strokeWeight: 4,
       polyline: {
         type: polylineType,

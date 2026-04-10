@@ -34,7 +34,7 @@ async function fetchWithRetry(url: string, retries = 3): Promise<Response> {
 
 async function fetchTfLLines(): Promise<TfLLine[]> {
   console.log('Fetching TfL line data...')
-  const modesUrl = `${TFL_API_BASE}/Line/Mode/tube,dlr`
+  const modesUrl = `${TFL_API_BASE}/Line/Mode/tube,dlr,elizabeth-line`
   
   const response = await fetchWithRetry(modesUrl)
   const lines = await response.json() as TfLLine[]
