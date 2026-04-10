@@ -78,12 +78,29 @@ function stationVisible(
 
 function sanitizeZooplaSearchLocation(value: string): string {
   // Zoopla slugs omit apostrophes, so mirror that here before creating the URL.
-  return value.replace(/['’]/g, '')
+  return value.replace(/[\u2018\u2019]/g, '')
+}
+
+// Stations whose auto-generated Zoopla slug doesn't match Zoopla's catalogue.
+// Format: stationId → { slug, type? } where type defaults to auto-detection.
+const ZOOPLA_SLUG_OVERRIDES: Record<string, { slug: string; type?: 'tube' | 'rail' | 'dlr' }> = {
+  '910GBNHAM': { slug: 'burnham-bucks' },                               // Zoopla uses "Bucks" not "Berks"
+  '910GWOLWXR': { slug: 'woolwich-arsenal', type: 'rail' },             // Woolwich Elizabeth has no own Zoopla slug
+  '940GZZDLCLA': { slug: 'crossharbour-and-london-arena' },            // Zoopla uses full historic name
+  '940GZZLUERC': { slug: 'edgware-road-circle' },                      // Zoopla drops "Line" suffix
+  'HUBKGX': { slug: 'kings-cross-st-pancras' },                        // Zoopla uses shorter slug
+  'HUBH13': { slug: 'heathrow-terminals-1-2-3' },                      // Zoopla includes Terminal 1
+  'HUBHX4': { slug: 'heathrow-terminal-4' },                           // Zoopla drops "Airport" from name
+  'HUBHX5': { slug: 'heathrow-terminal-4' },                           // Terminal 5 has no Zoopla page; use Terminal 4
+  'HUBCUS': { slug: 'custom-house', type: 'dlr' },                    // DLR+Elizabeth hub; /tube/ broken on Zoopla
 }
 
 function buildZooplaStationUrl(station?: Station, fallbackName?: string): string | null {
   const rawName = station?.displayName || fallbackName
   if (!rawName) return null
+
+  const override = station ? ZOOPLA_SLUG_OVERRIDES[station.stationId] : undefined
+
   const cleanedName = rawName
     .replace(/underground/gi, '')
     .replace(/\bdlr\b/gi, '')
@@ -100,15 +117,18 @@ function buildZooplaStationUrl(station?: Station, fallbackName?: string): string
   baseSearchLocation = sanitizeZooplaSearchLocation(baseSearchLocation)
 
   const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
-  const slug = slugBase
+  const slug = override?.slug ?? slugBase
     .replace(/&/g, 'and')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
 
-  // Elizabeth line-only stations use /station/rail/ on Zoopla
-  const isRailOnly = station?.lineCodes.length === 1 && station.lineCodes[0] === 'elizabeth'
-  const stationType = isRailOnly ? 'rail' : 'tube'
+  // Pick the Zoopla station type: /station/tube/, /station/rail/, or /station/dlr/
+  const hasTubeLine = station?.lineCodes.some(c => c !== 'dlr' && c !== 'elizabeth')
+  const isDlr = station?.lineCodes.includes('dlr')
+  const isElizabeth = station?.lineCodes.includes('elizabeth')
+  const stationType = override?.type
+    ?? (hasTubeLine ? 'tube' : isElizabeth && !isDlr ? 'rail' : isDlr ? 'dlr' : 'tube')
   const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/station/${stationType}/${slug}/`)
   const params = baseUrl.searchParams
   params.set('beds_max', '1')
