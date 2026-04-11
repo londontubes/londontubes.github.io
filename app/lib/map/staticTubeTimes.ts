@@ -118,11 +118,29 @@ const manualJourneyOverrides = new Map<string, StaticTubeJourney>([
     },
   ],
   [
+    'HUBTCR->910GACTONML',
+    {
+      fromStationId: 'HUBTCR',
+      toStationId: '910GACTONML',
+      minutes: 13,
+      source: 'manual-google-maps-reference',
+    },
+  ],
+  [
     'HUBEAL->HUBTCR',
     {
       fromStationId: 'HUBEAL',
       toStationId: 'HUBTCR',
       minutes: 17,
+      source: 'manual-google-maps-reference',
+    },
+  ],
+  [
+    '910GACTONML->HUBTCR',
+    {
+      fromStationId: '910GACTONML',
+      toStationId: 'HUBTCR',
+      minutes: 13,
       source: 'manual-google-maps-reference',
     },
   ],
