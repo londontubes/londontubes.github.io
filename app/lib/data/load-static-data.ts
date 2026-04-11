@@ -1,8 +1,19 @@
-import type { TransitDataset, TransitLine, Station, TransitMetadata } from '@/app/types/transit'
+import type {
+  BusDataset,
+  BusRoutesCollection,
+  BusStopsCollection,
+  TransitDataset,
+  TransitLine,
+  Station,
+  TransitMetadata,
+} from '@/app/types/transit'
 import linesJson from '@/public/data/lines.json'
 import stationsJson from '@/public/data/stations.json'
 import metadataJson from '@/public/data/metadata.json'
+import busesJson from '@/public/data/buses.json'
+import busStopsJson from '@/public/data/bus-stops.json'
 import overridesJson from '@/public/data/station-overrides.json'
+import { buildBusRouteColorMap, getBusRouteColor } from '@/app/lib/map/busRouteColors'
 
 export function loadStaticTransitData(): TransitDataset {
   const lines = (linesJson.lines ?? []) as TransitLine[]
@@ -39,4 +50,26 @@ export function createLineLabelMap(lines: TransitLine[]): Record<string, string>
     acc[line.lineCode] = line.displayName
     return acc
   }, {})
+}
+
+export function loadStaticBusData(): BusDataset {
+  const routesCollection = busesJson as BusRoutesCollection
+  const stopsCollection = busStopsJson as BusStopsCollection
+  const routeColorMap = buildBusRouteColorMap((routesCollection.routes ?? []).map((route) => route.routeCode))
+  const routes = (routesCollection.routes ?? []).map((route) => {
+    const colors = getBusRouteColor(route.routeCode, routeColorMap)
+
+    return {
+      ...route,
+      brandColor: colors.brand,
+      textColor: colors.text,
+    }
+  })
+
+  return {
+    routes,
+    stops: stopsCollection.stops ?? [],
+    generatedAt: routesCollection.generatedAt ?? stopsCollection.generatedAt,
+    source: routesCollection.source ?? stopsCollection.source,
+  }
 }

@@ -5,6 +5,7 @@ import addFormats from 'ajv-formats'
 
 const DATA_DIR = path.join(process.cwd(), 'public', 'data')
 const CONTRACTS_DIR = path.join(process.cwd(), 'specs', '001-map-line-filter', 'contracts')
+const BUS_CONTRACTS_DIR = path.join(process.cwd(), 'specs', '003-bus-filter-page', 'contracts')
 
 async function loadJson(filePath: string) {
   const contents = await fs.readFile(filePath, 'utf-8')
@@ -36,6 +37,16 @@ async function main() {
   schema: path.join(CONTRACTS_DIR, 'stations.schema.json'),
   data: path.join(DATA_DIR, 'stations.json'),
   name: 'stations.json',
+      },
+      {
+        schema: path.join(BUS_CONTRACTS_DIR, 'buses.schema.json'),
+        data: path.join(DATA_DIR, 'buses.json'),
+        name: 'buses.json',
+      },
+      {
+        schema: path.join(BUS_CONTRACTS_DIR, 'bus-stops.schema.json'),
+        data: path.join(DATA_DIR, 'bus-stops.json'),
+        name: 'bus-stops.json',
       },
     ]
     

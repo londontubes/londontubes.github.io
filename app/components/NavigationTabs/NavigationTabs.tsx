@@ -1,7 +1,7 @@
 /**
  * NavigationTabs Component
  * 
- * Provides horizontal tab navigation between "Line Filter" and "Universities Filter" pages.
+ * Provides horizontal tab navigation between the main map experiences and content pages.
  * Uses Next.js Link for client-side routing.
  * 
  * Feature: 002-university-transit-filter
@@ -22,6 +22,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
   const pathname = usePathname()
 
   const isLinesActive = pathname === '/'
+  const isBusActive = pathname?.startsWith('/bus') ?? false
   const isUniversitiesActive = pathname?.startsWith('/universities') ?? false
   const isBlogActive = pathname?.startsWith('/blog') ?? false
   const isFeedbackActive = pathname?.startsWith('/contact-us') ?? false
@@ -37,7 +38,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
             aria-selected={isLinesActive}
             aria-current={isLinesActive ? 'page' : undefined}
           >
-            Line Filter
+            Tube Filter
           </Link>
         </li>
         <li role="presentation" className={styles.tabItem}>
@@ -49,6 +50,17 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
             aria-current={isUniversitiesActive ? 'page' : undefined}
           >
             Universities Filter
+          </Link>
+        </li>
+        <li role="presentation" className={styles.tabItem}>
+          <Link
+            href="/bus/"
+            className={`${styles.tab} ${isBusActive ? styles.active : ''}`}
+            role="tab"
+            aria-selected={isBusActive}
+            aria-current={isBusActive ? 'page' : undefined}
+          >
+            Bus Filter
           </Link>
         </li>
         <li role="presentation" className={styles.blogItem}>

@@ -6,6 +6,8 @@ Auto-generated from all feature plans. Last updated: 2025-11-07
 - N/A (static data files bundled at build time) (001-map-line-filter)
 - TypeScript 5.x with Next.js static expor + Next.js App Router, React 19, `@googlemaps/js-api-loader`, Transport for London Unified API GeoJSON exports for lines and stations, university location dataset (JSON) (002-university-transit-filter)
 - N/A (static data files bundled at build time - reuses existing lines.json, stations.json; adds universities.json) (002-university-transit-filter)
+- TypeScript 5.x with Next.js App Router and React 19 + Next.js static export, React, Leaflet 1.9.4, react-leaflet 4.2.1, existing TfL Unified API data scripts (003-bus-filter-page)
+- Static JSON files in `public/data/`; no runtime database (003-bus-filter-page)
 
 - TypeScript 5.x with Next.js static expor + Next.js App Router, React 19, `@googlemaps/js-api-loader`, Transport for London Unified API GeoJSON exports for lines and stations (001-map-line-filter)
 
@@ -25,6 +27,7 @@ npm run lint
 TypeScript 5.x with Next.js static expor: Follow standard conventions
 
 ## Recent Changes
+- 003-bus-filter-page: Added TypeScript 5.x with Next.js App Router and React 19 + Next.js static export, React, Leaflet 1.9.4, react-leaflet 4.2.1, existing TfL Unified API data scripts
 - 002-university-transit-filter: Added TypeScript 5.x with Next.js static expor + Next.js App Router, React 19, `@googlemaps/js-api-loader`, Transport for London Unified API GeoJSON exports for lines and stations, university location dataset (JSON)
 - 001-map-line-filter: Added TypeScript 5.x with Next.js static expor + Next.js App Router, React 19, `@googlemaps/js-api-loader`, Transport for London Unified API GeoJSON exports for lines and stations
 
