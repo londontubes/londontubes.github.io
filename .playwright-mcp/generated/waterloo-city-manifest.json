@@ -1,0 +1,25 @@
+{
+  "lineCode": "waterloo-city",
+  "totalPairs": 2,
+  "generatedAt": "2026-04-10T22:04:41.896Z",
+  "journeys": [
+    {
+      "fromStationId": "HUBBAN",
+      "fromDisplayName": "Bank",
+      "fromQuery": "Bank Station, London",
+      "toStationId": "HUBWAT",
+      "toDisplayName": "Waterloo",
+      "toQuery": "Waterloo Station, London",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "HUBWAT",
+      "fromDisplayName": "Waterloo",
+      "fromQuery": "Waterloo Station, London",
+      "toStationId": "HUBBAN",
+      "toDisplayName": "Bank",
+      "toQuery": "Bank Station, London",
+      "graphRunMinutes": 4
+    }
+  ]
+}

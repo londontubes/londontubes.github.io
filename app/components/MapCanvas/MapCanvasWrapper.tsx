@@ -10,19 +10,18 @@ import type { MapCanvasProps } from './LeafletMapCanvas'
 const LeafletMapCanvas = dynamic(() => import('./LeafletMapCanvas'), {
   ssr: false,
   loading: () => (
-    <section className="map-shell">
-      <div style={{ 
+    <section className="map-shell" aria-busy="true" aria-label="Loading map">
+      <div style={{
         position: 'absolute',
         inset: 0,
-        display: 'flex', 
-        alignItems: 'center', 
+        display: 'flex',
+        alignItems: 'center',
         justifyContent: 'center',
-        background: '#f5f5f5',
-        color: '#333333',
-        fontSize: '1.5rem',
-        zIndex: 9999,
+        background: 'var(--surface-1, #111113)',
+        color: 'var(--text-3, #71717a)',
+        fontSize: '0.9rem',
       }}>
-        <p>Loading map component...</p>
+        Loading map&hellip;
       </div>
     </section>
   ),

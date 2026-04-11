@@ -10,6 +10,7 @@ const inter = Inter({
 })
 import { NavigationTabs } from './components/NavigationTabs'
 import { Suspense } from 'react'
+import Script from 'next/script'
 import Analytics from './components/Analytics/Analytics'
 import PageViewTracker from './components/Analytics/PageViewTracker'
 import ConsentBanner from './components/Analytics/ConsentBanner'
@@ -76,7 +77,11 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#000000',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#09090b',
+  colorScheme: 'dark',
 }
 
 const webAppStructuredData = {
@@ -188,13 +193,7 @@ export default function RootLayout({
         ) : null}
 
         <meta name="google-adsense-account" content="ca-pub-2691145261785175" />
-        {/* Google AdSense */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2691145261785175"
-          crossOrigin="anonymous"
-        />
-        {/* Structured Data for SEO */}
+        {/* Structured Data for SEO — non-blocking JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -213,24 +212,6 @@ export default function RootLayout({
             __html: JSON.stringify(faqStructuredData),
           }}
         />
-
-        {GA4_MEASUREMENT_ID ? (
-          <>
-            {/* Google tag (gtag.js) */}
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA4_MEASUREMENT_ID}');`,
-              }}
-            />
-          </>
-        ) : null}
       </head>
       <body>
         {/* Basic SSR shell to avoid empty HTML responses */}
@@ -239,7 +220,26 @@ gtag('config', '${GA4_MEASUREMENT_ID}');`,
           {children}
         </div>
         <div id="live-region" aria-live="polite" aria-atomic="true" className="visually-hidden" />
-        {/* Google Ads already present above; inject Analytics + trackers */}
+        {/* Deferred third-party scripts — load after first paint */}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2691145261785175"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
+        {GA4_MEASUREMENT_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA4_MEASUREMENT_ID}');`}
+            </Script>
+          </>
+        ) : null}
         <Analytics />
         <Suspense fallback={null}>
           <PageViewTracker />

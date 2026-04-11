@@ -1,0 +1,234 @@
+- generic "Google Maps" [ref=e2]:
+  - generic [ref=e3]:
+    - application "Map·Use arrow keys to pan the map.·Get details about a place by pressing its corresponding number key." [ref=e5]
+    - generic [ref=e11]:
+      - generic [ref=e13]:
+        - radiogroup [ref=e14]:
+          - generic [ref=e15]:
+            - radio "Best travel modes" [ref=e17] [cursor=pointer]:
+              - img "Best travel modes" [ref=e18]:
+                - generic [ref=e20]: 
+              - generic [ref=e21]: Best
+            - radio "Driving 35 min" [ref=e23] [cursor=pointer]:
+              - img "Driving" [ref=e24]:
+                - generic [ref=e26]: 
+              - generic [ref=e27]: 35 min
+            - radio "Public transport 12 min" [checked] [ref=e29]:
+              - img "Public transport" [ref=e30]:
+                - generic [ref=e32]: 
+              - generic [ref=e33]: 12 min
+            - radio "Walking 1h 26m" [ref=e35] [cursor=pointer]:
+              - img "Walking" [ref=e36]:
+                - generic [ref=e38]: 
+              - generic [ref=e39]: 1h 26m
+            - radio "Cycling 26 min" [ref=e41] [cursor=pointer]:
+              - img "Cycling" [ref=e42]:
+                - generic [ref=e44]: 
+              - generic [ref=e45]: 26 min
+            - radio "Flights not available" [disabled] [ref=e47]:
+              - img "Flights not available" [ref=e48]:
+                - generic [ref=e50]: 
+        - button "Close directions" [ref=e53] [cursor=pointer]:
+          - generic [ref=e54]: 
+      - generic [ref=e55]:
+        - list [ref=e56]:
+          - listitem [ref=e57]:
+            - generic [ref=e58]:
+              - generic [ref=e59]: 
+              - generic [ref=e60]: 
+            - generic [ref=e61]:
+              - combobox [ref=e63]:
+                - textbox "Starting point Holborn Station, London WC2B 6AA" [ref=e64]:
+                  - /placeholder: ""
+                  - text: Holborn Station, London WC2B 6AA
+              - button "Search" [ref=e65]:
+                - generic [ref=e66]: 
+          - listitem [ref=e68]:
+            - generic [ref=e70]: 
+            - generic [ref=e71]:
+              - combobox [ref=e73]:
+                - textbox "Destination Finsbury Pk station, Finsbury Park, London" [ref=e74]:
+                  - /placeholder: ""
+                  - text: Finsbury Pk station, Finsbury Park, London
+              - button "Search" [ref=e75]:
+                - generic [ref=e76]: 
+        - button "Reverse starting point and destination" [ref=e79] [cursor=pointer]:
+          - generic [ref=e80]: 
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - list [ref=e84]:
+          - listitem [ref=e85]:
+            - button "Menu" [ref=e86] [cursor=pointer]:
+              - generic [ref=e88]: 
+          - listitem [ref=e89]:
+            - button "Saved" [ref=e90] [cursor=pointer]:
+              - generic [ref=e92]: 
+              - generic [ref=e94]: Saved
+          - listitem [ref=e95]:
+            - button "Recents" [ref=e96] [cursor=pointer]:
+              - generic [ref=e98]: 
+              - generic [ref=e100]: Recents
+          - listitem [ref=e102]:
+            - button "Finsbury Pk station 12 min" [ref=e103] [cursor=pointer]:
+              - generic [ref=e109]: 
+              - generic [ref=e110]:
+                - generic [ref=e111]: Finsbury Pk station
+                - generic [ref=e112]: 12 min
+          - listitem [ref=e113]:
+            - button "2 places London" [ref=e114] [cursor=pointer]:
+              - generic "2 places" [ref=e122]: "2"
+              - generic [ref=e124]: London
+          - listitem [ref=e126]:
+            - button "Get app" [ref=e127] [cursor=pointer]:
+              - generic [ref=e129]: 
+              - generic [ref=e131]: Get app
+        - main "Directions" [ref=e136]:
+          - generic [ref=e139]:
+            - button "Public transport directions with multiple destinations are not supported." [ref=e140]:
+              - generic [ref=e141]: 
+            - button "Depart at" [ref=e144] [cursor=pointer]:
+              - generic [ref=e145]:
+                - generic [ref=e146]: 
+                - generic [ref=e147]: Depart at
+                - generic [ref=e148]: 
+            - generic [ref=e149]:
+              - generic [ref=e150]:
+                - textbox [ref=e151]: 08:00
+                - generic [ref=e152]: 
+                - generic [ref=e153]:
+                  - button "Earlier trips" [ref=e154] [cursor=pointer]:
+                    - generic [ref=e155]: 
+                  - button "Later trips" [ref=e156] [cursor=pointer]:
+                    - generic [ref=e157]: 
+              - generic [ref=e158]:
+                - button "Mon 13 Apr" [ref=e159]
+                - generic [ref=e160]: 
+                - generic [ref=e161]:
+                  - button "Mon 13 Apr - Go to the previous day" [ref=e162] [cursor=pointer]:
+                    - generic [ref=e163]: 
+                  - button "Mon 13 Apr - Go to the next day" [ref=e164] [cursor=pointer]:
+                    - generic [ref=e165]: 
+            - button "Options" [ref=e166] [cursor=pointer]:
+              - generic [ref=e167]: Options
+          - generic [ref=e169]:
+            - button "Send directions to your phone" [ref=e172]:
+              - generic [ref=e173]:
+                - generic [ref=e174]: 
+                - text: Send directions to your phone
+            - button "Copy link" [ref=e176]:
+              - generic [ref=e177]:
+                - generic [ref=e178]: 
+                - text: Copy link
+          - generic [ref=e179]:
+            - link "Public transport 12 min 8:01 AM (Monday) – 8:13 AM Underground Piccadilly 8:01 AM from Holborn £3.60 Details" [ref=e180] [cursor=pointer]:
+              - img "Public transport" [ref=e181]: 
+              - generic [ref=e183]:
+                - generic [ref=e185]: 12 min
+                - heading "8:01 AM (Monday) – 8:13 AM" [level=1] [ref=e186]:
+                  - generic [ref=e187]: 8:01 AM (Monday) – 8:13 AM
+                - generic [ref=e189]:
+                  - img "Underground" [ref=e191]
+                  - generic [ref=e195]: Piccadilly
+                - generic [ref=e196]:
+                  - generic [ref=e198]: 8:01 AM from Holborn
+                  - text: £3.60
+                - button "Details" [active] [ref=e200]:
+                  - generic [ref=e202]: Details
+            - button "Public transport 13 min 8:03 AM (Monday) – 8:16 AM Underground Piccadilly" [ref=e203] [cursor=pointer]:
+              - img "Public transport" [ref=e204]: 
+              - generic [ref=e206]:
+                - generic [ref=e208]: 13 min
+                - heading "8:03 AM (Monday) – 8:16 AM" [level=1] [ref=e209]:
+                  - generic [ref=e210]: 8:03 AM (Monday) – 8:16 AM
+                - generic [ref=e212]:
+                  - img "Underground" [ref=e214]
+                  - generic [ref=e218]: Piccadilly
+            - button "Public transport 13 min 8:06 AM (Monday) – 8:19 AM Underground Piccadilly" [ref=e219] [cursor=pointer]:
+              - img "Public transport" [ref=e220]: 
+              - generic [ref=e222]:
+                - generic [ref=e224]: 13 min
+                - heading "8:06 AM (Monday) – 8:19 AM" [level=1] [ref=e225]:
+                  - generic [ref=e226]: 8:06 AM (Monday) – 8:19 AM
+                - generic [ref=e228]:
+                  - img "Underground" [ref=e230]
+                  - generic [ref=e234]: Piccadilly
+            - button "Public transport 12 min 8:09 AM (Monday) – 8:21 AM Underground Piccadilly" [ref=e235] [cursor=pointer]:
+              - img "Public transport" [ref=e236]: 
+              - generic [ref=e238]:
+                - generic [ref=e240]: 12 min
+                - heading "8:09 AM (Monday) – 8:21 AM" [level=1] [ref=e241]:
+                  - generic [ref=e242]: 8:09 AM (Monday) – 8:21 AM
+                - generic [ref=e244]:
+                  - img "Underground" [ref=e246]
+                  - generic [ref=e250]: Piccadilly
+            - button "Public transport 13 min 8:11 AM (Monday) – 8:24 AM Underground Piccadilly" [ref=e251] [cursor=pointer]:
+              - img "Public transport" [ref=e252]: 
+              - generic [ref=e254]:
+                - generic [ref=e256]: 13 min
+                - heading "8:11 AM (Monday) – 8:24 AM" [level=1] [ref=e257]:
+                  - generic [ref=e258]: 8:11 AM (Monday) – 8:24 AM
+                - generic [ref=e260]:
+                  - img "Underground" [ref=e262]
+                  - generic [ref=e266]: Piccadilly
+            - button "Public transport 12 min 8:14 AM (Monday) – 8:26 AM Underground Piccadilly" [ref=e267] [cursor=pointer]:
+              - img "Public transport" [ref=e268]: 
+              - generic [ref=e270]:
+                - generic [ref=e272]: 12 min
+                - heading "8:14 AM (Monday) – 8:26 AM" [level=1] [ref=e273]:
+                  - generic [ref=e274]: 8:14 AM (Monday) – 8:26 AM
+                - generic [ref=e276]:
+                  - img "Underground" [ref=e278]
+                  - generic [ref=e282]: Piccadilly
+          - heading "Explore nearby Finsbury Pk station" [level=2] [ref=e285]:
+            - generic [ref=e286]: Explore nearby Finsbury Pk station
+          - generic [ref=e288]:
+            - button "Restaurants" [ref=e289] [cursor=pointer]:
+              - generic [ref=e292]: 
+              - generic [ref=e293]: Restaurants
+            - button "Hotels" [ref=e294] [cursor=pointer]:
+              - generic [ref=e297]: 
+              - generic [ref=e298]: Hotels
+            - button "Bars" [ref=e299] [cursor=pointer]:
+              - generic [ref=e302]: 
+              - generic [ref=e303]: Bars
+            - button "Coffee" [ref=e304] [cursor=pointer]:
+              - generic [ref=e307]: 
+              - generic [ref=e308]: Coffee
+            - button "More" [ref=e309] [cursor=pointer]:
+              - generic [ref=e312]: 
+              - generic [ref=e313]: More
+          - generic [ref=e314]:
+            - generic [ref=e316]:
+              - generic [ref=e318]: 
+              - generic [ref=e319]: New! Continue your trip, tap the notification on your phone to get directions
+            - button "Dismiss" [ref=e320]:
+              - generic [ref=e321]: 
+      - button "Collapse side panel" [ref=e323] [cursor=pointer]:
+        - generic [ref=e324]: 
+    - generic [ref=e328]:
+      - button "Google apps" [ref=e332] [cursor=pointer]:
+        - img [ref=e333]
+      - link "Sign in" [ref=e336] [cursor=pointer]:
+        - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2FHolborn%2BStation%2C%2BLondon%2BWC2B%2B6AA%2FFinsbury%2BPk%2Bstation%2C%2BFinsbury%2BPark%2C%2BLondon%2F%4051.5410603%2C-0.1562721%2C13z%2Fdata%3D!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b5f5e20f7f3%3A0x5b06d6e3d13612dd!2m2!1d-0.1199363!2d51.5175074!1m5!1m1!1s0x48761b9b2e08a38b%3A0x8b3ec9feb44e77f1!2m2!1d-0.1063033!2d51.5645602!2m3!6e0!7e2!8j1776067200!3e3%3Fved%3D1t%253A314688&service=local&ec=GAZAcQ
+    - generic:
+      - generic:
+        - button "Show Your Location" [ref=e339] [cursor=pointer]:
+          - generic [ref=e341]: 
+        - generic [ref=e343] [cursor=pointer]:
+          - button "Zoom in" [ref=e344]
+          - button "Zoom out" [ref=e347]
+      - button "Browse Street View images" [ref=e355]
+      - generic [ref=e357]:
+        - generic "Interactive map" [ref=e358]
+        - generic [ref=e362] [cursor=pointer]:
+          - generic [ref=e363]: 
+          - generic [ref=e364]: Layers
+        - button "Layers" [ref=e365] [cursor=pointer]
+    - generic [ref=e367]:
+      - contentinfo [ref=e370]:
+        - text: Imagery ©2026 , Map data ©2026 Google
+        - button "United Kingdom" [ref=e371] [cursor=pointer]
+        - button "Terms" [ref=e372] [cursor=pointer]
+        - button "Privacy" [ref=e373] [cursor=pointer]
+        - button "Send product feedback" [ref=e374] [cursor=pointer]
+      - button "1 km" [ref=e376] [cursor=pointer]: 1 km

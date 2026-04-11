@@ -1,0 +1,199 @@
+- generic "Google Maps" [ref=e9]:
+  - menu [ref=e313]:
+    - generic [ref=e314]:
+      - menuitemradio "Leave now" [active] [ref=e315] [cursor=pointer]:
+        - generic [ref=e317]: Leave now
+      - menuitemradio "Depart at" [ref=e318] [cursor=pointer]:
+        - generic [ref=e320]: Depart at
+      - menuitemradio "Arrive by" [ref=e321] [cursor=pointer]:
+        - generic [ref=e323]: Arrive by
+      - menuitemradio "Last available" [ref=e324] [cursor=pointer]:
+        - generic [ref=e326]: Last available
+  - generic [ref=e3]:
+    - application "Map·Use arrow keys to pan the map.·Get details about a place by pressing its corresponding number key." [ref=e10]
+    - generic [ref=e15]:
+      - generic [ref=e17]:
+        - radiogroup [ref=e18]:
+          - generic [ref=e19]:
+            - radio "Best travel modes" [ref=e21] [cursor=pointer]:
+              - img "Best travel modes" [ref=e22]:
+                - generic [ref=e24]: 
+              - generic [ref=e25]: Best
+            - radio "Driving 6 min" [ref=e27] [cursor=pointer]:
+              - img "Driving" [ref=e28]:
+                - generic [ref=e30]: 
+              - generic [ref=e31]: 6 min
+            - radio "Public transport 4 min" [checked] [ref=e33]:
+              - img "Public transport" [ref=e34]:
+                - generic [ref=e36]: 
+              - generic [ref=e37]: 4 min
+            - radio "Walking 20 min" [ref=e39] [cursor=pointer]:
+              - img "Walking" [ref=e40]:
+                - generic [ref=e42]: 
+              - generic [ref=e43]: 20 min
+            - radio "Cycling 8 min" [ref=e45] [cursor=pointer]:
+              - img "Cycling" [ref=e46]:
+                - generic [ref=e48]: 
+              - generic [ref=e49]: 8 min
+            - radio "Flights not available" [disabled] [ref=e51]:
+              - img "Flights not available" [ref=e52]:
+                - generic [ref=e54]: 
+        - button "Close directions" [ref=e57] [cursor=pointer]:
+          - generic [ref=e58]: 
+      - generic [ref=e59]:
+        - list [ref=e60]:
+          - listitem [ref=e61]:
+            - generic [ref=e62]:
+              - generic [ref=e63]: 
+              - generic [ref=e64]: 
+            - generic [ref=e65]:
+              - combobox [ref=e67]:
+                - textbox "Starting point Blackhorse Road, Underground Ltd, Blackhorse Rd, London E17 6ND" [ref=e68]:
+                  - /placeholder: ""
+                  - text: Blackhorse Road, Underground Ltd, Blackhorse Rd, London E17 6ND
+              - button "Search" [ref=e69]:
+                - generic [ref=e70]: 
+          - listitem [ref=e72]:
+            - generic [ref=e74]: 
+            - generic [ref=e75]:
+              - combobox [ref=e77]:
+                - textbox "Destination Tottenham Hale, London N17 9FD" [ref=e78]:
+                  - /placeholder: ""
+                  - text: Tottenham Hale, London N17 9FD
+              - button "Search" [ref=e79]:
+                - generic [ref=e80]: 
+        - button "Reverse starting point and destination" [ref=e83] [cursor=pointer]:
+          - generic [ref=e84]: 
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - list [ref=e88]:
+          - listitem [ref=e89]:
+            - button "Menu" [ref=e90] [cursor=pointer]:
+              - generic [ref=e92]: 
+          - listitem [ref=e93]:
+            - button "Saved" [ref=e94] [cursor=pointer]:
+              - generic [ref=e96]: 
+              - generic [ref=e98]: Saved
+          - listitem [ref=e99]:
+            - button "Recents" [ref=e100] [cursor=pointer]:
+              - generic [ref=e102]: 
+              - generic [ref=e104]: Recents
+          - listitem [ref=e106]:
+            - button "Tottenham Hale 4 min" [ref=e107] [cursor=pointer]:
+              - generic [ref=e113]: 
+              - generic [ref=e114]:
+                - generic [ref=e115]: Tottenham Hale
+                - generic [ref=e116]: 4 min
+          - listitem [ref=e117]:
+            - button "2 places London" [ref=e118] [cursor=pointer]:
+              - generic "2 places" [ref=e126]: "2"
+              - generic [ref=e128]: London
+          - listitem [ref=e130]:
+            - button "Get app" [ref=e131] [cursor=pointer]:
+              - generic [ref=e133]: 
+              - generic [ref=e135]: Get app
+        - main "Directions" [ref=e140]:
+          - generic [ref=e143]:
+            - button "Public transport directions with multiple destinations are not supported." [ref=e144]:
+              - generic [ref=e145]: 
+            - button "Leave now" [ref=e148] [cursor=pointer]:
+              - generic [ref=e149]:
+                - generic [ref=e150]: 
+                - generic [ref=e151]: Leave now
+                - generic [ref=e152]: 
+            - button "Options" [ref=e153] [cursor=pointer]:
+              - generic [ref=e154]: Options
+          - generic [ref=e156]:
+            - button "Send directions to your phone" [ref=e159]:
+              - generic [ref=e160]:
+                - generic [ref=e161]: 
+                - text: Send directions to your phone
+            - button "Copy link" [ref=e163]:
+              - generic [ref=e164]:
+                - generic [ref=e165]: 
+                - text: Copy link
+          - generic [ref=e166]:
+            - link "Public transport 4 min 10:47 PM – 10:51 PM Underground Victoria 10:47 PM from Blackhorse Road £2.20 Walking 1 min every 5 min Details" [ref=e167] [cursor=pointer]:
+              - img "Public transport" [ref=e168]: 
+              - generic [ref=e170]:
+                - generic [ref=e172]: 4 min
+                - heading "10:47 PM – 10:51 PM" [level=1] [ref=e173]:
+                  - generic [ref=e174]: 10:47 PM – 10:51 PM
+                - generic [ref=e176]:
+                  - img "Underground" [ref=e178]
+                  - generic [ref=e182]: Victoria
+                - generic [ref=e183]:
+                  - generic [ref=e185]: 10:47 PM from Blackhorse Road
+                  - text: £2.20
+                  - generic [ref=e186]:
+                    - img "Walking" [ref=e187]: 
+                    - text: 1 min
+                  - text: every 5 min
+                - button "Details" [ref=e189]:
+                  - generic [ref=e191]: Details
+            - button "Public transport 8 min Information 10:54 PM – 11:02 PM Bus 123 , or 230" [ref=e192] [cursor=pointer]:
+              - img "Public transport" [ref=e193]: 
+              - generic [ref=e195]:
+                - generic [ref=e197]: 8 min
+                - heading "Information 10:54 PM – 11:02 PM" [level=1] [ref=e198]:
+                  - img "Information" [ref=e200]: 
+                  - generic [ref=e201]: 10:54 PM – 11:02 PM
+                - generic [ref=e203]:
+                  - img "Bus" [ref=e205]
+                  - generic [ref=e209]: "123"
+                  - generic:
+                    - img ", or"
+                  - generic [ref=e213]: "230"
+          - heading "Explore Tottenham Hale" [level=2] [ref=e216]:
+            - generic [ref=e217]: Explore Tottenham Hale
+          - generic [ref=e219]:
+            - button "Restaurants" [ref=e220] [cursor=pointer]:
+              - generic [ref=e223]: 
+              - generic [ref=e224]: Restaurants
+            - button "Hotels" [ref=e225] [cursor=pointer]:
+              - generic [ref=e228]: 
+              - generic [ref=e229]: Hotels
+            - button "Bars" [ref=e230] [cursor=pointer]:
+              - generic [ref=e233]: 
+              - generic [ref=e234]: Bars
+            - button "Coffee" [ref=e235] [cursor=pointer]:
+              - generic [ref=e238]: 
+              - generic [ref=e239]: Coffee
+            - button "More" [ref=e240] [cursor=pointer]:
+              - generic [ref=e243]: 
+              - generic [ref=e244]: More
+          - generic [ref=e245]:
+            - generic [ref=e247]:
+              - generic [ref=e249]: 
+              - generic [ref=e250]: New! Continue your trip, tap the notification on your phone to get directions
+            - button "Dismiss" [ref=e251]:
+              - generic [ref=e252]: 
+      - button "Collapse side panel" [ref=e254] [cursor=pointer]:
+        - generic [ref=e255]: 
+    - generic [ref=e261]:
+      - button "Google apps" [ref=e265] [cursor=pointer]:
+        - img [ref=e266]
+      - link "Sign in" [ref=e269] [cursor=pointer]:
+        - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2FBlackhorse%2BRoad%2C%2BUnderground%2BLtd%2C%2BBlackhorse%2BRd%2C%2BLondon%2BE17%2B6ND%2FTottenham%2BHale%2C%2BLondon%2BN17%2B9FD%2F%4051.5875223%2C-0.071709%2C14z%2Fdata%3D!3m1!4b1!4m14!4m13!1m5!1m1!1s0x48761dce7616e0c5%3A0x423359e36ce84c58!2m2!1d-0.040984!2d51.5869505!1m5!1m1!1s0x48761c3ab3fbe0cd%3A0xe98d19bad3f74974!2m2!1d-0.059796!2d51.5890318!3e3%3Fved%3D1t%253A314688&service=local&ec=GAZAcQ
+    - generic:
+      - generic:
+        - button "Show Your Location" [ref=e272] [cursor=pointer]:
+          - generic [ref=e274]: 
+        - generic [ref=e276] [cursor=pointer]:
+          - button "Zoom in" [ref=e277]
+          - button "Zoom out" [ref=e280]
+      - button "Browse Street View images" [ref=e288]
+      - generic [ref=e290]:
+        - generic "Interactive map" [ref=e291]
+        - generic [ref=e295] [cursor=pointer]:
+          - generic [ref=e296]: 
+          - generic [ref=e297]: Layers
+        - button "Layers" [ref=e298] [cursor=pointer]
+    - generic [ref=e300]:
+      - contentinfo [ref=e303]:
+        - text: Imagery ©2026 , Map data ©2026
+        - button "United Kingdom" [ref=e304] [cursor=pointer]
+        - button "Terms" [ref=e305] [cursor=pointer]
+        - button "Privacy" [ref=e306] [cursor=pointer]
+        - button "Send product feedback" [ref=e307] [cursor=pointer]
+      - button "500 m" [ref=e309] [cursor=pointer]: 500 m

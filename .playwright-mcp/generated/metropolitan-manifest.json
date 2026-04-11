@@ -1,0 +1,709 @@
+{
+  "lineCode": "metropolitan",
+  "totalPairs": 78,
+  "generatedAt": "2026-04-10T22:07:01.576Z",
+  "journeys": [
+    {
+      "fromStationId": "940GZZLUALD",
+      "fromDisplayName": "Aldgate Underground Station",
+      "fromQuery": "Aldgate Underground Station",
+      "toStationId": "HUBLST",
+      "toDisplayName": "Liverpool Street",
+      "toQuery": "Liverpool Street Station, London",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "HUBAMR",
+      "fromDisplayName": "Amersham",
+      "fromQuery": "Amersham",
+      "toStationId": "HUBCFO",
+      "toDisplayName": "Chalfont & Latimer",
+      "toQuery": "Chalfont & Latimer",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "fromQuery": "Baker Street Underground Station",
+      "toStationId": "940GZZLUFYR",
+      "toDisplayName": "Finchley Road Underground Station",
+      "toQuery": "Finchley Road Underground Station",
+      "graphRunMinutes": 6
+    },
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "fromQuery": "Baker Street Underground Station",
+      "toStationId": "940GZZLUGPS",
+      "toDisplayName": "Great Portland Street Underground Station",
+      "toQuery": "Great Portland Street Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUBBN",
+      "fromDisplayName": "Barbican Underground Station",
+      "fromQuery": "Barbican Underground Station",
+      "toStationId": "HUBZFD",
+      "toDisplayName": "Farringdon",
+      "toQuery": "Farringdon Station, London",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "940GZZLUBBN",
+      "fromDisplayName": "Barbican Underground Station",
+      "fromQuery": "Barbican Underground Station",
+      "toStationId": "HUBZMG",
+      "toDisplayName": "Moorgate",
+      "toQuery": "Moorgate Station, London",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "HUBCFO",
+      "fromDisplayName": "Chalfont & Latimer",
+      "fromQuery": "Chalfont & Latimer",
+      "toStationId": "HUBAMR",
+      "toDisplayName": "Amersham",
+      "toQuery": "Amersham",
+      "graphRunMinutes": 6
+    },
+    {
+      "fromStationId": "HUBCFO",
+      "fromDisplayName": "Chalfont & Latimer",
+      "fromQuery": "Chalfont & Latimer",
+      "toStationId": "940GZZLUCSM",
+      "toDisplayName": "Chesham Underground Station",
+      "toQuery": "Chesham Underground Station",
+      "graphRunMinutes": 8
+    },
+    {
+      "fromStationId": "HUBCFO",
+      "fromDisplayName": "Chalfont & Latimer",
+      "fromQuery": "Chalfont & Latimer",
+      "toStationId": "HUBCLW",
+      "toDisplayName": "Chorleywood",
+      "toQuery": "Chorleywood",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "940GZZLUCSM",
+      "fromDisplayName": "Chesham Underground Station",
+      "fromQuery": "Chesham Underground Station",
+      "toStationId": "HUBCFO",
+      "toDisplayName": "Chalfont & Latimer",
+      "toQuery": "Chalfont & Latimer",
+      "graphRunMinutes": 8
+    },
+    {
+      "fromStationId": "HUBCLW",
+      "fromDisplayName": "Chorleywood",
+      "fromQuery": "Chorleywood",
+      "toStationId": "HUBCFO",
+      "toDisplayName": "Chalfont & Latimer",
+      "toQuery": "Chalfont & Latimer",
+      "graphRunMinutes": 4
+    },
+    {
+      "fromStationId": "HUBCLW",
+      "fromDisplayName": "Chorleywood",
+      "fromQuery": "Chorleywood",
+      "toStationId": "HUBRIC",
+      "toDisplayName": "Rickmansworth",
+      "toQuery": "Rickmansworth",
+      "graphRunMinutes": 4
+    },
+    {
+      "fromStationId": "940GZZLUCXY",
+      "fromDisplayName": "Croxley Underground Station",
+      "fromQuery": "Croxley Underground Station",
+      "toStationId": "940GZZLUMPK",
+      "toDisplayName": "Moor Park Underground Station",
+      "toQuery": "Moor Park Underground Station",
+      "graphRunMinutes": 5
+    },
+    {
+      "fromStationId": "940GZZLUCXY",
+      "fromDisplayName": "Croxley Underground Station",
+      "fromQuery": "Croxley Underground Station",
+      "toStationId": "HUBRIC",
+      "toDisplayName": "Rickmansworth",
+      "toQuery": "Rickmansworth",
+      "graphRunMinutes": 5
+    },
+    {
+      "fromStationId": "940GZZLUCXY",
+      "fromDisplayName": "Croxley Underground Station",
+      "fromQuery": "Croxley Underground Station",
+      "toStationId": "940GZZLUWAF",
+      "toDisplayName": "Watford Underground Station",
+      "toQuery": "Watford Underground Station",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "940GZZLUEAE",
+      "fromDisplayName": "Eastcote Underground Station",
+      "fromQuery": "Eastcote Underground Station",
+      "toStationId": "940GZZLURYL",
+      "toDisplayName": "Rayners Lane Underground Station",
+      "toQuery": "Rayners Lane Underground Station",
+      "graphRunMinutes": 4
+    },
+    {
+      "fromStationId": "940GZZLUEAE",
+      "fromDisplayName": "Eastcote Underground Station",
+      "fromQuery": "Eastcote Underground Station",
+      "toStationId": "940GZZLURSM",
+      "toDisplayName": "Ruislip Manor Underground Station",
+      "toQuery": "Ruislip Manor Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUESQ",
+      "fromDisplayName": "Euston Square Underground Station",
+      "fromQuery": "Euston Square Underground Station",
+      "toStationId": "940GZZLUGPS",
+      "toDisplayName": "Great Portland Street Underground Station",
+      "toQuery": "Great Portland Street Underground Station",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "940GZZLUESQ",
+      "fromDisplayName": "Euston Square Underground Station",
+      "fromQuery": "Euston Square Underground Station",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "toQuery": "St Pancras International, London",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "HUBZFD",
+      "fromDisplayName": "Farringdon",
+      "fromQuery": "Farringdon Station, London",
+      "toStationId": "940GZZLUBBN",
+      "toDisplayName": "Barbican Underground Station",
+      "toQuery": "Barbican Underground Station",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "HUBZFD",
+      "fromDisplayName": "Farringdon",
+      "fromQuery": "Farringdon Station, London",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "toQuery": "St Pancras International, London",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "940GZZLUFYR",
+      "fromDisplayName": "Finchley Road Underground Station",
+      "fromQuery": "Finchley Road Underground Station",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "toQuery": "Baker Street Underground Station",
+      "graphRunMinutes": 5
+    },
+    {
+      "fromStationId": "940GZZLUFYR",
+      "fromDisplayName": "Finchley Road Underground Station",
+      "fromQuery": "Finchley Road Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "toQuery": "Harrow-on-the-Hill Station, London",
+      "graphRunMinutes": 11
+    },
+    {
+      "fromStationId": "940GZZLUFYR",
+      "fromDisplayName": "Finchley Road Underground Station",
+      "fromQuery": "Finchley Road Underground Station",
+      "toStationId": "940GZZLUWYP",
+      "toDisplayName": "Wembley Park Underground Station",
+      "toQuery": "Wembley Park Underground Station",
+      "graphRunMinutes": 7
+    },
+    {
+      "fromStationId": "940GZZLUFYR",
+      "fromDisplayName": "Finchley Road Underground Station",
+      "fromQuery": "Finchley Road Underground Station",
+      "toStationId": "940GZZLUWIG",
+      "toDisplayName": "Willesden Green Underground Station",
+      "toQuery": "Willesden Green Underground Station",
+      "graphRunMinutes": 5.41
+    },
+    {
+      "fromStationId": "940GZZLUGPS",
+      "fromDisplayName": "Great Portland Street Underground Station",
+      "fromQuery": "Great Portland Street Underground Station",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "toQuery": "Baker Street Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUGPS",
+      "fromDisplayName": "Great Portland Street Underground Station",
+      "fromQuery": "Great Portland Street Underground Station",
+      "toStationId": "940GZZLUESQ",
+      "toDisplayName": "Euston Square Underground Station",
+      "toQuery": "Euston Square Underground Station",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "fromQuery": "Harrow-on-the-Hill Station, London",
+      "toStationId": "940GZZLUFYR",
+      "toDisplayName": "Finchley Road Underground Station",
+      "toQuery": "Finchley Road Underground Station",
+      "graphRunMinutes": 11
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "fromQuery": "Harrow-on-the-Hill Station, London",
+      "toStationId": "940GZZLUMPK",
+      "toDisplayName": "Moor Park Underground Station",
+      "toQuery": "Moor Park Underground Station",
+      "graphRunMinutes": 7
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "fromQuery": "Harrow-on-the-Hill Station, London",
+      "toStationId": "940GZZLUNHA",
+      "toDisplayName": "North Harrow Underground Station",
+      "toQuery": "North Harrow Underground Station",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "fromQuery": "Harrow-on-the-Hill Station, London",
+      "toStationId": "940GZZLUNKP",
+      "toDisplayName": "Northwick Park Underground Station",
+      "toQuery": "Northwick Park Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "fromQuery": "Harrow-on-the-Hill Station, London",
+      "toStationId": "940GZZLUWYP",
+      "toDisplayName": "Wembley Park Underground Station",
+      "toQuery": "Wembley Park Underground Station",
+      "graphRunMinutes": 6
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "fromQuery": "Harrow-on-the-Hill Station, London",
+      "toStationId": "940GZZLUWHW",
+      "toDisplayName": "West Harrow Underground Station",
+      "toQuery": "West Harrow Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUHGD",
+      "fromDisplayName": "Hillingdon Underground Station",
+      "fromQuery": "Hillingdon Underground Station",
+      "toStationId": "940GZZLUICK",
+      "toDisplayName": "Ickenham Underground Station",
+      "toQuery": "Ickenham Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUHGD",
+      "fromDisplayName": "Hillingdon Underground Station",
+      "fromQuery": "Hillingdon Underground Station",
+      "toStationId": "940GZZLUUXB",
+      "toDisplayName": "Uxbridge Underground Station",
+      "toQuery": "Uxbridge Underground Station",
+      "graphRunMinutes": 5
+    },
+    {
+      "fromStationId": "940GZZLUICK",
+      "fromDisplayName": "Ickenham Underground Station",
+      "fromQuery": "Ickenham Underground Station",
+      "toStationId": "940GZZLUHGD",
+      "toDisplayName": "Hillingdon Underground Station",
+      "toQuery": "Hillingdon Underground Station",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "940GZZLUICK",
+      "fromDisplayName": "Ickenham Underground Station",
+      "fromQuery": "Ickenham Underground Station",
+      "toStationId": "940GZZLURSP",
+      "toDisplayName": "Ruislip Underground Station",
+      "toQuery": "Ruislip Underground Station",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "fromQuery": "St Pancras International, London",
+      "toStationId": "940GZZLUESQ",
+      "toDisplayName": "Euston Square Underground Station",
+      "toQuery": "Euston Square Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "fromQuery": "St Pancras International, London",
+      "toStationId": "HUBZFD",
+      "toDisplayName": "Farringdon",
+      "toQuery": "Farringdon Station, London",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "HUBLST",
+      "fromDisplayName": "Liverpool Street",
+      "fromQuery": "Liverpool Street Station, London",
+      "toStationId": "940GZZLUALD",
+      "toDisplayName": "Aldgate Underground Station",
+      "toQuery": "Aldgate Underground Station",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "HUBLST",
+      "fromDisplayName": "Liverpool Street",
+      "fromQuery": "Liverpool Street Station, London",
+      "toStationId": "HUBZMG",
+      "toDisplayName": "Moorgate",
+      "toQuery": "Moorgate Station, London",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "940GZZLUMPK",
+      "fromDisplayName": "Moor Park Underground Station",
+      "fromQuery": "Moor Park Underground Station",
+      "toStationId": "940GZZLUCXY",
+      "toDisplayName": "Croxley Underground Station",
+      "toQuery": "Croxley Underground Station",
+      "graphRunMinutes": 4
+    },
+    {
+      "fromStationId": "940GZZLUMPK",
+      "fromDisplayName": "Moor Park Underground Station",
+      "fromQuery": "Moor Park Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "toQuery": "Harrow-on-the-Hill Station, London",
+      "graphRunMinutes": 9
+    },
+    {
+      "fromStationId": "940GZZLUMPK",
+      "fromDisplayName": "Moor Park Underground Station",
+      "fromQuery": "Moor Park Underground Station",
+      "toStationId": "940GZZLUNOW",
+      "toDisplayName": "Northwood Underground Station",
+      "toQuery": "Northwood Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUMPK",
+      "fromDisplayName": "Moor Park Underground Station",
+      "fromQuery": "Moor Park Underground Station",
+      "toStationId": "HUBRIC",
+      "toDisplayName": "Rickmansworth",
+      "toQuery": "Rickmansworth",
+      "graphRunMinutes": 4
+    },
+    {
+      "fromStationId": "HUBZMG",
+      "fromDisplayName": "Moorgate",
+      "fromQuery": "Moorgate Station, London",
+      "toStationId": "940GZZLUBBN",
+      "toDisplayName": "Barbican Underground Station",
+      "toQuery": "Barbican Underground Station",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "HUBZMG",
+      "fromDisplayName": "Moorgate",
+      "fromQuery": "Moorgate Station, London",
+      "toStationId": "HUBLST",
+      "toDisplayName": "Liverpool Street",
+      "toQuery": "Liverpool Street Station, London",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUNHA",
+      "fromDisplayName": "North Harrow Underground Station",
+      "fromQuery": "North Harrow Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "toQuery": "Harrow-on-the-Hill Station, London",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "940GZZLUNHA",
+      "fromDisplayName": "North Harrow Underground Station",
+      "fromQuery": "North Harrow Underground Station",
+      "toStationId": "940GZZLUPNR",
+      "toDisplayName": "Pinner Underground Station",
+      "toQuery": "Pinner Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUNKP",
+      "fromDisplayName": "Northwick Park Underground Station",
+      "fromQuery": "Northwick Park Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "toQuery": "Harrow-on-the-Hill Station, London",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUNKP",
+      "fromDisplayName": "Northwick Park Underground Station",
+      "fromQuery": "Northwick Park Underground Station",
+      "toStationId": "940GZZLUPRD",
+      "toDisplayName": "Preston Road Underground Station",
+      "toQuery": "Preston Road Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUNWH",
+      "fromDisplayName": "Northwood Hills Underground Station",
+      "fromQuery": "Northwood Hills Underground Station",
+      "toStationId": "940GZZLUNOW",
+      "toDisplayName": "Northwood Underground Station",
+      "toQuery": "Northwood Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUNWH",
+      "fromDisplayName": "Northwood Hills Underground Station",
+      "fromQuery": "Northwood Hills Underground Station",
+      "toStationId": "940GZZLUPNR",
+      "toDisplayName": "Pinner Underground Station",
+      "toQuery": "Pinner Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUNOW",
+      "fromDisplayName": "Northwood Underground Station",
+      "fromQuery": "Northwood Underground Station",
+      "toStationId": "940GZZLUMPK",
+      "toDisplayName": "Moor Park Underground Station",
+      "toQuery": "Moor Park Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUNOW",
+      "fromDisplayName": "Northwood Underground Station",
+      "fromQuery": "Northwood Underground Station",
+      "toStationId": "940GZZLUNWH",
+      "toDisplayName": "Northwood Hills Underground Station",
+      "toQuery": "Northwood Hills Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUPNR",
+      "fromDisplayName": "Pinner Underground Station",
+      "fromQuery": "Pinner Underground Station",
+      "toStationId": "940GZZLUNHA",
+      "toDisplayName": "North Harrow Underground Station",
+      "toQuery": "North Harrow Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUPNR",
+      "fromDisplayName": "Pinner Underground Station",
+      "fromQuery": "Pinner Underground Station",
+      "toStationId": "940GZZLUNWH",
+      "toDisplayName": "Northwood Hills Underground Station",
+      "toQuery": "Northwood Hills Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUPRD",
+      "fromDisplayName": "Preston Road Underground Station",
+      "fromQuery": "Preston Road Underground Station",
+      "toStationId": "940GZZLUNKP",
+      "toDisplayName": "Northwick Park Underground Station",
+      "toQuery": "Northwick Park Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUPRD",
+      "fromDisplayName": "Preston Road Underground Station",
+      "fromQuery": "Preston Road Underground Station",
+      "toStationId": "940GZZLUWYP",
+      "toDisplayName": "Wembley Park Underground Station",
+      "toQuery": "Wembley Park Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLURYL",
+      "fromDisplayName": "Rayners Lane Underground Station",
+      "fromQuery": "Rayners Lane Underground Station",
+      "toStationId": "940GZZLUEAE",
+      "toDisplayName": "Eastcote Underground Station",
+      "toQuery": "Eastcote Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLURYL",
+      "fromDisplayName": "Rayners Lane Underground Station",
+      "fromQuery": "Rayners Lane Underground Station",
+      "toStationId": "940GZZLUWHW",
+      "toDisplayName": "West Harrow Underground Station",
+      "toQuery": "West Harrow Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "HUBRIC",
+      "fromDisplayName": "Rickmansworth",
+      "fromQuery": "Rickmansworth",
+      "toStationId": "HUBCLW",
+      "toDisplayName": "Chorleywood",
+      "toQuery": "Chorleywood",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "HUBRIC",
+      "fromDisplayName": "Rickmansworth",
+      "fromQuery": "Rickmansworth",
+      "toStationId": "940GZZLUCXY",
+      "toDisplayName": "Croxley Underground Station",
+      "toQuery": "Croxley Underground Station",
+      "graphRunMinutes": 5
+    },
+    {
+      "fromStationId": "HUBRIC",
+      "fromDisplayName": "Rickmansworth",
+      "fromQuery": "Rickmansworth",
+      "toStationId": "940GZZLUMPK",
+      "toDisplayName": "Moor Park Underground Station",
+      "toQuery": "Moor Park Underground Station",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "940GZZLURSM",
+      "fromDisplayName": "Ruislip Manor Underground Station",
+      "fromQuery": "Ruislip Manor Underground Station",
+      "toStationId": "940GZZLUEAE",
+      "toDisplayName": "Eastcote Underground Station",
+      "toQuery": "Eastcote Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLURSM",
+      "fromDisplayName": "Ruislip Manor Underground Station",
+      "fromQuery": "Ruislip Manor Underground Station",
+      "toStationId": "940GZZLURSP",
+      "toDisplayName": "Ruislip Underground Station",
+      "toQuery": "Ruislip Underground Station",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "940GZZLURSP",
+      "fromDisplayName": "Ruislip Underground Station",
+      "fromQuery": "Ruislip Underground Station",
+      "toStationId": "940GZZLUICK",
+      "toDisplayName": "Ickenham Underground Station",
+      "toQuery": "Ickenham Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLURSP",
+      "fromDisplayName": "Ruislip Underground Station",
+      "fromQuery": "Ruislip Underground Station",
+      "toStationId": "940GZZLURSM",
+      "toDisplayName": "Ruislip Manor Underground Station",
+      "toQuery": "Ruislip Manor Underground Station",
+      "graphRunMinutes": 1
+    },
+    {
+      "fromStationId": "940GZZLUUXB",
+      "fromDisplayName": "Uxbridge Underground Station",
+      "fromQuery": "Uxbridge Underground Station",
+      "toStationId": "940GZZLUHGD",
+      "toDisplayName": "Hillingdon Underground Station",
+      "toQuery": "Hillingdon Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUWAF",
+      "fromDisplayName": "Watford Underground Station",
+      "fromQuery": "Watford Underground Station",
+      "toStationId": "940GZZLUCXY",
+      "toDisplayName": "Croxley Underground Station",
+      "toQuery": "Croxley Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUWYP",
+      "fromDisplayName": "Wembley Park Underground Station",
+      "fromQuery": "Wembley Park Underground Station",
+      "toStationId": "940GZZLUFYR",
+      "toDisplayName": "Finchley Road Underground Station",
+      "toQuery": "Finchley Road Underground Station",
+      "graphRunMinutes": 7
+    },
+    {
+      "fromStationId": "940GZZLUWYP",
+      "fromDisplayName": "Wembley Park Underground Station",
+      "fromQuery": "Wembley Park Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "toQuery": "Harrow-on-the-Hill Station, London",
+      "graphRunMinutes": 6
+    },
+    {
+      "fromStationId": "940GZZLUWYP",
+      "fromDisplayName": "Wembley Park Underground Station",
+      "fromQuery": "Wembley Park Underground Station",
+      "toStationId": "940GZZLUPRD",
+      "toDisplayName": "Preston Road Underground Station",
+      "toQuery": "Preston Road Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUWYP",
+      "fromDisplayName": "Wembley Park Underground Station",
+      "fromQuery": "Wembley Park Underground Station",
+      "toStationId": "940GZZLUWIG",
+      "toDisplayName": "Willesden Green Underground Station",
+      "toQuery": "Willesden Green Underground Station",
+      "graphRunMinutes": 7.76
+    },
+    {
+      "fromStationId": "940GZZLUWHW",
+      "fromDisplayName": "West Harrow Underground Station",
+      "fromQuery": "West Harrow Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "toQuery": "Harrow-on-the-Hill Station, London",
+      "graphRunMinutes": 3
+    },
+    {
+      "fromStationId": "940GZZLUWHW",
+      "fromDisplayName": "West Harrow Underground Station",
+      "fromQuery": "West Harrow Underground Station",
+      "toStationId": "940GZZLURYL",
+      "toDisplayName": "Rayners Lane Underground Station",
+      "toQuery": "Rayners Lane Underground Station",
+      "graphRunMinutes": 2
+    },
+    {
+      "fromStationId": "940GZZLUWIG",
+      "fromDisplayName": "Willesden Green Underground Station",
+      "fromQuery": "Willesden Green Underground Station",
+      "toStationId": "940GZZLUFYR",
+      "toDisplayName": "Finchley Road Underground Station",
+      "toQuery": "Finchley Road Underground Station",
+      "graphRunMinutes": 5.41
+    },
+    {
+      "fromStationId": "940GZZLUWIG",
+      "fromDisplayName": "Willesden Green Underground Station",
+      "fromQuery": "Willesden Green Underground Station",
+      "toStationId": "940GZZLUWYP",
+      "toDisplayName": "Wembley Park Underground Station",
+      "toQuery": "Wembley Park Underground Station",
+      "graphRunMinutes": 7.76
+    }
+  ]
+}

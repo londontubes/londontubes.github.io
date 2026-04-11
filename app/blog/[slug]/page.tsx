@@ -3,20 +3,6 @@ import type { Metadata } from 'next'
 
 import styles from '../BlogArticle.module.css'
 import { blogQuestions, getBlogQuestion } from '../content'
-import AdUnit from '@/app/components/ads/AdUnit'
-
-const BASE_URL = 'https://londontubes.co.uk'
-
-const AMBER_URLS: Record<string, string | undefined> = {
-  UCL: process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL,
-  IMPERIAL: process.env.NEXT_PUBLIC_AMBER_IMPERIAL_AFFILIATE_URL,
-  LSE: process.env.NEXT_PUBLIC_AMBER_LSE_AFFILIATE_URL,
-  KINGS: process.env.NEXT_PUBLIC_AMBER_KINGS_AFFILIATE_URL,
-  QMUL: process.env.NEXT_PUBLIC_AMBER_QMUL_AFFILIATE_URL,
-  CITY: process.env.NEXT_PUBLIC_AMBER_CITY_AFFILIATE_URL,
-  SOAS: process.env.NEXT_PUBLIC_AMBER_SOAS_AFFILIATE_URL,
-  WESTMINSTER: process.env.NEXT_PUBLIC_AMBER_WESTMINSTER_AFFILIATE_URL,
-}
 
 interface PageProps {
   params: { slug: string }
@@ -41,14 +27,6 @@ export function generateMetadata({ params }: PageProps): Metadata {
     alternates: {
       canonical: `/blog/${params.slug}/`,
     },
-    openGraph: {
-      title: `${entry.question} – London Tube Blog`,
-      description: entry.shortAnswer,
-      type: 'article',
-      url: `${BASE_URL}/blog/${params.slug}/`,
-      siteName: 'London Tube Map',
-      locale: 'en_GB',
-    },
   }
 }
 
@@ -72,50 +50,8 @@ export default function BlogArticlePage({ params }: PageProps) {
     )
   }
 
-  const articleUrl = `${BASE_URL}/blog/${entry.slug}/`
-
-  const amberUrl = entry.universityId
-    ? AMBER_URLS[entry.universityId]
-    : process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL
-  const heathrowUrl = process.env.NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL
-
-  const articleStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: entry.question,
-    description: entry.shortAnswer,
-    url: articleUrl,
-    publisher: {
-      '@type': 'Organization',
-      name: 'London Tube Map',
-      url: BASE_URL,
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': articleUrl,
-    },
-  }
-
-  const breadcrumbStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${BASE_URL}/blog/` },
-      { '@type': 'ListItem', position: 3, name: entry.question, item: articleUrl },
-    ],
-  }
-
   return (
     <main className={styles.page}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
-      />
       <header className={styles.header}>
         <p className={styles.breadcrumb}>
           <Link href="/blog/">Blog</Link> / <span>{entry.question}</span>
@@ -124,8 +60,6 @@ export default function BlogArticlePage({ params }: PageProps) {
         <p className={styles.lead}>{entry.shortAnswer}</p>
       </header>
 
-      <AdUnit style={{ marginBottom: '1.5rem', maxWidth: '760px' }} />
-
       <section className={styles.body} aria-label="Detailed answer">
         {entry.body.map((paragraph, index) => (
           <p key={index} className={styles.paragraph}>
@@ -133,34 +67,6 @@ export default function BlogArticlePage({ params }: PageProps) {
           </p>
         ))}
       </section>
-
-      <AdUnit style={{ marginTop: '2rem', maxWidth: '760px' }} />
-
-      {entry.ctaSlot === 'student-housing' && amberUrl && (
-        <aside className={styles.articleCta}>
-          <h4>Find a Student Room Near Your Campus</h4>
-          <p>
-            Compare verified student flats, studios, and en-suite rooms near London universities
-            on Amber. Filter by university, budget, and move-in date — no agency fees.
-          </p>
-          <a href={amberUrl} target="_blank" rel="noopener noreferrer nofollow sponsored">
-            Browse student rooms on Amber →
-          </a>
-        </aside>
-      )}
-
-      {entry.ctaSlot === 'heathrow-express' && heathrowUrl && (
-        <aside className={styles.articleCta}>
-          <h4>Getting to London from Heathrow?</h4>
-          <p>
-            Skip the 60-minute Piccadilly line. Book the Heathrow Express for a guaranteed seat
-            and 15-minute journey into Paddington.
-          </p>
-          <a href={heathrowUrl} target="_blank" rel="noopener noreferrer nofollow sponsored">
-            Book Heathrow Express tickets →
-          </a>
-        </aside>
-      )}
     </main>
   )
 }

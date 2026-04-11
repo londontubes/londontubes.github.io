@@ -1,0 +1,57 @@
+- main [ref=e5]:
+  - generic [ref=e6]:
+    - 'button "Language: English" [ref=e11] [cursor=pointer]':
+      - img [ref=e15]
+      - generic [ref=e17]: EN
+    - generic [ref=e19] [cursor=pointer]:
+      - generic [ref=e20]: Sign in
+      - link "Sign in" [ref=e21]:
+        - /url: https://accounts.google.com/ServiceLogin?hl=en&continue=https://www.google.com/maps/dir/Holborn%2BStation,%2BLondon%2BWC2B%2B6AA/Finsbury%2BPk%2Bstation,%2BFinsbury%2BPark,%2BLondon/@51.5410924,-0.1356722,14z/data%3D!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b5f5e20f7f3:0x5b06d6e3d13612dd!2m2!1d-0.1199363!2d51.5175074!1m5!1m1!1s0x48761b9b2e08a38b:0x8b3ec9feb44e77f1!2m2!1d-0.1063033!2d51.5645602!2m3!6e0!7e2!8j1776067200!3e3?entry%3Dttu%26g_ep%3DEgoyMDI2MDQwNy4wIKXMDSoASAFQAw%253D%253D&gae=cb-eomtm
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - img "Google" [ref=e26]
+      - generic [ref=e27]:
+        - heading "Before you continue to Google" [level=1] [ref=e28]
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - paragraph [ref=e31]:
+              - text: We use
+              - link "cookies (Opens in a new tab)" [ref=e32] [cursor=pointer]:
+                - /url: https://policies.google.com/technologies/cookies?hl=en&utm_source=ucb
+                - text: cookies
+                - generic "(Opens in a new tab)" [ref=e33]:
+                  - img [ref=e34]
+              - text: and data to
+            - list [ref=e36]:
+              - listitem [ref=e37]: Deliver and maintain Google services
+              - listitem [ref=e38]: Track outages and protect against spam, fraud, and abuse
+              - listitem [ref=e39]: Measure audience engagement and site statistics to understand how our services are used and enhance the quality of those services
+          - generic [ref=e40]:
+            - paragraph [ref=e41]: If you choose to “Accept all,” we will also use cookies and data to
+            - list [ref=e42]:
+              - listitem [ref=e43]: Develop and improve new services
+              - listitem [ref=e44]: Deliver and measure the effectiveness of ads
+              - listitem [ref=e45]: Show personalized content, depending on your settings
+              - listitem [ref=e46]: Show personalized ads, depending on your settings
+          - paragraph [ref=e48]: If you choose to “Reject all,” we will not use cookies for these additional purposes.
+          - paragraph [ref=e50]: Non-personalized content is influenced by things like the content you’re currently viewing, activity in your active Search session, and your location. Non-personalized ads are influenced by the content you’re currently viewing and your general location. Personalized content and ads can also include more relevant results, recommendations, and tailored ads based on past activity from this browser, like previous Google searches. We also use cookies and data to tailor the experience to be age-appropriate, if relevant.
+          - paragraph [ref=e52]: Select “More options” to see additional information, including details about managing your privacy settings. You can also visit g.co/privacytools at any time.
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - button "Reject all" [ref=e59] [cursor=pointer]:
+            - generic [ref=e61]: Reject all
+          - button "Accept all" [ref=e65] [cursor=pointer]:
+            - generic [ref=e67]: Accept all
+        - generic [ref=e69] [cursor=pointer]:
+          - generic [ref=e70]: More options
+          - link "More options for personalization settings and cookies" [ref=e71]:
+            - /url: https://consent.google.com/d?continue=https://www.google.com/maps/dir/Holborn%2BStation,%2BLondon%2BWC2B%2B6AA/Finsbury%2BPk%2Bstation,%2BFinsbury%2BPark,%2BLondon/@51.5410924,-0.1356722,14z/data%3D!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b5f5e20f7f3:0x5b06d6e3d13612dd!2m2!1d-0.1199363!2d51.5175074!1m5!1m1!1s0x48761b9b2e08a38b:0x8b3ec9feb44e77f1!2m2!1d-0.1063033!2d51.5645602!2m3!6e0!7e2!8j1776067200!3e3?entry%3Dttu%26g_ep%3DEgoyMDI2MDQwNy4wIKXMDSoASAFQAw%253D%253D&gl=GB&hl=en&cm=2&pc=m&uxe=eomtm&src=1&escs=AZ8E49DUsNaIwAbW5FALASJSjaXjyisgcQTCoedu0d2zL6TjHSHawiIY4pCV9OFkOEUavnBnWQyNHVMNxU2S8CMnHcdjhZTmTNja
+    - generic [ref=e74]:
+      - generic [ref=e76] [cursor=pointer]:
+        - generic [ref=e77]: Privacy Policy
+        - link "Privacy Policy" [ref=e78]:
+          - /url: https://policies.google.com/privacy?hl=en&utm_source=ucb
+      - generic [ref=e80] [cursor=pointer]:
+        - generic [ref=e81]: Terms of Service
+        - link "Terms of Service" [ref=e82]:
+          - /url: https://policies.google.com/terms?hl=en&utm_source=ucb

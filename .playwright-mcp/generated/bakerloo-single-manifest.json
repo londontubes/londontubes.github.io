@@ -1,0 +1,16 @@
+{
+  "lineCode": "bakerloo",
+  "totalPairs": 1,
+  "generatedAt": "2026-04-10T22:07:01.200Z",
+  "journeys": [
+    {
+      "fromStationId": "HUBWAT",
+      "fromDisplayName": "Waterloo",
+      "fromQuery": "Waterloo Station, London",
+      "toStationId": "940GZZLUEMB",
+      "toDisplayName": "Embankment Underground Station",
+      "toQuery": "Embankment Underground Station",
+      "graphRunMinutes": 1
+    }
+  ]
+}
