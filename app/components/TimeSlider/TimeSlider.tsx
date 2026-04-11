@@ -29,6 +29,9 @@ export interface TimeSliderProps {
    */
   disabled?: boolean
   enhancedUI?: boolean
+  label?: string
+  ariaLabel?: string
+  hideVisibleLabel?: boolean
 }
 
 /**
@@ -46,6 +49,9 @@ export function TimeSlider({
   step = 1,
   disabled = false,
   enhancedUI = true,
+  label = 'Tube Time',
+  ariaLabel = 'Tube time in minutes',
+  hideVisibleLabel = false,
 }: TimeSliderProps) {
   // Local state for immediate UI updates (before debounce)
   const [localValue, setLocalValue] = useState(value)
@@ -92,11 +98,13 @@ export function TimeSlider({
 
   return (
     <div className={styles.container}>
-      <div className={styles.labelRow}>
-        <label htmlFor="time-slider" className={styles.label}>
-          Tube Time <span className={styles.unitLabel}>(in minutes)</span>
-        </label>
-      </div>
+      {hideVisibleLabel ? null : (
+        <div className={styles.labelRow}>
+          <label htmlFor="time-slider" className={styles.label}>
+            {label} <span className={styles.unitLabel}>(in minutes)</span>
+          </label>
+        </div>
+      )}
       <div className={styles.sliderRow}>
         <div className={styles.sliderWrapper}>
           <input
@@ -109,7 +117,7 @@ export function TimeSlider({
             onChange={handleChange}
             disabled={disabled}
             className={styles.slider}
-            aria-label="Tube time in minutes"
+            aria-label={ariaLabel}
             aria-valuemin={min}
             aria-valuemax={max}
             aria-valuenow={localValue}

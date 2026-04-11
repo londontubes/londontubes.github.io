@@ -55,3 +55,58 @@ export interface LineSelectionState {
   activeLineCodes: string[]
   isAllSelected: boolean
 }
+
+export interface BusRoute {
+  routeId: string
+  routeCode: string
+  displayName: string
+  originName: string
+  destinationName: string
+  brandColor: string
+  textColor: string
+  strokeWeight: number
+  geometry: {
+    type: 'LineString' | 'MultiLineString'
+    coordinates: [number, number][] | [number, number][][]
+  }
+  bounds?: [number, number][]
+  stopIds: string[]
+  lastUpdated: string
+}
+
+export interface BusStop {
+  stopId: string
+  displayName: string
+  position: {
+    type: 'Point'
+    coordinates: [number, number]
+  }
+  servedRouteIds: string[]
+  indicator?: string
+  importance: 'major' | 'standard'
+}
+
+export interface BusDatasetSource {
+  provider: string
+  dataset: string
+  version?: string
+}
+
+export interface BusRoutesCollection {
+  generatedAt: string
+  source: BusDatasetSource
+  routes: BusRoute[]
+}
+
+export interface BusStopsCollection {
+  generatedAt: string
+  source: BusDatasetSource
+  stops: BusStop[]
+}
+
+export interface BusDataset {
+  routes: BusRoute[]
+  stops: BusStop[]
+  generatedAt: string
+  source: BusDatasetSource
+}

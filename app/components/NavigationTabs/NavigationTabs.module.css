@@ -17,6 +17,7 @@
   padding: 0.45rem 1rem;
   max-width: 1280px;
   gap: 0.125rem;
+  flex-wrap: wrap;
 }
 
 .tabItem {
@@ -101,6 +102,7 @@
     gap: 0;
     overflow-x: auto;
     scrollbar-width: none;
+    flex-wrap: nowrap;
   }
 
   .tabList::-webkit-scrollbar {

@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://londontubes.co.uk/schemas/bus-stops.schema.json",
+  "title": "BusStopCollection",
+  "type": "object",
+  "required": ["generatedAt", "source", "stops"],
+  "properties": {
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "object",
+      "required": ["provider", "dataset"],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "const": "Transport for London"
+        },
+        "dataset": {
+          "type": "string",
+          "enum": ["Unified API RouteSequence", "GeoJSON"]
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "stops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "stopId",
+          "displayName",
+          "position",
+          "servedRouteIds",
+          "importance"
+        ],
+        "properties": {
+          "stopId": { "type": "string", "minLength": 1 },
+          "displayName": { "type": "string", "minLength": 1 },
+          "indicator": { "type": "string" },
+          "position": {
+            "type": "object",
+            "required": ["type", "coordinates"],
+            "properties": {
+              "type": { "type": "string", "const": "Point" },
+              "coordinates": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": { "type": "number" }
+              }
+            },
+            "additionalProperties": false
+          },
+          "servedRouteIds": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "uniqueItems": true
+          },
+          "importance": {
+            "type": "string",
+            "enum": ["major", "standard"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

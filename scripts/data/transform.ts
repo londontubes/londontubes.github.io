@@ -1,5 +1,6 @@
 import fs from 'fs/promises'
 import path from 'path'
+import { buildBusRouteColorMap, getBusRouteColor } from '../../app/lib/map/busRouteColors'
 
 const CACHE_DIR = path.join(process.cwd(), 'scripts', 'cache')
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'data')
@@ -230,6 +231,36 @@ interface RawRoute {
   [key: string]: unknown
 }
 
+interface BusRouteOutput {
+  routeId: string
+  routeCode: string
+  displayName: string
+  originName: string
+  destinationName: string
+  brandColor: string
+  textColor: string
+  strokeWeight: number
+  geometry: {
+    type: 'LineString' | 'MultiLineString'
+    coordinates: [number, number][] | [number, number][][]
+  }
+  bounds?: [[number, number], [number, number]]
+  stopIds: string[]
+  lastUpdated: string
+}
+
+interface BusStopOutput {
+  stopId: string
+  displayName: string
+  position: {
+    type: 'Point'
+    coordinates: [number, number]
+  }
+  servedRouteIds: string[]
+  indicator?: string
+  importance: 'major' | 'standard'
+}
+
 interface TransformedLine {
   lineCode: string
   displayName: string
@@ -263,11 +294,61 @@ interface TransformedStation {
 async function loadRawData() {
   const linesRaw = await fs.readFile(path.join(CACHE_DIR, 'lines.raw.json'), 'utf-8')
   const routesRaw = await fs.readFile(path.join(CACHE_DIR, 'routes.raw.json'), 'utf-8')
+  const busLinesRaw = await fs.readFile(path.join(CACHE_DIR, 'bus-lines.raw.json'), 'utf-8')
+  const busRoutesRaw = await fs.readFile(path.join(CACHE_DIR, 'bus-routes.raw.json'), 'utf-8')
   
   return {
     lines: JSON.parse(linesRaw) as RawLine[],
     routes: JSON.parse(routesRaw) as Record<string, RawRoute>,
+    busLines: JSON.parse(busLinesRaw) as RawLine[],
+    busRoutes: JSON.parse(busRoutesRaw) as Record<string, RawRoute>,
   }
+}
+
+function parseLineStringSegments(lineStrings?: string[]): [number, number][][] {
+  if (!lineStrings || lineStrings.length === 0) return []
+
+  const segments: [number, number][][] = []
+
+  lineStrings.forEach((lineStringJson) => {
+    try {
+      const lineString = JSON.parse(lineStringJson) as unknown
+      if (!Array.isArray(lineString) || lineString.length === 0 || !Array.isArray(lineString[0])) {
+        return
+      }
+
+      const segment: [number, number][] = []
+      lineString[0].forEach((coord: unknown) => {
+        if (Array.isArray(coord) && coord.length === 2) {
+          const [lng, lat] = coord
+          if (typeof lng === 'number' && typeof lat === 'number') {
+            segment.push([lng, lat])
+          }
+        }
+      })
+
+      if (segment.length >= 2) {
+        segments.push(segment)
+      }
+    } catch (error) {
+      console.error('Failed to parse lineString:', error)
+    }
+  })
+
+  return segments
+}
+
+function calculateBounds(allCoordinates: [number, number][][]): [[number, number], [number, number]] | undefined {
+  const allPoints: [number, number][] = allCoordinates.flat()
+  if (allPoints.length === 0) return undefined
+
+  const lons = allPoints.map((c) => c[0])
+  const lats = allPoints.map((c) => c[1])
+
+  return [
+    [Math.min(...lons), Math.min(...lats)],
+    [Math.max(...lons), Math.max(...lats)],
+  ]
 }
 
 function transformLines(lines: RawLine[], routes: Record<string, RawRoute>) {
@@ -287,27 +368,7 @@ function transformLines(lines: RawLine[], routes: Record<string, RawRoute>) {
     
     // Use TfL lineStrings for proper route paths (includes branches/forks)
     if (route?.lineStrings && route.lineStrings.length > 0) {
-      // Parse ALL lineStrings to handle branches (e.g., Northern line has multiple branches)
-      route.lineStrings.forEach((lineStringJson: string, index: number) => {
-        try {
-          const lineString = JSON.parse(lineStringJson) as unknown
-          // TfL lineStrings structure: array containing one array of coordinates
-          if (Array.isArray(lineString) && lineString.length > 0 && Array.isArray(lineString[0])) {
-            const coordArray = lineString[0]
-            const segment: [number, number][] = []
-            coordArray.forEach((coord: [number, number]) => {
-              if (Array.isArray(coord) && coord.length === 2) {
-                segment.push(coord)
-              }
-            })
-            if (segment.length >= 2) {
-              allCoordinates.push(segment)
-            }
-          }
-        } catch (e) {
-          console.error(`Failed to parse lineString ${index} for ${line.id}:`, e)
-        }
-      })
+      allCoordinates = parseLineStringSegments(route.lineStrings)
       
       // Fallback to station coordinates if no valid lineStrings parsed
       if (allCoordinates.length === 0 && route.stations) {
@@ -384,13 +445,7 @@ function transformLines(lines: RawLine[], routes: Record<string, RawRoute>) {
     }
 
     // Calculate bounds from all coordinate segments
-    const allPoints: [number, number][] = allCoordinates.flat()
-    const lons = allPoints.map((c: [number, number]) => c[0])
-    const lats = allPoints.map((c: [number, number]) => c[1])
-    const bounds: [[number, number], [number, number]] | undefined = allPoints.length > 0 ? [
-      [Math.min(...lons), Math.min(...lats)],
-      [Math.max(...lons), Math.max(...lats)],
-    ] : undefined
+    const bounds = calculateBounds(allCoordinates)
     
     // Use MultiLineString if multiple segments, LineString if single segment
     const polylineType = allCoordinates.length > 1 ? 'MultiLineString' : 'LineString'
@@ -464,16 +519,125 @@ function transformStations(routes: Record<string, RawRoute>) {
   }
 }
 
+function transformBusRoutes(lines: RawLine[], routes: Record<string, RawRoute>) {
+  const routeColorMap = buildBusRouteColorMap(lines.map((line) => line.name))
+  const transformed: BusRouteOutput[] = lines.map((line) => {
+    const route = routes[line.id]
+    const stopIds: string[] = []
+    const allCoordinates = parseLineStringSegments(route?.lineStrings)
+    const routeColors = getBusRouteColor(line.name, routeColorMap)
+
+    if (route?.stations) {
+      route.stations.forEach((station) => {
+        stopIds.push(station.id)
+      })
+    }
+
+    if (allCoordinates.length === 0 && route?.stations) {
+      const fallbackCoords: [number, number][] = []
+      route.stations.forEach((station) => {
+        if (typeof station.lat === 'number' && typeof station.lon === 'number') {
+          fallbackCoords.push([station.lon, station.lat])
+        }
+      })
+      if (fallbackCoords.length >= 2) {
+        allCoordinates.push(fallbackCoords)
+      }
+    }
+
+    const bounds = calculateBounds(allCoordinates)
+    const firstStop = route?.stations?.[0]
+    const lastStop = route?.stations?.[route.stations.length - 1]
+    const geometryType: BusRouteOutput['geometry']['type'] = allCoordinates.length > 1
+      ? 'MultiLineString'
+      : 'LineString'
+    const geometryCoordinates = allCoordinates.length > 1
+      ? allCoordinates
+      : (allCoordinates[0] || [[-0.1, 51.5], [-0.1, 51.5]])
+
+    return {
+      routeId: line.id,
+      routeCode: line.name,
+      displayName: `Route ${line.name}`,
+      originName: firstStop?.name || line.name,
+      destinationName: lastStop?.name || line.name,
+      brandColor: routeColors.brand,
+      textColor: routeColors.text,
+      strokeWeight: 3,
+      geometry: {
+        type: geometryType,
+        coordinates: geometryCoordinates,
+      },
+      bounds,
+      stopIds: Array.from(new Set(stopIds)),
+      lastUpdated: new Date().toISOString(),
+    }
+  }).filter((route) => route.stopIds.length > 0)
+
+  return {
+    generatedAt: new Date().toISOString(),
+    source: {
+      provider: 'Transport for London',
+      dataset: 'GeoJSON',
+    },
+    routes: transformed,
+  }
+}
+
+function transformBusStops(routes: Record<string, RawRoute>) {
+  const stopMap = new Map<string, BusStopOutput>()
+
+  Object.entries(routes).forEach(([routeId, route]) => {
+    if (!route.stations) return
+
+    route.stations.forEach((station, index) => {
+      const importance: 'major' | 'standard' = index === 0 || index === route.stations!.length - 1 ? 'major' : 'standard'
+
+      if (!stopMap.has(station.id)) {
+        stopMap.set(station.id, {
+          stopId: station.id,
+          displayName: station.name || station.id,
+          position: {
+            type: 'Point',
+            coordinates: [typeof station.lon === 'number' ? station.lon : 0, typeof station.lat === 'number' ? station.lat : 0],
+          },
+          servedRouteIds: [routeId],
+          importance,
+        })
+      } else {
+        const existing = stopMap.get(station.id)
+        if (existing && !existing.servedRouteIds.includes(routeId)) {
+          existing.servedRouteIds.push(routeId)
+          if (importance === 'major') {
+            existing.importance = 'major'
+          }
+        }
+      }
+    })
+  })
+
+  return {
+    generatedAt: new Date().toISOString(),
+    source: {
+      provider: 'Transport for London',
+      dataset: 'GeoJSON',
+    },
+    stops: Array.from(stopMap.values()),
+  }
+}
+
 async function main() {
   try {
     console.log('Transforming TfL data...')
     
     // Load raw data
-    const { lines, routes } = await loadRawData()
+    const { lines, routes, busLines, busRoutes } = await loadRawData()
     
     // Transform to our schema
     const linesData = transformLines(lines, routes)
     const stationsData = transformStations(routes)
+    const busRoutesData = transformBusRoutes(busLines, busRoutes)
+    const busStopsData = transformBusStops(busRoutes)
     
     // Ensure output directory exists
     await fs.mkdir(OUTPUT_DIR, { recursive: true })
@@ -488,6 +652,16 @@ async function main() {
       path.join(OUTPUT_DIR, 'stations.json'),
       JSON.stringify(stationsData, null, 2)
     )
+
+    await fs.writeFile(
+      path.join(OUTPUT_DIR, 'buses.json'),
+      JSON.stringify(busRoutesData, null, 2)
+    )
+
+    await fs.writeFile(
+      path.join(OUTPUT_DIR, 'bus-stops.json'),
+      JSON.stringify(busStopsData, null, 2)
+    )
     
     // Write metadata
     const metadata = {
@@ -496,6 +670,7 @@ async function main() {
         provider: 'Transport for London',
         apiEndpoints: [
           'https://api.tfl.gov.uk/Line/Mode/tube,dlr',
+          'https://api.tfl.gov.uk/Line/Mode/bus',
           'https://api.tfl.gov.uk/Line/{id}/Route/Sequence/all',
         ],
       },
@@ -513,6 +688,8 @@ async function main() {
     console.log('✅ Data transformation complete')
     console.log(`   Lines: ${linesData.lines.length}`)
     console.log(`   Stations: ${stationsData.stations.length}`)
+    console.log(`   Bus routes: ${busRoutesData.routes.length}`)
+    console.log(`   Bus stops: ${busStopsData.stops.length}`)
     
   } catch (error) {
     console.error('❌ Transformation failed:', error)
