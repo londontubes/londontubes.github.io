@@ -1,0 +1,1058 @@
+{
+  "metadata": {
+    "lineCode": "jubilee",
+    "source": "Google Maps browser capture via MCP Playwright",
+    "requestedDeparture": {
+      "dayLabel": "Monday",
+      "localDate": "2026-04-13",
+      "localTime": "08:00",
+      "timeZone": "Europe/London",
+      "googleMapsTimestampParam": "1776067200"
+    },
+    "scope": "Direct adjacent Jubilee line station pairs derived from static graph edges",
+    "totalPairs": 52,
+    "matchedPairs": 51,
+    "unavailablePairs": 1,
+    "generatedAt": "2026-04-10T23:04:10.194Z",
+    "notes": [
+      "This file stores Monday 8am Google Maps reference times for direct Jubilee line station pairs so future work does not need to re-query Google Maps.",
+      "Pairs with no Jubilee option remain in the dataset with captureStatus set to no-jubilee-option-found.",
+      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+    ]
+  },
+  "journeys": [
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "toStationId": "HUBBDS",
+      "toDisplayName": "Bond Street",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/Bond+Street,+Bond+Street+Station+Underground+Ltd,+Oxford+St,+London+W1R+1FE/@51.5182566,-0.1625878,15z/data=!4m18!4m17!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!1m5!1m1!1s0x4876052cd7ecc39f:0x47a3b4e27264ca25!2m2!1d-0.1488549!2d51.5143352!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:02 AM from Baker Street",
+        "fare": "£3.10",
+        "rawText": "3 min 8:02 AM (Monday) – 8:05 AM Jubilee 8:02 AM from Baker Street £3.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "toStationId": "940GZZLUSJW",
+      "toDisplayName": "St. John's Wood Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/St.+John's+Wood,+London+NW8+6DN/@51.5290309,-0.1759725,15z/data=!4m18!4m17!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!1m5!1m1!1s0x48761abd0cc05a7f:0x8cfc729c04b56f11!2m2!1d-0.1740969!2d51.5347066!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Baker Street",
+        "fare": "£3.10",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Jubilee 8:00 AM from Baker Street £3.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBMY",
+      "fromDisplayName": "Bermondsey Underground Station",
+      "toStationId": "HUBZCW",
+      "toDisplayName": "Canada Water",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Bermondsey+Station,+Distrct+of+Freedom%238573311~!%23,+Jamaica+Rd,+London+SE16+4SN/Canada+Water,+Canada+Water+Station+Underground+Ltd,+Deal+Porters+Way,+London+SE16/@51.4978308,-0.0676183,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876033c17faaa95:0x236d067dbc7382c8!2m2!1d-0.0644697!2d51.4981122!1m5!1m1!1s0x48760320dfc8784b:0x3ae4946b67b18de7!2m2!1d-0.049693!2d51.49799!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Bermondsey",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Jubilee 8:00 AM from Bermondsey £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBMY",
+      "fromDisplayName": "Bermondsey Underground Station",
+      "toStationId": "HUBLBG",
+      "toDisplayName": "London Bridge",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Bermondsey+Station,+Distrct+of+Freedom%238573311~!%23,+Jamaica+Rd,+London+SE16+4SN/London+Bridge,+Station+Approach+Rd,+London+SE1+9SP/@51.5014353,-0.0969509,14z/data=!4m18!4m17!1m5!1m1!1s0x4876033c17faaa95:0x236d067dbc7382c8!2m2!1d-0.0644697!2d51.4981122!1m5!1m1!1s0x487603509c580b6f:0x335af388238f54bc!2m2!1d-0.0848024!2d51.5042625!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:01 AM (Monday) – 8:09 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Bermondsey",
+        "fare": "£3.10",
+        "rawText": "8 min 8:01 AM (Monday) – 8:09 AM Jubilee  8:01 AM from Bermondsey £3.10  5 min Details  8 min"
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBDS",
+      "fromDisplayName": "Bond Street",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Bond+Street,+Bond+Street+Station+Underground+Ltd,+Oxford+St,+London+W1R+1FE/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/@51.5182472,-0.1625884,15z/data=!4m18!4m17!1m5!1m1!1s0x4876052cd7ecc39f:0x47a3b4e27264ca25!2m2!1d-0.1488549!2d51.5143352!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Bond Street",
+        "fare": "£3.10",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Jubilee 8:00 AM from Bond Street £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBDS",
+      "fromDisplayName": "Bond Street",
+      "toStationId": "940GZZLUGPK",
+      "toDisplayName": "Green Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Bond+Street,+Bond+Street+Station+Underground+Ltd,+Oxford+St,+London+W1R+1FE/Green+Park,+Underground+Ltd,+Piccadilly,+London+W1J+9DZ/@51.51034,-0.1509675,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876052cd7ecc39f:0x47a3b4e27264ca25!2m2!1d-0.1488549!2d51.5143352!1m5!1m1!1s0x487605284b601641:0xffa5020435a597ad!2m2!1d-0.1428838!2d51.5069327!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Bond Street",
+        "fare": "£3.10",
+        "rawText": "2 min  8:00 AM (Monday) – 8:02 AM Jubilee 8:00 AM from Bond Street £3.10 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZCW",
+      "fromDisplayName": "Canada Water",
+      "toStationId": "940GZZLUBMY",
+      "toDisplayName": "Bermondsey Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Canada+Water,+Canada+Water+Station+Underground+Ltd,+Deal+Porters+Way,+London+SE16/Bermondsey+Station,+Distrct+of+Freedom%238573311~!%23,+Jamaica+Rd,+London+SE16+4SN/@51.4976118,-0.0673283,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760320dfc8784b:0x3ae4946b67b18de7!2m2!1d-0.049693!2d51.49799!1m5!1m1!1s0x4876033c17faaa95:0x236d067dbc7382c8!2m2!1d-0.0644697!2d51.4981122!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Canada Water",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Jubilee 8:01 AM from Canada Water £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZCW",
+      "fromDisplayName": "Canada Water",
+      "toStationId": "HUBCAW",
+      "toDisplayName": "Canary Wharf",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Canada+Water,+Canada+Water+Station+Underground+Ltd,+Deal+Porters+Way,+London+SE16/Canary+Wharf,+Underground+Ltd,+Heron+Quays+Rd,+Canary+Wharf+Estate,+London+E14+4HJ/@51.5008076,-0.0548267,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760320dfc8784b:0x3ae4946b67b18de7!2m2!1d-0.049693!2d51.49799!1m5!1m1!1s0x487602b9f2217913:0x9faadacbf961c37!2m2!1d-0.019624!2d51.5036499!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Canada Water",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Jubilee 8:00 AM from Canada Water £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCAW",
+      "fromDisplayName": "Canary Wharf",
+      "toStationId": "HUBZCW",
+      "toDisplayName": "Canada Water",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Canary+Wharf,+Underground+Ltd,+Heron+Quays+Rd,+Canary+Wharf+Estate,+London+E14+4HJ/Canada+Water,+Canada+Water+Station+Underground+Ltd,+Deal+Porters+Way,+London+SE16/@51.5007979,-0.0548171,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487602b9f2217913:0x9faadacbf961c37!2m2!1d-0.019624!2d51.5036499!1m5!1m1!1s0x48760320dfc8784b:0x3ae4946b67b18de7!2m2!1d-0.049693!2d51.49799!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Canary Wharf",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Jubilee 8:01 AM from Canary Wharf £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCAW",
+      "fromDisplayName": "Canary Wharf",
+      "toStationId": "HUBNGW",
+      "toDisplayName": "North Greenwich",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Canary+Wharf,+Underground+Ltd,+Heron+Quays+Rd,+Canary+Wharf+Estate,+London+E14+4HJ/Greenwich+Peninsula,+London/@51.4941581,-0.0723252,12z/data=!4m18!4m17!1m5!1m1!1s0x487602b9f2217913:0x9faadacbf961c37!2m2!1d-0.019624!2d51.5036499!1m5!1m1!1s0x47d8a82323ee1337:0x8258b83016275e17!2m2!1d0.0074949!2d51.4859576!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 21,
+        "schedule": "8:01 AM (Monday) – 8:22 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Canary Wharf",
+        "fare": "£3.85",
+        "rawText": "21 min 8:01 AM (Monday) – 8:22 AM Jubilee   422 8:01 AM from Canary Wharf £3.85  7 min Details  25 min"
+      },
+      "deltaFromGraphMinutes": 19,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCAN",
+      "fromDisplayName": "Canning Town",
+      "toStationId": "HUBNGW",
+      "toDisplayName": "North Greenwich",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Canning+Town,+London/Greenwich+Peninsula,+London/@51.4990542,-0.0451358,12.05z/data=!4m18!4m17!1m5!1m1!1s0x47d8a80a13dd5b1f:0x6556eb86a3c15006!2m2!1d0.0132!2d51.5189494!1m5!1m1!1s0x47d8a82323ee1337:0x8258b83016275e17!2m2!1d0.0074949!2d51.4859576!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 37,
+        "schedule": "8:03 AM (Monday) – 8:40 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:16 AM from Canning Town",
+        "fare": "£3.85",
+        "rawText": "37 min 8:03 AM (Monday) – 8:40 AM  Jubilee   188 8:16 AM from Canning Town £3.85  20 min Details  34 min"
+      },
+      "deltaFromGraphMinutes": 35,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCAN",
+      "fromDisplayName": "Canning Town",
+      "toStationId": "HUBWEH",
+      "toDisplayName": "West Ham",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Canning+Town,+London/West+Ham+Station,+London+E15+3BW/@51.5213492,-0.0006387,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a80a13dd5b1f:0x6556eb86a3c15006!2m2!1d0.0132!2d51.5189494!1m5!1m1!1s0x47d8a7b06667aeaf:0x6c586c2cd4ab60e5!2m2!1d0.006051!2d51.5285987!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-jubilee-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Jubilee option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUCPK",
+      "fromDisplayName": "Canons Park Underground Station",
+      "toStationId": "940GZZLUQBY",
+      "toDisplayName": "Queensbury Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Canons+Park,+Whitchurch+Ln,+Edgware+HA8+6RN/Queensbury+Station,+Edgware/@51.6009298,-0.3004334,15z/data=!4m18!4m17!1m5!1m1!1s0x4876140566a22259:0x460b229db0de56a3!2m2!1d-0.2946105!2d51.607601!1m5!1m1!1s0x487613fe88039c2f:0x564084c1613c0e8f!2m2!1d-0.2855813!2d51.5947109!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Canons Park",
+        "fare": "£2.50",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Jubilee 8:00 AM from Canons Park £2.50 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCPK",
+      "fromDisplayName": "Canons Park Underground Station",
+      "toStationId": "940GZZLUSTM",
+      "toDisplayName": "Stanmore Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Canons+Park,+Whitchurch+Ln,+Edgware+HA8+6RN/Stanmore+HA7+4PD/@51.6136443,-0.3091652,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876140566a22259:0x460b229db0de56a3!2m2!1d-0.2946105!2d51.607601!1m5!1m1!1s0x4876143e2786d7cd:0xc30d509cbba8ee29!2m2!1d-0.3031205!2d51.6196885!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:02 AM from Canons Park",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Jubilee 8:02 AM from Canons Park £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUDOH",
+      "fromDisplayName": "Dollis Hill Underground Station",
+      "toStationId": "940GZZLUNDN",
+      "toDisplayName": "Neasden Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Dollis+Hill,+Hamilton+Rd,+London+NW10+5NB/Neasden,+Neasden+Station+Underground+Ltd,+Neasden+Ln,+London+NW10+1PH/@51.5531654,-0.2551555,15z/data=!4m18!4m17!1m5!1m1!1s0x487611ab83f25ab9:0x806fbc4f028c626e!2m2!1d-0.2387564!2d51.5519705!1m5!1m1!1s0x487611a65398d825:0x757a3fc71912e7a2!2m2!1d-0.2497317!2d51.5540337!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Dollis Hill",
+        "fare": "£2.30",
+        "rawText": "1 min 8:01 AM (Monday) – 8:02 AM Jubilee 8:01 AM from Dollis Hill £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUDOH",
+      "fromDisplayName": "Dollis Hill Underground Station",
+      "toStationId": "940GZZLUWIG",
+      "toDisplayName": "Willesden Green Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Dollis+Hill,+Hamilton+Rd,+London+NW10+5NB/Willesden+Green,+Walm+Ln,+London+NW2+4QT/@51.5506017,-0.2403588,15z/data=!3m1!5s0x4876105a5948447f:0xfff16df50a7f0d31!4m18!4m17!1m5!1m1!1s0x487611ab83f25ab9:0x806fbc4f028c626e!2m2!1d-0.2387564!2d51.5519705!1m5!1m1!1s0x4876105a59cccd87:0xce364e17625df04!2m2!1d-0.2212208!2d51.5491753!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Dollis Hill",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Jubilee 8:00 AM from Dollis Hill £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUFYR",
+      "fromDisplayName": "Finchley Road Underground Station",
+      "toStationId": "940GZZLUSWC",
+      "toDisplayName": "Swiss Cottage Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/Swiss+Cottage,+Finchley+Rd,+London+NW3+6HY/@51.5453532,-0.1825956,16z/data=!4m18!4m17!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!1m5!1m1!1s0x48761a90f5172439:0xaaf00b7875302858!2m2!1d-0.1745193!2d51.5436884!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Finchley Road",
+        "fare": "£2.30",
+        "rawText": "1 min 8:01 AM (Monday) – 8:02 AM Jubilee 8:01 AM from Finchley Road £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUFYR",
+      "fromDisplayName": "Finchley Road Underground Station",
+      "toStationId": "HUBWHD",
+      "toDisplayName": "West Hampstead",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/West+Hampstead,+London+NW6+2LS/@51.5471004,-0.1957123,15z/data=!4m18!4m17!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!1m5!1m1!1s0x487610782b0aeab1:0xa4cc0f7d05ba0029!2m2!1d-0.1909335!2d51.5467378!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Finchley Road",
+        "fare": "£2.30",
+        "rawText": "1 min 8:01 AM (Monday) – 8:02 AM Jubilee 8:01 AM from Finchley Road £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGPK",
+      "fromDisplayName": "Green Park Underground Station",
+      "toStationId": "HUBBDS",
+      "toDisplayName": "Bond Street",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Green+Park,+Underground+Ltd,+Piccadilly,+London+W1J+9DZ/Bond+Street,+Bond+Street+Station+Underground+Ltd,+Oxford+St,+London+W1R+1FE/@51.5102553,-0.1509305,16z/data=!4m18!4m17!1m5!1m1!1s0x487605284b601641:0xffa5020435a597ad!2m2!1d-0.1428838!2d51.5069327!1m5!1m1!1s0x4876052cd7ecc39f:0x47a3b4e27264ca25!2m2!1d-0.1488549!2d51.5143352!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Green Park",
+        "fare": "£3.10",
+        "rawText": "2 min  8:01 AM (Monday) – 8:03 AM Jubilee 8:01 AM from Green Park £3.10 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGPK",
+      "fromDisplayName": "Green Park Underground Station",
+      "toStationId": "HUBWSM",
+      "toDisplayName": "Westminster",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Green+Park,+Underground+Ltd,+Piccadilly,+London+W1J+9DZ/Westminster,+Underground+Ltd,+Westminster+Station,+Bridge+St,+London+SW1A+2JR/@51.5037475,-0.1441623,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487605284b601641:0xffa5020435a597ad!2m2!1d-0.1428838!2d51.5069327!1m5!1m1!1s0x487604c449b45ed3:0x25f3edbdeb1538df!2m2!1d-0.1248413!2d51.501343!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:02 AM from Green Park",
+        "fare": "£3.10",
+        "rawText": "2 min  8:02 AM (Monday) – 8:04 AM Jubilee 8:02 AM from Green Park £3.10 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUKBN",
+      "fromDisplayName": "Kilburn Underground Station",
+      "toStationId": "HUBWHD",
+      "toDisplayName": "West Hampstead",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Kilburn,+Kilburn+Station+Underground+Ltd,+Shoot-Up+Hill,+London+NW6+7QL/West+Hampstead,+London+NW6+2LS/@51.5466736,-0.2075658,15z/data=!4m18!4m17!1m5!1m1!1s0x48761065f2ed1603:0x311ae3adc2833627!2m2!1d-0.2044711!2d51.546955!1m5!1m1!1s0x487610782b0aeab1:0xa4cc0f7d05ba0029!2m2!1d-0.1909335!2d51.5467378!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Kilburn",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Jubilee 8:00 AM from Kilburn £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUKBN",
+      "fromDisplayName": "Kilburn Underground Station",
+      "toStationId": "940GZZLUWIG",
+      "toDisplayName": "Willesden Green Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Kilburn,+Kilburn+Station+Underground+Ltd,+Shoot-Up+Hill,+London+NW6+7QL/Willesden+Green,+Walm+Ln,+London+NW2+4QT/@51.5480651,-0.2235128,15z/data=!3m2!4b1!5s0x4876105a5948447f:0xfff16df50a7f0d31!4m18!4m17!1m5!1m1!1s0x48761065f2ed1603:0x311ae3adc2833627!2m2!1d-0.2044711!2d51.546955!1m5!1m1!1s0x4876105a59cccd87:0xce364e17625df04!2m2!1d-0.2212208!2d51.5491753!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:02 AM from Kilburn",
+        "fare": "£2.30",
+        "rawText": "3 min 8:02 AM (Monday) – 8:05 AM Jubilee 8:02 AM from Kilburn £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUKBY",
+      "fromDisplayName": "Kingsbury Underground Station",
+      "toStationId": "940GZZLUQBY",
+      "toDisplayName": "Queensbury Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Kingsbury,+Underground+Ltd,+Kingsbury+Station,+Kingsbury+Rd,+Kingsbury+Circle,+London+NW9+9EG/Queensbury+Station,+Edgware/@51.5895769,-0.2924529,15z/data=!4m18!4m17!1m5!1m1!1s0x48761159131abcaf:0xb551dd7c54fff69e!2m2!1d-0.2787047!2d51.5848468!1m5!1m1!1s0x487613fe88039c2f:0x564084c1613c0e8f!2m2!1d-0.2855813!2d51.5947109!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Kingsbury",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Jubilee 8:01 AM from Kingsbury £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUKBY",
+      "fromDisplayName": "Kingsbury Underground Station",
+      "toStationId": "940GZZLUWYP",
+      "toDisplayName": "Wembley Park Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Kingsbury,+Underground+Ltd,+Kingsbury+Station,+Kingsbury+Rd,+Kingsbury+Circle,+London+NW9+9EG/Wembley+Park,+Wembley+HA9+9AA/@51.5741095,-0.3051084,14z/data=!4m18!4m17!1m5!1m1!1s0x48761159131abcaf:0xb551dd7c54fff69e!2m2!1d-0.2787047!2d51.5848468!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:00 AM (Monday) – 8:05 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Kingsbury",
+        "fare": "£2.30",
+        "rawText": "5 min  8:00 AM (Monday) – 8:05 AM Jubilee 8:00 AM from Kingsbury £2.30 Details  5 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBLBG",
+      "fromDisplayName": "London Bridge",
+      "toStationId": "940GZZLUBMY",
+      "toDisplayName": "Bermondsey Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/London+Bridge,+Station+Approach+Rd,+London+SE1+9SP/Bermondsey+Station,+Distrct+of+Freedom%238573311~!%23,+Jamaica+Rd,+London+SE16+4SN/@51.5013168,-0.0969467,14z/data=!4m18!4m17!1m5!1m1!1s0x487603509c580b6f:0x335af388238f54bc!2m2!1d-0.0848024!2d51.5042625!1m5!1m1!1s0x4876033c17faaa95:0x236d067dbc7382c8!2m2!1d-0.0644697!2d51.4981122!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "7:59 AM (Monday) – 8:05 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:03 AM from London Bridge",
+        "fare": "£2.90",
+        "rawText": "6 min 7:59 AM (Monday) – 8:05 AM  Jubilee 8:03 AM from London Bridge £2.90  4 min Details  6 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBLBG",
+      "fromDisplayName": "London Bridge",
+      "toStationId": "940GZZLUSWK",
+      "toDisplayName": "Southwark Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/London+Bridge,+Station+Approach+Rd,+London+SE1+9SP/Southwark,+68-70+Blackfriars+Rd,+London+SE1+8JZ/@51.5049008,-0.1159049,14z/data=!4m18!4m17!1m5!1m1!1s0x487603509c580b6f:0x335af388238f54bc!2m2!1d-0.0848024!2d51.5042625!1m5!1m1!1s0x487604a55081f119:0xe5c754fe411e3149!2m2!1d-0.1049685!2d51.503926!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:01 AM (Monday) – 8:06 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:04 AM from London Bridge",
+        "fare": "£3.10",
+        "rawText": "5 min 8:01 AM (Monday) – 8:06 AM Jubilee 8:04 AM from London Bridge £3.10  3 min Details  5 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNDN",
+      "fromDisplayName": "Neasden Underground Station",
+      "toStationId": "940GZZLUDOH",
+      "toDisplayName": "Dollis Hill Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Neasden,+Neasden+Station+Underground+Ltd,+Neasden+Ln,+London+NW10+1PH/Dollis+Hill,+Hamilton+Rd,+London+NW10+5NB/@51.5531433,-0.2550605,15z/data=!4m18!4m17!1m5!1m1!1s0x487611a65398d825:0x757a3fc71912e7a2!2m2!1d-0.2497317!2d51.5540337!1m5!1m1!1s0x487611ab83f25ab9:0x806fbc4f028c626e!2m2!1d-0.2387564!2d51.5519705!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Neasden",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Jubilee 8:01 AM from Neasden £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNDN",
+      "fromDisplayName": "Neasden Underground Station",
+      "toStationId": "940GZZLUWYP",
+      "toDisplayName": "Wembley Park Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Neasden,+Neasden+Station+Underground+Ltd,+Neasden+Ln,+London+NW10+1PH/Wembley+Park,+Wembley+HA9+9AA/@51.558806,-0.2853387,14z/data=!4m18!4m17!1m5!1m1!1s0x487611a65398d825:0x757a3fc71912e7a2!2m2!1d-0.2497317!2d51.5540337!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:02 AM from Neasden",
+        "fare": "£2.50",
+        "rawText": "4 min  8:02 AM (Monday) – 8:06 AM Jubilee 8:02 AM from Neasden £2.50 Details  4 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBNGW",
+      "fromDisplayName": "North Greenwich",
+      "toStationId": "HUBCAW",
+      "toDisplayName": "Canary Wharf",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Greenwich+Peninsula,+London/Canary+Wharf,+Underground+Ltd,+Heron+Quays+Rd,+Canary+Wharf+Estate,+London+E14+4HJ/@51.4923811,-0.0391945,13.05z/data=!4m18!4m17!1m5!1m1!1s0x47d8a82323ee1337:0x8258b83016275e17!2m2!1d0.0074949!2d51.4859576!1m5!1m1!1s0x487602b9f2217913:0x9faadacbf961c37!2m2!1d-0.019624!2d51.5036499!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 20,
+        "schedule": "8:03 AM (Monday) – 8:23 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:04 AM from Pelton Road (Stop C)",
+        "fare": "£4.05",
+        "rawText": "20 min 8:03 AM (Monday) – 8:23 AM 188   Jubilee 8:04 AM from Pelton Road (Stop C) £4.05  6 min Details  25 min"
+      },
+      "deltaFromGraphMinutes": 18,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBNGW",
+      "fromDisplayName": "North Greenwich",
+      "toStationId": "HUBCAN",
+      "toDisplayName": "Canning Town",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Greenwich+Peninsula,+London/Canning+Town,+London/@51.4986147,-0.0485732,12.04z/data=!4m18!4m17!1m5!1m1!1s0x47d8a82323ee1337:0x8258b83016275e17!2m2!1d0.0074949!2d51.4859576!1m5!1m1!1s0x47d8a80a13dd5b1f:0x6556eb86a3c15006!2m2!1d0.0132!2d51.5189494!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 32,
+        "schedule": "8:03 AM (Monday) – 8:35 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:04 AM from Pelton Road (Stop C)",
+        "fare": "£4.05",
+        "rawText": "32 min 8:03 AM (Monday) – 8:35 AM 188   Jubilee  8:04 AM from Pelton Road (Stop C) £4.05  17 min Details  36 min"
+      },
+      "deltaFromGraphMinutes": 29,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUQBY",
+      "fromDisplayName": "Queensbury Underground Station",
+      "toStationId": "940GZZLUCPK",
+      "toDisplayName": "Canons Park Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Queensbury+Station,+Edgware/Canons+Park,+Whitchurch+Ln,+Edgware+HA8+6RN/@51.6009166,-0.3004389,15z/data=!4m18!4m17!1m5!1m1!1s0x487613fe88039c2f:0x564084c1613c0e8f!2m2!1d-0.2855813!2d51.5947109!1m5!1m1!1s0x4876140566a22259:0x460b229db0de56a3!2m2!1d-0.2946105!2d51.607601!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:03 AM (Monday) – 8:06 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:03 AM from Queensbury",
+        "fare": "£2.50",
+        "rawText": "3 min 8:03 AM (Monday) – 8:06 AM Jubilee 8:03 AM from Queensbury £2.50 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUQBY",
+      "fromDisplayName": "Queensbury Underground Station",
+      "toStationId": "940GZZLUKBY",
+      "toDisplayName": "Kingsbury Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Queensbury+Station,+Edgware/Kingsbury,+Underground+Ltd,+Kingsbury+Station,+Kingsbury+Rd,+Kingsbury+Circle,+London+NW9+9EG/@51.589595,-0.2923835,15z/data=!4m18!4m17!1m5!1m1!1s0x487613fe88039c2f:0x564084c1613c0e8f!2m2!1d-0.2855813!2d51.5947109!1m5!1m1!1s0x48761159131abcaf:0xb551dd7c54fff69e!2m2!1d-0.2787047!2d51.5848468!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:03 AM from Queensbury",
+        "fare": "£2.30",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Jubilee 8:03 AM from Queensbury £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSWK",
+      "fromDisplayName": "Southwark Underground Station",
+      "toStationId": "HUBLBG",
+      "toDisplayName": "London Bridge",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Southwark,+68-70+Blackfriars+Rd,+London+SE1+8JZ/London+Bridge,+Station+Approach+Rd,+London+SE1+9SP/@51.5047813,-0.1159025,14z/data=!4m18!4m17!1m5!1m1!1s0x487604a55081f119:0xe5c754fe411e3149!2m2!1d-0.1049685!2d51.503926!1m5!1m1!1s0x487603509c580b6f:0x335af388238f54bc!2m2!1d-0.0848024!2d51.5042625!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:00 AM (Monday) – 8:06 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Southwark",
+        "fare": "£3.10",
+        "rawText": "6 min 8:00 AM (Monday) – 8:06 AM Jubilee  8:00 AM from Southwark £3.10  3 min Details  6 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSWK",
+      "fromDisplayName": "Southwark Underground Station",
+      "toStationId": "HUBWAT",
+      "toDisplayName": "Waterloo",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Southwark,+68-70+Blackfriars+Rd,+London+SE1+8JZ/Waterloo+Station,+London/@51.5037609,-0.1143357,16z/data=!4m18!4m17!1m5!1m1!1s0x487604a55081f119:0xe5c754fe411e3149!2m2!1d-0.1049685!2d51.503926!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Southwark",
+        "fare": "£3.10",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Jubilee 8:00 AM from Southwark £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSJW",
+      "fromDisplayName": "St. John's Wood Underground Station",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/St.+John's+Wood,+London+NW8+6DN/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/@51.5288376,-0.1759259,15z/data=!4m18!4m17!1m5!1m1!1s0x48761abd0cc05a7f:0x8cfc729c04b56f11!2m2!1d-0.1740969!2d51.5347066!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from St. John's Wood",
+        "fare": "£3.10",
+        "rawText": "4 min 8:01 AM (Monday) – 8:05 AM Jubilee 8:01 AM from St. John's Wood £3.10 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSJW",
+      "fromDisplayName": "St. John's Wood Underground Station",
+      "toStationId": "940GZZLUSWC",
+      "toDisplayName": "Swiss Cottage Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/St.+John's+Wood,+London+NW8+6DN/Swiss+Cottage,+Finchley+Rd,+London+NW3+6HY/@51.5391974,-0.1801359,16z/data=!4m18!4m17!1m5!1m1!1s0x48761abd0cc05a7f:0x8cfc729c04b56f11!2m2!1d-0.1740969!2d51.5347066!1m5!1m1!1s0x48761a90f5172439:0xaaf00b7875302858!2m2!1d-0.1745193!2d51.5436884!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:03 AM from St. John's Wood",
+        "fare": "£2.30",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Jubilee 8:03 AM from St. John's Wood £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSTM",
+      "fromDisplayName": "Stanmore Underground Station",
+      "toStationId": "940GZZLUCPK",
+      "toDisplayName": "Canons Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Stanmore+HA7+4PD/Canons+Park,+Whitchurch+Ln,+Edgware+HA8+6RN/@51.6136443,-0.3091555,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876143e2786d7cd:0xc30d509cbba8ee29!2m2!1d-0.3031205!2d51.6196885!1m5!1m1!1s0x4876140566a22259:0x460b229db0de56a3!2m2!1d-0.2946105!2d51.607601!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Stanmore",
+        "fare": "£2.30",
+        "rawText": "3 min 8:01 AM (Monday) – 8:04 AM Jubilee 8:01 AM from Stanmore £2.30 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBSRA",
+      "fromDisplayName": "Stratford",
+      "toStationId": "HUBWEH",
+      "toDisplayName": "West Ham",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Stratford,+Stratford+Station,+Station+Street,+Stratford,+Greater,+London+E15+1AZ/West+Ham+Station,+London+E15+3BW/@51.5345277,-0.0075654,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761d63d74e4981:0xe6b4025d0effd847!2m2!1d-0.003344!2d51.5411893!1m5!1m1!1s0x47d8a7b06667aeaf:0x6c586c2cd4ab60e5!2m2!1d0.006051!2d51.5285987!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:02 AM (Monday) – 8:09 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:02 AM from Stratford",
+        "fare": "£2.30",
+        "rawText": "7 min 8:02 AM (Monday) – 8:09 AM Jubilee  8:02 AM from Stratford £2.30  4 min Details  9 min"
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSWC",
+      "fromDisplayName": "Swiss Cottage Underground Station",
+      "toStationId": "940GZZLUFYR",
+      "toDisplayName": "Finchley Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Swiss+Cottage,+Finchley+Rd,+London+NW3+6HY/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/@51.5452192,-0.182597,16z/data=!4m18!4m17!1m5!1m1!1s0x48761a90f5172439:0xaaf00b7875302858!2m2!1d-0.1745193!2d51.5436884!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Swiss Cottage",
+        "fare": "£2.30",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Jubilee 8:00 AM from Swiss Cottage £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSWC",
+      "fromDisplayName": "Swiss Cottage Underground Station",
+      "toStationId": "940GZZLUSJW",
+      "toDisplayName": "St. John's Wood Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Swiss+Cottage,+Finchley+Rd,+London+NW3+6HY/St.+John's+Wood,+London+NW8+6DN/@51.5391974,-0.1800785,16z/data=!4m18!4m17!1m5!1m1!1s0x48761a90f5172439:0xaaf00b7875302858!2m2!1d-0.1745193!2d51.5436884!1m5!1m1!1s0x48761abd0cc05a7f:0x8cfc729c04b56f11!2m2!1d-0.1740969!2d51.5347066!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:02 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:02 AM from Swiss Cottage",
+        "fare": "£2.30",
+        "rawText": "1 min 8:02 AM (Monday) – 8:03 AM Jubilee 8:02 AM from Swiss Cottage £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWAT",
+      "fromDisplayName": "Waterloo",
+      "toStationId": "940GZZLUSWK",
+      "toDisplayName": "Southwark Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Waterloo+Station,+London/Southwark,+68-70+Blackfriars+Rd,+London+SE1+8JZ/@51.5037814,-0.1143357,16z/data=!4m18!4m17!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!1m5!1m1!1s0x487604a55081f119:0xe5c754fe411e3149!2m2!1d-0.1049685!2d51.503926!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Waterloo",
+        "fare": "£3.10",
+        "rawText": "1 min 8:01 AM (Monday) – 8:02 AM Jubilee 8:01 AM from Waterloo £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWAT",
+      "fromDisplayName": "Waterloo",
+      "toStationId": "HUBWSM",
+      "toDisplayName": "Westminster",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Waterloo+Station,+London/Westminster,+Underground+Ltd,+Westminster+Station,+Bridge+St,+London+SW1A+2JR/@51.5018072,-0.1297814,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!1m5!1m1!1s0x487604c449b45ed3:0x25f3edbdeb1538df!2m2!1d-0.1248413!2d51.501343!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Waterloo",
+        "fare": "£2.90",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Jubilee 8:01 AM from Waterloo £2.90 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWYP",
+      "fromDisplayName": "Wembley Park Underground Station",
+      "toStationId": "940GZZLUKBY",
+      "toDisplayName": "Kingsbury Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Wembley+Park,+Wembley+HA9+9AA/Kingsbury,+Underground+Ltd,+Kingsbury+Station,+Kingsbury+Rd,+Kingsbury+Circle,+London+NW9+9EG/@51.5741095,-0.3051595,14z/data=!4m18!4m17!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!1m5!1m1!1s0x48761159131abcaf:0xb551dd7c54fff69e!2m2!1d-0.2787047!2d51.5848468!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:00 AM (Monday) – 8:04 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Wembley Park",
+        "fare": "£2.30",
+        "rawText": "4 min  8:00 AM (Monday) – 8:04 AM Jubilee 8:00 AM from Wembley Park £2.30 Details  3 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWYP",
+      "fromDisplayName": "Wembley Park Underground Station",
+      "toStationId": "940GZZLUNDN",
+      "toDisplayName": "Neasden Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Wembley+Park,+Wembley+HA9+9AA/Neasden,+Neasden+Station+Underground+Ltd,+Neasden+Ln,+London+NW10+1PH/@51.5599738,-0.284704,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!1m5!1m1!1s0x487611a65398d825:0x757a3fc71912e7a2!2m2!1d-0.2497317!2d51.5540337!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Wembley Park",
+        "fare": "£2.50",
+        "rawText": "3 min  8:01 AM (Monday) – 8:04 AM Jubilee 8:01 AM from Wembley Park £2.50 Details  3 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWEH",
+      "fromDisplayName": "West Ham",
+      "toStationId": "HUBCAN",
+      "toDisplayName": "Canning Town",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/West+Ham+Station,+London+E15+3BW/Canning+Town,+London/@51.5213718,-0.0009398,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a7b06667aeaf:0x6c586c2cd4ab60e5!2m2!1d0.006051!2d51.5285987!1m5!1m1!1s0x47d8a80a13dd5b1f:0x6556eb86a3c15006!2m2!1d0.0132!2d51.5189494!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 18,
+        "schedule": "8:00 AM (Monday) – 8:18 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "18 min 8:00 AM (Monday) – 8:18 AM  Jubilee   19 min"
+      },
+      "deltaFromGraphMinutes": 15,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWEH",
+      "fromDisplayName": "West Ham",
+      "toStationId": "HUBSRA",
+      "toDisplayName": "Stratford",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/West+Ham+Station,+London+E15+3BW/Stratford,+Stratford+Station,+Station+Street,+Stratford,+Greater,+London+E15+1AZ/@51.5343387,-0.0077104,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a7b06667aeaf:0x6c586c2cd4ab60e5!2m2!1d0.006051!2d51.5285987!1m5!1m1!1s0x48761d63d74e4981:0xe6b4025d0effd847!2m2!1d-0.003344!2d51.5411893!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:01 AM (Monday) – 8:09 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:06 AM from West Ham",
+        "fare": "£2.30",
+        "rawText": "8 min 8:01 AM (Monday) – 8:09 AM  Jubilee 8:06 AM from West Ham £2.30  5 min Details  8 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWHD",
+      "fromDisplayName": "West Hampstead",
+      "toStationId": "940GZZLUFYR",
+      "toDisplayName": "Finchley Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/West+Hampstead,+London+NW6+2LS/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/@51.5471004,-0.1957123,15z/data=!4m18!4m17!1m5!1m1!1s0x487610782b0aeab1:0xa4cc0f7d05ba0029!2m2!1d-0.1909335!2d51.5467378!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from West Hampstead",
+        "fare": "£2.30",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Jubilee 8:00 AM from West Hampstead £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWHD",
+      "fromDisplayName": "West Hampstead",
+      "toStationId": "940GZZLUKBN",
+      "toDisplayName": "Kilburn Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/West+Hampstead,+London+NW6+2LS/Kilburn,+Kilburn+Station+Underground+Ltd,+Shoot-Up+Hill,+London+NW6+7QL/@51.5466462,-0.207693,15z/data=!3m2!4b1!5s0x487610658e74f64d:0xabdc1fe2f041e7f!4m18!4m17!1m5!1m1!1s0x487610782b0aeab1:0xa4cc0f7d05ba0029!2m2!1d-0.1909335!2d51.5467378!1m5!1m1!1s0x48761065f2ed1603:0x311ae3adc2833627!2m2!1d-0.2044711!2d51.546955!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from West Hampstead",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Jubilee 8:00 AM from West Hampstead £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWSM",
+      "fromDisplayName": "Westminster",
+      "toStationId": "940GZZLUGPK",
+      "toDisplayName": "Green Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Westminster,+Underground+Ltd,+Westminster+Station,+Bridge+St,+London+SW1A+2JR/Green+Park,+Underground+Ltd,+Piccadilly,+London+W1J+9DZ/@51.5037475,-0.1441623,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604c449b45ed3:0x25f3edbdeb1538df!2m2!1d-0.1248413!2d51.501343!1m5!1m1!1s0x487605284b601641:0xffa5020435a597ad!2m2!1d-0.1428838!2d51.5069327!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Westminster",
+        "fare": "£3.10",
+        "rawText": "2 min  8:01 AM (Monday) – 8:03 AM Jubilee 8:01 AM from Westminster £3.10 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWSM",
+      "fromDisplayName": "Westminster",
+      "toStationId": "HUBWAT",
+      "toDisplayName": "Waterloo",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Westminster,+Underground+Ltd,+Westminster+Station,+Bridge+St,+London+SW1A+2JR/Waterloo+Station,+London/@51.5019862,-0.1293039,15z/data=!4m18!4m17!1m5!1m1!1s0x487604c449b45ed3:0x25f3edbdeb1538df!2m2!1d-0.1248413!2d51.501343!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Westminster",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Jubilee 8:01 AM from Westminster £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWIG",
+      "fromDisplayName": "Willesden Green Underground Station",
+      "toStationId": "940GZZLUDOH",
+      "toDisplayName": "Dollis Hill Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Willesden+Green,+Walm+Ln,+London+NW2+4QT/Dollis+Hill,+Hamilton+Rd,+London+NW10+5NB/@51.5505827,-0.240437,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876105a59cccd87:0xce364e17625df04!2m2!1d-0.2212208!2d51.5491753!1m5!1m1!1s0x487611ab83f25ab9:0x806fbc4f028c626e!2m2!1d-0.2387564!2d51.5519705!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:01 AM from Willesden Green",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Jubilee 8:01 AM from Willesden Green £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWIG",
+      "fromDisplayName": "Willesden Green Underground Station",
+      "toStationId": "940GZZLUKBN",
+      "toDisplayName": "Kilburn Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Willesden+Green,+Walm+Ln,+London+NW2+4QT/Kilburn,+Kilburn+Station+Underground+Ltd,+Shoot-Up+Hill,+London+NW6+7QL/@51.5481137,-0.2235923,15z/data=!3m1!5s0x487610658e74f64d:0xabdc1fe2f041e7f!4m18!4m17!1m5!1m1!1s0x4876105a59cccd87:0xce364e17625df04!2m2!1d-0.2212208!2d51.5491753!1m5!1m1!1s0x48761065f2ed1603:0x311ae3adc2833627!2m2!1d-0.2044711!2d51.546955!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-jubilee",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Jubilee",
+        "departureSummary": "8:00 AM from Willesden Green",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Jubilee 8:00 AM from Willesden Green £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    }
+  ]
+}

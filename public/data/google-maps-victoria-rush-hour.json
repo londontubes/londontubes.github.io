@@ -1,0 +1,597 @@
+{
+  "metadata": {
+    "lineCode": "victoria",
+    "source": "Google Maps browser capture via MCP Playwright",
+    "requestedDeparture": {
+      "dayLabel": "Monday",
+      "localDate": "2026-04-13",
+      "localTime": "08:00",
+      "timeZone": "Europe/London",
+      "googleMapsTimestampParam": "1776067200"
+    },
+    "scope": "Direct adjacent Victoria line station pairs derived from static graph edges",
+    "totalPairs": 30,
+    "matchedPairs": 26,
+    "unavailablePairs": 4,
+    "generatedAt": "2026-04-10T21:57:07.410Z",
+    "notes": [
+      "This file stores Monday 8am Google Maps reference times for direct Victoria line station pairs so future work does not need to re-query Google Maps.",
+      "Pairs with no Victoria option remain in the dataset with captureStatus set to no-victoria-option-found.",
+      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+    ]
+  },
+  "journeys": [
+    {
+      "fromStationId": "HUBBHO",
+      "fromDisplayName": "Blackhorse Road",
+      "toStationId": "HUBTOM",
+      "toDisplayName": "Tottenham Hale",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Blackhorse+Road,+Underground+Ltd,+Blackhorse+Rd,+London+E17+6ND/Tottenham+Hale,+London+N17+9FD/@51.5875223,-0.071709,14z/data=!4m18!4m17!1m5!1m1!1s0x48761dce7616e0c5:0x423359e36ce84c58!2m2!1d-0.040984!2d51.5869505!1m5!1m1!1s0x48761c3ab3fbe0cd:0xe98d19bad3f74974!2m2!1d-0.059796!2d51.5890318!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:00 AM (Monday) – 8:04 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Blackhorse Road",
+        "fare": "£2.30",
+        "rawText": " 4 min 8:00 AM (Monday) – 8:04 AM Victoria 8:00 AM from Blackhorse Road £2.30  1 min Details"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBHO",
+      "fromDisplayName": "Blackhorse Road",
+      "toStationId": "HUBWHC",
+      "toDisplayName": "Walthamstow Central",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Blackhorse+Road,+Underground+Ltd,+Blackhorse+Rd,+London+E17+6ND/Walthamstow+Central+station,+London/@51.5849775,-0.0513857,14z/data=!4m18!4m17!1m5!1m1!1s0x48761dce7616e0c5:0x423359e36ce84c58!2m2!1d-0.040984!2d51.5869505!1m5!1m1!1s0x48761debd0afb9df:0x76ceba631bb39370!2m2!1d-0.0203916!2d51.5835003!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Blackhorse Road",
+        "fare": "£2.30",
+        "rawText": " 2 min 8:00 AM (Monday) – 8:02 AM Victoria 8:00 AM from Blackhorse Road £2.30 Details"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBRX",
+      "fromDisplayName": "Brixton",
+      "toStationId": "940GZZLUSKW",
+      "toDisplayName": "Stockwell Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Brixton,+Brixton+Underground+Station+Underground+Ltd,+Brixton+Rd,+London+SW9+8HE/Stockwell,+London+SW9+9AE/@51.4674139,-0.1297488,15z/data=!4m18!4m17!1m5!1m1!1s0x48760467d4180df9:0x4d7a0d7493b505a7!2m2!1d-0.1147482!2d51.4625983!1m5!1m1!1s0x4876045f4e371b43:0x4ff8b3db951bbef6!2m2!1d-0.1228245!2d51.4723538!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Brixton",
+        "fare": "£2.30",
+        "rawText": " 2 min 8:00 AM (Monday) – 8:02 AM Victoria 8:00 AM from Brixton £2.30 Details"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBEUS",
+      "fromDisplayName": "Euston",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5290119,-0.1338418,16z/data=!4m18!4m17!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-victoria-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Victoria line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBEUS",
+      "fromDisplayName": "Euston",
+      "toStationId": "940GZZLUWRR",
+      "toDisplayName": "Warren Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/Warren+Street,+London+NW1+3AA/@51.5257713,-0.1401801,16z/data=!4m18!4m17!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!1m5!1m1!1s0x48761b287c57e88f:0xd8cdd6e9ba30ec59!2m2!1d-0.1381671!2d51.5246192!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-victoria-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Victoria line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBFPK",
+      "fromDisplayName": "Finsbury Park",
+      "toStationId": "HUBHHY",
+      "toDisplayName": "Highbury & Islington",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Finsbury+Park,+Station+Pl,+Finsbury+Park,+London+N4+2DH/Highbury+%26+Islington,+Holloway+Rd,+London+N5+1RA/@51.5553597,-0.1155418,15z/data=!4m18!4m17!1m5!1m1!1s0x48761b9b2e08a38b:0xba5d26747ab58306!2m2!1d-0.1057405!2d51.564728!1m5!1m1!1s0x48761b653388bf1d:0x1d5cf24795d37f00!2m2!1d-0.1045902!2d51.5459924!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Finsbury Park",
+        "fare": "£2.30",
+        "rawText": " 2 min  8:00 AM (Monday) – 8:02 AM Victoria 8:00 AM from Finsbury Park £2.30 Details"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBFPK",
+      "fromDisplayName": "Finsbury Park",
+      "toStationId": "HUBSVS",
+      "toDisplayName": "Seven Sisters",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Finsbury+Park,+Station+Pl,+Finsbury+Park,+London+N4+2DH/Seven+Sisters,+Seven+Sisters+Rd,+South+Tottenham,+London+N15+5LA/@51.5731825,-0.1106614,14z/data=!4m18!4m17!1m5!1m1!1s0x48761b9b2e08a38b:0xba5d26747ab58306!2m2!1d-0.1057405!2d51.564728!1m5!1m1!1s0x48761c141446f665:0xd0837b96940b17ef!2m2!1d-0.0749855!2d51.5823277!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:01 AM (Monday) – 8:07 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:01 AM from Finsbury Park",
+        "fare": "£2.50",
+        "rawText": " 6 min 8:01 AM (Monday) – 8:07 AM Victoria 8:01 AM from Finsbury Park £2.50  2 min Details"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGPK",
+      "fromDisplayName": "Green Park Underground Station",
+      "toStationId": "940GZZLUOXC",
+      "toDisplayName": "Oxford Circus Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Green+Park,+Underground+Ltd,+Piccadilly,+London+W1J+9DZ/Oxford+Circus,+Oxford+St,+London+W1B+3AG/@51.5109247,-0.1477703,16z/data=!4m18!4m17!1m5!1m1!1s0x487605284b601641:0xffa5020435a597ad!2m2!1d-0.1428838!2d51.5069327!1m5!1m1!1s0x48761ad54dd1d07b:0x478fdf4aa1695102!2m2!1d-0.1418553!2d51.5152117!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Green Park",
+        "fare": "£3.10",
+        "rawText": " 3 min  8:00 AM (Monday) – 8:03 AM Victoria 8:00 AM from Green Park £3.10 Details"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGPK",
+      "fromDisplayName": "Green Park Underground Station",
+      "toStationId": "HUBVIC",
+      "toDisplayName": "Victoria",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Green+Park,+Underground+Ltd,+Piccadilly,+London+W1J+9DZ/Victoria,+Victoria+St,+London+SW1E+5ND/@51.501071,-0.1570209,15z/data=!4m18!4m17!1m5!1m1!1s0x487605284b601641:0xffa5020435a597ad!2m2!1d-0.1428838!2d51.5069327!1m5!1m1!1s0x48760521aaebdc4d:0x5d364f36086cfd15!2m2!1d-0.1438979!2d51.4952103!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:01 AM (Monday) – 8:06 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:01 AM from Green Park",
+        "fare": "£2.90",
+        "rawText": " 5 min  8:01 AM (Monday) – 8:06 AM Victoria 8:01 AM from Green Park £2.90  2 min Details"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHHY",
+      "fromDisplayName": "Highbury & Islington",
+      "toStationId": "HUBFPK",
+      "toDisplayName": "Finsbury Park",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Highbury+%26+Islington,+Holloway+Rd,+London+N5+1RA/Finsbury+Park,+Station+Pl,+Finsbury+Park,+London+N4+2DH/@51.5553597,-0.1155144,15z/data=!4m18!4m17!1m5!1m1!1s0x48761b653388bf1d:0x1d5cf24795d37f00!2m2!1d-0.1045902!2d51.5459924!1m5!1m1!1s0x48761b9b2e08a38b:0xba5d26747ab58306!2m2!1d-0.1057405!2d51.564728!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Highbury & Islington",
+        "fare": "£2.30",
+        "rawText": " 3 min  8:00 AM (Monday) – 8:03 AM Victoria 8:00 AM from Highbury & Islington £2.30 Details"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHHY",
+      "fromDisplayName": "Highbury & Islington",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Highbury+%26+Islington,+Holloway+Rd,+London+N5+1RA/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5390849,-0.1348674,14z/data=!4m18!4m17!1m5!1m1!1s0x48761b653388bf1d:0x1d5cf24795d37f00!2m2!1d-0.1045902!2d51.5459924!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:01 AM (Monday) – 8:07 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:01 AM from Highbury & Islington",
+        "fare": "£3.10",
+        "rawText": " 6 min  8:01 AM (Monday) – 8:07 AM Victoria  8:01 AM from Highbury & Islington £3.10  3 min Details"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "HUBEUS",
+      "toDisplayName": "Euston",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/@51.5287921,-0.1336892,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-victoria-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Victoria line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "HUBHHY",
+      "toDisplayName": "Highbury & Islington",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/Highbury+%26+Islington,+Holloway+Rd,+London+N5+1RA/@51.5386761,-0.1348674,14z/data=!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761b653388bf1d:0x1d5cf24795d37f00!2m2!1d-0.1045902!2d51.5459924!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:00 AM (Monday) – 8:07 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:04 AM from King's Cross St. Pancras",
+        "fare": "£2.90",
+        "rawText": " 7 min  8:00 AM (Monday) – 8:07 AM  Victoria 8:04 AM from King's Cross St. Pancras £2.90  4 min Details"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUOXC",
+      "fromDisplayName": "Oxford Circus Underground Station",
+      "toStationId": "940GZZLUGPK",
+      "toDisplayName": "Green Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Oxford+Circus,+Oxford+St,+London+W1B+3AG/Green+Park,+Underground+Ltd,+Piccadilly,+London+W1J+9DZ/@51.510947,-0.1477703,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ad54dd1d07b:0x478fdf4aa1695102!2m2!1d-0.1418553!2d51.5152117!1m5!1m1!1s0x487605284b601641:0xffa5020435a597ad!2m2!1d-0.1428838!2d51.5069327!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Oxford Circus",
+        "fare": "£3.10",
+        "rawText": " 2 min  8:00 AM (Monday) – 8:02 AM Victoria 8:00 AM from Oxford Circus £3.10 Details"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUOXC",
+      "fromDisplayName": "Oxford Circus Underground Station",
+      "toStationId": "940GZZLUWRR",
+      "toDisplayName": "Warren Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Oxford+Circus,+Oxford+St,+London+W1B+3AG/Warren+Street,+London+NW1+3AA/@51.5199153,-0.1455687,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ad54dd1d07b:0x478fdf4aa1695102!2m2!1d-0.1418553!2d51.5152117!1m5!1m1!1s0x48761b287c57e88f:0xd8cdd6e9ba30ec59!2m2!1d-0.1381671!2d51.5246192!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:01 AM from Oxford Circus",
+        "fare": "£3.10",
+        "rawText": " 2 min 8:01 AM (Monday) – 8:03 AM Victoria 8:01 AM from Oxford Circus £3.10 Details"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPCO",
+      "fromDisplayName": "Pimlico Underground Station",
+      "toStationId": "HUBVXH",
+      "toDisplayName": "Vauxhall",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Pimlico,+Rampayne+St,+Pimlico,+London+SW1V+2JA/Vauxhall,+London+SW8+2LN/@51.4875758,-0.1394649,15z/data=!4m18!4m17!1m5!1m1!1s0x487604e6a3bb68b9:0x85057604ed8042b9!2m2!1d-0.133332!2d51.4892548!1m5!1m1!1s0x487604ee638e80f1:0x8a1d863e70b19d4!2m2!1d-0.1239279!2d51.4859811!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Pimlico",
+        "fare": "£3.10",
+        "rawText": " 1 min 8:00 AM (Monday) – 8:01 AM Victoria 8:00 AM from Pimlico £3.10 Details"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPCO",
+      "fromDisplayName": "Pimlico Underground Station",
+      "toStationId": "HUBVIC",
+      "toDisplayName": "Victoria",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Pimlico,+Rampayne+St,+Pimlico,+London+SW1V+2JA/Victoria,+Victoria+St,+London+SW1E+5ND/@51.4920715,-0.1513268,15z/data=!4m18!4m17!1m5!1m1!1s0x487604e6a3bb68b9:0x85057604ed8042b9!2m2!1d-0.133332!2d51.4892548!1m5!1m1!1s0x48760521aaebdc4d:0x5d364f36086cfd15!2m2!1d-0.1438979!2d51.4952103!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:01 AM from Pimlico",
+        "fare": "£3.10",
+        "rawText": " 4 min  8:01 AM (Monday) – 8:05 AM Victoria 8:01 AM from Pimlico £3.10  2 min Details"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBSVS",
+      "fromDisplayName": "Seven Sisters",
+      "toStationId": "HUBFPK",
+      "toDisplayName": "Finsbury Park",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Seven+Sisters,+Seven+Sisters+Rd,+South+Tottenham,+London+N15+5LA/Finsbury+Park,+Station+Pl,+Finsbury+Park,+London+N4+2DH/@51.5736189,-0.1104814,14z/data=!4m18!4m17!1m5!1m1!1s0x48761c141446f665:0xd0837b96940b17ef!2m2!1d-0.0749855!2d51.5823277!1m5!1m1!1s0x48761b9b2e08a38b:0xba5d26747ab58306!2m2!1d-0.1057405!2d51.564728!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:01 AM (Monday) – 8:09 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:05 AM from Seven Sisters",
+        "fare": "£2.50",
+        "rawText": " 8 min 8:01 AM (Monday) – 8:09 AM  Victoria 8:05 AM from Seven Sisters £2.50  4 min Details"
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBSVS",
+      "fromDisplayName": "Seven Sisters",
+      "toStationId": "HUBTOM",
+      "toDisplayName": "Tottenham Hale",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Seven+Sisters,+Seven+Sisters+Rd,+South+Tottenham,+London+N15+5LA/Tottenham+Hale,+London+N17+9FD/@51.5854937,-0.0777133,15z/data=!4m18!4m17!1m5!1m1!1s0x48761c141446f665:0xd0837b96940b17ef!2m2!1d-0.0749855!2d51.5823277!1m5!1m1!1s0x48761c3ab3fbe0cd:0xe98d19bad3f74974!2m2!1d-0.059796!2d51.5890318!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:00 AM (Monday) – 8:06 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:03 AM from Seven Sisters",
+        "fare": "£2.30",
+        "rawText": " 6 min 8:00 AM (Monday) – 8:06 AM Victoria 8:03 AM from Seven Sisters £2.30  4 min Details"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSKW",
+      "fromDisplayName": "Stockwell Underground Station",
+      "toStationId": "HUBBRX",
+      "toDisplayName": "Brixton",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Stockwell,+London+SW9+9AE/Brixton,+Brixton+Underground+Station+Underground+Ltd,+Brixton+Rd,+London+SW9+8HE/@51.4674139,-0.1297488,15z/data=!4m18!4m17!1m5!1m1!1s0x4876045f4e371b43:0x4ff8b3db951bbef6!2m2!1d-0.1228245!2d51.4723538!1m5!1m1!1s0x48760467d4180df9:0x4d7a0d7493b505a7!2m2!1d-0.1147482!2d51.4625983!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Stockwell",
+        "fare": "£2.30",
+        "rawText": " 3 min 8:00 AM (Monday) – 8:03 AM Victoria 8:00 AM from Stockwell £2.30 Details"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSKW",
+      "fromDisplayName": "Stockwell Underground Station",
+      "toStationId": "HUBVXH",
+      "toDisplayName": "Vauxhall",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Stockwell,+London+SW9+9AE/Vauxhall,+London+SW8+2LN/@51.4789248,-0.1325061,15z/data=!4m18!4m17!1m5!1m1!1s0x4876045f4e371b43:0x4ff8b3db951bbef6!2m2!1d-0.1228245!2d51.4723538!1m5!1m1!1s0x487604ee638e80f1:0x8a1d863e70b19d4!2m2!1d-0.1239279!2d51.4859811!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:01 AM from Stockwell",
+        "fare": "£2.30",
+        "rawText": " 2 min 8:01 AM (Monday) – 8:03 AM Victoria 8:01 AM from Stockwell £2.30 Details"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBTOM",
+      "fromDisplayName": "Tottenham Hale",
+      "toStationId": "HUBBHO",
+      "toDisplayName": "Blackhorse Road",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Tottenham+Hale,+London+N17+9FD/Blackhorse+Road,+Underground+Ltd,+Blackhorse+Rd,+London+E17+6ND/@51.5875223,-0.0713733,14z/data=!3m1!5s0x48761dce7653ed37:0x5d25f7898db3220f!4m18!4m17!1m5!1m1!1s0x48761c3ab3fbe0cd:0xe98d19bad3f74974!2m2!1d-0.059796!2d51.5890318!1m5!1m1!1s0x48761dce7616e0c5:0x423359e36ce84c58!2m2!1d-0.040984!2d51.5869505!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:03 AM from Tottenham Hale",
+        "fare": "£2.30",
+        "rawText": " 4 min 8:01 AM (Monday) – 8:05 AM Victoria 8:03 AM from Tottenham Hale £2.30  2 min Details"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBTOM",
+      "fromDisplayName": "Tottenham Hale",
+      "toStationId": "HUBSVS",
+      "toDisplayName": "Seven Sisters",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Tottenham+Hale,+London+N17+9FD/Seven+Sisters,+Seven+Sisters+Rd,+South+Tottenham,+London+N15+5LA/@51.5857349,-0.0777133,15z/data=!4m18!4m17!1m5!1m1!1s0x48761c3ab3fbe0cd:0xe98d19bad3f74974!2m2!1d-0.059796!2d51.5890318!1m5!1m1!1s0x48761c141446f665:0xd0837b96940b17ef!2m2!1d-0.0749855!2d51.5823277!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:01 AM (Monday) – 8:07 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:03 AM from Tottenham Hale",
+        "fare": "£2.30",
+        "rawText": " 6 min 8:01 AM (Monday) – 8:07 AM Victoria 8:03 AM from Tottenham Hale £2.30  4 min Details"
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBVXH",
+      "fromDisplayName": "Vauxhall",
+      "toStationId": "940GZZLUPCO",
+      "toDisplayName": "Pimlico Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Vauxhall,+London+SW8+2LN/Pimlico,+Rampayne+St,+Pimlico,+London+SW1V+2JA/@51.4875285,-0.1394749,15z/data=!4m18!4m17!1m5!1m1!1s0x487604ee638e80f1:0x8a1d863e70b19d4!2m2!1d-0.1239279!2d51.4859811!1m5!1m1!1s0x487604e6a3bb68b9:0x85057604ed8042b9!2m2!1d-0.133332!2d51.4892548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Vauxhall",
+        "fare": "£3.10",
+        "rawText": " 1 min 8:00 AM (Monday) – 8:01 AM Victoria 8:00 AM from Vauxhall £3.10 Details"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBVXH",
+      "fromDisplayName": "Vauxhall",
+      "toStationId": "940GZZLUSKW",
+      "toDisplayName": "Stockwell Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Vauxhall,+London+SW8+2LN/Stockwell,+London+SW9+9AE/@51.4789048,-0.1324797,15z/data=!4m18!4m17!1m5!1m1!1s0x487604ee638e80f1:0x8a1d863e70b19d4!2m2!1d-0.1239279!2d51.4859811!1m5!1m1!1s0x4876045f4e371b43:0x4ff8b3db951bbef6!2m2!1d-0.1228245!2d51.4723538!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Vauxhall",
+        "fare": "£2.30",
+        "rawText": " 2 min 8:00 AM (Monday) – 8:02 AM Victoria 8:00 AM from Vauxhall £2.30 Details"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBVIC",
+      "fromDisplayName": "Victoria",
+      "toStationId": "940GZZLUGPK",
+      "toDisplayName": "Green Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Victoria,+Victoria+St,+London+SW1E+5ND/Green+Park,+Underground+Ltd,+Piccadilly,+London+W1J+9DZ/@51.5011362,-0.1575726,15z/data=!4m18!4m17!1m5!1m1!1s0x48760521aaebdc4d:0x5d364f36086cfd15!2m2!1d-0.1438979!2d51.4952103!1m5!1m1!1s0x487605284b601641:0xffa5020435a597ad!2m2!1d-0.1428838!2d51.5069327!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:00 AM (Monday) – 8:05 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:03 AM from Victoria",
+        "fare": "£3.10",
+        "rawText": " 5 min  8:00 AM (Monday) – 8:05 AM Victoria 8:03 AM from Victoria £3.10  3 min Details"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBVIC",
+      "fromDisplayName": "Victoria",
+      "toStationId": "940GZZLUPCO",
+      "toDisplayName": "Pimlico Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Victoria,+Victoria+St,+London+SW1E+5ND/Pimlico,+Rampayne+St,+Pimlico,+London+SW1V+2JA/@51.4926846,-0.1485677,15z/data=!4m18!4m17!1m5!1m1!1s0x48760521aaebdc4d:0x5d364f36086cfd15!2m2!1d-0.1438979!2d51.4952103!1m5!1m1!1s0x487604e6a3bb68b9:0x85057604ed8042b9!2m2!1d-0.133332!2d51.4892548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:04 AM from Victoria",
+        "fare": "£3.10",
+        "rawText": " 4 min  8:01 AM (Monday) – 8:05 AM Victoria 8:04 AM from Victoria £3.10  3 min Details"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWHC",
+      "fromDisplayName": "Walthamstow Central",
+      "toStationId": "HUBBHO",
+      "toDisplayName": "Blackhorse Road",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Walthamstow+Central+station,+London/Blackhorse+Road,+Underground+Ltd,+Blackhorse+Rd,+London+E17+6ND/@51.5849775,-0.0513796,14z/data=!4m18!4m17!1m5!1m1!1s0x48761debd0afb9df:0x76ceba631bb39370!2m2!1d-0.0203916!2d51.5835003!1m5!1m1!1s0x48761dce7616e0c5:0x423359e36ce84c58!2m2!1d-0.040984!2d51.5869505!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Walthamstow Central",
+        "fare": "£2.30",
+        "rawText": " 2 min 8:00 AM (Monday) – 8:02 AM Victoria 8:00 AM from Walthamstow Central £2.30 Details"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWRR",
+      "fromDisplayName": "Warren Street Underground Station",
+      "toStationId": "HUBEUS",
+      "toDisplayName": "Euston",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Warren+Street,+London+NW1+3AA/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/@51.5257675,-0.1410443,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b287c57e88f:0xd8cdd6e9ba30ec59!2m2!1d-0.1381671!2d51.5246192!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-victoria-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Victoria line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUWRR",
+      "fromDisplayName": "Warren Street Underground Station",
+      "toStationId": "940GZZLUOXC",
+      "toDisplayName": "Oxford Circus Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Warren+Street,+London+NW1+3AA/Oxford+Circus,+Oxford+St,+London+W1B+3AG/@51.5199153,-0.1455687,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b287c57e88f:0xd8cdd6e9ba30ec59!2m2!1d-0.1381671!2d51.5246192!1m5!1m1!1s0x48761ad54dd1d07b:0x478fdf4aa1695102!2m2!1d-0.1418553!2d51.5152117!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-victoria",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Victoria",
+        "departureSummary": "8:00 AM from Warren Street",
+        "fare": "£3.10",
+        "rawText": " 2 min 8:00 AM (Monday) – 8:02 AM Victoria 8:00 AM from Warren Street £3.10 Details"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    }
+  ]
+}

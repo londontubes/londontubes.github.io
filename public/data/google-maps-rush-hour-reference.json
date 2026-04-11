@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-04-10T20:14:47Z",
+  "source": "google-maps-browser-mcp",
+  "notes": "Browser-captured Google Maps public transport reference times for future comparison against the generated in-network dataset.",
+  "routes": [
+    {
+      "fromStationId": "940GZZLUHBN",
+      "fromDisplayName": "Holborn Underground Station",
+      "toStationId": "HUBFPK",
+      "toDisplayName": "Finsbury Park",
+      "requestedDeparture": {
+        "day": "Monday",
+        "date": "2026-04-13",
+        "time": "08:00",
+        "timeZone": "Europe/London"
+      },
+      "observedJourney": {
+        "mode": "TRANSIT",
+        "operatorHint": "London Underground",
+        "lineSummary": "Piccadilly",
+        "departureTime": "08:01",
+        "arrivalTime": "08:13",
+        "durationMinutes": 12,
+        "fareGbp": 3.6
+      },
+      "capturedFromUrl": "https://www.google.com/maps/dir/Holborn+Station,+London+WC2B+6AA/Finsbury+Pk+station,+Finsbury+Park,+London/@51.5410603,-0.1562721,13z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b5f5e20f7f3:0x5b06d6e3d13612dd!2m2!1d-0.1199363!2d51.5175074!1m5!1m1!1s0x48761b9b2e08a38b:0x8b3ec9feb44e77f1!2m2!1d-0.1063033!2d51.5645602!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu",
+      "capturedVia": "browser MCP snapshot"
+    }
+  ]
+}

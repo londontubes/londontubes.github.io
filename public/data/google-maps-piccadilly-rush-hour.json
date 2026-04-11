@@ -1,0 +1,1033 @@
+{
+  "metadata": {
+    "lineCode": "piccadilly",
+    "source": "Google Maps browser capture via MCP Playwright",
+    "requestedDeparture": {
+      "dayLabel": "Monday",
+      "localDate": "2026-04-13",
+      "localTime": "08:00",
+      "timeZone": "Europe/London",
+      "googleMapsTimestampParam": "1776067200"
+    },
+    "scope": "Direct adjacent Piccadilly line station pairs derived from static graph edges",
+    "totalPairs": 54,
+    "matchedPairs": 51,
+    "unavailablePairs": 3,
+    "generatedAt": "2026-04-10T20:47:50.011Z",
+    "notes": [
+      "This file stores Monday 8am Google Maps reference times for direct Piccadilly station pairs so future work does not need to re-query Google Maps.",
+      "Pairs with no Piccadilly option remain in the dataset with captureStatus set to no-piccadilly-option-found.",
+      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+    ]
+  },
+  "journeys": [
+    {
+      "fromStationId": "940GZZLUACT",
+      "fromDisplayName": "Acton Town Underground Station",
+      "toStationId": "940GZZLUSEA",
+      "toDisplayName": "South Ealing Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Acton+Town,+Gunnersbury+Ln,+London+W3+8HN/South+Ealing,+S+Ealing+Rd,+London+W5+4QB/@51.5033943,-0.3142441,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760e086bc508eb:0xa856a59bf4b41e3b!2m2!1d-0.2802019!2d51.502956!1m5!1m1!1s0x48760d9318f0e131:0x75e5f13900c37abe!2m2!1d-0.3069292!2d51.5013268!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:01 AM from Acton Town",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUACT",
+      "fromDisplayName": "Acton Town Underground Station",
+      "toStationId": "940GZZLUTNG",
+      "toDisplayName": "Turnham Green Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Acton+Town,+Gunnersbury+Ln,+London+W3+8HN/Turnham+Green,+Chiswick,+London+W4+1QN/@51.5014089,-0.287895,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760e086bc508eb:0xa856a59bf4b41e3b!2m2!1d-0.2802019!2d51.502956!1m5!1m1!1s0x48760e3f1480c889:0x64c03a3daa0d97aa!2m2!1d-0.2544554!2d51.4951856!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-piccadilly-option-found",
+      "source": "google-maps-line-specific-recapture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps surfaced District services at Monday 8am; no Piccadilly option was shown for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUALP",
+      "fromDisplayName": "Alperton Underground Station",
+      "toStationId": "940GZZLUPKR",
+      "toDisplayName": "Park Royal Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Alperton,+Wembley+HA0+4LL/Park+Royal+Station,+London/@51.5337556,-0.3021123,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876123c061d43f7:0x62e04aba46414af8!2m2!1d-0.2993331!2d51.5407153!1m5!1m1!1s0x4876121d110a7549:0xea30ef59be78769b!2m2!1d-0.2841314!2d51.5271526!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:02 AM from Alperton",
+        "fare": "£2.50"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUASG",
+      "fromDisplayName": "Arnos Grove Underground Station",
+      "toStationId": "940GZZLUSGT",
+      "toDisplayName": "Southgate Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Arnos+Grove+Station,+Arnos+Grove,+London/Southgate,+High+St+N,+London+N14+5BH/@51.624172,-0.1420552,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761973b834e76d:0xc39f55f8ce08e252!2m2!1d-0.1332221!2d51.6161583!1m5!1m1!1s0x4876191aec20cf3f:0x4cb6fb09cbfaf155!2m2!1d-0.12779!2d51.632317!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:02 AM from Arnos Grove",
+        "fare": "£2.10"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUASL",
+      "fromDisplayName": "Arsenal Underground Station",
+      "toStationId": "HUBFPK",
+      "toDisplayName": "Finsbury Park",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Arsenal,+Underground+Ltd,+Highbury+Hill,+London+N5+1LP/Finsbury+Park,+London/@51.5616793,-0.1113234,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b9d15de8e2b:0xd3d3fe7f68567029!2m2!1d-0.1056624!2d51.5584175!1m5!1m1!1s0x48761b8e9f69f329:0x404352348e379d2!2m2!1d-0.1047257!2d51.5645784!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-recapture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "Piccadilly ",
+        "departureSummary": "8:02 AM from Arsenal",
+        "fare": "£2.30  3 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBSC",
+      "fromDisplayName": "Barons Court Underground Station",
+      "toStationId": "940GZZLUECT",
+      "toDisplayName": "Earl's Court Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Barons+Court,+Underground+Ltd,+Palliser+Rd,+London+W14/Earl's+Court,+Earls+Ct+Rd,+London+SW5+9AA/@51.489019,-0.2285788,14z/data=!3m2!4b1!5s0x48760f8c87101067:0x11e66a6137d5bf63!4m18!4m17!1m5!1m1!1s0x48760fbe4450375f:0xfb644531656f4352!2m2!1d-0.2135906!2d51.4903156!1m5!1m1!1s0x48760f8b6465814d:0xb8cc4edf517cf836!2m2!1d-0.1938947!2d51.4915767!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-line-specific-recapture",
+      "observedJourney": {
+        "durationMinutes": 13,
+        "schedule": " 8:00 AM (Monday) – 8:13 AM",
+        "lineSummary": "Piccadilly  Piccadilly",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 10,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBOS",
+      "fromDisplayName": "Boston Manor Underground Station",
+      "toStationId": "940GZZLUNFD",
+      "toDisplayName": "Northfields Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Boston+Manor+Station/Northfields,+Underground+Ltd,+Northfields+Station,+Northfield+Ave,+London+W13+9QU/@51.4976129,-0.3295705,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760d9f22345acb:0x39bd6d906830a2ab!2m2!1d-0.3245923!2d51.4957692!1m5!1m1!1s0x48760d912f0528fb:0xcc0a2d1522aef370!2m2!1d-0.3142307!2d51.4993588!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:02 AM from Boston Manor",
+        "fare": "£2.50"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBDS",
+      "fromDisplayName": "Bounds Green Underground Station",
+      "toStationId": "940GZZLUASG",
+      "toDisplayName": "Arnos Grove Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Bounds+Green,+Underground+Ltd,+Bounds+Green+Rd,+London+N11+2EU/Arnos+Grove+Station,+Arnos+Grove,+London/@51.6115822,-0.1376427,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761965d339eb2f:0x9446466b6b54021c!2m2!1d-0.1243025!2d51.6071396!1m5!1m1!1s0x48761973b834e76d:0xc39f55f8ce08e252!2m2!1d-0.1332221!2d51.6161583!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:01 AM from Bounds Green",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCAR",
+      "fromDisplayName": "Caledonian Road Underground Station",
+      "toStationId": "940GZZLUHWY",
+      "toDisplayName": "Holloway Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Caledonian+Road,+Underground+Ltd,+Caledonian+Rd,+London+N7+9BA/Holloway+Road,+Underground+Ltd,+Holloway+Rd,+London+N7+8HS/@51.5507791,-0.1208576,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b0d2ffbfa61:0x89e2d87b1842e652!2m2!1d-0.1182525!2d51.5485515!1m5!1m1!1s0x48761b74141528a5:0xff90d4cd02404e26!2m2!1d-0.1128521!2d51.5528332!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:01 AM from Caledonian Road",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUECM",
+      "fromDisplayName": "Ealing Common Underground Station",
+      "toStationId": "940GZZLUACT",
+      "toDisplayName": "Acton Town Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Ealing+Common,+Station+Underground+Ltd,+Uxbridge+Rd,+London+W5+3LD/Acton+Town,+Gunnersbury+Ln,+London+W3+8HN/@51.5065192,-0.2892428,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760df94d37f009:0xbedd3994c966ff75!2m2!1d-0.2882065!2d51.5102322!1m5!1m1!1s0x48760e086bc508eb:0xa856a59bf4b41e3b!2m2!1d-0.2802019!2d51.502956!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:04 AM (Monday) – 8:07 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:04 AM from Ealing Common",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUECM",
+      "fromDisplayName": "Ealing Common Underground Station",
+      "toStationId": "940GZZLUNEN",
+      "toDisplayName": "North Ealing Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Ealing+Common,+Station+Underground+Ltd,+Uxbridge+Rd,+London+W5+3LD/North+Ealing,+Station+Rd,+London+W5+3AF/@51.5138246,-0.2950675,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760df94d37f009:0xbedd3994c966ff75!2m2!1d-0.2882065!2d51.5102322!1m5!1m1!1s0x48761206d0ad9995:0x9718a7c5efe419d4!2m2!1d-0.2890518!2d51.5175662!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:07 AM (Monday) – 8:09 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:07 AM from Ealing Common",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEAE",
+      "fromDisplayName": "Eastcote Underground Station",
+      "toStationId": "940GZZLURYL",
+      "toDisplayName": "Rayners Lane Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Eastcote,+Underground+Ltd,+London,+Field+End+Rd,+Ruislip+HA5+1QZ/Rayners+Lane,+Harrow,+Pinner+HA5+5EH/@51.5761625,-0.4045589,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766cf5de8f134b:0x5fdbe7ac2262c0d4!2m2!1d-0.3971429!2d51.5765526!1m5!1m1!1s0x487613367c92c34b:0x757f39ff172d7815!2m2!1d-0.3708618!2d51.5751034!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:01 AM from Eastcote",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBFPK",
+      "fromDisplayName": "Finsbury Park",
+      "toStationId": "940GZZLUMRH",
+      "toDisplayName": "Manor House Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Finsbury+Park,+London/Manor+House,+Underground+Ltd,+Manor+House+Station,+Green+Lanes,+Finsbury+Park,+London+N4+1BZ/@51.5679278,-0.1110187,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b8e9f69f329:0x404352348e379d2!2m2!1d-0.1047257!2d51.5645784!1m5!1m1!1s0x48761b89b78c77a3:0xb0e7d86e431815cf!2m2!1d-0.0960443!2d51.570886!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:02 AM (Monday) – 8:08 AM",
+        "lineSummary": " Piccadilly",
+        "departureSummary": "8:06 AM from Finsbury Park",
+        "fare": "£2.30  4 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGTR",
+      "fromDisplayName": "Gloucester Road Underground Station",
+      "toStationId": "940GZZLUECT",
+      "toDisplayName": "Earl's Court Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Gloucester+Road,+Underground+Ltd,+Gloucester+Rd,+South+Kensington,+London+SW7+4SF/Earl's+Court,+Earls+Ct+Rd,+London+SW5+9AA/@51.4933538,-0.1986193,15z/data=!3m2!4b1!5s0x48760f8c87101067:0x11e66a6137d5bf63!4m18!4m17!1m5!1m1!1s0x4876055e04e36c63:0x1a065843becf8404!2m2!1d-0.1827321!2d51.4944048!1m5!1m1!1s0x48760f8b6465814d:0xb8cc4edf517cf836!2m2!1d-0.1938947!2d51.4915767!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:00 AM from Gloucester Road",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGPK",
+      "fromDisplayName": "Green Park Underground Station",
+      "toStationId": "940GZZLUHPC",
+      "toDisplayName": "Hyde Park Corner Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Green+Park,+Underground+Ltd,+Piccadilly,+London+W1J+9DZ/Hyde+Pk+Corner+Station,+London/@51.504525,-0.1581858,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487605284b601641:0xffa5020435a597ad!2m2!1d-0.1428838!2d51.5069327!1m5!1m1!1s0x487605253591733f:0x5a456d31b628882f!2m2!1d-0.1535967!2d51.5031508!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-recapture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": " 8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHMS",
+      "fromDisplayName": "Hammersmith",
+      "toStationId": "940GZZLUACT",
+      "toDisplayName": "Acton Town Underground Station",
+      "graphRunMinutes": 6,
+      "routeUrl": "https://www.google.com/maps/dir/Hammersmith,+London/Acton+Town,+Gunnersbury+Ln,+London+W3+8HN/@51.4970505,-0.2928223,13z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760fb49cf5881d:0xbaa0b2f34e5c12a8!2m2!1d-0.223731!2d51.491187!1m5!1m1!1s0x48760e086bc508eb:0xa856a59bf4b41e3b!2m2!1d-0.2802019!2d51.502956!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 9,
+        "schedule": "8:02 AM (Monday) – 8:11 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:05 AM from Hammersmith",
+        "fare": "£2.50  3 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHMS",
+      "fromDisplayName": "Hammersmith",
+      "toStationId": "940GZZLUBSC",
+      "toDisplayName": "Barons Court Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Hammersmith,+London/Barons+Court,+Underground+Ltd,+Palliser+Rd,+London+W14/@51.4908929,-0.2289395,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760fb49cf5881d:0xbaa0b2f34e5c12a8!2m2!1d-0.223731!2d51.491187!1m5!1m1!1s0x48760fbe4450375f:0xfb644531656f4352!2m2!1d-0.2135906!2d51.4903156!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-piccadilly-option-found",
+      "source": "google-maps-line-specific-recapture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps surfaced walking only at Monday 8am; no Piccadilly public transport option was shown for this direct pair."
+    },
+    {
+      "fromStationId": "HUBHMS",
+      "fromDisplayName": "Hammersmith",
+      "toStationId": "940GZZLUTNG",
+      "toDisplayName": "Turnham Green Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Hammersmith,+London/Turnham+Green,+Chiswick,+London+W4+1QN/@51.4931707,-0.2595195,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760fb49cf5881d:0xbaa0b2f34e5c12a8!2m2!1d-0.223731!2d51.491187!1m5!1m1!1s0x48760e3f1480c889:0x64c03a3daa0d97aa!2m2!1d-0.2544554!2d51.4951856!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-piccadilly-option-found",
+      "source": "google-maps-line-specific-recapture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps surfaced District services at Monday 8am; no Piccadilly option was shown for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUHNX",
+      "fromDisplayName": "Hatton Cross Underground Station",
+      "toStationId": "940GZZLUHWT",
+      "toDisplayName": "Hounslow West Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Hatton+Cross,+Great+South-West+Rd,+Feltham+TW6+3RE/Hounslow+West,+Underground+Ltd,+Hounslow+West+Station,+London,+Bath+Rd,+Hounslow+TW3+3DH/@51.4701225,-0.4252348,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48767307544509b7:0x4be569c97f49f668!2m2!1d-0.423171!2d51.466743!1m5!1m1!1s0x487672d7c1cbb2f9:0xe800912ac469ba62!2m2!1d-0.385718!2d51.473431!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:04 AM (Monday) – 8:08 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:04 AM from Hatton Cross",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHX4",
+      "fromDisplayName": "Heathrow Airport Terminal 4",
+      "toStationId": "940GZZLUHNX",
+      "toDisplayName": "Hatton Cross Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Terminal+4,+Nelson+Rd,+Hounslow+TW6+2GW/Hatton+Cross,+Great+South-West+Rd,+Feltham+TW6+3RE/@51.4646058,-0.4591287,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487673c790311477:0xc7c12ba131bb2c2d!2m2!1d-0.4473622!2d51.4596965!1m5!1m1!1s0x48767307544509b7:0x4be569c97f49f668!2m2!1d-0.423171!2d51.466743!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-line-specific-recapture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:06 AM (Monday) – 8:14 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHX4",
+      "fromDisplayName": "Heathrow Airport Terminal 4",
+      "toStationId": "HUBH13",
+      "toDisplayName": "Heathrow Terminals 2 & 3",
+      "graphRunMinutes": 5,
+      "routeUrl": "https://www.google.com/maps/dir/Terminal+4,+Nelson+Rd,+Hounslow+TW6+2GW/London+Heathrow+Terminal+2,+Hounslow+TW6+1EW/@51.4688337,-0.4800792,13z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487673c790311477:0xc7c12ba131bb2c2d!2m2!1d-0.4473622!2d51.4596965!1m5!1m1!1s0x487673cb7840a715:0x23fbc495025f1e30!2m2!1d-0.4523927!2d51.4695672!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-line-specific-recapture",
+      "observedJourney": {
+        "durationMinutes": 24,
+        "schedule": "8:06 AM (Monday) – 8:30 AM",
+        "lineSummary": "Piccadilly ",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 19,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBH13",
+      "fromDisplayName": "Heathrow Terminals 2 & 3",
+      "toStationId": "940GZZLUHNX",
+      "toDisplayName": "Hatton Cross Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/London+Heathrow+Terminal+2,+Hounslow+TW6+1EW/Hatton+Cross,+Great+South-West+Rd,+Feltham+TW6+3RE/@51.4691204,-0.4594301,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487673cb7840a715:0x23fbc495025f1e30!2m2!1d-0.4523927!2d51.4695672!1m5!1m1!1s0x48767307544509b7:0x4be569c97f49f668!2m2!1d-0.423171!2d51.466743!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 14,
+        "schedule": "8:00 AM (Monday) – 8:14 AM",
+        "lineSummary": " Piccadilly",
+        "departureSummary": "8:11 AM from Heathrow Terminals 2 & 3",
+        "fare": "£2.30  11 min"
+      },
+      "deltaFromGraphMinutes": 11,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBH13",
+      "fromDisplayName": "Heathrow Terminals 2 & 3",
+      "toStationId": "HUBHX5",
+      "toDisplayName": "Heathrow Airport Terminal 5",
+      "graphRunMinutes": 5,
+      "routeUrl": "https://www.google.com/maps/dir/London+Heathrow+Terminal+2,+Hounslow+TW6+1EW/Terminal+5,+Wallis+Rd,+Longford,+Hounslow+TW6+2GA/@51.4742244,-0.5145283,13z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487673cb7840a715:0x23fbc495025f1e30!2m2!1d-0.4523927!2d51.4695672!1m5!1m1!1s0x4876719ddeb398e7:0xe286548410152003!2m2!1d-0.4877641!2d51.4713012!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-recapture",
+      "observedJourney": {
+        "durationMinutes": 15,
+        "schedule": "8:05 AM (Monday) – 8:20 AM",
+        "lineSummary": " Piccadilly",
+        "departureSummary": "8:16 AM from Heathrow Terminals 2 & 3",
+        "fare": "£2.30  11 min"
+      },
+      "deltaFromGraphMinutes": 10,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHGD",
+      "fromDisplayName": "Hillingdon Underground Station",
+      "toStationId": "940GZZLUICK",
+      "toDisplayName": "Ickenham Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Hillingdon,+Underground+Ltd,+Hillingdon+Station,+London,+Long+Ln,+Uxbridge+UB10+9NR/Ickenham,+Underground+Ltd,+Ickenham+Station,+London,+Glebe+Ave,+Uxbridge+UB10+8PD/@51.5579093,-0.451096,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766dca8b2f9e23:0x1863ea0c1a3ef643!2m2!1d-0.4499684!2d51.5537882!1m5!1m1!1s0x48766c4eaf970507:0x6f97af0a2b61789!2m2!1d-0.4419453!2d51.5620552!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:00 AM from Hillingdon",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHBN",
+      "fromDisplayName": "Holborn Underground Station",
+      "toStationId": "940GZZLUCGN",
+      "toDisplayName": "Covent Garden Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Holborn,+Underground+Ltd,+Holborn+Station,+Kingsway,+London+WC2B+6AA/Covent+Garden,+Underground+Ltd,+Long+Acre,+London+WC2E+9JT/@51.5153032,-0.1245624,17z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b3455585daf:0xafaa0170d4158d85!2m2!1d-0.1199958!2d51.5174277!1m5!1m1!1s0x487604cc9188694f:0x388b51ab073ca62!2m2!1d-0.1241621!2d51.5130007!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:02 AM (Monday) – 8:03 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:02 AM from Holborn",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHBN",
+      "fromDisplayName": "Holborn Underground Station",
+      "toStationId": "940GZZLURSQ",
+      "toDisplayName": "Russell Square Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Holborn,+Underground+Ltd,+Holborn+Station,+Kingsway,+London+WC2B+6AA/Russell+Square,+Bernard+St,+London+WC1N+1LJ/@51.5204207,-0.1273142,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b3455585daf:0xafaa0170d4158d85!2m2!1d-0.1199958!2d51.5174277!1m5!1m1!1s0x48761b30d8fe5173:0xcf6c5a5908686210!2m2!1d-0.1242635!2d51.5230788!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:01 AM from Holborn",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHWY",
+      "fromDisplayName": "Holloway Road Underground Station",
+      "toStationId": "940GZZLUASL",
+      "toDisplayName": "Arsenal Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Holloway+Road,+Underground+Ltd,+Holloway+Rd,+London+N7+8HS/Arsenal,+Underground+Ltd,+Highbury+Hill,+London+N5+1LP/@51.5556513,-0.1146729,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b74141528a5:0xff90d4cd02404e26!2m2!1d-0.1128521!2d51.5528332!1m5!1m1!1s0x48761b9d15de8e2b:0xd3d3fe7f68567029!2m2!1d-0.1056624!2d51.5584175!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:00 AM from Holloway Road",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHWC",
+      "fromDisplayName": "Hounslow Central Underground Station",
+      "toStationId": "940GZZLUHWE",
+      "toDisplayName": "Hounslow East Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Hounslow+Central,+Underground+Ltd,+Hounslow+Central+Station,+London,+Lampton+Rd,+Hounslow+TW3+1JG/East+Underground+Station,+Kingsley+Rd,+Hounslow+TW3+4AB/@51.4700369,-0.3719474,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760cd7c637ff79:0xff375b0dfbdd129a!2m2!1d-0.3669241!2d51.4711599!1m5!1m1!1s0x48760d208e1bab1d:0xeb0b99ea8203b2e!2m2!1d-0.3565434!2d51.4733353!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:00 AM (Monday) – 8:04 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:00 AM from Hounslow Central",
+        "fare": "£2.30  2 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHWE",
+      "fromDisplayName": "Hounslow East Underground Station",
+      "toStationId": "940GZZLUOSY",
+      "toDisplayName": "Osterley Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/East+Underground+Station,+Kingsley+Rd,+Hounslow+TW3+4AB/Osterley,+Great+West+Rd,+London+TW7+4PU/@51.4768273,-0.3592945,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760d208e1bab1d:0xeb0b99ea8203b2e!2m2!1d-0.3565434!2d51.4733353!1m5!1m1!1s0x48760d186ff40fb5:0x32f722b7b705511c!2m2!1d-0.3519527!2d51.4810304!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:04 AM (Monday) – 8:09 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:07 AM from Hounslow East",
+        "fare": "£2.30  3 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHWT",
+      "fromDisplayName": "Hounslow West Underground Station",
+      "toStationId": "940GZZLUHWC",
+      "toDisplayName": "Hounslow Central Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Hounslow+West,+Underground+Ltd,+Hounslow+West+Station,+London,+Bath+Rd,+Hounslow+TW3+3DH/Hounslow+Central,+Underground+Ltd,+Hounslow+Central+Station,+London,+Lampton+Rd,+Hounslow+TW3+1JG/@51.4726092,-0.3965426,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487672d7c1cbb2f9:0xe800912ac469ba62!2m2!1d-0.385718!2d51.473431!1m5!1m1!1s0x48760cd7c637ff79:0xff375b0dfbdd129a!2m2!1d-0.3669241!2d51.4711599!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:03 AM from Hounslow West",
+        "fare": "£2.50"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUICK",
+      "fromDisplayName": "Ickenham Underground Station",
+      "toStationId": "940GZZLURSP",
+      "toDisplayName": "Ruislip Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Ickenham,+Underground+Ltd,+Ickenham+Station,+London,+Glebe+Ave,+Uxbridge+UB10+8PD/Ruislip,+Station+Approach,+Ruislip+HA4+8LD/@51.5666288,-0.4523762,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766c4eaf970507:0x6f97af0a2b61789!2m2!1d-0.4419453!2d51.5620552!1m5!1m1!1s0x48766cf6856b8d0d:0x647e19f3e4f18ea0!2m2!1d-0.4213522!2d51.5715206!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:02 AM from Ickenham",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "940GZZLUCAR",
+      "toDisplayName": "Caledonian Road Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/Caledonian+Road,+Underground+Ltd,+Caledonian+Rd,+London+N7+9BA/@51.5393565,-0.1314396,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761b0d2ffbfa61:0x89e2d87b1842e652!2m2!1d-0.1182525!2d51.5485515!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:02 AM (Monday) – 8:09 AM",
+        "lineSummary": " Piccadilly",
+        "departureSummary": "8:06 AM from King's Cross St. Pancras",
+        "fare": "£3.10  4 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "940GZZLURSQ",
+      "toDisplayName": "Russell Square Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/Russell+Square,+Bernard+St,+London+WC1N+1LJ/@51.5271532,-0.1315759,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761b30d8fe5173:0xcf6c5a5908686210!2m2!1d-0.1242635!2d51.5230788!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:01 AM (Monday) – 8:07 AM",
+        "lineSummary": " Piccadilly",
+        "departureSummary": "8:05 AM from King's Cross St. Pancras",
+        "fare": "£3.10  4 min"
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUKNB",
+      "fromDisplayName": "Knightsbridge Underground Station",
+      "toStationId": "940GZZLUHPC",
+      "toDisplayName": "Hyde Park Corner Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Knightsbridge,+Sloane+St,+London+SW3+1AJ/Hyde+Pk+Corner+Station,+London/@51.5019988,-0.162275,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876053909bfa367:0x3fb0a87b22095338!2m2!1d-0.1605382!2d51.5015326!1m5!1m1!1s0x487605253591733f:0x5a456d31b628882f!2m2!1d-0.1535967!2d51.5031508!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:00 AM from Knightsbridge",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLULSQ",
+      "fromDisplayName": "Leicester Square Underground Station",
+      "toStationId": "940GZZLUCGN",
+      "toDisplayName": "Covent Garden Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Leicester+Square,+Square+Station+Underground+Ltd,+Leicester,+Cranbourn+St,+London+WC2H+0AP/Covent+Garden,+Underground+Ltd,+Long+Acre,+London+WC2E+9JT/@51.5123967,-0.1286804,17z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604cd91e8c0f7:0xde0fdd0b8f9a7fcb!2m2!1d-0.128144!2d51.511451!1m5!1m1!1s0x487604cc9188694f:0x388b51ab073ca62!2m2!1d-0.1241621!2d51.5130007!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:01 AM from Leicester Square",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMRH",
+      "fromDisplayName": "Manor House Underground Station",
+      "toStationId": "940GZZLUTPN",
+      "toDisplayName": "Turnpike Lane Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Manor+House,+Underground+Ltd,+Manor+House+Station,+Green+Lanes,+Finsbury+Park,+London+N4+1BZ/Turnpike+Lane,+Westbury+Ave,+London+N15+3NX/@51.5805275,-0.1094801,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b89b78c77a3:0xb0e7d86e431815cf!2m2!1d-0.0960443!2d51.570886!1m5!1m1!1s0x48761bfa58c83271:0x2bbb74222241d7f9!2m2!1d-0.1028194!2d51.5903983!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:00 AM from Manor House",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNFD",
+      "fromDisplayName": "Northfields Underground Station",
+      "toStationId": "940GZZLUSEA",
+      "toDisplayName": "South Ealing Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Northfields,+Underground+Ltd,+Northfields+Station,+Northfield+Ave,+London+W13+9QU/South+Ealing,+S+Ealing+Rd,+London+W5+4QB/@51.4999573,-0.3157463,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760d912f0528fb:0xcc0a2d1522aef370!2m2!1d-0.3142307!2d51.4993588!1m5!1m1!1s0x48760d9318f0e131:0x75e5f13900c37abe!2m2!1d-0.3069292!2d51.5013268!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:00 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:00 AM from Northfields",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUOAK",
+      "fromDisplayName": "Oakwood Underground Station",
+      "toStationId": "940GZZLUCKS",
+      "toDisplayName": "Cockfosters Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Oakwood,+London+N14+4UT/Cockfosters+Station,+Barnet+EN4+0DZ/@51.6494417,-0.1507631,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487618fb6cf92da7:0xe333a241654d0aff!2m2!1d-0.1318275!2d51.6476401!1m5!1m1!1s0x487618509f0d73e1:0x9b635240a357bcf8!2m2!1d-0.1499008!2d51.6516365!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:02 AM (Monday) – 8:07 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:02 AM from Oakwood",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUOSY",
+      "fromDisplayName": "Osterley Underground Station",
+      "toStationId": "940GZZLUBOS",
+      "toDisplayName": "Boston Manor Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Osterley,+Great+West+Rd,+London+TW7+4PU/Boston+Manor+Station/@51.488398,-0.3589532,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760d186ff40fb5:0x32f722b7b705511c!2m2!1d-0.3519527!2d51.4810304!1m5!1m1!1s0x48760d9f22345acb:0x39bd6d906830a2ab!2m2!1d-0.3245923!2d51.4957692!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:04 AM (Monday) – 8:07 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:04 AM from Osterley",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPKR",
+      "fromDisplayName": "Park Royal Underground Station",
+      "toStationId": "940GZZLUNEN",
+      "toDisplayName": "North Ealing Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Park+Royal+Station,+London/North+Ealing,+Station+Rd,+London+W5+3AF/@51.5222422,-0.2918373,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876121d110a7549:0xea30ef59be78769b!2m2!1d-0.2841314!2d51.5271526!1m5!1m1!1s0x48761206d0ad9995:0x9718a7c5efe419d4!2m2!1d-0.2890518!2d51.5175662!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:05 AM (Monday) – 8:08 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:05 AM from Park Royal",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPCC",
+      "fromDisplayName": "Piccadilly Circus Underground Station",
+      "toStationId": "940GZZLUGPK",
+      "toDisplayName": "Green Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Piccadilly+Circus,+London+WIJ+9HP/Green+Park,+Underground+Ltd,+Piccadilly,+London+W1J+9DZ/@51.5083806,-0.1436842,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604d3e05e54bd:0xa3f4c9ef40a075c3!2m2!1d-0.1341683!2d51.510121!1m5!1m1!1s0x487605284b601641:0xffa5020435a597ad!2m2!1d-0.1428838!2d51.5069327!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": " 8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:00 AM from Piccadilly Circus",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPCC",
+      "fromDisplayName": "Piccadilly Circus Underground Station",
+      "toStationId": "940GZZLULSQ",
+      "toDisplayName": "Leicester Square Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Piccadilly+Circus,+London+WIJ+9HP/Leicester+Square,+Square+Station+Underground+Ltd,+Leicester,+Cranbourn+St,+London+WC2H+0AP/@51.5106536,-0.136381,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604d3e05e54bd:0xa3f4c9ef40a075c3!2m2!1d-0.1341683!2d51.510121!1m5!1m1!1s0x487604cd91e8c0f7:0xde0fdd0b8f9a7fcb!2m2!1d-0.128144!2d51.511451!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:02 AM from Piccadilly Circus",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURYL",
+      "fromDisplayName": "Rayners Lane Underground Station",
+      "toStationId": "940GZZLUSHH",
+      "toDisplayName": "South Harrow Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Rayners+Lane,+Harrow,+Pinner+HA5+5EH/South+Harrow,+Pentax+House,+S+Hill+Ave,+South+Harrow,+Harrow+HA2+0DU/@51.5697107,-0.3820664,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487613367c92c34b:0x757f39ff172d7815!2m2!1d-0.3708618!2d51.5751034!1m5!1m1!1s0x487613185e7c3887:0x1c74af7c1e5d21bc!2m2!1d-0.3523553!2d51.5648901!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:05 AM (Monday) – 8:08 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:05 AM from Rayners Lane",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURSM",
+      "fromDisplayName": "Ruislip Manor Underground Station",
+      "toStationId": "940GZZLUEAE",
+      "toDisplayName": "Eastcote Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Ruislip+Manor,+Victoria+Rd,+Ruislip+HA4+9AA/Eastcote,+Underground+Ltd,+London,+Field+End+Rd,+Ruislip+HA5+1QZ/@51.57488,-0.4149995,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766cededa51f2d:0x33830449b76f6b56!2m2!1d-0.4126507!2d51.5730859!1m5!1m1!1s0x48766cf5de8f134b:0x5fdbe7ac2262c0d4!2m2!1d-0.3971429!2d51.5765526!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-line-specific-recapture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:06 AM (Monday) – 8:08 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURSP",
+      "fromDisplayName": "Ruislip Underground Station",
+      "toStationId": "940GZZLURSM",
+      "toDisplayName": "Ruislip Manor Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Ruislip,+Station+Approach,+Ruislip+HA4+8LD/Ruislip+Manor,+Victoria+Rd,+Ruislip+HA4+9AA/@51.5726273,-0.4220697,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766cf6856b8d0d:0x647e19f3e4f18ea0!2m2!1d-0.4213522!2d51.5715206!1m5!1m1!1s0x48766cededa51f2d:0x33830449b76f6b56!2m2!1d-0.4126507!2d51.5730859!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-line-specific-recapture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:04 AM (Monday) – 8:06 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSHH",
+      "fromDisplayName": "South Harrow Underground Station",
+      "toStationId": "940GZZLUSUH",
+      "toDisplayName": "Sudbury Hill Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/South+Harrow,+Pentax+House,+S+Hill+Ave,+South+Harrow,+Harrow+HA2+0DU/Sudbury+Hill,+Greenford+Rd,+Harrow+HA1+3RA/@51.5609327,-0.354538,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487613185e7c3887:0x1c74af7c1e5d21bc!2m2!1d-0.3523553!2d51.5648901!1m5!1m1!1s0x4876130203ac417d:0x530b009e00c70be0!2m2!1d-0.3361642!2d51.5570459!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:02 AM from South Harrow",
+        "fare": "£2.50"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSKS",
+      "fromDisplayName": "South Kensington Underground Station",
+      "toStationId": "940GZZLUGTR",
+      "toDisplayName": "Gloucester Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/South+Kensington,+Pelham+St,+South+Kensington,+London+SW7+2NB/Gloucester+Road,+Underground+Ltd,+Gloucester+Rd,+South+Kensington,+London+SW7+4SF/@51.4939816,-0.1884375,15z/data=!3m2!4b1!5s0x4876055fcb042041:0x863d477c01a13e4c!4m18!4m17!1m5!1m1!1s0x48760542833057f7:0x368956695a79cad7!2m2!1d-0.1739576!2d51.4941558!1m5!1m1!1s0x4876055e04e36c63:0x1a065843becf8404!2m2!1d-0.1827321!2d51.4944048!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-line-specific-recapture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSKS",
+      "fromDisplayName": "South Kensington Underground Station",
+      "toStationId": "940GZZLUKNB",
+      "toDisplayName": "Knightsbridge Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/South+Kensington,+Pelham+St,+South+Kensington,+London+SW7+2NB/Knightsbridge,+Sloane+St,+London+SW3+1AJ/@51.4978135,-0.1775262,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760542833057f7:0x368956695a79cad7!2m2!1d-0.1739576!2d51.4941558!1m5!1m1!1s0x4876053909bfa367:0x3fb0a87b22095338!2m2!1d-0.1605382!2d51.5015326!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:01 AM from South Kensington",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSGT",
+      "fromDisplayName": "Southgate Underground Station",
+      "toStationId": "940GZZLUOAK",
+      "toDisplayName": "Oakwood Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Southgate,+High+St+N,+London+N14+5BH/Oakwood,+London+N14+4UT/@51.6400049,-0.1391068,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876191aec20cf3f:0x4cb6fb09cbfaf155!2m2!1d-0.12779!2d51.632317!1m5!1m1!1s0x487618fb6cf92da7:0xe333a241654d0aff!2m2!1d-0.1318275!2d51.6476401!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:02 AM from Southgate",
+        "fare": "£2.50"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSUH",
+      "fromDisplayName": "Sudbury Hill Underground Station",
+      "toStationId": "940GZZLUSUT",
+      "toDisplayName": "Sudbury Town Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Sudbury+Hill,+Greenford+Rd,+Harrow+HA1+3RA/Sudbury+Town,+Station+Approach,+Wembley+HA0+2LA/@51.553518,-0.3471409,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876130203ac417d:0x530b009e00c70be0!2m2!1d-0.3361642!2d51.5570459!1m5!1m1!1s0x4876124e7cef9ff3:0x27af954e50790abb!2m2!1d-0.3155344!2d51.5509461!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:04 AM (Monday) – 8:06 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:04 AM from Sudbury Hill",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSUT",
+      "fromDisplayName": "Sudbury Town Underground Station",
+      "toStationId": "940GZZLUALP",
+      "toDisplayName": "Alperton Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Sudbury+Town,+Station+Approach,+Wembley+HA0+2LA/Alperton,+Wembley+HA0+4LL/@51.5457973,-0.3178339,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876124e7cef9ff3:0x27af954e50790abb!2m2!1d-0.3155344!2d51.5509461!1m5!1m1!1s0x4876123c061d43f7:0x62e04aba46414af8!2m2!1d-0.2993331!2d51.5407153!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:00 AM from Sudbury Town",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTPN",
+      "fromDisplayName": "Turnpike Lane Underground Station",
+      "toStationId": "940GZZLUWOG",
+      "toDisplayName": "Wood Green Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Turnpike+Lane,+Westbury+Ave,+London+N15+3NX/Wood+Green,+London+N22+8HH/@51.5938822,-0.1115229,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761bfa58c83271:0x2bbb74222241d7f9!2m2!1d-0.1028194!2d51.5903983!1m5!1m1!1s0x48761be2437f0f49:0xe981923d6225b8df!2m2!1d-0.1097711!2d51.5974392!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:01 AM from Turnpike Lane",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUUXB",
+      "fromDisplayName": "Uxbridge Underground Station",
+      "toStationId": "940GZZLUHGD",
+      "toDisplayName": "Hillingdon Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Uxbridge,+High+St,+Uxbridge+UB8+1JZ/Hillingdon,+Underground+Ltd,+Hillingdon+Station,+London,+Long+Ln,+Uxbridge+UB10+9NR/@51.550133,-0.4845379,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766e7a1db3443b:0x842ba1365be07a8e!2m2!1d-0.4780527!2d51.5464419!1m5!1m1!1s0x48766dca8b2f9e23:0x1863ea0c1a3ef643!2m2!1d-0.4499684!2d51.5537882!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-line-specific-recapture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:17 AM (Monday) – 8:19 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWOG",
+      "fromDisplayName": "Wood Green Underground Station",
+      "toStationId": "940GZZLUBDS",
+      "toDisplayName": "Bounds Green Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Wood+Green,+London+N22+8HH/Bounds+Green,+Underground+Ltd,+Bounds+Green+Rd,+London+N11+2EU/@51.6023788,-0.1275724,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761be2437f0f49:0xe981923d6225b8df!2m2!1d-0.1097711!2d51.5974392!1m5!1m1!1s0x48761965d339eb2f:0x9446466b6b54021c!2m2!1d-0.1243025!2d51.6071396!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-piccadilly",
+      "source": "google-maps-recapture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Piccadilly",
+        "departureSummary": "8:00 AM from Wood Green",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    }
+  ]
+}

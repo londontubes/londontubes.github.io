@@ -1,0 +1,929 @@
+{
+  "metadata": {
+    "lineCode": "bakerloo",
+    "source": "Google Maps browser capture via MCP Playwright",
+    "requestedDeparture": {
+      "dayLabel": "Monday",
+      "localDate": "2026-04-13",
+      "localTime": "08:00",
+      "timeZone": "Europe/London",
+      "googleMapsTimestampParam": "1776067200"
+    },
+    "scope": "Direct adjacent Bakerloo line station pairs derived from static graph edges",
+    "totalPairs": 48,
+    "matchedPairs": 40,
+    "unavailablePairs": 8,
+    "generatedAt": "2026-04-10T23:04:10.162Z",
+    "notes": [
+      "This file stores Monday 8am Google Maps reference times for direct Bakerloo line station pairs so future work does not need to re-query Google Maps.",
+      "Pairs with no Bakerloo option remain in the dataset with captureStatus set to no-bakerloo-option-found.",
+      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+    ]
+  },
+  "journeys": [
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "toStationId": "HUBMYB",
+      "toDisplayName": "Marylebone",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/Marylebone,+Melcombe+Pl,+London+NW1+6JJ/@51.5223427,-0.1647605,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!1m5!1m1!1s0x48761ad700f20f75:0x97252678a201f826!2m2!1d-0.163173!2d51.5224432!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-bakerloo-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Bakerloo option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "toStationId": "940GZZLURGP",
+      "toDisplayName": "Regent's Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/Regent's+Pk,+Marylebone+Rd,+London+NW1+5HA/@51.5232892,-0.1608804,15z/data=!4m18!4m17!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!1m5!1m1!1s0x48761ad72e4323a9:0xddb8493742bbe1fa!2m2!1d-0.1467184!2d51.5235971!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:02 AM from Baker Street",
+        "fare": "£3.10",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Bakerloo 8:02 AM from Baker Street £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCHX",
+      "fromDisplayName": "Charing Cross",
+      "toStationId": "940GZZLUEMB",
+      "toDisplayName": "Embankment Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Charing+Cross,+Strand,+London+WC2N+5HF/Embankment,+London+WC2N+6NS/@51.5077,-0.1259339,17z/data=!4m18!4m17!1m5!1m1!1s0x487604ceeaadbb11:0xdf61c9ec353e1637!2m2!1d-0.1247557!2d51.5081113!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-bakerloo-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Bakerloo option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBCHX",
+      "fromDisplayName": "Charing Cross",
+      "toStationId": "940GZZLUPCC",
+      "toDisplayName": "Piccadilly Circus Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Charing+Cross,+Strand,+London+WC2N+5HF/Piccadilly+Circus,+London+WIJ+9HP/@51.5086435,-0.1399631,15z/data=!4m18!4m17!1m5!1m1!1s0x487604ceeaadbb11:0xdf61c9ec353e1637!2m2!1d-0.1247557!2d51.5081113!1m5!1m1!1s0x487604d3e05e54bd:0xa3f4c9ef40a075c3!2m2!1d-0.1341683!2d51.510121!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:01 AM (Monday) – 8:06 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:04 AM from Charing Cross",
+        "fare": "£3.10",
+        "rawText": "5 min 8:01 AM (Monday) – 8:06 AM Bakerloo 8:04 AM from Charing Cross £3.10  3 min Details  5 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUERB",
+      "fromDisplayName": "Edgware Road (Bakerloo) Underground Station",
+      "toStationId": "HUBMYB",
+      "toDisplayName": "Marylebone",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Edgware+Road,+Underground+Ltd,+Edgware+Rd,+London+W2+1DY/Marylebone,+Melcombe+Pl,+London+NW1+6JJ/@51.5213407,-0.1711883,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ab6aa336037:0x6d85207552a2db32!2m2!1d-0.1701944!2d51.5202914!1m5!1m1!1s0x48761ad700f20f75:0x97252678a201f826!2m2!1d-0.163173!2d51.5224432!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:02 AM from Edgware Road",
+        "fare": "£3.10",
+        "rawText": "4 min 8:02 AM (Monday) – 8:06 AM Bakerloo 8:02 AM from Edgware Road £3.10  2 min Details  4 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUERB",
+      "fromDisplayName": "Edgware Road (Bakerloo) Underground Station",
+      "toStationId": "HUBPAD",
+      "toDisplayName": "Paddington",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Edgware+Road,+Underground+Ltd,+Edgware+Rd,+London+W2+1DY/Paddington,+Praed+St,+London+W2+1HU/@51.5181753,-0.1840948,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ab6aa336037:0x6d85207552a2db32!2m2!1d-0.1701944!2d51.5202914!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:02 AM from Edgware Road",
+        "fare": "£3.10",
+        "rawText": "4 min 8:02 AM (Monday) – 8:06 AM Bakerloo 8:02 AM from Edgware Road £3.10  2 min Details  4 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBEPH",
+      "fromDisplayName": "Elephant & Castle",
+      "toStationId": "940GZZLULBN",
+      "toDisplayName": "Lambeth North Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Elephant+and+Castle,+London/Lambeth+North,+Underground+Ltd,+Lambeth+North+Station,+110+Westminster+Bridge+Rd,+London+SE1+7XG/@51.4969832,-0.1162469,15z/data=!4m18!4m17!1m5!1m1!1s0x487604a23d99f27f:0x1a4907e34b872655!2m2!1d-0.1004748!2d51.4959129!1m5!1m1!1s0x487604beab3b0abf:0x2b305263231e367b!2m2!1d-0.1121086!2d51.4989177!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:00 AM (Monday) – 8:05 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:03 AM from Elephant & Castle",
+        "fare": "£3.10",
+        "rawText": "5 min 8:00 AM (Monday) – 8:05 AM Bakerloo 8:03 AM from Elephant & Castle £3.10  3 min Details  5 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEMB",
+      "fromDisplayName": "Embankment Underground Station",
+      "toStationId": "HUBCHX",
+      "toDisplayName": "Charing Cross",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Embankment,+London+WC2N+6NS/Charing+Cross,+Strand,+London+WC2N+5HF/@51.5077,-0.1259239,17z/data=!4m18!4m17!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!1m5!1m1!1s0x487604ceeaadbb11:0xdf61c9ec353e1637!2m2!1d-0.1247557!2d51.5081113!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-bakerloo-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Bakerloo option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUEMB",
+      "fromDisplayName": "Embankment Underground Station",
+      "toStationId": "HUBWAT",
+      "toDisplayName": "Waterloo",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Embankment,+London+WC2N+6NS/Waterloo+Station,+London/@51.5052409,-0.1232426,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Bakerloo  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHDN",
+      "fromDisplayName": "Harlesden",
+      "toStationId": "HUBSBP",
+      "toDisplayName": "Stonebridge Park",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Harlesden,+London/Stonebridge+Park,+Stonebridge+Park+Station,+North+Circular+Road,+Stonebridge+Park,+Greater,+London+NW10+0RL/@51.5377939,-0.300443,13z/data=!4m18!4m17!1m5!1m1!1s0x487611b7d98c880f:0x260eae2ec8a61db1!2m2!1d-0.2427341!2d51.5371009!1m5!1m1!1s0x4876118f2503bf43:0xaaa609708a245bb2!2m2!1d-0.2753492!2d51.5439748!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 19,
+        "schedule": "8:02 AM (Monday) – 8:21 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "19 min 8:02 AM (Monday) – 8:21 AM  Bakerloo  20 min "
+      },
+      "deltaFromGraphMinutes": 16,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHDN",
+      "fromDisplayName": "Harlesden",
+      "toStationId": "HUBWIJ",
+      "toDisplayName": "Willesden Junction",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Harlesden,+London/Willesden+Junction,+Station+Approach,+London+NW10+4UY/@51.5346086,-0.2510575,16z/data=!4m18!4m17!1m5!1m1!1s0x487611b7d98c880f:0x260eae2ec8a61db1!2m2!1d-0.2427341!2d51.5371009!1m5!1m1!1s0x487611c8e348f5f1:0x48b811af867b376a!2m2!1d-0.2433689!2d51.5321163!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-bakerloo-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Bakerloo option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBHRW",
+      "fromDisplayName": "Harrow & Wealdstone",
+      "toStationId": "HUBKNT",
+      "toDisplayName": "Kenton",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Harrow+%26+Wealdstone,+The+Bridge,+High+St,+Harrow+HA3+5BP/Kenton/@52.0650569,-0.788507,8z/data=!4m18!4m17!1m5!1m1!1s0x4876137941a06ff5:0xbb4f91708f98e221!2m2!1d-0.3343587!2d51.5917236!1m5!1m1!1s0x47d9965bd575806b:0x4a0e939dda229c15!2m2!1d1.2096371!2d52.248271!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 737,
+        "schedule": "10:08 PM (Monday) – 10:25 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "10:08 PM from Harrow & Wealdstone  1 hr 19 min",
+        "fare": null,
+        "rawText": "12 hr 17 min 10:08 PM (Monday) – 10:25 AM (Tuesday) Bakerloo  Jubilee  greateranglia   75  74   High Suffolk CT  10:08 PM from Harrow & Wealdstone  1 hr 19 min Details  12 hr 8 min"
+      },
+      "deltaFromGraphMinutes": 735,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKNL",
+      "fromDisplayName": "Kensal Green",
+      "toStationId": "HUBQPW",
+      "toDisplayName": "Queen's Park",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Kensal+Green,+Overground+Ltd,+College+Rd,+London+HA10+5JT/Queen's+Park,+London/@51.5285672,-0.2267285,15z/data=!4m18!4m17!1m5!1m1!1s0x48761030b4b20089:0xb5805fdbb96ee4c7!2m2!1d-0.225247!2d51.53054!1m5!1m1!1s0x48761015004ce091:0xd537b684625d64b4!2m2!1d-0.2087592!2d51.529211!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 18,
+        "schedule": "8:01 AM (Monday) – 8:19 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "18 min 8:01 AM (Monday) – 8:19 AM Bakerloo   18 min 0.8 mile via Kilravock St  14 min "
+      },
+      "deltaFromGraphMinutes": 14,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKNL",
+      "fromDisplayName": "Kensal Green",
+      "toStationId": "HUBWIJ",
+      "toDisplayName": "Willesden Junction",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Kensal+Green,+Overground+Ltd,+College+Rd,+London+HA10+5JT/Willesden+Junction,+Station+Approach,+London+NW10+4UY/@51.5312975,-0.2548486,14z/data=!4m18!4m17!1m5!1m1!1s0x48761030b4b20089:0xb5805fdbb96ee4c7!2m2!1d-0.225247!2d51.53054!1m5!1m1!1s0x487611c8e348f5f1:0x48b811af867b376a!2m2!1d-0.2433689!2d51.5321163!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:03 AM (Monday) – 8:06 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:03 AM from Kensal Green",
+        "fare": "£2.20",
+        "rawText": "3 min 8:03 AM (Monday) – 8:06 AM Bakerloo 8:03 AM from Kensal Green £2.20 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKNT",
+      "fromDisplayName": "Kenton",
+      "toStationId": "HUBHRW",
+      "toDisplayName": "Harrow & Wealdstone",
+      "graphRunMinutes": 5,
+      "routeUrl": "https://www.google.com/maps/dir/Kenton/Harrow+%26+Wealdstone,+The+Bridge,+High+St,+Harrow+HA3+5BP/@52.0660546,-0.814298,8z/data=!3m1!5s0x46dfe35603cf6735:0xd85c8de82c731752!4m18!4m17!1m5!1m1!1s0x47d9965bd575806b:0x4a0e939dda229c15!2m2!1d1.2096371!2d52.248271!1m5!1m1!1s0x4876137941a06ff5:0xbb4f91708f98e221!2m2!1d-0.3343587!2d51.5917236!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-bakerloo-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Bakerloo option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBKNT",
+      "fromDisplayName": "Kenton",
+      "toStationId": "HUBSOK",
+      "toDisplayName": "South Kenton",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Kenton/South+Kenton+Station,+Wembley/@52.0641903,-0.8013387,8z/data=!4m18!4m17!1m5!1m1!1s0x47d9965bd575806b:0x4a0e939dda229c15!2m2!1d1.2096371!2d52.248271!1m5!1m1!1s0x487613b8f1649251:0x4ff5c757ebabf05f!2m2!1d-0.3079057!2d51.5703924!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-bakerloo-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Bakerloo option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUKPK",
+      "fromDisplayName": "Kilburn Park Underground Station",
+      "toStationId": "940GZZLUMVL",
+      "toDisplayName": "Maida Vale Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Kilburn+Park,+Kilburn+Park+Station+Underground+Ltd,+Cambridge+Ave,+London+NW6+5AD/Maida+Vale,+Underground+Ltd,+Maida+Vale+Station,+Elgin+Ave.,+London+W9+1JS/@51.5324955,-0.195094,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876100b5847f799:0xe9fe84bdbfe018dc!2m2!1d-0.1938988!2d51.5350412!1m5!1m1!1s0x48761aa724512a75:0x7fec10e3675fe99f!2m2!1d-0.1857278!2d51.5298778!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:01 AM from Kilburn Park",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Bakerloo 8:01 AM from Kilburn Park £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUKPK",
+      "fromDisplayName": "Kilburn Park Underground Station",
+      "toStationId": "HUBQPW",
+      "toDisplayName": "Queen's Park",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Kilburn+Park,+Kilburn+Park+Station+Underground+Ltd,+Cambridge+Ave,+London+NW6+5AD/Queen's+Park,+London/@51.5314137,-0.2225253,14z/data=!4m18!4m17!1m5!1m1!1s0x4876100b5847f799:0xe9fe84bdbfe018dc!2m2!1d-0.1938988!2d51.5350412!1m5!1m1!1s0x48761015004ce091:0xd537b684625d64b4!2m2!1d-0.2087592!2d51.529211!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 17,
+        "schedule": "8:00 AM (Monday) – 8:17 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "17 min 8:00 AM (Monday) – 8:17 AM Bakerloo   15 min"
+      },
+      "deltaFromGraphMinutes": 14,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLULBN",
+      "fromDisplayName": "Lambeth North Underground Station",
+      "toStationId": "HUBEPH",
+      "toDisplayName": "Elephant & Castle",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Lambeth+North,+Underground+Ltd,+Lambeth+North+Station,+110+Westminster+Bridge+Rd,+London+SE1+7XG/Elephant+and+Castle,+London/@51.4973182,-0.116563,15z/data=!4m18!4m17!1m5!1m1!1s0x487604beab3b0abf:0x2b305263231e367b!2m2!1d-0.1121086!2d51.4989177!1m5!1m1!1s0x487604a23d99f27f:0x1a4907e34b872655!2m2!1d-0.1004748!2d51.4959129!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:00 AM (Monday) – 8:06 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:00 AM from Lambeth North",
+        "fare": "£3.10",
+        "rawText": "6 min 8:00 AM (Monday) – 8:06 AM Bakerloo  8:00 AM from Lambeth North £3.10  3 min Details  7 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLULBN",
+      "fromDisplayName": "Lambeth North Underground Station",
+      "toStationId": "HUBWAT",
+      "toDisplayName": "Waterloo",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Lambeth+North,+Underground+Ltd,+Lambeth+North+Station,+110+Westminster+Bridge+Rd,+London+SE1+7XG/Waterloo+Station,+London/@51.5009476,-0.116311,17z/data=!4m18!4m17!1m5!1m1!1s0x487604beab3b0abf:0x2b305263231e367b!2m2!1d-0.1121086!2d51.4989177!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:02 AM from Lambeth North",
+        "fare": "£3.10",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Bakerloo 8:02 AM from Lambeth North £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMVL",
+      "fromDisplayName": "Maida Vale Underground Station",
+      "toStationId": "940GZZLUKPK",
+      "toDisplayName": "Kilburn Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Maida+Vale,+Underground+Ltd,+Maida+Vale+Station,+Elgin+Ave.,+London+W9+1JS/Kilburn+Park,+Kilburn+Park+Station+Underground+Ltd,+Cambridge+Ave,+London+NW6+5AD/@51.532501,-0.1951555,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761aa724512a75:0x7fec10e3675fe99f!2m2!1d-0.1857278!2d51.5298778!1m5!1m1!1s0x4876100b5847f799:0xe9fe84bdbfe018dc!2m2!1d-0.1938988!2d51.5350412!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:01 AM from Maida Vale",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Bakerloo 8:01 AM from Maida Vale £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMVL",
+      "fromDisplayName": "Maida Vale Underground Station",
+      "toStationId": "940GZZLUWKA",
+      "toDisplayName": "Warwick Avenue Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Maida+Vale,+Underground+Ltd,+Maida+Vale+Station,+Elgin+Ave.,+London+W9+1JS/Warwick+Avenue,+Warwick+Ave,+London+W9+2PT/@51.5265525,-0.1897233,16z/data=!4m18!4m17!1m5!1m1!1s0x48761aa724512a75:0x7fec10e3675fe99f!2m2!1d-0.1857278!2d51.5298778!1m5!1m1!1s0x48761aa8dd5c66a3:0xea634a2c3c215afa!2m2!1d-0.1838447!2d51.5232546!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:00 AM from Maida Vale",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Bakerloo 8:00 AM from Maida Vale £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBMYB",
+      "fromDisplayName": "Marylebone",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Marylebone,+Melcombe+Pl,+London+NW1+6JJ/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/@51.522769,-0.1651679,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ad700f20f75:0x97252678a201f826!2m2!1d-0.163173!2d51.5224432!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-bakerloo-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Bakerloo option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBMYB",
+      "fromDisplayName": "Marylebone",
+      "toStationId": "940GZZLUERB",
+      "toDisplayName": "Edgware Road (Bakerloo) Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Marylebone,+Melcombe+Pl,+London+NW1+6JJ/Edgware+Road,+Underground+Ltd,+Edgware+Rd,+London+W2+1DY/@51.5211834,-0.175592,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ad700f20f75:0x97252678a201f826!2m2!1d-0.163173!2d51.5224432!1m5!1m1!1s0x48761ab6aa336037:0x6d85207552a2db32!2m2!1d-0.1701944!2d51.5202914!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:04 AM from Marylebone",
+        "fare": "£3.10",
+        "rawText": "4 min 8:01 AM (Monday) – 8:05 AM Bakerloo 8:04 AM from Marylebone £3.10  3 min Details  4 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBNWB",
+      "fromDisplayName": "North Wembley",
+      "toStationId": "HUBSOK",
+      "toDisplayName": "South Kenton",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/North+Wembley,+Wembley/South+Kenton+Station,+Wembley/@51.5663181,-0.3231071,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487613b1f08708d1:0x7bad2251fd6211a3!2m2!1d-0.3175595!2d51.5625616!1m5!1m1!1s0x487613b8f1649251:0x4ff5c757ebabf05f!2m2!1d-0.3079057!2d51.5703924!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 17,
+        "schedule": "8:11 AM (Monday) – 8:28 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "17 min 8:11 AM (Monday) – 8:28 AM  Bakerloo  17 min"
+      },
+      "deltaFromGraphMinutes": 15,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBNWB",
+      "fromDisplayName": "North Wembley",
+      "toStationId": "HUBWMB",
+      "toDisplayName": "Wembley Central",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/North+Wembley,+Wembley/Wembley+Central,+High+Rd,+Wembley+HA0+4AP/@51.5573012,-0.3250622,14z/data=!4m18!4m17!1m5!1m1!1s0x487613b1f08708d1:0x7bad2251fd6211a3!2m2!1d-0.3175595!2d51.5625616!1m5!1m1!1s0x487612323b8c4f03:0xdaf3d90021410b2a!2m2!1d-0.2965274!2d51.5521443!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 16,
+        "schedule": "8:04 AM (Monday) – 8:20 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "16 min  8:04 AM (Monday) – 8:20 AM  Bakerloo  21 min"
+      },
+      "deltaFromGraphMinutes": 14,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUOXC",
+      "fromDisplayName": "Oxford Circus Underground Station",
+      "toStationId": "940GZZLUPCC",
+      "toDisplayName": "Piccadilly Circus Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Oxford+Circus,+Oxford+St,+London+W1B+3AG/Piccadilly+Circus,+London+WIJ+9HP/@51.5129449,-0.143332,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ad54dd1d07b:0x478fdf4aa1695102!2m2!1d-0.1418553!2d51.5152117!1m5!1m1!1s0x487604d3e05e54bd:0xa3f4c9ef40a075c3!2m2!1d-0.1341683!2d51.510121!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:00 AM from Oxford Circus",
+        "fare": "£3.10",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Bakerloo 8:00 AM from Oxford Circus £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUOXC",
+      "fromDisplayName": "Oxford Circus Underground Station",
+      "toStationId": "940GZZLURGP",
+      "toDisplayName": "Regent's Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Oxford+Circus,+Oxford+St,+London+W1B+3AG/Regent's+Pk,+Marylebone+Rd,+London+NW1+5HA/@51.5194043,-0.1494486,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ad54dd1d07b:0x478fdf4aa1695102!2m2!1d-0.1418553!2d51.5152117!1m5!1m1!1s0x48761ad72e4323a9:0xddb8493742bbe1fa!2m2!1d-0.1467184!2d51.5235971!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:02 AM from Oxford Circus",
+        "fare": "£3.10",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Bakerloo 8:02 AM from Oxford Circus £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBPAD",
+      "fromDisplayName": "Paddington",
+      "toStationId": "940GZZLUERB",
+      "toDisplayName": "Edgware Road (Bakerloo) Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Paddington,+Praed+St,+London+W2+1HU/Edgware+Road,+Underground+Ltd,+Edgware+Rd,+London+W2+1DY/@51.5180484,-0.1835703,15z/data=!4m18!4m17!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!1m5!1m1!1s0x48761ab6aa336037:0x6d85207552a2db32!2m2!1d-0.1701944!2d51.5202914!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:04 AM from Paddington",
+        "fare": "£3.10",
+        "rawText": "4 min 8:01 AM (Monday) – 8:05 AM Bakerloo 8:04 AM from Paddington £3.10  3 min Details  4 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBPAD",
+      "fromDisplayName": "Paddington",
+      "toStationId": "940GZZLUWKA",
+      "toDisplayName": "Warwick Avenue Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Paddington,+Praed+St,+London+W2+1HU/Warwick+Avenue,+Warwick+Ave,+London+W9+2PT/@51.5197558,-0.1851735,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!1m5!1m1!1s0x48761aa8dd5c66a3:0xea634a2c3c215afa!2m2!1d-0.1838447!2d51.5232546!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:01 AM (Monday) – 8:06 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:04 AM from Paddington",
+        "fare": "£3.10",
+        "rawText": "5 min 8:01 AM (Monday) – 8:06 AM Bakerloo 8:04 AM from Paddington £3.10  3 min Details  5 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPCC",
+      "fromDisplayName": "Piccadilly Circus Underground Station",
+      "toStationId": "HUBCHX",
+      "toDisplayName": "Charing Cross",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Piccadilly+Circus,+London+WIJ+9HP/Charing+Cross,+Strand,+London+WC2N+5HF/@51.5086595,-0.1398866,15z/data=!4m18!4m17!1m5!1m1!1s0x487604d3e05e54bd:0xa3f4c9ef40a075c3!2m2!1d-0.1341683!2d51.510121!1m5!1m1!1s0x487604ceeaadbb11:0xdf61c9ec353e1637!2m2!1d-0.1247557!2d51.5081113!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:02 AM from Piccadilly Circus",
+        "fare": "£3.10",
+        "rawText": "3 min 8:02 AM (Monday) – 8:05 AM Bakerloo 8:02 AM from Piccadilly Circus £3.10  1 min Details  3 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPCC",
+      "fromDisplayName": "Piccadilly Circus Underground Station",
+      "toStationId": "940GZZLUOXC",
+      "toDisplayName": "Oxford Circus Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Piccadilly+Circus,+London+WIJ+9HP/Oxford+Circus,+Oxford+St,+London+W1B+3AG/@51.5126013,-0.1433742,16z/data=!4m18!4m17!1m5!1m1!1s0x487604d3e05e54bd:0xa3f4c9ef40a075c3!2m2!1d-0.1341683!2d51.510121!1m5!1m1!1s0x48761ad54dd1d07b:0x478fdf4aa1695102!2m2!1d-0.1418553!2d51.5152117!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:00 AM from Piccadilly Circus",
+        "fare": "£3.10",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Bakerloo 8:00 AM from Piccadilly Circus £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBQPW",
+      "fromDisplayName": "Queen's Park",
+      "toStationId": "HUBKNL",
+      "toDisplayName": "Kensal Green",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Queen's+Park,+London/Kensal+Green,+Overground+Ltd,+College+Rd,+London+HA10+5JT/@51.5302849,-0.2353878,14z/data=!4m18!4m17!1m5!1m1!1s0x48761015004ce091:0xd537b684625d64b4!2m2!1d-0.2087592!2d51.529211!1m5!1m1!1s0x48761030b4b20089:0xb5805fdbb96ee4c7!2m2!1d-0.225247!2d51.53054!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 17,
+        "schedule": "8:04 AM (Monday) – 8:21 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "17 min 8:04 AM (Monday) – 8:21 AM  Bakerloo  15 min "
+      },
+      "deltaFromGraphMinutes": 14,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBQPW",
+      "fromDisplayName": "Queen's Park",
+      "toStationId": "940GZZLUKPK",
+      "toDisplayName": "Kilburn Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Queen's+Park,+London/Kilburn+Park,+Kilburn+Park+Station+Underground+Ltd,+Cambridge+Ave,+London+NW6+5AD/@51.5323356,-0.2224313,14z/data=!4m18!4m17!1m5!1m1!1s0x48761015004ce091:0xd537b684625d64b4!2m2!1d-0.2087592!2d51.529211!1m5!1m1!1s0x4876100b5847f799:0xe9fe84bdbfe018dc!2m2!1d-0.1938988!2d51.5350412!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 15,
+        "schedule": "8:01 AM (Monday) – 8:16 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "15 min 8:01 AM (Monday) – 8:16 AM  Bakerloo  20 min "
+      },
+      "deltaFromGraphMinutes": 14,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURGP",
+      "fromDisplayName": "Regent's Park Underground Station",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Regent's+Pk,+Marylebone+Rd,+London+NW1+5HA/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/@51.5232351,-0.1622704,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ad72e4323a9:0xddb8493742bbe1fa!2m2!1d-0.1467184!2d51.5235971!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:01 AM from Regent's Park",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Bakerloo 8:01 AM from Regent's Park £3.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURGP",
+      "fromDisplayName": "Regent's Park Underground Station",
+      "toStationId": "940GZZLUOXC",
+      "toDisplayName": "Oxford Circus Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Regent's+Pk,+Marylebone+Rd,+London+NW1+5HA/Oxford+Circus,+Oxford+St,+London+W1B+3AG/@51.5194043,-0.1494367,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761ad72e4323a9:0xddb8493742bbe1fa!2m2!1d-0.1467184!2d51.5235971!1m5!1m1!1s0x48761ad54dd1d07b:0x478fdf4aa1695102!2m2!1d-0.1418553!2d51.5152117!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:01 AM from Regent's Park",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Bakerloo 8:01 AM from Regent's Park £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBSOK",
+      "fromDisplayName": "South Kenton",
+      "toStationId": "HUBKNT",
+      "toDisplayName": "Kenton",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/South+Kenton+Station,+Wembley/Kenton/@52.0553911,-0.8153076,8z/data=!4m18!4m17!1m5!1m1!1s0x487613b8f1649251:0x4ff5c757ebabf05f!2m2!1d-0.3079057!2d51.5703924!1m5!1m1!1s0x47d9965bd575806b:0x4a0e939dda229c15!2m2!1d1.2096371!2d52.248271!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 718,
+        "schedule": "10:27 PM (Monday) – 10:25 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "11 hr 58 min 10:27 PM (Monday) – 10:25 AM (Tuesday) Bakerloo  Elizabeth line  greateranglia   75  74   High Suffolk CT   11 hr 58 min "
+      },
+      "deltaFromGraphMinutes": 716,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBSOK",
+      "fromDisplayName": "South Kenton",
+      "toStationId": "HUBNWB",
+      "toDisplayName": "North Wembley",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/South+Kenton+Station,+Wembley/North+Wembley,+Wembley/@51.5663422,-0.3230315,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487613b8f1649251:0x4ff5c757ebabf05f!2m2!1d-0.3079057!2d51.5703924!1m5!1m1!1s0x487613b1f08708d1:0x7bad2251fd6211a3!2m2!1d-0.3175595!2d51.5625616!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 16,
+        "schedule": "8:03 AM (Monday) – 8:19 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:03 AM from South Kenton",
+        "fare": "£2.30",
+        "rawText": "16 min 8:03 AM (Monday) – 8:19 AM Bakerloo  8:03 AM from South Kenton £2.30  14 min Details  20 min"
+      },
+      "deltaFromGraphMinutes": 14,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBSBP",
+      "fromDisplayName": "Stonebridge Park",
+      "toStationId": "HUBHDN",
+      "toDisplayName": "Harlesden",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Stonebridge+Park,+Stonebridge+Park+Station,+North+Circular+Road,+Stonebridge+Park,+Greater,+London+NW10+0RL/Harlesden,+London/@51.5367387,-0.3003694,13z/data=!4m18!4m17!1m5!1m1!1s0x4876118f2503bf43:0xaaa609708a245bb2!2m2!1d-0.2753492!2d51.5439748!1m5!1m1!1s0x487611b7d98c880f:0x260eae2ec8a61db1!2m2!1d-0.2427341!2d51.5371009!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 18,
+        "schedule": "8:04 AM (Monday) – 8:22 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "18 min 8:04 AM (Monday) – 8:22 AM Bakerloo   21 min "
+      },
+      "deltaFromGraphMinutes": 16,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBSBP",
+      "fromDisplayName": "Stonebridge Park",
+      "toStationId": "HUBWMB",
+      "toDisplayName": "Wembley Central",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Stonebridge+Park,+Stonebridge+Park+Station,+North+Circular+Road,+Stonebridge+Park,+Greater,+London+NW10+0RL/Wembley+Central,+High+Rd,+Wembley+HA0+4AP/@51.5480577,-0.3065378,14z/data=!4m18!4m17!1m5!1m1!1s0x4876118f2503bf43:0xaaa609708a245bb2!2m2!1d-0.2753492!2d51.5439748!1m5!1m1!1s0x487612323b8c4f03:0xdaf3d90021410b2a!2m2!1d-0.2965274!2d51.5521443!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:08 AM (Monday) – 8:11 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "3 min  8:08 AM (Monday) – 8:11 AM Bakerloo  2 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWKA",
+      "fromDisplayName": "Warwick Avenue Underground Station",
+      "toStationId": "940GZZLUMVL",
+      "toDisplayName": "Maida Vale Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Warwick+Avenue,+Warwick+Ave,+London+W9+2PT/Maida+Vale,+Underground+Ltd,+Maida+Vale+Station,+Elgin+Ave.,+London+W9+1JS/@51.5265113,-0.1898265,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761aa8dd5c66a3:0xea634a2c3c215afa!2m2!1d-0.1838447!2d51.5232546!1m5!1m1!1s0x48761aa724512a75:0x7fec10e3675fe99f!2m2!1d-0.1857278!2d51.5298778!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:00 AM from Warwick Avenue",
+        "fare": "£2.30",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Bakerloo 8:00 AM from Warwick Avenue £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWKA",
+      "fromDisplayName": "Warwick Avenue Underground Station",
+      "toStationId": "HUBPAD",
+      "toDisplayName": "Paddington",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Warwick+Avenue,+Warwick+Ave,+London+W9+2PT/Paddington,+Praed+St,+London+W2+1HU/@51.5197332,-0.1849738,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761aa8dd5c66a3:0xea634a2c3c215afa!2m2!1d-0.1838447!2d51.5232546!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:02 AM from Warwick Avenue",
+        "fare": "£3.10",
+        "rawText": "4 min 8:02 AM (Monday) – 8:06 AM Bakerloo 8:02 AM from Warwick Avenue £3.10  2 min Details  4 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWAT",
+      "fromDisplayName": "Waterloo",
+      "toStationId": "940GZZLUEMB",
+      "toDisplayName": "Embankment Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Waterloo+Station,+London/Embankment,+London+WC2N+6NS/@51.5052401,-0.1231408,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Bakerloo  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWAT",
+      "fromDisplayName": "Waterloo",
+      "toStationId": "940GZZLULBN",
+      "toDisplayName": "Lambeth North Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Waterloo+Station,+London/Lambeth+North,+Underground+Ltd,+Lambeth+North+Station,+110+Westminster+Bridge+Rd,+London+SE1+7XG/@51.5009836,-0.1163024,17z/data=!4m18!4m17!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!1m5!1m1!1s0x487604beab3b0abf:0x2b305263231e367b!2m2!1d-0.1121086!2d51.4989177!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:01 AM from Waterloo",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Bakerloo 8:01 AM from Waterloo £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWMB",
+      "fromDisplayName": "Wembley Central",
+      "toStationId": "HUBNWB",
+      "toDisplayName": "North Wembley",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Wembley+Central,+High+Rd,+Wembley+HA0+4AP/North+Wembley,+Wembley/@51.5573012,-0.3247739,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487612323b8c4f03:0xdaf3d90021410b2a!2m2!1d-0.2965274!2d51.5521443!1m5!1m1!1s0x487613b1f08708d1:0x7bad2251fd6211a3!2m2!1d-0.3175595!2d51.5625616!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 16,
+        "schedule": "8:00 AM (Monday) – 8:16 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:00 AM from Wembley Central",
+        "fare": "£2.20",
+        "rawText": "16 min  8:00 AM (Monday) – 8:16 AM Bakerloo  8:00 AM from Wembley Central £2.20  14 min Details  22 min "
+      },
+      "deltaFromGraphMinutes": 14,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWMB",
+      "fromDisplayName": "Wembley Central",
+      "toStationId": "HUBSBP",
+      "toDisplayName": "Stonebridge Park",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Wembley+Central,+High+Rd,+Wembley+HA0+4AP/Stonebridge+Park,+Stonebridge+Park+Station,+North+Circular+Road,+Stonebridge+Park,+Greater,+London+NW10+0RL/@51.5467684,-0.3075592,14z/data=!4m18!4m17!1m5!1m1!1s0x487612323b8c4f03:0xdaf3d90021410b2a!2m2!1d-0.2965274!2d51.5521443!1m5!1m1!1s0x4876118f2503bf43:0xaaa609708a245bb2!2m2!1d-0.2753492!2d51.5439748!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:01 AM from Wembley Central",
+        "fare": "£2.50",
+        "rawText": "3 min  8:01 AM (Monday) – 8:04 AM Bakerloo 8:01 AM from Wembley Central £2.50 Details  3 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWIJ",
+      "fromDisplayName": "Willesden Junction",
+      "toStationId": "HUBHDN",
+      "toDisplayName": "Harlesden",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Willesden+Junction,+Station+Approach,+London+NW10+4UY/Harlesden,+London/@51.5345687,-0.2510652,16z/data=!4m18!4m17!1m5!1m1!1s0x487611c8e348f5f1:0x48b811af867b376a!2m2!1d-0.2433689!2d51.5321163!1m5!1m1!1s0x487611b7d98c880f:0x260eae2ec8a61db1!2m2!1d-0.2427341!2d51.5371009!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-bakerloo-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Bakerloo option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBWIJ",
+      "fromDisplayName": "Willesden Junction",
+      "toStationId": "HUBKNL",
+      "toDisplayName": "Kensal Green",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Willesden+Junction,+Station+Approach,+London+NW10+4UY/Kensal+Green,+Overground+Ltd,+College+Rd,+London+HA10+5JT/@51.5313086,-0.2549027,14z/data=!4m18!4m17!1m5!1m1!1s0x487611c8e348f5f1:0x48b811af867b376a!2m2!1d-0.2433689!2d51.5321163!1m5!1m1!1s0x48761030b4b20089:0xb5805fdbb96ee4c7!2m2!1d-0.225247!2d51.53054!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-bakerloo",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:00 AM (Monday) – 8:04 AM",
+        "lineSummary": "Bakerloo",
+        "departureSummary": "8:00 AM from Willesden Junction",
+        "fare": "£2.30",
+        "rawText": "4 min 8:00 AM (Monday) – 8:04 AM Bakerloo 8:00 AM from Willesden Junction £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    }
+  ]
+}

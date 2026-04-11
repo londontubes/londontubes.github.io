@@ -1,0 +1,1092 @@
+{
+  "metadata": {
+    "lineCode": "district",
+    "source": "Google Maps browser capture via MCP Playwright",
+    "requestedDeparture": {
+      "dayLabel": "Monday",
+      "localDate": "2026-04-13",
+      "localTime": "08:00",
+      "timeZone": "Europe/London",
+      "googleMapsTimestampParam": "1776067200"
+    },
+    "scope": "Direct adjacent District line station pairs derived from static graph edges",
+    "totalPairs": 59,
+    "matchedPairs": 50,
+    "unavailablePairs": 9,
+    "generatedAt": "2026-04-10T21:38:26.875Z",
+    "notes": [
+      "This file stores Monday 8am Google Maps reference times for direct District line station pairs so future work does not need to re-query Google Maps.",
+      "Pairs with no District option remain in the dataset with captureStatus set to no-district-option-found.",
+      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+    ]
+  },
+  "journeys": [
+    {
+      "fromStationId": "940GZZLUACT",
+      "fromDisplayName": "Acton Town Underground Station",
+      "toStationId": "940GZZLUCWP",
+      "toDisplayName": "Chiswick Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Acton+Town,+Gunnersbury+Ln,+London+W3+8HN/Chiswick+Park,+Chiswick,+London+W4+5LE/@51.4987422,-0.284248,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760e086bc508eb:0xa856a59bf4b41e3b!2m2!1d-0.2802019!2d51.502956!1m5!1m1!1s0x48760e12d0fa79cf:0x96c3344683499d7f!2m2!1d-0.2677376!2d51.4943064!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:09 AM (Monday) – 8:11 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:09 AM from Acton Town",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUADE",
+      "fromDisplayName": "Aldgate East Underground Station",
+      "toStationId": "HUBZWL",
+      "toDisplayName": "Whitechapel",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Aldgate+East,+Underground+Ltd,+Whitechapel+High+St,+London+E1+7PT/Whitechapel,+London/@51.5152682,-0.0735636,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761cb53339b4ff:0x6de702cc9ebbff0a!2m2!1d-0.0718178!2d51.5153166!1m5!1m1!1s0x4876034add2a4013:0x260eae2ed0510822!2m2!1d-0.0650534!2d51.5148198!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-district-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a District line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBBKG",
+      "fromDisplayName": "Barking",
+      "toStationId": "940GZZLUUPY",
+      "toDisplayName": "Upney Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Barking/Upney,+Upney+Ln,+Barking+IG11+9LS/@51.5389061,0.0682893,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a590b42c329b:0x20d6d63bbad734a3!2m2!1d0.076127!2d51.5377369!1m5!1m1!1s0x47d8a5ddb435a23b:0xc13d73afac2ee12a!2m2!1d0.1015648!2d51.5384146!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:02 AM from Barking",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBSC",
+      "fromDisplayName": "Barons Court Underground Station",
+      "toStationId": "940GZZLUWKN",
+      "toDisplayName": "West Kensington Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Barons+Court,+Underground+Ltd,+Palliser+Rd,+London+W14/West+Kensington,+North+End+Rd,+London+W14+9NL/@51.4905403,-0.2151614,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760fbe4450375f:0xfb644531656f4352!2m2!1d-0.2135906!2d51.4903156!1m5!1m1!1s0x48760f946577f187:0x879b105aa7fd0aa8!2m2!1d-0.2064539!2d51.4905646!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-district-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a District line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUBEC",
+      "fromDisplayName": "Becontree Underground Station",
+      "toStationId": "940GZZLUDGY",
+      "toDisplayName": "Dagenham Heathway Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Becontree,+Becontree+Station+Underground+Ltd,+Gale+St.,+Dagenham+RM9+4TP/Dagenham+Heathway,+Underground+Ltd,+Heathway,+London+RM9+5AN/@51.5409826,0.1168286,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a5bc8e3e68f7:0xd7a88731cfb2f7f3!2m2!1d0.1273815!2d51.5403789!1m5!1m1!1s0x47d8a50eaf1db9b9:0xd7348160776c4aa!2m2!1d0.1477394!2d51.5416841!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:02 AM from Becontree",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBFR",
+      "fromDisplayName": "Blackfriars",
+      "toStationId": "940GZZLUTMP",
+      "toDisplayName": "Temple Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Blackfriars,+London+EC4V+6BJ/Temple,+Underground+Ltd,+Temple+Station,+Victoria+Embankment,+Temple,+London+WC2R+2PH/@51.5115006,-0.1153339,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604ada3fc2795:0x9f6fa3341d45c435!2m2!1d-0.1038617!2d51.511992!1m5!1m1!1s0x487604b4358a0a83:0x338fcb94ed202b09!2m2!1d-0.1142932!2d51.5109998!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:04 AM from Blackfriars",
+        "fare": "£3.10  2 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBWR",
+      "fromDisplayName": "Bow Road Underground Station",
+      "toStationId": "940GZZLUBBB",
+      "toDisplayName": "Bromley-by-Bow Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Bow+Road,+Underground+Ltd,+Bow+Rd,+Bow,+London+E3+4DH/Bromley-by-Bow,+Underground+Ltd,+Northern+Approach,+Blackwell+Tunnel,+London+E3+3JJ/@51.5257324,-0.0287998,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761d38405be96b:0x98ebf9346aed38ec!2m2!1d-0.024766!2d51.5269593!1m5!1m1!1s0x48761d501d498363:0xd9ef17c44256be9!2m2!1d-0.0116202!2d51.5248722!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:01 AM from Bow Road",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBBB",
+      "fromDisplayName": "Bromley-by-Bow Underground Station",
+      "toStationId": "HUBWEH",
+      "toDisplayName": "West Ham",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Bromley-by-Bow,+Underground+Ltd,+Northern+Approach,+Blackwell+Tunnel,+London+E3+3JJ/West+Ham+Station,+London+E15+3BW/@51.5266535,-0.0234592,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761d501d498363:0xd9ef17c44256be9!2m2!1d-0.0116202!2d51.5248722!1m5!1m1!1s0x47d8a7b06667aeaf:0x6c586c2cd4ab60e5!2m2!1d0.006051!2d51.5285987!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-station-name-recapture",
+      "observedJourney": {
+        "durationMinutes": 9,
+        "schedule": "8:01 AM (Monday) – 8:10 AM",
+        "lineSummary": "District ",
+        "departureSummary": "8:01 AM from Bromley-by-Bow",
+        "fare": "£2.30  6 min"
+      },
+      "deltaFromGraphMinutes": 7,
+      "notes": "Recaptured using explicit station-name queries to avoid place-name ambiguity."
+    },
+    {
+      "fromStationId": "HUBCST",
+      "fromDisplayName": "Cannon Street",
+      "toStationId": "940GZZLUMSH",
+      "toDisplayName": "Mansion House Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Cannon+St,+London/Mansion+House,+Underground+Ltd+Station,+Mansion+House,+38+Cannon+St,+London+EC4N+6JD/@51.5121452,-0.095371,17z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760355a5c87681:0xd5e8cc8e548e0d80!2m2!1d-0.0919697!2d51.511983!1m5!1m1!1s0x487604aa7ec20e2f:0xef5bd1d027925d2e!2m2!1d-0.0936332!2d51.5122905!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-district-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a District line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUCWP",
+      "fromDisplayName": "Chiswick Park Underground Station",
+      "toStationId": "940GZZLUTNG",
+      "toDisplayName": "Turnham Green Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Chiswick+Park,+Chiswick,+London+W4+5LE/Turnham+Green,+Chiswick,+London+W4+1QN/@51.4953428,-0.2713304,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760e12d0fa79cf:0x96c3344683499d7f!2m2!1d-0.2677376!2d51.4943064!1m5!1m1!1s0x48760e3f1480c889:0x64c03a3daa0d97aa!2m2!1d-0.2544554!2d51.4951856!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:01 AM from Chiswick Park",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUDGE",
+      "fromDisplayName": "Dagenham East Underground Station",
+      "toStationId": "940GZZLUEPK",
+      "toDisplayName": "Elm Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Dagenham+East,+Underground+Ltd.+North,+Dagenham+East+Underground+Station,+London,+Rainham+Rd+S,+Dagenham+RM10+8AA/Elm+Pk+Station,+Hornchurch/@51.5469914,0.1618302,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a53d73ecfd09:0xe14b135f430c3a0f!2m2!1d0.1658867!2d51.5441733!1m5!1m1!1s0x47d8bad09a75c177:0xf87dffea2163fcba!2m2!1d0.1993616!2d51.5499103!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:03 AM from Dagenham East",
+        "fare": "£2.50"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUDGY",
+      "fromDisplayName": "Dagenham Heathway Underground Station",
+      "toStationId": "940GZZLUDGE",
+      "toDisplayName": "Dagenham East Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Dagenham+Heathway,+Underground+Ltd,+Heathway,+London+RM9+5AN/Dagenham+East,+Underground+Ltd.+North,+Dagenham+East+Underground+Station,+London,+Rainham+Rd+S,+Dagenham+RM10+8AA/@51.5428563,0.1354686,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a50eaf1db9b9:0xd7348160776c4aa!2m2!1d0.1477394!2d51.5416841!1m5!1m1!1s0x47d8a53d73ecfd09:0xe14b135f430c3a0f!2m2!1d0.1658867!2d51.5441733!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:01 AM from Dagenham Heathway",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBEAL",
+      "fromDisplayName": "Ealing Broadway",
+      "toStationId": "940GZZLUECM",
+      "toDisplayName": "Ealing Common Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Ealing,+London/Ealing+Common,+Station+Underground+Ltd,+Uxbridge+Rd,+London+W5+3LD/@51.5129988,-0.3074351,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760df52eecc6d1:0xe55b4291b14ac557!2m2!1d-0.3043136!2d51.5132537!1m5!1m1!1s0x48760df94d37f009:0xbedd3994c966ff75!2m2!1d-0.2882065!2d51.5102322!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 9,
+        "schedule": "8:09 AM (Monday) – 8:18 AM",
+        "lineSummary": " District",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUECM",
+      "fromDisplayName": "Ealing Common Underground Station",
+      "toStationId": "940GZZLUACT",
+      "toDisplayName": "Acton Town Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Ealing+Common,+Station+Underground+Ltd,+Uxbridge+Rd,+London+W5+3LD/Acton+Town,+Gunnersbury+Ln,+London+W3+8HN/@51.5065192,-0.2892428,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760df94d37f009:0xbedd3994c966ff75!2m2!1d-0.2882065!2d51.5102322!1m5!1m1!1s0x48760e086bc508eb:0xa856a59bf4b41e3b!2m2!1d-0.2802019!2d51.502956!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:06 AM (Monday) – 8:09 AM",
+        "lineSummary": "District",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUECT",
+      "fromDisplayName": "Earl's Court Underground Station",
+      "toStationId": "HUBKPA",
+      "toDisplayName": "Kensington (Olympia)",
+      "graphRunMinutes": 2.65,
+      "routeUrl": "https://www.google.com/maps/dir/Earl's+Court,+Earls+Ct+Rd,+London+SW5+9AA/Kensington+(Olympia),+Kensington+Olympia+Station,+Olympia+Way,+London+W14+0NE/@51.493043,-0.2122207,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760f8b6465814d:0xb8cc4edf517cf836!2m2!1d-0.1938947!2d51.4915767!1m5!1m1!1s0x48760fea135f01e1:0xfda97938feb0aa15!2m2!1d-0.2099576!2d51.4979934!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-district-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a District line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUECT",
+      "fromDisplayName": "Earl's Court Underground Station",
+      "toStationId": "HUBWBP",
+      "toDisplayName": "West Brompton",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Earl's+Court,+Earls+Ct+Rd,+London+SW5+9AA/West+Brompton,+London+SW6+1QH/@51.487862,-0.1998752,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760f8b6465814d:0xb8cc4edf517cf836!2m2!1d-0.1938947!2d51.4915767!1m5!1m1!1s0x48760f8f81ac2bb9:0x924a32007abcec55!2m2!1d-0.196802!2d51.483494!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 10,
+        "schedule": "8:00 AM (Monday) – 8:10 AM",
+        "lineSummary": "District ",
+        "departureSummary": "8:00 AM from Earl's Court",
+        "fare": "£2.30  9 min"
+      },
+      "deltaFromGraphMinutes": 8,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEHM",
+      "fromDisplayName": "East Ham Underground Station",
+      "toStationId": "HUBBKG",
+      "toDisplayName": "Barking",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/East+Ham,+High+St+N,+London+E6+2JA/Barking/@51.5412064,0.0452922,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a64bb5d2c54b:0xf372799c53a48a23!2m2!1d0.0514758!2d51.5389913!1m5!1m1!1s0x47d8a590b42c329b:0x20d6d63bbad734a3!2m2!1d0.076127!2d51.5377369!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:02 AM from East Ham",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEPY",
+      "fromDisplayName": "East Putney Underground Station",
+      "toStationId": "940GZZLUPYB",
+      "toDisplayName": "Putney Bridge Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/East+Putney,+Upper+Richmond+Rd,+London+SW15+2SZ/Putney+Bridge+Underground+Station,+London+SW6+3UH/@51.4635271,-0.2150766,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760f6cd3a61a0b:0x456166c99ea7195!2m2!1d-0.2107763!2d51.4590849!1m5!1m1!1s0x48760f749b927f11:0xb205356e95c1a200!2m2!1d-0.2097248!2d51.4678669!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:02 AM from East Putney",
+        "fare": "£2.30  2 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEPK",
+      "fromDisplayName": "Elm Park Underground Station",
+      "toStationId": "940GZZLUHCH",
+      "toDisplayName": "Hornchurch Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Elm+Pk+Station,+Hornchurch/Hornchurch,+Underground+Ltd,+Hornchurch+Station,+London,+Station+Ln,+Hornchurch+RM12+6LS/@51.5464863,0.1879237,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8bad09a75c177:0xf87dffea2163fcba!2m2!1d0.1993616!2d51.5499103!1m5!1m1!1s0x47d8bae3cb7551f1:0xc5e479565db75fed!2m2!1d0.2190275!2d51.5540693!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:01 AM from Elm Park",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEMB",
+      "fromDisplayName": "Embankment Underground Station",
+      "toStationId": "940GZZLUTMP",
+      "toDisplayName": "Temple Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Embankment,+London+WC2N+6NS/Temple,+Underground+Ltd,+Temple+Station,+Victoria+Embankment,+Temple,+London+WC2R+2PH/@51.5089806,-0.1232653,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!1m5!1m1!1s0x487604b4358a0a83:0x338fcb94ed202b09!2m2!1d-0.1142932!2d51.5109998!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:01 AM from Embankment",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEMB",
+      "fromDisplayName": "Embankment Underground Station",
+      "toStationId": "HUBWSM",
+      "toDisplayName": "Westminster",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Embankment,+London+WC2N+6NS/Westminster,+London/@51.5023747,-0.1391836,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!1m5!1m1!1s0x487604ddae95b455:0xcd1d64863bc57f40!2m2!1d-0.1356583!2d51.4974948!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:01 AM (Monday) – 8:09 AM",
+        "lineSummary": "District ",
+        "departureSummary": "8:01 AM from Embankment",
+        "fare": "£3.10  4 min"
+      },
+      "deltaFromGraphMinutes": 7,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUFBY",
+      "fromDisplayName": "Fulham Broadway Underground Station",
+      "toStationId": "HUBWBP",
+      "toDisplayName": "West Brompton",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Fulham+Broadway,+Underground+Ltd,+Fulham+Broadway,+London+SW6+1BY/West+Brompton,+London+SW6+1QH/@51.4817829,-0.1987239,17z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760f84489049ab:0xc73fd904abc6875a!2m2!1d-0.1943638!2d51.4803328!1m5!1m1!1s0x48760f8f81ac2bb9:0x924a32007abcec55!2m2!1d-0.196802!2d51.483494!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-district-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a District line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUGTR",
+      "fromDisplayName": "Gloucester Road Underground Station",
+      "toStationId": "940GZZLUECT",
+      "toDisplayName": "Earl's Court Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Gloucester+Road,+Underground+Ltd,+Gloucester+Rd,+South+Kensington,+London+SW7+4SF/Earl's+Court,+Earls+Ct+Rd,+London+SW5+9AA/@51.4933538,-0.1986193,15z/data=!3m2!4b1!5s0x48760f8c87101067:0x11e66a6137d5bf63!4m18!4m17!1m5!1m1!1s0x4876055e04e36c63:0x1a065843becf8404!2m2!1d-0.1827321!2d51.4944048!1m5!1m1!1s0x48760f8b6465814d:0xb8cc4edf517cf836!2m2!1d-0.1938947!2d51.4915767!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:00 AM (Monday) – 8:05 AM",
+        "lineSummary": "District",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHMS",
+      "fromDisplayName": "Hammersmith",
+      "toStationId": "940GZZLUBSC",
+      "toDisplayName": "Barons Court Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Hammersmith,+London/Barons+Court,+Underground+Ltd,+Palliser+Rd,+London+W14/@51.4908929,-0.2289395,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760fb49cf5881d:0xbaa0b2f34e5c12a8!2m2!1d-0.223731!2d51.491187!1m5!1m1!1s0x48760fbe4450375f:0xfb644531656f4352!2m2!1d-0.2135906!2d51.4903156!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-district-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a District line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBHMS",
+      "fromDisplayName": "Hammersmith",
+      "toStationId": "940GZZLURVP",
+      "toDisplayName": "Ravenscourt Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Hammersmith,+London/Ravenscourt+Park,+Ravenscourt+Rd,+London+W6+0UG/@51.4926519,-0.2402521,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760fb49cf5881d:0xbaa0b2f34e5c12a8!2m2!1d-0.223731!2d51.491187!1m5!1m1!1s0x48760e355c5b1b3d:0x4dfc7ad9797b6f9b!2m2!1d-0.2360776!2d51.4939959!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:03 AM (Monday) – 8:08 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:06 AM from Hammersmith",
+        "fare": "£2.30  3 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHSK",
+      "fromDisplayName": "High Street Kensington Underground Station",
+      "toStationId": "940GZZLUECT",
+      "toDisplayName": "Earl's Court Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/High+Street+Kensington,+High+Street+Underground+Ltd,+Kensington+Station,+Kensington+High+St,+London+W8+5SA/Earl's+Court,+Earls+Ct+Rd,+London+SW5+9AA/@51.4964035,-0.2036623,15z/data=!3m2!4b1!5s0x48760f8c87101067:0x11e66a6137d5bf63!4m18!4m17!1m5!1m1!1s0x48760ff6db531d81:0x64118972b0311da3!2m2!1d-0.1926463!2d51.5008834!1m5!1m1!1s0x48760f8b6465814d:0xb8cc4edf517cf836!2m2!1d-0.1938947!2d51.4915767!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:10 AM (Monday) – 8:15 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:10 AM from High Street Kensington",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHCH",
+      "fromDisplayName": "Hornchurch Underground Station",
+      "toStationId": "940GZZLUUPB",
+      "toDisplayName": "Upminster Bridge Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Hornchurch,+Underground+Ltd,+Hornchurch+Station,+London,+Station+Ln,+Hornchurch+RM12+6LS/Upminster+Bridge+Station,+Hornchurch/@51.5578284,0.217045,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8bae3cb7551f1:0xc5e479565db75fed!2m2!1d0.2190275!2d51.5540693!1m5!1m1!1s0x47d8bbaa823f4f03:0xd0601f5a496aa0a1!2m2!1d0.2357917!2d51.559051!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:03 AM from Hornchurch",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKWG",
+      "fromDisplayName": "Kew Gardens",
+      "toStationId": "HUBGUN",
+      "toDisplayName": "Gunnersbury",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Kew+Gardens,+Station+Approach,+London+TW9+3BZ/Gunnersbury+Station,+Chiswick,+London+W4+4AN/@51.4845587,-0.2903872,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760dd43bab2de7:0x2598e7a63621692c!2m2!1d-0.2851522!2d51.4770818!1m5!1m1!1s0x48760f14bb4a8d4b:0x7aba63618a1f3481!2m2!1d-0.2750656!2d51.4918703!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-station-name-recapture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": " 8:02 AM (Monday) – 8:07 AM",
+        "lineSummary": "District",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": "Recaptured using explicit station-name queries to avoid place-name ambiguity."
+    },
+    {
+      "fromStationId": "940GZZLUMSH",
+      "fromDisplayName": "Mansion House Underground Station",
+      "toStationId": "HUBBFR",
+      "toDisplayName": "Blackfriars",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Mansion+House,+Underground+Ltd+Station,+Mansion+House,+38+Cannon+St,+London+EC4N+6JD/Blackfriars,+London+EC4V+6BJ/@51.5119248,-0.1091023,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604aa7ec20e2f:0xef5bd1d027925d2e!2m2!1d-0.0936332!2d51.5122905!1m5!1m1!1s0x487604ada3fc2795:0x9f6fa3341d45c435!2m2!1d-0.1038617!2d51.511992!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:00 AM from Mansion House",
+        "fare": "£3.10  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMED",
+      "fromDisplayName": "Mile End Underground Station",
+      "toStationId": "940GZZLUBWR",
+      "toDisplayName": "Bow Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Mile+End,+Mile+End+Rd,+Bow,+London+E3+4DH/Bow+Road,+Underground+Ltd,+Bow+Rd,+Bow,+London+E3+4DH/@51.5262245,-0.0344671,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761d307352cb15:0xe6fed20d26c2bbf8!2m2!1d-0.0334172!2d51.5251447!1m5!1m1!1s0x48761d38405be96b:0x98ebf9346aed38ec!2m2!1d-0.024766!2d51.5269593!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:00 AM from Mile End",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMED",
+      "fromDisplayName": "Mile End Underground Station",
+      "toStationId": "940GZZLUSGN",
+      "toDisplayName": "Stepney Green Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Mile+End,+Mile+End+Rd,+Bow,+London+E3+4DH/Stepney+Green,+Bethnal+Green,+London+E1+4AQ/@51.5235852,-0.0500114,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761d307352cb15:0xe6fed20d26c2bbf8!2m2!1d-0.0334172!2d51.5251447!1m5!1m1!1s0x48761d29dc0347a1:0xb57ef829916c83e0!2m2!1d-0.0466614!2d51.5219664!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:00 AM from Mile End",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMMT",
+      "fromDisplayName": "Monument Underground Station",
+      "toStationId": "HUBCST",
+      "toDisplayName": "Cannon Street",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Monument+Station,+London/Cannon+St,+London/@51.5114585,-0.0944458,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760353eaa589eb:0x43c1792299907aeb!2m2!1d-0.086605!2d51.5109923!1m5!1m1!1s0x48760355a5c87681:0xd5e8cc8e548e0d80!2m2!1d-0.0919697!2d51.511983!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-district-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a District line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUNHG",
+      "fromDisplayName": "Notting Hill Gate Underground Station",
+      "toStationId": "940GZZLUBWT",
+      "toDisplayName": "Bayswater Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Notting+Hill+Gate,+London+W11+3HT/Bayswater,+Queensway,+London+W2+4RH/@51.5103923,-0.1969388,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760ffb8f7c9e01:0x709cac6c06f22e0b!2m2!1d-0.1963494!2d51.5091207!1m5!1m1!1s0x487605557f919c29:0xda8eece0694ceadd!2m2!1d-0.1877694!2d51.5123525!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:08 AM (Monday) – 8:10 AM",
+        "lineSummary": "District",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNHG",
+      "fromDisplayName": "Notting Hill Gate Underground Station",
+      "toStationId": "940GZZLUHSK",
+      "toDisplayName": "High Street Kensington Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Notting+Hill+Gate,+London+W11+3HT/High+Street+Kensington,+High+Street+Underground+Ltd,+Kensington+Station,+Kensington+High+St,+London+W8+5SA/@51.5049843,-0.1991529,16z/data=!3m2!4b1!5s0x487604df378dc395:0x4e468a23c7226978!4m18!4m17!1m5!1m1!1s0x48760ffb8f7c9e01:0x709cac6c06f22e0b!2m2!1d-0.1963494!2d51.5091207!1m5!1m1!1s0x48760ff6db531d81:0x64118972b0311da3!2m2!1d-0.1926463!2d51.5008834!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:07 AM (Monday) – 8:10 AM",
+        "lineSummary": "District",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBPAD",
+      "fromDisplayName": "Paddington",
+      "toStationId": "940GZZLUBWT",
+      "toDisplayName": "Bayswater Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Paddington,+London/Bayswater,+Queensway,+London+W2+4RH/@51.5150681,-0.1917678,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760552b7757447:0xa252c3f55901004!2m2!1d-0.174943!2d51.515973!1m5!1m1!1s0x487605557f919c29:0xda8eece0694ceadd!2m2!1d-0.1877694!2d51.5123525!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:00 AM (Monday) – 8:05 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:03 AM from Paddington",
+        "fare": "£3.10  3 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBPAD",
+      "fromDisplayName": "Paddington",
+      "toStationId": "940GZZLUERC",
+      "toDisplayName": "Edgware Road (Circle Line) Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Paddington,+London/Edgware+Road,+Chapel+St,+London+NW1+5DH/@51.5179284,-0.1835486,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760552b7757447:0xa252c3f55901004!2m2!1d-0.174943!2d51.515973!1m5!1m1!1s0x48761ab42be4c56b:0xea21dc822667c51c!2m2!1d-0.1678336!2d51.5198825!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-district-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a District line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUPSG",
+      "fromDisplayName": "Parsons Green Underground Station",
+      "toStationId": "940GZZLUFBY",
+      "toDisplayName": "Fulham Broadway Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Parsons+Green,+Parsons+Green+Ln,+London+SW6+4HS/Fulham+Broadway,+Underground+Ltd,+Fulham+Broadway,+London+SW6+1BY/@51.4780593,-0.2029108,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760f9d1fa8ab13:0xe2d3a9d3d661be6b!2m2!1d-0.2010216!2d51.4752816!1m5!1m1!1s0x48760f84489049ab:0xc73fd904abc6875a!2m2!1d-0.1943638!2d51.4803328!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:02 AM from Parsons Green",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPLW",
+      "fromDisplayName": "Plaistow Underground Station",
+      "toStationId": "940GZZLUUPK",
+      "toDisplayName": "Upton Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Plaistow,+Plaistow+Rd,+London+E13+0DY/Upton+Park,+Green+St,+London+E13+9AP/@51.5332639,0.0157442,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a7ec07b9af8d:0x59a56c6ea5013977!2m2!1d0.0178311!2d51.5312413!1m5!1m1!1s0x47d8a7c80819d643:0x871ef080e5ebff50!2m2!1d0.0352766!2d51.5353424!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "District",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPYB",
+      "fromDisplayName": "Putney Bridge Underground Station",
+      "toStationId": "940GZZLUPSG",
+      "toDisplayName": "Parsons Green Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Putney+Bridge+Underground+Station,+London+SW6+3UH/Parsons+Green,+Parsons+Green+Ln,+London+SW6+4HS/@51.4715478,-0.2105126,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760f749b927f11:0xb205356e95c1a200!2m2!1d-0.2097248!2d51.4678669!1m5!1m1!1s0x48760f9d1fa8ab13:0xe2d3a9d3d661be6b!2m2!1d-0.2010216!2d51.4752816!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:01 AM (Monday) – 8:06 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:04 AM from Putney Bridge",
+        "fare": "£2.30  3 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBRMD",
+      "fromDisplayName": "Richmond",
+      "toStationId": "HUBKWG",
+      "toDisplayName": "Kew Gardens",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Richmond,+Richmond+(London)+Station,+The+Quadrant,+Richmond,+Greater,+London+TW9+2NA/Kew+Gardens,+Station+Approach,+London+TW9+3BZ/@51.4702882,-0.3035844,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760c377280f273:0x45540d669e54d16a!2m2!1d-0.3017462!2d51.4632798!1m5!1m1!1s0x48760dd43bab2de7:0x2598e7a63621692c!2m2!1d-0.2851522!2d51.4770818!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-station-name-recapture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": " 8:07 AM (Monday) – 8:10 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:07 AM from Richmond",
+        "fare": "£2.10"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": "Recaptured using explicit station-name queries to avoid place-name ambiguity."
+    },
+    {
+      "fromStationId": "940GZZLUSSQ",
+      "fromDisplayName": "Sloane Square Underground Station",
+      "toStationId": "940GZZLUSKS",
+      "toDisplayName": "South Kensington Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Sloane+Square,+London+SW1W+8BB/South+Kensington,+Pelham+St,+South+Kensington,+London+SW7+2NB/@51.4932226,-0.175361,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760516460e875f:0xcc637afd3c19a075!2m2!1d-0.1564328!2d51.4923519!1m5!1m1!1s0x48760542833057f7:0x368956695a79cad7!2m2!1d-0.1739576!2d51.4941558!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "District",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSKS",
+      "fromDisplayName": "South Kensington Underground Station",
+      "toStationId": "940GZZLUGTR",
+      "toDisplayName": "Gloucester Road Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/South+Kensington,+Pelham+St,+South+Kensington,+London+SW7+2NB/Gloucester+Road,+Underground+Ltd,+Gloucester+Rd,+South+Kensington,+London+SW7+4SF/@51.4939816,-0.1884375,15z/data=!3m2!4b1!5s0x4876055fcb042041:0x863d477c01a13e4c!4m18!4m17!1m5!1m1!1s0x48760542833057f7:0x368956695a79cad7!2m2!1d-0.1739576!2d51.4941558!1m5!1m1!1s0x4876055e04e36c63:0x1a065843becf8404!2m2!1d-0.1827321!2d51.4944048!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:01 AM from South Kensington",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSFS",
+      "fromDisplayName": "Southfields Underground Station",
+      "toStationId": "940GZZLUEPY",
+      "toDisplayName": "East Putney Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Southfields,+Wimbledon+Park+Rd,+London+SW18+5RL/East+Putney,+Upper+Richmond+Rd,+London+SW15+2SZ/@51.4520696,-0.2198925,15z/data=!3m2!4b1!5s0x48760f12deb4b723:0xcc43ab13d78b8ab!4m18!4m17!1m5!1m1!1s0x48760f4694f0b2d1:0xcf674c1bf4866b6b!2m2!1d-0.2065149!2d51.4450087!1m5!1m1!1s0x48760f6cd3a61a0b:0x456166c99ea7195!2m2!1d-0.2107763!2d51.4590849!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:04 AM (Monday) – 8:06 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:04 AM from Southfields",
+        "fare": "£2.10"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSJP",
+      "fromDisplayName": "St. James's Park Underground Station",
+      "toStationId": "HUBVIC",
+      "toDisplayName": "Victoria",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/St.+James's+Park,+London+SW1H+0BB/Victoria,+London/@51.4975313,-0.1489565,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604dbf34fbe8d:0xe83ea48bf9d809ea!2m2!1d-0.1337107!2d51.499479!1m5!1m1!1s0x48760521ac7c041b:0xd7b424c85594e10e!2m2!1d-0.1435602!2d51.4955415!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": " 8:00 AM (Monday) – 8:05 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:00 AM from St. James's Park",
+        "fare": "£3.10  2 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSFB",
+      "fromDisplayName": "Stamford Brook Underground Station",
+      "toStationId": "940GZZLURVP",
+      "toDisplayName": "Ravenscourt Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Stamford+Brook,+Goldhawk+Rd,+Chiswick,+London+W6+0SB/Ravenscourt+Park,+Ravenscourt+Rd,+London+W6+0UG/@51.494113,-0.2510532,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760e37eb62abbd:0xa3d9dd4bf6e72588!2m2!1d-0.2455718!2d51.4948605!1m5!1m1!1s0x48760e355c5b1b3d:0x4dfc7ad9797b6f9b!2m2!1d-0.2360776!2d51.4939959!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:00 AM from Stamford Brook",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTWH",
+      "fromDisplayName": "Tower Hill Underground Station",
+      "toStationId": "940GZZLUADE",
+      "toDisplayName": "Aldgate East Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Tower+Hill,+London+EC3N+4DJ/Aldgate+East,+Underground+Ltd,+Whitechapel+High+St,+London+E1+7PT/@51.5126451,-0.0786561,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876034c01181b61:0xe9a9202d18723f58!2m2!1d-0.0766609!2d51.5101178!1m5!1m1!1s0x48761cb53339b4ff:0x6de702cc9ebbff0a!2m2!1d-0.0718178!2d51.5153166!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:00 AM from Tower Hill",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTWH",
+      "fromDisplayName": "Tower Hill Underground Station",
+      "toStationId": "940GZZLUMMT",
+      "toDisplayName": "Monument Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Tower+Hill,+London+EC3N+4DJ/Monument,+Monument+Station,+Underground+Ltd,+King+William+St,+London+EC4R+9AA/@51.5102171,-0.0913361,15z/data=!4m18!4m17!1m5!1m1!1s0x4876034c01181b61:0xe9a9202d18723f58!2m2!1d-0.0766609!2d51.5101178!1m5!1m1!1s0x48760353c5dfa2c3:0xaceb05fcd888fae2!2m2!1d-0.0866591!2d51.5110023!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": " 8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:01 AM from Tower Hill",
+        "fare": "£3.10"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTNG",
+      "fromDisplayName": "Turnham Green Underground Station",
+      "toStationId": "HUBGUN",
+      "toDisplayName": "Gunnersbury",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Turnham+Green,+Chiswick,+London+W4+1QN/Gunnersbury,+Chiswick,+London+W4+5PY/@51.4928645,-0.2871145,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760e3f1480c889:0x64c03a3daa0d97aa!2m2!1d-0.2544554!2d51.4951856!1m5!1m1!1s0x48760e74d4196ab1:0xc47c15d86b31f293!2m2!1d-0.278887!2d51.493352!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 10,
+        "schedule": "8:06 AM (Monday) – 8:16 AM",
+        "lineSummary": "District ",
+        "departureSummary": "8:06 AM from Turnham Green",
+        "fare": "£2.30  7 min"
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTNG",
+      "fromDisplayName": "Turnham Green Underground Station",
+      "toStationId": "940GZZLUSFB",
+      "toDisplayName": "Stamford Brook Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Turnham+Green,+Chiswick,+London+W4+1QN/Stamford+Brook,+Goldhawk+Rd,+Chiswick,+London+W6+0SB/@51.4942817,-0.2607438,15z/data=!4m18!4m17!1m5!1m1!1s0x48760e3f1480c889:0x64c03a3daa0d97aa!2m2!1d-0.2544554!2d51.4951856!1m5!1m1!1s0x48760e37eb62abbd:0xa3d9dd4bf6e72588!2m2!1d-0.2455718!2d51.4948605!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:04 AM (Monday) – 8:05 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:04 AM from Turnham Green",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUUPB",
+      "fromDisplayName": "Upminster Bridge Underground Station",
+      "toStationId": "HUBUPM",
+      "toDisplayName": "Upminster",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Upminster+Bridge+Station,+Hornchurch/Upminster/@51.5575578,0.2331936,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8bbaa823f4f03:0xd0601f5a496aa0a1!2m2!1d0.2357917!2d51.559051!1m5!1m1!1s0x47d8b848e7c44919:0x8e1d40398905b6d8!2m2!1d0.248894!2d51.555914!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:01 AM from Upminster Bridge",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUUPY",
+      "fromDisplayName": "Upney Underground Station",
+      "toStationId": "940GZZLUBEC",
+      "toDisplayName": "Becontree Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Upney,+Upney+Ln,+Barking+IG11+9LS/Becontree,+Becontree+Station+Underground+Ltd,+Gale+St.,+Dagenham+RM9+4TP/@51.5368409,0.0933713,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a5ddb435a23b:0xc13d73afac2ee12a!2m2!1d0.1015648!2d51.5384146!1m5!1m1!1s0x47d8a5bc8e3e68f7:0xd7a88731cfb2f7f3!2m2!1d0.1273815!2d51.5403789!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:00 AM from Upney",
+        "fare": "£2.50"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUUPK",
+      "fromDisplayName": "Upton Park Underground Station",
+      "toStationId": "940GZZLUEHM",
+      "toDisplayName": "East Ham Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Upton+Park,+Green+St,+London+E13+9AP/East+Ham,+High+St+N,+London+E6+2JA/@51.5373096,0.0333185,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a7c80819d643:0x871ef080e5ebff50!2m2!1d0.0352766!2d51.5353424!1m5!1m1!1s0x47d8a64bb5d2c54b:0xf372799c53a48a23!2m2!1d0.0514758!2d51.5389913!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:05 AM (Monday) – 8:07 AM",
+        "lineSummary": "District",
+        "departureSummary": null,
+        "fare": null
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBVIC",
+      "fromDisplayName": "Victoria",
+      "toStationId": "940GZZLUSSQ",
+      "toDisplayName": "Sloane Square Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Victoria,+London/Sloane+Square,+London+SW1W+8BB/@51.4941281,-0.1600474,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760521ac7c041b:0xd7b424c85594e10e!2m2!1d-0.1435602!2d51.4955415!1m5!1m1!1s0x48760516460e875f:0xcc637afd3c19a075!2m2!1d-0.1564328!2d51.4923519!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": " 8:00 AM (Monday) – 8:05 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:03 AM from Victoria",
+        "fare": "£3.10  3 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWEH",
+      "fromDisplayName": "West Ham",
+      "toStationId": "940GZZLUPLW",
+      "toDisplayName": "Plaistow Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/West+Ham+Station,+London+E15+3BW/Plaistow,+Plaistow+Rd,+London+E13+0DY/@51.5295287,0.00122,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a7b06667aeaf:0x6c586c2cd4ab60e5!2m2!1d0.006051!2d51.5285987!1m5!1m1!1s0x47d8a7ec07b9af8d:0x59a56c6ea5013977!2m2!1d0.0178311!2d51.5312413!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-station-name-recapture",
+      "observedJourney": {
+        "durationMinutes": 9,
+        "schedule": "7:59 AM (Monday) – 8:08 AM",
+        "lineSummary": " District",
+        "departureSummary": "8:06 AM from West Ham",
+        "fare": "£2.30  7 min"
+      },
+      "deltaFromGraphMinutes": 8,
+      "notes": "Recaptured using explicit station-name queries to avoid place-name ambiguity."
+    },
+    {
+      "fromStationId": "940GZZLUWKN",
+      "fromDisplayName": "West Kensington Underground Station",
+      "toStationId": "940GZZLUECT",
+      "toDisplayName": "Earl's Court Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/West+Kensington,+North+End+Rd,+London+W14+9NL/Earl's+Court,+Earls+Ct+Rd,+London+SW5+9AA/@51.4890204,-0.2100437,15z/data=!3m2!4b1!5s0x48760f8c87101067:0x11e66a6137d5bf63!4m18!4m17!1m5!1m1!1s0x48760f946577f187:0x879b105aa7fd0aa8!2m2!1d-0.2064539!2d51.4905646!1m5!1m1!1s0x48760f8b6465814d:0xb8cc4edf517cf836!2m2!1d-0.1938947!2d51.4915767!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:04 AM (Monday) – 8:08 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:04 AM from West Kensington",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWSM",
+      "fromDisplayName": "Westminster",
+      "toStationId": "940GZZLUSJP",
+      "toDisplayName": "St. James's Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Westminster,+London/St.+James's+Park,+London+SW1H+0BB/@51.4984786,-0.1373137,17z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604ddae95b455:0xcd1d64863bc57f40!2m2!1d-0.1356583!2d51.4974948!1m5!1m1!1s0x487604dbf34fbe8d:0xe83ea48bf9d809ea!2m2!1d-0.1337107!2d51.499479!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-district-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a District line option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBZWL",
+      "fromDisplayName": "Whitechapel",
+      "toStationId": "940GZZLUSGN",
+      "toDisplayName": "Stepney Green Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Whitechapel,+London/Stepney+Green,+Bethnal+Green,+London+E1+4AQ/@51.5184467,-0.0791095,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876034add2a4013:0x260eae2ed0510822!2m2!1d-0.0650534!2d51.5148198!1m5!1m1!1s0x48761d29dc0347a1:0xb57ef829916c83e0!2m2!1d-0.0466614!2d51.5219664!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 11,
+        "schedule": "8:03 AM (Monday) – 8:14 AM",
+        "lineSummary": " District",
+        "departureSummary": "8:11 AM from Aldgate East",
+        "fare": "£3.10  8 min"
+      },
+      "deltaFromGraphMinutes": 9,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWIM",
+      "fromDisplayName": "Wimbledon",
+      "toStationId": "940GZZLUWIP",
+      "toDisplayName": "Wimbledon Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Wimbledon,+The+Broadway,+London+SW19+7NL/Wimbledon+Park,+Arthur+Rd,+London+SW19+8AA/@51.4278857,-0.2124142,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487608b741865569:0xfdc0c076c6b5758c!2m2!1d-0.2066348!2d51.4213642!1m5!1m1!1s0x48760f4d8b9b5fab:0xeee7a05a3e86387d!2m2!1d-0.1993932!2d51.4344081!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-station-name-recapture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:04 AM (Monday) – 8:06 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:04 AM from Wimbledon",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": "Recaptured using explicit station-name queries to avoid place-name ambiguity."
+    },
+    {
+      "fromStationId": "940GZZLUWIP",
+      "fromDisplayName": "Wimbledon Park Underground Station",
+      "toStationId": "940GZZLUSFS",
+      "toDisplayName": "Southfields Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Wimbledon+Park,+Arthur+Rd,+London+SW19+8AA/Southfields,+Wimbledon+Park+Rd,+London+SW18+5RL/@51.4396572,-0.2130357,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760f4d8b9b5fab:0xeee7a05a3e86387d!2m2!1d-0.1993932!2d51.4344081!1m5!1m1!1s0x48760f4694f0b2d1:0xcf674c1bf4866b6b!2m2!1d-0.2065149!2d51.4450087!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-district",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "District",
+        "departureSummary": "8:01 AM from Wimbledon Park",
+        "fare": "£2.30"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    }
+  ]
+}

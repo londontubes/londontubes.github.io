@@ -1,0 +1,1557 @@
+{
+  "metadata": {
+    "lineCode": "metropolitan",
+    "source": "Google Maps browser capture via MCP Playwright",
+    "requestedDeparture": {
+      "dayLabel": "Monday",
+      "localDate": "2026-04-13",
+      "localTime": "08:00",
+      "timeZone": "Europe/London",
+      "googleMapsTimestampParam": "1776067200"
+    },
+    "scope": "Direct adjacent Metropolitan line station pairs derived from static graph edges",
+    "totalPairs": 78,
+    "matchedPairs": 74,
+    "unavailablePairs": 4,
+    "generatedAt": "2026-04-11T00:14:19.645Z",
+    "notes": [
+      "This file stores Monday 8am Google Maps reference times for direct Metropolitan line station pairs so future work does not need to re-query Google Maps.",
+      "Pairs with no Metropolitan option remain in the dataset with captureStatus set to no-metropolitan-option-found.",
+      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+    ]
+  },
+  "journeys": [
+    {
+      "fromStationId": "940GZZLUALD",
+      "fromDisplayName": "Aldgate Underground Station",
+      "toStationId": "HUBLST",
+      "toDisplayName": "Liverpool Street",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Aldgate,+Aldgate+High+St,+London+EC3N+1AH/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/@51.5163457,-0.0840627,16z/data=!3m2!4b1!5s0x48761cb2082d7111:0xad311bbab0bb6955!4m18!4m17!1m5!1m1!1s0x4876034b5ac01ec7:0x57b7f600da13b153!2m2!1d-0.0755189!2d51.5141643!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:03 AM (Monday) – 8:10 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "7 min  8:03 AM (Monday) – 8:10 AM Metropolitan   7 min "
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBAMR",
+      "fromDisplayName": "Amersham",
+      "toStationId": "HUBCFO",
+      "toDisplayName": "Chalfont & Latimer",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Amersham/Chalfont+%26+Latimer+station,+Little+Chalfont,+Amersham+HP6+6RZ/@51.6712529,-0.624627,13z/data=!4m18!4m17!1m5!1m1!1s0x48765d5de642892b:0x53bb64d290f3fe8a!2m2!1d-0.607241!2d51.6755179!1m5!1m1!1s0x4876680e5881a0b3:0xedf1830372291d0b!2m2!1d-0.5605066!2d51.6680831!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:17 AM (Monday) – 8:21 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "4 min 8:17 AM (Monday) – 8:21 AM Metropolitan  4 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "toStationId": "940GZZLUFYR",
+      "toDisplayName": "Finchley Road Underground Station",
+      "graphRunMinutes": 6,
+      "routeUrl": "https://www.google.com/maps/dir/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/@51.53507,-0.1892486,14z/data=!4m18!4m17!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:01 AM (Monday) – 8:07 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "6 min 8:01 AM (Monday) – 8:07 AM Metropolitan  6 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "toStationId": "940GZZLUGPS",
+      "toDisplayName": "Great Portland Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/@51.5231875,-0.1604557,15z/data=!4m18!4m17!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Metropolitan  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBBN",
+      "fromDisplayName": "Barbican Underground Station",
+      "toStationId": "HUBZFD",
+      "toDisplayName": "Farringdon",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/Farringdon+Station,+London/@51.5201528,-0.106731,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:03 AM (Monday) – 8:04 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:03 AM (Monday) – 8:04 AM Metropolitan  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBBN",
+      "fromDisplayName": "Barbican Underground Station",
+      "toStationId": "HUBZMG",
+      "toDisplayName": "Moorgate",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/Moorgate,+London+EC2Y+9AE/@51.5193326,-0.1035562,15z/data=!3m1!5s0x48761cab89481e9f:0xbc9a306963a932dc!4m18!4m17!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:01 AM from Barbican",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Metropolitan 8:01 AM from Barbican £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCFO",
+      "fromDisplayName": "Chalfont & Latimer",
+      "toStationId": "HUBAMR",
+      "toDisplayName": "Amersham",
+      "graphRunMinutes": 6,
+      "routeUrl": "https://www.google.com/maps/dir/Chalfont+%26+Latimer+station,+Little+Chalfont,+Amersham+HP6+6RZ/Amersham/@51.6712529,-0.6246269,13z/data=!4m18!4m17!1m5!1m1!1s0x4876680e5881a0b3:0xedf1830372291d0b!2m2!1d-0.5605066!2d51.6680831!1m5!1m1!1s0x48765d5de642892b:0x53bb64d290f3fe8a!2m2!1d-0.607241!2d51.6755179!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:06 AM (Monday) – 8:10 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:06 AM from Chalfont & Latimer",
+        "fare": "£2.30",
+        "rawText": "4 min 8:06 AM (Monday) – 8:10 AM Metropolitan 8:06 AM from Chalfont & Latimer £2.30 Details  9 min"
+      },
+      "deltaFromGraphMinutes": -2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCFO",
+      "fromDisplayName": "Chalfont & Latimer",
+      "toStationId": "940GZZLUCSM",
+      "toDisplayName": "Chesham Underground Station",
+      "graphRunMinutes": 8,
+      "routeUrl": "https://www.google.com/maps/dir/Chalfont+%26+Latimer+station,+Little+Chalfont,+Amersham+HP6+6RZ/Chesham,+Underground+Ltd,+London,+Station+Approach,+Chesham+HP5+1DH/@51.686605,-0.6270554,13z/data=!4m18!4m17!1m5!1m1!1s0x4876680e5881a0b3:0xedf1830372291d0b!2m2!1d-0.5605066!2d51.6680831!1m5!1m1!1s0x48765d0c8f367557:0x8939ee4eec34f5d4!2m2!1d-0.6110651!2d51.7052095!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 9,
+        "schedule": "8:15 AM (Monday) – 8:24 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:15 AM from Chalfont & Latimer",
+        "fare": "£2.30",
+        "rawText": "9 min 8:15 AM (Monday) – 8:24 AM Metropolitan 8:15 AM from Chalfont & Latimer £2.30 Details  9 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCFO",
+      "fromDisplayName": "Chalfont & Latimer",
+      "toStationId": "HUBCLW",
+      "toDisplayName": "Chorleywood",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Chalfont+%26+Latimer+station,+Little+Chalfont,+Amersham+HP6+6RZ/Chorleywood,+Rickmansworth/@51.6611228,-0.5721409,13z/data=!4m18!4m17!1m5!1m1!1s0x4876680e5881a0b3:0xedf1830372291d0b!2m2!1d-0.5605066!2d51.6680831!1m5!1m1!1s0x487668457fe506f9:0x31bb677e8e233efa!2m2!1d-0.5010634!2d51.6576679!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:16 AM (Monday) – 8:19 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "3 min 8:16 AM (Monday) – 8:19 AM Metropolitan  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCSM",
+      "fromDisplayName": "Chesham Underground Station",
+      "toStationId": "HUBCFO",
+      "toDisplayName": "Chalfont & Latimer",
+      "graphRunMinutes": 8,
+      "routeUrl": "https://www.google.com/maps/dir/Chesham,+Underground+Ltd,+London,+Station+Approach,+Chesham+HP5+1DH/Chalfont+%26+Latimer+station,+Little+Chalfont,+Amersham+HP6+6RZ/@51.686617,-0.6270554,13z/data=!4m18!4m17!1m5!1m1!1s0x48765d0c8f367557:0x8939ee4eec34f5d4!2m2!1d-0.6110651!2d51.7052095!1m5!1m1!1s0x4876680e5881a0b3:0xedf1830372291d0b!2m2!1d-0.5605066!2d51.6680831!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 9,
+        "schedule": "8:07 AM (Monday) – 8:16 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:07 AM from Chesham",
+        "fare": "£2.30",
+        "rawText": "9 min 8:07 AM (Monday) – 8:16 AM Metropolitan 8:07 AM from Chesham £2.30 Details  9 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCLW",
+      "fromDisplayName": "Chorleywood",
+      "toStationId": "HUBCFO",
+      "toDisplayName": "Chalfont & Latimer",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Chorleywood,+Rickmansworth/Chalfont+%26+Latimer+station,+Little+Chalfont,+Amersham+HP6+6RZ/@51.6611229,-0.5721321,13z/data=!4m18!4m17!1m5!1m1!1s0x487668457fe506f9:0x31bb677e8e233efa!2m2!1d-0.5010634!2d51.6576679!1m5!1m1!1s0x4876680e5881a0b3:0xedf1830372291d0b!2m2!1d-0.5605066!2d51.6680831!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:02 AM from Chorleywood",
+        "fare": "£2.30",
+        "rawText": "4 min 8:02 AM (Monday) – 8:06 AM Metropolitan 8:02 AM from Chorleywood £2.30 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCLW",
+      "fromDisplayName": "Chorleywood",
+      "toStationId": "HUBRIC",
+      "toDisplayName": "Rickmansworth",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Chorleywood,+Rickmansworth/Rickmansworth/@51.6482967,-0.5367293,13z/data=!4m18!4m17!1m5!1m1!1s0x487668457fe506f9:0x31bb677e8e233efa!2m2!1d-0.5010634!2d51.6576679!1m5!1m1!1s0x48764207a415956d:0x3321c9f24477fb5b!2m2!1d-0.4744238!2d51.63894!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:03 AM (Monday) – 8:07 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:03 AM from Chorleywood",
+        "fare": "£2.10",
+        "rawText": "4 min 8:03 AM (Monday) – 8:07 AM Metropolitan 8:03 AM from Chorleywood £2.10 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCXY",
+      "fromDisplayName": "Croxley Underground Station",
+      "toStationId": "940GZZLUMPK",
+      "toDisplayName": "Moor Park Underground Station",
+      "graphRunMinutes": 5,
+      "routeUrl": "https://www.google.com/maps/dir/Croxley,+Croxley+Station,+Watford+Rd,+Croxley+Green,+Rickmansworth+WD3+3DD/Moor+Park,+Underground+Ltd,+Moor+Park+Station,+Sandy+Lodge+Ln,+Rickmansworth+HA6+2JQ/@51.6386708,-0.4622493,14z/data=!4m18!4m17!1m5!1m1!1s0x48766a4ef2c0b383:0x29bcefb11635bc57!2m2!1d-0.4417006!2d51.6470961!1m5!1m1!1s0x48766ba5f777f535:0x5fc632a49deb7f57!2m2!1d-0.4326607!2d51.6297909!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:07 AM (Monday) – 8:12 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:07 AM from Croxley",
+        "fare": "£2.10",
+        "rawText": "5 min 8:07 AM (Monday) – 8:12 AM Metropolitan 8:07 AM from Croxley £2.10 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCXY",
+      "fromDisplayName": "Croxley Underground Station",
+      "toStationId": "HUBRIC",
+      "toDisplayName": "Rickmansworth",
+      "graphRunMinutes": 5,
+      "routeUrl": "https://www.google.com/maps/dir/Croxley,+Croxley+Station,+Watford+Rd,+Croxley+Green,+Rickmansworth+WD3+3DD/Rickmansworth/@51.6431182,-0.4785155,14z/data=!4m18!4m17!1m5!1m1!1s0x48766a4ef2c0b383:0x29bcefb11635bc57!2m2!1d-0.4417006!2d51.6470961!1m5!1m1!1s0x48764207a415956d:0x3321c9f24477fb5b!2m2!1d-0.4744238!2d51.63894!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 18,
+        "schedule": "8:07 AM (Monday) – 8:25 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "18 min 8:07 AM (Monday) – 8:25 AM Metropolitan  Metropolitan  14 min"
+      },
+      "deltaFromGraphMinutes": 13,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCXY",
+      "fromDisplayName": "Croxley Underground Station",
+      "toStationId": "940GZZLUWAF",
+      "toDisplayName": "Watford Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Croxley,+Croxley+Station,+Watford+Rd,+Croxley+Green,+Rickmansworth+WD3+3DD/Watford+WD18+7LE/@51.6523652,-0.4467846,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766a4ef2c0b383:0x29bcefb11635bc57!2m2!1d-0.4417006!2d51.6470961!1m5!1m1!1s0x48766af234cf92c3:0xc454499b52b8387e!2m2!1d-0.4172028!2d51.6575024!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:03 AM (Monday) – 8:07 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:03 AM from Croxley",
+        "fare": "£2.10",
+        "rawText": "4 min 8:03 AM (Monday) – 8:07 AM Metropolitan 8:03 AM from Croxley £2.10 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEAE",
+      "fromDisplayName": "Eastcote Underground Station",
+      "toStationId": "940GZZLURYL",
+      "toDisplayName": "Rayners Lane Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Eastcote,+Underground+Ltd,+London,+Field+End+Rd,+Ruislip+HA5+1QZ/Rayners+Lane,+Harrow,+Pinner+HA5+5EH/@51.5765838,-0.4047595,14z/data=!4m18!4m17!1m5!1m1!1s0x48766cf5de8f134b:0x5fdbe7ac2262c0d4!2m2!1d-0.3971429!2d51.5765526!1m5!1m1!1s0x487613367c92c34b:0x757f39ff172d7815!2m2!1d-0.3708618!2d51.5751034!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:05 AM (Monday) – 8:09 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "4 min 8:05 AM (Monday) – 8:09 AM Metropolitan  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEAE",
+      "fromDisplayName": "Eastcote Underground Station",
+      "toStationId": "940GZZLURSM",
+      "toDisplayName": "Ruislip Manor Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Eastcote,+Underground+Ltd,+London,+Field+End+Rd,+Ruislip+HA5+1QZ/Ruislip+Manor,+Victoria+Rd,+Ruislip+HA4+9AA/@51.5734686,-0.4147164,15z/data=!4m18!4m17!1m5!1m1!1s0x48766cf5de8f134b:0x5fdbe7ac2262c0d4!2m2!1d-0.3971429!2d51.5765526!1m5!1m1!1s0x48766cededa51f2d:0x33830449b76f6b56!2m2!1d-0.4126507!2d51.5730859!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:05 AM (Monday) – 8:07 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:05 AM from Eastcote",
+        "fare": "£2.50",
+        "rawText": "2 min 8:05 AM (Monday) – 8:07 AM Metropolitan 8:05 AM from Eastcote £2.50 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUESQ",
+      "fromDisplayName": "Euston Square Underground Station",
+      "toStationId": "940GZZLUGPS",
+      "toDisplayName": "Great Portland Street Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/@51.5248058,-0.144521,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:02 AM from Euston Square",
+        "fare": "£3.10",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Metropolitan 8:02 AM from Euston Square £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUESQ",
+      "fromDisplayName": "Euston Square Underground Station",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5283751,-0.1405161,15z/data=!3m1!5s0x48761b3954db1fdd:0x3bcb3e1002d7f23e!4m18!4m17!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:00 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Euston Square",
+        "fare": "£3.10",
+        "rawText": "5 min 8:00 AM (Monday) – 8:05 AM Metropolitan 8:00 AM from Euston Square £3.10  2 min Details  5 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZFD",
+      "fromDisplayName": "Farringdon",
+      "toStationId": "940GZZLUBBN",
+      "toDisplayName": "Barbican Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Farringdon+Station,+London/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/@51.520233,-0.106731,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Farringdon",
+        "fare": "£3.10",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Metropolitan 8:00 AM from Farringdon £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZFD",
+      "fromDisplayName": "Farringdon",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Farringdon+Station,+London/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.525591,-0.1358885,14z/data=!3m1!5s0x48761b3954db1fdd:0x3bcb3e1002d7f23e!4m18!4m17!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:00 AM (Monday) – 8:06 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "6 min 8:00 AM (Monday) – 8:06 AM Metropolitan  4 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUFYR",
+      "fromDisplayName": "Finchley Road Underground Station",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "graphRunMinutes": 5,
+      "routeUrl": "https://www.google.com/maps/dir/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/@51.5351478,-0.1892453,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:03 AM (Monday) – 8:09 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "6 min 8:03 AM (Monday) – 8:09 AM Metropolitan  7 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUFYR",
+      "fromDisplayName": "Finchley Road Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "graphRunMinutes": 11,
+      "routeUrl": "https://www.google.com/maps/dir/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/@51.5709072,-0.4240834,11z/data=!4m18!4m17!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 17,
+        "schedule": "8:01 AM (Monday) – 8:18 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:01 AM from Finchley Road",
+        "fare": "£3.40",
+        "rawText": "17 min 8:01 AM (Monday) – 8:18 AM Metropolitan 8:01 AM from Finchley Road £3.40 Details  16 min"
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUFYR",
+      "fromDisplayName": "Finchley Road Underground Station",
+      "toStationId": "940GZZLUWYP",
+      "toDisplayName": "Wembley Park Underground Station",
+      "graphRunMinutes": 7,
+      "routeUrl": "https://www.google.com/maps/dir/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/Wembley+Park,+Wembley+HA9+9AA/@51.5548821,-0.3122714,12z/data=!4m18!4m17!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:01 AM (Monday) – 8:09 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:01 AM from Finchley Road",
+        "fare": "£3.20",
+        "rawText": "8 min  8:01 AM (Monday) – 8:09 AM Metropolitan 8:01 AM from Finchley Road £3.20 Details  9 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUFYR",
+      "fromDisplayName": "Finchley Road Underground Station",
+      "toStationId": "940GZZLUWIG",
+      "toDisplayName": "Willesden Green Underground Station",
+      "graphRunMinutes": 5.41,
+      "routeUrl": "https://www.google.com/maps/dir/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/Willesden+Green,+Walm+Ln,+London+NW2+4QT/@51.5477879,-0.2421227,13z/data=!3m1!5s0x4876105a5948447f:0xfff16df50a7f0d31!4m18!4m17!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!1m5!1m1!1s0x4876105a59cccd87:0xce364e17625df04!2m2!1d-0.2212208!2d51.5491753!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-metropolitan-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Metropolitan option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUGPS",
+      "fromDisplayName": "Great Portland Street Underground Station",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/@51.5231377,-0.1605754,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:01 AM from Great Portland Street",
+        "fare": "£3.10",
+        "rawText": "3 min 8:01 AM (Monday) – 8:04 AM Metropolitan 8:01 AM from Great Portland Street £3.10 Details  4 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGPS",
+      "fromDisplayName": "Great Portland Street Underground Station",
+      "toStationId": "940GZZLUESQ",
+      "toDisplayName": "Euston Square Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/@51.5247118,-0.1446189,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:03 AM (Monday) – 8:04 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:03 AM (Monday) – 8:04 AM Metropolitan  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "toStationId": "940GZZLUFYR",
+      "toDisplayName": "Finchley Road Underground Station",
+      "graphRunMinutes": 11,
+      "routeUrl": "https://www.google.com/maps/dir/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/@51.5627341,-0.4232668,11z/data=!4m18!4m17!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 12,
+        "schedule": "8:04 AM (Monday) – 8:16 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:04 AM from Harrow on the Hill",
+        "fare": "£3.40",
+        "rawText": "12 min 8:04 AM (Monday) – 8:16 AM Metropolitan 8:04 AM from Harrow on the Hill £3.40 Details  12 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "toStationId": "940GZZLUMPK",
+      "toDisplayName": "Moor Park Underground Station",
+      "graphRunMinutes": 7,
+      "routeUrl": "https://www.google.com/maps/dir/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/Moor+Park,+Underground+Ltd,+Moor+Park+Station,+Sandy+Lodge+Ln,+Rickmansworth+HA6+2JQ/@51.6044953,-0.467007,12z/data=!4m18!4m17!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!1m5!1m1!1s0x48766ba5f777f535:0x5fc632a49deb7f57!2m2!1d-0.4326607!2d51.6297909!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 13,
+        "schedule": "8:02 AM (Monday) – 8:15 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:02 AM from Harrow on the Hill",
+        "fare": "£2.30",
+        "rawText": "13 min 8:02 AM (Monday) – 8:15 AM Metropolitan 8:02 AM from Harrow on the Hill £2.30 Details  13 min"
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "toStationId": "940GZZLUNHA",
+      "toDisplayName": "North Harrow Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/North+Harrow,+Underground+Ltd,+North+Harrow+Station,+London,+Station+Rd,+North+Harrow,+Middx+HA2+7SR/@51.5738056,-0.3983357,13z/data=!4m18!4m17!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!1m5!1m1!1s0x487613445aa491af:0x773bbe2219b40c0c!2m2!1d-0.3625337!2d51.5849977!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:02 AM from Harrow on the Hill",
+        "fare": "£2.30",
+        "rawText": "3 min 8:02 AM (Monday) – 8:05 AM Metropolitan 8:02 AM from Harrow on the Hill £2.30 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "toStationId": "940GZZLUNKP",
+      "toDisplayName": "Northwick Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/Northwick+Park,+Northwick+Ave,+Harrow+HA3+0AT/@51.578922,-0.3480333,14z/data=!4m18!4m17!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!1m5!1m1!1s0x48761397f6a687ad:0x4ecc328eb8b9a0b5!2m2!1d-0.3178373!2d51.5785081!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:03 AM from Harrow on the Hill",
+        "fare": "£2.50",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Metropolitan 8:03 AM from Harrow on the Hill £2.50 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "toStationId": "940GZZLUWYP",
+      "toDisplayName": "Wembley Park Underground Station",
+      "graphRunMinutes": 6,
+      "routeUrl": "https://www.google.com/maps/dir/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/Wembley+Park,+Wembley+HA9+9AA/@51.5713773,-0.3493733,13z/data=!4m18!4m17!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:03 AM (Monday) – 8:10 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:03 AM from Harrow on the Hill",
+        "fare": "£2.50",
+        "rawText": "7 min  8:03 AM (Monday) – 8:10 AM Metropolitan 8:03 AM from Harrow on the Hill £2.50 Details  7 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHOH",
+      "fromDisplayName": "Harrow-on-the-Hill",
+      "toStationId": "940GZZLUWHW",
+      "toDisplayName": "West Harrow Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/West+Harrow,+Vaughan+Rd,+Harrow+HA1+4HE/@51.5790046,-0.3554374,15z/data=!4m18!4m17!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!1m5!1m1!1s0x4876136a8c1c8405:0x3136e499c6bd7653!2m2!1d-0.3529509!2d51.5798551!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:09 AM (Monday) – 8:11 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:09 AM from Harrow on the Hill",
+        "fare": "£2.30",
+        "rawText": "2 min 8:09 AM (Monday) – 8:11 AM Metropolitan 8:09 AM from Harrow on the Hill £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHGD",
+      "fromDisplayName": "Hillingdon Underground Station",
+      "toStationId": "940GZZLUICK",
+      "toDisplayName": "Ickenham Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Hillingdon,+Underground+Ltd,+Hillingdon+Station,+London,+Long+Ln,+Uxbridge+UB10+9NR/Ickenham,+Underground+Ltd,+Ickenham+Station,+London,+Glebe+Ave,+Uxbridge+UB10+8PD/@51.5584203,-0.4510818,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766dca8b2f9e23:0x1863ea0c1a3ef643!2m2!1d-0.4499684!2d51.5537882!1m5!1m1!1s0x48766c4eaf970507:0x6f97af0a2b61789!2m2!1d-0.4419453!2d51.5620552!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:06 AM (Monday) – 8:08 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:06 AM (Monday) – 8:08 AM Metropolitan  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHGD",
+      "fromDisplayName": "Hillingdon Underground Station",
+      "toStationId": "940GZZLUUXB",
+      "toDisplayName": "Uxbridge Underground Station",
+      "graphRunMinutes": 5,
+      "routeUrl": "https://www.google.com/maps/dir/Hillingdon,+Underground+Ltd,+Hillingdon+Station,+London,+Long+Ln,+Uxbridge+UB10+9NR/Uxbridge,+High+St,+Uxbridge+UB8+1JZ/@51.5501132,-0.484566,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766dca8b2f9e23:0x1863ea0c1a3ef643!2m2!1d-0.4499684!2d51.5537882!1m5!1m1!1s0x48766e7a1db3443b:0x842ba1365be07a8e!2m2!1d-0.4780527!2d51.5464419!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:00 AM (Monday) – 8:06 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Hillingdon",
+        "fare": "£2.30",
+        "rawText": "6 min 8:00 AM (Monday) – 8:06 AM Metropolitan 8:00 AM from Hillingdon £2.30 Details  7 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUICK",
+      "fromDisplayName": "Ickenham Underground Station",
+      "toStationId": "940GZZLUHGD",
+      "toDisplayName": "Hillingdon Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Ickenham,+Underground+Ltd,+Ickenham+Station,+London,+Glebe+Ave,+Uxbridge+UB10+8PD/Hillingdon,+Underground+Ltd,+Hillingdon+Station,+London,+Long+Ln,+Uxbridge+UB10+9NR/@51.5579069,-0.4511067,16z/data=!4m18!4m17!1m5!1m1!1s0x48766c4eaf970507:0x6f97af0a2b61789!2m2!1d-0.4419453!2d51.5620552!1m5!1m1!1s0x48766dca8b2f9e23:0x1863ea0c1a3ef643!2m2!1d-0.4499684!2d51.5537882!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:04 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:04 AM from Ickenham",
+        "fare": "£2.30",
+        "rawText": "1 min 8:04 AM (Monday) – 8:05 AM Metropolitan 8:04 AM from Ickenham £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUICK",
+      "fromDisplayName": "Ickenham Underground Station",
+      "toStationId": "940GZZLURSP",
+      "toDisplayName": "Ruislip Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Ickenham,+Underground+Ltd,+Ickenham+Station,+London,+Glebe+Ave,+Uxbridge+UB10+8PD/Ruislip,+Station+Approach,+Ruislip+HA4+8LD/@51.5681801,-0.4534543,14z/data=!4m18!4m17!1m5!1m1!1s0x48766c4eaf970507:0x6f97af0a2b61789!2m2!1d-0.4419453!2d51.5620552!1m5!1m1!1s0x48766cf6856b8d0d:0x647e19f3e4f18ea0!2m2!1d-0.4213522!2d51.5715206!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:08 AM (Monday) – 8:11 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "3 min 8:08 AM (Monday) – 8:11 AM Metropolitan  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "940GZZLUESQ",
+      "toDisplayName": "Euston Square Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/@51.5282112,-0.1402992,15z/data=!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:01 AM (Monday) – 8:06 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:04 AM from King's Cross St. Pancras",
+        "fare": "£3.10",
+        "rawText": "5 min 8:01 AM (Monday) – 8:06 AM Metropolitan 8:04 AM from King's Cross St. Pancras £3.10  3 min Details  5 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "HUBZFD",
+      "toDisplayName": "Farringdon",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/Farringdon+Station,+London/@51.5258889,-0.1365048,14z/data=!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:00 AM (Monday) – 8:07 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "7 min 8:00 AM (Monday) – 8:07 AM Metropolitan  4 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBLST",
+      "fromDisplayName": "Liverpool Street",
+      "toStationId": "940GZZLUALD",
+      "toDisplayName": "Aldgate Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/Aldgate,+Aldgate+High+St,+London+EC3N+1AH/@51.5163194,-0.0834477,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!1m5!1m1!1s0x4876034b5ac01ec7:0x57b7f600da13b153!2m2!1d-0.0755189!2d51.5141643!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:02 AM (Monday) – 8:09 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "7 min  8:02 AM (Monday) – 8:09 AM  Metropolitan  9 min "
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBLST",
+      "fromDisplayName": "Liverpool Street",
+      "toStationId": "HUBZMG",
+      "toDisplayName": "Moorgate",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/Moorgate,+London+EC2Y+9AE/@51.5178786,-0.0895185,16z/data=!3m1!5s0x48761cab89481e9f:0xbc9a306963a932dc!4m18!4m17!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:02 AM (Monday) – 8:09 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:08 AM from Liverpool Street",
+        "fare": "£3.10",
+        "rawText": "7 min  8:02 AM (Monday) – 8:09 AM  Metropolitan 8:08 AM from Liverpool Street £3.10  6 min Details  7 min "
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMPK",
+      "fromDisplayName": "Moor Park Underground Station",
+      "toStationId": "940GZZLUCXY",
+      "toDisplayName": "Croxley Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Moor+Park,+Underground+Ltd,+Moor+Park+Station,+Sandy+Lodge+Ln,+Rickmansworth+HA6+2JQ/Croxley,+Croxley+Station,+Watford+Rd,+Croxley+Green,+Rickmansworth+WD3+3DD/@51.6386421,-0.4940539,13z/data=!4m18!4m17!1m5!1m1!1s0x48766ba5f777f535:0x5fc632a49deb7f57!2m2!1d-0.4326607!2d51.6297909!1m5!1m1!1s0x48766a4ef2c0b383:0x29bcefb11635bc57!2m2!1d-0.4417006!2d51.6470961!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Moor Park",
+        "fare": "£2.10",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Metropolitan 8:00 AM from Moor Park £2.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMPK",
+      "fromDisplayName": "Moor Park Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "graphRunMinutes": 9,
+      "routeUrl": "https://www.google.com/maps/dir/Moor+Park,+Underground+Ltd,+Moor+Park+Station,+Sandy+Lodge+Ln,+Rickmansworth+HA6+2JQ/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/@51.6044904,-0.4668592,12z/data=!4m18!4m17!1m5!1m1!1s0x48766ba5f777f535:0x5fc632a49deb7f57!2m2!1d-0.4326607!2d51.6297909!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 15,
+        "schedule": "8:00 AM (Monday) – 8:15 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Moor Park",
+        "fare": "£2.50",
+        "rawText": "15 min 8:00 AM (Monday) – 8:15 AM Metropolitan 8:00 AM from Moor Park £2.50 Details  16 min"
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMPK",
+      "fromDisplayName": "Moor Park Underground Station",
+      "toStationId": "940GZZLUNOW",
+      "toDisplayName": "Northwood Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Moor+Park,+Underground+Ltd,+Moor+Park+Station,+Sandy+Lodge+Ln,+Rickmansworth+HA6+2JQ/Northwood,+Underground+Ltd+Station,+Station+Approach,+Green+Ln,+Northwood+HA6+2XL/@51.6204165,-0.4384931,15z/data=!4m18!4m17!1m5!1m1!1s0x48766ba5f777f535:0x5fc632a49deb7f57!2m2!1d-0.4326607!2d51.6297909!1m5!1m1!1s0x48766b77b6a6c0a1:0x7e198b09cf9865a2!2m2!1d-0.423889!2d51.6112297!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Moor Park",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Metropolitan 8:00 AM from Moor Park £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMPK",
+      "fromDisplayName": "Moor Park Underground Station",
+      "toStationId": "HUBRIC",
+      "toDisplayName": "Rickmansworth",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Moor+Park,+Underground+Ltd,+Moor+Park+Station,+Sandy+Lodge+Ln,+Rickmansworth+HA6+2JQ/Rickmansworth/@51.6355729,-0.4944021,13z/data=!4m18!4m17!1m5!1m1!1s0x48766ba5f777f535:0x5fc632a49deb7f57!2m2!1d-0.4326607!2d51.6297909!1m5!1m1!1s0x48764207a415956d:0x3321c9f24477fb5b!2m2!1d-0.4744238!2d51.63894!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:02 AM (Monday) – 8:07 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:02 AM from Moor Park",
+        "fare": "£2.10",
+        "rawText": "5 min 8:02 AM (Monday) – 8:07 AM Metropolitan 8:02 AM from Moor Park £2.10 Details  5 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZMG",
+      "fromDisplayName": "Moorgate",
+      "toStationId": "940GZZLUBBN",
+      "toDisplayName": "Barbican Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Moorgate,+London+EC2Y+9AE/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/@51.5193001,-0.1035669,15z/data=!4m18!4m17!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:02 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:02 AM (Monday) – 8:03 AM Metropolitan  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZMG",
+      "fromDisplayName": "Moorgate",
+      "toStationId": "HUBLST",
+      "toDisplayName": "Liverpool Street",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Moorgate,+London+EC2Y+9AE/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/@51.5181359,-0.0949919,15z/data=!3m1!5s0x48761cb2082d7111:0xad311bbab0bb6955!4m18!4m17!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:03 AM (Monday) – 8:10 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "7 min  8:03 AM (Monday) – 8:10 AM Metropolitan   9 min"
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNHA",
+      "fromDisplayName": "North Harrow Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/North+Harrow,+Underground+Ltd,+North+Harrow+Station,+London,+Station+Rd,+North+Harrow,+Middx+HA2+7SR/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/@51.5821689,-0.3701664,14z/data=!4m18!4m17!1m5!1m1!1s0x487613445aa491af:0x773bbe2219b40c0c!2m2!1d-0.3625337!2d51.5849977!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:04 AM (Monday) – 8:09 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:04 AM from North Harrow",
+        "fare": "£2.30",
+        "rawText": "5 min 8:04 AM (Monday) – 8:09 AM Metropolitan 8:04 AM from North Harrow £2.30 Details  5 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNHA",
+      "fromDisplayName": "North Harrow Underground Station",
+      "toStationId": "940GZZLUPNR",
+      "toDisplayName": "Pinner Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/North+Harrow,+Underground+Ltd,+North+Harrow+Station,+London,+Station+Rd,+North+Harrow,+Middx+HA2+7SR/Pinner,+Station+Approach,+Pinner+HA5+5LZ/@51.5891694,-0.3925688,14z/data=!4m18!4m17!1m5!1m1!1s0x487613445aa491af:0x773bbe2219b40c0c!2m2!1d-0.3625337!2d51.5849977!1m5!1m1!1s0x48766cac7dfa76dd:0xf8e8c1f515aff242!2m2!1d-0.3808446!2d51.5928838!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from North Harrow",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Metropolitan 8:00 AM from North Harrow £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNKP",
+      "fromDisplayName": "Northwick Park Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Northwick+Park,+Northwick+Ave,+Harrow+HA3+0AT/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/@51.5789252,-0.3480333,14z/data=!4m18!4m17!1m5!1m1!1s0x48761397f6a687ad:0x4ecc328eb8b9a0b5!2m2!1d-0.3178373!2d51.5785081!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:01 AM from Northwick Park",
+        "fare": "£2.50",
+        "rawText": "4 min 8:01 AM (Monday) – 8:05 AM Metropolitan 8:01 AM from Northwick Park £2.50 Details  6 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNKP",
+      "fromDisplayName": "Northwick Park Underground Station",
+      "toStationId": "940GZZLUPRD",
+      "toDisplayName": "Preston Road Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Northwick+Park,+Northwick+Ave,+Harrow+HA3+0AT/Preston+Road,+Wembley,+Harrow+HA3+0PS/@51.575209,-0.3270689,14z/data=!4m18!4m17!1m5!1m1!1s0x48761397f6a687ad:0x4ecc328eb8b9a0b5!2m2!1d-0.3178373!2d51.5785081!1m5!1m1!1s0x487613c4add18825:0x47a76569cd9af0fb!2m2!1d-0.2949536!2d51.5718737!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Northwick Park",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Metropolitan 8:00 AM from Northwick Park £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNWH",
+      "fromDisplayName": "Northwood Hills Underground Station",
+      "toStationId": "940GZZLUNOW",
+      "toDisplayName": "Northwood Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Northwood+Hills+Station,+Northwood/Northwood,+Underground+Ltd+Station,+Station+Approach,+Green+Ln,+Northwood+HA6+2XL/@51.6059442,-0.4267267,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766b6249064fe7:0x404583968f457da9!2m2!1d-0.4095279!2d51.6007745!1m5!1m1!1s0x48766b77b6a6c0a1:0x7e198b09cf9865a2!2m2!1d-0.423889!2d51.6112297!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Northwood Hills",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Metropolitan 8:00 AM from Northwood Hills £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNWH",
+      "fromDisplayName": "Northwood Hills Underground Station",
+      "toStationId": "940GZZLUPNR",
+      "toDisplayName": "Pinner Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Northwood+Hills+Station,+Northwood/Pinner,+Station+Approach,+Pinner+HA5+5LZ/@51.5967383,-0.415742,14z/data=!4m18!4m17!1m5!1m1!1s0x48766b6249064fe7:0x404583968f457da9!2m2!1d-0.4095279!2d51.6007745!1m5!1m1!1s0x48766cac7dfa76dd:0xf8e8c1f515aff242!2m2!1d-0.3808446!2d51.5928838!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Northwood Hills",
+        "fare": "£2.50",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Metropolitan 8:00 AM from Northwood Hills £2.50 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNOW",
+      "fromDisplayName": "Northwood Underground Station",
+      "toStationId": "940GZZLUMPK",
+      "toDisplayName": "Moor Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Northwood,+Underground+Ltd+Station,+Station+Approach,+Green+Ln,+Northwood+HA6+2XL/Moor+Park,+Underground+Ltd,+Moor+Park+Station,+Sandy+Lodge+Ln,+Rickmansworth+HA6+2JQ/@51.62042,-0.4385525,15z/data=!4m18!4m17!1m5!1m1!1s0x48766b77b6a6c0a1:0x7e198b09cf9865a2!2m2!1d-0.423889!2d51.6112297!1m5!1m1!1s0x48766ba5f777f535:0x5fc632a49deb7f57!2m2!1d-0.4326607!2d51.6297909!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Northwood",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Metropolitan 8:00 AM from Northwood £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNOW",
+      "fromDisplayName": "Northwood Underground Station",
+      "toStationId": "940GZZLUNWH",
+      "toDisplayName": "Northwood Hills Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Northwood,+Underground+Ltd+Station,+Station+Approach,+Green+Ln,+Northwood+HA6+2XL/Northwood+Hills+Station,+Northwood/@51.6057958,-0.4267002,15z/data=!4m18!4m17!1m5!1m1!1s0x48766b77b6a6c0a1:0x7e198b09cf9865a2!2m2!1d-0.423889!2d51.6112297!1m5!1m1!1s0x48766b6249064fe7:0x404583968f457da9!2m2!1d-0.4095279!2d51.6007745!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:03 AM from Northwood",
+        "fare": "£2.30",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Metropolitan 8:03 AM from Northwood £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPNR",
+      "fromDisplayName": "Pinner Underground Station",
+      "toStationId": "940GZZLUNHA",
+      "toDisplayName": "North Harrow Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Pinner,+Station+Approach,+Pinner+HA5+5LZ/North+Harrow,+Underground+Ltd,+North+Harrow+Station,+London,+Station+Rd,+North+Harrow,+Middx+HA2+7SR/@51.5889403,-0.3819889,15z/data=!4m18!4m17!1m5!1m1!1s0x48766cac7dfa76dd:0xf8e8c1f515aff242!2m2!1d-0.3808446!2d51.5928838!1m5!1m1!1s0x487613445aa491af:0x773bbe2219b40c0c!2m2!1d-0.3625337!2d51.5849977!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:02 AM from Pinner",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Metropolitan 8:02 AM from Pinner £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPNR",
+      "fromDisplayName": "Pinner Underground Station",
+      "toStationId": "940GZZLUNWH",
+      "toDisplayName": "Northwood Hills Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Pinner,+Station+Approach,+Pinner+HA5+5LZ/Northwood+Hills+Station,+Northwood/@51.5974078,-0.4158256,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766cac7dfa76dd:0xf8e8c1f515aff242!2m2!1d-0.3808446!2d51.5928838!1m5!1m1!1s0x48766b6249064fe7:0x404583968f457da9!2m2!1d-0.4095279!2d51.6007745!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:02 AM from Pinner",
+        "fare": "£2.50",
+        "rawText": "3 min 8:02 AM (Monday) – 8:05 AM Metropolitan 8:02 AM from Pinner £2.50 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPRD",
+      "fromDisplayName": "Preston Road Underground Station",
+      "toStationId": "940GZZLUNKP",
+      "toDisplayName": "Northwick Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Preston+Road,+Wembley,+Harrow+HA3+0PS/Northwick+Park,+Northwick+Ave,+Harrow+HA3+0AT/@51.5751891,-0.3270991,14z/data=!4m18!4m17!1m5!1m1!1s0x487613c4add18825:0x47a76569cd9af0fb!2m2!1d-0.2949536!2d51.5718737!1m5!1m1!1s0x48761397f6a687ad:0x4ecc328eb8b9a0b5!2m2!1d-0.3178373!2d51.5785081!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:03 AM from Preston Road",
+        "fare": "£2.30",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Metropolitan 8:03 AM from Preston Road £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPRD",
+      "fromDisplayName": "Preston Road Underground Station",
+      "toStationId": "940GZZLUWYP",
+      "toDisplayName": "Wembley Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Preston+Road,+Wembley,+Harrow+HA3+0PS/Wembley+Park,+Wembley+HA9+9AA/@51.5678309,-0.2978538,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487613c4add18825:0x47a76569cd9af0fb!2m2!1d-0.2949536!2d51.5718737!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:03 AM from Preston Road",
+        "fare": "£2.10",
+        "rawText": "2 min  8:03 AM (Monday) – 8:05 AM Metropolitan 8:03 AM from Preston Road £2.10 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURYL",
+      "fromDisplayName": "Rayners Lane Underground Station",
+      "toStationId": "940GZZLUEAE",
+      "toDisplayName": "Eastcote Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Rayners+Lane,+Harrow,+Pinner+HA5+5EH/Eastcote,+Underground+Ltd,+London,+Field+End+Rd,+Ruislip+HA5+1QZ/@51.5766026,-0.4054351,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487613367c92c34b:0x757f39ff172d7815!2m2!1d-0.3708618!2d51.5751034!1m5!1m1!1s0x48766cf5de8f134b:0x5fdbe7ac2262c0d4!2m2!1d-0.3971429!2d51.5765526!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:03 AM from Rayners Lane",
+        "fare": "£2.30",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Metropolitan 8:03 AM from Rayners Lane £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURYL",
+      "fromDisplayName": "Rayners Lane Underground Station",
+      "toStationId": "940GZZLUWHW",
+      "toDisplayName": "West Harrow Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Rayners+Lane,+Harrow,+Pinner+HA5+5EH/West+Harrow,+Vaughan+Rd,+Harrow+HA1+4HE/@51.5732312,-0.3813485,14z/data=!4m18!4m17!1m5!1m1!1s0x487613367c92c34b:0x757f39ff172d7815!2m2!1d-0.3708618!2d51.5751034!1m5!1m1!1s0x4876136a8c1c8405:0x3136e499c6bd7653!2m2!1d-0.3529509!2d51.5798551!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:01 AM from Rayners Lane",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Metropolitan 8:01 AM from Rayners Lane £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBRIC",
+      "fromDisplayName": "Rickmansworth",
+      "toStationId": "HUBCLW",
+      "toDisplayName": "Chorleywood",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Rickmansworth/Chorleywood,+Rickmansworth/@51.6482967,-0.5367054,13z/data=!4m18!4m17!1m5!1m1!1s0x48764207a415956d:0x3321c9f24477fb5b!2m2!1d-0.4744238!2d51.63894!1m5!1m1!1s0x487668457fe506f9:0x31bb677e8e233efa!2m2!1d-0.5010634!2d51.6576679!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:07 AM (Monday) – 8:11 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:07 AM from Rickmansworth",
+        "fare": "£2.10",
+        "rawText": "4 min 8:07 AM (Monday) – 8:11 AM Metropolitan 8:07 AM from Rickmansworth £2.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBRIC",
+      "fromDisplayName": "Rickmansworth",
+      "toStationId": "940GZZLUCXY",
+      "toDisplayName": "Croxley Underground Station",
+      "graphRunMinutes": 5,
+      "routeUrl": "https://www.google.com/maps/dir/Rickmansworth/Croxley,+Croxley+Station,+Watford+Rd,+Croxley+Green,+Rickmansworth+WD3+3DD/@51.6293346,-0.4894077,13.03z/data=!4m18!4m17!1m5!1m1!1s0x48764207a415956d:0x3321c9f24477fb5b!2m2!1d-0.4744238!2d51.63894!1m5!1m1!1s0x48766a4ef2c0b383:0x29bcefb11635bc57!2m2!1d-0.4417006!2d51.6470961!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 22,
+        "schedule": "8:23 AM (Monday) – 8:45 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "22 min 8:23 AM (Monday) – 8:45 AM Metropolitan  Metropolitan  39 min 1.7 miles via Watford Rd/A412"
+      },
+      "deltaFromGraphMinutes": 17,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBRIC",
+      "fromDisplayName": "Rickmansworth",
+      "toStationId": "940GZZLUMPK",
+      "toDisplayName": "Moor Park Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Rickmansworth/Moor+Park,+Underground+Ltd,+Moor+Park+Station,+Sandy+Lodge+Ln,+Rickmansworth+HA6+2JQ/@51.6355961,-0.4944353,13z/data=!4m18!4m17!1m5!1m1!1s0x48764207a415956d:0x3321c9f24477fb5b!2m2!1d-0.4744238!2d51.63894!1m5!1m1!1s0x48766ba5f777f535:0x5fc632a49deb7f57!2m2!1d-0.4326607!2d51.6297909!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:07 AM (Monday) – 8:10 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:07 AM from Rickmansworth",
+        "fare": "£2.10",
+        "rawText": "3 min 8:07 AM (Monday) – 8:10 AM Metropolitan 8:07 AM from Rickmansworth £2.10 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURSM",
+      "fromDisplayName": "Ruislip Manor Underground Station",
+      "toStationId": "940GZZLUEAE",
+      "toDisplayName": "Eastcote Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Ruislip+Manor,+Victoria+Rd,+Ruislip+HA4+9AA/Eastcote,+Underground+Ltd,+London,+Field+End+Rd,+Ruislip+HA5+1QZ/@51.575168,-0.4152895,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766cededa51f2d:0x33830449b76f6b56!2m2!1d-0.4126507!2d51.5730859!1m5!1m1!1s0x48766cf5de8f134b:0x5fdbe7ac2262c0d4!2m2!1d-0.3971429!2d51.5765526!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:03 AM from Ruislip Manor",
+        "fare": "£2.50",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Metropolitan 8:03 AM from Ruislip Manor £2.50 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURSM",
+      "fromDisplayName": "Ruislip Manor Underground Station",
+      "toStationId": "940GZZLURSP",
+      "toDisplayName": "Ruislip Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Ruislip+Manor,+Victoria+Rd,+Ruislip+HA4+9AA/Ruislip,+Station+Approach,+Ruislip+HA4+8LD/@51.5725433,-0.422078,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766cededa51f2d:0x33830449b76f6b56!2m2!1d-0.4126507!2d51.5730859!1m5!1m1!1s0x48766cf6856b8d0d:0x647e19f3e4f18ea0!2m2!1d-0.4213522!2d51.5715206!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Ruislip Manor",
+        "fare": "£2.30",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Metropolitan 8:00 AM from Ruislip Manor £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURSP",
+      "fromDisplayName": "Ruislip Underground Station",
+      "toStationId": "940GZZLUICK",
+      "toDisplayName": "Ickenham Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Ruislip,+Station+Approach,+Ruislip+HA4+8LD/Ickenham,+Underground+Ltd,+Ickenham+Station,+London,+Glebe+Ave,+Uxbridge+UB10+8PD/@51.5681489,-0.4534192,14z/data=!4m18!4m17!1m5!1m1!1s0x48766cf6856b8d0d:0x647e19f3e4f18ea0!2m2!1d-0.4213522!2d51.5715206!1m5!1m1!1s0x48766c4eaf970507:0x6f97af0a2b61789!2m2!1d-0.4419453!2d51.5620552!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:01 AM from Ruislip",
+        "fare": "£2.30",
+        "rawText": "3 min 8:01 AM (Monday) – 8:04 AM Metropolitan 8:01 AM from Ruislip £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURSP",
+      "fromDisplayName": "Ruislip Underground Station",
+      "toStationId": "940GZZLURSM",
+      "toDisplayName": "Ruislip Manor Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Ruislip,+Station+Approach,+Ruislip+HA4+8LD/Ruislip+Manor,+Victoria+Rd,+Ruislip+HA4+9AA/@51.5726273,-0.4220804,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766cf6856b8d0d:0x647e19f3e4f18ea0!2m2!1d-0.4213522!2d51.5715206!1m5!1m1!1s0x48766cededa51f2d:0x33830449b76f6b56!2m2!1d-0.4126507!2d51.5730859!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:02 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:02 AM from Ruislip",
+        "fare": "£2.30",
+        "rawText": "1 min 8:02 AM (Monday) – 8:03 AM Metropolitan 8:02 AM from Ruislip £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUUXB",
+      "fromDisplayName": "Uxbridge Underground Station",
+      "toStationId": "940GZZLUHGD",
+      "toDisplayName": "Hillingdon Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Uxbridge,+High+St,+Uxbridge+UB8+1JZ/Hillingdon,+Underground+Ltd,+Hillingdon+Station,+London,+Long+Ln,+Uxbridge+UB10+9NR/@51.5444042,-0.5001699,13z/data=!4m18!4m17!1m5!1m1!1s0x48766e7a1db3443b:0x842ba1365be07a8e!2m2!1d-0.4780527!2d51.5464419!1m5!1m1!1s0x48766dca8b2f9e23:0x1863ea0c1a3ef643!2m2!1d-0.4499684!2d51.5537882!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:04 AM (Monday) – 8:06 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:04 AM from Uxbridge",
+        "fare": "£2.30",
+        "rawText": "2 min 8:04 AM (Monday) – 8:06 AM Metropolitan 8:04 AM from Uxbridge £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWAF",
+      "fromDisplayName": "Watford Underground Station",
+      "toStationId": "940GZZLUCXY",
+      "toDisplayName": "Croxley Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Watford+WD18+7LE/Croxley,+Croxley+Station,+Watford+Rd,+Croxley+Green,+Rickmansworth+WD3+3DD/@51.6523633,-0.4482235,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48766af234cf92c3:0xc454499b52b8387e!2m2!1d-0.4172028!2d51.6575024!1m5!1m1!1s0x48766a4ef2c0b383:0x29bcefb11635bc57!2m2!1d-0.4417006!2d51.6470961!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:05 AM (Monday) – 8:07 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:05 AM from Watford",
+        "fare": "£2.10",
+        "rawText": "2 min 8:05 AM (Monday) – 8:07 AM Metropolitan 8:05 AM from Watford £2.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWYP",
+      "fromDisplayName": "Wembley Park Underground Station",
+      "toStationId": "940GZZLUFYR",
+      "toDisplayName": "Finchley Road Underground Station",
+      "graphRunMinutes": 7,
+      "routeUrl": "https://www.google.com/maps/dir/Wembley+Park,+Wembley+HA9+9AA/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/@51.5549625,-0.3122593,12z/data=!4m18!4m17!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:00 AM (Monday) – 8:08 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from Wembley Park",
+        "fare": "£3.00",
+        "rawText": "8 min  8:00 AM (Monday) – 8:08 AM Metropolitan 8:00 AM from Wembley Park £3.00 Details  11 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWYP",
+      "fromDisplayName": "Wembley Park Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "graphRunMinutes": 6,
+      "routeUrl": "https://www.google.com/maps/dir/Wembley+Park,+Wembley+HA9+9AA/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/@51.5713773,-0.3493733,13z/data=!4m18!4m17!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:02 AM (Monday) – 8:09 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:02 AM from Wembley Park",
+        "fare": "£2.50",
+        "rawText": "7 min  8:02 AM (Monday) – 8:09 AM Metropolitan 8:02 AM from Wembley Park £2.50 Details  8 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWYP",
+      "fromDisplayName": "Wembley Park Underground Station",
+      "toStationId": "940GZZLUPRD",
+      "toDisplayName": "Preston Road Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Wembley+Park,+Wembley+HA9+9AA/Preston+Road,+Wembley,+Harrow+HA3+0PS/@51.5678206,-0.2978649,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!1m5!1m1!1s0x487613c4add18825:0x47a76569cd9af0fb!2m2!1d-0.2949536!2d51.5718737!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:01 AM from Wembley Park",
+        "fare": "£2.30",
+        "rawText": "2 min  8:01 AM (Monday) – 8:03 AM Metropolitan 8:01 AM from Wembley Park £2.30 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWYP",
+      "fromDisplayName": "Wembley Park Underground Station",
+      "toStationId": "940GZZLUWIG",
+      "toDisplayName": "Willesden Green Underground Station",
+      "graphRunMinutes": 7.76,
+      "routeUrl": "https://www.google.com/maps/dir/Wembley+Park,+Wembley+HA9+9AA/Willesden+Green,+Walm+Ln,+London+NW2+4QT/@51.5564001,-0.2916618,13z/data=!3m1!5s0x4876105a5948447f:0xfff16df50a7f0d31!4m18!4m17!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!1m5!1m1!1s0x4876105a59cccd87:0xce364e17625df04!2m2!1d-0.2212208!2d51.5491753!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-metropolitan-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Metropolitan option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUWHW",
+      "fromDisplayName": "West Harrow Underground Station",
+      "toStationId": "HUBHOH",
+      "toDisplayName": "Harrow-on-the-Hill",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/West+Harrow,+Vaughan+Rd,+Harrow+HA1+4HE/Harrow+on+the+Hill,+Station+Approach,+Harrow+HA1+1BB/@51.5786439,-0.355023,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876136a8c1c8405:0x3136e499c6bd7653!2m2!1d-0.3529509!2d51.5798551!1m5!1m1!1s0x487613736916398f:0x88e0d7845d482f8f!2m2!1d-0.3370302!2d51.5793932!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:03 AM (Monday) – 8:09 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:03 AM from West Harrow",
+        "fare": "£2.10",
+        "rawText": "6 min 8:03 AM (Monday) – 8:09 AM Metropolitan 8:03 AM from West Harrow £2.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWHW",
+      "fromDisplayName": "West Harrow Underground Station",
+      "toStationId": "940GZZLURYL",
+      "toDisplayName": "Rayners Lane Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/West+Harrow,+Vaughan+Rd,+Harrow+HA1+4HE/Rayners+Lane,+Harrow,+Pinner+HA5+5EH/@51.5773418,-0.3724262,15z/data=!4m18!4m17!1m5!1m1!1s0x4876136a8c1c8405:0x3136e499c6bd7653!2m2!1d-0.3529509!2d51.5798551!1m5!1m1!1s0x487613367c92c34b:0x757f39ff172d7815!2m2!1d-0.3708618!2d51.5751034!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-metropolitan",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Metropolitan",
+        "departureSummary": "8:00 AM from West Harrow",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Metropolitan 8:00 AM from West Harrow £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWIG",
+      "fromDisplayName": "Willesden Green Underground Station",
+      "toStationId": "940GZZLUFYR",
+      "toDisplayName": "Finchley Road Underground Station",
+      "graphRunMinutes": 5.41,
+      "routeUrl": "https://www.google.com/maps/dir/Willesden+Green,+Walm+Ln,+London+NW2+4QT/Finchley+Road,+Underground+Station+Underground+Ltd,+Finchley+Rd,+South+Hampstead,+London+NW3+6OP/@51.5478355,-0.2422023,13z/data=!4m18!4m17!1m5!1m1!1s0x4876105a59cccd87:0xce364e17625df04!2m2!1d-0.2212208!2d51.5491753!1m5!1m1!1s0x48761a84d1363b37:0xe6216127cd09f068!2m2!1d-0.1798916!2d51.5469511!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-metropolitan-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Metropolitan option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUWIG",
+      "fromDisplayName": "Willesden Green Underground Station",
+      "toStationId": "940GZZLUWYP",
+      "toDisplayName": "Wembley Park Underground Station",
+      "graphRunMinutes": 7.76,
+      "routeUrl": "https://www.google.com/maps/dir/Willesden+Green,+Walm+Ln,+London+NW2+4QT/Wembley+Park,+Wembley+HA9+9AA/@51.5563714,-0.2916832,13z/data=!4m18!4m17!1m5!1m1!1s0x4876105a59cccd87:0xce364e17625df04!2m2!1d-0.2212208!2d51.5491753!1m5!1m1!1s0x4876117c481e4337:0x4bda54615573011e!2m2!1d-0.2793176!2d51.5633758!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-metropolitan-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Metropolitan option at Monday 8am for this direct pair."
+    }
+  ]
+}

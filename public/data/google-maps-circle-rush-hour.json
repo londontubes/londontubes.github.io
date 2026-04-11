@@ -1,0 +1,1376 @@
+{
+  "metadata": {
+    "lineCode": "circle",
+    "source": "Google Maps browser capture via MCP Playwright",
+    "requestedDeparture": {
+      "dayLabel": "Monday",
+      "localDate": "2026-04-13",
+      "localTime": "08:00",
+      "timeZone": "Europe/London",
+      "googleMapsTimestampParam": "1776067200"
+    },
+    "scope": "Direct adjacent Circle line station pairs derived from static graph edges",
+    "totalPairs": 70,
+    "matchedPairs": 63,
+    "unavailablePairs": 7,
+    "generatedAt": "2026-04-11T00:14:19.613Z",
+    "notes": [
+      "This file stores Monday 8am Google Maps reference times for direct Circle line station pairs so future work does not need to re-query Google Maps.",
+      "Pairs with no Circle option remain in the dataset with captureStatus set to no-circle-option-found.",
+      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+    ]
+  },
+  "journeys": [
+    {
+      "fromStationId": "940GZZLUALD",
+      "fromDisplayName": "Aldgate Underground Station",
+      "toStationId": "HUBLST",
+      "toDisplayName": "Liverpool Street",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Aldgate,+Aldgate+High+St,+London+EC3N+1AH/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/@51.5161909,-0.0836364,16z/data=!3m1!5s0x48761cb2082d7111:0xad311bbab0bb6955!4m18!4m17!1m5!1m1!1s0x4876034b5ac01ec7:0x57b7f600da13b153!2m2!1d-0.0755189!2d51.5141643!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:01 AM (Monday) – 8:08 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:01 AM from Aldgate",
+        "fare": "£3.10",
+        "rawText": "7 min  8:01 AM (Monday) – 8:08 AM Circle  8:01 AM from Aldgate £3.10  5 min Details  7 min "
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUALD",
+      "fromDisplayName": "Aldgate Underground Station",
+      "toStationId": "940GZZLUTWH",
+      "toDisplayName": "Tower Hill Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Aldgate,+Aldgate+High+St,+London+EC3N+1AH/Tower+Hill+Station,+London/@51.5119579,-0.0773172,17z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876034b5ac01ec7:0x57b7f600da13b153!2m2!1d-0.0755189!2d51.5141643!1m5!1m1!1s0x4876034bc2725439:0x13eea173ba77dbd1!2m2!1d-0.0750366!2d51.5100806!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:01 AM from Aldgate",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Circle 8:01 AM from Aldgate £3.10 Details  4 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "toStationId": "940GZZLUERC",
+      "toDisplayName": "Edgware Road (Circle Line) Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/Edgware+Rd,+London/@51.5205896,-0.1733183,15z/data=!4m18!4m17!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!1m5!1m1!1s0x48761ab438ed8257:0xaf0ea37780cef824!2m2!1d-0.1684432!2d51.5187913!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:07 AM (Monday) – 8:13 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "6 min 8:07 AM (Monday) – 8:13 AM Circle   7 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "toStationId": "940GZZLUGPS",
+      "toDisplayName": "Great Portland Street Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/@51.5235134,-0.1603449,15z/data=!4m18!4m17!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:06 AM (Monday) – 8:07 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:06 AM (Monday) – 8:07 AM Circle  7 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBBN",
+      "fromDisplayName": "Barbican Underground Station",
+      "toStationId": "HUBZFD",
+      "toDisplayName": "Farringdon",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/Farringdon+Station,+London/@51.5201514,-0.106731,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:06 AM (Monday) – 8:07 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:06 AM (Monday) – 8:07 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBBN",
+      "fromDisplayName": "Barbican Underground Station",
+      "toStationId": "HUBZMG",
+      "toDisplayName": "Moorgate",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/Moorgate,+London+EC2Y+9AE/@51.5188964,-0.1036247,15z/data=!3m1!5s0x48761cab89481e9f:0xbc9a306963a932dc!4m18!4m17!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:05 AM (Monday) – 8:07 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:05 AM (Monday) – 8:07 AM Circle  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBWT",
+      "fromDisplayName": "Bayswater Underground Station",
+      "toStationId": "940GZZLUNHG",
+      "toDisplayName": "Notting Hill Gate Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Bayswater,+Queensway,+London+W2+4RH/Notting+Hill+Gate,+London+W11+3HT/@51.5103849,-0.1972093,16z/data=!4m18!4m17!1m5!1m1!1s0x487605557f919c29:0xda8eece0694ceadd!2m2!1d-0.1877694!2d51.5123525!1m5!1m1!1s0x48760ffb8f7c9e01:0x709cac6c06f22e0b!2m2!1d-0.1963494!2d51.5091207!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:10 AM (Monday) – 8:11 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:10 AM (Monday) – 8:11 AM Circle  6 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBWT",
+      "fromDisplayName": "Bayswater Underground Station",
+      "toStationId": "HUBPAD",
+      "toDisplayName": "Paddington",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Bayswater,+Queensway,+London+W2+4RH/Paddington,+Praed+St,+London+W2+1HU/@51.5142766,-0.1921239,15z/data=!4m18!4m17!1m5!1m1!1s0x487605557f919c29:0xda8eece0694ceadd!2m2!1d-0.1877694!2d51.5123525!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:04 AM (Monday) – 8:08 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "4 min 8:04 AM (Monday) – 8:08 AM Circle  4 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBFR",
+      "fromDisplayName": "Blackfriars",
+      "toStationId": "940GZZLUMSH",
+      "toDisplayName": "Mansion House Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Blackfriars+Station,+London+EC4V+4AA/Mansion+House,+Underground+Ltd+Station,+Mansion+House,+38+Cannon+St,+London+EC4N+6JD/@51.511887,-0.1089875,15z/data=!4m18!4m17!1m5!1m1!1s0x487604adb1398565:0xfcd43d4509bf166!2m2!1d-0.1034314!2d51.5115579!1m5!1m1!1s0x487604aa7ec20e2f:0xef5bd1d027925d2e!2m2!1d-0.0936332!2d51.5122905!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:00 AM from Blackfriars",
+        "fare": "£3.10",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Circle 8:00 AM from Blackfriars £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBFR",
+      "fromDisplayName": "Blackfriars",
+      "toStationId": "940GZZLUTMP",
+      "toDisplayName": "Temple Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Blackfriars+Station,+London+EC4V+4AA/Temple,+London+WC2R+2PH/@51.5111927,-0.1190564,15z/data=!4m18!4m17!1m5!1m1!1s0x487604adb1398565:0xfcd43d4509bf166!2m2!1d-0.1034314!2d51.5115579!1m5!1m1!1s0x487604b4358a0a83:0x9818bcacf602f321!2m2!1d-0.1136565!2d51.5109454!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:08 AM (Monday) – 8:10 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:08 AM (Monday) – 8:10 AM Circle  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCST",
+      "fromDisplayName": "Cannon Street",
+      "toStationId": "940GZZLUMSH",
+      "toDisplayName": "Mansion House Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Cannon+Street+Station,+London/Mansion+House,+Underground+Ltd+Station,+Mansion+House,+38+Cannon+St,+London+EC4N+6JD/@51.5118641,-0.0952001,17z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487603544f56aa85:0x50922fe492c7f5c!2m2!1d-0.0902567!2d51.5113864!1m5!1m1!1s0x487604aa7ec20e2f:0xef5bd1d027925d2e!2m2!1d-0.0936332!2d51.5122905!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:05 AM (Monday) – 8:06 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:05 AM (Monday) – 8:06 AM Circle  3 min 0.1 mile via Cannon St  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCST",
+      "fromDisplayName": "Cannon Street",
+      "toStationId": "940GZZLUMMT",
+      "toDisplayName": "Monument Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Cannon+Street+Station,+London/Monument,+Monument+Station,+Underground+Ltd,+King+William+St,+London+EC4R+9AA/@51.5111585,-0.0933177,16z/data=!4m18!4m17!1m5!1m1!1s0x487603544f56aa85:0x50922fe492c7f5c!2m2!1d-0.0902567!2d51.5113864!1m5!1m1!1s0x48760353c5dfa2c3:0xaceb05fcd888fae2!2m2!1d-0.0866591!2d51.5110023!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:03 AM (Monday) – 8:04 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min  8:03 AM (Monday) – 8:04 AM Circle  1 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUERC",
+      "fromDisplayName": "Edgware Road (Circle Line) Underground Station",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Edgware+Rd,+London/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/@51.52096,-0.1734675,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ab438ed8257:0xaf0ea37780cef824!2m2!1d-0.1684432!2d51.5187913!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:08 AM (Monday) – 8:15 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "7 min 8:08 AM (Monday) – 8:15 AM  Circle  15 min "
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUERC",
+      "fromDisplayName": "Edgware Road (Circle Line) Underground Station",
+      "toStationId": "HUBPAD",
+      "toDisplayName": "Paddington",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Edgware+Rd,+London/Paddington,+Praed+St,+London+W2+1HU/@51.5173382,-0.1772359,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ab438ed8257:0xaf0ea37780cef824!2m2!1d-0.1684432!2d51.5187913!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-circle-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Circle option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUEMB",
+      "fromDisplayName": "Embankment Underground Station",
+      "toStationId": "940GZZLUTMP",
+      "toDisplayName": "Temple Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Embankment,+London+WC2N+6NS/Temple,+London+WC2R+2PH/@51.5089806,-0.123075,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!1m5!1m1!1s0x487604b4358a0a83:0x9818bcacf602f321!2m2!1d-0.1136565!2d51.5109454!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:07 AM (Monday) – 8:09 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:07 AM (Monday) – 8:09 AM Circle  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEMB",
+      "fromDisplayName": "Embankment Underground Station",
+      "toStationId": "HUBWSM",
+      "toDisplayName": "Westminster",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Embankment,+London+WC2N+6NS/Westminster,+Underground+Ltd,+Westminster+Station,+Bridge+St,+London+SW1A+2JR/@51.5041286,-0.12884,16z/data=!4m18!4m17!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!1m5!1m1!1s0x487604c449b45ed3:0x25f3edbdeb1538df!2m2!1d-0.1248413!2d51.501343!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Circle  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUESQ",
+      "fromDisplayName": "Euston Square Underground Station",
+      "toStationId": "940GZZLUGPS",
+      "toDisplayName": "Great Portland Street Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/@51.5248058,-0.144521,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:04 AM (Monday) – 8:05 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:04 AM (Monday) – 8:05 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUESQ",
+      "fromDisplayName": "Euston Square Underground Station",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5280918,-0.1415934,15z/data=!3m1!5s0x48761b3954db1fdd:0x3bcb3e1002d7f23e!4m18!4m17!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:09 AM (Monday) – 8:13 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "4 min 8:09 AM (Monday) – 8:13 AM Circle"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZFD",
+      "fromDisplayName": "Farringdon",
+      "toStationId": "940GZZLUBBN",
+      "toDisplayName": "Barbican Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Farringdon+Station,+London/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/@51.520233,-0.106731,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:04 AM (Monday) – 8:05 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:04 AM (Monday) – 8:05 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZFD",
+      "fromDisplayName": "Farringdon",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Farringdon+Station,+London/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5254308,-0.1358885,14z/data=!3m1!5s0x48761b3954db1fdd:0x3bcb3e1002d7f23e!4m18!4m17!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-circle-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Circle option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUGTR",
+      "fromDisplayName": "Gloucester Road Underground Station",
+      "toStationId": "940GZZLUHSK",
+      "toDisplayName": "High Street Kensington Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Gloucester+Road+station,+South+Kensington,+London/High+Street+Kensington,+High+Street+Underground+Ltd,+Kensington+Station,+Kensington+High+St,+London+W8+5SA/@51.4983691,-0.197859,15z/data=!3m1!5s0x487604df378dc395:0x4e468a23c7226978!4m18!4m17!1m5!1m1!1s0x4876055e04e36c63:0x9c5d0f00b1dffb4b!2m2!1d-0.1828317!2d51.4947409!1m5!1m1!1s0x48760ff6db531d81:0x64118972b0311da3!2m2!1d-0.1926463!2d51.5008834!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:06 AM (Monday) – 8:11 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:06 AM from Gloucester Road",
+        "fare": "£3.10",
+        "rawText": "5 min 8:06 AM (Monday) – 8:11 AM Circle 8:06 AM from Gloucester Road £3.10 Details  10 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGTR",
+      "fromDisplayName": "Gloucester Road Underground Station",
+      "toStationId": "940GZZLUSKS",
+      "toDisplayName": "South Kensington Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Gloucester+Road+station,+South+Kensington,+London/South+Kensington+Station,+South+Kensington,+London+SW7+2ND/@51.4945138,-0.1889288,15z/data=!4m18!4m17!1m5!1m1!1s0x4876055e04e36c63:0x9c5d0f00b1dffb4b!2m2!1d-0.1828317!2d51.4947409!1m5!1m1!1s0x48760542834e40ef:0xba0b276b9de87204!2m2!1d-0.1744039!2d51.4939889!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:05 AM (Monday) – 8:06 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:05 AM (Monday) – 8:06 AM Circle"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGHK",
+      "fromDisplayName": "Goldhawk Road Underground Station",
+      "toStationId": "HUBHMS",
+      "toDisplayName": "Hammersmith",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Goldhawk+Road,+Goldhawk+Rd,+London+W12+8EG/Hammersmith+Station,+London+W6+7AE/@51.4976338,-0.2308711,16z/data=!4m18!4m17!1m5!1m1!1s0x48760fce513a6da9:0x99b3b571c9d1a991!2m2!1d-0.2264944!2d51.5018056!1m5!1m1!1s0x48760fb7e0b0070d:0x2398b7d670685535!2m2!1d-0.2248261!2d51.493483!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:02 AM (Monday) – 8:03 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:02 AM from Goldhawk Road",
+        "fare": "£2.30",
+        "rawText": "1 min 8:02 AM (Monday) – 8:03 AM Circle 8:02 AM from Goldhawk Road £2.30  1 min Details  1 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGHK",
+      "fromDisplayName": "Goldhawk Road Underground Station",
+      "toStationId": "940GZZLUSBM",
+      "toDisplayName": "Shepherd's Bush Market Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Goldhawk+Road,+Goldhawk+Rd,+London+W12+8EG/Shepherd's+Bush+Market,+Uxbridge+Rd,+London+W12+7JD/@51.5039008,-0.2290808,17z/data=!4m18!4m17!1m5!1m1!1s0x48760fce513a6da9:0x99b3b571c9d1a991!2m2!1d-0.2264944!2d51.5018056!1m5!1m1!1s0x48760fd1b5520d29:0xd24ef194d9f7ea5!2m2!1d-0.2262516!2d51.5056503!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:08 AM (Monday) – 8:08 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:08 AM (Monday) – 8:08 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGPS",
+      "fromDisplayName": "Great Portland Street Underground Station",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/@51.5231377,-0.1605754,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:05 AM (Monday) – 8:07 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:05 AM (Monday) – 8:07 AM Circle  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGPS",
+      "fromDisplayName": "Great Portland Street Underground Station",
+      "toStationId": "940GZZLUESQ",
+      "toDisplayName": "Euston Square Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/@51.5247118,-0.1446189,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:07 AM (Monday) – 8:09 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:07 AM (Monday) – 8:09 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHMS",
+      "fromDisplayName": "Hammersmith",
+      "toStationId": "940GZZLUGHK",
+      "toDisplayName": "Goldhawk Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Hammersmith+Station,+London+W6+7AE/Goldhawk+Road,+Goldhawk+Rd,+London+W12+8EG/@51.497608,-0.2308856,16z/data=!4m18!4m17!1m5!1m1!1s0x48760fb7e0b0070d:0x2398b7d670685535!2m2!1d-0.2248261!2d51.493483!1m5!1m1!1s0x48760fce513a6da9:0x99b3b571c9d1a991!2m2!1d-0.2264944!2d51.5018056!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:05 AM (Monday) – 8:08 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "3 min 8:05 AM (Monday) – 8:08 AM Circle  3 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHSK",
+      "fromDisplayName": "High Street Kensington Underground Station",
+      "toStationId": "940GZZLUGTR",
+      "toDisplayName": "Gloucester Road Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/High+Street+Kensington,+High+Street+Underground+Ltd,+Kensington+Station,+Kensington+High+St,+London+W8+5SA/Gloucester+Road+station,+South+Kensington,+London/@51.4969766,-0.2008009,15z/data=!4m18!4m17!1m5!1m1!1s0x48760ff6db531d81:0x64118972b0311da3!2m2!1d-0.1926463!2d51.5008834!1m5!1m1!1s0x4876055e04e36c63:0x9c5d0f00b1dffb4b!2m2!1d-0.1828317!2d51.4947409!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:03 AM from High Street Kensington",
+        "fare": "£3.10",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Circle 8:03 AM from High Street Kensington £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHSK",
+      "fromDisplayName": "High Street Kensington Underground Station",
+      "toStationId": "940GZZLUNHG",
+      "toDisplayName": "Notting Hill Gate Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/High+Street+Kensington,+High+Street+Underground+Ltd,+Kensington+Station,+Kensington+High+St,+London+W8+5SA/Notting+Hill+Gate,+London+W11+3HT/@51.5047803,-0.1987738,16z/data=!4m18!4m17!1m5!1m1!1s0x48760ff6db531d81:0x64118972b0311da3!2m2!1d-0.1926463!2d51.5008834!1m5!1m1!1s0x48760ffb8f7c9e01:0x709cac6c06f22e0b!2m2!1d-0.1963494!2d51.5091207!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:01 AM from High Street Kensington",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Circle 8:01 AM from High Street Kensington £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "940GZZLUESQ",
+      "toDisplayName": "Euston Square Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/@51.5282112,-0.1403088,15z/data=!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:07 AM (Monday) – 8:12 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "5 min 8:07 AM (Monday) – 8:12 AM Circle  5 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "HUBZFD",
+      "toDisplayName": "Farringdon",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/Farringdon+Station,+London/@51.5258975,-0.1368806,14z/data=!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-circle-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Circle option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLULAD",
+      "fromDisplayName": "Ladbroke Grove Underground Station",
+      "toStationId": "940GZZLULRD",
+      "toDisplayName": "Latimer Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Ladbroke+Grove,+Underground+Ltd,+Ladbroke+Grove+Station,+Ladbroke+Grove,+London+W10+6HJ/Latimer+Road,+Bramley+Rd,+London+W10+6SZ/@51.515431,-0.2191389,16z/data=!4m18!4m17!1m5!1m1!1s0x4876101f758782ed:0x530df3f5cd4b7e26!2m2!1d-0.2102767!2d51.5173473!1m5!1m1!1s0x48760fd8b5b82da1:0x7b00ba68fe15bbaf!2m2!1d-0.2177014!2d51.5134548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:06 AM (Monday) – 8:08 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:06 AM (Monday) – 8:08 AM Circle  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLULAD",
+      "fromDisplayName": "Ladbroke Grove Underground Station",
+      "toStationId": "940GZZLUWSP",
+      "toDisplayName": "Westbourne Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Ladbroke+Grove,+Underground+Ltd,+Ladbroke+Grove+Station,+Ladbroke+Grove,+London+W10+6HJ/Westbourne+Park,+Western+Rd,+London+W11+1AB/@51.5191942,-0.2159784,15z/data=!4m18!4m17!1m5!1m1!1s0x4876101f758782ed:0x530df3f5cd4b7e26!2m2!1d-0.2102767!2d51.5173473!1m5!1m1!1s0x4876101b4440cb7f:0x266e6421f8fdeecf!2m2!1d-0.2008292!2d51.5209896!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:02 AM from Ladbroke Grove",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Circle 8:02 AM from Ladbroke Grove £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLULRD",
+      "fromDisplayName": "Latimer Road Underground Station",
+      "toStationId": "940GZZLULAD",
+      "toDisplayName": "Ladbroke Grove Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Latimer+Road,+Bramley+Rd,+London+W10+6SZ/Ladbroke+Grove,+Underground+Ltd,+Ladbroke+Grove+Station,+Ladbroke+Grove,+London+W10+6HJ/@51.5154544,-0.2191389,16z/data=!4m18!4m17!1m5!1m1!1s0x48760fd8b5b82da1:0x7b00ba68fe15bbaf!2m2!1d-0.2177014!2d51.5134548!1m5!1m1!1s0x4876101f758782ed:0x530df3f5cd4b7e26!2m2!1d-0.2102767!2d51.5173473!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:01 AM from Latimer Road",
+        "fare": "£2.30",
+        "rawText": "1 min 8:01 AM (Monday) – 8:02 AM Circle 8:01 AM from Latimer Road £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLULRD",
+      "fromDisplayName": "Latimer Road Underground Station",
+      "toStationId": "940GZZLUWLA",
+      "toDisplayName": "Wood Lane Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Latimer+Road,+Bramley+Rd,+London+W10+6SZ/Wood+Lane,+London+W12+7SL/@51.5118429,-0.2260139,16z/data=!4m18!4m17!1m5!1m1!1s0x48760fd8b5b82da1:0x7b00ba68fe15bbaf!2m2!1d-0.2177014!2d51.5134548!1m5!1m1!1s0x48760fd74b71a8ff:0x11b4ff85f754d0e4!2m2!1d-0.2242417!2d51.5100085!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:08 AM (Monday) – 8:09 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:08 AM (Monday) – 8:09 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBLST",
+      "fromDisplayName": "Liverpool Street",
+      "toStationId": "940GZZLUALD",
+      "toDisplayName": "Aldgate Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/Aldgate,+Aldgate+High+St,+London+EC3N+1AH/@51.5163194,-0.0835387,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!1m5!1m1!1s0x4876034b5ac01ec7:0x57b7f600da13b153!2m2!1d-0.0755189!2d51.5141643!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-circle-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Circle option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBLST",
+      "fromDisplayName": "Liverpool Street",
+      "toStationId": "HUBZMG",
+      "toDisplayName": "Moorgate",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/Moorgate,+London+EC2Y+9AE/@51.5178786,-0.0895185,16z/data=!3m1!5s0x48761cab89481e9f:0xbc9a306963a932dc!4m18!4m17!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:08 AM (Monday) – 8:15 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "7 min  8:08 AM (Monday) – 8:15 AM  Circle  7 min "
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMSH",
+      "fromDisplayName": "Mansion House Underground Station",
+      "toStationId": "HUBBFR",
+      "toDisplayName": "Blackfriars",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Mansion+House,+Underground+Ltd+Station,+Mansion+House,+38+Cannon+St,+London+EC4N+6JD/Blackfriars+Station,+London+EC4V+4AA/@51.5119248,-0.1089073,15z/data=!4m18!4m17!1m5!1m1!1s0x487604aa7ec20e2f:0xef5bd1d027925d2e!2m2!1d-0.0936332!2d51.5122905!1m5!1m1!1s0x487604adb1398565:0xfcd43d4509bf166!2m2!1d-0.1034314!2d51.5115579!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:06 AM (Monday) – 8:08 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:06 AM (Monday) – 8:08 AM Circle  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMSH",
+      "fromDisplayName": "Mansion House Underground Station",
+      "toStationId": "HUBCST",
+      "toDisplayName": "Cannon Street",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Mansion+House,+Underground+Ltd+Station,+Mansion+House,+38+Cannon+St,+London+EC4N+6JD/Cannon+Street+Station,+London/@51.5118756,-0.0980605,16z/data=!4m18!4m17!1m5!1m1!1s0x487604aa7ec20e2f:0xef5bd1d027925d2e!2m2!1d-0.0936332!2d51.5122905!1m5!1m1!1s0x487603544f56aa85:0x50922fe492c7f5c!2m2!1d-0.0902567!2d51.5113864!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:02 AM (Monday) – 8:03 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:02 AM (Monday) – 8:03 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMMT",
+      "fromDisplayName": "Monument Underground Station",
+      "toStationId": "HUBCST",
+      "toDisplayName": "Cannon Street",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Monument,+Monument+Station,+Underground+Ltd,+King+William+St,+London+EC4R+9AA/Cannon+Street+Station,+London/@51.5111433,-0.0933247,16z/data=!4m18!4m17!1m5!1m1!1s0x48760353c5dfa2c3:0xaceb05fcd888fae2!2m2!1d-0.0866591!2d51.5110023!1m5!1m1!1s0x487603544f56aa85:0x50922fe492c7f5c!2m2!1d-0.0902567!2d51.5113864!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:04 AM (Monday) – 8:05 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min  8:04 AM (Monday) – 8:05 AM Circle  1 min "
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMMT",
+      "fromDisplayName": "Monument Underground Station",
+      "toStationId": "940GZZLUTWH",
+      "toDisplayName": "Tower Hill Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Monument,+Monument+Station,+Underground+Ltd,+King+William+St,+London+EC4R+9AA/Tower+Hill+Station,+London/@51.5102171,-0.0911476,15z/data=!4m18!4m17!1m5!1m1!1s0x48760353c5dfa2c3:0xaceb05fcd888fae2!2m2!1d-0.0866591!2d51.5110023!1m5!1m1!1s0x4876034bc2725439:0x13eea173ba77dbd1!2m2!1d-0.0750366!2d51.5100806!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:04 AM (Monday) – 8:06 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min  8:04 AM (Monday) – 8:06 AM Circle  3 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZMG",
+      "fromDisplayName": "Moorgate",
+      "toStationId": "940GZZLUBBN",
+      "toDisplayName": "Barbican Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Moorgate,+London+EC2Y+9AE/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/@51.5193001,-0.1035669,15z/data=!4m18!4m17!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:04 AM (Monday) – 8:06 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:04 AM (Monday) – 8:06 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZMG",
+      "fromDisplayName": "Moorgate",
+      "toStationId": "HUBLST",
+      "toDisplayName": "Liverpool Street",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Moorgate,+London+EC2Y+9AE/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/@51.5181359,-0.0949919,15z/data=!3m1!5s0x48761cb2082d7111:0xad311bbab0bb6955!4m18!4m17!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:07 AM (Monday) – 8:15 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "8 min  8:07 AM (Monday) – 8:15 AM Circle   7 min "
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNHG",
+      "fromDisplayName": "Notting Hill Gate Underground Station",
+      "toStationId": "940GZZLUBWT",
+      "toDisplayName": "Bayswater Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Notting+Hill+Gate,+London+W11+3HT/Bayswater,+Queensway,+London+W2+4RH/@51.5103901,-0.1972093,16z/data=!4m18!4m17!1m5!1m1!1s0x48760ffb8f7c9e01:0x709cac6c06f22e0b!2m2!1d-0.1963494!2d51.5091207!1m5!1m1!1s0x487605557f919c29:0xda8eece0694ceadd!2m2!1d-0.1877694!2d51.5123525!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:03 AM (Monday) – 8:04 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:03 AM from Notting Hill Gate",
+        "fare": "£3.10",
+        "rawText": "1 min 8:03 AM (Monday) – 8:04 AM Circle 8:03 AM from Notting Hill Gate £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUNHG",
+      "fromDisplayName": "Notting Hill Gate Underground Station",
+      "toStationId": "940GZZLUHSK",
+      "toDisplayName": "High Street Kensington Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Notting+Hill+Gate,+London+W11+3HT/High+Street+Kensington,+High+Street+Underground+Ltd,+Kensington+Station,+Kensington+High+St,+London+W8+5SA/@51.5049843,-0.1991636,16z/data=!3m2!4b1!5s0x487604df378dc395:0x4e468a23c7226978!4m18!4m17!1m5!1m1!1s0x48760ffb8f7c9e01:0x709cac6c06f22e0b!2m2!1d-0.1963494!2d51.5091207!1m5!1m1!1s0x48760ff6db531d81:0x64118972b0311da3!2m2!1d-0.1926463!2d51.5008834!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:01 AM from Notting Hill Gate",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Circle 8:01 AM from Notting Hill Gate £3.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBPAD",
+      "fromDisplayName": "Paddington",
+      "toStationId": "940GZZLUBWT",
+      "toDisplayName": "Bayswater Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Paddington,+Praed+St,+London+W2+1HU/Bayswater,+Queensway,+London+W2+4RH/@51.5151001,-0.1923895,15z/data=!4m18!4m17!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!1m5!1m1!1s0x487605557f919c29:0xda8eece0694ceadd!2m2!1d-0.1877694!2d51.5123525!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:05 AM (Monday) – 8:10 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "5 min 8:05 AM (Monday) – 8:10 AM Circle  4 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBPAD",
+      "fromDisplayName": "Paddington",
+      "toStationId": "940GZZLUERC",
+      "toDisplayName": "Edgware Road (Circle Line) Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Paddington,+Praed+St,+London+W2+1HU/Edgware+Rd,+London/@51.5172361,-0.1836548,15z/data=!4m18!4m17!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!1m5!1m1!1s0x48761ab438ed8257:0xaf0ea37780cef824!2m2!1d-0.1684432!2d51.5187913!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-circle-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Circle option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBPAD",
+      "fromDisplayName": "Paddington",
+      "toStationId": "940GZZLURYO",
+      "toDisplayName": "Royal Oak Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Paddington,+Praed+St,+London+W2+1HU/Royal+Oak+station,+London/@51.5176345,-0.1924953,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!1m5!1m1!1s0x48761000a35e1da9:0xf2359be4328e4c2d!2m2!1d-0.1887955!2d51.5190961!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:10 AM (Monday) – 8:14 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "4 min 8:10 AM (Monday) – 8:14 AM Circle  9 min "
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURYO",
+      "fromDisplayName": "Royal Oak Underground Station",
+      "toStationId": "HUBPAD",
+      "toDisplayName": "Paddington",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Royal+Oak+station,+London/Paddington,+Praed+St,+London+W2+1HU/@51.518478,-0.1931686,15z/data=!4m18!4m17!1m5!1m1!1s0x48761000a35e1da9:0xf2359be4328e4c2d!2m2!1d-0.1887955!2d51.5190961!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-circle-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Circle option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLURYO",
+      "fromDisplayName": "Royal Oak Underground Station",
+      "toStationId": "940GZZLUWSP",
+      "toDisplayName": "Westbourne Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Royal+Oak+station,+London/Westbourne+Park,+Western+Rd,+London+W11+1AB/@51.5199997,-0.2048854,15z/data=!4m18!4m17!1m5!1m1!1s0x48761000a35e1da9:0xf2359be4328e4c2d!2m2!1d-0.1887955!2d51.5190961!1m5!1m1!1s0x4876101b4440cb7f:0x266e6421f8fdeecf!2m2!1d-0.2008292!2d51.5209896!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:03 AM from Royal Oak",
+        "fare": "£2.30",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Circle 8:03 AM from Royal Oak £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSBM",
+      "fromDisplayName": "Shepherd's Bush Market Underground Station",
+      "toStationId": "940GZZLUGHK",
+      "toDisplayName": "Goldhawk Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Shepherd's+Bush+Market,+Uxbridge+Rd,+London+W12+7JD/Goldhawk+Road,+Goldhawk+Rd,+London+W12+8EG/@51.5039016,-0.2290656,17z/data=!4m18!4m17!1m5!1m1!1s0x48760fd1b5520d29:0xd24ef194d9f7ea5!2m2!1d-0.2262516!2d51.5056503!1m5!1m1!1s0x48760fce513a6da9:0x99b3b571c9d1a991!2m2!1d-0.2264944!2d51.5018056!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:00 AM from Shepherd's Bush Market",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Circle 8:00 AM from Shepherd's Bush Market £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSBM",
+      "fromDisplayName": "Shepherd's Bush Market Underground Station",
+      "toStationId": "940GZZLUWLA",
+      "toDisplayName": "Wood Lane Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Shepherd's+Bush+Market,+Uxbridge+Rd,+London+W12+7JD/Wood+Lane,+London+W12+7SL/@51.5079417,-0.2275462,17z/data=!4m18!4m17!1m5!1m1!1s0x48760fd1b5520d29:0xd24ef194d9f7ea5!2m2!1d-0.2262516!2d51.5056503!1m5!1m1!1s0x48760fd74b71a8ff:0x11b4ff85f754d0e4!2m2!1d-0.2242417!2d51.5100085!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:08 AM (Monday) – 8:09 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:08 AM (Monday) – 8:09 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSSQ",
+      "fromDisplayName": "Sloane Square Underground Station",
+      "toStationId": "940GZZLUSKS",
+      "toDisplayName": "South Kensington Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Sloane+Square,+London+SW1W+8BB/South+Kensington+Station,+South+Kensington,+London+SW7+2ND/@51.4932223,-0.1756056,15z/data=!4m18!4m17!1m5!1m1!1s0x48760516460e875f:0xcc637afd3c19a075!2m2!1d-0.1564328!2d51.4923519!1m5!1m1!1s0x48760542834e40ef:0xba0b276b9de87204!2m2!1d-0.1744039!2d51.4939889!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:01 AM from Sloane Square",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Circle 8:01 AM from Sloane Square £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSSQ",
+      "fromDisplayName": "Sloane Square Underground Station",
+      "toStationId": "HUBVIC",
+      "toDisplayName": "Victoria",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Sloane+Square,+London+SW1W+8BB/Victoria,+Victoria+St,+London+SW1E+5ND/@51.4931723,-0.1601964,15z/data=!4m18!4m17!1m5!1m1!1s0x48760516460e875f:0xcc637afd3c19a075!2m2!1d-0.1564328!2d51.4923519!1m5!1m1!1s0x48760521aaebdc4d:0x5d364f36086cfd15!2m2!1d-0.1438979!2d51.4952103!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:00 AM (Monday) – 8:04 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:00 AM from Sloane Square",
+        "fare": "£3.10",
+        "rawText": "4 min  8:00 AM (Monday) – 8:04 AM Circle 8:00 AM from Sloane Square £3.10  2 min Details  4 min "
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSKS",
+      "fromDisplayName": "South Kensington Underground Station",
+      "toStationId": "940GZZLUGTR",
+      "toDisplayName": "Gloucester Road Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/South+Kensington+Station,+South+Kensington,+London+SW7+2ND/Gloucester+Road+station,+South+Kensington,+London/@51.4945619,-0.1836473,16z/data=!4m18!4m17!1m5!1m1!1s0x48760542834e40ef:0xba0b276b9de87204!2m2!1d-0.1744039!2d51.4939889!1m5!1m1!1s0x4876055e04e36c63:0x9c5d0f00b1dffb4b!2m2!1d-0.1828317!2d51.4947409!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-circle-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Circle option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUSKS",
+      "fromDisplayName": "South Kensington Underground Station",
+      "toStationId": "940GZZLUSSQ",
+      "toDisplayName": "Sloane Square Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/South+Kensington+Station,+South+Kensington,+London+SW7+2ND/Sloane+Square,+London+SW1W+8BB/@51.4927218,-0.1757216,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760542834e40ef:0xba0b276b9de87204!2m2!1d-0.1744039!2d51.4939889!1m5!1m1!1s0x48760516460e875f:0xcc637afd3c19a075!2m2!1d-0.1564328!2d51.4923519!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:06 AM (Monday) – 8:09 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "3 min 8:06 AM (Monday) – 8:09 AM Circle  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSJP",
+      "fromDisplayName": "St. James's Park Underground Station",
+      "toStationId": "HUBVIC",
+      "toDisplayName": "Victoria",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/St.+James's+Park,+London+SW1H+0BB/Victoria,+Victoria+St,+London+SW1E+5ND/@51.4973657,-0.1489892,15z/data=!4m18!4m17!1m5!1m1!1s0x487604dbf34fbe8d:0xe83ea48bf9d809ea!2m2!1d-0.1337107!2d51.499479!1m5!1m1!1s0x48760521aaebdc4d:0x5d364f36086cfd15!2m2!1d-0.1438979!2d51.4952103!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:07 AM (Monday) – 8:11 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "4 min  8:07 AM (Monday) – 8:11 AM Circle  7 min "
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSJP",
+      "fromDisplayName": "St. James's Park Underground Station",
+      "toStationId": "HUBWSM",
+      "toDisplayName": "Westminster",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/St.+James's+Park,+London+SW1H+0BB/Westminster,+Underground+Ltd,+Westminster+Station,+Bridge+St,+London+SW1A+2JR/@51.4995348,-0.1403944,15z/data=!4m18!4m17!1m5!1m1!1s0x487604dbf34fbe8d:0xe83ea48bf9d809ea!2m2!1d-0.1337107!2d51.499479!1m5!1m1!1s0x487604c449b45ed3:0x25f3edbdeb1538df!2m2!1d-0.1248413!2d51.501343!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:04 AM (Monday) – 8:06 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:04 AM (Monday) – 8:06 AM Circle  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTMP",
+      "fromDisplayName": "Temple Underground Station",
+      "toStationId": "HUBBFR",
+      "toDisplayName": "Blackfriars",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Temple,+London+WC2R+2PH/Blackfriars+Station,+London+EC4V+4AA/@51.5112351,-0.119105,15z/data=!4m18!4m17!1m5!1m1!1s0x487604b4358a0a83:0x9818bcacf602f321!2m2!1d-0.1136565!2d51.5109454!1m5!1m1!1s0x487604adb1398565:0xfcd43d4509bf166!2m2!1d-0.1034314!2d51.5115579!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:09 AM (Monday) – 8:11 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:09 AM (Monday) – 8:11 AM Circle  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTMP",
+      "fromDisplayName": "Temple Underground Station",
+      "toStationId": "940GZZLUEMB",
+      "toDisplayName": "Embankment Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Temple,+London+WC2R+2PH/Embankment,+London+WC2N+6NS/@51.5088949,-0.123075,16z/data=!4m18!4m17!1m5!1m1!1s0x487604b4358a0a83:0x9818bcacf602f321!2m2!1d-0.1136565!2d51.5109454!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:01 AM from Temple",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Circle 8:01 AM from Temple £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTWH",
+      "fromDisplayName": "Tower Hill Underground Station",
+      "toStationId": "940GZZLUALD",
+      "toDisplayName": "Aldgate Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Tower+Hill+Station,+London/Aldgate,+Aldgate+High+St,+London+EC3N+1AH/@51.5119874,-0.0782294,17z/data=!4m18!4m17!1m5!1m1!1s0x4876034bc2725439:0x13eea173ba77dbd1!2m2!1d-0.0750366!2d51.5100806!1m5!1m1!1s0x4876034b5ac01ec7:0x57b7f600da13b153!2m2!1d-0.0755189!2d51.5141643!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:06 AM (Monday) – 8:12 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "6 min 8:06 AM (Monday) – 8:12 AM Circle  6 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTWH",
+      "fromDisplayName": "Tower Hill Underground Station",
+      "toStationId": "940GZZLUMMT",
+      "toDisplayName": "Monument Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Tower+Hill+Station,+London/Monument,+Monument+Station,+Underground+Ltd,+King+William+St,+London+EC4R+9AA/@51.5102171,-0.0911476,15z/data=!4m18!4m17!1m5!1m1!1s0x4876034bc2725439:0x13eea173ba77dbd1!2m2!1d-0.0750366!2d51.5100806!1m5!1m1!1s0x48760353c5dfa2c3:0xaceb05fcd888fae2!2m2!1d-0.0866591!2d51.5110023!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:03 AM (Monday) – 8:04 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min  8:03 AM (Monday) – 8:04 AM Circle  1 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBVIC",
+      "fromDisplayName": "Victoria",
+      "toStationId": "940GZZLUSSQ",
+      "toDisplayName": "Sloane Square Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Victoria,+Victoria+St,+London+SW1E+5ND/Sloane+Square,+London+SW1W+8BB/@51.4929874,-0.1606754,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760521aaebdc4d:0x5d364f36086cfd15!2m2!1d-0.1438979!2d51.4952103!1m5!1m1!1s0x48760516460e875f:0xcc637afd3c19a075!2m2!1d-0.1564328!2d51.4923519!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:06 AM (Monday) – 8:11 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "5 min  8:06 AM (Monday) – 8:11 AM Circle  5 min "
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBVIC",
+      "fromDisplayName": "Victoria",
+      "toStationId": "940GZZLUSJP",
+      "toDisplayName": "St. James's Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Victoria,+Victoria+St,+London+SW1E+5ND/St.+James's+Park,+London+SW1H+0BB/@51.4973442,-0.1505572,15z/data=!4m18!4m17!1m5!1m1!1s0x48760521aaebdc4d:0x5d364f36086cfd15!2m2!1d-0.1438979!2d51.4952103!1m5!1m1!1s0x487604dbf34fbe8d:0xe83ea48bf9d809ea!2m2!1d-0.1337107!2d51.499479!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:09 AM (Monday) – 8:13 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "4 min  8:09 AM (Monday) – 8:13 AM Circle  9 min 0.4 mile via A302 and Palmer St"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWSP",
+      "fromDisplayName": "Westbourne Park Underground Station",
+      "toStationId": "940GZZLULAD",
+      "toDisplayName": "Ladbroke Grove Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Westbourne+Park,+Western+Rd,+London+W11+1AB/Ladbroke+Grove,+Underground+Ltd,+Ladbroke+Grove+Station,+Ladbroke+Grove,+London+W10+6HJ/@51.5191826,-0.2159768,15z/data=!4m18!4m17!1m5!1m1!1s0x4876101b4440cb7f:0x266e6421f8fdeecf!2m2!1d-0.2008292!2d51.5209896!1m5!1m1!1s0x4876101f758782ed:0x530df3f5cd4b7e26!2m2!1d-0.2102767!2d51.5173473!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:05 AM (Monday) – 8:06 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:05 AM from Westbourne Park",
+        "fare": "£2.30",
+        "rawText": "1 min 8:05 AM (Monday) – 8:06 AM Circle 8:05 AM from Westbourne Park £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWSP",
+      "fromDisplayName": "Westbourne Park Underground Station",
+      "toStationId": "940GZZLURYO",
+      "toDisplayName": "Royal Oak Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Westbourne+Park,+Western+Rd,+London+W11+1AB/Royal+Oak+station,+London/@51.5200109,-0.2049306,15z/data=!4m18!4m17!1m5!1m1!1s0x4876101b4440cb7f:0x266e6421f8fdeecf!2m2!1d-0.2008292!2d51.5209896!1m5!1m1!1s0x48761000a35e1da9:0xf2359be4328e4c2d!2m2!1d-0.1887955!2d51.5190961!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:04 AM (Monday) – 8:07 AM",
+        "lineSummary": "Circle",
+        "departureSummary": "8:04 AM from Westbourne Park",
+        "fare": "£2.30",
+        "rawText": "3 min 8:04 AM (Monday) – 8:07 AM Circle 8:04 AM from Westbourne Park £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWSM",
+      "fromDisplayName": "Westminster",
+      "toStationId": "940GZZLUEMB",
+      "toDisplayName": "Embankment Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Westminster,+Underground+Ltd,+Westminster+Station,+Bridge+St,+London+SW1A+2JR/Embankment,+London+WC2N+6NS/@51.5041413,-0.1288802,16z/data=!4m18!4m17!1m5!1m1!1s0x487604c449b45ed3:0x25f3edbdeb1538df!2m2!1d-0.1248413!2d51.501343!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:06 AM (Monday) – 8:07 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:06 AM (Monday) – 8:07 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWSM",
+      "fromDisplayName": "Westminster",
+      "toStationId": "940GZZLUSJP",
+      "toDisplayName": "St. James's Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Westminster,+Underground+Ltd,+Westminster+Station,+Bridge+St,+London+SW1A+2JR/St.+James's+Park,+London+SW1H+0BB/@51.5004109,-0.134501,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604c449b45ed3:0x25f3edbdeb1538df!2m2!1d-0.1248413!2d51.501343!1m5!1m1!1s0x487604dbf34fbe8d:0xe83ea48bf9d809ea!2m2!1d-0.1337107!2d51.499479!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:05 AM (Monday) – 8:07 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:05 AM (Monday) – 8:07 AM Circle  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWLA",
+      "fromDisplayName": "Wood Lane Underground Station",
+      "toStationId": "940GZZLULRD",
+      "toDisplayName": "Latimer Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Wood+Lane,+London+W12+7SL/Latimer+Road,+Bramley+Rd,+London+W10+6SZ/@51.5114327,-0.2251885,16z/data=!4m18!4m17!1m5!1m1!1s0x48760fd74b71a8ff:0x11b4ff85f754d0e4!2m2!1d-0.2242417!2d51.5100085!1m5!1m1!1s0x48760fd8b5b82da1:0x7b00ba68fe15bbaf!2m2!1d-0.2177014!2d51.5134548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:09 AM (Monday) – 8:11 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:09 AM (Monday) – 8:11 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWLA",
+      "fromDisplayName": "Wood Lane Underground Station",
+      "toStationId": "940GZZLUSBM",
+      "toDisplayName": "Shepherd's Bush Market Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Wood+Lane,+London+W12+7SL/Shepherd's+Bush+Market,+Uxbridge+Rd,+London+W12+7JD/@51.5079234,-0.2274719,17z/data=!4m18!4m17!1m5!1m1!1s0x48760fd74b71a8ff:0x11b4ff85f754d0e4!2m2!1d-0.2242417!2d51.5100085!1m5!1m1!1s0x48760fd1b5520d29:0xd24ef194d9f7ea5!2m2!1d-0.2262516!2d51.5056503!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-circle",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:09 AM (Monday) – 8:10 AM",
+        "lineSummary": "Circle",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:09 AM (Monday) – 8:10 AM Circle  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    }
+  ]
+}

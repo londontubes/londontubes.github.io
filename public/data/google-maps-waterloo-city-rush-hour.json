@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "lineCode": "waterloo-city",
+    "source": "Google Maps browser capture via MCP Playwright",
+    "requestedDeparture": {
+      "dayLabel": "Monday",
+      "localDate": "2026-04-13",
+      "localTime": "08:00",
+      "timeZone": "Europe/London",
+      "googleMapsTimestampParam": "1776067200"
+    },
+    "scope": "Direct adjacent Waterloo & City line station pairs derived from static graph edges",
+    "totalPairs": 2,
+    "matchedPairs": 2,
+    "unavailablePairs": 0,
+    "generatedAt": "2026-04-11T00:47:58.099Z",
+    "notes": [
+      "This file stores Monday 8am Google Maps reference times for direct Waterloo & City line station pairs so future work does not need to re-query Google Maps.",
+      "Pairs with no Waterloo & City option remain in the dataset with captureStatus set to no-waterloo-city-option-found.",
+      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+    ]
+  },
+  "journeys": [
+    {
+      "fromStationId": "HUBBAN",
+      "fromDisplayName": "Bank",
+      "toStationId": "HUBWAT",
+      "toDisplayName": "Waterloo",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Bank+Station,+Underground+Ltd,+Bank%2FMonument+Complex,+Princes+St,+London+EC3V+3LA/Waterloo+Station,+London/@51.5105988,-0.1277116,14z/data=!4m18!4m17!1m5!1m1!1s0x487603549718414d:0x5688c8191d584d60!2m2!1d-0.0889145!2d51.513388!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-waterloo-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "Waterloo & City",
+        "departureSummary": "8:01 AM from Bank Station",
+        "fare": "£2.90",
+        "rawText": "3 min  8:01 AM (Monday) – 8:04 AM Waterloo & City Line 8:01 AM from Bank Station £2.90 Details  3 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWAT",
+      "fromDisplayName": "Waterloo",
+      "toStationId": "HUBBAN",
+      "toDisplayName": "Bank",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Waterloo+Station,+London/Bank+Station,+Underground+Ltd,+Bank%2FMonument+Complex,+Princes+St,+London+EC3V+3LA/@51.5107231,-0.1482149,13.05z/data=!4m18!4m17!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!1m5!1m1!1s0x487603549718414d:0x5688c8191d584d60!2m2!1d-0.0889145!2d51.513388!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-waterloo-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "Waterloo & City",
+        "departureSummary": "8:02 AM from Waterloo",
+        "fare": "£3.10",
+        "rawText": "4 min  8:02 AM (Monday) – 8:06 AM Waterloo & City Line 8:02 AM from Waterloo £3.10 Details  5 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    }
+  ]
+}

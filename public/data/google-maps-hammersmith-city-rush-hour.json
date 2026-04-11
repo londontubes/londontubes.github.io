@@ -1,0 +1,1117 @@
+{
+  "metadata": {
+    "lineCode": "hammersmith-city",
+    "source": "Google Maps browser capture via MCP Playwright",
+    "requestedDeparture": {
+      "dayLabel": "Monday",
+      "localDate": "2026-04-13",
+      "localTime": "08:00",
+      "timeZone": "Europe/London",
+      "googleMapsTimestampParam": "1776067200"
+    },
+    "scope": "Direct adjacent Hammersmith & City line station pairs derived from static graph edges",
+    "totalPairs": 56,
+    "matchedPairs": 52,
+    "unavailablePairs": 4,
+    "generatedAt": "2026-04-10T23:04:10.225Z",
+    "notes": [
+      "This file stores Monday 8am Google Maps reference times for direct Hammersmith & City line station pairs so future work does not need to re-query Google Maps.",
+      "Pairs with no Hammersmith & City option remain in the dataset with captureStatus set to no-hammersmith-city-option-found.",
+      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+    ]
+  },
+  "journeys": [
+    {
+      "fromStationId": "940GZZLUADE",
+      "fromDisplayName": "Aldgate East Underground Station",
+      "toStationId": "HUBLST",
+      "toDisplayName": "Liverpool Street",
+      "graphRunMinutes": 7,
+      "routeUrl": "https://www.google.com/maps/dir/Aldgate+East,+Underground+Ltd,+Whitechapel+High+St,+London+E1+7PT/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/@51.5157785,-0.0870253,15z/data=!3m1!5s0x48761cb2082d7111:0xad311bbab0bb6955!4m18!4m17!1m5!1m1!1s0x48761cb53339b4ff:0x6de702cc9ebbff0a!2m2!1d-0.0718178!2d51.5153166!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 9,
+        "schedule": "8:06 AM (Monday) – 8:15 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "9 min  8:06 AM (Monday) – 8:15 AM Hammersmith & City   12 min 0.5 mile via Middlesex St  11 min "
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUADE",
+      "fromDisplayName": "Aldgate East Underground Station",
+      "toStationId": "HUBZWL",
+      "toDisplayName": "Whitechapel",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Aldgate+East,+Underground+Ltd,+Whitechapel+High+St,+London+E1+7PT/Whitechapel,+277+Whitechapel+Rd,+London+E1+1BY/@51.5174838,-0.0756132,15z/data=!4m18!4m17!1m5!1m1!1s0x48761cb53339b4ff:0x6de702cc9ebbff0a!2m2!1d-0.0718178!2d51.5153166!1m5!1m1!1s0x48761ccdef3b5233:0xfd131553558a271f!2m2!1d-0.0598846!2d51.5196519!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:07 AM (Monday) – 8:10 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "3 min 8:07 AM (Monday) – 8:10 AM Hammersmith & City  7 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "toStationId": "940GZZLUERC",
+      "toDisplayName": "Edgware Road (Circle Line) Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/Edgware+Rd,+London/@51.5205896,-0.1733183,15z/data=!4m18!4m17!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!1m5!1m1!1s0x48761ab438ed8257:0xaf0ea37780cef824!2m2!1d-0.1684432!2d51.5187913!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:01 AM (Monday) – 8:07 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:01 AM from Baker Street",
+        "fare": "£3.10",
+        "rawText": "6 min 8:01 AM (Monday) – 8:07 AM Hammersmith & City  8:01 AM from Baker Street £3.10  3 min Details  7 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBST",
+      "fromDisplayName": "Baker Street Underground Station",
+      "toStationId": "940GZZLUGPS",
+      "toDisplayName": "Great Portland Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/@51.5235134,-0.1597398,15z/data=!4m18!4m17!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:00 AM from Baker Street",
+        "fare": "£3.10",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Hammersmith & City 8:00 AM from Baker Street £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBBN",
+      "fromDisplayName": "Barbican Underground Station",
+      "toStationId": "HUBZFD",
+      "toDisplayName": "Farringdon",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/Farringdon+Station,+London/@51.5201514,-0.106731,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:01 AM from Barbican",
+        "fare": "£3.10",
+        "rawText": "1 min 8:01 AM (Monday) – 8:02 AM Hammersmith & City 8:01 AM from Barbican £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBBN",
+      "fromDisplayName": "Barbican Underground Station",
+      "toStationId": "HUBZMG",
+      "toDisplayName": "Moorgate",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/Moorgate,+London+EC2Y+9AE/@51.5193217,-0.1035562,15z/data=!3m1!5s0x48761cab89481e9f:0xbc9a306963a932dc!4m18!4m17!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:10 AM (Monday) – 8:12 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:10 AM (Monday) – 8:12 AM Hammersmith & City  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBKG",
+      "fromDisplayName": "Barking",
+      "toStationId": "940GZZLUEHM",
+      "toDisplayName": "East Ham Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Barking,+Station,+Station+Parade,+Barking+IG11+8TU/East+Ham,+High+St+N,+London+E6+2JA/@51.5418336,0.045611,14z/data=!4m18!4m17!1m5!1m1!1s0x47d8a66d964f8117:0xacb1d014a266ff13!2m2!1d0.0809453!2d51.5395507!1m5!1m1!1s0x47d8a64bb5d2c54b:0xf372799c53a48a23!2m2!1d0.0514758!2d51.5389913!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:01 AM from Barking",
+        "fare": "£2.10",
+        "rawText": "3 min 8:01 AM (Monday) – 8:04 AM Hammersmith & City 8:01 AM from Barking £2.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBWR",
+      "fromDisplayName": "Bow Road Underground Station",
+      "toStationId": "940GZZLUBBB",
+      "toDisplayName": "Bromley-by-Bow Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Bow+Road,+Underground+Ltd,+Bow+Rd,+Bow,+London+E3+4DH/Bromley-by-Bow,+Underground+Ltd,+Northern+Approach,+Blackwell+Tunnel,+London+E3+3JJ/@51.5257323,-0.0288212,15z/data=!4m18!4m17!1m5!1m1!1s0x48761d38405be96b:0x98ebf9346aed38ec!2m2!1d-0.024766!2d51.5269593!1m5!1m1!1s0x48761d501d498363:0xd9ef17c44256be9!2m2!1d-0.0116202!2d51.5248722!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:04 AM (Monday) – 8:06 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:04 AM (Monday) – 8:06 AM Hammersmith & City  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBWR",
+      "fromDisplayName": "Bow Road Underground Station",
+      "toStationId": "940GZZLUMED",
+      "toDisplayName": "Mile End Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Bow+Road,+Underground+Ltd,+Bow+Rd,+Bow,+London+E3+4DH/Mile+End,+Mile+End+Rd,+Bow,+London+E3+4DH/@51.5262857,-0.0338331,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761d38405be96b:0x98ebf9346aed38ec!2m2!1d-0.024766!2d51.5269593!1m5!1m1!1s0x48761d307352cb15:0xe6fed20d26c2bbf8!2m2!1d-0.0334172!2d51.5251447!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:04 AM (Monday) – 8:05 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:04 AM (Monday) – 8:05 AM Hammersmith & City  1 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBBB",
+      "fromDisplayName": "Bromley-by-Bow Underground Station",
+      "toStationId": "940GZZLUBWR",
+      "toDisplayName": "Bow Road Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Bromley-by-Bow,+Underground+Ltd,+Northern+Approach,+Blackwell+Tunnel,+London+E3+3JJ/Bow+Road,+Underground+Ltd,+Bow+Rd,+Bow,+London+E3+4DH/@51.5257162,-0.0288191,15z/data=!4m18!4m17!1m5!1m1!1s0x48761d501d498363:0xd9ef17c44256be9!2m2!1d-0.0116202!2d51.5248722!1m5!1m1!1s0x48761d38405be96b:0x98ebf9346aed38ec!2m2!1d-0.024766!2d51.5269593!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:02 AM from Bromley-by-Bow",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Hammersmith & City 8:02 AM from Bromley-by-Bow £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBBB",
+      "fromDisplayName": "Bromley-by-Bow Underground Station",
+      "toStationId": "HUBWEH",
+      "toDisplayName": "West Ham",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Bromley-by-Bow,+Underground+Ltd,+Northern+Approach,+Blackwell+Tunnel,+London+E3+3JJ/West+Ham+Station,+London+E15+3BW/@51.5266535,-0.0235022,14z/data=!4m18!4m17!1m5!1m1!1s0x48761d501d498363:0xd9ef17c44256be9!2m2!1d-0.0116202!2d51.5248722!1m5!1m1!1s0x47d8a7b06667aeaf:0x6c586c2cd4ab60e5!2m2!1d0.006051!2d51.5285987!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:06 AM (Monday) – 8:14 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "8 min 8:06 AM (Monday) – 8:14 AM Hammersmith & City   9 min"
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEHM",
+      "fromDisplayName": "East Ham Underground Station",
+      "toStationId": "HUBBKG",
+      "toDisplayName": "Barking",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/East+Ham,+High+St+N,+London+E6+2JA/Barking,+Station,+Station+Parade,+Barking+IG11+8TU/@51.5418336,0.045611,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a64bb5d2c54b:0xf372799c53a48a23!2m2!1d0.0514758!2d51.5389913!1m5!1m1!1s0x47d8a66d964f8117:0xacb1d014a266ff13!2m2!1d0.0809453!2d51.5395507!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:04 AM (Monday) – 8:08 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "4 min 8:04 AM (Monday) – 8:08 AM Hammersmith & City  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEHM",
+      "fromDisplayName": "East Ham Underground Station",
+      "toStationId": "940GZZLUUPK",
+      "toDisplayName": "Upton Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/East+Ham,+High+St+N,+London+E6+2JA/Upton+Park,+Green+St,+London+E13+9AP/@51.537755,0.0333252,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a64bb5d2c54b:0xf372799c53a48a23!2m2!1d0.0514758!2d51.5389913!1m5!1m1!1s0x47d8a7c80819d643:0x871ef080e5ebff50!2m2!1d0.0352766!2d51.5353424!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:04 AM (Monday) – 8:05 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:04 AM (Monday) – 8:05 AM Hammersmith & City  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUERC",
+      "fromDisplayName": "Edgware Road (Circle Line) Underground Station",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Edgware+Rd,+London/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/@51.52096,-0.1730193,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ab438ed8257:0xaf0ea37780cef824!2m2!1d-0.1684432!2d51.5187913!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:04 AM (Monday) – 8:11 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:08 AM from Edgware Road",
+        "fare": "£3.10",
+        "rawText": "7 min 8:04 AM (Monday) – 8:11 AM  Hammersmith & City 8:08 AM from Edgware Road £3.10  4 min Details  9 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUERC",
+      "fromDisplayName": "Edgware Road (Circle Line) Underground Station",
+      "toStationId": "HUBPAD",
+      "toDisplayName": "Paddington",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Edgware+Rd,+London/Paddington,+Praed+St,+London+W2+1HU/@51.5173378,-0.1817049,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ab438ed8257:0xaf0ea37780cef824!2m2!1d-0.1684432!2d51.5187913!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-hammersmith-city-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Hammersmith & City option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUESQ",
+      "fromDisplayName": "Euston Square Underground Station",
+      "toStationId": "940GZZLUGPS",
+      "toDisplayName": "Great Portland Street Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/@51.5248058,-0.144521,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:08 AM (Monday) – 8:09 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:08 AM (Monday) – 8:09 AM Hammersmith & City  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUESQ",
+      "fromDisplayName": "Euston Square Underground Station",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5280918,-0.1415934,15z/data=!3m1!5s0x48761b3954db1fdd:0x3bcb3e1002d7f23e!4m18!4m17!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:02 AM (Monday) – 8:07 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "5 min 8:02 AM (Monday) – 8:07 AM Hammersmith & City  5 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZFD",
+      "fromDisplayName": "Farringdon",
+      "toStationId": "940GZZLUBBN",
+      "toDisplayName": "Barbican Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Farringdon+Station,+London/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/@51.520233,-0.106731,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:09 AM (Monday) – 8:10 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:09 AM (Monday) – 8:10 AM Hammersmith & City  1 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZFD",
+      "fromDisplayName": "Farringdon",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Farringdon+Station,+London/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5254308,-0.1358885,14z/data=!3m1!5s0x48761b3954db1fdd:0x3bcb3e1002d7f23e!4m18!4m17!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-hammersmith-city-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Hammersmith & City option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUGHK",
+      "fromDisplayName": "Goldhawk Road Underground Station",
+      "toStationId": "HUBHMS",
+      "toDisplayName": "Hammersmith",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Goldhawk+Road,+Goldhawk+Rd,+London+W12+8EG/Hammersmith+Station,+London+W6+7AE/@51.4976338,-0.2308711,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760fce513a6da9:0x99b3b571c9d1a991!2m2!1d-0.2264944!2d51.5018056!1m5!1m1!1s0x48760fb7e0b0070d:0x2398b7d670685535!2m2!1d-0.2248261!2d51.493483!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:07 AM (Monday) – 8:08 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:07 AM (Monday) – 8:08 AM Hammersmith & City  1 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGHK",
+      "fromDisplayName": "Goldhawk Road Underground Station",
+      "toStationId": "940GZZLUSBM",
+      "toDisplayName": "Shepherd's Bush Market Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Goldhawk+Road,+Goldhawk+Rd,+London+W12+8EG/Shepherd's+Bush+Market,+Uxbridge+Rd,+London+W12+7JD/@51.5039008,-0.2290808,17z/data=!4m18!4m17!1m5!1m1!1s0x48760fce513a6da9:0x99b3b571c9d1a991!2m2!1d-0.2264944!2d51.5018056!1m5!1m1!1s0x48760fd1b5520d29:0xd24ef194d9f7ea5!2m2!1d-0.2262516!2d51.5056503!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:03 AM (Monday) – 8:04 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:03 AM from Goldhawk Road",
+        "fare": "£2.30",
+        "rawText": "1 min 8:03 AM (Monday) – 8:04 AM Hammersmith & City 8:03 AM from Goldhawk Road £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGPS",
+      "fromDisplayName": "Great Portland Street Underground Station",
+      "toStationId": "940GZZLUBST",
+      "toDisplayName": "Baker Street Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/Baker+Street,+Baker+Street+Underground+Station+Undergound+Ltd,+Marylebone+Rd,+London+NW1+5LJ/@51.5231377,-0.1605754,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!1m5!1m1!1s0x48761acf1f740895:0xde42176302235b4f!2m2!1d-0.156863!2d51.5231548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:09 AM (Monday) – 8:11 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:09 AM (Monday) – 8:11 AM Hammersmith & City  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGPS",
+      "fromDisplayName": "Great Portland Street Underground Station",
+      "toStationId": "940GZZLUESQ",
+      "toDisplayName": "Euston Square Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Great+Portland+Street,+Underground+Ltd,+Euston+Rd.,+London+NW1/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/@51.5245294,-0.1446189,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ad70be85691:0xfcec57f29de2ec60!2m2!1d-0.1439184!2d51.5237421!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:01 AM from Great Portland Street",
+        "fare": "£3.10",
+        "rawText": "1 min 8:01 AM (Monday) – 8:02 AM Hammersmith & City 8:01 AM from Great Portland Street £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBHMS",
+      "fromDisplayName": "Hammersmith",
+      "toStationId": "940GZZLUGHK",
+      "toDisplayName": "Goldhawk Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Hammersmith+Station,+London+W6+7AE/Goldhawk+Road,+Goldhawk+Rd,+London+W12+8EG/@51.497608,-0.2308856,16z/data=!4m18!4m17!1m5!1m1!1s0x48760fb7e0b0070d:0x2398b7d670685535!2m2!1d-0.2248261!2d51.493483!1m5!1m1!1s0x48760fce513a6da9:0x99b3b571c9d1a991!2m2!1d-0.2264944!2d51.5018056!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:01 AM from Hammersmith",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Hammersmith & City 8:01 AM from Hammersmith £2.30  1 min Details  3 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "940GZZLUESQ",
+      "toDisplayName": "Euston Square Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/Euston+Square,+Underground+Ltd,+Euston+Rd.,+London+NW1+2BN/@51.5282112,-0.1402992,15z/data=!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761b2602df3075:0x724a117f8c443a0e!2m2!1d-0.1350197!2d51.525635!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:03 AM (Monday) – 8:08 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "5 min 8:03 AM (Monday) – 8:08 AM Hammersmith & City  5 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "HUBZFD",
+      "toDisplayName": "Farringdon",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/Farringdon+Station,+London/@51.5259096,-0.1365048,14z/data=!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761b521d7db4a7:0x3cc6109ecfb17490!2m2!1d-0.1054851!2d51.520338!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-hammersmith-city-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Hammersmith & City option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLULAD",
+      "fromDisplayName": "Ladbroke Grove Underground Station",
+      "toStationId": "940GZZLULRD",
+      "toDisplayName": "Latimer Road Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Ladbroke+Grove,+Underground+Ltd,+Ladbroke+Grove+Station,+Ladbroke+Grove,+London+W10+6HJ/Latimer+Road,+Bramley+Rd,+London+W10+6SZ/@51.515431,-0.2191389,16z/data=!4m18!4m17!1m5!1m1!1s0x4876101f758782ed:0x530df3f5cd4b7e26!2m2!1d-0.2102767!2d51.5173473!1m5!1m1!1s0x48760fd8b5b82da1:0x7b00ba68fe15bbaf!2m2!1d-0.2177014!2d51.5134548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:01 AM from Ladbroke Grove",
+        "fare": "£2.30",
+        "rawText": "1 min 8:01 AM (Monday) – 8:02 AM Hammersmith & City 8:01 AM from Ladbroke Grove £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLULAD",
+      "fromDisplayName": "Ladbroke Grove Underground Station",
+      "toStationId": "940GZZLUWSP",
+      "toDisplayName": "Westbourne Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Ladbroke+Grove,+Underground+Ltd,+Ladbroke+Grove+Station,+Ladbroke+Grove,+London+W10+6HJ/Westbourne+Park,+Western+Rd,+London+W11+1AB/@51.5191942,-0.2159784,15z/data=!4m18!4m17!1m5!1m1!1s0x4876101f758782ed:0x530df3f5cd4b7e26!2m2!1d-0.2102767!2d51.5173473!1m5!1m1!1s0x4876101b4440cb7f:0x266e6421f8fdeecf!2m2!1d-0.2008292!2d51.5209896!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:08 AM (Monday) – 8:09 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:08 AM (Monday) – 8:09 AM Hammersmith & City  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLULRD",
+      "fromDisplayName": "Latimer Road Underground Station",
+      "toStationId": "940GZZLULAD",
+      "toDisplayName": "Ladbroke Grove Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Latimer+Road,+Bramley+Rd,+London+W10+6SZ/Ladbroke+Grove,+Underground+Ltd,+Ladbroke+Grove+Station,+Ladbroke+Grove,+London+W10+6HJ/@51.5154544,-0.2191389,16z/data=!4m18!4m17!1m5!1m1!1s0x48760fd8b5b82da1:0x7b00ba68fe15bbaf!2m2!1d-0.2177014!2d51.5134548!1m5!1m1!1s0x4876101f758782ed:0x530df3f5cd4b7e26!2m2!1d-0.2102767!2d51.5173473!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:06 AM (Monday) – 8:08 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:06 AM (Monday) – 8:08 AM Hammersmith & City  1 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLULRD",
+      "fromDisplayName": "Latimer Road Underground Station",
+      "toStationId": "940GZZLUWLA",
+      "toDisplayName": "Wood Lane Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Latimer+Road,+Bramley+Rd,+London+W10+6SZ/Wood+Lane,+London+W12+7SL/@51.5118429,-0.2260139,16z/data=!4m18!4m17!1m5!1m1!1s0x48760fd8b5b82da1:0x7b00ba68fe15bbaf!2m2!1d-0.2177014!2d51.5134548!1m5!1m1!1s0x48760fd74b71a8ff:0x11b4ff85f754d0e4!2m2!1d-0.2242417!2d51.5100085!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:02 AM from Latimer Road",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Hammersmith & City 8:02 AM from Latimer Road £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBLST",
+      "fromDisplayName": "Liverpool Street",
+      "toStationId": "940GZZLUADE",
+      "toDisplayName": "Aldgate East Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/Aldgate+East,+Underground+Ltd,+Whitechapel+High+St,+London+E1+7PT/@51.5165226,-0.086821,15z/data=!4m18!4m17!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!1m5!1m1!1s0x48761cb53339b4ff:0x6de702cc9ebbff0a!2m2!1d-0.0718178!2d51.5153166!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 11,
+        "schedule": "8:08 AM (Monday) – 8:19 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "11 min  8:08 AM (Monday) – 8:19 AM  Hammersmith & City"
+      },
+      "deltaFromGraphMinutes": 8,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBLST",
+      "fromDisplayName": "Liverpool Street",
+      "toStationId": "HUBZMG",
+      "toDisplayName": "Moorgate",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/Moorgate,+London+EC2Y+9AE/@51.517412,-0.0951621,15z/data=!3m1!5s0x48761cab89481e9f:0xbc9a306963a932dc!4m18!4m17!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:04 AM (Monday) – 8:11 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "7 min  8:04 AM (Monday) – 8:11 AM  Hammersmith & City  7 min "
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMED",
+      "fromDisplayName": "Mile End Underground Station",
+      "toStationId": "940GZZLUBWR",
+      "toDisplayName": "Bow Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Mile+End,+Mile+End+Rd,+Bow,+London+E3+4DH/Bow+Road,+Underground+Ltd,+Bow+Rd,+Bow,+London+E3+4DH/@51.5262245,-0.0344779,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761d307352cb15:0xe6fed20d26c2bbf8!2m2!1d-0.0334172!2d51.5251447!1m5!1m1!1s0x48761d38405be96b:0x98ebf9346aed38ec!2m2!1d-0.024766!2d51.5269593!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:03 AM (Monday) – 8:04 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:03 AM (Monday) – 8:04 AM Hammersmith & City  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMED",
+      "fromDisplayName": "Mile End Underground Station",
+      "toStationId": "940GZZLUSGN",
+      "toDisplayName": "Stepney Green Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Mile+End,+Mile+End+Rd,+Bow,+London+E3+4DH/Stepney+Green,+Bethnal+Green,+London+E1+4AQ/@51.5235852,-0.0500329,15z/data=!4m18!4m17!1m5!1m1!1s0x48761d307352cb15:0xe6fed20d26c2bbf8!2m2!1d-0.0334172!2d51.5251447!1m5!1m1!1s0x48761d29dc0347a1:0xb57ef829916c83e0!2m2!1d-0.0466614!2d51.5219664!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:05 AM (Monday) – 8:07 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:05 AM (Monday) – 8:07 AM Hammersmith & City  6 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZMG",
+      "fromDisplayName": "Moorgate",
+      "toStationId": "940GZZLUBBN",
+      "toDisplayName": "Barbican Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Moorgate,+London+EC2Y+9AE/Barbican,+Underground+Ltd,+Aldersgate+St,+Barbican,+London+EC1A+4JA/@51.519294,-0.1035677,15z/data=!4m18!4m17!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!1m5!1m1!1s0x48761b569de38cd5:0xc891c38c7372282b!2m2!1d-0.0976771!2d51.5202192!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:00 AM from Moorgate",
+        "fare": "£3.10",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Hammersmith & City 8:00 AM from Moorgate £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZMG",
+      "fromDisplayName": "Moorgate",
+      "toStationId": "HUBLST",
+      "toDisplayName": "Liverpool Street",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Moorgate,+London+EC2Y+9AE/Liverpool+Street+Station,+Bishopsgate,+London+EC2M+4JY/@51.5181363,-0.0894737,16z/data=!3m1!5s0x48761cb2082d7111:0xad311bbab0bb6955!4m18!4m17!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!1m5!1m1!1s0x48761da518322b13:0x35f8d383da059c6f!2m2!1d-0.0797531!2d51.5186835!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:01 AM (Monday) – 8:08 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:01 AM from Moorgate",
+        "fare": "£2.90",
+        "rawText": "7 min  8:01 AM (Monday) – 8:08 AM Hammersmith & City  8:01 AM from Moorgate £2.90  5 min Details  7 min "
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBPAD",
+      "fromDisplayName": "Paddington",
+      "toStationId": "940GZZLUERC",
+      "toDisplayName": "Edgware Road (Circle Line) Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Paddington,+Praed+St,+London+W2+1HU/Edgware+Rd,+London/@51.5174483,-0.1831854,15z/data=!4m18!4m17!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!1m5!1m1!1s0x48761ab438ed8257:0xaf0ea37780cef824!2m2!1d-0.1684432!2d51.5187913!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-hammersmith-city-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Hammersmith & City option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBPAD",
+      "fromDisplayName": "Paddington",
+      "toStationId": "940GZZLURYO",
+      "toDisplayName": "Royal Oak Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Paddington,+Praed+St,+London+W2+1HU/Royal+Oak+station,+London/@51.5180598,-0.1931472,15z/data=!4m18!4m17!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!1m5!1m1!1s0x48761000a35e1da9:0xf2359be4328e4c2d!2m2!1d-0.1887955!2d51.5190961!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:04 AM (Monday) – 8:08 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:06 AM from Paddington",
+        "fare": "£3.10",
+        "rawText": "4 min 8:04 AM (Monday) – 8:08 AM Hammersmith & City 8:06 AM from Paddington £3.10  2 min Details  10 min "
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPLW",
+      "fromDisplayName": "Plaistow Underground Station",
+      "toStationId": "940GZZLUUPK",
+      "toDisplayName": "Upton Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Plaistow,+Plaistow+Rd,+London+E13+0DY/Upton+Park,+Green+St,+London+E13+9AP/@51.5332638,0.0157228,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a7ec07b9af8d:0x59a56c6ea5013977!2m2!1d0.0178311!2d51.5312413!1m5!1m1!1s0x47d8a7c80819d643:0x871ef080e5ebff50!2m2!1d0.0352766!2d51.5353424!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:00 AM from Plaistow",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Hammersmith & City 8:00 AM from Plaistow £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUPLW",
+      "fromDisplayName": "Plaistow Underground Station",
+      "toStationId": "HUBWEH",
+      "toDisplayName": "West Ham",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Plaistow,+Plaistow+Rd,+London+E13+0DY/West+Ham+Station,+London+E15+3BW/@51.5295277,0.0011986,15z/data=!4m18!4m17!1m5!1m1!1s0x47d8a7ec07b9af8d:0x59a56c6ea5013977!2m2!1d0.0178311!2d51.5312413!1m5!1m1!1s0x47d8a7b06667aeaf:0x6c586c2cd4ab60e5!2m2!1d0.006051!2d51.5285987!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:08 AM (Monday) – 8:16 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "8 min 8:08 AM (Monday) – 8:16 AM Hammersmith & City   8 min"
+      },
+      "deltaFromGraphMinutes": 7,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURYO",
+      "fromDisplayName": "Royal Oak Underground Station",
+      "toStationId": "HUBPAD",
+      "toDisplayName": "Paddington",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Royal+Oak+station,+London/Paddington,+Praed+St,+London+W2+1HU/@51.518478,-0.1931686,15z/data=!4m18!4m17!1m5!1m1!1s0x48761000a35e1da9:0xf2359be4328e4c2d!2m2!1d-0.1887955!2d51.5190961!1m5!1m1!1s0x48761aad72f39303:0x74926f3ec36c2314!2m2!1d-0.1765854!2d51.5162982!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:02 AM (Monday) – 8:07 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:02 AM from Royal Oak",
+        "fare": "£3.10",
+        "rawText": "5 min 8:02 AM (Monday) – 8:07 AM Hammersmith & City 8:02 AM from Royal Oak £3.10  2 min Details  7 min "
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLURYO",
+      "fromDisplayName": "Royal Oak Underground Station",
+      "toStationId": "940GZZLUWSP",
+      "toDisplayName": "Westbourne Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Royal+Oak+station,+London/Westbourne+Park,+Western+Rd,+London+W11+1AB/@51.5199997,-0.2048854,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761000a35e1da9:0xf2359be4328e4c2d!2m2!1d-0.1887955!2d51.5190961!1m5!1m1!1s0x4876101b4440cb7f:0x266e6421f8fdeecf!2m2!1d-0.2008292!2d51.5209896!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:08 AM (Monday) – 8:10 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:08 AM (Monday) – 8:10 AM Hammersmith & City  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSBM",
+      "fromDisplayName": "Shepherd's Bush Market Underground Station",
+      "toStationId": "940GZZLUGHK",
+      "toDisplayName": "Goldhawk Road Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Shepherd's+Bush+Market,+Uxbridge+Rd,+London+W12+7JD/Goldhawk+Road,+Goldhawk+Rd,+London+W12+8EG/@51.5039016,-0.2290656,17z/data=!4m18!4m17!1m5!1m1!1s0x48760fd1b5520d29:0xd24ef194d9f7ea5!2m2!1d-0.2262516!2d51.5056503!1m5!1m1!1s0x48760fce513a6da9:0x99b3b571c9d1a991!2m2!1d-0.2264944!2d51.5018056!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:05 AM (Monday) – 8:07 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:05 AM (Monday) – 8:07 AM Hammersmith & City  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSBM",
+      "fromDisplayName": "Shepherd's Bush Market Underground Station",
+      "toStationId": "940GZZLUWLA",
+      "toDisplayName": "Wood Lane Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Shepherd's+Bush+Market,+Uxbridge+Rd,+London+W12+7JD/Wood+Lane,+London+W12+7SL/@51.5079417,-0.2275462,17z/data=!4m18!4m17!1m5!1m1!1s0x48760fd1b5520d29:0xd24ef194d9f7ea5!2m2!1d-0.2262516!2d51.5056503!1m5!1m1!1s0x48760fd74b71a8ff:0x11b4ff85f754d0e4!2m2!1d-0.2242417!2d51.5100085!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:04 AM (Monday) – 8:05 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:04 AM from Shepherd's Bush Market",
+        "fare": "£2.30",
+        "rawText": "1 min 8:04 AM (Monday) – 8:05 AM Hammersmith & City 8:04 AM from Shepherd's Bush Market £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSGN",
+      "fromDisplayName": "Stepney Green Underground Station",
+      "toStationId": "940GZZLUMED",
+      "toDisplayName": "Mile End Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Stepney+Green,+Bethnal+Green,+London+E1+4AQ/Mile+End,+Mile+End+Rd,+Bow,+London+E3+4DH/@51.5236026,-0.0501494,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761d29dc0347a1:0xb57ef829916c83e0!2m2!1d-0.0466614!2d51.5219664!1m5!1m1!1s0x48761d307352cb15:0xe6fed20d26c2bbf8!2m2!1d-0.0334172!2d51.5251447!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:01 AM from Stepney Green",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Hammersmith & City 8:01 AM from Stepney Green £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSGN",
+      "fromDisplayName": "Stepney Green Underground Station",
+      "toStationId": "HUBZWL",
+      "toDisplayName": "Whitechapel",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Stepney+Green,+Bethnal+Green,+London+E1+4AQ/Whitechapel,+277+Whitechapel+Rd,+London+E1+1BY/@51.5204151,-0.0640803,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761d29dc0347a1:0xb57ef829916c83e0!2m2!1d-0.0466614!2d51.5219664!1m5!1m1!1s0x48761ccdef3b5233:0xfd131553558a271f!2m2!1d-0.0598846!2d51.5196519!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:00 AM from Stepney Green",
+        "fare": "£2.10",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Hammersmith & City 8:00 AM from Stepney Green £2.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUUPK",
+      "fromDisplayName": "Upton Park Underground Station",
+      "toStationId": "940GZZLUEHM",
+      "toDisplayName": "East Ham Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Upton+Park,+Green+St,+London+E13+9AP/East+Ham,+High+St+N,+London+E6+2JA/@51.5373095,0.033297,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x47d8a7c80819d643:0x871ef080e5ebff50!2m2!1d0.0352766!2d51.5353424!1m5!1m1!1s0x47d8a64bb5d2c54b:0xf372799c53a48a23!2m2!1d0.0514758!2d51.5389913!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:02 AM from Upton Park",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Hammersmith & City 8:02 AM from Upton Park £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUUPK",
+      "fromDisplayName": "Upton Park Underground Station",
+      "toStationId": "940GZZLUPLW",
+      "toDisplayName": "Plaistow Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Upton+Park,+Green+St,+London+E13+9AP/Plaistow,+Plaistow+Rd,+London+E13+0DY/@51.534049,0.0054215,14z/data=!4m18!4m17!1m5!1m1!1s0x47d8a7c80819d643:0x871ef080e5ebff50!2m2!1d0.0352766!2d51.5353424!1m5!1m1!1s0x47d8a7ec07b9af8d:0x59a56c6ea5013977!2m2!1d0.0178311!2d51.5312413!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:05 AM (Monday) – 8:08 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "3 min 8:05 AM (Monday) – 8:08 AM Hammersmith & City  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWEH",
+      "fromDisplayName": "West Ham",
+      "toStationId": "940GZZLUBBB",
+      "toDisplayName": "Bromley-by-Bow Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/West+Ham+Station,+London+E15+3BW/Bromley-by-Bow,+Underground+Ltd,+Northern+Approach,+Blackwell+Tunnel,+London+E3+3JJ/@51.5309703,-0.0230173,14z/data=!4m18!4m17!1m5!1m1!1s0x47d8a7b06667aeaf:0x6c586c2cd4ab60e5!2m2!1d0.006051!2d51.5285987!1m5!1m1!1s0x48761d501d498363:0xd9ef17c44256be9!2m2!1d-0.0116202!2d51.5248722!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 9,
+        "schedule": "8:03 AM (Monday) – 8:12 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "9 min 8:03 AM (Monday) – 8:12 AM  Hammersmith & City  9 min"
+      },
+      "deltaFromGraphMinutes": 7,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWEH",
+      "fromDisplayName": "West Ham",
+      "toStationId": "940GZZLUPLW",
+      "toDisplayName": "Plaistow Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/West+Ham+Station,+London+E15+3BW/Plaistow,+Plaistow+Rd,+London+E13+0DY/@51.5295287,0.0011986,15z/data=!4m18!4m17!1m5!1m1!1s0x47d8a7b06667aeaf:0x6c586c2cd4ab60e5!2m2!1d0.006051!2d51.5285987!1m5!1m1!1s0x47d8a7ec07b9af8d:0x59a56c6ea5013977!2m2!1d0.0178311!2d51.5312413!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 9,
+        "schedule": "8:01 AM (Monday) – 8:10 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "9 min 8:01 AM (Monday) – 8:10 AM  Hammersmith & City  8 min"
+      },
+      "deltaFromGraphMinutes": 8,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWSP",
+      "fromDisplayName": "Westbourne Park Underground Station",
+      "toStationId": "940GZZLULAD",
+      "toDisplayName": "Ladbroke Grove Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Westbourne+Park,+Western+Rd,+London+W11+1AB/Ladbroke+Grove,+Underground+Ltd,+Ladbroke+Grove+Station,+Ladbroke+Grove,+London+W10+6HJ/@51.5191826,-0.2159768,15z/data=!4m18!4m17!1m5!1m1!1s0x4876101b4440cb7f:0x266e6421f8fdeecf!2m2!1d-0.2008292!2d51.5209896!1m5!1m1!1s0x4876101f758782ed:0x530df3f5cd4b7e26!2m2!1d-0.2102767!2d51.5173473!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:10 AM (Monday) – 8:11 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "1 min 8:10 AM (Monday) – 8:11 AM Hammersmith & City  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWSP",
+      "fromDisplayName": "Westbourne Park Underground Station",
+      "toStationId": "940GZZLURYO",
+      "toDisplayName": "Royal Oak Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Westbourne+Park,+Western+Rd,+London+W11+1AB/Royal+Oak+station,+London/@51.5200109,-0.2049306,15z/data=!4m18!4m17!1m5!1m1!1s0x4876101b4440cb7f:0x266e6421f8fdeecf!2m2!1d-0.2008292!2d51.5209896!1m5!1m1!1s0x48761000a35e1da9:0xf2359be4328e4c2d!2m2!1d-0.1887955!2d51.5190961!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:09 AM (Monday) – 8:11 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:09 AM (Monday) – 8:11 AM Hammersmith & City  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZWL",
+      "fromDisplayName": "Whitechapel",
+      "toStationId": "940GZZLUADE",
+      "toDisplayName": "Aldgate East Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Whitechapel,+277+Whitechapel+Rd,+London+E1+1BY/Aldgate+East,+Underground+Ltd,+Whitechapel+High+St,+London+E1+7PT/@51.5174838,-0.0761509,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ccdef3b5233:0xfd131553558a271f!2m2!1d-0.0598846!2d51.5196519!1m5!1m1!1s0x48761cb53339b4ff:0x6de702cc9ebbff0a!2m2!1d-0.0718178!2d51.5153166!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:03 AM (Monday) – 8:06 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "3 min 8:03 AM (Monday) – 8:06 AM Hammersmith & City  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZWL",
+      "fromDisplayName": "Whitechapel",
+      "toStationId": "940GZZLUSGN",
+      "toDisplayName": "Stepney Green Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Whitechapel,+277+Whitechapel+Rd,+London+E1+1BY/Stepney+Green,+Bethnal+Green,+London+E1+4AQ/@51.5206704,-0.0638858,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761ccdef3b5233:0xfd131553558a271f!2m2!1d-0.0598846!2d51.5196519!1m5!1m1!1s0x48761d29dc0347a1:0xb57ef829916c83e0!2m2!1d-0.0466614!2d51.5219664!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:10 AM (Monday) – 8:12 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "2 min 8:10 AM (Monday) – 8:12 AM Hammersmith & City  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWLA",
+      "fromDisplayName": "Wood Lane Underground Station",
+      "toStationId": "940GZZLULRD",
+      "toDisplayName": "Latimer Road Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Wood+Lane,+London+W12+7SL/Latimer+Road,+Bramley+Rd,+London+W10+6SZ/@51.5118478,-0.2260555,16z/data=!4m18!4m17!1m5!1m1!1s0x48760fd74b71a8ff:0x11b4ff85f754d0e4!2m2!1d-0.2242417!2d51.5100085!1m5!1m1!1s0x48760fd8b5b82da1:0x7b00ba68fe15bbaf!2m2!1d-0.2177014!2d51.5134548!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:05 AM (Monday) – 8:06 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:05 AM from Wood Lane",
+        "fare": "£2.30",
+        "rawText": "1 min 8:05 AM (Monday) – 8:06 AM Hammersmith & City 8:05 AM from Wood Lane £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWLA",
+      "fromDisplayName": "Wood Lane Underground Station",
+      "toStationId": "940GZZLUSBM",
+      "toDisplayName": "Shepherd's Bush Market Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Wood+Lane,+London+W12+7SL/Shepherd's+Bush+Market,+Uxbridge+Rd,+London+W12+7JD/@51.5079234,-0.2274719,17z/data=!4m18!4m17!1m5!1m1!1s0x48760fd74b71a8ff:0x11b4ff85f754d0e4!2m2!1d-0.2242417!2d51.5100085!1m5!1m1!1s0x48760fd1b5520d29:0xd24ef194d9f7ea5!2m2!1d-0.2262516!2d51.5056503!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-hammersmith-city",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:04 AM (Monday) – 8:05 AM",
+        "lineSummary": "Hammersmith & City",
+        "departureSummary": "8:04 AM from Wood Lane",
+        "fare": "£2.30",
+        "rawText": "1 min 8:04 AM (Monday) – 8:05 AM Hammersmith & City 8:04 AM from Wood Lane £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    }
+  ]
+}

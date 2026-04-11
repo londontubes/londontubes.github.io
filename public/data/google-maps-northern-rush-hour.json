@@ -1,0 +1,2103 @@
+{
+  "metadata": {
+    "lineCode": "northern",
+    "source": "Google Maps browser capture via MCP Playwright",
+    "requestedDeparture": {
+      "dayLabel": "Monday",
+      "localDate": "2026-04-13",
+      "localTime": "08:00",
+      "timeZone": "Europe/London",
+      "googleMapsTimestampParam": "1776067200"
+    },
+    "scope": "Direct adjacent Northern line station pairs derived from static graph edges",
+    "totalPairs": 106,
+    "matchedPairs": 100,
+    "unavailablePairs": 6,
+    "generatedAt": "2026-04-11T00:47:58.164Z",
+    "notes": [
+      "This file stores Monday 8am Google Maps reference times for direct Northern line station pairs so future work does not need to re-query Google Maps.",
+      "Pairs with no Northern option remain in the dataset with captureStatus set to no-northern-option-found.",
+      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+    ]
+  },
+  "journeys": [
+    {
+      "fromStationId": "940GZZLUAGL",
+      "fromDisplayName": "Angel Underground Station",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Angel,+Islington+High+St,+London+N1+8XX/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5308187,-0.136547,14z/data=!3m1!5s0x48761b3954db1fdd:0x3bcb3e1002d7f23e!4m18!4m17!1m5!1m1!1s0x48761b4332ecac5b:0xd4028cc7ead6e5ce!2m2!1d-0.106029!2d51.532249!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:01 AM (Monday) – 8:06 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Angel",
+        "fare": "£3.10",
+        "rawText": "5 min 8:01 AM (Monday) – 8:06 AM Northern 8:01 AM from Angel £3.10  2 min Details  5 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUAGL",
+      "fromDisplayName": "Angel Underground Station",
+      "toStationId": "HUBOLD",
+      "toDisplayName": "Old Street",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Angel,+Islington+High+St,+London+N1+8XX/Old+St,+London/@51.5282002,-0.118255,14z/data=!4m18!4m17!1m5!1m1!1s0x48761b4332ecac5b:0xd4028cc7ead6e5ce!2m2!1d-0.106029!2d51.532249!1m5!1m1!1s0x48761ca8abba80d9:0xd6cf02f1c545d61e!2m2!1d-0.088146!2d51.5255577!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:00 AM (Monday) – 8:06 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Angel",
+        "fare": "£3.10",
+        "rawText": "6 min 8:00 AM (Monday) – 8:06 AM Northern  8:00 AM from Angel £3.10  3 min Details  6 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUACY",
+      "fromDisplayName": "Archway Underground Station",
+      "toStationId": "940GZZLUHGT",
+      "toDisplayName": "Highgate Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Archway,+Junction+Rd,+Archway,+London+N19+5RQ/Highgate+Station,+London/@51.571508,-0.1501396,15z/data=!4m18!4m17!1m5!1m1!1s0x48761bae7a61795b:0x2cd1f875140c5e44!2m2!1d-0.1348735!2d51.5653976!1m5!1m1!1s0x48761a4a0d1d840f:0x23d26f271a6f2f4f!2m2!1d-0.1455396!2d51.5772519!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Archway",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Archway £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUACY",
+      "fromDisplayName": "Archway Underground Station",
+      "toStationId": "940GZZLUTFP",
+      "toDisplayName": "Tufnell Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Archway,+Junction+Rd,+Archway,+London+N19+5RQ/Tufnell+Park,+London+N19+5BQ/@51.561188,-0.1417134,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761bae7a61795b:0x2cd1f875140c5e44!2m2!1d-0.1348735!2d51.5653976!1m5!1m1!1s0x48761b007e5513c5:0xd65b88a7b26251d!2m2!1d-0.1379821!2d51.5567509!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Archway",
+        "fare": "£2.10",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Archway £2.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBAL",
+      "fromDisplayName": "Balham",
+      "toStationId": "940GZZLUCPS",
+      "toDisplayName": "Clapham South Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Balham,+Underground+Ltd,+Balham+High+Rd,+London+SW12+9BW/Clapham+South+Station,+London/@51.4482237,-0.1553644,16z/data=!4m18!4m17!1m5!1m1!1s0x487605c56537772d:0xcc41e444d1581014!2m2!1d-0.1531109!2d51.4434217!1m5!1m1!1s0x487605b6141e3939:0x74b600441e8e95af!2m2!1d-0.1487892!2d51.4527773!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Balham",
+        "fare": "£2.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Balham £2.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBAL",
+      "fromDisplayName": "Balham",
+      "toStationId": "940GZZLUTBC",
+      "toDisplayName": "Tooting Bec Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Balham,+Underground+Ltd,+Balham+High+Rd,+London+SW12+9BW/Tooting+Bec,+Balham+High+Rd,+Tooting+Bec,+London+SW17+7AA/@51.4397583,-0.161073,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487605c56537772d:0xcc41e444d1581014!2m2!1d-0.1531109!2d51.4434217!1m5!1m1!1s0x487605de9895b3bd:0x833e4fc2213fe48e!2m2!1d-0.1595141!2d51.4355215!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Balham",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Balham £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBAN",
+      "fromDisplayName": "Bank",
+      "toStationId": "HUBLBG",
+      "toDisplayName": "London Bridge",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Bank+Station,+Underground+Ltd,+Bank%2FMonument+Complex,+Princes+St,+London+EC3V+3LA/London+Bridge,+Station+Approach+Rd,+London+SE1+9SP/@51.5091027,-0.0921958,16z/data=!4m18!4m17!1m5!1m1!1s0x487603549718414d:0x5688c8191d584d60!2m2!1d-0.0889145!2d51.513388!1m5!1m1!1s0x487603509c580b6f:0x335af388238f54bc!2m2!1d-0.0848024!2d51.5042625!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:01 AM (Monday) – 8:06 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Bank Station",
+        "fare": "£3.10",
+        "rawText": "5 min  8:01 AM (Monday) – 8:06 AM Northern  8:01 AM from Bank Station £3.10  3 min Details  5 min "
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBBAN",
+      "fromDisplayName": "Bank",
+      "toStationId": "HUBZMG",
+      "toDisplayName": "Moorgate",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Bank+Station,+Underground+Ltd,+Bank%2FMonument+Complex,+Princes+St,+London+EC3V+3LA/Moorgate,+London+EC2Y+9AE/@51.5159474,-0.0941175,16z/data=!3m1!5s0x48761cab89481e9f:0xbc9a306963a932dc!4m18!4m17!1m5!1m1!1s0x487603549718414d:0x5688c8191d584d60!2m2!1d-0.0889145!2d51.513388!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Bank Station",
+        "fare": "£3.10",
+        "rawText": "3 min  8:01 AM (Monday) – 8:04 AM Northern 8:01 AM from Bank Station £3.10 Details  3 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZBPSUST",
+      "fromDisplayName": "Battersea Power Station Underground Station",
+      "toStationId": "940GZZNEUGST",
+      "toDisplayName": "Nine Elms Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Battersea+Power+Station,+Station+Underground+Ltd,+Battersea+Power+Station,+Kirtling+St,+Nine+Elms,+London+SW11+8AL/Nine+Elms,+70+Wandsworth+Rd,+Nine+Elms,+London+SW8+2NA/@51.4801153,-0.143607,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876050269ad9bbf:0x23acee16c858ae30!2m2!1d-0.1418745!2d51.479774!1m5!1m1!1s0x487604f09a4fbfc5:0x4409217fb6afb70!2m2!1d-0.1290947!2d51.4800886!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:03 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:03 AM from Battersea Power Station",
+        "fare": "£3.10",
+        "rawText": "1 min 8:03 AM (Monday) – 8:04 AM Northern 8:03 AM from Battersea Power Station £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBZP",
+      "fromDisplayName": "Belsize Park Underground Station",
+      "toStationId": "940GZZLUCFM",
+      "toDisplayName": "Chalk Farm Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Belsize+Park,+Haverstock+Hill,+London+NW3+2AL/Chalk+Farm,+Underground+Ltd,+Adelaide+Rd,+Chalk+Farm,+London+NW3+2BP/@51.5470878,-0.1686714,15z/data=!4m18!4m17!1m5!1m1!1s0x48761af335402dd1:0xe29481378fa086de!2m2!1d-0.1642939!2d51.5504642!1m5!1m1!1s0x48761aef9ca08459:0xa6882f1bcb2d9049!2m2!1d-0.153844!2d51.5440281!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Belsize Park",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Belsize Park £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBZP",
+      "fromDisplayName": "Belsize Park Underground Station",
+      "toStationId": "940GZZLUHTD",
+      "toDisplayName": "Hampstead Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Belsize+Park,+Haverstock+Hill,+London+NW3+2AL/Hampstead+Station,+London+NW3+1HH/@51.5537997,-0.1816484,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761af335402dd1:0xe29481378fa086de!2m2!1d-0.1642939!2d51.5504642!1m5!1m1!1s0x48761a878bee9eab:0x6db23b604113e802!2m2!1d-0.1768174!2d51.5574073!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Belsize Park",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Belsize Park £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBOR",
+      "fromDisplayName": "Borough Underground Station",
+      "toStationId": "HUBEPH",
+      "toDisplayName": "Elephant & Castle",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Borough,+Borough+High+St,+London+SE1+1JX/Elephant+and+Castle,+London/@51.4993528,-0.1020886,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760358831ee3bd:0xa89b2d8515610a5f!2m2!1d-0.0936138!2d51.5012449!1m5!1m1!1s0x487604a23d99f27f:0x1a4907e34b872655!2m2!1d-0.1004748!2d51.4959129!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 8,
+        "schedule": "8:01 AM (Monday) – 8:09 AM",
+        "lineSummary": "Northern",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "8 min 8:01 AM (Monday) – 8:09 AM Northern   7 min "
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBOR",
+      "fromDisplayName": "Borough Underground Station",
+      "toStationId": "HUBLBG",
+      "toDisplayName": "London Bridge",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Borough,+Borough+High+St,+London+SE1+1JX/London+Bridge,+Station+Approach+Rd,+London+SE1+9SP/@51.5034539,-0.0945894,16z/data=!4m18!4m17!1m5!1m1!1s0x48760358831ee3bd:0xa89b2d8515610a5f!2m2!1d-0.0936138!2d51.5012449!1m5!1m1!1s0x487603509c580b6f:0x335af388238f54bc!2m2!1d-0.0848024!2d51.5042625!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:00 AM (Monday) – 8:05 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Borough",
+        "fare": "£3.10",
+        "rawText": "5 min 8:00 AM (Monday) – 8:05 AM Northern  8:00 AM from Borough £3.10  3 min Details  6 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBTX",
+      "fromDisplayName": "Brent Cross Underground Station",
+      "toStationId": "940GZZLUGGN",
+      "toDisplayName": "Golders Green Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Brent+Cross,+Underground+Ltd,+Highfield+Ave,+London+NW11+9UA/Golders+Green,+Underground+Ltd,+N+End+Rd,+London+NW11+7RN/@51.5759296,-0.2241764,14z/data=!4m18!4m17!1m5!1m1!1s0x487610eabe6974c7:0x1b0bfec9874a089!2m2!1d-0.2134367!2d51.576827!1m5!1m1!1s0x4876109c069a05e5:0xb9fed4b7106c4bb0!2m2!1d-0.1942171!2d51.5722281!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Brent Cross",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Northern 8:00 AM from Brent Cross £2.30 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBTX",
+      "fromDisplayName": "Brent Cross Underground Station",
+      "toStationId": "940GZZLUHCL",
+      "toDisplayName": "Hendon Central Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Brent+Cross,+Underground+Ltd,+Highfield+Ave,+London+NW11+9UA/Hendon+Central,+Hendon+Central+Station+Underground+Ltd,+Queens+Rd,+London+NW4+3AS/@51.5804902,-0.2286037,15z/data=!3m2!4b1!5s0x487610dc81c297f3:0x238cbfe0f32a4d81!4m18!4m17!1m5!1m1!1s0x487610eabe6974c7:0x1b0bfec9874a089!2m2!1d-0.2134367!2d51.576827!1m5!1m1!1s0x487610db7db14341:0x91bcfd62cec1f976!2m2!1d-0.226453!2d51.5833094!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Brent Cross",
+        "fare": "£2.30",
+        "rawText": "2 min  8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Brent Cross £2.30 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBTK",
+      "fromDisplayName": "Burnt Oak Underground Station",
+      "toStationId": "940GZZLUCND",
+      "toDisplayName": "Colindale Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Burnt+Oak,+Watling+Ave,+Burnt+Oak,+Edgware+HA8+0LA/Colindale+Station,+London+NW9+5HJ/@51.6002007,-0.2756915,14z/data=!4m18!4m17!1m5!1m1!1s0x487616b46aa8f367:0x342c576b981063d9!2m2!1d-0.2640186!2d51.6026887!1m5!1m1!1s0x4876113243919723:0x82438be10d477132!2m2!1d-0.249481!2d51.5954134!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Burnt Oak",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Northern 8:00 AM from Burnt Oak £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUBTK",
+      "fromDisplayName": "Burnt Oak Underground Station",
+      "toStationId": "940GZZLUEGW",
+      "toDisplayName": "Edgware Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Burnt+Oak,+Watling+Ave,+Burnt+Oak,+Edgware+HA8+0LA/Edgware,+Underground+Ltd,+London,+Station+Rd,+Edgware+HA8+7AW/@51.6071907,-0.2819521,15z/data=!4m18!4m17!1m5!1m1!1s0x487616b46aa8f367:0x342c576b981063d9!2m2!1d-0.2640186!2d51.6026887!1m5!1m1!1s0x487616a4641c4895:0x77a3e9ca73292deb!2m2!1d-0.2753661!2d51.6134923!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Burnt Oak",
+        "fare": "£2.50",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Burnt Oak £2.50 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCTN",
+      "fromDisplayName": "Camden Town Underground Station",
+      "toStationId": "940GZZLUCFM",
+      "toDisplayName": "Chalk Farm Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Camden+Town,+Underground+Station+Underground+Ltd,+Camden+High+St,+London+NW1+8NH/Chalk+Farm,+Underground+Ltd,+Adelaide+Rd,+Chalk+Farm,+London+NW3+2BP/@51.541421,-0.1583966,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ae1b830fcf7:0x9b934203c885a5d!2m2!1d-0.1426546!2d51.5393847!1m5!1m1!1s0x48761aef9ca08459:0xa6882f1bcb2d9049!2m2!1d-0.153844!2d51.5440281!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Camden Town",
+        "fare": "£2.30",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Northern 8:00 AM from Camden Town £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCTN",
+      "fromDisplayName": "Camden Town Underground Station",
+      "toStationId": "HUBEUS",
+      "toDisplayName": "Euston",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Camden+Town,+Underground+Station+Underground+Ltd,+Camden+High+St,+London+NW1+8NH/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/@51.5326236,-0.1474395,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ae1b830fcf7:0x9b934203c885a5d!2m2!1d-0.1426546!2d51.5393847!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:00 AM (Monday) – 8:07 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Camden Town",
+        "fare": "£3.10",
+        "rawText": "7 min 8:00 AM (Monday) – 8:07 AM Northern  8:00 AM from Camden Town £3.10  4 min Details  13 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCTN",
+      "fromDisplayName": "Camden Town Underground Station",
+      "toStationId": "HUBKTN",
+      "toDisplayName": "Kentish Town",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Camden+Town,+Underground+Station+Underground+Ltd,+Camden+High+St,+London+NW1+8NH/Kentish+Town,+Station+Underground+Ltd,+Kentish+Town+Underground,+Kentish+Town+Rd,+London+NW5+2AA/@51.5448895,-0.15205,15z/data=!4m18!4m17!1m5!1m1!1s0x48761ae1b830fcf7:0x9b934203c885a5d!2m2!1d-0.1426546!2d51.5393847!1m5!1m1!1s0x48761b027399dbd9:0x7db8c3b698a8e021!2m2!1d-0.1405159!2d51.5503953!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Camden Town",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Camden Town £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCTN",
+      "fromDisplayName": "Camden Town Underground Station",
+      "toStationId": "940GZZLUMTC",
+      "toDisplayName": "Mornington Crescent Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Camden+Town,+Underground+Station+Underground+Ltd,+Camden+High+St,+London+NW1+8NH/Mornington+Crescent,+Underground+Ltd,+Mornington+Crescent+Station,+Eversholt+St,+London+NW1+2JA/@51.536944,-0.1452712,16z/data=!4m18!4m17!1m5!1m1!1s0x48761ae1b830fcf7:0x9b934203c885a5d!2m2!1d-0.1426546!2d51.5393847!1m5!1m1!1s0x48761b2037dd36b9:0x11812a2d5cfb2ea3!2m2!1d-0.1388961!2d51.5343501!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Camden Town",
+        "fare": "£2.30",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Northern 8:00 AM from Camden Town £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCFM",
+      "fromDisplayName": "Chalk Farm Underground Station",
+      "toStationId": "940GZZLUBZP",
+      "toDisplayName": "Belsize Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Chalk+Farm,+Underground+Ltd,+Adelaide+Rd,+Chalk+Farm,+London+NW3+2BP/Belsize+Park,+Haverstock+Hill,+London+NW3+2AL/@51.547324,-0.1695174,15z/data=!4m18!4m17!1m5!1m1!1s0x48761aef9ca08459:0xa6882f1bcb2d9049!2m2!1d-0.153844!2d51.5440281!1m5!1m1!1s0x48761af335402dd1:0xe29481378fa086de!2m2!1d-0.1642939!2d51.5504642!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Chalk Farm",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Chalk Farm £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCFM",
+      "fromDisplayName": "Chalk Farm Underground Station",
+      "toStationId": "940GZZLUCTN",
+      "toDisplayName": "Camden Town Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Chalk+Farm,+Underground+Ltd,+Adelaide+Rd,+Chalk+Farm,+London+NW3+2BP/Camden+Town,+Underground+Station+Underground+Ltd,+Camden+High+St,+London+NW1+8NH/@51.5416722,-0.1572114,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761aef9ca08459:0xa6882f1bcb2d9049!2m2!1d-0.153844!2d51.5440281!1m5!1m1!1s0x48761ae1b830fcf7:0x9b934203c885a5d!2m2!1d-0.1426546!2d51.5393847!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Chalk Farm",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Chalk Farm £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBCHX",
+      "fromDisplayName": "Charing Cross",
+      "toStationId": "940GZZLUEMB",
+      "toDisplayName": "Embankment Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Charing+Cross,+Strand,+London+WC2N+5HF/Embankment,+London+WC2N+6NS/@51.5077,-0.1259339,17z/data=!4m18!4m17!1m5!1m1!1s0x487604ceeaadbb11:0xdf61c9ec353e1637!2m2!1d-0.1247557!2d51.5081113!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-northern-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Northern option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBCHX",
+      "fromDisplayName": "Charing Cross",
+      "toStationId": "940GZZLULSQ",
+      "toDisplayName": "Leicester Square Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Charing+Cross,+Strand,+London+WC2N+5HF/Leicester+Square,+Square+Station+Underground+Ltd,+Leicester,+Cranbourn+St,+London+WC2H+0AP/@51.5098315,-0.129179,17z/data=!4m18!4m17!1m5!1m1!1s0x487604ceeaadbb11:0xdf61c9ec353e1637!2m2!1d-0.1247557!2d51.5081113!1m5!1m1!1s0x487604cd91e8c0f7:0xde0fdd0b8f9a7fcb!2m2!1d-0.128144!2d51.511451!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:05 AM from Charing Cross",
+        "fare": "£3.10",
+        "rawText": "4 min 8:02 AM (Monday) – 8:06 AM Northern 8:05 AM from Charing Cross £3.10  3 min Details  6 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCPC",
+      "fromDisplayName": "Clapham Common Underground Station",
+      "toStationId": "940GZZLUCPN",
+      "toDisplayName": "Clapham North Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Clapham+Common+Station,+London+SW4+0QZ/Clapham+North,+Clapham+High+St,+London+SW4+7TS/@51.4635182,-0.1451911,15z/data=!4m18!4m17!1m5!1m1!1s0x4876044d7a9698ef:0x114041e073b52a79!2m2!1d-0.1402519!2d51.4616404!1m5!1m1!1s0x4876045089964e81:0x758312ea80e0643a!2m2!1d-0.1295309!2d51.4650932!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Clapham Common",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Clapham Common £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCPC",
+      "fromDisplayName": "Clapham Common Underground Station",
+      "toStationId": "940GZZLUCPS",
+      "toDisplayName": "Clapham South Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Clapham+Common+Station,+London+SW4+0QZ/Clapham+South+Station,+London/@51.4573631,-0.1535558,15z/data=!4m18!4m17!1m5!1m1!1s0x4876044d7a9698ef:0x114041e073b52a79!2m2!1d-0.1402519!2d51.4616404!1m5!1m1!1s0x487605b6141e3939:0x74b600441e8e95af!2m2!1d-0.1487892!2d51.4527773!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Clapham Common",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Clapham Common £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCPN",
+      "fromDisplayName": "Clapham North Underground Station",
+      "toStationId": "940GZZLUCPC",
+      "toDisplayName": "Clapham Common Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Clapham+North,+Clapham+High+St,+London+SW4+7TS/Clapham+Common+Station,+London+SW4+0QZ/@51.4634734,-0.1451911,15z/data=!4m18!4m17!1m5!1m1!1s0x4876045089964e81:0x758312ea80e0643a!2m2!1d-0.1295309!2d51.4650932!1m5!1m1!1s0x4876044d7a9698ef:0x114041e073b52a79!2m2!1d-0.1402519!2d51.4616404!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Clapham North",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Clapham North £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCPN",
+      "fromDisplayName": "Clapham North Underground Station",
+      "toStationId": "940GZZLUSKW",
+      "toDisplayName": "Stockwell Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Clapham+North,+Clapham+High+St,+London+SW4+7TS/Stockwell,+London+SW9+9AE/@51.4687234,-0.1314441,16z/data=!4m18!4m17!1m5!1m1!1s0x4876045089964e81:0x758312ea80e0643a!2m2!1d-0.1295309!2d51.4650932!1m5!1m1!1s0x4876045f4e371b43:0x4ff8b3db951bbef6!2m2!1d-0.1228245!2d51.4723538!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Clapham North",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Clapham North £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCPS",
+      "fromDisplayName": "Clapham South Underground Station",
+      "toStationId": "HUBBAL",
+      "toDisplayName": "Balham",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Clapham+South+Station,+London/Balham,+Underground+Ltd,+Balham+High+Rd,+London+SW12+9BW/@51.4482177,-0.1553418,16z/data=!4m18!4m17!1m5!1m1!1s0x487605b6141e3939:0x74b600441e8e95af!2m2!1d-0.1487892!2d51.4527773!1m5!1m1!1s0x487605c56537772d:0xcc41e444d1581014!2m2!1d-0.1531109!2d51.4434217!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Clapham South",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Northern 8:02 AM from Clapham South £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCPS",
+      "fromDisplayName": "Clapham South Underground Station",
+      "toStationId": "940GZZLUCPC",
+      "toDisplayName": "Clapham Common Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Clapham+South+Station,+London/Clapham+Common+Station,+London+SW4+0QZ/@51.4573737,-0.1535795,15z/data=!4m18!4m17!1m5!1m1!1s0x487605b6141e3939:0x74b600441e8e95af!2m2!1d-0.1487892!2d51.4527773!1m5!1m1!1s0x4876044d7a9698ef:0x114041e073b52a79!2m2!1d-0.1402519!2d51.4616404!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Clapham South",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Clapham South £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCND",
+      "fromDisplayName": "Colindale Underground Station",
+      "toStationId": "940GZZLUBTK",
+      "toDisplayName": "Burnt Oak Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Colindale+Station,+London+NW9+5HJ/Burnt+Oak,+Watling+Ave,+Burnt+Oak,+Edgware+HA8+0LA/@51.5997369,-0.2756915,14z/data=!4m18!4m17!1m5!1m1!1s0x4876113243919723:0x82438be10d477132!2m2!1d-0.249481!2d51.5954134!1m5!1m1!1s0x487616b46aa8f367:0x342c576b981063d9!2m2!1d-0.2640186!2d51.6026887!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Colindale",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Colindale £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCND",
+      "fromDisplayName": "Colindale Underground Station",
+      "toStationId": "940GZZLUHCL",
+      "toDisplayName": "Hendon Central Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Colindale+Station,+London+NW9+5HJ/Hendon+Central,+Hendon+Central+Station+Underground+Ltd,+Queens+Rd,+London+NW4+3AS/@51.5867648,-0.2622449,14z/data=!3m2!4b1!5s0x487610dc81c297f3:0x238cbfe0f32a4d81!4m18!4m17!1m5!1m1!1s0x4876113243919723:0x82438be10d477132!2m2!1d-0.249481!2d51.5954134!1m5!1m1!1s0x487610db7db14341:0x91bcfd62cec1f976!2m2!1d-0.226453!2d51.5833094!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Colindale",
+        "fare": "£2.30",
+        "rawText": "3 min  8:00 AM (Monday) – 8:03 AM Northern 8:00 AM from Colindale £2.30 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCSD",
+      "fromDisplayName": "Colliers Wood Underground Station",
+      "toStationId": "940GZZLUSWN",
+      "toDisplayName": "South Wimbledon Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Colliers+Wood,+Underground+Ltd,+High+Street+Colliers+Wood,+London+SW19+2HR/South+Wimbledon,+High+St,+London+SW19+3DB/@51.4168189,-0.1954112,15z/data=!4m18!4m17!1m5!1m1!1s0x4876061afbadae15:0xd32a9c1a785f9a1e!2m2!1d-0.1778597!2d51.4181703!1m5!1m1!1s0x487608a6b435ccbd:0xbf58b869f4080a7e!2m2!1d-0.1921526!2d51.4153355!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Colliers Wood",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Colliers Wood £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUCSD",
+      "fromDisplayName": "Colliers Wood Underground Station",
+      "toStationId": "940GZZLUTBY",
+      "toDisplayName": "Tooting Broadway Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Colliers+Wood,+Underground+Ltd,+High+Street+Colliers+Wood,+London+SW19+2HR/Tooting+Broadway,+Tooting+High+St,+London+SW17+0SU/@51.4229066,-0.1832071,15z/data=!4m18!4m17!1m5!1m1!1s0x4876061afbadae15:0xd32a9c1a785f9a1e!2m2!1d-0.1778597!2d51.4181703!1m5!1m1!1s0x4876060bb7e7b1bd:0x10547430c94f3b4c!2m2!1d-0.167955!2d51.4276438!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Colliers Wood",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Colliers Wood £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEFY",
+      "fromDisplayName": "East Finchley Underground Station",
+      "toStationId": "940GZZLUFYC",
+      "toDisplayName": "Finchley Central Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/East+Finchley,+Underground+Ltd,+High+Rd,+London+N2+0NW/Finchley+Central+tube+station,+London/@51.5941944,-0.2015287,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761a17dfecc053:0x34fa11b836d09f9c!2m2!1d-0.1645653!2d51.5871105!1m5!1m1!1s0x487617548a0a1eb1:0x538d0420470381bd!2m2!1d-0.193361!2d51.601633!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:00 AM (Monday) – 8:07 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from East Finchley",
+        "fare": "£2.50",
+        "rawText": "7 min 8:00 AM (Monday) – 8:07 AM Northern  8:00 AM from East Finchley £2.50  3 min Details  7 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEFY",
+      "fromDisplayName": "East Finchley Underground Station",
+      "toStationId": "940GZZLUHGT",
+      "toDisplayName": "Highgate Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/East+Finchley,+Underground+Ltd,+High+Rd,+London+N2+0NW/Highgate+Station,+London/@51.5822375,-0.1757275,14z/data=!4m18!4m17!1m5!1m1!1s0x48761a17dfecc053:0x34fa11b836d09f9c!2m2!1d-0.1645653!2d51.5871105!1m5!1m1!1s0x48761a4a0d1d840f:0x23d26f271a6f2f4f!2m2!1d-0.1455396!2d51.5772519!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from East Finchley",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from East Finchley £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEGW",
+      "fromDisplayName": "Edgware Underground Station",
+      "toStationId": "940GZZLUBTK",
+      "toDisplayName": "Burnt Oak Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Edgware,+Underground+Ltd,+London,+Station+Rd,+Edgware+HA8+7AW/Burnt+Oak,+Watling+Ave,+Burnt+Oak,+Edgware+HA8+0LA/@51.6071907,-0.2818456,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487616a4641c4895:0x77a3e9ca73292deb!2m2!1d-0.2753661!2d51.6134923!1m5!1m1!1s0x487616b46aa8f367:0x342c576b981063d9!2m2!1d-0.2640186!2d51.6026887!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Edgware",
+        "fare": "£2.50",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Northern 8:00 AM from Edgware £2.50 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBEPH",
+      "fromDisplayName": "Elephant & Castle",
+      "toStationId": "940GZZLUBOR",
+      "toDisplayName": "Borough Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Elephant+and+Castle,+London/Borough,+Borough+High+St,+London+SE1+1JX/@51.4984884,-0.1021217,16z/data=!4m18!4m17!1m5!1m1!1s0x487604a23d99f27f:0x1a4907e34b872655!2m2!1d-0.1004748!2d51.4959129!1m5!1m1!1s0x48760358831ee3bd:0xa89b2d8515610a5f!2m2!1d-0.0936138!2d51.5012449!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:02 AM (Monday) – 8:09 AM",
+        "lineSummary": "Northern",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "7 min 8:02 AM (Monday) – 8:09 AM  Northern  7 min"
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBEPH",
+      "fromDisplayName": "Elephant & Castle",
+      "toStationId": "940GZZLUKNG",
+      "toDisplayName": "Kennington Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Elephant+and+Castle,+London/Kennington,+London+SE11+4JQ/@51.4927007,-0.1075771,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604a23d99f27f:0x1a4907e34b872655!2m2!1d-0.1004748!2d51.4959129!1m5!1m1!1s0x48760490a9539e97:0xbdea6eb6a42da40a!2m2!1d-0.105614!2d51.4882737!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:02 AM (Monday) – 8:09 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:07 AM from Elephant & Castle",
+        "fare": "£2.30",
+        "rawText": "7 min 8:02 AM (Monday) – 8:09 AM  Northern 8:07 AM from Elephant & Castle £2.30  5 min Details  7 min"
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUEMB",
+      "fromDisplayName": "Embankment Underground Station",
+      "toStationId": "HUBCHX",
+      "toDisplayName": "Charing Cross",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Embankment,+London+WC2N+6NS/Charing+Cross,+Strand,+London+WC2N+5HF/@51.5077,-0.1259239,17z/data=!4m18!4m17!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!1m5!1m1!1s0x487604ceeaadbb11:0xdf61c9ec353e1637!2m2!1d-0.1247557!2d51.5081113!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-northern-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Northern option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUEMB",
+      "fromDisplayName": "Embankment Underground Station",
+      "toStationId": "HUBWAT",
+      "toDisplayName": "Waterloo",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Embankment,+London+WC2N+6NS/Waterloo+Station,+London/@51.5052478,-0.1229487,16z/data=!4m18!4m17!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Embankment",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Embankment £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBEUS",
+      "fromDisplayName": "Euston",
+      "toStationId": "940GZZLUCTN",
+      "toDisplayName": "Camden Town Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/Camden+Town,+Underground+Station+Underground+Ltd,+Camden+High+St,+London+NW1+8NH/@51.5320394,-0.1465544,15z/data=!4m18!4m17!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!1m5!1m1!1s0x48761ae1b830fcf7:0x9b934203c885a5d!2m2!1d-0.1426546!2d51.5393847!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 9,
+        "schedule": "8:01 AM (Monday) – 8:10 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:06 AM from Euston",
+        "fare": "£3.10",
+        "rawText": "9 min 8:01 AM (Monday) – 8:10 AM  Northern 8:06 AM from Euston £3.10  5 min Details  11 min"
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBEUS",
+      "fromDisplayName": "Euston",
+      "toStationId": "HUBKGX",
+      "toDisplayName": "King's Cross & St Pancras International",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/@51.5290119,-0.1338418,16z/data=!3m2!4b1!5s0x48761b3954db1fdd:0x3bcb3e1002d7f23e!4m18!4m17!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-northern-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Northern option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "HUBEUS",
+      "fromDisplayName": "Euston",
+      "toStationId": "940GZZLUMTC",
+      "toDisplayName": "Mornington Crescent Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/Mornington+Crescent,+Underground+Ltd,+Mornington+Crescent+Station,+Eversholt+St,+London+NW1+2JA/@51.5308156,-0.1447707,15z/data=!4m18!4m17!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!1m5!1m1!1s0x48761b2037dd36b9:0x11812a2d5cfb2ea3!2m2!1d-0.1388961!2d51.5343501!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:01 AM (Monday) – 8:08 AM",
+        "lineSummary": "Northern",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "7 min 8:01 AM (Monday) – 8:08 AM  Northern  9 min "
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBEUS",
+      "fromDisplayName": "Euston",
+      "toStationId": "940GZZLUWRR",
+      "toDisplayName": "Warren Street Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/Warren+Street,+London+NW1+3AA/@51.5257713,-0.1401801,16z/data=!4m18!4m17!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!1m5!1m1!1s0x48761b287c57e88f:0xd8cdd6e9ba30ec59!2m2!1d-0.1381671!2d51.5246192!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-northern-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Northern option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUFYC",
+      "fromDisplayName": "Finchley Central Underground Station",
+      "toStationId": "940GZZLUEFY",
+      "toDisplayName": "East Finchley Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Finchley+Central+tube+station,+London/East+Finchley,+Underground+Ltd,+High+Rd,+London+N2+0NW/@51.594248,-0.201428,14z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487617548a0a1eb1:0x538d0420470381bd!2m2!1d-0.193361!2d51.601633!1m5!1m1!1s0x48761a17dfecc053:0x34fa11b836d09f9c!2m2!1d-0.1645653!2d51.5871105!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:02 AM (Monday) – 8:09 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:06 AM from Finchley Central",
+        "fare": "£2.50",
+        "rawText": "7 min 8:02 AM (Monday) – 8:09 AM  Northern 8:06 AM from Finchley Central £2.50  4 min Details  7 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUFYC",
+      "fromDisplayName": "Finchley Central Underground Station",
+      "toStationId": "940GZZLUMHL",
+      "toDisplayName": "Mill Hill East Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Finchley+Central+tube+station,+London/Mill+Hill+East+Station,+London/@51.6050542,-0.2118993,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487617548a0a1eb1:0x538d0420470381bd!2m2!1d-0.193361!2d51.601633!1m5!1m1!1s0x48761748679003d7:0x69dd687b300c7cd9!2m2!1d-0.2097824!2d51.6084359!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:12 AM (Monday) – 8:18 AM",
+        "lineSummary": "Northern",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "6 min 8:12 AM (Monday) – 8:18 AM  Northern  6 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUFYC",
+      "fromDisplayName": "Finchley Central Underground Station",
+      "toStationId": "940GZZLUWFN",
+      "toDisplayName": "West Finchley Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Finchley+Central+tube+station,+London/West+Finchley,+Nether+St,+London+N3+1NT/@51.605528,-0.2008408,15z/data=!4m18!4m17!1m5!1m1!1s0x487617548a0a1eb1:0x538d0420470381bd!2m2!1d-0.193361!2d51.601633!1m5!1m1!1s0x4876175535be603d:0x5939d2ed46ae3b8f!2m2!1d-0.18844!2d51.6095641!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:00 AM (Monday) – 8:06 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:04 AM from Finchley Central",
+        "fare": "£2.30",
+        "rawText": "6 min 8:00 AM (Monday) – 8:06 AM  Northern 8:04 AM from Finchley Central £2.30  4 min Details  6 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGGN",
+      "fromDisplayName": "Golders Green Underground Station",
+      "toStationId": "940GZZLUBTX",
+      "toDisplayName": "Brent Cross Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Golders+Green,+Underground+Ltd,+N+End+Rd,+London+NW11+7RN/Brent+Cross,+Underground+Ltd,+Highfield+Ave,+London+NW11+9UA/@51.5749994,-0.2245341,14z/data=!4m18!4m17!1m5!1m1!1s0x4876109c069a05e5:0xb9fed4b7106c4bb0!2m2!1d-0.1942171!2d51.5722281!1m5!1m1!1s0x487610eabe6974c7:0x1b0bfec9874a089!2m2!1d-0.2134367!2d51.576827!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Golders Green",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Northern 8:00 AM from Golders Green £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGGN",
+      "fromDisplayName": "Golders Green Underground Station",
+      "toStationId": "940GZZLUHTD",
+      "toDisplayName": "Hampstead Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Golders+Green,+Underground+Ltd,+N+End+Rd,+London+NW11+7RN/Hampstead+Station,+London+NW3+1HH/@51.5645231,-0.1962713,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876109c069a05e5:0xb9fed4b7106c4bb0!2m2!1d-0.1942171!2d51.5722281!1m5!1m1!1s0x48761a878bee9eab:0x6db23b604113e802!2m2!1d-0.1768174!2d51.5574073!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:01 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Golders Green",
+        "fare": "£2.30",
+        "rawText": "3 min 8:01 AM (Monday) – 8:04 AM Northern 8:01 AM from Golders Green £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGDG",
+      "fromDisplayName": "Goodge Street Underground Station",
+      "toStationId": "HUBTCR",
+      "toDisplayName": "Tottenham Court Road",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Goodge+Street,+Underground+Ltd,+75+Tottenham+Ct+Rd,+London+W1P+9PA/Tottenham+Court+Road,+Oxford+St,+London+WC1A+1DG/@51.5180327,-0.1371215,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b2ea58d2e5d:0x6f715a591021f1ef!2m2!1d-0.1344842!2d51.5206203!1m5!1m1!1s0x48761b2d6bcc0c53:0xc17011138a7f29da!2m2!1d-0.1300406!2d51.5162811!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:03 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:03 AM from Goodge Street",
+        "fare": "£3.10",
+        "rawText": "1 min 8:03 AM (Monday) – 8:04 AM Northern 8:03 AM from Goodge Street £3.10 Details  5 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUGDG",
+      "fromDisplayName": "Goodge Street Underground Station",
+      "toStationId": "940GZZLUWRR",
+      "toDisplayName": "Warren Street Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Goodge+Street,+Underground+Ltd,+75+Tottenham+Ct+Rd,+London+W1P+9PA/Warren+Street,+London+NW1+3AA/@51.5225368,-0.1387652,17z/data=!4m18!4m17!1m5!1m1!1s0x48761b2ea58d2e5d:0x6f715a591021f1ef!2m2!1d-0.1344842!2d51.5206203!1m5!1m1!1s0x48761b287c57e88f:0xd8cdd6e9ba30ec59!2m2!1d-0.1381671!2d51.5246192!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:03 AM from Goodge Street",
+        "fare": "£3.10",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Northern 8:03 AM from Goodge Street £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHTD",
+      "fromDisplayName": "Hampstead Underground Station",
+      "toStationId": "940GZZLUBZP",
+      "toDisplayName": "Belsize Park Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Hampstead+Station,+London+NW3+1HH/Belsize+Park,+Haverstock+Hill,+London+NW3+2AL/@51.5538257,-0.1815765,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761a878bee9eab:0x6db23b604113e802!2m2!1d-0.1768174!2d51.5574073!1m5!1m1!1s0x48761af335402dd1:0xe29481378fa086de!2m2!1d-0.1642939!2d51.5504642!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Hampstead",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Hampstead £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHTD",
+      "fromDisplayName": "Hampstead Underground Station",
+      "toStationId": "940GZZLUGGN",
+      "toDisplayName": "Golders Green Underground Station",
+      "graphRunMinutes": 4,
+      "routeUrl": "https://www.google.com/maps/dir/Hampstead+Station,+London+NW3+1HH/Golders+Green,+Underground+Ltd,+N+End+Rd,+London+NW11+7RN/@51.5641741,-0.1962139,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761a878bee9eab:0x6db23b604113e802!2m2!1d-0.1768174!2d51.5574073!1m5!1m1!1s0x4876109c069a05e5:0xb9fed4b7106c4bb0!2m2!1d-0.1942171!2d51.5722281!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:02 AM (Monday) – 8:07 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Hampstead",
+        "fare": "£2.30",
+        "rawText": "5 min 8:02 AM (Monday) – 8:07 AM Northern 8:02 AM from Hampstead £2.30 Details  5 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHCL",
+      "fromDisplayName": "Hendon Central Underground Station",
+      "toStationId": "940GZZLUBTX",
+      "toDisplayName": "Brent Cross Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Hendon+Central,+Hendon+Central+Station+Underground+Ltd,+Queens+Rd,+London+NW4+3AS/Brent+Cross,+Underground+Ltd,+Highfield+Ave,+London+NW11+9UA/@51.5796931,-0.2307072,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487610db7db14341:0x91bcfd62cec1f976!2m2!1d-0.226453!2d51.5833094!1m5!1m1!1s0x487610eabe6974c7:0x1b0bfec9874a089!2m2!1d-0.2134367!2d51.576827!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Hendon Central",
+        "fare": "£2.30",
+        "rawText": "2 min  8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Hendon Central £2.30 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHCL",
+      "fromDisplayName": "Hendon Central Underground Station",
+      "toStationId": "940GZZLUCND",
+      "toDisplayName": "Colindale Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Hendon+Central,+Hendon+Central+Station+Underground+Ltd,+Queens+Rd,+London+NW4+3AS/Colindale+Station,+London+NW9+5HJ/@51.5893512,-0.2587012,14z/data=!4m18!4m17!1m5!1m1!1s0x487610db7db14341:0x91bcfd62cec1f976!2m2!1d-0.226453!2d51.5833094!1m5!1m1!1s0x4876113243919723:0x82438be10d477132!2m2!1d-0.249481!2d51.5954134!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Hendon Central",
+        "fare": "£2.30",
+        "rawText": "3 min  8:02 AM (Monday) – 8:05 AM Northern 8:02 AM from Hendon Central £2.30 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHBT",
+      "fromDisplayName": "High Barnet Underground Station",
+      "toStationId": "940GZZLUTAW",
+      "toDisplayName": "Totteridge & Whetstone Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/High+Barnet,+Underground+Ltd,+High+Barnet+Station,+London,+Barnet+Hill,+Barnet+EN5+5RP/Totteridge+%26+Whetstone,+Totteridge+Ln,+London+N20+0HD/@51.6404042,-0.207214,14z/data=!4m18!4m17!1m5!1m1!1s0x487617860da5227b:0x5dce9a51ae106a36!2m2!1d-0.19391!2d51.6503283!1m5!1m1!1s0x487619da84abf8d9:0xa40992c2aec56298!2m2!1d-0.179144!2d51.630241!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:00 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from High Barnet",
+        "fare": "£2.50",
+        "rawText": "4 min 8:00 AM (Monday) – 8:04 AM Northern 8:00 AM from High Barnet £2.50 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHGT",
+      "fromDisplayName": "Highgate Underground Station",
+      "toStationId": "940GZZLUACY",
+      "toDisplayName": "Archway Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Highgate+Station,+London/Archway,+Junction+Rd,+Archway,+London+N19+5RQ/@51.571277,-0.1501412,15z/data=!4m18!4m17!1m5!1m1!1s0x48761a4a0d1d840f:0x23d26f271a6f2f4f!2m2!1d-0.1455396!2d51.5772519!1m5!1m1!1s0x48761bae7a61795b:0x2cd1f875140c5e44!2m2!1d-0.1348735!2d51.5653976!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Highgate",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Highgate £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUHGT",
+      "fromDisplayName": "Highgate Underground Station",
+      "toStationId": "940GZZLUEFY",
+      "toDisplayName": "East Finchley Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Highgate+Station,+London/East+Finchley,+Underground+Ltd,+High+Rd,+London+N2+0NW/@51.5820097,-0.1757123,14z/data=!4m18!4m17!1m5!1m1!1s0x48761a4a0d1d840f:0x23d26f271a6f2f4f!2m2!1d-0.1455396!2d51.5772519!1m5!1m1!1s0x48761a17dfecc053:0x34fa11b836d09f9c!2m2!1d-0.1645653!2d51.5871105!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Highgate",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Highgate £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUKNG",
+      "fromDisplayName": "Kennington Underground Station",
+      "toStationId": "HUBEPH",
+      "toDisplayName": "Elephant & Castle",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Kennington,+London+SE11+4JQ/Elephant+and+Castle,+London/@51.492024,-0.1084371,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760490a9539e97:0xbdea6eb6a42da40a!2m2!1d-0.105614!2d51.4882737!1m5!1m1!1s0x487604a23d99f27f:0x1a4907e34b872655!2m2!1d-0.1004748!2d51.4959129!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 7,
+        "schedule": "8:02 AM (Monday) – 8:09 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Kennington",
+        "fare": "£2.30",
+        "rawText": "7 min 8:02 AM (Monday) – 8:09 AM Northern  8:02 AM from Kennington £2.30  5 min Details  11 min "
+      },
+      "deltaFromGraphMinutes": 6,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUKNG",
+      "fromDisplayName": "Kennington Underground Station",
+      "toStationId": "940GZZNEUGST",
+      "toDisplayName": "Nine Elms Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Kennington,+London+SE11+4JQ/Nine+Elms,+70+Wandsworth+Rd,+Nine+Elms,+London+SW8+2NA/@51.4803089,-0.1372264,14.04z/data=!4m18!4m17!1m5!1m1!1s0x48760490a9539e97:0xbdea6eb6a42da40a!2m2!1d-0.105614!2d51.4882737!1m5!1m1!1s0x487604f09a4fbfc5:0x4409217fb6afb70!2m2!1d-0.1290947!2d51.4800886!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Kennington",
+        "fare": "£3.10",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Northern 8:00 AM from Kennington £3.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUKNG",
+      "fromDisplayName": "Kennington Underground Station",
+      "toStationId": "940GZZLUOVL",
+      "toDisplayName": "Oval Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Kennington,+London+SE11+4JQ/Oval,+318+Kennington+Park+Rd,+London+SE11+4PP/@51.4850448,-0.1143506,16z/data=!3m1!5s0x4876048dc04abbb3:0x84ecbabf2f23306b!4m18!4m17!1m5!1m1!1s0x48760490a9539e97:0xbdea6eb6a42da40a!2m2!1d-0.105614!2d51.4882737!1m5!1m1!1s0x4876048dc396eff5:0xeb5f6550ab496527!2m2!1d-0.1127875!2d51.4820272!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Kennington",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Kennington £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUKNG",
+      "fromDisplayName": "Kennington Underground Station",
+      "toStationId": "HUBWAT",
+      "toDisplayName": "Waterloo",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Kennington,+London+SE11+4JQ/Waterloo+Station,+London/@51.4957742,-0.1202808,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48760490a9539e97:0xbdea6eb6a42da40a!2m2!1d-0.105614!2d51.4882737!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Kennington",
+        "fare": "£3.10",
+        "rawText": "3 min 8:02 AM (Monday) – 8:05 AM Northern 8:02 AM from Kennington £3.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKTN",
+      "fromDisplayName": "Kentish Town",
+      "toStationId": "940GZZLUCTN",
+      "toDisplayName": "Camden Town Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Kentish+Town,+Station+Underground+Ltd,+Kentish+Town+Underground,+Kentish+Town+Rd,+London+NW5+2AA/Camden+Town,+Underground+Station+Underground+Ltd,+Camden+High+St,+London+NW1+8NH/@51.544532,-0.1517871,15z/data=!4m18!4m17!1m5!1m1!1s0x48761b027399dbd9:0x7db8c3b698a8e021!2m2!1d-0.1405159!2d51.5503953!1m5!1m1!1s0x48761ae1b830fcf7:0x9b934203c885a5d!2m2!1d-0.1426546!2d51.5393847!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Kentish Town",
+        "fare": "£2.30",
+        "rawText": "3 min 8:02 AM (Monday) – 8:05 AM Northern 8:02 AM from Kentish Town £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKTN",
+      "fromDisplayName": "Kentish Town",
+      "toStationId": "940GZZLUTFP",
+      "toDisplayName": "Tufnell Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Kentish+Town,+Station+Underground+Ltd,+Kentish+Town+Underground,+Kentish+Town+Rd,+London+NW5+2AA/Tufnell+Park,+London+N19+5BQ/@51.5535167,-0.1446717,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b027399dbd9:0x7db8c3b698a8e021!2m2!1d-0.1405159!2d51.5503953!1m5!1m1!1s0x48761b007e5513c5:0xd65b88a7b26251d!2m2!1d-0.1379821!2d51.5567509!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Kentish Town",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Kentish Town £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "940GZZLUAGL",
+      "toDisplayName": "Angel Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/Angel,+Islington+High+St,+London+N1+8XX/@51.5311015,-0.1367066,14z/data=!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761b4332ecac5b:0xd4028cc7ead6e5ce!2m2!1d-0.106029!2d51.532249!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:00 AM (Monday) – 8:06 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:03 AM from King's Cross St. Pancras",
+        "fare": "£3.10",
+        "rawText": "6 min 8:00 AM (Monday) – 8:06 AM  Northern 8:03 AM from King's Cross St. Pancras £3.10  3 min Details  6 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBKGX",
+      "fromDisplayName": "King's Cross & St Pancras International",
+      "toStationId": "HUBEUS",
+      "toDisplayName": "Euston",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/St+Pancras+International,+Euston+Rd.,+London+N1C+4QP/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/@51.5287921,-0.1336892,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b3b8d98ed25:0xb92d6fcfa832dd12!2m2!1d-0.1258659!2d51.5311162!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-northern-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Northern option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLULSQ",
+      "fromDisplayName": "Leicester Square Underground Station",
+      "toStationId": "HUBCHX",
+      "toDisplayName": "Charing Cross",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Leicester+Square,+Square+Station+Underground+Ltd,+Leicester,+Cranbourn+St,+London+WC2H+0AP/Charing+Cross,+Strand,+London+WC2N+5HF/@51.5098296,-0.129179,17z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604cd91e8c0f7:0xde0fdd0b8f9a7fcb!2m2!1d-0.128144!2d51.511451!1m5!1m1!1s0x487604ceeaadbb11:0xdf61c9ec353e1637!2m2!1d-0.1247557!2d51.5081113!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Leicester Square",
+        "fare": "£3.10",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Leicester Square £3.10  1 min Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLULSQ",
+      "fromDisplayName": "Leicester Square Underground Station",
+      "toStationId": "HUBTCR",
+      "toDisplayName": "Tottenham Court Road",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Leicester+Square,+Square+Station+Underground+Ltd,+Leicester,+Cranbourn+St,+London+WC2H+0AP/Tottenham+Court+Road,+Oxford+St,+London+WC1A+1DG/@51.5140059,-0.1344377,16z/data=!4m18!4m17!1m5!1m1!1s0x487604cd91e8c0f7:0xde0fdd0b8f9a7fcb!2m2!1d-0.128144!2d51.511451!1m5!1m1!1s0x48761b2d6bcc0c53:0xc17011138a7f29da!2m2!1d-0.1300406!2d51.5162811!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Leicester Square",
+        "fare": "£3.10",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Northern 8:00 AM from Leicester Square £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBLBG",
+      "fromDisplayName": "London Bridge",
+      "toStationId": "HUBBAN",
+      "toDisplayName": "Bank",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/London+Bridge,+Station+Approach+Rd,+London+SE1+9SP/Bank+Station,+Underground+Ltd,+Bank%2FMonument+Complex,+Princes+St,+London+EC3V+3LA/@51.5088251,-0.0923127,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487603509c580b6f:0x335af388238f54bc!2m2!1d-0.0848024!2d51.5042625!1m5!1m1!1s0x487603549718414d:0x5688c8191d584d60!2m2!1d-0.0889145!2d51.513388!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:01 AM (Monday) – 8:07 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:05 AM from London Bridge",
+        "fare": "£3.10",
+        "rawText": "6 min  8:01 AM (Monday) – 8:07 AM  Northern 8:05 AM from London Bridge £3.10  4 min Details  8 min "
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBLBG",
+      "fromDisplayName": "London Bridge",
+      "toStationId": "940GZZLUBOR",
+      "toDisplayName": "Borough Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/London+Bridge,+Station+Approach+Rd,+London+SE1+9SP/Borough,+Borough+High+St,+London+SE1+1JX/@51.5036552,-0.094593,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487603509c580b6f:0x335af388238f54bc!2m2!1d-0.0848024!2d51.5042625!1m5!1m1!1s0x48760358831ee3bd:0xa89b2d8515610a5f!2m2!1d-0.0936138!2d51.5012449!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:02 AM (Monday) – 8:07 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:06 AM from London Bridge",
+        "fare": "£3.10",
+        "rawText": "5 min 8:02 AM (Monday) – 8:07 AM  Northern 8:06 AM from London Bridge £3.10  4 min Details  5 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMHL",
+      "fromDisplayName": "Mill Hill East Underground Station",
+      "toStationId": "940GZZLUFYC",
+      "toDisplayName": "Finchley Central Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Mill+Hill+East+Station,+London/Finchley+Central+tube+station,+London/@51.6050542,-0.2118993,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761748679003d7:0x69dd687b300c7cd9!2m2!1d-0.2097824!2d51.6084359!1m5!1m1!1s0x487617548a0a1eb1:0x538d0420470381bd!2m2!1d-0.193361!2d51.601633!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:00 AM (Monday) – 8:06 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Mill Hill East",
+        "fare": "£2.30",
+        "rawText": "6 min 8:00 AM (Monday) – 8:06 AM Northern  8:00 AM from Mill Hill East £2.30  3 min Details  6 min"
+      },
+      "deltaFromGraphMinutes": 4,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZMG",
+      "fromDisplayName": "Moorgate",
+      "toStationId": "HUBBAN",
+      "toDisplayName": "Bank",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Moorgate,+London+EC2Y+9AE/Bank+Station,+Underground+Ltd,+Bank%2FMonument+Complex,+Princes+St,+London+EC3V+3LA/@51.5159474,-0.0941459,16z/data=!4m18!4m17!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!1m5!1m1!1s0x487603549718414d:0x5688c8191d584d60!2m2!1d-0.0889145!2d51.513388!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Moorgate",
+        "fare": "£3.10",
+        "rawText": "2 min  8:02 AM (Monday) – 8:04 AM Northern 8:02 AM from Moorgate £3.10 Details  2 min "
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBZMG",
+      "fromDisplayName": "Moorgate",
+      "toStationId": "HUBOLD",
+      "toDisplayName": "Old Street",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Moorgate,+London+EC2Y+9AE/Old+St,+London/@51.5219856,-0.0927649,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!1m5!1m1!1s0x48761ca8abba80d9:0xd6cf02f1c545d61e!2m2!1d-0.088146!2d51.5255577!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:01 AM (Monday) – 8:05 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Moorgate",
+        "fare": "£3.10",
+        "rawText": "4 min 8:01 AM (Monday) – 8:05 AM Northern  8:01 AM from Moorgate £3.10  3 min Details  4 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMDN",
+      "fromDisplayName": "Morden Underground Station",
+      "toStationId": "940GZZLUSWN",
+      "toDisplayName": "South Wimbledon Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Morden,+Underground+Ltd,+Morden+Underground+Station,+London,+London+Rd,+Morden+SM4+5AZ/South+Wimbledon,+High+St,+London+SW19+3DB/@51.4088174,-0.2042318,15z/data=!4m18!4m17!1m5!1m1!1s0x4876089ba1084197:0x2ac7b58e423b864b!2m2!1d-0.1947067!2d51.4022497!1m5!1m1!1s0x487608a6b435ccbd:0xbf58b869f4080a7e!2m2!1d-0.1921526!2d51.4153355!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Morden",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Northern 8:00 AM from Morden £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMTC",
+      "fromDisplayName": "Mornington Crescent Underground Station",
+      "toStationId": "940GZZLUCTN",
+      "toDisplayName": "Camden Town Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Mornington+Crescent,+Underground+Ltd,+Mornington+Crescent+Station,+Eversholt+St,+London+NW1+2JA/Camden+Town,+Underground+Station+Underground+Ltd,+Camden+High+St,+London+NW1+8NH/@51.5369511,-0.1460344,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b2037dd36b9:0x11812a2d5cfb2ea3!2m2!1d-0.1388961!2d51.5343501!1m5!1m1!1s0x48761ae1b830fcf7:0x9b934203c885a5d!2m2!1d-0.1426546!2d51.5393847!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Mornington Crescent",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Northern 8:02 AM from Mornington Crescent £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUMTC",
+      "fromDisplayName": "Mornington Crescent Underground Station",
+      "toStationId": "HUBEUS",
+      "toDisplayName": "Euston",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Mornington+Crescent,+Underground+Ltd,+Mornington+Crescent+Station,+Eversholt+St,+London+NW1+2JA/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/@51.5300862,-0.1403939,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b2037dd36b9:0x11812a2d5cfb2ea3!2m2!1d-0.1388961!2d51.5343501!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:01 AM (Monday) – 8:07 AM",
+        "lineSummary": "Northern",
+        "departureSummary": null,
+        "fare": null,
+        "rawText": "6 min 8:01 AM (Monday) – 8:07 AM Northern   7 min"
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZNEUGST",
+      "fromDisplayName": "Nine Elms Underground Station",
+      "toStationId": "940GZZBPSUST",
+      "toDisplayName": "Battersea Power Station Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Nine+Elms,+70+Wandsworth+Rd,+Nine+Elms,+London+SW8+2NA/Battersea+Power+Station,+Station+Underground+Ltd,+Battersea+Power+Station,+Kirtling+St,+Nine+Elms,+London+SW11+8AL/@51.4824177,-0.1435686,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604f09a4fbfc5:0x4409217fb6afb70!2m2!1d-0.1290947!2d51.4800886!1m5!1m1!1s0x4876050269ad9bbf:0x23acee16c858ae30!2m2!1d-0.1418745!2d51.479774!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Nine Elms",
+        "fare": "£3.10",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Nine Elms £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZNEUGST",
+      "fromDisplayName": "Nine Elms Underground Station",
+      "toStationId": "940GZZLUKNG",
+      "toDisplayName": "Kennington Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Nine+Elms,+70+Wandsworth+Rd,+Nine+Elms,+London+SW8+2NA/Kennington,+London+SE11+4JQ/@51.4801458,-0.1379539,14z/data=!4m18!4m17!1m5!1m1!1s0x487604f09a4fbfc5:0x4409217fb6afb70!2m2!1d-0.1290947!2d51.4800886!1m5!1m1!1s0x48760490a9539e97:0xbdea6eb6a42da40a!2m2!1d-0.105614!2d51.4882737!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:04 AM (Monday) – 8:08 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:04 AM from Nine Elms",
+        "fare": "£3.10",
+        "rawText": "4 min 8:04 AM (Monday) – 8:08 AM Northern 8:04 AM from Nine Elms £3.10 Details  4 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBOLD",
+      "fromDisplayName": "Old Street",
+      "toStationId": "940GZZLUAGL",
+      "toDisplayName": "Angel Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Old+St,+London/Angel,+Islington+High+St,+London+N1+8XX/@51.5280794,-0.1171983,14z/data=!4m18!4m17!1m5!1m1!1s0x48761ca8abba80d9:0xd6cf02f1c545d61e!2m2!1d-0.088146!2d51.5255577!1m5!1m1!1s0x48761b4332ecac5b:0xd4028cc7ead6e5ce!2m2!1d-0.106029!2d51.532249!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 5,
+        "schedule": "8:02 AM (Monday) – 8:07 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:05 AM from Old Street",
+        "fare": "£3.10",
+        "rawText": "5 min 8:02 AM (Monday) – 8:07 AM  Northern 8:05 AM from Old Street £3.10  3 min Details  5 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBOLD",
+      "fromDisplayName": "Old Street",
+      "toStationId": "HUBZMG",
+      "toDisplayName": "Moorgate",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Old+St,+London/Moorgate,+London+EC2Y+9AE/@51.5217072,-0.0921798,16z/data=!3m2!4b1!5s0x48761cab89481e9f:0xbc9a306963a932dc!4m18!4m17!1m5!1m1!1s0x48761ca8abba80d9:0xd6cf02f1c545d61e!2m2!1d-0.088146!2d51.5255577!1m5!1m1!1s0x48761cab91a2cbab:0x373cd1c049b730e1!2m2!1d-0.0883927!2d51.5185071!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:02 AM (Monday) – 8:08 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:06 AM from Old Street",
+        "fare": "£3.10",
+        "rawText": "6 min 8:02 AM (Monday) – 8:08 AM  Northern 8:06 AM from Old Street £3.10  4 min Details  6 min"
+      },
+      "deltaFromGraphMinutes": 5,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUOVL",
+      "fromDisplayName": "Oval Underground Station",
+      "toStationId": "940GZZLUKNG",
+      "toDisplayName": "Kennington Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Oval,+318+Kennington+Park+Rd,+London+SE11+4PP/Kennington,+London+SE11+4JQ/@51.4849746,-0.1143869,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876048dc396eff5:0xeb5f6550ab496527!2m2!1d-0.1127875!2d51.4820272!1m5!1m1!1s0x48760490a9539e97:0xbdea6eb6a42da40a!2m2!1d-0.105614!2d51.4882737!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:03 AM (Monday) – 8:05 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:03 AM from Oval",
+        "fare": "£2.30",
+        "rawText": "2 min 8:03 AM (Monday) – 8:05 AM Northern 8:03 AM from Oval £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUOVL",
+      "fromDisplayName": "Oval Underground Station",
+      "toStationId": "940GZZLUSKW",
+      "toDisplayName": "Stockwell Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Oval,+318+Kennington+Park+Rd,+London+SE11+4PP/Stockwell,+London+SW9+9AE/@51.4769313,-0.1280267,15z/data=!4m18!4m17!1m5!1m1!1s0x4876048dc396eff5:0xeb5f6550ab496527!2m2!1d-0.1127875!2d51.4820272!1m5!1m1!1s0x4876045f4e371b43:0x4ff8b3db951bbef6!2m2!1d-0.1228245!2d51.4723538!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Oval",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Northern 8:02 AM from Oval £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSWN",
+      "fromDisplayName": "South Wimbledon Underground Station",
+      "toStationId": "940GZZLUCSD",
+      "toDisplayName": "Colliers Wood Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/South+Wimbledon,+High+St,+London+SW19+3DB/Colliers+Wood,+Underground+Ltd,+High+Street+Colliers+Wood,+London+SW19+2HR/@51.4168053,-0.1954922,15z/data=!4m18!4m17!1m5!1m1!1s0x487608a6b435ccbd:0xbf58b869f4080a7e!2m2!1d-0.1921526!2d51.4153355!1m5!1m1!1s0x4876061afbadae15:0xd32a9c1a785f9a1e!2m2!1d-0.1778597!2d51.4181703!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from South Wimbledon",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from South Wimbledon £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSWN",
+      "fromDisplayName": "South Wimbledon Underground Station",
+      "toStationId": "940GZZLUMDN",
+      "toDisplayName": "Morden Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/South+Wimbledon,+High+St,+London+SW19+3DB/Morden,+Underground+Ltd,+Morden+Underground+Station,+London,+London+Rd,+Morden+SM4+5AZ/@51.4085202,-0.2039157,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487608a6b435ccbd:0xbf58b869f4080a7e!2m2!1d-0.1921526!2d51.4153355!1m5!1m1!1s0x4876089ba1084197:0x2ac7b58e423b864b!2m2!1d-0.1947067!2d51.4022497!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from South Wimbledon",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Northern 8:02 AM from South Wimbledon £2.30 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSKW",
+      "fromDisplayName": "Stockwell Underground Station",
+      "toStationId": "940GZZLUCPN",
+      "toDisplayName": "Clapham North Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Stockwell,+London+SW9+9AE/Clapham+North,+Clapham+High+St,+London+SW4+7TS/@51.4687234,-0.1314543,16z/data=!4m18!4m17!1m5!1m1!1s0x4876045f4e371b43:0x4ff8b3db951bbef6!2m2!1d-0.1228245!2d51.4723538!1m5!1m1!1s0x4876045089964e81:0x758312ea80e0643a!2m2!1d-0.1295309!2d51.4650932!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Stockwell",
+        "fare": "£2.30",
+        "rawText": "1 min 8:01 AM (Monday) – 8:02 AM Northern 8:01 AM from Stockwell £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUSKW",
+      "fromDisplayName": "Stockwell Underground Station",
+      "toStationId": "940GZZLUOVL",
+      "toDisplayName": "Oval Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Stockwell,+London+SW9+9AE/Oval,+318+Kennington+Park+Rd,+London+SE11+4PP/@51.4769478,-0.1281354,15z/data=!3m1!5s0x4876048dc04abbb3:0x84ecbabf2f23306b!4m18!4m17!1m5!1m1!1s0x4876045f4e371b43:0x4ff8b3db951bbef6!2m2!1d-0.1228245!2d51.4723538!1m5!1m1!1s0x4876048dc396eff5:0xeb5f6550ab496527!2m2!1d-0.1127875!2d51.4820272!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Stockwell",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Stockwell £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTBC",
+      "fromDisplayName": "Tooting Bec Underground Station",
+      "toStationId": "HUBBAL",
+      "toDisplayName": "Balham",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Tooting+Bec,+Balham+High+Rd,+Tooting+Bec,+London+SW17+7AA/Balham,+Underground+Ltd,+Balham+High+Rd,+London+SW12+9BW/@51.4396826,-0.1614528,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487605de9895b3bd:0x833e4fc2213fe48e!2m2!1d-0.1595141!2d51.4355215!1m5!1m1!1s0x487605c56537772d:0xcc41e444d1581014!2m2!1d-0.1531109!2d51.4434217!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Tooting Bec",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Tooting Bec £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTBC",
+      "fromDisplayName": "Tooting Bec Underground Station",
+      "toStationId": "940GZZLUTBY",
+      "toDisplayName": "Tooting Broadway Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Tooting+Bec,+Balham+High+Rd,+Tooting+Bec,+London+SW17+7AA/Tooting+Broadway,+Tooting+High+St,+London+SW17+0SU/@51.4316785,-0.1690312,16z/data=!4m18!4m17!1m5!1m1!1s0x487605de9895b3bd:0x833e4fc2213fe48e!2m2!1d-0.1595141!2d51.4355215!1m5!1m1!1s0x4876060bb7e7b1bd:0x10547430c94f3b4c!2m2!1d-0.167955!2d51.4276438!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Tooting Bec",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Tooting Bec £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTBY",
+      "fromDisplayName": "Tooting Broadway Underground Station",
+      "toStationId": "940GZZLUCSD",
+      "toDisplayName": "Colliers Wood Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Tooting+Broadway,+Tooting+High+St,+London+SW17+0SU/Colliers+Wood,+Underground+Ltd,+High+Street+Colliers+Wood,+London+SW19+2HR/@51.4229535,-0.1832071,15z/data=!4m18!4m17!1m5!1m1!1s0x4876060bb7e7b1bd:0x10547430c94f3b4c!2m2!1d-0.167955!2d51.4276438!1m5!1m1!1s0x4876061afbadae15:0xd32a9c1a785f9a1e!2m2!1d-0.1778597!2d51.4181703!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:00 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Tooting Broadway",
+        "fare": "£2.30",
+        "rawText": "3 min 8:00 AM (Monday) – 8:03 AM Northern 8:00 AM from Tooting Broadway £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTBY",
+      "fromDisplayName": "Tooting Broadway Underground Station",
+      "toStationId": "940GZZLUTBC",
+      "toDisplayName": "Tooting Bec Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Tooting+Broadway,+Tooting+High+St,+London+SW17+0SU/Tooting+Bec,+Balham+High+Rd,+Tooting+Bec,+London+SW17+7AA/@51.4316478,-0.1691191,16z/data=!4m18!4m17!1m5!1m1!1s0x4876060bb7e7b1bd:0x10547430c94f3b4c!2m2!1d-0.167955!2d51.4276438!1m5!1m1!1s0x487605de9895b3bd:0x833e4fc2213fe48e!2m2!1d-0.1595141!2d51.4355215!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Tooting Broadway",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Tooting Broadway £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBTCR",
+      "fromDisplayName": "Tottenham Court Road",
+      "toStationId": "940GZZLUGDG",
+      "toDisplayName": "Goodge Street Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Tottenham+Court+Road,+Oxford+St,+London+WC1A+1DG/Goodge+Street,+Underground+Ltd,+75+Tottenham+Ct+Rd,+London+W1P+9PA/@51.5187551,-0.1376925,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b2d6bcc0c53:0xc17011138a7f29da!2m2!1d-0.1300406!2d51.5162811!1m5!1m1!1s0x48761b2ea58d2e5d:0x6f715a591021f1ef!2m2!1d-0.1344842!2d51.5206203!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Tottenham Court Road",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Tottenham Court Road £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBTCR",
+      "fromDisplayName": "Tottenham Court Road",
+      "toStationId": "940GZZLULSQ",
+      "toDisplayName": "Leicester Square Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Tottenham+Court+Road,+Oxford+St,+London+WC1A+1DG/Leicester+Square,+Square+Station+Underground+Ltd,+Leicester,+Cranbourn+St,+London+WC2H+0AP/@51.5139987,-0.1344454,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b2d6bcc0c53:0xc17011138a7f29da!2m2!1d-0.1300406!2d51.5162811!1m5!1m1!1s0x487604cd91e8c0f7:0xde0fdd0b8f9a7fcb!2m2!1d-0.128144!2d51.511451!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:01 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Tottenham Court Road",
+        "fare": "£3.10",
+        "rawText": "1 min 8:01 AM (Monday) – 8:02 AM Northern 8:01 AM from Tottenham Court Road £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTAW",
+      "fromDisplayName": "Totteridge & Whetstone Underground Station",
+      "toStationId": "940GZZLUHBT",
+      "toDisplayName": "High Barnet Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Totteridge+%26+Whetstone,+Totteridge+Ln,+London+N20+0HD/High+Barnet,+Underground+Ltd,+High+Barnet+Station,+London,+Barnet+Hill,+Barnet+EN5+5RP/@51.6403597,-0.2055347,14z/data=!4m18!4m17!1m5!1m1!1s0x487619da84abf8d9:0xa40992c2aec56298!2m2!1d-0.179144!2d51.630241!1m5!1m1!1s0x487617860da5227b:0x5dce9a51ae106a36!2m2!1d-0.19391!2d51.6503283!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:02 AM (Monday) – 8:05 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Totteridge & Whetstone",
+        "fare": "£2.50",
+        "rawText": "3 min 8:02 AM (Monday) – 8:05 AM Northern 8:02 AM from Totteridge & Whetstone £2.50 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTAW",
+      "fromDisplayName": "Totteridge & Whetstone Underground Station",
+      "toStationId": "940GZZLUWOP",
+      "toDisplayName": "Woodside Park Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Totteridge+%26+Whetstone,+Totteridge+Ln,+London+N20+0HD/Woodside+Park,+Woodside+Park+Rd,+London+N12+8RT/@51.6242183,-0.1931816,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487619da84abf8d9:0xa40992c2aec56298!2m2!1d-0.179144!2d51.630241!1m5!1m1!1s0x487619e0fa189819:0x67484a8f7e05b56c!2m2!1d-0.185339!2d51.6180026!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Totteridge & Whetstone",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Northern 8:02 AM from Totteridge & Whetstone £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": -1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTFP",
+      "fromDisplayName": "Tufnell Park Underground Station",
+      "toStationId": "940GZZLUACY",
+      "toDisplayName": "Archway Underground Station",
+      "graphRunMinutes": 2,
+      "routeUrl": "https://www.google.com/maps/dir/Tufnell+Park,+London+N19+5BQ/Archway,+Junction+Rd,+Archway,+London+N19+5RQ/@51.561182,-0.1417844,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b007e5513c5:0xd65b88a7b26251d!2m2!1d-0.1379821!2d51.5567509!1m5!1m1!1s0x48761bae7a61795b:0x2cd1f875140c5e44!2m2!1d-0.1348735!2d51.5653976!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:02 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Tufnell Park",
+        "fare": "£2.30",
+        "rawText": "2 min 8:02 AM (Monday) – 8:04 AM Northern 8:02 AM from Tufnell Park £2.30 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUTFP",
+      "fromDisplayName": "Tufnell Park Underground Station",
+      "toStationId": "HUBKTN",
+      "toDisplayName": "Kentish Town",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Tufnell+Park,+London+N19+5BQ/Kentish+Town,+Station+Underground+Ltd,+Kentish+Town+Underground,+Kentish+Town+Rd,+London+NW5+2AA/@51.5537895,-0.1446724,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x48761b007e5513c5:0xd65b88a7b26251d!2m2!1d-0.1379821!2d51.5567509!1m5!1m1!1s0x48761b027399dbd9:0x7db8c3b698a8e021!2m2!1d-0.1405159!2d51.5503953!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:00 AM (Monday) – 8:02 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Tufnell Park",
+        "fare": "£2.30",
+        "rawText": "2 min 8:00 AM (Monday) – 8:02 AM Northern 8:00 AM from Tufnell Park £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWRR",
+      "fromDisplayName": "Warren Street Underground Station",
+      "toStationId": "HUBEUS",
+      "toDisplayName": "Euston",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Warren+Street,+London+NW1+3AA/London+Euston+Station,+Euston+Rd.,+London+NW1+2RT/@51.5257675,-0.1401801,16z/data=!4m18!4m17!1m5!1m1!1s0x48761b287c57e88f:0xd8cdd6e9ba30ec59!2m2!1d-0.1381671!2d51.5246192!1m5!1m1!1s0x48761bccc506725f:0x3bb9e6e4b6391e8e!2m2!1d-0.1321669!2d51.526916!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "no-northern-option-found",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": null,
+      "deltaFromGraphMinutes": null,
+      "notes": "Google Maps did not surface a Northern option at Monday 8am for this direct pair."
+    },
+    {
+      "fromStationId": "940GZZLUWRR",
+      "fromDisplayName": "Warren Street Underground Station",
+      "toStationId": "940GZZLUGDG",
+      "toDisplayName": "Goodge Street Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Warren+Street,+London+NW1+3AA/Goodge+Street,+Underground+Ltd,+75+Tottenham+Ct+Rd,+London+W1P+9PA/@51.5228465,-0.1387285,17z/data=!4m18!4m17!1m5!1m1!1s0x48761b287c57e88f:0xd8cdd6e9ba30ec59!2m2!1d-0.1381671!2d51.5246192!1m5!1m1!1s0x48761b2ea58d2e5d:0x6f715a591021f1ef!2m2!1d-0.1344842!2d51.5206203!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Warren Street",
+        "fare": "£3.10",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Warren Street £3.10 Details  1 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWAT",
+      "fromDisplayName": "Waterloo",
+      "toStationId": "940GZZLUEMB",
+      "toDisplayName": "Embankment Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Waterloo+Station,+London/Embankment,+London+WC2N+6NS/@51.5052478,-0.122951,16z/data=!4m18!4m17!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!1m5!1m1!1s0x487604c932e79bf3:0xaa9377d35ca1318b!2m2!1d-0.1221937!2d51.5072554!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 1,
+        "schedule": "8:00 AM (Monday) – 8:01 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Waterloo",
+        "fare": "£3.10",
+        "rawText": "1 min 8:00 AM (Monday) – 8:01 AM Northern 8:00 AM from Waterloo £3.10 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 0,
+      "notes": null
+    },
+    {
+      "fromStationId": "HUBWAT",
+      "fromDisplayName": "Waterloo",
+      "toStationId": "940GZZLUKNG",
+      "toDisplayName": "Kennington Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Waterloo+Station,+London/Kennington,+London+SE11+4JQ/@51.4957712,-0.1202752,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487604b9ed4f96ab:0x5bedc6d455761a7a!2m2!1d-0.1134032!2d51.5032404!1m5!1m1!1s0x48760490a9539e97:0xbdea6eb6a42da40a!2m2!1d-0.105614!2d51.4882737!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:00 AM (Monday) – 8:04 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:00 AM from Waterloo",
+        "fare": "£3.10",
+        "rawText": "4 min 8:00 AM (Monday) – 8:04 AM Northern 8:00 AM from Waterloo £3.10 Details  3 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWFN",
+      "fromDisplayName": "West Finchley Underground Station",
+      "toStationId": "940GZZLUFYC",
+      "toDisplayName": "Finchley Central Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/West+Finchley,+Nether+St,+London+N3+1NT/Finchley+Central+tube+station,+London/@51.6055146,-0.2008402,15z/data=!4m18!4m17!1m5!1m1!1s0x4876175535be603d:0x5939d2ed46ae3b8f!2m2!1d-0.18844!2d51.6095641!1m5!1m1!1s0x487617548a0a1eb1:0x538d0420470381bd!2m2!1d-0.193361!2d51.601633!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 6,
+        "schedule": "8:03 AM (Monday) – 8:09 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:03 AM from West Finchley",
+        "fare": "£2.30",
+        "rawText": "6 min 8:03 AM (Monday) – 8:09 AM Northern  8:03 AM from West Finchley £2.30  3 min Details  7 min"
+      },
+      "deltaFromGraphMinutes": 3,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWFN",
+      "fromDisplayName": "West Finchley Underground Station",
+      "toStationId": "940GZZLUWOP",
+      "toDisplayName": "Woodside Park Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/West+Finchley,+Nether+St,+London+N3+1NT/Woodside+Park,+Woodside+Park+Rd,+London+N12+8RT/@51.6137614,-0.1920595,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x4876175535be603d:0x5939d2ed46ae3b8f!2m2!1d-0.18844!2d51.6095641!1m5!1m1!1s0x487619e0fa189819:0x67484a8f7e05b56c!2m2!1d-0.185339!2d51.6180026!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 3,
+        "schedule": "8:03 AM (Monday) – 8:06 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:03 AM from West Finchley",
+        "fare": "£2.30",
+        "rawText": "3 min 8:03 AM (Monday) – 8:06 AM Northern 8:03 AM from West Finchley £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 2,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWOP",
+      "fromDisplayName": "Woodside Park Underground Station",
+      "toStationId": "940GZZLUTAW",
+      "toDisplayName": "Totteridge & Whetstone Underground Station",
+      "graphRunMinutes": 3,
+      "routeUrl": "https://www.google.com/maps/dir/Woodside+Park,+Woodside+Park+Rd,+London+N12+8RT/Totteridge+%26+Whetstone,+Totteridge+Ln,+London+N20+0HD/@51.6243171,-0.1910342,15z/data=!4m18!4m17!1m5!1m1!1s0x487619e0fa189819:0x67484a8f7e05b56c!2m2!1d-0.185339!2d51.6180026!1m5!1m1!1s0x487619da84abf8d9:0xa40992c2aec56298!2m2!1d-0.179144!2d51.630241!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 4,
+        "schedule": "8:02 AM (Monday) – 8:06 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:02 AM from Woodside Park",
+        "fare": "£2.30",
+        "rawText": "4 min 8:02 AM (Monday) – 8:06 AM Northern 8:02 AM from Woodside Park £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    },
+    {
+      "fromStationId": "940GZZLUWOP",
+      "fromDisplayName": "Woodside Park Underground Station",
+      "toStationId": "940GZZLUWFN",
+      "toDisplayName": "West Finchley Underground Station",
+      "graphRunMinutes": 1,
+      "routeUrl": "https://www.google.com/maps/dir/Woodside+Park,+Woodside+Park+Rd,+London+N12+8RT/West+Finchley,+Nether+St,+London+N3+1NT/@51.6138161,-0.1920595,16z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x487619e0fa189819:0x67484a8f7e05b56c!2m2!1d-0.185339!2d51.6180026!1m5!1m1!1s0x4876175535be603d:0x5939d2ed46ae3b8f!2m2!1d-0.18844!2d51.6095641!2m3!6e0!7e2!8j1776067200!3e3?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D",
+      "captureStatus": "matched-northern",
+      "source": "google-maps-bulk-capture",
+      "observedJourney": {
+        "durationMinutes": 2,
+        "schedule": "8:01 AM (Monday) – 8:03 AM",
+        "lineSummary": "Northern",
+        "departureSummary": "8:01 AM from Woodside Park",
+        "fare": "£2.30",
+        "rawText": "2 min 8:01 AM (Monday) – 8:03 AM Northern 8:01 AM from Woodside Park £2.30 Details  2 min"
+      },
+      "deltaFromGraphMinutes": 1,
+      "notes": null
+    }
+  ]
+}
