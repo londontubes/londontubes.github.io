@@ -107,6 +107,27 @@ for (const dataset of datasets) {
 
 const journeyLookup = new Map<string, StaticTubeJourney | null>()
 
+const manualJourneyOverrides = new Map<string, StaticTubeJourney>([
+  [
+    'HUBTCR->HUBEAL',
+    {
+      fromStationId: 'HUBTCR',
+      toStationId: 'HUBEAL',
+      minutes: 17,
+      source: 'manual-google-maps-reference',
+    },
+  ],
+  [
+    'HUBEAL->HUBTCR',
+    {
+      fromStationId: 'HUBEAL',
+      toStationId: 'HUBTCR',
+      minutes: 17,
+      source: 'manual-google-maps-reference',
+    },
+  ],
+])
+
 function buildKey(from: string, to: string) {
   return `${from}->${to}`
 }
@@ -187,6 +208,10 @@ function computeJourney(from: string, to: string): StaticTubeJourney | null {
 
 export function getStaticTubeJourney(from: string, to: string): StaticTubeJourney | null {
   const key = buildKey(from, to)
+  const manualOverride = manualJourneyOverrides.get(key)
+  if (manualOverride) {
+    return manualOverride
+  }
   if (!journeyLookup.has(key)) {
     journeyLookup.set(key, computeJourney(from, to))
   }
