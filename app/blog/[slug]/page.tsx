@@ -27,6 +27,18 @@ export function generateMetadata({ params }: PageProps): Metadata {
     alternates: {
       canonical: `/blog/${params.slug}/`,
     },
+    openGraph: {
+      title: entry.question,
+      description: entry.shortAnswer,
+      type: 'article',
+      url: `https://londontubes.co.uk/blog/${params.slug}/`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: entry.question,
+      description: entry.shortAnswer,
+      images: ['https://londontubes.co.uk/opengraph-image'],
+    },
   }
 }
 
@@ -50,8 +62,34 @@ export default function BlogArticlePage({ params }: PageProps) {
     )
   }
 
+  const articleStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: entry.question,
+    description: entry.shortAnswer,
+    author: {
+      '@type': 'Organization',
+      name: 'London Tube Map',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'London Tube Map',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://londontubes.co.uk/opengraph-image',
+      },
+    },
+    mainEntityOfPage: `https://londontubes.co.uk/blog/${params.slug}/`,
+    inLanguage: 'en-GB',
+    dateModified: '2026-04-11',
+  }
+
   return (
     <main className={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}
+      />
       <header className={styles.header}>
         <p className={styles.breadcrumb}>
           <Link href="/blog/">Blog</Link> / <span>{entry.question}</span>

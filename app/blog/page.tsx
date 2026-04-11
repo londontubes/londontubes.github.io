@@ -2,11 +2,18 @@ import type { Metadata } from 'next'
 import BlogPageClient from './BlogPageClient'
 
 export const metadata: Metadata = {
-  title: 'London Tube Blog – Your London FAQs Answered',
+  title: 'London Blog & Tube Area Guides',
   description:
-    'Discover clear, practical answers to common questions about London: where to visit, what to do, how the weather feels and more – all in an easy FAQ style.',
+    'Read practical London travel, tube, neighbourhood and student-area guides tied back to the London Tube Map and station network.',
   alternates: {
     canonical: '/blog/',
+  },
+  openGraph: {
+    title: 'London Blog & Tube Area Guides',
+    description:
+      'Practical guides to London neighbourhoods, travel, attractions and student commute areas, published with map-first context.',
+    type: 'website',
+    url: 'https://londontubes.co.uk/blog/',
   },
 }
 

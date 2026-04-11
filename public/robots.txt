@@ -1,6 +1,24 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_next/
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
 
 Sitemap: https://londontubes.co.uk/sitemap.xml
+Host: https://londontubes.co.uk

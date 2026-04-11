@@ -25,31 +25,34 @@ const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATIO
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://londontubes.co.uk'),
+  applicationName: 'London Tube Map',
+  referrer: 'origin-when-cross-origin',
   title: {
     default: 'London Tube Map 2026 – Interactive Underground, Elizabeth Line & DLR',
     template: '%s | London Tube Map',
   },
   description:
-    'Free interactive London Tube map 2026 — all 11 Underground lines, Elizabeth line, DLR & 330+ stations. Filter by line, find stations near universities, plan your journey.',
+    'Free interactive London Tube map 2026 with all Underground lines, Elizabeth line, DLR and 330+ stations. Explore London transport, compare student commute areas, and check station-to-station travel times.',
   keywords:
-    'london tube map 2026, london underground map 2026, interactive tube map, tfl map, london metro map, london subway map, elizabeth line map, crossrail map, dlr map, london underground stations, tube lines map, mapa metro londres, london transport map',
+    'london tube map 2026, london underground map, interactive tube map, elizabeth line map, london railway map, dlr map, london university commute map, london station travel times, london transport map, tfl map',
   authors: [{ name: 'London Tube Map', url: 'https://londontubes.co.uk' }],
   creator: 'London Tube Map',
   publisher: 'London Tube Map',
+  category: 'travel',
   openGraph: {
     title: 'London Tube Map 2026 – Interactive Underground, Elizabeth Line & DLR',
     description:
-      'Free interactive London Tube map 2026 with all 11 Underground lines, Elizabeth line, DLR & 330+ stations. Filter by line, find university connections, plan your journey.',
+      'Interactive London Tube map with Underground, Elizabeth line and DLR routes, station travel times, and student commute tools for London universities.',
     type: 'website',
     siteName: 'London Tube Map',
     locale: 'en_GB',
     url: 'https://londontubes.co.uk/',
     images: [
       {
-        url: 'https://londontubes.co.uk/og-image.png',
+        url: 'https://londontubes.co.uk/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Interactive London Tube Map showing all Underground and DLR lines',
+        alt: 'London Tube Map with Underground, Elizabeth line and DLR coverage',
       },
     ],
   },
@@ -57,8 +60,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'London Tube Map 2026 – Interactive Underground, Elizabeth Line & DLR',
     description:
-      'Free interactive London Tube map 2026 with all 11 Underground lines, Elizabeth line, DLR & 330+ stations.',
-    images: ['https://londontubes.co.uk/og-image.png'],
+      'Interactive London Tube map with station travel times, university commute tools, and all Underground, Elizabeth line and DLR routes.',
+    images: ['https://londontubes.co.uk/opengraph-image'],
   },
   robots: {
     index: true,
@@ -97,10 +100,10 @@ const webAppStructuredData = {
   isAccessibleForFree: true,
   image: {
     '@type': 'ImageObject',
-    url: 'https://londontubes.co.uk/og-image.png',
+    url: 'https://londontubes.co.uk/opengraph-image',
     width: 1200,
     height: 630,
-    description: 'Interactive London Tube Map showing Underground and DLR lines',
+    description: 'Interactive London Tube Map showing Underground, Elizabeth line and DLR lines',
   },
   about: {
     '@type': 'Place',
@@ -137,6 +140,31 @@ const webAppStructuredData = {
   },
   inLanguage: 'en-GB',
   dateModified: '2026-04-10',
+}
+
+const websiteStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'London Tube Map',
+  url: 'https://londontubes.co.uk/',
+  description:
+    'Interactive London Tube map with Underground, Elizabeth line, DLR, station travel times and London university commute planning.',
+  inLanguage: 'en-GB',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://londontubes.co.uk/blog/?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const organizationStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'London Tube Map',
+  url: 'https://londontubes.co.uk/',
+  logo: 'https://londontubes.co.uk/opengraph-image',
+  description:
+    'Publisher of an interactive London Tube map focused on Underground, Elizabeth line, DLR and London student commute discovery.',
 }
 
 const breadcrumbStructuredData = {
@@ -198,6 +226,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(webAppStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationStructuredData),
           }}
         />
         <script

@@ -3,11 +3,15 @@ import ContactForm from './ContactForm'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Contact us',
+  title: 'Contact London Tube Map',
   description:
     'Send feedback or improvement suggestions to the London Tube Map team. Choose a topic, explain your idea, and help us make the map better for everyone.',
   alternates: {
     canonical: '/contact-us/',
+  },
+  robots: {
+    index: false,
+    follow: true,
   },
 }
 
