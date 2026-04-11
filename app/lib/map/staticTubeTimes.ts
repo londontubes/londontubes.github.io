@@ -10,6 +10,7 @@ import northern from '@/public/data/google-maps-northern-rush-hour.json'
 import piccadilly from '@/public/data/google-maps-piccadilly-rush-hour.json'
 import victoria from '@/public/data/google-maps-victoria-rush-hour.json'
 import waterlooCity from '@/public/data/google-maps-waterloo-city-rush-hour.json'
+import { historicalElizabethEdges } from '@/app/lib/map/historicalElizabethEdges'
 
 export interface StaticTubeJourney {
   fromStationId: string
@@ -46,7 +47,7 @@ interface GoogleRushHourFile {
 }
 
 interface InternalGraphEdge extends StaticTubeGraphEdge {
-  sourceKind: 'observed' | 'fallback'
+  sourceKind: 'observed' | 'fallback' | 'historical'
 }
 
 const datasets = [
@@ -67,9 +68,22 @@ const datasets = [
 const graphLookup = new Map<string, InternalGraphEdge[]>()
 let observedEdgeCount = 0
 let fallbackEdgeCount = 0
+let historicalEdgeCount = 0
+
+function addGraphEdge(edge: InternalGraphEdge) {
+  const bucket = graphLookup.get(edge.fromStationId)
+  if (bucket) {
+    bucket.push(edge)
+  } else {
+    graphLookup.set(edge.fromStationId, [edge])
+  }
+}
 
 for (const dataset of datasets) {
   const lineCode = dataset.metadata.lineCode
+  if (lineCode === 'elizabeth') {
+    continue
+  }
   for (const journey of dataset.journeys || []) {
     const observedMinutes = journey.observedJourney?.durationMinutes
     const sourceKind = typeof observedMinutes === 'number' ? 'observed' : 'fallback'
@@ -96,13 +110,20 @@ for (const dataset of datasets) {
       sourceKind,
     }
 
-    const bucket = graphLookup.get(edge.fromStationId)
-    if (bucket) {
-      bucket.push(edge)
-    } else {
-      graphLookup.set(edge.fromStationId, [edge])
-    }
+    addGraphEdge(edge)
   }
+}
+
+for (const [fromStationId, toStationId, runMinutes] of historicalElizabethEdges) {
+  historicalEdgeCount += 1
+  addGraphEdge({
+    fromStationId,
+    toStationId,
+    lineCode: 'elizabeth',
+    runMinutes,
+    source: 'historical-tfl-timetables-elizabeth',
+    sourceKind: 'historical',
+  })
 }
 
 const journeyLookup = new Map<string, StaticTubeJourney | null>()
@@ -250,10 +271,11 @@ export const staticTubeTimesMetadata = {
     .filter((value): value is string => typeof value === 'string')
     .sort()
     .at(-1) ?? null,
-  source: 'google-maps-rush-hour-json',
+  source: 'google-maps-rush-hour-json + historical-elizabeth-timetables',
   lineFiles: datasets.length,
   observedEdges: observedEdgeCount,
   fallbackEdges: fallbackEdgeCount,
+  historicalEdges: historicalEdgeCount,
   boardingWaitMinutes: 0,
   transferWalkMinutes: 0,
   hubWalkMinutes: 0,

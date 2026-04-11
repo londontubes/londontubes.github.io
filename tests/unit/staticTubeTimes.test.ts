@@ -1,6 +1,15 @@
 import { getStaticTubeJourney } from '@/app/lib/map/staticTubeTimes'
 
 describe('staticTubeTimes manual journey overrides', () => {
+  it('uses restored timetable-derived Elizabeth edges for Paddington to Bond Street', () => {
+    expect(getStaticTubeJourney('HUBPAD', 'HUBBDS')).toEqual({
+      fromStationId: 'HUBPAD',
+      toStationId: 'HUBBDS',
+      minutes: 3.8,
+      source: 'google-maps-rush-hour',
+    })
+  })
+
   it('returns the manual Google reference for Tottenham Court Road to Ealing Broadway', () => {
     expect(getStaticTubeJourney('HUBTCR', 'HUBEAL')).toEqual({
       fromStationId: 'HUBTCR',
@@ -25,6 +34,15 @@ describe('staticTubeTimes manual journey overrides', () => {
       toStationId: 'HUBTCR',
       minutes: 17,
       source: 'manual-google-maps-reference',
+    })
+  })
+
+  it('uses restored timetable-derived Elizabeth edges for Bond Street to Tottenham Court Road', () => {
+    expect(getStaticTubeJourney('HUBBDS', 'HUBTCR')).toEqual({
+      fromStationId: 'HUBBDS',
+      toStationId: 'HUBTCR',
+      minutes: 2.7,
+      source: 'google-maps-rush-hour',
     })
   })
 
