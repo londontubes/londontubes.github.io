@@ -114,7 +114,7 @@ export const blogQuestions: BlogQuestion[] = [
       'Working out where to live as a London student is really a question of journey time. Rent, nightlife and vibe all matter, but if your commute is awkward you will feel it every single day.',
       'A simple way to start is with the universities filter on our London Tube Map. Pick your university, set a realistic walking time, then add a short tube-time layer. The green stations show where you can reasonably walk from campus; the purple stations show areas that are a quick ride away on the same tube lines.',
       'As you move the sliders, look for clusters of green and purple stations. Those clusters usually correspond to neighbourhoods that work well for students because they balance rent with a straightforward journey.',
-      'When you click on a promising purple station, the station card includes a “Zoopla flat search” button. This opens Zoopla in map view centred on that station, already filtered for smaller flats within a sensible budget and walking radius so you can jump straight from journey times to real listings.',
+      'When you click on a promising purple station, the station card includes a “Zoopla flat search” button and, for mapped stations, a matching “Rightmove flat search” button. These open rental searches centred on that station, already filtered for smaller flats within a sensible budget and walking radius so you can jump straight from journey times to real listings.',
       'For UCL, SOAS and other Bloomsbury universities, popular areas include Camden, Kentish Town, Tufnell Park and Finsbury Park, as well as parts of Islington and Holloway. These are all tied together by the Northern, Piccadilly and Victoria lines plus strong bus routes.',
       'Imperial College students often look at Earl’s Court, West Kensington, Fulham and Hammersmith. Staying on or near the District, Piccadilly or Circle lines keeps the daily trip to South Kensington simple even if you move a zone or two out to save on rent.',
       'For LSE and King’s College London in central London, students spread out along the Northern, Jubilee, Bakerloo, Central and District lines — think Waterloo, London Bridge, Elephant & Castle, Bermondsey, Clerkenwell and Mile End. The map helps you see which of these areas gives you a direct route with minimal changes.',
@@ -128,13 +128,13 @@ export const blogQuestions: BlogQuestion[] = [
     universityId: 'UCL',
     question: 'How to use the university filter for flat search',
     shortAnswer:
-      'Open the Universities Filter, pick your campus, then use the green walking time and purple tube time sliders to find good areas and jump straight into Zoopla flat searches from promising stations.',
+      'Open the Universities Filter, pick your campus, then use the green walking time and purple tube time sliders to find good areas and jump straight into Zoopla and Rightmove flat searches from promising stations.',
     body: [
       'The Universities Filter is designed to turn your campus into the centre of your search. Start by opening the Universities tab at the top of the map, then choose your university and, if needed, the specific campus you are based at.',
       'Next, set a realistic walking time using the green slider. Green stations show places where you can comfortably walk from your front door to campus each day without needing to get on a tube.',
       'After that, add some tube time using the purple slider. Purple stations mark areas that are a simple, fast ride away from your university on the same lines. Together, the green and purple rings give you a clear picture of where daily travel will actually feel easy.',
-      'Once you see clusters of green and purple stations you like the look of, click on one of the purple stations. In the station card, use the “Zoopla flat search” button to open Zoopla in map view centred on that station, pre-filtered for smaller flats within a sensible budget and walking radius.',
-      'From there you can adjust filters on Zoopla as needed, but the heavy lifting is already done: you are only looking at flats in neighbourhoods that match the real journey times you have just checked on the university map.',
+      'Once you see clusters of green and purple stations you like the look of, click on one of the purple stations. In the station card, use the “Zoopla flat search” and “Rightmove flat search” buttons to open pre-filtered rental searches centred on that station.',
+      'From there you can adjust filters on either portal as needed, but the heavy lifting is already done: you are only looking at flats in neighbourhoods that match the real journey times you have just checked on the university map.',
     ],
   },
   {

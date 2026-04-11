@@ -168,6 +168,10 @@ export function trackZooplaClick(stationName: string) {
   trackAffiliateCtaClick(`Zoopla: ${stationName}`, 1)
 }
 
+export function trackRightmoveClick(stationName: string) {
+  trackAffiliateCtaClick(`Rightmove: ${stationName}`, 1)
+}
+
 export function trackAmberClick(context: string) {
   trackAffiliateCtaClick(`Amber: ${context}`, 1)
 }

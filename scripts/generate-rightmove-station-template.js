@@ -45,6 +45,9 @@ function main() {
     "  searchLocation: string",
     "  locationIdentifier: string",
     "  displayLocationIdentifier: string",
+    "  displayName?: string",
+    "  matchStatus?: 'matched' | 'unmatched' | 'ambiguous'",
+    "  lastVerifiedAt?: string",
     '}',
     '',
     'export const RIGHTMOVE_STATION_TEMPLATE: RightmoveStationTemplateEntry[] = [',
@@ -61,7 +64,7 @@ function main() {
       : `${baseDisplayLocationIdentifier}-Station`
     const displayLocationIdentifier = withStationSuffix.replace(/'/g, "\\'")
 
-    return `  { stationId: '${stationId}', searchLocation: '${searchLocation}', locationIdentifier: '', displayLocationIdentifier: '${displayLocationIdentifier}' },`
+    return `  { stationId: '${stationId}', searchLocation: '${searchLocation}', locationIdentifier: '', displayLocationIdentifier: '${displayLocationIdentifier}', matchStatus: 'unmatched' },`
   })
 
   const footerLines = [

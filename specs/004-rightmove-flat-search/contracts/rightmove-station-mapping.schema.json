@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://londontubes.co.uk/schemas/rightmove-station-mapping.schema.json",
+  "title": "RightmoveStationMappingCollection",
+  "type": "object",
+  "required": ["generatedAt", "mappings"],
+  "properties": {
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["stationId", "searchLocation", "matchStatus"],
+        "properties": {
+          "stationId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "searchLocation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locationIdentifier": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          },
+          "displayName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "displayLocationIdentifier": {
+            "type": "string"
+          },
+          "matchStatus": {
+            "type": "string",
+            "enum": ["matched", "unmatched", "ambiguous"]
+          },
+          "lastVerifiedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

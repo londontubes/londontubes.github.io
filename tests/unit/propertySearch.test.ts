@@ -1,0 +1,76 @@
+import type { Station } from '@/app/types/transit'
+import { buildRightmoveStationUrl, buildZooplaStationUrl } from '@/app/lib/map/propertySearch'
+
+const bakerStreet: Station = {
+  stationId: '940GZZLUBST',
+  displayName: 'Baker Street Underground Station',
+  position: {
+    type: 'Point',
+    coordinates: [-0.15713, 51.522883],
+  },
+  lineCodes: ['bakerloo', 'circle', 'hammersmith-city', 'jubilee', 'metropolitan'],
+  isInterchange: true,
+  markerIcon: 'default',
+  tooltipSummary: 'Baker Street Underground Station',
+  order: 0,
+}
+
+const regentsPark: Station = {
+  stationId: '940GZZLURGP',
+  displayName: "Regent's Park Underground Station",
+  position: {
+    type: 'Point',
+    coordinates: [-0.146444, 51.523393],
+  },
+  lineCodes: ['bakerloo'],
+  isInterchange: false,
+  markerIcon: 'default',
+  tooltipSummary: "Regent's Park Underground Station",
+  order: 0,
+}
+
+describe('propertySearch helpers', () => {
+  it('builds a Zoopla station search URL with the expected filters', () => {
+    const url = buildZooplaStationUrl(bakerStreet)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+
+    expect(parsed.origin).toBe('https://www.zoopla.co.uk')
+    expect(parsed.pathname).toBe('/to-rent/map/flats/station/tube/baker-street/')
+    expect(parsed.searchParams.get('beds_min')).toBe('0')
+    expect(parsed.searchParams.get('beds_max')).toBe('2')
+    expect(parsed.searchParams.get('price_frequency')).toBe('per_month')
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
+    expect(parsed.searchParams.get('q')).toBe('Baker Street Station, London')
+  })
+
+  it('builds a Rightmove station search URL for mapped stations', () => {
+    const url = buildRightmoveStationUrl(bakerStreet)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+
+    expect(parsed.origin).toBe('https://www.rightmove.co.uk')
+    expect(parsed.pathname).toBe('/property-to-rent/map.html')
+    expect(parsed.searchParams.get('locationIdentifier')).toBe('STATION^488')
+    expect(parsed.searchParams.get('propertyTypes')).toBe('flat')
+    expect(parsed.searchParams.get('minBedrooms')).toBe('0')
+    expect(parsed.searchParams.get('maxBedrooms')).toBe('2')
+    expect(parsed.searchParams.get('maxPrice')).toBe('2000')
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
+    expect(parsed.searchParams.get('sortType')).toBe('6')
+    expect(parsed.searchParams.get('areaSizeUnit')).toBe('sqft')
+    expect(parsed.searchParams.get('viewType')).toBe('MAP')
+    expect(parsed.searchParams.get('channel')).toBe('RENT')
+    expect(parsed.searchParams.get('index')).toBe('0')
+    expect(parsed.searchParams.get('numberOfPropertiesPerPage')).toBe('95')
+    expect(parsed.searchParams.get('includeLetAgreed')).toBe('false')
+  })
+
+  it('omits the Rightmove URL when a station has no reviewed mapping', () => {
+    expect(buildRightmoveStationUrl(regentsPark)).toBeNull()
+  })
+})
