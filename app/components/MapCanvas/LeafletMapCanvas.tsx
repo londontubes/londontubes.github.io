@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { MutableRefObject } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker, Tooltip } from 'react-leaflet'
-import { trackStationSelect, trackMapZoom, trackZooplaClick, trackAmberClick } from '@/app/lib/analytics'
+import { trackStationSelect, trackMapZoom, trackZooplaClick, trackRightmoveClick, trackAmberClick } from '@/app/lib/analytics'
 import L from 'leaflet'
 import type { Station, TransitLine } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
@@ -11,7 +11,7 @@ import type { TravelTimeResult } from '@/app/lib/map/travelTime'
 import { calculateDistance, WALK_SPEED_MPH, WALK_OVERHEAD_MINUTES, WALK_ROUTE_FACTOR } from '@/app/lib/map/proximity'
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
 import { getStaticTubeJourney } from '@/app/lib/map/staticTubeTimes'
-import { RIGHTMOVE_STATION_TEMPLATE, type RightmoveStationTemplateEntry } from '@/docs/rightmove-station-template'
+import { buildRightmoveStationUrl, buildZooplaStationUrl } from '@/app/lib/map/propertySearch'
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
 const DEFAULT_ZOOM = 11
@@ -27,14 +27,6 @@ const AMBER_URLS: Record<string, string | undefined> = {
   SOAS: process.env.NEXT_PUBLIC_AMBER_SOAS_AFFILIATE_URL,
   WESTMINSTER: process.env.NEXT_PUBLIC_AMBER_WESTMINSTER_AFFILIATE_URL,
 }
-
-const RIGHTMOVE_STATION_MAP: Record<string, RightmoveStationTemplateEntry> = RIGHTMOVE_STATION_TEMPLATE.reduce(
-  (acc, entry) => {
-    acc[entry.stationId] = entry
-    return acc
-  },
-  {} as Record<string, RightmoveStationTemplateEntry>
-)
 
 export type MapStatus = 'idle' | 'loading' | 'ready' | 'error'
 
@@ -74,83 +66,6 @@ function stationVisible(
   }
   // Otherwise default to line activation visibility (or all when no filter)
   return matchesLineFilter
-}
-
-function sanitizeZooplaSearchLocation(value: string): string {
-  // Zoopla slugs omit apostrophes, so mirror that here before creating the URL.
-  return value.replace(/[\u2018\u2019]/g, '')
-}
-
-// Stations whose auto-generated Zoopla slug doesn't match Zoopla's catalogue.
-// `path` overrides the entire /to-rent/map/flats/... path (for area-based fallbacks).
-// `slug` + optional `type` override just the station slug and transport type.
-const ZOOPLA_SLUG_OVERRIDES: Record<string, { slug?: string; type?: 'tube' | 'rail' | 'dlr'; path?: string }> = {
-  '910GBNHAM': { slug: 'burnham-bucks' },                               // Zoopla uses "Bucks" not "Berks"
-  '910GWOLWXR': { slug: 'woolwich-arsenal', type: 'rail' },             // Woolwich Elizabeth has no own Zoopla slug
-  '940GZZDLCLA': { slug: 'crossharbour-and-london-arena' },            // Zoopla uses full historic name
-  '940GZZLUERC': { slug: 'edgware-road-circle' },                      // Zoopla drops "Line" suffix
-  'HUBCFO': { path: 'chalfont-st-giles' },                             // Station slug broken on Zoopla; area fallback
-  'HUBKGX': { slug: 'kings-cross-st-pancras' },                        // Zoopla uses shorter slug
-  'HUBH13': { slug: 'heathrow-terminals-1-2-3' },                      // Zoopla includes Terminal 1
-  'HUBHX4': { slug: 'heathrow-terminal-4' },                           // Zoopla drops "Airport" from name
-  'HUBHX5': { slug: 'heathrow-terminal-4' },                           // Terminal 5 has no Zoopla page; use Terminal 4
-  'HUBCUS': { slug: 'custom-house', type: 'dlr' },                    // DLR+Elizabeth hub; /tube/ broken on Zoopla
-}
-
-function buildZooplaStationUrl(station?: Station, fallbackName?: string): string | null {
-  const rawName = station?.displayName || fallbackName
-  if (!rawName) return null
-
-  const override = station ? ZOOPLA_SLUG_OVERRIDES[station.stationId] : undefined
-
-  const cleanedName = rawName
-    .replace(/underground/gi, '')
-    .replace(/\bdlr\b/gi, '')
-    .replace(/\brail\b/gi, '')
-    .replace(/\s+/g, ' ')
-    .trim()
-  const mappingEntry = station ? RIGHTMOVE_STATION_MAP[station.stationId] : undefined
-  let baseSearchLocation = mappingEntry?.searchLocation || cleanedName
-
-  if (!/\bStation$/i.test(baseSearchLocation)) {
-    baseSearchLocation = `${baseSearchLocation} Station`
-  }
-
-  baseSearchLocation = sanitizeZooplaSearchLocation(baseSearchLocation)
-
-  // Area-based fallback when station slug is broken on Zoopla
-  if (override?.path) {
-    const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/${override.path}/`)
-    return baseUrl.toString()
-  }
-
-  const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
-  const slug = override?.slug ?? slugBase
-    .replace(/&/g, 'and')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-
-  // Pick the Zoopla station type: /station/tube/, /station/rail/, or /station/dlr/
-  const hasTubeLine = station?.lineCodes.some(c => c !== 'dlr' && c !== 'elizabeth')
-  const isDlr = station?.lineCodes.includes('dlr')
-  const isElizabeth = station?.lineCodes.includes('elizabeth')
-  const stationType = override?.type
-    ?? (hasTubeLine ? 'tube' : isElizabeth && !isDlr ? 'rail' : isDlr ? 'dlr' : 'tube')
-  const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/station/${stationType}/${slug}/`)
-  const params = baseUrl.searchParams
-  params.set('beds_max', '1')
-  params.set('beds_min', '0')
-  params.set('is_retirement_home', 'false')
-  params.set('is_shared_accommodation', 'false')
-  params.set('price_frequency', 'per_month')
-  params.set('q', `${baseSearchLocation}, London`)
-  params.set('radius', '0.5')
-  params.set('search_source', 'to-rent')
-  params.set('results_sort', 'lowest_price')
-  params.set('pn', '1')
-  params.set('map_app', 'true')
-  return baseUrl.toString()
 }
 
 // Component to handle map events
@@ -326,6 +241,8 @@ function StationCardContent({
 
   const cardTitle = travelMinutesLabel ? `${station.displayName} (${travelMinutesLabel})` : station.displayName
   const zooplaUrl = useMemo(() => buildZooplaStationUrl(station), [station])
+  const rightmoveUrl = useMemo(() => buildRightmoveStationUrl(station), [station])
+  const hasCallToAction = Boolean(zooplaUrl || rightmoveUrl || amberUrl)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -387,26 +304,48 @@ function StationCardContent({
           />
         </div>
       )}
-      {zooplaUrl && (
+      {hasCallToAction && (
         <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-          <a
-            href={zooplaUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackZooplaClick(station.displayName)}
-            style={{
-              background: '#0066cc',
-              color: 'white',
-              borderRadius: '4px',
-              padding: '6px 10px',
-              fontSize: '13px',
-              textDecoration: 'none',
-              display: 'inline-block',
-              cursor: 'pointer',
-            }}
-          >
-            Zoopla flat search
-          </a>
+          {zooplaUrl && (
+            <a
+              href={zooplaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackZooplaClick(station.displayName)}
+              style={{
+                background: '#6f2cff',
+                color: 'white',
+                borderRadius: '4px',
+                padding: '6px 10px',
+                fontSize: '13px',
+                textDecoration: 'none',
+                display: 'inline-block',
+                cursor: 'pointer',
+              }}
+            >
+              Zoopla flat search
+            </a>
+          )}
+          {rightmoveUrl && (
+            <a
+              href={rightmoveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackRightmoveClick(station.displayName)}
+              style={{
+                background: '#00deb6',
+                color: '#05231d',
+                borderRadius: '4px',
+                padding: '6px 10px',
+                fontSize: '13px',
+                textDecoration: 'none',
+                display: 'inline-block',
+                cursor: 'pointer',
+              }}
+            >
+              Rightmove flat search
+            </a>
+          )}
           {amberUrl && (
             <a
               href={amberUrl}

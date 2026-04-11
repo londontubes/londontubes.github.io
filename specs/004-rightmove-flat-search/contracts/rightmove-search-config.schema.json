@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://londontubes.co.uk/schemas/rightmove-search-config.schema.json",
+  "title": "RightmoveSearchConfig",
+  "type": "object",
+  "required": [
+    "propertyTypes",
+    "minBedrooms",
+    "maxBedrooms",
+    "maxPrice",
+    "radius",
+    "includeLetAgreed"
+  ],
+  "properties": {
+    "propertyTypes": {
+      "type": "string",
+      "const": "flat"
+    },
+    "minBedrooms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "maxBedrooms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "maxPrice": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "radius": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "includeLetAgreed": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

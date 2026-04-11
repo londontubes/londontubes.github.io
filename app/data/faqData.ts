@@ -46,10 +46,11 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Can I search for flats near a tube station?',
     answer:
-      'Yes. When you click a purple station on the map, the station info card includes a “Zoopla flat search” button. This opens Zoopla in map view centred on that station, pre-filtered for 0–2 bedroom flats up to around £2,000 per month within roughly a mile. It is a quick way to see rental options that match the journey times you have already explored on the map.',
+      'Yes. When you click a purple station on the map, the station info card includes both “Zoopla flat search” and, where available, “Rightmove flat search” buttons. These open pre-filtered rental searches centred on that station, focused on studio to 2-bedroom flats up to around £2,000 per month within roughly half a mile. It is a quick way to compare rental options that match the journey times you have already explored on the map.',
     keywords: [
       'flats near tube station',
       'zoopla flat search',
+      'rightmove flat search',
       'rent near london station',
       'student flats london map',
       'london rental search zoopla',
