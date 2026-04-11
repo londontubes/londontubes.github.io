@@ -17,7 +17,7 @@
     "notes": [
       "This file stores Monday 8am Google Maps reference times for direct Northern line station pairs so future work does not need to re-query Google Maps.",
       "Pairs with no Northern option remain in the dataset with captureStatus set to no-northern-option-found.",
-      "These values are kept separate from public/data/static-tube-times.json, which remains the app internal graph dataset."
+      "These values feed the app rush-hour tube-time graph directly, with graphRunMinutes retained only as a fallback where Google Maps did not return a direct option."
     ]
   },
   "journeys": [

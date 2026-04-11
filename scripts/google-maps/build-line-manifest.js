@@ -5,8 +5,10 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..', '..');
-const staticTimesPath = path.join(rootDir, 'public', 'data', 'static-tube-times.json');
+const linesPath = path.join(rootDir, 'public', 'data', 'lines.json');
 const stationsPath = path.join(rootDir, 'public', 'data', 'stations.json');
+const FALLBACK_LINE_SPEED_MPH = 22;
+const FALLBACK_DWELL_MINUTES = 0.5;
 
 const queryOverrides = {
   'Bank': 'Bank Station, London',
@@ -65,6 +67,25 @@ function loadJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
+function haversineMeters(lat1, lng1, lat2, lng2) {
+  const R = 6371000;
+  const toRad = (degrees) => (degrees * Math.PI) / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat / 2) ** 2
+    + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+function estimateRunMinutes(fromStation, toStation) {
+  const [fromLng, fromLat] = fromStation.coordinates;
+  const [toLng, toLat] = toStation.coordinates;
+  const distMeters = haversineMeters(fromLat, fromLng, toLat, toLng);
+  const distMiles = distMeters / 1609.34;
+  return Math.round((((distMiles / FALLBACK_LINE_SPEED_MPH) * 60) + FALLBACK_DWELL_MINUTES) * 10) / 10;
+}
+
 function buildStationLookup(stations) {
   return new Map(
     stations.map((station) => [
@@ -73,9 +94,56 @@ function buildStationLookup(stations) {
         stationId: station.stationId,
         displayName: station.displayName,
         query: queryOverrides[station.displayName] || station.displayName,
+        coordinates: station.position.coordinates,
       },
     ])
   );
+}
+
+function buildLineManifestJourneys(line, stationLookup) {
+  const journeys = [];
+  const seen = new Set();
+
+  const addJourney = (fromStationId, toStationId) => {
+    const dedupeKey = `${fromStationId}->${toStationId}`;
+    if (seen.has(dedupeKey)) {
+      return;
+    }
+
+    const fromStation = stationLookup.get(fromStationId);
+    const toStation = stationLookup.get(toStationId);
+
+    if (!fromStation || !toStation) {
+      throw new Error(`Missing station metadata for edge ${fromStationId} -> ${toStationId}`);
+    }
+
+    seen.add(dedupeKey);
+    journeys.push({
+      fromStationId,
+      fromDisplayName: fromStation.displayName,
+      fromQuery: fromStation.query,
+      toStationId,
+      toDisplayName: toStation.displayName,
+      toQuery: toStation.query,
+      graphRunMinutes: estimateRunMinutes(fromStation, toStation),
+    });
+  };
+
+  for (let index = 0; index < line.stationIds.length - 1; index += 1) {
+    const fromStationId = line.stationIds[index];
+    const toStationId = line.stationIds[index + 1];
+    if (!fromStationId || !toStationId || fromStationId === toStationId) {
+      continue;
+    }
+    addJourney(fromStationId, toStationId);
+    addJourney(toStationId, fromStationId);
+  }
+
+  return journeys.sort((left, right) => {
+    const leftKey = `${left.fromDisplayName} ${left.toDisplayName}`;
+    const rightKey = `${right.fromDisplayName} ${right.toDisplayName}`;
+    return leftKey.localeCompare(rightKey);
+  });
 }
 
 function usage() {
@@ -89,35 +157,16 @@ if (!lineCode) {
   usage();
 }
 
-const staticTimes = loadJson(staticTimesPath);
+const lines = loadJson(linesPath);
 const stations = loadJson(stationsPath);
 const stationLookup = buildStationLookup(stations.stations || []);
+const line = (lines.lines || []).find((candidate) => candidate.lineCode === lineCode);
 
-const journeys = (staticTimes.graphEdges || [])
-  .filter((edge) => edge.lineCode === lineCode)
-  .map((edge) => {
-    const fromStation = stationLookup.get(edge.fromStationId);
-    const toStation = stationLookup.get(edge.toStationId);
+if (!line) {
+  throw new Error(`Unknown line code: ${lineCode}`);
+}
 
-    if (!fromStation || !toStation) {
-      throw new Error(`Missing station metadata for edge ${edge.fromStationId} -> ${edge.toStationId}`);
-    }
-
-    return {
-      fromStationId: edge.fromStationId,
-      fromDisplayName: fromStation.displayName,
-      fromQuery: fromStation.query,
-      toStationId: edge.toStationId,
-      toDisplayName: toStation.displayName,
-      toQuery: toStation.query,
-      graphRunMinutes: edge.runMinutes,
-    };
-  })
-  .sort((left, right) => {
-    const leftKey = `${left.fromDisplayName} ${left.toDisplayName}`;
-    const rightKey = `${right.fromDisplayName} ${right.toDisplayName}`;
-    return leftKey.localeCompare(rightKey);
-  });
+const journeys = buildLineManifestJourneys(line, stationLookup);
 
 const manifest = {
   lineCode,

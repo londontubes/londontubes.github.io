@@ -1,4 +1,15 @@
-import raw from '@/public/data/static-tube-times.json'
+import bakerloo from '@/public/data/google-maps-bakerloo-rush-hour.json'
+import central from '@/public/data/google-maps-central-rush-hour.json'
+import circle from '@/public/data/google-maps-circle-rush-hour.json'
+import district from '@/public/data/google-maps-district-rush-hour.json'
+import elizabeth from '@/public/data/google-maps-elizabeth-rush-hour.json'
+import hammersmithCity from '@/public/data/google-maps-hammersmith-city-rush-hour.json'
+import jubilee from '@/public/data/google-maps-jubilee-rush-hour.json'
+import metropolitan from '@/public/data/google-maps-metropolitan-rush-hour.json'
+import northern from '@/public/data/google-maps-northern-rush-hour.json'
+import piccadilly from '@/public/data/google-maps-piccadilly-rush-hour.json'
+import victoria from '@/public/data/google-maps-victoria-rush-hour.json'
+import waterlooCity from '@/public/data/google-maps-waterloo-city-rush-hour.json'
 
 export interface StaticTubeJourney {
   fromStationId: string
@@ -12,73 +23,178 @@ export interface StaticTubeGraphEdge {
   toStationId: string
   lineCode: string
   runMinutes: number
-}
-
-interface StaticTubeTimesMetadata {
-  timetableRequests?: number
-  timetableEdgesParsed?: number
-  fallbackEdges?: number
-  graphStations?: number
-  graphEdges?: number
-  boardingWaitMinutes?: number
-  transferWalkMinutes?: number
-  hubWalkMinutes?: number
-}
-
-interface StaticTubeTimesFile {
-  generatedAt: string | null
   source?: string
-  journeys: StaticTubeJourney[]
-  graphEdges?: StaticTubeGraphEdge[]
-  metadata?: StaticTubeTimesMetadata
 }
 
-const data = raw as StaticTubeTimesFile
+interface GoogleRushHourObservedJourney {
+  durationMinutes?: number
+}
 
-const lookup = new Map<string, StaticTubeJourney>()
+interface GoogleRushHourJourney {
+  fromStationId: string
+  toStationId: string
+  graphRunMinutes?: number
+  observedJourney?: GoogleRushHourObservedJourney | null
+}
 
-for (const journey of data.journeys || []) {
-  const key = buildKey(journey.fromStationId, journey.toStationId)
-  lookup.set(key, journey)
-  const reverseKey = buildKey(journey.toStationId, journey.fromStationId)
-  if (!lookup.has(reverseKey)) {
-    lookup.set(reverseKey, {
-      fromStationId: journey.toStationId,
-      toStationId: journey.fromStationId,
-      minutes: journey.minutes,
-      source: journey.source,
-    })
+interface GoogleRushHourFile {
+  metadata: {
+    lineCode: string
+    generatedAt?: string
+  }
+  journeys: GoogleRushHourJourney[]
+}
+
+interface InternalGraphEdge extends StaticTubeGraphEdge {
+  sourceKind: 'observed' | 'fallback'
+}
+
+const datasets = [
+  bakerloo,
+  central,
+  circle,
+  district,
+  elizabeth,
+  hammersmithCity,
+  jubilee,
+  metropolitan,
+  northern,
+  piccadilly,
+  victoria,
+  waterlooCity,
+] as GoogleRushHourFile[]
+
+const graphLookup = new Map<string, InternalGraphEdge[]>()
+let observedEdgeCount = 0
+let fallbackEdgeCount = 0
+
+for (const dataset of datasets) {
+  const lineCode = dataset.metadata.lineCode
+  for (const journey of dataset.journeys || []) {
+    const observedMinutes = journey.observedJourney?.durationMinutes
+    const sourceKind = typeof observedMinutes === 'number' ? 'observed' : 'fallback'
+    const runMinutes = typeof observedMinutes === 'number' ? observedMinutes : journey.graphRunMinutes
+
+    if (typeof runMinutes !== 'number' || !Number.isFinite(runMinutes)) {
+      continue
+    }
+
+    if (sourceKind === 'observed') {
+      observedEdgeCount += 1
+    } else {
+      fallbackEdgeCount += 1
+    }
+
+    const edge: InternalGraphEdge = {
+      fromStationId: journey.fromStationId,
+      toStationId: journey.toStationId,
+      lineCode,
+      runMinutes,
+      source: sourceKind === 'observed'
+        ? `google-maps-${lineCode}-rush-hour`
+        : `google-maps-${lineCode}-graph-fallback`,
+      sourceKind,
+    }
+
+    const bucket = graphLookup.get(edge.fromStationId)
+    if (bucket) {
+      bucket.push(edge)
+    } else {
+      graphLookup.set(edge.fromStationId, [edge])
+    }
   }
 }
 
-const graphLookup = new Map<string, StaticTubeGraphEdge[]>()
-for (const edge of data.graphEdges || []) {
-  const bucket = graphLookup.get(edge.fromStationId)
-  if (bucket) {
-    bucket.push(edge)
-  } else {
-    graphLookup.set(edge.fromStationId, [edge])
-  }
-}
+const journeyLookup = new Map<string, StaticTubeJourney | null>()
 
 function buildKey(from: string, to: string) {
   return `${from}->${to}`
 }
 
-export function getStaticTubeJourney(from: string, to: string): StaticTubeJourney | null {
+function roundMinutes(value: number) {
+  return Math.round(value * 10) / 10
+}
+
+function computeJourney(from: string, to: string): StaticTubeJourney | null {
   if (from === to) {
     return {
       fromStationId: from,
       toStationId: to,
       minutes: 0,
-      source: data.source || 'static-tube-times',
+      source: 'google-maps-rush-hour',
     }
   }
-  return lookup.get(buildKey(from, to)) || null
+
+  const distances = new Map<string, number>([[from, 0]])
+  const previous = new Map<string, { stationId: string; edge: InternalGraphEdge }>()
+  const queue: Array<{ stationId: string; minutes: number }> = [{ stationId: from, minutes: 0 }]
+  const visited = new Set<string>()
+
+  while (queue.length > 0) {
+    let bestIndex = 0
+    for (let index = 1; index < queue.length; index += 1) {
+      if (queue[index].minutes < queue[bestIndex].minutes) {
+        bestIndex = index
+      }
+    }
+
+    const current = queue.splice(bestIndex, 1)[0]
+    if (visited.has(current.stationId)) {
+      continue
+    }
+    if (current.stationId === to) {
+      break
+    }
+
+    visited.add(current.stationId)
+
+    for (const edge of graphLookup.get(current.stationId) || []) {
+      const candidate = current.minutes + edge.runMinutes
+      const previousBest = distances.get(edge.toStationId)
+      if (previousBest === undefined || candidate < previousBest) {
+        distances.set(edge.toStationId, candidate)
+        previous.set(edge.toStationId, { stationId: current.stationId, edge })
+        queue.push({ stationId: edge.toStationId, minutes: candidate })
+      }
+    }
+  }
+
+  const totalMinutes = distances.get(to)
+  if (totalMinutes === undefined) {
+    return null
+  }
+
+  let cursor = to
+  let usedFallback = false
+  while (cursor !== from) {
+    const step = previous.get(cursor)
+    if (!step) {
+      return null
+    }
+    if (step.edge.sourceKind === 'fallback') {
+      usedFallback = true
+    }
+    cursor = step.stationId
+  }
+
+  return {
+    fromStationId: from,
+    toStationId: to,
+    minutes: roundMinutes(totalMinutes),
+    source: usedFallback ? 'google-maps-rush-hour + graph fallback' : 'google-maps-rush-hour',
+  }
+}
+
+export function getStaticTubeJourney(from: string, to: string): StaticTubeJourney | null {
+  const key = buildKey(from, to)
+  if (!journeyLookup.has(key)) {
+    journeyLookup.set(key, computeJourney(from, to))
+  }
+  return journeyLookup.get(key) || null
 }
 
 export function hasStaticTubeData() {
-  return lookup.size > 0
+  return graphLookup.size > 0
 }
 
 export function getStaticTubeGraph() {
@@ -86,15 +202,22 @@ export function getStaticTubeGraph() {
 }
 
 export const staticTubeTimesMetadata = {
-  generatedAt: data.generatedAt,
-  source: data.source,
-  boardingWaitMinutes: data.metadata?.boardingWaitMinutes ?? null,
-  transferWalkMinutes: data.metadata?.transferWalkMinutes ?? null,
-  hubWalkMinutes: data.metadata?.hubWalkMinutes ?? null,
+  generatedAt: datasets
+    .map(dataset => dataset.metadata.generatedAt)
+    .filter((value): value is string => typeof value === 'string')
+    .sort()
+    .at(-1) ?? null,
+  source: 'google-maps-rush-hour-json',
+  lineFiles: datasets.length,
+  observedEdges: observedEdgeCount,
+  fallbackEdges: fallbackEdgeCount,
+  boardingWaitMinutes: 0,
+  transferWalkMinutes: 0,
+  hubWalkMinutes: 0,
 }
 
 export const staticTubeGraphPenalties = {
-  boardingWaitMinutes: data.metadata?.boardingWaitMinutes ?? 0,
-  transferWalkMinutes: data.metadata?.transferWalkMinutes ?? 0,
-  hubWalkMinutes: data.metadata?.hubWalkMinutes ?? 0,
+  boardingWaitMinutes: 0,
+  transferWalkMinutes: 0,
+  hubWalkMinutes: 0,
 }
