@@ -750,17 +750,12 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
   }, [selectedStation, activeSet, filteredStationSet, purpleStationSet])
 
   useEffect(() => {
-    console.log('LeafletMapCanvas mounted, lines:', lines.length, 'stations:', stations.length)
-    console.log('Universities:', universities?.features.length || 0)
-    console.log('Selected university:', selectedUniversityId)
     onStatusChange?.('ready')
   }, [onStatusChange, lines.length, stations.length, universities, selectedUniversityId])
 
   useEffect(() => {
     try {
-      if (typeof window !== 'undefined') {
-        console.log('Window is defined, Leaflet available:', typeof L !== 'undefined')
-      }
+      void window
     } catch (e) {
       console.error('Error checking Leaflet:', e)
       setError(`Error: ${e}`)
@@ -1106,7 +1101,6 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
           zoomControl={true}
           ref={(mapInstance) => {
             if (mapInstance) {
-              console.log('Map instance created!', mapInstance)
               mapRef.current = mapInstance
             }
           }}
@@ -1115,6 +1109,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          detectRetina
           maxZoom={19}
         />
 

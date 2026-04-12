@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
-import BusExperience from '@/app/components/BusExperience/BusExperience'
+import BusExperienceLoader from '@/app/components/BusExperience/BusExperienceLoader'
 import { FAQ } from '@/app/components/FAQ'
-import { loadStaticBusData } from '@/app/lib/data/load-static-data'
 
 export const metadata: Metadata = {
   title: 'London Bus Map 2026 | Interactive Bus Route Filter',
@@ -30,8 +29,6 @@ const busPageStructuredData = {
 }
 
 export default function BusPage() {
-  const dataset = loadStaticBusData()
-
   return (
     <main>
       <script
@@ -41,7 +38,7 @@ export default function BusPage() {
       <noscript>
         <p>Interactive map requires JavaScript. Enable it to view London bus routes.</p>
       </noscript>
-      <BusExperience dataset={dataset} />
+      <BusExperienceLoader />
       <FAQ />
     </main>
   )

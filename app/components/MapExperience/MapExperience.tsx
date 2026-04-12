@@ -29,8 +29,6 @@ export default function MapExperience({ dataset }: MapExperienceProps) {
   }, [lines])
   const handleAnnounce = useCallback((msg: string) => {
     setLiveMessage(msg)
-    // eslint-disable-next-line no-console
-    console.info('live-region:', msg)
   }, [])
 
   // Push announcements into hidden live region in layout

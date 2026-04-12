@@ -77,7 +77,7 @@ export function SEOContent() {
           </p>
 
           <div className={styles.cta}>
-            <h4>Need rent-focused guides instead of general map browsing?</h4>
+            <h3>Need rent-focused guides instead of general map browsing?</h3>
             <p>
               Jump into our student accommodation hub for commute-led pages that connect universities,
               rental areas, and property-search shortcuts in one place.
@@ -160,7 +160,7 @@ export function SEOContent() {
           </div>
 
           <div className={styles.cta}>
-            <h4>Heathrow to Central London in 15 Minutes</h4>
+            <h3>Heathrow to Central London in 15 Minutes</h3>
             <p>
               Skip the 60-minute Piccadilly line slog. Book the Heathrow Express or Elizabeth line in advance for guaranteed seats and luggage space.
             </p>
@@ -178,7 +178,7 @@ export function SEOContent() {
           </div>
 
           <div className={styles.cta}>
-            <h4>Find a Room Near UCL in 48 Hours</h4>
+            <h3>Find a Room Near UCL in 48 Hours</h3>
             <p>
               Compare verified student flats and studio apartments within a 15-minute commute using Amberstudent. Filter by budget, ensuite, and move-in dates.
             </p>

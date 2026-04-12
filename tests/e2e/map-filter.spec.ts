@@ -6,9 +6,7 @@ test.describe('Home page — line filter', () => {
   })
 
   test('renders page title and heading', async ({ page }) => {
-    await expect(page).toHaveTitle(/London Tube/)
-    // Use locator('h1') to find the heading regardless of CSS visibility
-    // (the header is display:none on mobile ≤640px viewports)
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://londontubes.co.uk/')
     await expect(page.locator('h1')).toContainText('London Tube')
   })
 
@@ -23,8 +21,8 @@ test.describe('Home page — line filter', () => {
   test('renders navigation tabs', async ({ page }) => {
     const nav = page.getByRole('navigation', { name: 'Main navigation' })
     await expect(nav).toBeVisible()
-    await expect(nav.getByRole('tab', { name: 'Line Filter' })).toBeVisible()
-    await expect(nav.getByRole('tab', { name: 'Universities Filter' })).toBeVisible()
+    await expect(nav.getByRole('link', { name: 'Tube Filter' })).toBeVisible()
+    await expect(nav.getByRole('link', { name: 'Universities Filter' })).toBeVisible()
   })
 
   test('line filter nav is present with All Lines button pressed by default', async ({ page }) => {
@@ -84,10 +82,9 @@ test.describe('Home page — line filter', () => {
     await expect(page.getByTestId('network-stats')).toContainText('2 lines selected')
   })
 
-  test('Line Filter tab is marked as current page', async ({ page }) => {
-    const tab = page.getByRole('tab', { name: 'Line Filter' })
+  test('Tube Filter link is marked as current page', async ({ page }) => {
+    const tab = page.getByRole('link', { name: 'Tube Filter' })
     await expect(tab).toHaveAttribute('aria-current', 'page')
-    await expect(tab).toHaveAttribute('aria-selected', 'true')
   })
 })
 
@@ -100,10 +97,9 @@ test.describe('Universities page', () => {
     await expect(page).toHaveTitle(/universit/i)
   })
 
-  test('Universities Filter tab is marked as current page', async ({ page }) => {
-    const tab = page.getByRole('tab', { name: 'Universities Filter' })
+  test('Universities Filter link is marked as current page', async ({ page }) => {
+    const tab = page.getByRole('link', { name: 'Universities Filter' })
     await expect(tab).toHaveAttribute('aria-current', 'page')
-    await expect(tab).toHaveAttribute('aria-selected', 'true')
   })
 
   test('line filter is rendered', async ({ page, viewport }) => {
@@ -124,16 +120,18 @@ test.describe('Universities page', () => {
 test.describe('Navigation', () => {
   test('navigates from home to universities page', async ({ page }) => {
     await page.goto('/')
-    await page.getByRole('tab', { name: 'Universities Filter' }).click()
+    await page.getByRole('link', { name: 'Universities Filter' }).click()
     await expect(page).toHaveURL('/universities/')
-    await expect(page.getByRole('tab', { name: 'Universities Filter' })).toHaveAttribute('aria-current', 'page')
+    await expect(page.getByRole('link', { name: 'Universities Filter' })).toHaveAttribute('aria-current', 'page')
   })
 
   test('navigates from universities back to home', async ({ page }) => {
     await page.goto('/universities/')
-    await page.getByRole('tab', { name: 'Line Filter' }).click()
+    const homeTab = page.getByRole('link', { name: 'Tube Filter' })
+    await homeTab.scrollIntoViewIfNeeded()
+    await homeTab.click()
     await expect(page).toHaveURL('/')
-    await expect(page.getByRole('tab', { name: 'Line Filter' })).toHaveAttribute('aria-current', 'page')
+    await expect(page.getByRole('link', { name: 'Tube Filter' })).toHaveAttribute('aria-current', 'page')
   })
 
   test('feedback link is present in navigation', async ({ page }) => {

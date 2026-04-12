@@ -5,6 +5,9 @@ Disallow: /api/
 User-agent: GPTBot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
 
@@ -14,11 +17,17 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 User-agent: Bytespider
 Allow: /
 
 Sitemap: https://londontubes.co.uk/sitemap.xml
-Host: https://londontubes.co.uk
+Host: londontubes.co.uk

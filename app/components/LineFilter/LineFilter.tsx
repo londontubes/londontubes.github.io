@@ -27,14 +27,12 @@ export default function LineFilter({
       const next = new Set(activeSet)
       if (next.has(code)) {
         next.delete(code)
-        console.info('filter:event', { type: 'deselect', line: code })
         if (onAnnounce) {
           const line = lines.find(l => l.lineCode === code)
           if (line) onAnnounce(`Removed ${line.displayName}; ${next.size || 'all'} lines now visible`)
         }
       } else {
         next.add(code)
-        console.info('filter:event', { type: 'select', line: code })
         if (onAnnounce) {
           const line = lines.find(l => l.lineCode === code)
           if (line) onAnnounce(`Added ${line.displayName}; ${next.size} active line${next.size === 1 ? '' : 's'}`)
@@ -47,7 +45,6 @@ export default function LineFilter({
 
   const handleResetAll = useCallback(() => {
     onChange([])
-    console.info('filter:event', { type: 'reset_all' })
     onAnnounce?.('Showing all lines')
   }, [onChange, onAnnounce])
 

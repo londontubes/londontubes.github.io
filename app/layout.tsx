@@ -10,22 +10,20 @@ const inter = Inter({
 })
 import { NavigationTabs } from './components/NavigationTabs'
 import { Suspense } from 'react'
-import Script from 'next/script'
 import Analytics from './components/Analytics/Analytics'
 import PageViewTracker from './components/Analytics/PageViewTracker'
 import ConsentBanner from './components/Analytics/ConsentBanner'
 import { faqItems } from './data/faqData'
-
-const GA4_MEASUREMENT_ID =
-  process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID ??
-  process.env.NEXT_PUBLIC_GA_ID ??
-  'G-9Q194F9FKG'
 
 const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://londontubes.co.uk'),
   applicationName: 'London Tube Map',
+  icons: {
+    icon: '/icon',
+    apple: '/icon',
+  },
   referrer: 'origin-when-cross-origin',
   title: {
     default: 'London Tube Map 2026 – Interactive Underground, Elizabeth Line & DLR',
@@ -150,11 +148,6 @@ const websiteStructuredData = {
   description:
     'Interactive London Tube map with Underground, Elizabeth line, DLR, station travel times and London university commute planning.',
   inLanguage: 'en-GB',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: 'https://londontubes.co.uk/blog/?q={search_term_string}',
-    'query-input': 'required name=search_term_string',
-  },
 }
 
 const organizationStructuredData = {
@@ -221,6 +214,20 @@ export default function RootLayout({
         ) : null}
 
         <meta name="google-adsense-account" content="ca-pub-2691145261785175" />
+        <link rel="dns-prefetch" href="https://a.tile.openstreetmap.org" />
+        <link rel="dns-prefetch" href="https://b.tile.openstreetmap.org" />
+        <link rel="dns-prefetch" href="https://c.tile.openstreetmap.org" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://region1.google-analytics.com" />
+        <link rel="preconnect" href="https://a.tile.openstreetmap.org" crossOrigin="" />
+        <link rel="preconnect" href="https://b.tile.openstreetmap.org" crossOrigin="" />
+        <link rel="preconnect" href="https://c.tile.openstreetmap.org" crossOrigin="" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="" />
+        <link rel="preconnect" href="https://region1.google-analytics.com" crossOrigin="" />
+        <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM summary" />
+        <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="LLM full summary" />
         {/* Structured Data for SEO — non-blocking JSON-LD */}
         <script
           type="application/ld+json"
@@ -260,26 +267,6 @@ export default function RootLayout({
           {children}
         </div>
         <div id="live-region" aria-live="polite" aria-atomic="true" className="visually-hidden" />
-        {/* Deferred third-party scripts — load after first paint */}
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2691145261785175"
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-        />
-        {GA4_MEASUREMENT_ID ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="gtag-init" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA4_MEASUREMENT_ID}');`}
-            </Script>
-          </>
-        ) : null}
         <Analytics />
         <Suspense fallback={null}>
           <PageViewTracker />

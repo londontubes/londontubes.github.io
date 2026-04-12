@@ -94,16 +94,12 @@ export default function UniversityExperience({
   
   const handleAnnounce = useCallback((msg: string) => {
     setLiveMessage(msg)
-    console.info('live-region:', msg)
   }, [])
 
   // Handle university marker click
   const handleUniversityClick = useCallback((universityId: string) => {
-    console.log('handleUniversityClick called:', { universityId, selectedUniversityId })
-    
     // If clicking same university, deselect it
     if (selectedUniversityId === universityId) {
-      console.log('Deselecting university')
       setSelectedUniversityId(null)
       setSelectedCampusId(null)
     setActiveLineCodes([]) // Show all lines
@@ -122,7 +118,6 @@ export default function UniversityExperience({
     if (!selectedUniversityId && lastDeselectionRef.current && lastDeselectionRef.current.id === universityId) {
       const elapsed = Date.now() - lastDeselectionRef.current.time
       if (elapsed < 450) { // 450ms tolerance for double click
-        console.log('Ignoring rapid reselect after deselect (double click). Elapsed:', elapsed)
         return
       }
     }
@@ -556,6 +551,7 @@ export default function UniversityExperience({
       )}
 
       <MapCanvas
+        deferUntilIdle
         lines={lines}
         stations={stations}
         activeLineCodes={activeLineCodes}

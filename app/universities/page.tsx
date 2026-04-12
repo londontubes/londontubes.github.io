@@ -7,13 +7,11 @@
  * Feature: 002-university-transit-filter
  */
 
-import UniversityExperience from '@/app/components/UniversityExperience/UniversityExperience'
-import { loadStaticTransitData } from '@/app/lib/data/load-static-data'
 import { FAQ } from '@/app/components/FAQ'
 import RevenueLaunchpad from '@/app/components/revenue/RevenueLaunchpad'
-import type { UniversitiesDataset } from '@/app/types/university'
 import type { Metadata } from 'next'
 import { UniversitySEOContent } from '@/app/components/SEOContent/UniversitySEOContent'
+import UniversityExperienceLoader from '@/app/components/UniversityExperience/UniversityExperienceLoader'
 
 export const metadata: Metadata = {
   title: 'London Student Areas Map | University Commute Finder 2026',
@@ -72,22 +70,7 @@ const universitiesPageStructuredData = {
   },
 }
 
-// Load universities data at build time
-async function loadUniversitiesData(): Promise<UniversitiesDataset> {
-  const fs = await import('fs/promises')
-  const path = await import('path')
-  
-  const filePath = path.join(process.cwd(), 'public/data/universities.json')
-  const fileContent = await fs.readFile(filePath, 'utf-8')
-  const data = JSON.parse(fileContent) as UniversitiesDataset
-  
-  return data
-}
-
-export default async function UniversitiesPage() {
-  const transitDataset = loadStaticTransitData()
-  const universitiesDataset = await loadUniversitiesData()
-
+export default function UniversitiesPage() {
   return (
     <main>
       <script
@@ -98,10 +81,7 @@ export default async function UniversitiesPage() {
       <noscript>
         <p>Interactive map requires JavaScript. Enable it to view the network.</p>
       </noscript>
-      <UniversityExperience 
-        transitDataset={transitDataset}
-        universitiesDataset={universitiesDataset}
-      />
+      <UniversityExperienceLoader />
       <RevenueLaunchpad
         title="Move from university commute research into real accommodation options"
         description="The pages below combine campus-specific commute advice with student-room and rental search shortcuts, so you can compare areas without starting your property search from zero."

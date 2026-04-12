@@ -1,16 +1,7 @@
-'use client'
-
-import { useState } from 'react'
 import styles from './FAQ.module.css'
 import { faqItems } from '../../data/faqData'
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
-
   return (
     <section className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">
       <div className={styles.container}>
@@ -20,37 +11,30 @@ export function FAQ() {
         </p>
         
         <div className={styles.faqList}>
-          {faqItems.map((faq, index) => (
-            <div
-              key={index}
-              className={`${styles.faqItem} ${openIndex === index ? styles.open : ''}`}
+          {faqItems.map((faq) => (
+            <details
+              key={faq.question}
+              className={styles.faqItem}
               itemScope
               itemProp="mainEntity"
               itemType="https://schema.org/Question"
             >
-              <button
-                className={styles.question}
-                onClick={() => toggleFAQ(index)}
-                aria-expanded={openIndex === index}
-                itemProp="name"
-              >
+              <summary className={styles.question} itemProp="name">
                 <span>{faq.question}</span>
                 <span className={styles.icon} aria-hidden="true">
-                  {openIndex === index ? '−' : '+'}
+                  +
                 </span>
-              </button>
-              
-              {openIndex === index && (
-                <div
-                  className={styles.answer}
-                  itemScope
-                  itemProp="acceptedAnswer"
-                  itemType="https://schema.org/Answer"
-                >
-                  <p itemProp="text">{faq.answer}</p>
-                </div>
-              )}
-            </div>
+              </summary>
+
+              <div
+                className={styles.answer}
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+              >
+                <p itemProp="text">{faq.answer}</p>
+              </div>
+            </details>
           ))}
         </div>
 

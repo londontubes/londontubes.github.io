@@ -1,6 +1,5 @@
-import MapExperience from '@/app/components/MapExperience/MapExperience'
+import MapExperienceLoader from '@/app/components/MapExperience/MapExperienceLoader'
 import RevenueLaunchpad from '@/app/components/revenue/RevenueLaunchpad'
-import { loadStaticTransitData } from '@/app/lib/data/load-static-data'
 import { SEOContent } from '@/app/components/SEOContent'
 import { FAQ } from '@/app/components/FAQ'
 import type { Metadata } from 'next'
@@ -58,8 +57,6 @@ const homePageStructuredData = {
 // Instead we keep MapExperience SSR-capable and provide a static skeleton to ensure non-empty HTML.
 
 export default function HomePage() {
-  const dataset = loadStaticTransitData()
-
   return (
     <main>
       <script
@@ -70,7 +67,7 @@ export default function HomePage() {
       <noscript>
         <p>Interactive map requires JavaScript. Enable it to view the network.</p>
       </noscript>
-      <MapExperience dataset={dataset} />
+      <MapExperienceLoader />
       <RevenueLaunchpad
         title="Start with the highest-intent housing pages"
         description="These pages are designed for visitors who are already comparing where to live, not just exploring the map. Use them to jump from commute research into student rooms and rental portals earlier."

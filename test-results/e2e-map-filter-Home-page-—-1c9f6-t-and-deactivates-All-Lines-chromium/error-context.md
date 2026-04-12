@@ -1,0 +1,244 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - navigation "Main navigation" [ref=e3]:
+    - list [ref=e4]:
+      - listitem [ref=e5]:
+        - link "Tube Filter" [ref=e6] [cursor=pointer]:
+          - /url: /
+      - listitem [ref=e7]:
+        - link "Universities Filter" [ref=e8] [cursor=pointer]:
+          - /url: /universities/
+      - listitem [ref=e9]:
+        - link "Bus Filter" [ref=e10] [cursor=pointer]:
+          - /url: /bus/
+      - listitem [ref=e11]:
+        - link "Blog" [ref=e12] [cursor=pointer]:
+          - /url: /blog/
+      - listitem [ref=e13]:
+        - link "Feedback" [ref=e14] [cursor=pointer]:
+          - /url: /contact-us/
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - heading "London Tube & DLR Network" [level=1] [ref=e18]
+        - generic [ref=e19]: 338 stations · 13 lines · All lines
+      - navigation "Line filter" [ref=e20]:
+        - list [ref=e21]:
+          - listitem [ref=e22]:
+            - button "All Lines" [pressed] [ref=e23]
+          - listitem [ref=e24]:
+            - button "Bakerloo" [ref=e25]: Bakerloo25
+          - listitem [ref=e26]:
+            - button "Central" [ref=e27]: Central49
+          - listitem [ref=e28]:
+            - button "Circle" [ref=e29]: Circle35
+          - listitem [ref=e30]:
+            - button "District" [ref=e31]: District60
+          - listitem [ref=e32]:
+            - button "DLR" [ref=e33]: DLR45
+          - listitem [ref=e34]:
+            - button "Elizabeth line" [ref=e35]: Elizabeth line41
+          - listitem [ref=e36]:
+            - button "Hammersmith & City" [ref=e37]: Hammersmith & City29
+          - listitem [ref=e38]:
+            - button "Jubilee" [ref=e39]: Jubilee27
+          - listitem [ref=e40]:
+            - button "Metropolitan" [ref=e41]: Metropolitan35
+          - listitem [ref=e42]:
+            - button "Northern" [ref=e43]: Northern52
+          - listitem [ref=e44]:
+            - button "Piccadilly" [ref=e45]: Piccadilly53
+          - listitem [ref=e46]:
+            - button "Victoria" [ref=e47]: Victoria16
+          - listitem [ref=e48]:
+            - button "Waterloo & City" [ref=e49]: Waterloo & City2
+      - region "Loading map":
+        - generic [ref=e50]: Loading map…
+    - region "Student accommodation launchpad" [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - heading "Start with the highest-intent housing pages" [level=2] [ref=e54]
+          - paragraph [ref=e55]: These pages are designed for visitors who are already comparing where to live, not just exploring the map. Use them to jump from commute research into student rooms and rental portals earlier.
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - 'link "Best Areas to Live in London for Students: Tube Commute Guide Find the best areas to live in London for students by balancing tube commute time, rent, and direct links into UCL, Imperial, LSE, and other university housing searches. Open guide →" [ref=e58] [cursor=pointer]':
+              - /url: /student-accommodation/best-london-student-areas/
+              - 'heading "Best Areas to Live in London for Students: Tube Commute Guide" [level=3] [ref=e59]'
+              - paragraph [ref=e60]: Find the best areas to live in London for students by balancing tube commute time, rent, and direct links into UCL, Imperial, LSE, and other university housing searches.
+              - text: Open guide →
+            - 'link "Where to Live Near UCL: Best Student Accommodation Areas and Tube Links Find where to live near UCL with the best student accommodation areas, realistic tube routes, and direct shortcuts into verified rooms and private rental listings. Open guide →" [ref=e61] [cursor=pointer]':
+              - /url: /student-accommodation/ucl-student-accommodation/
+              - 'heading "Where to Live Near UCL: Best Student Accommodation Areas and Tube Links" [level=3] [ref=e62]'
+              - paragraph [ref=e63]: Find where to live near UCL with the best student accommodation areas, realistic tube routes, and direct shortcuts into verified rooms and private rental listings.
+              - text: Open guide →
+            - 'link "Where to Live Near Imperial College London: Best Areas Near South Kensington Find where to live near Imperial College London with the best areas around South Kensington, commute-focused tube routes, and direct housing search shortcuts. Open guide →" [ref=e64] [cursor=pointer]':
+              - /url: /student-accommodation/imperial-student-accommodation/
+              - 'heading "Where to Live Near Imperial College London: Best Areas Near South Kensington" [level=3] [ref=e65]'
+              - paragraph [ref=e66]: Find where to live near Imperial College London with the best areas around South Kensington, commute-focused tube routes, and direct housing search shortcuts.
+              - text: Open guide →
+            - 'link "Where to Live Near LSE: Best Student Accommodation Areas for Holborn Find where to live near LSE with the best student accommodation areas for Holborn, strong Central and Jubilee line links, and direct rental shortcuts. Open guide →" [ref=e67] [cursor=pointer]':
+              - /url: /student-accommodation/lse-student-accommodation/
+              - 'heading "Where to Live Near LSE: Best Student Accommodation Areas for Holborn" [level=3] [ref=e68]'
+              - paragraph [ref=e69]: Find where to live near LSE with the best student accommodation areas for Holborn, strong Central and Jubilee line links, and direct rental shortcuts.
+              - text: Open guide →
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - paragraph [ref=e72]: Student housing
+              - heading "Browse verified student rooms" [level=3] [ref=e73]
+              - paragraph [ref=e74]: "Use the highest-intent housing flow on the site: compare student rooms first, then move into area-specific rental searches."
+            - generic [ref=e75]:
+              - paragraph [ref=e76]: Display ads
+              - heading "Sponsored listings area" [level=3] [ref=e77]
+              - paragraph [ref=e78]: Display ads stay secondary to search intent, but this placement makes monetization visible before any map-marker interaction.
+              - insertion [ref=e80]
+    - generic [ref=e82]:
+      - article [ref=e83]:
+        - heading "London Tube Map 2026 – Free Interactive Underground, Elizabeth Line & DLR Guide" [level=2] [ref=e84]
+        - paragraph [ref=e85]:
+          - text: Welcome to the most comprehensive
+          - strong [ref=e86]: interactive London Tube map
+          - text: online. Our map displays all 11
+          - strong [ref=e87]: London Underground lines
+          - text: ", the"
+          - strong [ref=e88]: Elizabeth line
+          - text: (Crossrail), the
+          - strong [ref=e89]: DLR network
+          - text: ", and over 330 stations across Greater London. Whether you're planning your daily commute, exploring tourist destinations, or finding the nearest tube station to London universities, our map provides the easiest way to navigate the capital's transport network."
+        - paragraph [ref=e90]:
+          - text: Our
+          - strong [ref=e91]: London Underground map 2026
+          - text: reflects the complete TfL network including the
+          - strong [ref=e92]: Elizabeth line
+          - text: running from Reading and Heathrow in the west through central London to Shenfield and Abbey Wood in the east. Unlike a static PDF, our interactive version lets you filter any line or station to get instant information — making it the most useful
+          - strong [ref=e93]: London tube map
+          - text: for daily commuters, tourists, and students alike.
+        - generic [ref=e94]:
+          - heading "Need rent-focused guides instead of general map browsing?" [level=4] [ref=e95]
+          - paragraph [ref=e96]: Jump into our student accommodation hub for commute-led pages that connect universities, rental areas, and property-search shortcuts in one place.
+          - paragraph [ref=e97]:
+            - link "Browse the student accommodation hub →" [ref=e98] [cursor=pointer]:
+              - /url: /student-accommodation/
+        - heading "Why Use Our London Underground Map?" [level=3] [ref=e99]
+        - list [ref=e100]:
+          - listitem [ref=e101]:
+            - strong [ref=e102]: "Interactive Line Filtering:"
+            - text: Filter any of the 11 tube lines (Bakerloo, Central, Circle, District, Hammersmith & City, Jubilee, Metropolitan, Northern, Piccadilly, Victoria, Waterloo & City) plus the Elizabeth line to view only that route
+          - listitem [ref=e103]:
+            - strong [ref=e104]: "University Transit Finder:"
+            - text: Discover which tube stations serve major London universities including UCL, Imperial College, LSE, King's College, QMUL, City University, SOAS, and Westminster
+          - listitem [ref=e105]:
+            - strong [ref=e106]: "Station Information:"
+            - text: Click any of the 330+ stations to see which lines serve that location and plan connections
+          - listitem [ref=e107]:
+            - strong [ref=e108]: "DLR Integration:"
+            - text: View the complete Docklands Light Railway network connecting East London, Canary Wharf, and London City Airport
+          - listitem [ref=e109]:
+            - strong [ref=e110]: "Mobile Optimized:"
+            - text: Access the full London metro map on any device - desktop, tablet, or smartphone
+          - listitem [ref=e111]:
+            - strong [ref=e112]: "Always Free:"
+            - text: No registration, no payment required. 100% free London tube map for everyone
+        - heading "About the London Underground Network" [level=3] [ref=e113]
+        - paragraph [ref=e114]:
+          - text: The
+          - strong [ref=e115]: London Underground
+          - text: ", commonly known as the Tube, is the world's oldest metro system, serving Greater London since 1863. Today it operates 11 tube lines covering 402 kilometres (250 miles) with 272 stations across 9 fare zones. The"
+          - strong [ref=e116]: Elizabeth line
+          - text: (Crossrail) adds another 41 stations spanning 118 km from Reading to Shenfield. Combined with the automated DLR system, London's rapid transit network carries over 5 million passengers daily.
+        - heading "Key Transport Hubs & Popular Routes" [level=3] [ref=e117]
+        - generic [ref=e118]:
+          - generic [ref=e119]:
+            - heading "🛫 Airport Connections" [level=4] [ref=e120]
+            - paragraph [ref=e121]:
+              - strong [ref=e122]: "Heathrow Airport:"
+              - text: Elizabeth line or Piccadilly line direct to Zone 1 (30-60 minutes)
+              - strong [ref=e123]: "City Airport:"
+              - text: DLR from Bank or Tower Gateway (20-25 minutes)
+          - generic [ref=e124]:
+            - heading "🎓 University Transit" [level=4] [ref=e125]
+            - paragraph [ref=e126]:
+              - strong [ref=e127]: "UCL:"
+              - text: Euston Square (Circle, H&C, Metropolitan)
+              - strong [ref=e128]: "Imperial College:"
+              - text: South Kensington (Circle, District, Piccadilly)
+              - strong [ref=e129]: "LSE:"
+              - text: Holborn (Central, Piccadilly) or Temple (Circle, District)
+          - generic [ref=e130]:
+            - heading "🎭 Tourist Destinations" [level=4] [ref=e131]
+            - paragraph [ref=e132]:
+              - strong [ref=e133]: "British Museum:"
+              - text: Holborn or Tottenham Court Road
+              - strong [ref=e134]: "Tower of London:"
+              - text: Tower Hill (Circle, District)
+              - strong [ref=e135]: "West End Theatres:"
+              - text: Leicester Square or Piccadilly Circus
+        - generic [ref=e136]:
+          - heading "Heathrow to Central London in 15 Minutes" [level=4] [ref=e137]
+          - paragraph [ref=e138]: Skip the 60-minute Piccadilly line slog. Book the Heathrow Express or Elizabeth line in advance for guaranteed seats and luggage space.
+          - paragraph [ref=e139]:
+            - link "Book Heathrow Express Tickets →" [disabled] [ref=e140] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=e141]:
+          - heading "Find a Room Near UCL in 48 Hours" [level=4] [ref=e142]
+          - paragraph [ref=e143]: Compare verified student flats and studio apartments within a 15-minute commute using Amberstudent. Filter by budget, ensuite, and move-in dates.
+          - paragraph [ref=e144]:
+            - link "Browse UCL Rooms on Amber →" [disabled] [ref=e145] [cursor=pointer]:
+              - /url: "#"
+        - heading "London Tube Zones Explained" [level=3] [ref=e146]
+        - paragraph [ref=e147]:
+          - text: The TfL network operates across
+          - strong [ref=e148]: 9 fare zones
+          - text: . Zone 1 covers central London attractions (Westminster, Covent Garden, Liverpool Street), while zones 2-6 extend to suburbs like Wimbledon, Stratford, and Heathrow Airport. Zones 7-9 reach the outermost areas of Greater London. Fares are calculated based on the zones traveled, with Oyster card and contactless payment offering the best value.
+        - insertion
+        - heading "Night Tube Services" [level=3] [ref=e149]
+        - paragraph [ref=e150]:
+          - strong [ref=e151]: Night Tube
+          - text: "services run on Friday and Saturday nights on five lines: Central, Jubilee, Northern, Piccadilly, and Victoria. These 24-hour services connect central London with suburbs throughout the night, perfect for weekend entertainment and shift workers. Use our line filter to view these specific routes."
+        - heading "London Tube Map PDF & Official Resources" [level=3] [ref=e152]
+        - paragraph [ref=e153]:
+          - text: Prefer a printable version? The official
+          - strong [ref=e154]: TfL tube map PDF
+          - text: is available from Transport for London. Our interactive map complements the paper version with real-time filtering, journey planning, and university station data that a static map cannot provide. Bookmark this page as your go-to
+          - strong [ref=e155]: London Underground map
+          - text: for fast, mobile-friendly access at any time.
+        - heading "Start Exploring the London Underground" [level=3] [ref=e156]
+        - paragraph [ref=e157]: Use the interactive map above to plan your journey across London. Filter by specific tube lines, find connections between stations, or use our University Filter page to discover which campuses are nearest to Underground and DLR stations. Whether you're a tourist, student, or daily commuter, our London tube map makes navigating the capital simple and stress-free.
+        - paragraph [ref=e159]:
+          - strong [ref=e160]: Looking for university transit options?
+          - link "View our Universities Tube Map →" [ref=e161] [cursor=pointer]:
+            - /url: /universities/
+      - complementary [ref=e162]:
+        - paragraph [ref=e163]:
+          - generic [ref=e164]:
+            - strong [ref=e165]: "Related searches:"
+            - text: london tube map 2026, london underground map 2026, interactive tube map, tfl map, london metro map, london subway map, elizabeth line map, crossrail map, dlr map, tube stations, underground lines, night tube, tube zones, nearest tube station, london transport map, london underground stations, 2026 tube map, map of london underground 2026, london interactive tube map, mapa metro de londres, mapa metro londres, elizabeth line stations, piccadilly line, central line, northern line, victoria line, jubilee line, district line, circle line, bakerloo line, metropolitan line, hammersmith city line, waterloo city line, heathrow tube, university tube stations
+    - generic [ref=e167]:
+      - heading "Frequently Asked Questions About London Tube Map" [level=2] [ref=e168]
+      - paragraph [ref=e169]: Everything you need to know about using the London Underground network map
+      - generic [ref=e170]:
+        - button "How many tube lines are there in London?" [ref=e172]: How many tube lines are there in London?+
+        - button "What is the nearest tube station to my location?" [ref=e174]: What is the nearest tube station to my location?+
+        - button "How do I use the London tube map line filter?" [ref=e176]: How do I use the London tube map line filter?+
+        - button "Which tube lines serve London universities?" [ref=e178]: Which tube lines serve London universities?+
+        - button "Where should I live as a London university student?" [ref=e180]: Where should I live as a London university student?+
+        - button "Can I search for flats near a tube station?" [ref=e182]: Can I search for flats near a tube station?+
+        - button "Is the London tube map free to use?" [ref=e184]: Is the London tube map free to use?+
+        - button "What is the difference between the tube and DLR?" [ref=e186]: What is the difference between the tube and DLR?+
+        - button "How do I get from Heathrow to central London by tube?" [ref=e188]: How do I get from Heathrow to central London by tube?+
+        - button "What are the London tube zones?" [ref=e190]: What are the London tube zones?+
+        - button "Can I see night tube services on this map?" [ref=e192]: Can I see night tube services on this map?+
+        - button "How do I plan a journey on the London tube?" [ref=e194]: How do I plan a journey on the London tube?+
+        - button "Where can I find a free London Tube map?" [ref=e196]: Where can I find a free London Tube map?+
+        - button "Is this the official London Underground map?" [ref=e198]: Is this the official London Underground map?+
+        - button "What is the London Underground map called?" [ref=e200]: What is the London Underground map called?+
+        - button "How do I get from one side of London to the other by tube?" [ref=e202]: How do I get from one side of London to the other by tube?+
+      - generic [ref=e203]:
+        - heading "Need More Information?" [level=3] [ref=e204]
+        - paragraph [ref=e205]:
+          - text: For official TfL information, visit
+          - link "tfl.gov.uk" [ref=e206] [cursor=pointer]:
+            - /url: https://tfl.gov.uk
+          - text: . Our interactive London tube map provides a visual, filterable experience for exploring the Underground, DLR, and university transit connections.
+```

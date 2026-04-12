@@ -29,52 +29,44 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
 
   return (
     <nav className={`${styles.navigationTabs} ${className || ''}`} aria-label="Main navigation">
-      <ul className={styles.tabList} role="tablist">
-        <li role="presentation" className={styles.tabItem}>
+      <ul className={styles.tabList}>
+        <li className={styles.tabItem}>
           <Link
             href="/"
             className={`${styles.tab} ${isLinesActive ? styles.active : ''}`}
-            role="tab"
-            aria-selected={isLinesActive}
             aria-current={isLinesActive ? 'page' : undefined}
           >
             Tube Filter
           </Link>
         </li>
-        <li role="presentation" className={styles.tabItem}>
+        <li className={styles.tabItem}>
           <Link
             href="/universities/"
             className={`${styles.tab} ${isUniversitiesActive ? styles.active : ''}`}
-            role="tab"
-            aria-selected={isUniversitiesActive}
             aria-current={isUniversitiesActive ? 'page' : undefined}
           >
             Universities Filter
           </Link>
         </li>
-        <li role="presentation" className={styles.tabItem}>
+        <li className={styles.tabItem}>
           <Link
             href="/bus/"
             className={`${styles.tab} ${isBusActive ? styles.active : ''}`}
-            role="tab"
-            aria-selected={isBusActive}
             aria-current={isBusActive ? 'page' : undefined}
           >
             Bus Filter
           </Link>
         </li>
-        <li role="presentation" className={styles.blogItem}>
+        <li className={styles.blogItem}>
           <Link
             href="/blog/"
             className={`${styles.tab} ${isBlogActive ? styles.active : ''}`}
-            role="tab"
-            aria-selected={isBlogActive}
             aria-current={isBlogActive ? 'page' : undefined}
           >
             Blog
           </Link>
         </li>
-        <li role="presentation" className={styles.feedbackItem}>
+        <li className={styles.feedbackItem}>
           <Link
             href="/contact-us/"
             className={`${styles.feedbackButton} ${isFeedbackActive ? styles.feedbackButtonActive : ''}`}
