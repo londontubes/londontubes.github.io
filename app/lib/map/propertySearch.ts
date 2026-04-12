@@ -10,7 +10,7 @@ const RIGHTMOVE_STATION_MAP: Record<string, RightmoveStationTemplateEntry> = RIG
 )
 
 const RIGHTMOVE_SEARCH_CONFIG = {
-  propertyTypes: 'flat',
+  propertyTypes: 'detached,semi-detached,terraced,flat,bungalow,private-halls',
   minBedrooms: '0',
   maxBedrooms: '2',
   maxPrice: '2000',
@@ -22,6 +22,8 @@ const RIGHTMOVE_SEARCH_CONFIG = {
   index: '0',
   numberOfPropertiesPerPage: '95',
   includeLetAgreed: 'false',
+  mustHave: 'student',
+  dontShow: 'houseShare,retirement',
 } as const
 
 const RENTAL_SEARCH_LIMITS = {
@@ -29,6 +31,7 @@ const RENTAL_SEARCH_LIMITS = {
   maxBedrooms: '2',
   maxPrice: '2000',
   radius: '0.5',
+  zooplaPropertySubType: 'detached,semi-detached,terraced,flat,bungalow',
 } as const
 
 function sanitizeZooplaSearchLocation(value: string): string {
@@ -61,6 +64,25 @@ function normalizeRightmoveLocationIdentifier(locationIdentifier: string): strin
   if (!locationIdentifier) return null
   const normalized = locationIdentifier.replace(/^STATION\^/i, '').trim()
   return /^\d+$/.test(normalized) ? normalized : null
+}
+
+function buildRightmoveLatLongBox(station: Station, radiusMiles: number): string | null {
+  const [longitude, latitude] = station.position.coordinates
+
+  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+    return null
+  }
+
+  const latitudeDelta = radiusMiles / 69
+  const longitudeScale = Math.cos((latitude * Math.PI) / 180)
+  const longitudeDelta = longitudeScale > 0 ? radiusMiles / (69 * longitudeScale) : latitudeDelta
+
+  const west = longitude - longitudeDelta
+  const east = longitude + longitudeDelta
+  const north = latitude + latitudeDelta
+  const south = latitude - latitudeDelta
+
+  return `LAT_LONG_BOX^${west},${east},${north},${south}`
 }
 
 export function getRightmoveStationEntry(stationId?: string | null): RightmoveStationTemplateEntry | null {
@@ -100,12 +122,13 @@ export function buildZooplaStationUrl(station?: Station, fallbackName?: string):
   const isElizabeth = station?.lineCodes.includes('elizabeth')
   const stationType = override?.type
     ?? (hasTubeLine ? 'tube' : isElizabeth && !isDlr ? 'rail' : isDlr ? 'dlr' : 'tube')
-  const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/station/${stationType}/${slug}/`)
+  const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/property/station/${stationType}/${slug}/`)
   const params = baseUrl.searchParams
   params.set('beds_max', RENTAL_SEARCH_LIMITS.maxBedrooms)
   params.set('beds_min', RENTAL_SEARCH_LIMITS.minBedrooms)
   params.set('is_retirement_home', 'false')
   params.set('is_shared_accommodation', 'false')
+  params.set('property_sub_type', RENTAL_SEARCH_LIMITS.zooplaPropertySubType)
   params.set('price_max', RENTAL_SEARCH_LIMITS.maxPrice)
   params.set('price_frequency', 'per_month')
   params.set('q', `${baseSearchLocation}, London`)
@@ -130,16 +153,24 @@ export function buildRightmoveStationUrl(station?: Station, fallbackName?: strin
 
   const baseUrl = new URL('https://www.rightmove.co.uk/property-to-rent/map.html')
   const params = baseUrl.searchParams
-  params.set('locationIdentifier', `STATION^${locationIdentifier}`)
+  const latLongBoxIdentifier = station
+    ? buildRightmoveLatLongBox(station, Number(RIGHTMOVE_SEARCH_CONFIG.radius))
+    : null
+
+  params.set('locationIdentifier', latLongBoxIdentifier ?? `STATION^${locationIdentifier}`)
   params.set('propertyTypes', RIGHTMOVE_SEARCH_CONFIG.propertyTypes)
   params.set('minBedrooms', RIGHTMOVE_SEARCH_CONFIG.minBedrooms)
   params.set('maxBedrooms', RIGHTMOVE_SEARCH_CONFIG.maxBedrooms)
   params.set('maxPrice', RIGHTMOVE_SEARCH_CONFIG.maxPrice)
-  params.set('radius', RIGHTMOVE_SEARCH_CONFIG.radius)
+  if (!latLongBoxIdentifier) {
+    params.set('radius', RIGHTMOVE_SEARCH_CONFIG.radius)
+  }
   params.set('sortType', RIGHTMOVE_SEARCH_CONFIG.sortType)
   params.set('areaSizeUnit', RIGHTMOVE_SEARCH_CONFIG.areaSizeUnit)
   params.set('viewType', RIGHTMOVE_SEARCH_CONFIG.viewType)
   params.set('channel', RIGHTMOVE_SEARCH_CONFIG.channel)
+  params.set('mustHave', RIGHTMOVE_SEARCH_CONFIG.mustHave)
+  params.set('dontShow', RIGHTMOVE_SEARCH_CONFIG.dontShow)
   params.set('index', RIGHTMOVE_SEARCH_CONFIG.index)
   params.set('numberOfPropertiesPerPage', RIGHTMOVE_SEARCH_CONFIG.numberOfPropertiesPerPage)
   params.set('includeLetAgreed', RIGHTMOVE_SEARCH_CONFIG.includeLetAgreed)
