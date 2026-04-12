@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { CircleMarker, MapContainer, Popup, Polyline, TileLayer, useMap, useMapEvents } from 'react-leaflet'
+import { CircleMarker, MapContainer, Popup, Polyline, TileLayer, Tooltip, useMap, useMapEvents } from 'react-leaflet'
 import type { BusRoute, BusStop } from '@/app/types/transit'
 import type { ReachableBusStop } from '@/app/lib/map/busGraph'
 import {
@@ -309,6 +309,7 @@ export default function BusMapCanvas({
           const isReachableStop = isFocusedNetwork && !isSelected
           const isSelectedReachableStop = stop.stopId === selectedReachableStopId
           const isMajorStop = stop.importance === 'major'
+          const isRouteMode = !isTimeMode
           const reachableDetail = reachableStopDetails[stop.stopId]
           const servedRouteLabels = getSortedRouteCodes(stop.servedRouteIds, routeLookup)
           const routeLabels = reachableDetail
@@ -375,28 +376,37 @@ export default function BusMapCanvas({
                 fillColor,
                 fillOpacity: isReachableStop ? 0.9 : 0.9,
               }}
-              eventHandlers={isReachableStop ? {
+              eventHandlers={isRouteMode ? undefined : isReachableStop ? {
                 click: () => onSelectReachableStop(stop.stopId),
               } : {
                 click: () => onSelectStop(isSelected ? null : stop.stopId),
               }}
             >
-              <Popup>
-                <div className="bus-map-popup">
-                  <h3>{stop.displayName}</h3>
-                  {isSelected || isReachableStop ? null : (
-                    <p>{isTimeMode ? 'Click to start a reachability search' : 'Click to show routes serving this stop'}</p>
-                  )}
-                  {isReachableStop && originStop && reachableDetail ? (
-                    <>
-                      <p>{reachableDetail.minutes} min from {originStop.displayName}</p>
-                      {viaLabel ? <p>{viaLabel}</p> : null}
-                      {pathLabel ? <p>{pathLabel}</p> : null}
-                    </>
-                  ) : null}
-                  {servedRouteLabels.length > 0 ? <p>Routes: {servedRouteLabels.join(', ')}</p> : null}
-                </div>
-              </Popup>
+              {isRouteMode ? (
+                <Tooltip direction="top" offset={[0, -8]} opacity={1} sticky>
+                  <div className="bus-map-popup">
+                    <h3>{stop.displayName}</h3>
+                    {servedRouteLabels.length > 0 ? <p>Routes: {servedRouteLabels.join(', ')}</p> : null}
+                  </div>
+                </Tooltip>
+              ) : (
+                <Popup>
+                  <div className="bus-map-popup">
+                    <h3>{stop.displayName}</h3>
+                    {isSelected || isReachableStop ? null : (
+                      <p>Click to start a reachability search</p>
+                    )}
+                    {isReachableStop && originStop && reachableDetail ? (
+                      <>
+                        <p>{reachableDetail.minutes} min from {originStop.displayName}</p>
+                        {viaLabel ? <p>{viaLabel}</p> : null}
+                        {pathLabel ? <p>{pathLabel}</p> : null}
+                      </>
+                    ) : null}
+                    {servedRouteLabels.length > 0 ? <p>Routes: {servedRouteLabels.join(', ')}</p> : null}
+                  </div>
+                </Popup>
+              )}
             </CircleMarker>
           )
         })}
