@@ -7,10 +7,10 @@
 
 **Purpose**: Establish the static revenue content model and monetization helpers used by all stories.
 
-- [ ] T001 Create the revenue landing-page configuration layer in `/Users/jessiezhu/personal/LondonTube/app/data/revenuePages.ts`.
-- [ ] T002 Create shared monetization URL helpers in `/Users/jessiezhu/personal/LondonTube/app/lib/revenue.ts`.
-- [ ] T003 [P] Create reusable revenue surface components in `/Users/jessiezhu/personal/LondonTube/app/components/revenue/RevenueSurface.tsx` and `/Users/jessiezhu/personal/LondonTube/app/components/revenue/RevenueSurface.module.css`.
-- [ ] T004 [P] Create the reusable revenue launchpad section in `/Users/jessiezhu/personal/LondonTube/app/components/revenue/RevenueLaunchpad.tsx` and `/Users/jessiezhu/personal/LondonTube/app/components/revenue/RevenueLaunchpad.module.css`.
+- [x] T001 Create the revenue landing-page configuration layer in `/Users/jessiezhu/personal/LondonTube/app/data/revenuePages.ts`.
+- [x] T002 Create shared monetization URL helpers in `/Users/jessiezhu/personal/LondonTube/app/lib/revenue.ts`.
+- [x] T003 [P] Create reusable revenue surface components in `/Users/jessiezhu/personal/LondonTube/app/components/revenue/RevenueSurface.tsx` and `/Users/jessiezhu/personal/LondonTube/app/components/revenue/RevenueSurface.module.css`.
+- [x] T004 [P] Create the reusable revenue launchpad section in `/Users/jessiezhu/personal/LondonTube/app/components/revenue/RevenueLaunchpad.tsx` and `/Users/jessiezhu/personal/LondonTube/app/components/revenue/RevenueLaunchpad.module.css`.
 
 ---
 
@@ -18,11 +18,11 @@
 
 **Purpose**: Extend analytics and route structure before story-specific rollout.
 
-- [ ] T005 Extend analytics event metadata and revenue-specific helpers in `/Users/jessiezhu/personal/LondonTube/app/lib/analytics.ts`.
-- [ ] T006 Create the static student-accommodation hub route in `/Users/jessiezhu/personal/LondonTube/app/student-accommodation/page.tsx`.
-- [ ] T007 Create the dynamic revenue landing-page route in `/Users/jessiezhu/personal/LondonTube/app/student-accommodation/[slug]/page.tsx`.
-- [ ] T008 [P] Create shared landing-page styles in `/Users/jessiezhu/personal/LondonTube/app/student-accommodation/RevenueLanding.module.css`.
-- [ ] T009 Update sitemap coverage in `/Users/jessiezhu/personal/LondonTube/app/sitemap.ts`.
+- [x] T005 Extend analytics event metadata and revenue-specific helpers in `/Users/jessiezhu/personal/LondonTube/app/lib/analytics.ts`.
+- [x] T006 Create the static student-accommodation hub route in `/Users/jessiezhu/personal/LondonTube/app/student-accommodation/page.tsx`.
+- [x] T007 Create the dynamic revenue landing-page route in `/Users/jessiezhu/personal/LondonTube/app/student-accommodation/[slug]/page.tsx`.
+- [x] T008 [P] Create shared landing-page styles in `/Users/jessiezhu/personal/LondonTube/app/student-accommodation/RevenueLanding.module.css`.
+- [x] T009 Update sitemap coverage in `/Users/jessiezhu/personal/LondonTube/app/sitemap.ts`.
 
 **Checkpoint**: Revenue page infrastructure is ready for independently testable rollout.
 
@@ -36,14 +36,14 @@
 
 ### Tests for User Story 1
 
-- [ ] T010 [P] [US1] Add unit tests for revenue page helpers in `/Users/jessiezhu/personal/LondonTube/tests/unit/revenuePages.test.ts`.
+- [x] T010 [P] [US1] Add unit tests for revenue page helpers in `/Users/jessiezhu/personal/LondonTube/tests/unit/revenuePages.test.ts`.
 
 ### Implementation for User Story 1
 
-- [ ] T011 [US1] Populate 10 revenue landing pages in `/Users/jessiezhu/personal/LondonTube/app/data/revenuePages.ts`.
-- [ ] T012 [US1] Render landing-page cards, intent copy, and internal links in `/Users/jessiezhu/personal/LondonTube/app/student-accommodation/page.tsx`.
-- [ ] T013 [US1] Render page-specific hero, commute content, structured data, and CTA rows in `/Users/jessiezhu/personal/LondonTube/app/student-accommodation/[slug]/page.tsx`.
-- [ ] T014 [US1] Add internal discovery links to the existing home and universities content in `/Users/jessiezhu/personal/LondonTube/app/page.tsx` and `/Users/jessiezhu/personal/LondonTube/app/universities/page.tsx`.
+- [x] T011 [US1] Populate 10 revenue landing pages in `/Users/jessiezhu/personal/LondonTube/app/data/revenuePages.ts`.
+- [x] T012 [US1] Render landing-page cards, intent copy, and internal links in `/Users/jessiezhu/personal/LondonTube/app/student-accommodation/page.tsx`.
+- [x] T013 [US1] Render page-specific hero, commute content, structured data, and CTA rows in `/Users/jessiezhu/personal/LondonTube/app/student-accommodation/[slug]/page.tsx`.
+- [x] T014 [US1] Add internal discovery links to the existing home and universities content in `/Users/jessiezhu/personal/LondonTube/app/page.tsx` and `/Users/jessiezhu/personal/LondonTube/app/universities/page.tsx`.
 
 **Checkpoint**: High-intent landing pages are indexable and independently useful.
 
@@ -57,14 +57,14 @@
 
 ### Tests for User Story 2
 
-- [ ] T015 [P] [US2] Add unit tests for revenue URL attribution helpers in `/Users/jessiezhu/personal/LondonTube/tests/unit/revenuePages.test.ts`.
+- [x] T015 [P] [US2] Add unit tests for revenue URL attribution helpers in `/Users/jessiezhu/personal/LondonTube/tests/unit/revenuePages.test.ts`.
 
 ### Implementation for User Story 2
 
-- [ ] T016 [US2] Add revenue launchpad sections to `/Users/jessiezhu/personal/LondonTube/app/page.tsx` and `/Users/jessiezhu/personal/LondonTube/app/universities/page.tsx`.
-- [ ] T017 [US2] Upgrade monetized CTA handling in `/Users/jessiezhu/personal/LondonTube/app/components/SEOContent/SEOContent.tsx`.
-- [ ] T018 [US2] Upgrade monetized CTA handling in `/Users/jessiezhu/personal/LondonTube/app/components/SEOContent/UniversitySEOContent.tsx`.
-- [ ] T019 [US2] Add article-level monetization surfaces in `/Users/jessiezhu/personal/LondonTube/app/blog/[slug]/page.tsx`.
+- [x] T016 [US2] Add revenue launchpad sections to `/Users/jessiezhu/personal/LondonTube/app/page.tsx` and `/Users/jessiezhu/personal/LondonTube/app/universities/page.tsx`.
+- [x] T017 [US2] Upgrade monetized CTA handling in `/Users/jessiezhu/personal/LondonTube/app/components/SEOContent/SEOContent.tsx`.
+- [x] T018 [US2] Upgrade monetized CTA handling in `/Users/jessiezhu/personal/LondonTube/app/components/SEOContent/UniversitySEOContent.tsx`.
+- [x] T019 [US2] Add article-level monetization surfaces in `/Users/jessiezhu/personal/LondonTube/app/blog/[slug]/page.tsx`.
 
 **Checkpoint**: Visitors can reach monetized surfaces from high-intent pages without relying on station popups.
 
@@ -78,13 +78,13 @@
 
 ### Tests for User Story 3
 
-- [ ] T020 [P] [US3] Add analytics helper tests in `/Users/jessiezhu/personal/LondonTube/tests/unit/analytics.test.ts`.
+- [x] T020 [P] [US3] Add analytics helper tests in `/Users/jessiezhu/personal/LondonTube/tests/unit/analytics.test.ts`.
 
 ### Implementation for User Story 3
 
-- [ ] T021 [US3] Add revenue click and view helpers in `/Users/jessiezhu/personal/LondonTube/app/lib/analytics.ts`.
-- [ ] T022 [US3] Wire revenue analytics into `/Users/jessiezhu/personal/LondonTube/app/components/revenue/RevenueSurface.tsx`.
-- [ ] T023 [US3] Extend legacy property CTA tracking in `/Users/jessiezhu/personal/LondonTube/app/lib/analytics.ts` and `/Users/jessiezhu/personal/LondonTube/app/components/MapCanvas/LeafletMapCanvas.tsx`.
+- [x] T021 [US3] Add revenue click and view helpers in `/Users/jessiezhu/personal/LondonTube/app/lib/analytics.ts`.
+- [x] T022 [US3] Wire revenue analytics into `/Users/jessiezhu/personal/LondonTube/app/components/revenue/RevenueSurface.tsx`.
+- [x] T023 [US3] Extend legacy property CTA tracking in `/Users/jessiezhu/personal/LondonTube/app/lib/analytics.ts` and `/Users/jessiezhu/personal/LondonTube/app/components/MapCanvas/LeafletMapCanvas.tsx`.
 
 **Checkpoint**: All new revenue surfaces produce attribution-friendly analytics.
 
@@ -94,9 +94,9 @@
 
 **Purpose**: Finish validation and ensure the rollout stays inside the constitution guardrails.
 
-- [ ] T024 [P] Update implementation notes in `/Users/jessiezhu/personal/LondonTube/specs/005-revenue-seo-growth/quickstart.md` if validation steps change.
-- [ ] T025 Run `npm run lint` and targeted unit tests for revenue helpers.
-- [ ] T026 Run `npm run build` to confirm static export compatibility.
+- [x] T024 [P] Update implementation notes in `/Users/jessiezhu/personal/LondonTube/specs/005-revenue-seo-growth/quickstart.md` if validation steps change.
+- [x] T025 Run `npm run lint` and targeted unit tests for revenue helpers.
+- [x] T026 Run `npm run build` to confirm static export compatibility.
 
 ## Dependencies & Execution Order
 
