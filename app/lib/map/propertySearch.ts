@@ -109,16 +109,17 @@ const RIGHTMOVE_RENT_SEARCH_CONFIG: RightmoveSearchConfig = {
 } as const
 
 const RIGHTMOVE_BUY_SEARCH_CONFIG: RightmoveSearchConfig = {
-  baseUrl: 'https://www.rightmove.co.uk/property-for-sale/find.html',
+  baseUrl: 'https://www.rightmove.co.uk/property-for-sale/map.html',
   params: {
     useLocationIdentifier: 'true',
     buy: 'For sale',
-    radius: '0.5',
+    radius: '1.0',
     maxPrice: '700000',
     minBedrooms: '3',
     _includeSSTC: 'on',
     propertyTypes: 'detached,semi-detached,terraced,bungalow',
     sortType: '2',
+    viewType: 'MAP',
     channel: 'BUY',
     transactionType: 'BUY',
     tenureTypes: 'FREEHOLD',
@@ -139,7 +140,7 @@ const ZOOPLA_RENT_SEARCH_LIMITS = {
 const ZOOPLA_BUY_SEARCH_LIMITS = {
   minBedrooms: '3',
   maxPrice: '700000',
-  radius: '0.5',
+  radius: '1',
   propertySubTypes: ['terraced', 'bungalow', 'detached', 'semi_detached', 'farms_land'] as const,
   features: ['has_garden', 'has_parking_garage'] as const,
 } as const
@@ -377,6 +378,7 @@ export function buildZooplaStationBuyUrl(station?: Station, fallbackName?: strin
   params.set('q', `${areaSearchLocation}, London`)
   params.set('radius', ZOOPLA_BUY_SEARCH_LIMITS.radius)
   params.set('search_source', 'for-sale')
+  params.set('map_app', 'true')
   return baseUrl.toString()
 }
 

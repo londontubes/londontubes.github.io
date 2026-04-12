@@ -162,8 +162,9 @@ describe('propertySearch helpers', () => {
       'farms_land',
     ])
     expect(parsed.searchParams.get('q')).toBe('Baker Street, London')
-    expect(parsed.searchParams.get('radius')).toBe('0.5')
+    expect(parsed.searchParams.get('radius')).toBe('1')
     expect(parsed.searchParams.get('search_source')).toBe('for-sale')
+    expect(parsed.searchParams.get('map_app')).toBe('true')
   })
 
   it('builds a Rightmove buy search URL for mapped stations', () => {
@@ -173,17 +174,18 @@ describe('propertySearch helpers', () => {
 
     const parsed = new URL(url!)
     expect(parsed.origin).toBe('https://www.rightmove.co.uk')
-    expect(parsed.pathname).toBe('/property-for-sale/find.html')
+    expect(parsed.pathname).toBe('/property-for-sale/map.html')
     expect(parsed.searchParams.get('locationIdentifier')).toBe('STATION^488')
     expect(parsed.searchParams.get('displayLocationIdentifier')).toBe('Baker-Street-Station')
     expect(parsed.searchParams.get('useLocationIdentifier')).toBe('true')
     expect(parsed.searchParams.get('buy')).toBe('For sale')
-    expect(parsed.searchParams.get('radius')).toBe('0.5')
+    expect(parsed.searchParams.get('radius')).toBe('1.0')
     expect(parsed.searchParams.get('maxPrice')).toBe('700000')
     expect(parsed.searchParams.get('minBedrooms')).toBe('3')
     expect(parsed.searchParams.get('_includeSSTC')).toBe('on')
     expect(parsed.searchParams.get('propertyTypes')).toBe('detached,semi-detached,terraced,bungalow')
     expect(parsed.searchParams.get('sortType')).toBe('2')
+    expect(parsed.searchParams.get('viewType')).toBe('MAP')
     expect(parsed.searchParams.get('channel')).toBe('BUY')
     expect(parsed.searchParams.get('transactionType')).toBe('BUY')
     expect(parsed.searchParams.get('tenureTypes')).toBe('FREEHOLD')
@@ -265,7 +267,7 @@ describe('propertySearch helpers', () => {
     const first = new URL(urls[0].url)
     const second = new URL(urls[1].url)
 
-    expect(first.pathname).toBe('/property-for-sale/find.html')
+    expect(first.pathname).toBe('/property-for-sale/map.html')
     expect(first.searchParams.get('locationIdentifier')).toBe('STATION^4172')
     expect(second.searchParams.get('locationIdentifier')).toBe('STATION^4175')
   })
