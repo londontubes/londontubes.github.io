@@ -9,6 +9,81 @@ const RIGHTMOVE_STATION_MAP: Record<string, RightmoveStationTemplateEntry> = RIG
   {} as Record<string, RightmoveStationTemplateEntry>
 )
 
+export interface RightmoveStationLink {
+  label: string
+  url: string
+}
+
+interface RightmoveOverrideOption {
+  locationIdentifier: string
+  displayName: string
+  label?: string
+}
+
+const RIGHTMOVE_STATION_LINK_OVERRIDES: Record<string, RightmoveOverrideOption[]> = {
+  HUBCHX: [{ locationIdentifier: '1940', displayName: 'Charing Cross Station' }],
+  HUBEPH: [{ locationIdentifier: '3197', displayName: 'Elephant & Castle Station' }],
+  HUBHDN: [{ locationIdentifier: '4238', displayName: 'Harlesden Station' }],
+  HUBHRW: [{ locationIdentifier: '4283', displayName: 'Harrow & Wealdstone Station' }],
+  HUBQPW: [{ locationIdentifier: '7502', displayName: "Queen's Park Station" }],
+  HUBSOK: [{ locationIdentifier: '8420', displayName: 'South Kenton Station' }],
+  '940GZZLUBLG': [{ locationIdentifier: '908', displayName: 'Bethnal Green (Underground) Station' }],
+  HUBGFD: [{ locationIdentifier: '3986', displayName: 'Greenford Station' }],
+  HUBSPB: [
+    {
+      locationIdentifier: '8153',
+      displayName: "Shepherd's Bush (Central) Station",
+      label: "Rightmove: Shepherd's Bush Central",
+    },
+    {
+      locationIdentifier: '8156',
+      displayName: "Shepherd's Bush (Hammersmith & City) Station",
+      label: "Rightmove: Shepherd's Bush Hammersmith & City",
+    },
+  ],
+  '940GZZLUERC': [{ locationIdentifier: '3170', displayName: 'Edgware Road (Circle, District, Hammersmith & City) Station' }],
+  HUBHMS: [
+    {
+      locationIdentifier: '4172',
+      displayName: 'Hammersmith (District & Piccadilly) Station',
+      label: 'Rightmove: Hammersmith District & Piccadilly',
+    },
+    {
+      locationIdentifier: '4175',
+      displayName: 'Hammersmith (Hammersmith & City) Station',
+      label: 'Rightmove: Hammersmith Hammersmith & City',
+    },
+  ],
+  HUBWSM: [{ locationIdentifier: '9953', displayName: 'Westminster Station' }],
+  '940GZZLUBBB': [{ locationIdentifier: '1445', displayName: 'Bromley-by-Bow Station' }],
+  HUBKPA: [{ locationIdentifier: '5054', displayName: 'Kensington Olympia Station' }],
+  HUBWEH: [{ locationIdentifier: '9842', displayName: 'West Ham Station' }],
+  HUBWIM: [{ locationIdentifier: '10127', displayName: 'Wimbledon Station' }],
+  '940GZZDLBEC': [{ locationIdentifier: '755', displayName: 'Beckton Station' }],
+  '940GZZDLCYP': [{ locationIdentifier: '2567', displayName: 'Cyprus Station' }],
+  '940GZZDLSTL': [{ locationIdentifier: '16810', displayName: 'Star Lane Station' }],
+  HUBGNW: [
+    { locationIdentifier: '4001', displayName: 'Greenwich Station', label: 'Rightmove: Greenwich Rail' },
+    { locationIdentifier: '4004', displayName: 'Greenwich DLR Station', label: 'Rightmove: Greenwich DLR' },
+  ],
+  '910GHAYESAH': [{ locationIdentifier: '4385', displayName: 'Hayes & Harlington Station' }],
+  '910GWOLWXR': [{ locationIdentifier: '15846', displayName: 'Woolwich Station' }],
+  HUBABW: [{ locationIdentifier: '2', displayName: 'Abbey Wood Station' }],
+  HUBH13: [{ locationIdentifier: '5807', displayName: 'London Heathrow Airport Terminals 1, 2 & 3 Station' }],
+  HUBHX5: [{ locationIdentifier: '10465', displayName: 'Heathrow Terminal 5 Station' }],
+  HUBWHD: [
+    { locationIdentifier: '9848', displayName: 'West Hampstead Station', label: 'Rightmove: West Hampstead' },
+    { locationIdentifier: '9854', displayName: 'West Hampstead Thameslink Station', label: 'Rightmove: West Hampstead Thameslink' },
+  ],
+  HUBCFO: [{ locationIdentifier: '1907', displayName: 'Chalfont & Latimer Station' }],
+  HUBHOH: [{ locationIdentifier: '4289', displayName: 'Harrow-on-the-Hill Station' }],
+  '940GZZLUTAW': [{ locationIdentifier: '9281', displayName: 'Totteridge & Whetstone Station' }],
+  HUBEUS: [{ locationIdentifier: '3311', displayName: 'Euston Station' }],
+  HUBKTN: [{ locationIdentifier: '5069', displayName: 'Kentish Town Station' }],
+  HUBBRX: [{ locationIdentifier: '15726', displayName: 'Brixton Underground Station' }],
+  HUBHHY: [{ locationIdentifier: '4583', displayName: 'Highbury & Islington Station' }],
+}
+
 const RIGHTMOVE_SEARCH_CONFIG = {
   propertyTypes: 'detached,semi-detached,terraced,flat,bungalow,private-halls',
   minBedrooms: '0',
@@ -65,9 +140,72 @@ function normalizeRightmoveLocationIdentifier(locationIdentifier: string): strin
   return /^\d+$/.test(normalized) ? normalized : null
 }
 
+function toRightmoveDisplayLocationIdentifier(displayName: string): string {
+  return displayName.replace(/\s+/g, '-')
+}
+
+function buildRightmoveUrlFromMapping(
+  locationIdentifier: string,
+  displayLocationIdentifier: string
+): string | null {
+  const normalizedLocationIdentifier = normalizeRightmoveLocationIdentifier(locationIdentifier)
+  if (!normalizedLocationIdentifier) return null
+
+  const baseUrl = new URL('https://www.rightmove.co.uk/property-to-rent/map.html')
+  const params = baseUrl.searchParams
+  params.set('locationIdentifier', `STATION^${normalizedLocationIdentifier}`)
+  params.set('displayLocationIdentifier', displayLocationIdentifier)
+  params.set('propertyTypes', RIGHTMOVE_SEARCH_CONFIG.propertyTypes)
+  params.set('minBedrooms', RIGHTMOVE_SEARCH_CONFIG.minBedrooms)
+  params.set('maxBedrooms', RIGHTMOVE_SEARCH_CONFIG.maxBedrooms)
+  params.set('maxPrice', RIGHTMOVE_SEARCH_CONFIG.maxPrice)
+  params.set('radius', RIGHTMOVE_SEARCH_CONFIG.radius)
+  params.set('sortType', RIGHTMOVE_SEARCH_CONFIG.sortType)
+  params.set('areaSizeUnit', RIGHTMOVE_SEARCH_CONFIG.areaSizeUnit)
+  params.set('viewType', RIGHTMOVE_SEARCH_CONFIG.viewType)
+  params.set('channel', RIGHTMOVE_SEARCH_CONFIG.channel)
+  params.set('dontShow', RIGHTMOVE_SEARCH_CONFIG.dontShow)
+  params.set('index', RIGHTMOVE_SEARCH_CONFIG.index)
+  params.set('numberOfPropertiesPerPage', RIGHTMOVE_SEARCH_CONFIG.numberOfPropertiesPerPage)
+  params.set('includeLetAgreed', RIGHTMOVE_SEARCH_CONFIG.includeLetAgreed)
+  return baseUrl.toString()
+}
+
 export function getRightmoveStationEntry(stationId?: string | null): RightmoveStationTemplateEntry | null {
   if (!stationId) return null
   return RIGHTMOVE_STATION_MAP[stationId] ?? null
+}
+
+export function buildRightmoveStationUrls(station?: Station, fallbackName?: string): RightmoveStationLink[] {
+  const rawName = station?.displayName || fallbackName
+  if (!rawName) return []
+
+  const stationId = station?.stationId
+  if (stationId) {
+    const overrideLinks = RIGHTMOVE_STATION_LINK_OVERRIDES[stationId]
+    if (overrideLinks) {
+      return overrideLinks
+        .map((override) => {
+          const url = buildRightmoveUrlFromMapping(
+            override.locationIdentifier,
+            toRightmoveDisplayLocationIdentifier(override.displayName)
+          )
+          return url
+            ? { label: override.label ?? 'Rightmove rental search', url }
+            : null
+        })
+        .filter((link): link is RightmoveStationLink => link !== null)
+    }
+  }
+
+  const mappingEntry = station ? RIGHTMOVE_STATION_MAP[station.stationId] : undefined
+  if (mappingEntry?.matchStatus && mappingEntry.matchStatus !== 'matched') return []
+  if (!mappingEntry?.locationIdentifier) return []
+
+  const url = buildRightmoveUrlFromMapping(mappingEntry.locationIdentifier, mappingEntry.displayLocationIdentifier)
+  if (!url) return []
+
+  return [{ label: 'Rightmove rental search', url }]
 }
 
 export function buildZooplaStationUrl(station?: Station, fallbackName?: string): string | null {
@@ -121,32 +259,5 @@ export function buildZooplaStationUrl(station?: Station, fallbackName?: string):
 }
 
 export function buildRightmoveStationUrl(station?: Station, fallbackName?: string): string | null {
-  const rawName = station?.displayName || fallbackName
-  if (!rawName) return null
-
-  const mappingEntry = station ? RIGHTMOVE_STATION_MAP[station.stationId] : undefined
-  if (mappingEntry?.matchStatus && mappingEntry.matchStatus !== 'matched') return null
-  if (!mappingEntry?.locationIdentifier) return null
-
-  const locationIdentifier = normalizeRightmoveLocationIdentifier(mappingEntry.locationIdentifier)
-  if (!locationIdentifier) return null
-
-  const baseUrl = new URL('https://www.rightmove.co.uk/property-to-rent/map.html')
-  const params = baseUrl.searchParams
-  params.set('locationIdentifier', `STATION^${locationIdentifier}`)
-  params.set('displayLocationIdentifier', mappingEntry.displayLocationIdentifier)
-  params.set('propertyTypes', RIGHTMOVE_SEARCH_CONFIG.propertyTypes)
-  params.set('minBedrooms', RIGHTMOVE_SEARCH_CONFIG.minBedrooms)
-  params.set('maxBedrooms', RIGHTMOVE_SEARCH_CONFIG.maxBedrooms)
-  params.set('maxPrice', RIGHTMOVE_SEARCH_CONFIG.maxPrice)
-  params.set('radius', RIGHTMOVE_SEARCH_CONFIG.radius)
-  params.set('sortType', RIGHTMOVE_SEARCH_CONFIG.sortType)
-  params.set('areaSizeUnit', RIGHTMOVE_SEARCH_CONFIG.areaSizeUnit)
-  params.set('viewType', RIGHTMOVE_SEARCH_CONFIG.viewType)
-  params.set('channel', RIGHTMOVE_SEARCH_CONFIG.channel)
-  params.set('dontShow', RIGHTMOVE_SEARCH_CONFIG.dontShow)
-  params.set('index', RIGHTMOVE_SEARCH_CONFIG.index)
-  params.set('numberOfPropertiesPerPage', RIGHTMOVE_SEARCH_CONFIG.numberOfPropertiesPerPage)
-  params.set('includeLetAgreed', RIGHTMOVE_SEARCH_CONFIG.includeLetAgreed)
-  return baseUrl.toString()
+  return buildRightmoveStationUrls(station, fallbackName)[0]?.url ?? null
 }

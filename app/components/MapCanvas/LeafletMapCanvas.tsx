@@ -11,7 +11,7 @@ import type { TravelTimeResult } from '@/app/lib/map/travelTime'
 import { calculateDistance, WALK_SPEED_MPH, WALK_OVERHEAD_MINUTES, WALK_ROUTE_FACTOR } from '@/app/lib/map/proximity'
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
 import { getStaticTubeJourney } from '@/app/lib/map/staticTubeTimes'
-import { buildRightmoveStationUrl, buildZooplaStationUrl } from '@/app/lib/map/propertySearch'
+import { buildRightmoveStationUrls, buildZooplaStationUrl } from '@/app/lib/map/propertySearch'
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
 const DEFAULT_ZOOM = 11
@@ -241,8 +241,8 @@ function StationCardContent({
 
   const cardTitle = travelMinutesLabel ? `${station.displayName} (${travelMinutesLabel})` : station.displayName
   const zooplaUrl = useMemo(() => buildZooplaStationUrl(station), [station])
-  const rightmoveUrl = useMemo(() => buildRightmoveStationUrl(station), [station])
-  const hasCallToAction = Boolean(zooplaUrl || rightmoveUrl || amberUrl)
+  const rightmoveLinks = useMemo(() => buildRightmoveStationUrls(station), [station])
+  const hasCallToAction = Boolean(zooplaUrl || rightmoveLinks.length > 0 || amberUrl)
   const revenueIntentSegment = universityName ? 'student-housing' : 'commuter-rentals'
 
   useEffect(() => {
@@ -333,16 +333,17 @@ function StationCardContent({
               Zoopla rental search
             </a>
           )}
-          {rightmoveUrl && (
+          {rightmoveLinks.map((rightmoveLink) => (
             <a
-              href={rightmoveUrl}
+              key={rightmoveLink.url}
+              href={rightmoveLink.url}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() =>
-                trackRightmoveClick(station.displayName, {
+                trackRightmoveClick(`${station.displayName}: ${rightmoveLink.label}`, {
                   placement: 'station-popup',
                   intentSegment: revenueIntentSegment,
-                  href: rightmoveUrl,
+                  href: rightmoveLink.url,
                 })
               }
               style={{
@@ -356,9 +357,9 @@ function StationCardContent({
                 cursor: 'pointer',
               }}
             >
-              Rightmove rental search
+              {rightmoveLink.label}
             </a>
-          )}
+          ))}
           {amberUrl && (
             <a
               href={amberUrl}

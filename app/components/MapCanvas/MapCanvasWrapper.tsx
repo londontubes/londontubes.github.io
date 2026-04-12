@@ -8,6 +8,11 @@ interface MapCanvasWrapperProps extends MapCanvasProps {
   deferUntilIdle?: boolean
 }
 
+type BrowserWindow = Window & typeof globalThis & {
+  requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number
+  cancelIdleCallback?: (handle: number) => void
+}
+
 // Legacy Google Maps implementation file `MapCanvas.tsx` has been removed.
 // This wrapper now exclusively serves the Leaflet implementation.
 
@@ -53,18 +58,19 @@ export default function MapCanvasWrapper({ deferUntilIdle = false, ...props }: M
     let observer: IntersectionObserver | null = null
     let timeoutId: number | null = null
     let idleId: number | null = null
+    const browserWindow = window as BrowserWindow
 
     const loadMap = () => {
       setShouldLoadMap(true)
     }
 
     const scheduleLoad = () => {
-      if ('requestIdleCallback' in window) {
-        idleId = window.requestIdleCallback(loadMap, { timeout: 1500 })
+      if (browserWindow.requestIdleCallback) {
+        idleId = browserWindow.requestIdleCallback(loadMap, { timeout: 1500 })
         return
       }
 
-      timeoutId = window.setTimeout(loadMap, 250)
+      timeoutId = browserWindow.setTimeout(loadMap, 250)
     }
 
     const handleIntent = () => {
@@ -95,12 +101,12 @@ export default function MapCanvasWrapper({ deferUntilIdle = false, ...props }: M
     return () => {
       observer?.disconnect()
 
-      if (idleId !== null && 'cancelIdleCallback' in window) {
-        window.cancelIdleCallback(idleId)
+      if (idleId !== null && browserWindow.cancelIdleCallback) {
+        browserWindow.cancelIdleCallback(idleId)
       }
 
       if (timeoutId !== null) {
-        window.clearTimeout(timeoutId)
+        browserWindow.clearTimeout(timeoutId)
       }
 
       node.removeEventListener('pointerdown', handleIntent)

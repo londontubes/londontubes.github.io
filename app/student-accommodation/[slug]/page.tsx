@@ -8,7 +8,7 @@ import {
   revenueLandingPages,
 } from '@/app/data/revenuePages'
 import { loadStaticTransitData } from '@/app/lib/data/load-static-data'
-import { buildRightmoveStationUrl, buildZooplaStationUrl } from '@/app/lib/map/propertySearch'
+import { buildRightmoveStationUrls, buildZooplaStationUrl } from '@/app/lib/map/propertySearch'
 import { getAmberAffiliateUrl, withRevenueAttribution } from '@/app/lib/revenue'
 
 import styles from '../RevenueLanding.module.css'
@@ -78,7 +78,7 @@ export default function StudentAccommodationLandingPage({ params }: PageProps) {
   const zooplaUrl = station
     ? buildZooplaStationUrl(station)
     : buildZooplaStationUrl(undefined, page.searchStationName)
-  const rightmoveUrl = station ? buildRightmoveStationUrl(station) : null
+  const rightmoveLinks = station ? buildRightmoveStationUrls(station) : []
   const amberUrl = page.universityId ? getAmberAffiliateUrl(page.universityId) : null
   const attributedAmberUrl = amberUrl
     ? withRevenueAttribution(amberUrl, {
@@ -205,18 +205,23 @@ export default function StudentAccommodationLandingPage({ params }: PageProps) {
                 eyebrow="Property portal"
               />
             ) : null}
-            {rightmoveUrl ? (
+            {rightmoveLinks.map((rightmoveLink, index) => (
               <RevenueSurface
-                title="Open Rightmove near this station"
+                key={rightmoveLink.url}
+                title={
+                  rightmoveLinks.length > 1
+                    ? `Open ${rightmoveLink.label.replace(/^Rightmove:\s*/, '')}`
+                    : 'Open Rightmove near this station'
+                }
                 description="Compare mapped rental inventory on Rightmove without rebuilding the search manually."
                 partner="rightmove"
-                placement={`${page.slug}-rightmove`}
+                placement={`${page.slug}-rightmove-${index + 1}`}
                 intentSegment={page.intentSegment}
-                href={rightmoveUrl}
-                ctaLabel="Search Rightmove rentals"
+                href={rightmoveLink.url}
+                ctaLabel={rightmoveLinks.length > 1 ? rightmoveLink.label : 'Search Rightmove rentals'}
                 eyebrow="Property portal"
               />
-            ) : null}
+            ))}
             <RevenueSurface
               title="Sponsored rental-ad slot"
               description="Ads stay secondary to the housing journey, but this surface monetizes visitors who are still researching areas."

@@ -1,5 +1,6 @@
 import type { Station } from '@/app/types/transit'
-import { buildRightmoveStationUrl, buildZooplaStationUrl } from '@/app/lib/map/propertySearch'
+import { buildRightmoveStationUrl, buildRightmoveStationUrls, buildZooplaStationUrl } from '@/app/lib/map/propertySearch'
+import stationsData from '@/public/data/stations.json'
 
 const bakerStreet: Station = {
   stationId: '940GZZLUBST',
@@ -57,6 +58,20 @@ const bondStreet: Station = {
   order: 0,
 }
 
+const hammersmith: Station = {
+  stationId: 'HUBHMS',
+  displayName: 'Hammersmith',
+  position: {
+    type: 'Point',
+    coordinates: [-0.225, 51.4936],
+  },
+  lineCodes: ['district', 'piccadilly', 'circle', 'hammersmith-city'],
+  isInterchange: true,
+  markerIcon: 'default',
+  tooltipSummary: 'Hammersmith',
+  order: 0,
+}
+
 describe('propertySearch helpers', () => {
   it('builds a Zoopla station search URL with the expected filters', () => {
     const url = buildZooplaStationUrl(bakerStreet)
@@ -104,12 +119,17 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('includeLetAgreed')).toBe('false')
   })
 
-  it('omits the Rightmove URL when a station has no reviewed mapping', () => {
-    expect(buildRightmoveStationUrl({
+  it('builds a Rightmove URL for Charing Cross via the fallback override mapping', () => {
+    const url = buildRightmoveStationUrl({
       ...regentsPark,
       stationId: 'HUBCHX',
       displayName: 'Charing Cross Underground Station',
-    })).toBeNull()
+    })
+
+    expect(url).not.toBeNull()
+    const parsed = new URL(url!)
+    expect(parsed.searchParams.get('locationIdentifier')).toBe('STATION^1940')
+    expect(parsed.searchParams.get('displayLocationIdentifier')).toBe('Charing-Cross-Station')
   })
 
   it('uses the corrected Paddington Rightmove station identifier', () => {
@@ -130,5 +150,39 @@ describe('propertySearch helpers', () => {
     const parsed = new URL(url!)
     expect(parsed.searchParams.get('locationIdentifier')).toBe('STATION^1166')
     expect(parsed.searchParams.get('displayLocationIdentifier')).toBe('Bond-Street-Station')
+  })
+
+  it('returns both Rightmove station searches for Hammersmith', () => {
+    const urls = buildRightmoveStationUrls(hammersmith)
+
+    expect(urls).toHaveLength(2)
+    expect(urls.map((item) => item.label)).toEqual([
+      'Rightmove: Hammersmith District & Piccadilly',
+      'Rightmove: Hammersmith Hammersmith & City',
+    ])
+
+    const first = new URL(urls[0].url)
+    const second = new URL(urls[1].url)
+
+    expect(first.searchParams.get('locationIdentifier')).toBe('STATION^4172')
+    expect(first.searchParams.get('displayLocationIdentifier')).toBe('Hammersmith-(District-&-Piccadilly)-Station')
+    expect(second.searchParams.get('locationIdentifier')).toBe('STATION^4175')
+    expect(second.searchParams.get('displayLocationIdentifier')).toBe('Hammersmith-(Hammersmith-&-City)-Station')
+  })
+
+  it('keeps the single Rightmove helper backward compatible for Hammersmith', () => {
+    const url = buildRightmoveStationUrl(hammersmith)
+
+    expect(url).not.toBeNull()
+    expect(new URL(url!).searchParams.get('locationIdentifier')).toBe('STATION^4172')
+  })
+
+  it('provides both Zoopla and Rightmove links for every station in the dataset', () => {
+    const stations = (Array.isArray(stationsData) ? stationsData : stationsData.stations) as Station[]
+    const missingZoopla = stations.filter((station) => !buildZooplaStationUrl(station))
+    const missingRightmove = stations.filter((station) => buildRightmoveStationUrls(station).length === 0)
+
+    expect(missingZoopla).toEqual([])
+    expect(missingRightmove).toEqual([])
   })
 })
