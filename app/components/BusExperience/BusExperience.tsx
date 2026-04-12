@@ -231,7 +231,8 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
       if (activeControlMode === 'time') {
         return selectedReachableStop.pathStopIds
           .map((stopId) => stops.find((stop) => stop.stopId === stopId))
-          .filter((stop): stop is (typeof stops)[number] => Boolean(stop) && stop.importance === 'major')
+          .filter((stop): stop is (typeof stops)[number] => stop !== undefined)
+          .filter((stop) => stop.importance === 'major')
           .map((stop) => stop.position.coordinates)
       }
 
