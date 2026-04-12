@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { blogQuestions } from '@/app/blog/content'
+import { revenueLandingPages } from '@/app/data/revenuePages'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://londontubes.co.uk'
@@ -31,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/student-accommodation/`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.84,
+    },
+    {
       url: `${baseUrl}/contact-us/`,
       lastModified,
       changeFrequency: 'yearly',
@@ -41,6 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    })),
+    ...revenueLandingPages.map((page) => ({
+      url: `${baseUrl}/student-accommodation/${page.slug}/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.76,
     })),
   ]
 }

@@ -42,6 +42,11 @@ TFL_APP_KEY=your-tfl-app-key (optional)
 
 Only variables prefixed with `NEXT_PUBLIC_` are exposed to the client. Keep any secret (if added later) unprefixed and server-only.
 
+### Revenue Growth Docs
+
+- `docs/REVENUE_REPORTING.md` - GA4 event names, parameters, and report setup for revenue surfaces
+- `docs/SEARCH_CONSOLE_REVENUE_TARGETS.md` - first-wave landing pages and query themes to monitor
+
 ### Development
 
 ```bash

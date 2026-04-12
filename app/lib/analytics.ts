@@ -3,6 +3,19 @@ const GA_ID =
   process.env.NEXT_PUBLIC_GA_ID ??
   'G-9Q194F9FKG'
 
+export const REVENUE_EVENT_NAMES = {
+  surfaceView: 'revenue_surface_view',
+  click: 'revenue_click',
+} as const
+
+export const REVENUE_EVENT_PARAMETERS = {
+  partner: 'partner',
+  placement: 'placement',
+  intentSegment: 'intent_segment',
+  pagePath: 'page_path',
+  destinationUrl: 'destination_url',
+} as const
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void
@@ -23,14 +36,78 @@ interface AnalyticsEvent {
   category?: string
   label?: string
   value?: number
+  metadata?: Record<string, string | number | boolean | undefined>
 }
 
-export function trackEvent({ action, category, label, value }: AnalyticsEvent) {
+export function trackEvent({ action, category, label, value, metadata }: AnalyticsEvent) {
   if (!enabled()) return
   window.gtag?.('event', action, {
     event_category: category,
     event_label: label,
     value,
+    ...Object.fromEntries(
+      Object.entries(metadata ?? {}).filter(([, metadataValue]) => metadataValue !== undefined)
+    ),
+  })
+}
+
+interface RevenueTrackingOptions {
+  partner: string
+  placement: string
+  intentSegment: string
+  label?: string
+  href?: string
+  pagePath?: string
+}
+
+function getCurrentPagePath(pagePath?: string) {
+  if (pagePath) return pagePath
+  if (typeof window === 'undefined') return undefined
+  return window.location.pathname
+}
+
+export function trackRevenueSurfaceView({
+  partner,
+  placement,
+  intentSegment,
+  label,
+  href,
+  pagePath,
+}: RevenueTrackingOptions) {
+  trackEvent({
+    action: REVENUE_EVENT_NAMES.surfaceView,
+    category: 'Revenue',
+    label: label ?? `${partner}:${placement}`,
+    metadata: {
+      partner,
+      placement,
+      intent_segment: intentSegment,
+      page_path: getCurrentPagePath(pagePath),
+      destination_url: href,
+    },
+  })
+}
+
+export function trackRevenueClick({
+  partner,
+  placement,
+  intentSegment,
+  label,
+  href,
+  pagePath,
+}: RevenueTrackingOptions) {
+  trackEvent({
+    action: REVENUE_EVENT_NAMES.click,
+    category: 'Revenue',
+    label: label ?? `${partner}:${placement}`,
+    value: 1,
+    metadata: {
+      partner,
+      placement,
+      intent_segment: intentSegment,
+      page_path: getCurrentPagePath(pagePath),
+      destination_url: href,
+    },
   })
 }
 
@@ -162,18 +239,57 @@ export function trackAffiliateCtaClick(label: string, value = 1) {
 
 export function trackHeathrowExpressCtaClick() {
   trackAffiliateCtaClick('Heathrow Express', 1)
+  trackRevenueClick({
+    partner: 'heathrow-express',
+    placement: 'legacy-cta',
+    intentSegment: 'airport-transfer',
+    label: 'Heathrow Express',
+  })
 }
 
-export function trackZooplaClick(stationName: string) {
+export function trackZooplaClick(
+  stationName: string,
+  options: Partial<Omit<RevenueTrackingOptions, 'partner'>> = {}
+) {
   trackAffiliateCtaClick(`Zoopla: ${stationName}`, 1)
+  trackRevenueClick({
+    partner: 'zoopla',
+    placement: options.placement ?? 'station-popup',
+    intentSegment: options.intentSegment ?? 'commuter-rentals',
+    label: stationName,
+    href: options.href,
+    pagePath: options.pagePath,
+  })
 }
 
-export function trackRightmoveClick(stationName: string) {
+export function trackRightmoveClick(
+  stationName: string,
+  options: Partial<Omit<RevenueTrackingOptions, 'partner'>> = {}
+) {
   trackAffiliateCtaClick(`Rightmove: ${stationName}`, 1)
+  trackRevenueClick({
+    partner: 'rightmove',
+    placement: options.placement ?? 'station-popup',
+    intentSegment: options.intentSegment ?? 'commuter-rentals',
+    label: stationName,
+    href: options.href,
+    pagePath: options.pagePath,
+  })
 }
 
-export function trackAmberClick(context: string) {
+export function trackAmberClick(
+  context: string,
+  options: Partial<Omit<RevenueTrackingOptions, 'partner'>> = {}
+) {
   trackAffiliateCtaClick(`Amber: ${context}`, 1)
+  trackRevenueClick({
+    partner: 'amber',
+    placement: options.placement ?? 'legacy-cta',
+    intentSegment: options.intentSegment ?? 'student-housing',
+    label: context,
+    href: options.href,
+    pagePath: options.pagePath,
+  })
 }
 
 export function trackNewsletterSignup() {

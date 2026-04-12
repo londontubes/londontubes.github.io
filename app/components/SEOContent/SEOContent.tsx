@@ -3,19 +3,42 @@
 import type { MouseEvent } from 'react'
 import styles from './SEOContent.module.css'
 import AdUnit from '@/app/components/ads/AdUnit'
+import { trackAmberClick, trackHeathrowExpressCtaClick } from '@/app/lib/analytics'
+import { withRevenueAttribution } from '@/app/lib/revenue'
 
 const HEATHROW_EXPRESS_AFFILIATE_URL =
   process.env.NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL
 
 const AMBER_UCL_AFFILIATE_URL = process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL
 
+const trackedHeathrowUrl = HEATHROW_EXPRESS_AFFILIATE_URL
+  ? withRevenueAttribution(HEATHROW_EXPRESS_AFFILIATE_URL, {
+      partner: 'heathrow-express',
+      placement: 'seo-content-heathrow',
+      intentSegment: 'airport-transfer',
+    })
+  : null
+
+const trackedAmberUrl = AMBER_UCL_AFFILIATE_URL
+  ? withRevenueAttribution(AMBER_UCL_AFFILIATE_URL, {
+      partner: 'amber',
+      placement: 'seo-content-amber',
+      intentSegment: 'student-housing',
+    })
+  : null
+
 export function SEOContent() {
-  function affiliateLinkProps(url: string | undefined, labelForDev: string) {
+  function affiliateLinkProps(
+    url: string | null,
+    labelForDev: string,
+    onAffiliateClick?: () => void
+  ) {
     if (url) {
       return {
         href: url,
         target: '_blank',
         rel: 'noopener noreferrer nofollow sponsored',
+        onClick: onAffiliateClick,
       }
     }
 
@@ -52,6 +75,17 @@ export function SEOContent() {
             version lets you filter any line or station to get instant information — making it the most
             useful <strong>London tube map</strong> for daily commuters, tourists, and students alike.
           </p>
+
+          <div className={styles.cta}>
+            <h4>Need rent-focused guides instead of general map browsing?</h4>
+            <p>
+              Jump into our student accommodation hub for commute-led pages that connect universities,
+              rental areas, and property-search shortcuts in one place.
+            </p>
+            <p>
+              <a href="/student-accommodation/">Browse the student accommodation hub →</a>
+            </p>
+          </div>
 
           <h3>Why Use Our London Underground Map?</h3>
           
@@ -133,8 +167,9 @@ export function SEOContent() {
             <p>
               <a
                 {...affiliateLinkProps(
-                  HEATHROW_EXPRESS_AFFILIATE_URL,
+                  trackedHeathrowUrl,
                   'NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL',
+                  () => trackHeathrowExpressCtaClick(),
                 )}
               >
                 Book Heathrow Express Tickets →
@@ -150,8 +185,14 @@ export function SEOContent() {
             <p>
               <a
                 {...affiliateLinkProps(
-                  AMBER_UCL_AFFILIATE_URL,
+                  trackedAmberUrl,
                   'NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL',
+                  () =>
+                    trackAmberClick('home-seo-content', {
+                      placement: 'seo-content-amber',
+                      intentSegment: 'student-housing',
+                      href: trackedAmberUrl ?? undefined,
+                    }),
                 )}
               >
                 Browse UCL Rooms on Amber →
