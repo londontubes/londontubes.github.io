@@ -71,4 +71,12 @@ describe('busGraph helpers', () => {
     expect(network.stopIds).toEqual(expect.arrayContaining(['a', 'b', 'c', 'd']))
     expect(network.routeIds).toEqual(expect.arrayContaining(['r1', 'r2']))
   })
+
+  it('can limit a reachable network to the selected stop routes only', () => {
+    const network = deriveReachableBusNetwork('a', routes, stops, 8, ['r1'])
+
+    expect(network.stopIds).toEqual(expect.arrayContaining(['a', 'b', 'c']))
+    expect(network.stopIds).not.toContain('d')
+    expect(network.routeIds).toEqual(['r1'])
+  })
 })

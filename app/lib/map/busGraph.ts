@@ -23,6 +23,10 @@ export interface ReachableBusNetwork {
   stops: ReachableBusStop[]
 }
 
+interface ShortestBusPathOptions {
+  allowedRouteIds?: string[]
+}
+
 const FALLBACK_BUS_SPEED_MPH = 11
 const FALLBACK_DWELL_MINUTES = 0.4
 
@@ -87,10 +91,19 @@ export function buildBusGraph(routes: BusRoute[], stops: BusStop[]): BusGraph {
   return graph
 }
 
-export function shortestBusPathsFrom(originStopId: string, graph: BusGraph, maxMinutes: number): ReachableBusStop[] {
+export function shortestBusPathsFrom(
+  originStopId: string,
+  graph: BusGraph,
+  maxMinutes: number,
+  options: ShortestBusPathOptions = {},
+): ReachableBusStop[] {
   if (!graph[originStopId]) {
     return []
   }
+
+  const allowedRouteSet = options.allowedRouteIds && options.allowedRouteIds.length > 0
+    ? new Set(options.allowedRouteIds)
+    : null
 
   const distances = new Map<string, number>([[originStopId, 0]])
   const previousStop = new Map<string, string | null>([[originStopId, null]])
@@ -130,6 +143,10 @@ export function shortestBusPathsFrom(originStopId: string, graph: BusGraph, maxM
     visited.add(current.stopId)
 
     for (const edge of graph[current.stopId] ?? []) {
+      if (allowedRouteSet && !allowedRouteSet.has(edge.routeId)) {
+        continue
+      }
+
       const candidateMinutes = current.minutes + edge.runMinutes
       if (candidateMinutes > maxMinutes) {
         continue
@@ -178,13 +195,23 @@ export function deriveReachableBusNetwork(
   routes: BusRoute[],
   stops: BusStop[],
   maxMinutes: number,
+  allowedRouteIds?: string[],
 ): ReachableBusNetwork {
   const graph = buildBusGraph(routes, stops)
-  const reachableStops = shortestBusPathsFrom(originStopId, graph, maxMinutes)
+  const reachableStops = shortestBusPathsFrom(originStopId, graph, maxMinutes, { allowedRouteIds })
   const reachableStopIds = new Set(reachableStops.map((stop) => stop.stopId))
+  const allowedRouteSet = allowedRouteIds && allowedRouteIds.length > 0
+    ? new Set(allowedRouteIds)
+    : null
 
   const routeIds = routes
-    .filter((route) => route.stopIds.some((stopId) => reachableStopIds.has(stopId)))
+    .filter((route) => {
+      if (allowedRouteSet && !allowedRouteSet.has(route.routeId)) {
+        return false
+      }
+
+      return route.stopIds.some((stopId) => reachableStopIds.has(stopId))
+    })
     .map((route) => route.routeId)
 
   return {

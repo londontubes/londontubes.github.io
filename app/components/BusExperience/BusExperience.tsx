@@ -47,24 +47,43 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
   const { routes, stops } = dataset
   const [travelTimeMinutes, setTravelTimeMinutes] = useState(20)
   const [selectedRouteId, setSelectedRouteId] = useState<string | null>(null)
+  const [selectedRouteStopId, setSelectedRouteStopId] = useState<string | null>(null)
   const [selectedStopId, setSelectedStopId] = useState<string | null>(null)
   const [selectedReachableStopId, setSelectedReachableStopId] = useState<string | null>(null)
   const [activeControlMode, setActiveControlMode] = useState<BusControlMode>('route')
+  const [resetVersion, setResetVersion] = useState(0)
+
+  const selectedRouteStop = useMemo(
+    () => stops.find((stop) => stop.stopId === selectedRouteStopId) ?? null,
+    [selectedRouteStopId, stops]
+  )
 
   const activeRouteIds = useMemo(
-    () => (selectedRouteId ? [selectedRouteId] : []),
-    [selectedRouteId]
+    () => {
+      if (selectedRouteId) {
+        return [selectedRouteId]
+      }
+
+      if (activeControlMode === 'route' && selectedRouteStop) {
+        return selectedRouteStop.servedRouteIds
+      }
+
+      return []
+    },
+    [activeControlMode, selectedRouteId, selectedRouteStop]
   )
 
   const handleRouteFilterChange = (routeId: string | null) => {
     setActiveControlMode('route')
     setSelectedRouteId(routeId)
+    setSelectedRouteStopId(null)
     setSelectedStopId(null)
     setSelectedReachableStopId(null)
   }
 
   const activateRouteMode = () => {
     setActiveControlMode('route')
+    setSelectedRouteStopId(null)
     setSelectedStopId(null)
     setSelectedReachableStopId(null)
   }
@@ -72,6 +91,17 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
   const activateTimeMode = () => {
     setActiveControlMode('time')
     setSelectedRouteId(null)
+    setSelectedRouteStopId(null)
+  }
+
+  const handleTimeModeReset = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation()
+    setActiveControlMode('time')
+    setSelectedRouteId(null)
+    setSelectedRouteStopId(null)
+    setSelectedStopId(null)
+    setSelectedReachableStopId(null)
+    setResetVersion((currentValue) => currentValue + 1)
   }
 
   const handleControlPanelKeyDown = (
@@ -97,13 +127,24 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
     return routes.filter((route) => route.routeId === selectedRouteId)
   }, [routes, selectedRouteId])
 
+  const selectedStop = useMemo(
+    () => stops.find((stop) => stop.stopId === selectedStopId) ?? null,
+    [selectedStopId, stops]
+  )
+
   const reachableNetwork = useMemo(() => {
     if (!selectedStopId) {
       return null
     }
 
-    return deriveReachableBusNetwork(selectedStopId, routes, stops, travelTimeMinutes)
-  }, [selectedStopId, routes, stops, travelTimeMinutes])
+    return deriveReachableBusNetwork(
+      selectedStopId,
+      routes,
+      stops,
+      travelTimeMinutes,
+      selectedStop?.servedRouteIds,
+    )
+  }, [selectedStop, selectedStopId, routes, stops, travelTimeMinutes])
 
   const focusedRouteIds = reachableNetwork?.routeIds ?? null
   const focusedStopIds = reachableNetwork?.stopIds ?? null
@@ -134,11 +175,6 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
     return routes.filter((route) => routeSet.has(route.routeId))
   }, [focusedRouteIds, routes])
 
-  const selectedStop = useMemo(
-    () => stops.find((stop) => stop.stopId === selectedStopId) ?? null,
-    [selectedStopId, stops]
-  )
-
   const selectedRoute = useMemo(
     () => routes.find((route) => route.routeId === selectedRouteId) ?? null,
     [routes, selectedRouteId]
@@ -167,7 +203,7 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
       return selectedStop.displayName
     }
 
-    return 'Set a time window, then click a stop to trace reachable journeys.'
+    return 'Set a time window, then click a major stop to see nearby reachable stops within that time.'
   }, [selectedReachableRouteLabel, selectedReachableStopDetails, selectedStop])
 
   const focusCoordinates = useMemo(() => {
@@ -183,7 +219,22 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
       return [...routeCoordinates, ...firstStopCoordinates, ...lastStopCoordinates]
     }
 
+    if (activeControlMode === 'route' && selectedRouteStop) {
+      const routeCoordinates = routes
+        .filter((route) => selectedRouteStop.servedRouteIds.includes(route.routeId))
+        .flatMap((route) => flattenRouteCoordinates(route))
+
+      return [selectedRouteStop.position.coordinates, ...routeCoordinates]
+    }
+
     if (selectedReachableStop) {
+      if (activeControlMode === 'time') {
+        return selectedReachableStop.pathStopIds
+          .map((stopId) => stops.find((stop) => stop.stopId === stopId))
+          .filter((stop): stop is (typeof stops)[number] => Boolean(stop) && stop.importance === 'major')
+          .map((stop) => stop.position.coordinates)
+      }
+
       return selectedReachableStop.pathStopIds
         .map((stopId) => stops.find((stop) => stop.stopId === stopId)?.position.coordinates)
         .filter((coordinates): coordinates is [number, number] => Boolean(coordinates))
@@ -196,8 +247,9 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
     const focusedStopSet = new Set(focusedStopIds)
     return stops
       .filter((stop) => focusedStopSet.has(stop.stopId))
+      .filter((stop) => activeControlMode !== 'time' || stop.importance === 'major')
       .map((stop) => stop.position.coordinates)
-  }, [focusedStopIds, selectedReachableStop, selectedRoute, stops])
+  }, [activeControlMode, focusedStopIds, routes, selectedReachableStop, selectedRoute, selectedRouteStop, stops])
 
   const focusedRouteCount = focusedRouteIds?.length ?? visibleRoutes.length
 
@@ -243,6 +295,13 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
         >
           <div className="bus-control-panel__header">
             <span className="bus-control-panel__title">Bus Time</span>
+            <button
+              type="button"
+              className="bus-control-panel__reset"
+              onClick={handleTimeModeReset}
+            >
+              Reset
+            </button>
             <span className="bus-control-panel__description">
               {busTimeDescription}
             </span>
@@ -266,9 +325,11 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
       <BusMapCanvas
         routes={routes}
         stops={stops}
+        controlMode={activeControlMode}
+        resetVersion={resetVersion}
         activeRouteIds={activeRouteIds}
         selectedRouteId={selectedRouteId}
-        selectedStopId={selectedStopId}
+        selectedStopId={activeControlMode === 'time' ? selectedStopId : selectedRouteStopId}
         selectedReachableStopId={selectedReachableStopId}
         selectedReachablePathStopIds={selectedReachableStop?.pathStopIds ?? null}
         selectedReachableRouteIds={selectedReachableStop?.routeIds ?? null}
@@ -279,12 +340,22 @@ export default function BusExperience({ dataset }: BusExperienceProps) {
         onSelectRoute={(routeId) => {
           setActiveControlMode('route')
           setSelectedRouteId(routeId)
+          setSelectedRouteStopId(null)
           setSelectedStopId(null)
           setSelectedReachableStopId(null)
         }}
         onSelectStop={(stopId) => {
+          if (activeControlMode === 'route') {
+            setSelectedRouteId(null)
+            setSelectedRouteStopId((currentStopId) => currentStopId === stopId ? null : stopId)
+            setSelectedStopId(null)
+            setSelectedReachableStopId(null)
+            return
+          }
+
           setActiveControlMode('time')
           setSelectedRouteId(null)
+          setSelectedRouteStopId(null)
           setSelectedStopId(stopId)
           setSelectedReachableStopId(null)
         }}

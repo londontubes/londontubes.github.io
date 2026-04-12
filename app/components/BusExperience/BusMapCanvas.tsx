@@ -16,6 +16,8 @@ const DEFAULT_ZOOM = 11
 interface BusMapCanvasProps {
   routes: BusRoute[]
   stops: BusStop[]
+  controlMode: 'route' | 'time'
+  resetVersion?: number
   activeRouteIds: string[]
   selectedRouteId: string | null
   selectedStopId: string | null
@@ -31,8 +33,22 @@ interface BusMapCanvasProps {
   onSelectReachableStop: (stopId: string) => void
 }
 
-function BusMapFocus({ coordinates }: { coordinates?: [number, number][] | null }) {
+function BusMapFocus({
+  coordinates,
+  resetVersion,
+}: {
+  coordinates?: [number, number][] | null
+  resetVersion?: number
+}) {
   const map = useMap()
+
+  useEffect(() => {
+    if (!resetVersion) {
+      return
+    }
+
+    map.setView(LONDON_CENTER, DEFAULT_ZOOM, { animate: true })
+  }, [map, resetVersion])
 
   useEffect(() => {
     if (!coordinates || coordinates.length === 0) {
@@ -108,6 +124,8 @@ function getSortedRouteCodes(routeIds: string[], routeLookup: Map<string, BusRou
 export default function BusMapCanvas({
   routes,
   stops,
+  controlMode,
+  resetVersion,
   activeRouteIds,
   selectedRouteId,
   selectedStopId,
@@ -140,8 +158,43 @@ export default function BusMapCanvas({
     () => getVisibleBusData(routes, stops, viewportState),
     [routes, stops, viewportState]
   )
+  const isTimeMode = controlMode === 'time'
+
+  const stopLookup = useMemo(
+    () => new Map(stops.map((stop) => [stop.stopId, stop])),
+    [stops]
+  )
+  const originStop = selectedStopId ? stopLookup.get(selectedStopId) ?? null : null
+  const selectedReachableStop = selectedReachableStopId
+    ? stopLookup.get(selectedReachableStopId) ?? null
+    : null
+  const timeModeVisibleRouteIds = useMemo(() => {
+    if (!originStop || !selectedReachableStop) {
+      return selectedReachableRouteIds ?? []
+    }
+
+    const directRouteIds = routes
+      .filter((route) => {
+        const originIndex = route.stopIds.indexOf(originStop.stopId)
+        const destinationIndex = route.stopIds.indexOf(selectedReachableStop.stopId)
+
+        return originIndex !== -1 && destinationIndex !== -1 && originIndex !== destinationIndex
+      })
+      .map((route) => route.routeId)
+
+    return directRouteIds.length > 0 ? directRouteIds : selectedReachableRouteIds ?? []
+  }, [originStop, routes, selectedReachableRouteIds, selectedReachableStop])
 
   const visibleRoutes = useMemo(() => {
+    if (isTimeMode) {
+      if (timeModeVisibleRouteIds.length === 0) {
+        return []
+      }
+
+      const routeSet = new Set(timeModeVisibleRouteIds)
+      return routes.filter((route) => routeSet.has(route.routeId))
+    }
+
     if (selectedRouteId) {
       return routes.filter((route) => route.routeId === selectedRouteId)
     }
@@ -156,27 +209,30 @@ export default function BusMapCanvas({
 
     const routeSet = new Set(focusedRouteIds)
     return routes.filter((route) => routeSet.has(route.routeId))
-  }, [computedVisibleData.routes, focusedRouteIds, focusedStopIds, routes, selectedRouteId])
+  }, [computedVisibleData.routes, focusedRouteIds, focusedStopIds, isTimeMode, routes, selectedRouteId, timeModeVisibleRouteIds])
 
   const visibleStops = useMemo(() => {
+    if (isTimeMode) {
+      const baseStops = focusedStopIds
+        ? stops.filter((stop) => focusedStopIds.includes(stop.stopId))
+        : stops
+
+      return baseStops.filter((stop) => stop.importance === 'major')
+    }
+
     if (!focusedStopIds) {
       return computedVisibleData.stops
     }
 
     const stopSet = new Set(focusedStopIds)
     return stops.filter((stop) => stopSet.has(stop.stopId))
-  }, [computedVisibleData.stops, focusedStopIds, stops])
+  }, [computedVisibleData.stops, focusedStopIds, isTimeMode, stops])
 
   const isFocusedNetwork = Boolean(focusedRouteIds && focusedStopIds)
   const routeLookup = useMemo(
     () => new Map(routes.map((route) => [route.routeId, route])),
     [routes]
   )
-  const stopLookup = useMemo(
-    () => new Map(stops.map((stop) => [stop.stopId, stop])),
-    [stops]
-  )
-  const originStop = selectedStopId ? stopLookup.get(selectedStopId) ?? null : null
   const selectedReachablePathCoordinates = useMemo(() => {
     if (!selectedReachablePathStopIds || selectedReachablePathStopIds.length < 2) {
       return []
@@ -202,14 +258,14 @@ export default function BusMapCanvas({
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <BusMapEvents onViewportChange={setViewport} />
-        <BusMapFocus coordinates={fitToCoordinates} />
+        <BusMapFocus coordinates={fitToCoordinates} resetVersion={resetVersion} />
 
         {visibleRoutes.map((route) => {
           const isSelected = route.routeId === selectedRouteId
           const style = {
             color: route.brandColor,
-            weight: isSelected ? route.strokeWeight + 2 : route.strokeWeight,
-            opacity: isSelected ? 0.95 : isFocusedNetwork ? 0.8 : 0.55,
+            weight: isTimeMode || isSelected ? route.strokeWeight + 2 : route.strokeWeight,
+            opacity: isTimeMode || isSelected ? 0.95 : isFocusedNetwork ? 0.8 : 0.55,
           }
 
           if (route.geometry.type === 'LineString') {
@@ -218,7 +274,7 @@ export default function BusMapCanvas({
                 key={route.routeId}
                 positions={toLatLngs(route.geometry.coordinates as [number, number][])}
                 pathOptions={style}
-                eventHandlers={{
+                eventHandlers={isTimeMode ? undefined : {
                   click: () => onSelectRoute(isSelected ? null : route.routeId),
                 }}
               />
@@ -230,14 +286,14 @@ export default function BusMapCanvas({
               key={`${route.routeId}-${index}`}
               positions={toLatLngs(segment)}
               pathOptions={style}
-              eventHandlers={{
+              eventHandlers={isTimeMode ? undefined : {
                 click: () => onSelectRoute(isSelected ? null : route.routeId),
               }}
             />
           ))
         })}
 
-        {selectedReachablePathCoordinates.length > 1 ? (
+        {!isTimeMode && selectedReachablePathCoordinates.length > 1 ? (
           <Polyline
             positions={toLatLngs(selectedReachablePathCoordinates)}
             pathOptions={{
@@ -252,6 +308,7 @@ export default function BusMapCanvas({
           const isSelected = stop.stopId === selectedStopId
           const isReachableStop = isFocusedNetwork && !isSelected
           const isSelectedReachableStop = stop.stopId === selectedReachableStopId
+          const isMajorStop = stop.importance === 'major'
           const reachableDetail = reachableStopDetails[stop.stopId]
           const servedRouteLabels = getSortedRouteCodes(stop.servedRouteIds, routeLookup)
           const routeLabels = reachableDetail
@@ -267,16 +324,54 @@ export default function BusMapCanvas({
                 .map((stopId) => stopLookup.get(stopId)?.displayName ?? stopId)
                 .join(' -> ')
             : null
-          const fillColor = isSelected ? '#D62B1F' : isReachableStop ? '#FACC15' : '#111827'
-          const strokeColor = isSelected ? '#ffffff' : isReachableStop ? '#92400E' : '#ffffff'
+          const fillColor = isTimeMode
+            ? isSelected
+              ? '#FACC15'
+              : isReachableStop
+                ? '#4CAF50'
+                : '#FFFFFF'
+            : isSelected
+              ? '#FACC15'
+              : isReachableStop
+                ? '#FACC15'
+                : '#FFFFFF'
+          const strokeColor = isTimeMode
+            ? isSelected
+              ? '#92400E'
+              : isReachableStop
+                ? '#2E7D32'
+                : '#0F172A'
+            : isSelected
+              ? '#92400E'
+              : isReachableStop
+                ? '#92400E'
+                : '#0F172A'
+          const markerRadius = isSelected
+            ? isTimeMode
+              ? 10
+              : isMajorStop
+                ? 9
+                : 4
+            : isSelectedReachableStop
+              ? 12
+              : isReachableStop
+                ? 10
+                : isMajorStop
+                  ? 9
+                  : 4
+          const markerWeight = isSelectedReachableStop
+            ? 3
+            : isTimeMode || isReachableStop || isMajorStop
+              ? 2
+              : 1
           return (
             <CircleMarker
               key={stop.stopId}
               center={[stop.position.coordinates[1], stop.position.coordinates[0]]}
-              radius={isSelected ? 6 : isSelectedReachableStop ? 12 : isReachableStop ? 10 : stop.importance === 'major' ? 5 : 4}
+              radius={markerRadius}
               pathOptions={{
                 color: strokeColor,
-                weight: isSelectedReachableStop ? 3 : isReachableStop ? 2 : 1,
+                weight: markerWeight,
                 fillColor,
                 fillOpacity: isReachableStop ? 0.9 : 0.9,
               }}
@@ -289,7 +384,9 @@ export default function BusMapCanvas({
               <Popup>
                 <div className="bus-map-popup">
                   <h3>{stop.displayName}</h3>
-                  {isSelected || isReachableStop ? null : <p>Click to start a reachability search</p>}
+                  {isSelected || isReachableStop ? null : (
+                    <p>{isTimeMode ? 'Click to start a reachability search' : 'Click to show routes serving this stop'}</p>
+                  )}
                   {isReachableStop && originStop && reachableDetail ? (
                     <>
                       <p>{reachableDetail.minutes} min from {originStop.displayName}</p>

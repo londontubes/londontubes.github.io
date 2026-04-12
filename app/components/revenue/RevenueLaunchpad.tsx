@@ -30,7 +30,6 @@ export function RevenueLaunchpad({
     <section className={styles.section} aria-label="Student accommodation launchpad">
       <div className={styles.shell}>
         <header className={styles.header}>
-          <p className={styles.kicker}>Revenue growth focus</p>
           <h2 className={styles.title}>{title}</h2>
           <p className={styles.description}>{description}</p>
         </header>

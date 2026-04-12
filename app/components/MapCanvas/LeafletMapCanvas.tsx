@@ -330,7 +330,7 @@ function StationCardContent({
                 cursor: 'pointer',
               }}
             >
-              Zoopla flat search
+              Zoopla rental search
             </a>
           )}
           {rightmoveUrl && (
@@ -356,7 +356,7 @@ function StationCardContent({
                 cursor: 'pointer',
               }}
             >
-              Rightmove flat search
+              Rightmove rental search
             </a>
           )}
           {amberUrl && (
