@@ -53,6 +53,14 @@ function normalizeName(value: string): string {
     .trim()
 }
 
+function normalizeStationName(value: string): string {
+  return normalizeName(value)
+    .replace(/\b(rail|dlr|underground|metro)\b/g, ' ')
+    .replace(/\bstation\b/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 function buildCandidateQueries(searchLocation: string): string[] {
   const candidates = new Set<string>()
   const asciiSafe = searchLocation
@@ -149,12 +157,22 @@ function pickBestMatch(searchLocation: string, matches: RightmoveTypeaheadMatch[
   }
 
   const normalizedSearch = normalizeName(searchLocation)
+  const normalizedStationSearch = normalizeStationName(searchLocation)
   const exactMatches = matches.filter(match => normalizeName(match.displayName ?? '') === normalizedSearch)
+  const exactStationMatches = matches.filter(match => normalizeStationName(match.displayName ?? '') === normalizedStationSearch)
 
   if (exactMatches.length === 1) {
     return {
       locationIdentifier: normalizeLocationIdentifier(exactMatches[0].id),
       displayName: exactMatches[0].displayName ?? searchLocation,
+      matchStatus: 'matched',
+    }
+  }
+
+  if (exactStationMatches.length === 1) {
+    return {
+      locationIdentifier: normalizeLocationIdentifier(exactStationMatches[0].id),
+      displayName: exactStationMatches[0].displayName ?? searchLocation,
       matchStatus: 'matched',
     }
   }

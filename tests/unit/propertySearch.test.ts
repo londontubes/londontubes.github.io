@@ -29,6 +29,34 @@ const regentsPark: Station = {
   order: 0,
 }
 
+const paddington: Station = {
+  stationId: 'HUBPAD',
+  displayName: 'Paddington',
+  position: {
+    type: 'Point',
+    coordinates: [-0.17616, 51.516981],
+  },
+  lineCodes: ['bakerloo', 'circle', 'district', 'elizabeth', 'hammersmith-city'],
+  isInterchange: true,
+  markerIcon: 'default',
+  tooltipSummary: 'Paddington',
+  order: 0,
+}
+
+const bondStreet: Station = {
+  stationId: 'HUBBDS',
+  displayName: 'Bond Street',
+  position: {
+    type: 'Point',
+    coordinates: [-0.1494, 51.5142],
+  },
+  lineCodes: ['central', 'jubilee', 'elizabeth'],
+  isInterchange: true,
+  markerIcon: 'default',
+  tooltipSummary: 'Bond Street',
+  order: 0,
+}
+
 describe('propertySearch helpers', () => {
   it('builds a Zoopla station search URL with the expected filters', () => {
     const url = buildZooplaStationUrl(bakerStreet)
@@ -82,5 +110,25 @@ describe('propertySearch helpers', () => {
       stationId: 'HUBCHX',
       displayName: 'Charing Cross Underground Station',
     })).toBeNull()
+  })
+
+  it('uses the corrected Paddington Rightmove station identifier', () => {
+    const url = buildRightmoveStationUrl(paddington)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+    expect(parsed.searchParams.get('locationIdentifier')).toBe('STATION^6965')
+    expect(parsed.searchParams.get('displayLocationIdentifier')).toBe('Paddington-Station')
+  })
+
+  it('shows a Rightmove URL for Bond Street once the station mapping is verified', () => {
+    const url = buildRightmoveStationUrl(bondStreet)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+    expect(parsed.searchParams.get('locationIdentifier')).toBe('STATION^1166')
+    expect(parsed.searchParams.get('displayLocationIdentifier')).toBe('Bond-Street-Station')
   })
 })
