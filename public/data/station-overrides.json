@@ -5,6 +5,26 @@
       "displayName": "Charing Cross",
       "coordinates": [-0.1249, 51.5081],
       "reason": "Adjusted to align with Northern line polyline intersection"
+    },
+    "HUBBFR": {
+      "displayName": "Blackfriars",
+      "coordinates": [-0.103247, 51.511517],
+      "reason": "Moved north off Blackfriars Bridge and onto the station concourse using station stop and Google Maps station references"
+    },
+    "HUBCAW": {
+      "displayName": "Canary Wharf",
+      "coordinates": [-0.02025, 51.50489],
+      "reason": "Recentered the interchange on the station frontage using Canary Wharf station stop references"
+    },
+    "940GZZLUERC": {
+      "displayName": "Edgware Road (Circle Line)",
+      "coordinates": [-0.169522, 51.520182],
+      "reason": "Shifted west to the Circle line station entrances using station stop references"
+    },
+    "HUBLST": {
+      "displayName": "Liverpool Street",
+      "coordinates": [-0.081077, 51.517797],
+      "reason": "Moved onto the main station frontage using clustered Liverpool Street station stop references"
     }
   }
 }
