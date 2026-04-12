@@ -11,7 +11,12 @@ import type { TravelTimeResult } from '@/app/lib/map/travelTime'
 import { calculateDistance, WALK_SPEED_MPH, WALK_OVERHEAD_MINUTES, WALK_ROUTE_FACTOR } from '@/app/lib/map/proximity'
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
 import { getStaticTubeJourney } from '@/app/lib/map/staticTubeTimes'
-import { buildRightmoveStationUrls, buildZooplaStationUrl } from '@/app/lib/map/propertySearch'
+import {
+  buildRightmoveStationBuyUrls,
+  buildRightmoveStationUrls,
+  buildZooplaStationBuyUrl,
+  buildZooplaStationUrl,
+} from '@/app/lib/map/propertySearch'
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
 const DEFAULT_ZOOM = 11
@@ -242,7 +247,15 @@ function StationCardContent({
   const cardTitle = travelMinutesLabel ? `${station.displayName} (${travelMinutesLabel})` : station.displayName
   const zooplaUrl = useMemo(() => buildZooplaStationUrl(station), [station])
   const rightmoveLinks = useMemo(() => buildRightmoveStationUrls(station), [station])
-  const hasCallToAction = Boolean(zooplaUrl || rightmoveLinks.length > 0 || amberUrl)
+  const zooplaBuyUrl = useMemo(() => buildZooplaStationBuyUrl(station), [station])
+  const rightmoveBuyLinks = useMemo(() => buildRightmoveStationBuyUrls(station), [station])
+  const hasCallToAction = Boolean(
+    zooplaUrl
+    || rightmoveLinks.length > 0
+    || zooplaBuyUrl
+    || rightmoveBuyLinks.length > 0
+    || amberUrl
+  )
   const revenueIntentSegment = universityName ? 'student-housing' : 'commuter-rentals'
 
   useEffect(() => {
@@ -349,6 +362,59 @@ function StationCardContent({
               style={{
                 background: '#00deb6',
                 color: '#05231d',
+                borderRadius: '4px',
+                padding: '6px 10px',
+                fontSize: '13px',
+                textDecoration: 'none',
+                display: 'inline-block',
+                cursor: 'pointer',
+              }}
+            >
+              {rightmoveLink.label}
+            </a>
+          ))}
+          {zooplaBuyUrl && (
+            <a
+              href={zooplaBuyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackZooplaClick(`${station.displayName}: buy`, {
+                  placement: 'station-popup-buy',
+                  intentSegment: revenueIntentSegment,
+                  href: zooplaBuyUrl,
+                })
+              }
+              style={{
+                background: '#4c1d95',
+                color: 'white',
+                borderRadius: '4px',
+                padding: '6px 10px',
+                fontSize: '13px',
+                textDecoration: 'none',
+                display: 'inline-block',
+                cursor: 'pointer',
+              }}
+            >
+              Zoopla buy search
+            </a>
+          )}
+          {rightmoveBuyLinks.map((rightmoveLink) => (
+            <a
+              key={rightmoveLink.url}
+              href={rightmoveLink.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackRightmoveClick(`${station.displayName}: ${rightmoveLink.label}`, {
+                  placement: 'station-popup-buy',
+                  intentSegment: revenueIntentSegment,
+                  href: rightmoveLink.url,
+                })
+              }
+              style={{
+                background: '#2dd4bf',
+                color: '#042f2e',
                 borderRadius: '4px',
                 padding: '6px 10px',
                 fontSize: '13px',
