@@ -22,7 +22,6 @@ const RIGHTMOVE_SEARCH_CONFIG = {
   index: '0',
   numberOfPropertiesPerPage: '95',
   includeLetAgreed: 'false',
-  mustHave: 'student',
   dontShow: 'houseShare,retirement',
 } as const
 
@@ -64,25 +63,6 @@ function normalizeRightmoveLocationIdentifier(locationIdentifier: string): strin
   if (!locationIdentifier) return null
   const normalized = locationIdentifier.replace(/^STATION\^/i, '').trim()
   return /^\d+$/.test(normalized) ? normalized : null
-}
-
-function buildRightmoveLatLongBox(station: Station, radiusMiles: number): string | null {
-  const [longitude, latitude] = station.position.coordinates
-
-  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
-    return null
-  }
-
-  const latitudeDelta = radiusMiles / 69
-  const longitudeScale = Math.cos((latitude * Math.PI) / 180)
-  const longitudeDelta = longitudeScale > 0 ? radiusMiles / (69 * longitudeScale) : latitudeDelta
-
-  const west = longitude - longitudeDelta
-  const east = longitude + longitudeDelta
-  const north = latitude + latitudeDelta
-  const south = latitude - latitudeDelta
-
-  return `LAT_LONG_BOX^${west},${east},${north},${south}`
 }
 
 export function getRightmoveStationEntry(stationId?: string | null): RightmoveStationTemplateEntry | null {
@@ -153,23 +133,16 @@ export function buildRightmoveStationUrl(station?: Station, fallbackName?: strin
 
   const baseUrl = new URL('https://www.rightmove.co.uk/property-to-rent/map.html')
   const params = baseUrl.searchParams
-  const latLongBoxIdentifier = station
-    ? buildRightmoveLatLongBox(station, Number(RIGHTMOVE_SEARCH_CONFIG.radius))
-    : null
-
-  params.set('locationIdentifier', latLongBoxIdentifier ?? `STATION^${locationIdentifier}`)
+  params.set('locationIdentifier', `STATION^${locationIdentifier}`)
   params.set('propertyTypes', RIGHTMOVE_SEARCH_CONFIG.propertyTypes)
   params.set('minBedrooms', RIGHTMOVE_SEARCH_CONFIG.minBedrooms)
   params.set('maxBedrooms', RIGHTMOVE_SEARCH_CONFIG.maxBedrooms)
   params.set('maxPrice', RIGHTMOVE_SEARCH_CONFIG.maxPrice)
-  if (!latLongBoxIdentifier) {
-    params.set('radius', RIGHTMOVE_SEARCH_CONFIG.radius)
-  }
+  params.set('radius', RIGHTMOVE_SEARCH_CONFIG.radius)
   params.set('sortType', RIGHTMOVE_SEARCH_CONFIG.sortType)
   params.set('areaSizeUnit', RIGHTMOVE_SEARCH_CONFIG.areaSizeUnit)
   params.set('viewType', RIGHTMOVE_SEARCH_CONFIG.viewType)
   params.set('channel', RIGHTMOVE_SEARCH_CONFIG.channel)
-  params.set('mustHave', RIGHTMOVE_SEARCH_CONFIG.mustHave)
   params.set('dontShow', RIGHTMOVE_SEARCH_CONFIG.dontShow)
   params.set('index', RIGHTMOVE_SEARCH_CONFIG.index)
   params.set('numberOfPropertiesPerPage', RIGHTMOVE_SEARCH_CONFIG.numberOfPropertiesPerPage)

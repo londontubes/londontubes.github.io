@@ -56,36 +56,24 @@ describe('propertySearch helpers', () => {
     expect(url).not.toBeNull()
 
     const parsed = new URL(url!)
-    const locationIdentifier = parsed.searchParams.get('locationIdentifier')
 
     expect(parsed.origin).toBe('https://www.rightmove.co.uk')
     expect(parsed.pathname).toBe('/property-to-rent/map.html')
-    expect(locationIdentifier).toMatch(/^LAT_LONG_BOX\^/)
+    expect(parsed.searchParams.get('locationIdentifier')).toBe('STATION^488')
     expect(parsed.searchParams.get('propertyTypes')).toBe('detached,semi-detached,terraced,flat,bungalow,private-halls')
     expect(parsed.searchParams.get('minBedrooms')).toBe('0')
     expect(parsed.searchParams.get('maxBedrooms')).toBe('2')
     expect(parsed.searchParams.get('maxPrice')).toBe('2000')
-    expect(parsed.searchParams.get('radius')).toBeNull()
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
     expect(parsed.searchParams.get('sortType')).toBe('6')
     expect(parsed.searchParams.get('areaSizeUnit')).toBe('sqft')
     expect(parsed.searchParams.get('viewType')).toBe('MAP')
     expect(parsed.searchParams.get('channel')).toBe('RENT')
-    expect(parsed.searchParams.get('mustHave')).toBe('student')
+    expect(parsed.searchParams.get('mustHave')).toBeNull()
     expect(parsed.searchParams.get('dontShow')).toBe('houseShare,retirement')
     expect(parsed.searchParams.get('index')).toBe('0')
     expect(parsed.searchParams.get('numberOfPropertiesPerPage')).toBe('95')
     expect(parsed.searchParams.get('includeLetAgreed')).toBe('false')
-
-    const bounds = locationIdentifier!.replace('LAT_LONG_BOX^', '').split(',').map(Number)
-    const [west, east, north, south] = bounds
-
-    expect(bounds).toHaveLength(4)
-    expect(west).toBeLessThan(-0.15713)
-    expect(east).toBeGreaterThan(-0.15713)
-    expect(south).toBeLessThan(51.522883)
-    expect(north).toBeGreaterThan(51.522883)
-    expect((west + east) / 2).toBeCloseTo(-0.15713, 5)
-    expect((north + south) / 2).toBeCloseTo(51.522883, 5)
   })
 
   it('omits the Rightmove URL when a station has no reviewed mapping', () => {
