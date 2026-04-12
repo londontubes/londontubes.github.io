@@ -72,6 +72,20 @@ const hammersmith: Station = {
   order: 0,
 }
 
+const westEaling: Station = {
+  stationId: '910GWEALING',
+  displayName: 'West Ealing Rail Station',
+  position: {
+    type: 'Point',
+    coordinates: [-0.320133, 51.513506],
+  },
+  lineCodes: ['elizabeth'],
+  isInterchange: false,
+  markerIcon: 'default',
+  tooltipSummary: 'West Ealing Rail Station',
+  order: 0,
+}
+
 describe('propertySearch helpers', () => {
   it('builds a Zoopla station search URL with the expected filters', () => {
     const url = buildZooplaStationUrl(bakerStreet)
@@ -117,6 +131,16 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('index')).toBe('0')
     expect(parsed.searchParams.get('numberOfPropertiesPerPage')).toBe('95')
     expect(parsed.searchParams.get('includeLetAgreed')).toBe('false')
+  })
+
+  it('uses the working Zoopla rail slug for West Ealing', () => {
+    const url = buildZooplaStationUrl(westEaling)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+    expect(parsed.pathname).toBe('/to-rent/map/property/station/rail/west-ealing/')
+    expect(parsed.searchParams.get('q')).toBe('West Ealing Rail Station, London')
   })
 
   it('builds a Rightmove URL for Charing Cross via the fallback override mapping', () => {

@@ -114,6 +114,7 @@ function sanitizeZooplaSearchLocation(value: string): string {
 
 const ZOOPLA_SLUG_OVERRIDES: Record<string, { slug?: string; type?: 'tube' | 'rail' | 'dlr'; path?: string }> = {
   '910GBNHAM': { slug: 'burnham-bucks' },
+  '910GWEALING': { slug: 'west-ealing', type: 'rail' },
   '910GWOLWXR': { slug: 'woolwich-arsenal', type: 'rail' },
   '940GZZDLCLA': { slug: 'crossharbour-and-london-arena' },
   '940GZZLUERC': { slug: 'edgware-road-circle' },
