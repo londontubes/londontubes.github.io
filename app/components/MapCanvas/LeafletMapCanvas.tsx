@@ -243,6 +243,7 @@ function StationCardContent({
   const zooplaUrl = useMemo(() => buildZooplaStationUrl(station), [station])
   const rightmoveUrl = useMemo(() => buildRightmoveStationUrl(station), [station])
   const hasCallToAction = Boolean(zooplaUrl || rightmoveUrl || amberUrl)
+  const revenueIntentSegment = universityName ? 'student-housing' : 'commuter-rentals'
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -311,7 +312,13 @@ function StationCardContent({
               href={zooplaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackZooplaClick(station.displayName)}
+              onClick={() =>
+                trackZooplaClick(station.displayName, {
+                  placement: 'station-popup',
+                  intentSegment: revenueIntentSegment,
+                  href: zooplaUrl,
+                })
+              }
               style={{
                 background: '#6f2cff',
                 color: 'white',
@@ -331,7 +338,13 @@ function StationCardContent({
               href={rightmoveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackRightmoveClick(station.displayName)}
+              onClick={() =>
+                trackRightmoveClick(station.displayName, {
+                  placement: 'station-popup',
+                  intentSegment: revenueIntentSegment,
+                  href: rightmoveUrl,
+                })
+              }
               style={{
                 background: '#00deb6',
                 color: '#05231d',
@@ -351,7 +364,13 @@ function StationCardContent({
               href={amberUrl}
               target="_blank"
               rel="noopener noreferrer nofollow sponsored"
-              onClick={() => trackAmberClick(universityName ?? 'station-popup')}
+              onClick={() =>
+                trackAmberClick(universityName ?? 'station-popup', {
+                  placement: 'station-popup',
+                  intentSegment: revenueIntentSegment,
+                  href: amberUrl,
+                })
+              }
               style={{
                 background: '#7c3aed',
                 color: 'white',

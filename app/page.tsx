@@ -1,4 +1,5 @@
 import MapExperience from '@/app/components/MapExperience/MapExperience'
+import RevenueLaunchpad from '@/app/components/revenue/RevenueLaunchpad'
 import { loadStaticTransitData } from '@/app/lib/data/load-static-data'
 import { SEOContent } from '@/app/components/SEOContent'
 import { FAQ } from '@/app/components/FAQ'
@@ -70,6 +71,11 @@ export default function HomePage() {
         <p>Interactive map requires JavaScript. Enable it to view the network.</p>
       </noscript>
       <MapExperience dataset={dataset} />
+      <RevenueLaunchpad
+        title="Start with the highest-intent housing pages"
+        description="These pages are designed for visitors who are already comparing where to live, not just exploring the map. Use them to jump from commute research into student rooms and rental portals earlier."
+        placementPrefix="home-launchpad"
+      />
       <SEOContent />
       <FAQ />
     </main>

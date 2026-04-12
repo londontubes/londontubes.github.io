@@ -24,6 +24,13 @@ const RIGHTMOVE_SEARCH_CONFIG = {
   includeLetAgreed: 'false',
 } as const
 
+const RENTAL_SEARCH_LIMITS = {
+  minBedrooms: '0',
+  maxBedrooms: '2',
+  maxPrice: '2000',
+  radius: '0.5',
+} as const
+
 function sanitizeZooplaSearchLocation(value: string): string {
   return value.replace(/[\u2018\u2019]/g, '')
 }
@@ -95,13 +102,14 @@ export function buildZooplaStationUrl(station?: Station, fallbackName?: string):
     ?? (hasTubeLine ? 'tube' : isElizabeth && !isDlr ? 'rail' : isDlr ? 'dlr' : 'tube')
   const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/station/${stationType}/${slug}/`)
   const params = baseUrl.searchParams
-  params.set('beds_max', '2')
-  params.set('beds_min', '0')
+  params.set('beds_max', RENTAL_SEARCH_LIMITS.maxBedrooms)
+  params.set('beds_min', RENTAL_SEARCH_LIMITS.minBedrooms)
   params.set('is_retirement_home', 'false')
   params.set('is_shared_accommodation', 'false')
+  params.set('price_max', RENTAL_SEARCH_LIMITS.maxPrice)
   params.set('price_frequency', 'per_month')
   params.set('q', `${baseSearchLocation}, London`)
-  params.set('radius', '0.5')
+  params.set('radius', RENTAL_SEARCH_LIMITS.radius)
   params.set('search_source', 'to-rent')
   params.set('results_sort', 'lowest_price')
   params.set('pn', '1')

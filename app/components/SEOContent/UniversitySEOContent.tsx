@@ -3,16 +3,30 @@
 import type { MouseEvent } from 'react'
 import styles from './SEOContent.module.css'
 import { trackAmberClick } from '@/app/lib/analytics'
+import { withRevenueAttribution } from '@/app/lib/revenue'
 
 const AMBER_UCL_AFFILIATE_URL = process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL
 
+const trackedAmberUrl = AMBER_UCL_AFFILIATE_URL
+  ? withRevenueAttribution(AMBER_UCL_AFFILIATE_URL, {
+      partner: 'amber',
+      placement: 'universities-seo-amber',
+      intentSegment: 'student-housing',
+    })
+  : null
+
 function amberLinkProps(context: string) {
-  if (AMBER_UCL_AFFILIATE_URL) {
+  if (trackedAmberUrl) {
     return {
-      href: AMBER_UCL_AFFILIATE_URL,
+      href: trackedAmberUrl,
       target: '_blank' as const,
       rel: 'noopener noreferrer nofollow sponsored',
-      onClick: () => trackAmberClick(context),
+      onClick: () =>
+        trackAmberClick(context, {
+          placement: 'universities-seo-amber',
+          intentSegment: 'student-housing',
+          href: trackedAmberUrl,
+        }),
     }
   }
   return {
@@ -119,6 +133,17 @@ export function UniversitySEOContent() {
             to help you quickly see which tube stations and neighbourhoods make daily life at
             your London university practical and affordable.
           </p>
+
+          <div className={styles.cta}>
+            <h4>Prefer page-by-page housing guides?</h4>
+            <p>
+              Browse our student accommodation landing pages for university-specific commute advice,
+              property-search shortcuts, and faster access to high-intent housing tools.
+            </p>
+            <p>
+              <a href="/student-accommodation/">Open the student accommodation hub →</a>
+            </p>
+          </div>
 
           <div className={styles.cta}>
             <h4>Find Verified Student Rooms Near Your Campus</h4>

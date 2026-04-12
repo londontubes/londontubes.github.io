@@ -41,6 +41,7 @@ describe('propertySearch helpers', () => {
     expect(parsed.pathname).toBe('/to-rent/map/flats/station/tube/baker-street/')
     expect(parsed.searchParams.get('beds_min')).toBe('0')
     expect(parsed.searchParams.get('beds_max')).toBe('2')
+    expect(parsed.searchParams.get('price_max')).toBe('2000')
     expect(parsed.searchParams.get('price_frequency')).toBe('per_month')
     expect(parsed.searchParams.get('radius')).toBe('0.5')
     expect(parsed.searchParams.get('q')).toBe('Baker Street Station, London')

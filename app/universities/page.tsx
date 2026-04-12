@@ -10,6 +10,7 @@
 import UniversityExperience from '@/app/components/UniversityExperience/UniversityExperience'
 import { loadStaticTransitData } from '@/app/lib/data/load-static-data'
 import { FAQ } from '@/app/components/FAQ'
+import RevenueLaunchpad from '@/app/components/revenue/RevenueLaunchpad'
 import type { UniversitiesDataset } from '@/app/types/university'
 import type { Metadata } from 'next'
 import { UniversitySEOContent } from '@/app/components/SEOContent/UniversitySEOContent'
@@ -100,6 +101,11 @@ export default async function UniversitiesPage() {
       <UniversityExperience 
         transitDataset={transitDataset}
         universitiesDataset={universitiesDataset}
+      />
+      <RevenueLaunchpad
+        title="Move from university commute research into real accommodation options"
+        description="The pages below combine campus-specific commute advice with student-room and rental search shortcuts, so you can compare areas without starting your property search from zero."
+        placementPrefix="universities-launchpad"
       />
       <UniversitySEOContent />
       <FAQ />

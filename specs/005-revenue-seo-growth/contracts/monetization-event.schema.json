@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://londontubes.co.uk/schemas/monetization-event.schema.json",
+  "title": "RevenueMeasurementEvent",
+  "type": "object",
+  "required": [
+    "eventName",
+    "pagePath",
+    "intentSegment",
+    "surfaceId",
+    "partner",
+    "placement",
+    "ctaType",
+    "consentState"
+  ],
+  "properties": {
+    "eventName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pagePath": {
+      "type": "string",
+      "pattern": "^/.*"
+    },
+    "intentSegment": {
+      "type": "string",
+      "enum": ["housing", "student-accommodation", "commute", "travel-upgrade"]
+    },
+    "surfaceId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "partner": {
+      "type": "string",
+      "enum": ["adsense", "zoopla", "rightmove", "amber", "gyg"]
+    },
+    "placement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ctaType": {
+      "type": "string",
+      "enum": ["impression", "click", "lead"]
+    },
+    "estimatedValue": {
+      "type": "number",
+      "minimum": 0
+    },
+    "consentState": {
+      "type": "string",
+      "enum": ["granted", "denied", "unknown"]
+    }
+  },
+  "additionalProperties": false
+}
