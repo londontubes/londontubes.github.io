@@ -13,8 +13,13 @@
     },
     "HUBCAW": {
       "displayName": "Canary Wharf",
-      "coordinates": [-0.02025, 51.50489],
-      "reason": "Recentered the interchange on the station frontage using Canary Wharf station stop references"
+      "coordinates": [-0.021034, 51.504651],
+      "reason": "Projected the Canary Wharf station-stop centroid back onto the DLR alignment so the marker sits on the visible route geometry"
+    },
+    "HUBCUS": {
+      "displayName": "Custom House",
+      "coordinates": [0.025399, 51.509668],
+      "reason": "Moved the marker from the off-line TfL point onto the shared DLR and Elizabeth alignment using Custom House station stop references"
     },
     "940GZZLUERC": {
       "displayName": "Edgware Road (Circle Line)",

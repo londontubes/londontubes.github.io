@@ -65,6 +65,20 @@ const bondStreet: Station = {
   order: 0,
 }
 
+const liverpoolStreet: Station = {
+  stationId: 'HUBLST',
+  displayName: 'Liverpool Street',
+  position: {
+    type: 'Point',
+    coordinates: [-0.082965, 51.517338],
+  },
+  lineCodes: ['central', 'circle', 'elizabeth', 'hammersmith-city', 'metropolitan'],
+  isInterchange: true,
+  markerIcon: 'default',
+  tooltipSummary: 'Liverpool Street',
+  order: 0,
+}
+
 const hammersmith: Station = {
   stationId: 'HUBHMS',
   displayName: 'Hammersmith',
@@ -90,6 +104,34 @@ const westEaling: Station = {
   isInterchange: false,
   markerIcon: 'default',
   tooltipSummary: 'West Ealing Rail Station',
+  order: 0,
+}
+
+const ealingBroadway: Station = {
+  stationId: 'HUBEAL',
+  displayName: 'Ealing Broadway',
+  position: {
+    type: 'Point',
+    coordinates: [-0.302131, 51.514993],
+  },
+  lineCodes: ['central', 'district', 'elizabeth'],
+  isInterchange: true,
+  markerIcon: 'default',
+  tooltipSummary: 'Ealing Broadway',
+  order: 0,
+}
+
+const stratford: Station = {
+  stationId: 'HUBSRA',
+  displayName: 'Stratford',
+  position: {
+    type: 'Point',
+    coordinates: [-0.00399, 51.54199],
+  },
+  lineCodes: ['central', 'dlr', 'elizabeth', 'jubilee'],
+  isInterchange: true,
+  markerIcon: 'default',
+  tooltipSummary: 'Stratford',
   order: 0,
 }
 
@@ -204,6 +246,23 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('q')).toBe('West Ealing Rail Station, London')
   })
 
+  it('uses the specific Zoopla buy area for Ealing Broadway', () => {
+    const url = buildZooplaStationBuyUrl(ealingBroadway)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+    expect(parsed.pathname).toBe('/for-sale/map/property/london/the-broadway/ealing-broadway-centre/')
+    expect(parsed.searchParams.get('beds_min')).toBe('3')
+    expect(parsed.searchParams.get('price_max')).toBe('700000')
+    expect(parsed.searchParams.get('q')).toBe('Ealing Broadway, London')
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
+    expect(parsed.searchParams.get('search_source')).toBe('for-sale')
+    expect(parsed.searchParams.getAll('feature')).toEqual([])
+    expect(parsed.searchParams.getAll('property_sub_type')).toEqual([])
+    expect(parsed.searchParams.get('map_app')).toBeNull()
+  })
+
   it('builds a Rightmove URL for Charing Cross via the fallback override mapping', () => {
     const url = buildRightmoveStationUrl({
       ...regentsPark,
@@ -235,6 +294,28 @@ describe('propertySearch helpers', () => {
     const parsed = new URL(url!)
     expect(parsed.searchParams.get('locationIdentifier')).toBe('STATION^1166')
     expect(parsed.searchParams.get('displayLocationIdentifier')).toBe('Bond-Street-Station')
+  })
+
+  it('uses the corrected Rightmove station identifier for Liverpool Street', () => {
+    const rentUrl = buildRightmoveStationUrl(liverpoolStreet)
+    const buyUrl = buildRightmoveStationBuyUrl(liverpoolStreet)
+
+    expect(rentUrl).not.toBeNull()
+    expect(buyUrl).not.toBeNull()
+
+    expect(new URL(rentUrl!).searchParams.get('locationIdentifier')).toBe('STATION^5615')
+    expect(new URL(buyUrl!).searchParams.get('locationIdentifier')).toBe('STATION^5615')
+  })
+
+  it('uses the corrected Rightmove station identifier for Stratford', () => {
+    const rentUrl = buildRightmoveStationUrl(stratford)
+    const buyUrl = buildRightmoveStationBuyUrl(stratford)
+
+    expect(rentUrl).not.toBeNull()
+    expect(buyUrl).not.toBeNull()
+
+    expect(new URL(rentUrl!).searchParams.get('locationIdentifier')).toBe('STATION^8813')
+    expect(new URL(buyUrl!).searchParams.get('locationIdentifier')).toBe('STATION^8813')
   })
 
   it('returns both Rightmove station searches for Hammersmith', () => {

@@ -149,13 +149,23 @@ function sanitizeZooplaSearchLocation(value: string): string {
   return value.replace(/[\u2018\u2019]/g, '')
 }
 
-const ZOOPLA_SLUG_OVERRIDES: Record<string, { slug?: string; type?: 'tube' | 'rail' | 'dlr'; path?: string }> = {
+interface ZooplaOverride {
+  slug?: string
+  type?: 'tube' | 'rail' | 'dlr'
+  path?: string
+  buyPath?: string
+  buyRadius?: string
+  buyMode?: 'default' | 'minimal'
+}
+
+const ZOOPLA_SLUG_OVERRIDES: Record<string, ZooplaOverride> = {
   '910GBNHAM': { slug: 'burnham-bucks' },
   '910GWEALING': { slug: 'west-ealing', type: 'rail' },
   '910GWOLWXR': { slug: 'woolwich-arsenal', type: 'rail' },
   '940GZZDLCLA': { slug: 'crossharbour-and-london-arena' },
   '940GZZLUERC': { slug: 'edgware-road-circle' },
   'HUBCFO': { path: 'chalfont-st-giles' },
+  'HUBEAL': { buyPath: 'london/the-broadway/ealing-broadway-centre', buyRadius: '0.5', buyMode: 'minimal' },
   'HUBKGX': { slug: 'kings-cross-st-pancras' },
   'HUBH13': { slug: 'heathrow-terminals-1-2-3' },
   'HUBHX4': { slug: 'heathrow-terminal-4' },
@@ -230,7 +240,7 @@ function buildZooplaSearchLocation(station?: Station, fallbackName?: string) {
   }
 }
 
-function buildZooplaSlug(baseSearchLocation: string, override?: { slug?: string; type?: 'tube' | 'rail' | 'dlr'; path?: string }) {
+function buildZooplaSlug(baseSearchLocation: string, override?: ZooplaOverride) {
   const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
   return override?.slug ?? slugBase
     .replace(/&/g, 'and')
@@ -360,25 +370,29 @@ export function buildZooplaStationBuyUrl(station?: Station, fallbackName?: strin
 
   const { override, baseSearchLocation } = searchLocation
   const areaSearchLocation = baseSearchLocation.replace(/\s+Station$/i, '')
-  const slug = override?.path ?? buildZooplaSlug(baseSearchLocation, override)
+  const slug = override?.buyPath ?? override?.path ?? buildZooplaSlug(baseSearchLocation, override)
 
   const baseUrl = new URL(`https://www.zoopla.co.uk/for-sale/map/property/${slug}/`)
   const params = baseUrl.searchParams
   params.set('beds_min', ZOOPLA_BUY_SEARCH_LIMITS.minBedrooms)
-  ZOOPLA_BUY_SEARCH_LIMITS.features.forEach((feature) => {
-    params.append('feature', feature)
-  })
-  params.set('is_auction', 'false')
-  params.set('is_retirement_home', 'false')
-  params.set('is_shared_ownership', 'false')
   params.set('price_max', ZOOPLA_BUY_SEARCH_LIMITS.maxPrice)
-  ZOOPLA_BUY_SEARCH_LIMITS.propertySubTypes.forEach((propertyType) => {
-    params.append('property_sub_type', propertyType)
-  })
   params.set('q', `${areaSearchLocation}, London`)
-  params.set('radius', ZOOPLA_BUY_SEARCH_LIMITS.radius)
+  params.set('radius', override?.buyRadius ?? ZOOPLA_BUY_SEARCH_LIMITS.radius)
   params.set('search_source', 'for-sale')
-  params.set('map_app', 'true')
+
+  if (override?.buyMode !== 'minimal') {
+    ZOOPLA_BUY_SEARCH_LIMITS.features.forEach((feature) => {
+      params.append('feature', feature)
+    })
+    params.set('is_auction', 'false')
+    params.set('is_retirement_home', 'false')
+    params.set('is_shared_ownership', 'false')
+    ZOOPLA_BUY_SEARCH_LIMITS.propertySubTypes.forEach((propertyType) => {
+      params.append('property_sub_type', propertyType)
+    })
+    params.set('map_app', 'true')
+  }
+
   return baseUrl.toString()
 }
 
