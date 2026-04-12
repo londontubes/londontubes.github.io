@@ -134,6 +134,7 @@ export function buildRightmoveStationUrl(station?: Station, fallbackName?: strin
   const baseUrl = new URL('https://www.rightmove.co.uk/property-to-rent/map.html')
   const params = baseUrl.searchParams
   params.set('locationIdentifier', `STATION^${locationIdentifier}`)
+  params.set('displayLocationIdentifier', mappingEntry.displayLocationIdentifier)
   params.set('propertyTypes', RIGHTMOVE_SEARCH_CONFIG.propertyTypes)
   params.set('minBedrooms', RIGHTMOVE_SEARCH_CONFIG.minBedrooms)
   params.set('maxBedrooms', RIGHTMOVE_SEARCH_CONFIG.maxBedrooms)

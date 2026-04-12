@@ -56,10 +56,10 @@ describe('propertySearch helpers', () => {
     expect(url).not.toBeNull()
 
     const parsed = new URL(url!)
-
     expect(parsed.origin).toBe('https://www.rightmove.co.uk')
     expect(parsed.pathname).toBe('/property-to-rent/map.html')
     expect(parsed.searchParams.get('locationIdentifier')).toBe('STATION^488')
+    expect(parsed.searchParams.get('displayLocationIdentifier')).toBe('Baker-Street-Station')
     expect(parsed.searchParams.get('propertyTypes')).toBe('detached,semi-detached,terraced,flat,bungalow,private-halls')
     expect(parsed.searchParams.get('minBedrooms')).toBe('0')
     expect(parsed.searchParams.get('maxBedrooms')).toBe('2')
