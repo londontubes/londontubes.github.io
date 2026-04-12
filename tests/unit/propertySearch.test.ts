@@ -1,5 +1,12 @@
 import type { Station } from '@/app/types/transit'
-import { buildRightmoveStationUrl, buildRightmoveStationUrls, buildZooplaStationUrl } from '@/app/lib/map/propertySearch'
+import {
+  buildRightmoveStationBuyUrl,
+  buildRightmoveStationBuyUrls,
+  buildRightmoveStationUrl,
+  buildRightmoveStationUrls,
+  buildZooplaStationBuyUrl,
+  buildZooplaStationUrl,
+} from '@/app/lib/map/propertySearch'
 import stationsData from '@/public/data/stations.json'
 
 const bakerStreet: Station = {
@@ -133,6 +140,58 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('includeLetAgreed')).toBe('false')
   })
 
+  it('builds a Zoopla buy search URL with the expected filters', () => {
+    const url = buildZooplaStationBuyUrl(bakerStreet)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+    expect(parsed.origin).toBe('https://www.zoopla.co.uk')
+    expect(parsed.pathname).toBe('/for-sale/map/property/baker-street/')
+    expect(parsed.searchParams.get('beds_min')).toBe('3')
+    expect(parsed.searchParams.getAll('feature')).toEqual(['has_garden', 'has_parking_garage'])
+    expect(parsed.searchParams.get('is_auction')).toBe('false')
+    expect(parsed.searchParams.get('is_retirement_home')).toBe('false')
+    expect(parsed.searchParams.get('is_shared_ownership')).toBe('false')
+    expect(parsed.searchParams.get('price_max')).toBe('700000')
+    expect(parsed.searchParams.getAll('property_sub_type')).toEqual([
+      'terraced',
+      'bungalow',
+      'detached',
+      'semi_detached',
+      'farms_land',
+    ])
+    expect(parsed.searchParams.get('q')).toBe('Baker Street, London')
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
+    expect(parsed.searchParams.get('search_source')).toBe('for-sale')
+  })
+
+  it('builds a Rightmove buy search URL for mapped stations', () => {
+    const url = buildRightmoveStationBuyUrl(bakerStreet)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+    expect(parsed.origin).toBe('https://www.rightmove.co.uk')
+    expect(parsed.pathname).toBe('/property-for-sale/find.html')
+    expect(parsed.searchParams.get('locationIdentifier')).toBe('STATION^488')
+    expect(parsed.searchParams.get('displayLocationIdentifier')).toBe('Baker-Street-Station')
+    expect(parsed.searchParams.get('useLocationIdentifier')).toBe('true')
+    expect(parsed.searchParams.get('buy')).toBe('For sale')
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
+    expect(parsed.searchParams.get('maxPrice')).toBe('700000')
+    expect(parsed.searchParams.get('minBedrooms')).toBe('3')
+    expect(parsed.searchParams.get('_includeSSTC')).toBe('on')
+    expect(parsed.searchParams.get('propertyTypes')).toBe('detached,semi-detached,terraced,bungalow')
+    expect(parsed.searchParams.get('sortType')).toBe('2')
+    expect(parsed.searchParams.get('channel')).toBe('BUY')
+    expect(parsed.searchParams.get('transactionType')).toBe('BUY')
+    expect(parsed.searchParams.get('tenureTypes')).toBe('FREEHOLD')
+    expect(parsed.searchParams.get('index')).toBe('0')
+    expect(parsed.searchParams.get('mustHave')).toBe('garden,parking')
+    expect(parsed.searchParams.get('dontShow')).toBe('retirement,sharedOwnership,auction')
+  })
+
   it('uses the working Zoopla rail slug for West Ealing', () => {
     const url = buildZooplaStationUrl(westEaling)
 
@@ -194,6 +253,23 @@ describe('propertySearch helpers', () => {
     expect(second.searchParams.get('displayLocationIdentifier')).toBe('Hammersmith-(Hammersmith-&-City)-Station')
   })
 
+  it('returns both Rightmove buy searches for Hammersmith', () => {
+    const urls = buildRightmoveStationBuyUrls(hammersmith)
+
+    expect(urls).toHaveLength(2)
+    expect(urls.map((item) => item.label)).toEqual([
+      'Rightmove buy: Hammersmith District & Piccadilly',
+      'Rightmove buy: Hammersmith Hammersmith & City',
+    ])
+
+    const first = new URL(urls[0].url)
+    const second = new URL(urls[1].url)
+
+    expect(first.pathname).toBe('/property-for-sale/find.html')
+    expect(first.searchParams.get('locationIdentifier')).toBe('STATION^4172')
+    expect(second.searchParams.get('locationIdentifier')).toBe('STATION^4175')
+  })
+
   it('keeps the single Rightmove helper backward compatible for Hammersmith', () => {
     const url = buildRightmoveStationUrl(hammersmith)
 
@@ -205,8 +281,12 @@ describe('propertySearch helpers', () => {
     const stations = (Array.isArray(stationsData) ? stationsData : stationsData.stations) as Station[]
     const missingZoopla = stations.filter((station) => !buildZooplaStationUrl(station))
     const missingRightmove = stations.filter((station) => buildRightmoveStationUrls(station).length === 0)
+    const missingZooplaBuy = stations.filter((station) => !buildZooplaStationBuyUrl(station))
+    const missingRightmoveBuy = stations.filter((station) => buildRightmoveStationBuyUrls(station).length === 0)
 
     expect(missingZoopla).toEqual([])
     expect(missingRightmove).toEqual([])
+    expect(missingZooplaBuy).toEqual([])
+    expect(missingRightmoveBuy).toEqual([])
   })
 })

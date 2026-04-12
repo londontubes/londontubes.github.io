@@ -20,6 +20,11 @@ interface RightmoveOverrideOption {
   label?: string
 }
 
+interface RightmoveSearchConfig {
+  baseUrl: string
+  params: Record<string, string>
+}
+
 const RIGHTMOVE_STATION_LINK_OVERRIDES: Record<string, RightmoveOverrideOption[]> = {
   HUBCHX: [{ locationIdentifier: '1940', displayName: 'Charing Cross Station' }],
   HUBEPH: [{ locationIdentifier: '3197', displayName: 'Elephant & Castle Station' }],
@@ -84,7 +89,9 @@ const RIGHTMOVE_STATION_LINK_OVERRIDES: Record<string, RightmoveOverrideOption[]
   HUBHHY: [{ locationIdentifier: '4583', displayName: 'Highbury & Islington Station' }],
 }
 
-const RIGHTMOVE_SEARCH_CONFIG = {
+const RIGHTMOVE_RENT_SEARCH_CONFIG: RightmoveSearchConfig = {
+  baseUrl: 'https://www.rightmove.co.uk/property-to-rent/map.html',
+  params: {
   propertyTypes: 'detached,semi-detached,terraced,flat,bungalow,private-halls',
   minBedrooms: '0',
   maxBedrooms: '2',
@@ -98,14 +105,43 @@ const RIGHTMOVE_SEARCH_CONFIG = {
   numberOfPropertiesPerPage: '95',
   includeLetAgreed: 'false',
   dontShow: 'houseShare,retirement',
+  },
 } as const
 
-const RENTAL_SEARCH_LIMITS = {
+const RIGHTMOVE_BUY_SEARCH_CONFIG: RightmoveSearchConfig = {
+  baseUrl: 'https://www.rightmove.co.uk/property-for-sale/find.html',
+  params: {
+    useLocationIdentifier: 'true',
+    buy: 'For sale',
+    radius: '0.5',
+    maxPrice: '700000',
+    minBedrooms: '3',
+    _includeSSTC: 'on',
+    propertyTypes: 'detached,semi-detached,terraced,bungalow',
+    sortType: '2',
+    channel: 'BUY',
+    transactionType: 'BUY',
+    tenureTypes: 'FREEHOLD',
+    index: '0',
+    mustHave: 'garden,parking',
+    dontShow: 'retirement,sharedOwnership,auction',
+  },
+} as const
+
+const ZOOPLA_RENT_SEARCH_LIMITS = {
   minBedrooms: '0',
   maxBedrooms: '2',
   maxPrice: '2000',
   radius: '0.5',
   zooplaPropertySubType: 'detached,semi-detached,terraced,flat,bungalow',
+} as const
+
+const ZOOPLA_BUY_SEARCH_LIMITS = {
+  minBedrooms: '3',
+  maxPrice: '700000',
+  radius: '0.5',
+  propertySubTypes: ['terraced', 'bungalow', 'detached', 'semi_detached', 'farms_land'] as const,
+  features: ['has_garden', 'has_parking_garage'] as const,
 } as const
 
 function sanitizeZooplaSearchLocation(value: string): string {
@@ -145,31 +181,61 @@ function toRightmoveDisplayLocationIdentifier(displayName: string): string {
   return displayName.replace(/\s+/g, '-')
 }
 
+function toRightmoveBuyLabel(label?: string): string {
+  if (!label) return 'Rightmove buy search'
+  if (label.startsWith('Rightmove:')) {
+    return label.replace(/^Rightmove:/, 'Rightmove buy:')
+  }
+
+  return `Rightmove buy: ${label}`
+}
+
 function buildRightmoveUrlFromMapping(
   locationIdentifier: string,
-  displayLocationIdentifier: string
+  displayLocationIdentifier: string,
+  searchConfig: RightmoveSearchConfig
 ): string | null {
   const normalizedLocationIdentifier = normalizeRightmoveLocationIdentifier(locationIdentifier)
   if (!normalizedLocationIdentifier) return null
 
-  const baseUrl = new URL('https://www.rightmove.co.uk/property-to-rent/map.html')
+  const baseUrl = new URL(searchConfig.baseUrl)
   const params = baseUrl.searchParams
   params.set('locationIdentifier', `STATION^${normalizedLocationIdentifier}`)
   params.set('displayLocationIdentifier', displayLocationIdentifier)
-  params.set('propertyTypes', RIGHTMOVE_SEARCH_CONFIG.propertyTypes)
-  params.set('minBedrooms', RIGHTMOVE_SEARCH_CONFIG.minBedrooms)
-  params.set('maxBedrooms', RIGHTMOVE_SEARCH_CONFIG.maxBedrooms)
-  params.set('maxPrice', RIGHTMOVE_SEARCH_CONFIG.maxPrice)
-  params.set('radius', RIGHTMOVE_SEARCH_CONFIG.radius)
-  params.set('sortType', RIGHTMOVE_SEARCH_CONFIG.sortType)
-  params.set('areaSizeUnit', RIGHTMOVE_SEARCH_CONFIG.areaSizeUnit)
-  params.set('viewType', RIGHTMOVE_SEARCH_CONFIG.viewType)
-  params.set('channel', RIGHTMOVE_SEARCH_CONFIG.channel)
-  params.set('dontShow', RIGHTMOVE_SEARCH_CONFIG.dontShow)
-  params.set('index', RIGHTMOVE_SEARCH_CONFIG.index)
-  params.set('numberOfPropertiesPerPage', RIGHTMOVE_SEARCH_CONFIG.numberOfPropertiesPerPage)
-  params.set('includeLetAgreed', RIGHTMOVE_SEARCH_CONFIG.includeLetAgreed)
+  Object.entries(searchConfig.params).forEach(([key, value]) => {
+    params.set(key, value)
+  })
   return baseUrl.toString()
+}
+
+function buildZooplaSearchLocation(station?: Station, fallbackName?: string) {
+  const rawName = station?.displayName || fallbackName
+  if (!rawName) return null
+
+  const override = station ? ZOOPLA_SLUG_OVERRIDES[station.stationId] : undefined
+  const cleanedName = normalizeStationSearchLocation(rawName)
+  const mappingEntry = station ? RIGHTMOVE_STATION_MAP[station.stationId] : undefined
+  let baseSearchLocation = mappingEntry?.searchLocation || cleanedName
+
+  if (!/\bStation$/i.test(baseSearchLocation)) {
+    baseSearchLocation = `${baseSearchLocation} Station`
+  }
+
+  baseSearchLocation = sanitizeZooplaSearchLocation(baseSearchLocation)
+
+  return {
+    override,
+    baseSearchLocation,
+  }
+}
+
+function buildZooplaSlug(baseSearchLocation: string, override?: { slug?: string; type?: 'tube' | 'rail' | 'dlr'; path?: string }) {
+  const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
+  return override?.slug ?? slugBase
+    .replace(/&/g, 'and')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 export function getRightmoveStationEntry(stationId?: string | null): RightmoveStationTemplateEntry | null {
@@ -189,7 +255,8 @@ export function buildRightmoveStationUrls(station?: Station, fallbackName?: stri
         .map((override) => {
           const url = buildRightmoveUrlFromMapping(
             override.locationIdentifier,
-            toRightmoveDisplayLocationIdentifier(override.displayName)
+            toRightmoveDisplayLocationIdentifier(override.displayName),
+            RIGHTMOVE_RENT_SEARCH_CONFIG
           )
           return url
             ? { label: override.label ?? 'Rightmove rental search', url }
@@ -203,38 +270,65 @@ export function buildRightmoveStationUrls(station?: Station, fallbackName?: stri
   if (mappingEntry?.matchStatus && mappingEntry.matchStatus !== 'matched') return []
   if (!mappingEntry?.locationIdentifier) return []
 
-  const url = buildRightmoveUrlFromMapping(mappingEntry.locationIdentifier, mappingEntry.displayLocationIdentifier)
+  const url = buildRightmoveUrlFromMapping(
+    mappingEntry.locationIdentifier,
+    mappingEntry.displayLocationIdentifier,
+    RIGHTMOVE_RENT_SEARCH_CONFIG
+  )
   if (!url) return []
 
   return [{ label: 'Rightmove rental search', url }]
 }
 
-export function buildZooplaStationUrl(station?: Station, fallbackName?: string): string | null {
+export function buildRightmoveStationBuyUrls(station?: Station, fallbackName?: string): RightmoveStationLink[] {
   const rawName = station?.displayName || fallbackName
-  if (!rawName) return null
+  if (!rawName) return []
 
-  const override = station ? ZOOPLA_SLUG_OVERRIDES[station.stationId] : undefined
-  const cleanedName = normalizeStationSearchLocation(rawName)
-  const mappingEntry = station ? RIGHTMOVE_STATION_MAP[station.stationId] : undefined
-  let baseSearchLocation = mappingEntry?.searchLocation || cleanedName
-
-  if (!/\bStation$/i.test(baseSearchLocation)) {
-    baseSearchLocation = `${baseSearchLocation} Station`
+  const stationId = station?.stationId
+  if (stationId) {
+    const overrideLinks = RIGHTMOVE_STATION_LINK_OVERRIDES[stationId]
+    if (overrideLinks) {
+      return overrideLinks
+        .map((override) => {
+          const url = buildRightmoveUrlFromMapping(
+            override.locationIdentifier,
+            toRightmoveDisplayLocationIdentifier(override.displayName),
+            RIGHTMOVE_BUY_SEARCH_CONFIG
+          )
+          return url
+            ? { label: toRightmoveBuyLabel(override.label), url }
+            : null
+        })
+        .filter((link): link is RightmoveStationLink => link !== null)
+    }
   }
 
-  baseSearchLocation = sanitizeZooplaSearchLocation(baseSearchLocation)
+  const mappingEntry = station ? RIGHTMOVE_STATION_MAP[station.stationId] : undefined
+  if (mappingEntry?.matchStatus && mappingEntry.matchStatus !== 'matched') return []
+  if (!mappingEntry?.locationIdentifier) return []
+
+  const url = buildRightmoveUrlFromMapping(
+    mappingEntry.locationIdentifier,
+    mappingEntry.displayLocationIdentifier,
+    RIGHTMOVE_BUY_SEARCH_CONFIG
+  )
+  if (!url) return []
+
+  return [{ label: 'Rightmove buy search', url }]
+}
+
+export function buildZooplaStationUrl(station?: Station, fallbackName?: string): string | null {
+  const searchLocation = buildZooplaSearchLocation(station, fallbackName)
+  if (!searchLocation) return null
+
+  const { override, baseSearchLocation } = searchLocation
 
   if (override?.path) {
     const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/flats/${override.path}/`)
     return baseUrl.toString()
   }
 
-  const slugBase = baseSearchLocation.replace(/\s+Station$/i, '')
-  const slug = override?.slug ?? slugBase
-    .replace(/&/g, 'and')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
+  const slug = buildZooplaSlug(baseSearchLocation, override)
 
   const hasTubeLine = station?.lineCodes.some(code => code !== 'dlr' && code !== 'elizabeth')
   const isDlr = station?.lineCodes.includes('dlr')
@@ -243,15 +337,15 @@ export function buildZooplaStationUrl(station?: Station, fallbackName?: string):
     ?? (hasTubeLine ? 'tube' : isElizabeth && !isDlr ? 'rail' : isDlr ? 'dlr' : 'tube')
   const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/property/station/${stationType}/${slug}/`)
   const params = baseUrl.searchParams
-  params.set('beds_max', RENTAL_SEARCH_LIMITS.maxBedrooms)
-  params.set('beds_min', RENTAL_SEARCH_LIMITS.minBedrooms)
+  params.set('beds_max', ZOOPLA_RENT_SEARCH_LIMITS.maxBedrooms)
+  params.set('beds_min', ZOOPLA_RENT_SEARCH_LIMITS.minBedrooms)
   params.set('is_retirement_home', 'false')
   params.set('is_shared_accommodation', 'false')
-  params.set('property_sub_type', RENTAL_SEARCH_LIMITS.zooplaPropertySubType)
-  params.set('price_max', RENTAL_SEARCH_LIMITS.maxPrice)
+  params.set('property_sub_type', ZOOPLA_RENT_SEARCH_LIMITS.zooplaPropertySubType)
+  params.set('price_max', ZOOPLA_RENT_SEARCH_LIMITS.maxPrice)
   params.set('price_frequency', 'per_month')
   params.set('q', `${baseSearchLocation}, London`)
-  params.set('radius', RENTAL_SEARCH_LIMITS.radius)
+  params.set('radius', ZOOPLA_RENT_SEARCH_LIMITS.radius)
   params.set('search_source', 'to-rent')
   params.set('results_sort', 'lowest_price')
   params.set('pn', '1')
@@ -259,6 +353,37 @@ export function buildZooplaStationUrl(station?: Station, fallbackName?: string):
   return baseUrl.toString()
 }
 
+export function buildZooplaStationBuyUrl(station?: Station, fallbackName?: string): string | null {
+  const searchLocation = buildZooplaSearchLocation(station, fallbackName)
+  if (!searchLocation) return null
+
+  const { override, baseSearchLocation } = searchLocation
+  const areaSearchLocation = baseSearchLocation.replace(/\s+Station$/i, '')
+  const slug = override?.path ?? buildZooplaSlug(baseSearchLocation, override)
+
+  const baseUrl = new URL(`https://www.zoopla.co.uk/for-sale/map/property/${slug}/`)
+  const params = baseUrl.searchParams
+  params.set('beds_min', ZOOPLA_BUY_SEARCH_LIMITS.minBedrooms)
+  ZOOPLA_BUY_SEARCH_LIMITS.features.forEach((feature) => {
+    params.append('feature', feature)
+  })
+  params.set('is_auction', 'false')
+  params.set('is_retirement_home', 'false')
+  params.set('is_shared_ownership', 'false')
+  params.set('price_max', ZOOPLA_BUY_SEARCH_LIMITS.maxPrice)
+  ZOOPLA_BUY_SEARCH_LIMITS.propertySubTypes.forEach((propertyType) => {
+    params.append('property_sub_type', propertyType)
+  })
+  params.set('q', `${areaSearchLocation}, London`)
+  params.set('radius', ZOOPLA_BUY_SEARCH_LIMITS.radius)
+  params.set('search_source', 'for-sale')
+  return baseUrl.toString()
+}
+
 export function buildRightmoveStationUrl(station?: Station, fallbackName?: string): string | null {
   return buildRightmoveStationUrls(station, fallbackName)[0]?.url ?? null
+}
+
+export function buildRightmoveStationBuyUrl(station?: Station, fallbackName?: string): string | null {
+  return buildRightmoveStationBuyUrls(station, fallbackName)[0]?.url ?? null
 }
