@@ -326,6 +326,9 @@ export default function BusMapCanvas({
                 .map((stopId) => stopLookup.get(stopId)?.displayName ?? stopId)
                 .join(' -> ')
             : null
+          const reachableSummaryLabel = reachableDetail
+            ? `${reachableDetail.minutes} min from ${pathLabel ?? originStop?.displayName ?? stop.displayName}${viaLabel ? ` via ${viaLabel}` : ''}`
+            : null
           const fillColor = isTimeMode
             ? isSelected
               ? '#FACC15'
@@ -399,9 +402,7 @@ export default function BusMapCanvas({
                     )}
                     {isReachableStop && originStop && reachableDetail ? (
                       <>
-                        <p>{reachableDetail.minutes} min from {originStop.displayName}</p>
-                        {viaLabel ? <p>{viaLabel}</p> : null}
-                        {pathLabel ? <p>{pathLabel}</p> : null}
+                        {reachableSummaryLabel ? <p>{reachableSummaryLabel}</p> : null}
                       </>
                     ) : null}
                     {servedRouteLabels.length > 0 ? <p>Routes: {servedRouteLabels.join(', ')}</p> : null}
