@@ -14,6 +14,12 @@ export interface RightmoveStationLink {
   url: string
 }
 
+export interface RightmoveStationTarget {
+  label: string
+  locationIdentifier: string
+  displayLocationIdentifier: string
+}
+
 interface RightmoveOverrideOption {
   locationIdentifier: string
   displayName: string
@@ -373,6 +379,30 @@ function buildZooplaSlug(baseSearchLocation: string, override?: ZooplaOverride) 
 export function getRightmoveStationEntry(stationId?: string | null): RightmoveStationTemplateEntry | null {
   if (!stationId) return null
   return RIGHTMOVE_STATION_MAP[stationId] ?? null
+}
+
+export function getRightmoveStationTargets(stationId?: string | null): RightmoveStationTarget[] {
+  if (!stationId) return []
+
+  const overrideLinks = RIGHTMOVE_STATION_LINK_OVERRIDES[stationId]
+  if (overrideLinks) {
+    return overrideLinks.map((override) => ({
+      label: override.label ?? override.displayName,
+      locationIdentifier: override.locationIdentifier,
+      displayLocationIdentifier: toRightmoveDisplayLocationIdentifier(override.displayName),
+    }))
+  }
+
+  const mappingEntry = RIGHTMOVE_STATION_MAP[stationId]
+  if (!mappingEntry?.locationIdentifier || (mappingEntry.matchStatus && mappingEntry.matchStatus !== 'matched')) {
+    return []
+  }
+
+  return [{
+    label: mappingEntry.displayName ?? mappingEntry.searchLocation,
+    locationIdentifier: mappingEntry.locationIdentifier,
+    displayLocationIdentifier: mappingEntry.displayLocationIdentifier,
+  }]
 }
 
 export function buildRightmoveStationUrls(station?: Station, fallbackName?: string): RightmoveStationLink[] {

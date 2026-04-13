@@ -20,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/property/`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
       url: `${baseUrl}/bus/`,
       lastModified,
       changeFrequency: 'weekly',

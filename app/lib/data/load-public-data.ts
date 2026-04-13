@@ -4,10 +4,12 @@ import type {
   Station,
   TransitMetadata,
 } from '@/app/types/transit'
+import type { StationPropertyDataset } from '@/app/types/property'
 import type { UniversitiesDataset } from '@/app/types/university'
 
 let transitDatasetPromise: Promise<TransitDataset> | null = null
 let universitiesDatasetPromise: Promise<UniversitiesDataset> | null = null
+let stationPropertyDatasetPromise: Promise<StationPropertyDataset> | null = null
 
 async function fetchJson<T>(url: string): Promise<T> {
   const response = await fetch(url)
@@ -67,4 +69,15 @@ export async function loadPublicUniversitiesData(): Promise<UniversitiesDataset>
   }
 
   return universitiesDatasetPromise
+}
+
+export async function loadPublicStationPropertyData(): Promise<StationPropertyDataset> {
+  if (!stationPropertyDatasetPromise) {
+    stationPropertyDatasetPromise = fetchJson<StationPropertyDataset>('/data/station-property-prices.json').catch((error) => {
+      stationPropertyDatasetPromise = null
+      throw error
+    })
+  }
+
+  return stationPropertyDatasetPromise
 }

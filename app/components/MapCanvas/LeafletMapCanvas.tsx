@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import type { MutableRefObject } from 'react'
+import type { MutableRefObject, ReactNode } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker, Tooltip } from 'react-leaflet'
 import { trackStationSelect, trackMapZoom, trackZooplaClick, trackRightmoveClick, trackAmberClick } from '@/app/lib/analytics'
 import L from 'leaflet'
@@ -54,6 +54,7 @@ export interface MapCanvasProps {
   campusCoordinates?: [number, number] // [lng, lat] of selected campus
   purpleStationIds?: string[] // multi-source tube-time reachable (layered over walk mode)
   purpleReachInfo?: Record<string, { originStationId: string; minutes: number }>
+  renderStationCardContent?: (station: Station) => ReactNode
 }
 
 // Helper functions
@@ -473,6 +474,7 @@ function StationMarkers({
   selectedStationVisible,
   selectedUniversityId,
   universityDisplayName,
+  renderStationCardContent,
 }: {
   stations: Station[]
   activeSet: Set<string> | null
@@ -489,6 +491,7 @@ function StationMarkers({
   selectedStationVisible: boolean
   selectedUniversityId?: string | null
   universityDisplayName?: string
+  renderStationCardContent?: (station: Station) => ReactNode
 }) {
   const map = useMap()
   const [zoomLevel, setZoomLevel] = useState(map.getZoom())
@@ -606,24 +609,29 @@ function StationMarkers({
         const amberUrl = universityMode && selectedUniversityId
           ? AMBER_URLS[selectedUniversityId]
           : undefined
-        const renderStationCard = (includePurpleDetails: boolean) => (
-          <StationCardContent
-            station={station}
-            lineLabels={lineLabels}
-            lineColorMap={lineColorMap}
-            includePurpleDetails={includePurpleDetails}
-            isPurple={isPurple}
-            purpleReachInfo={purpleReachInfo}
-            selectedStation={selectedStation}
-            showHoverJourney={!!selectedStation && selectedStationVisible && selectedStation.stationId !== station.stationId}
-            lines={lines}
-            stations={stations}
-            journeyCache={journeyCache}
-            amberUrl={amberUrl}
-            universityName={universityDisplayName}
-          />
-        )
+        const renderStationCard = (includePurpleDetails: boolean) => {
+          if (renderStationCardContent) {
+            return renderStationCardContent(station)
+          }
 
+          return (
+            <StationCardContent
+              station={station}
+              lineLabels={lineLabels}
+              lineColorMap={lineColorMap}
+              includePurpleDetails={includePurpleDetails}
+              isPurple={isPurple}
+              purpleReachInfo={purpleReachInfo}
+              selectedStation={selectedStation}
+              showHoverJourney={!!selectedStation && selectedStationVisible && selectedStation.stationId !== station.stationId}
+              lines={lines}
+              stations={stations}
+              journeyCache={journeyCache}
+              amberUrl={amberUrl}
+              universityName={universityDisplayName}
+            />
+          )
+        }
         return (
           <Marker
             key={station.stationId}
@@ -780,6 +788,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
     campusCoordinates,
     filterMode,
     purpleStationIds = [],
+    renderStationCardContent,
   } = props
 
   const mapRef = useRef<L.Map | null>(null)
@@ -1297,6 +1306,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
                 ? universities?.features.find(f => f.properties.universityId === selectedUniversityId)?.properties.displayName
                 : undefined
             }
+            renderStationCardContent={renderStationCardContent}
           />
         )}
 

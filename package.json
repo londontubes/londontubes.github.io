@@ -15,6 +15,7 @@
     "verify:tube-times": "tsx scripts/verify-static-tube-times.ts",
     "audit:accessibility": "lighthouse-ci autorun",
     "data:refresh": "tsx scripts/data/fetch-tfl.ts && tsx scripts/data/transform.ts",
+    "data:property-prices": "tsx scripts/generate-station-property-prices.ts",
     "data:validate": "tsx scripts/data/validate.ts"
   },
   "dependencies": {
