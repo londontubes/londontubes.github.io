@@ -2,7 +2,7 @@ export interface StationPropertySummary {
   stationId: string
   stationName: string
   medianRentPcm: number | null
-  averageSalePrice: number | null
+  medianSalePrice: number | null
   rentListingCount: number
   saleListingCount: number
   source: 'rightmove'

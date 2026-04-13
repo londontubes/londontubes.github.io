@@ -119,7 +119,7 @@ const RIGHTMOVE_BUY_SEARCH_CONFIG: RightmoveSearchConfig = {
   params: {
     useLocationIdentifier: 'true',
     buy: 'For sale',
-    radius: '1.0',
+    radius: '0.5',
     maxPrice: '700000',
     minBedrooms: '3',
     _includeSSTC: 'on',
@@ -146,7 +146,7 @@ const ZOOPLA_RENT_SEARCH_LIMITS = {
 const ZOOPLA_BUY_SEARCH_LIMITS = {
   minBedrooms: '3',
   maxPrice: '700000',
-  radius: '1',
+  radius: '0.5',
   propertySubTypes: ['terraced', 'bungalow', 'detached', 'semi_detached', 'farms_land'] as const,
   features: ['has_garden', 'has_parking_garage'] as const,
 } as const
@@ -160,6 +160,7 @@ interface ZooplaOverride {
   type?: 'tube' | 'rail' | 'dlr'
   path?: string
   buyPath?: string
+  buySearchLocation?: string
   buyRadius?: string
   buyMode?: 'default' | 'minimal'
 }
@@ -171,9 +172,10 @@ const ZOOPLA_SLUG_OVERRIDES: Record<string, ZooplaOverride> = {
   '910GWOLWXR': { slug: 'woolwich-arsenal', type: 'rail' },
   '940GZZDLCLA': { slug: 'crossharbour-and-london-arena' },
   '940GZZLUERC': { slug: 'edgware-road-circle' },
+  '940GZZLUESQ': { buyPath: 'fitzrovia', buySearchLocation: 'Fitzrovia', buyMode: 'minimal' },
   'HUBCFO': { path: 'chalfont-st-giles' },
   'HUBEAL': { buyPath: 'london/the-broadway/ealing-broadway-centre', buyRadius: '0.5', buyMode: 'minimal' },
-  'HUBKGX': { slug: 'kings-cross-st-pancras' },
+  'HUBKGX': { slug: 'kings-cross-st-pancras', buyPath: 'london/kings-cross', buySearchLocation: 'Kings Cross' },
   'HUBH13': { slug: 'heathrow-terminals-1-2-3' },
   'HUBHX4': { slug: 'heathrow-terminal-4' },
   'HUBHX5': { slug: 'heathrow-terminal-4' },
@@ -190,42 +192,7 @@ interface PropertySearchRadiusOverride {
 const PROPERTY_SEARCH_RADIUS_OVERRIDES: Record<string, PropertySearchRadiusOverride> = {
   '940GZZLUTHB': { rent: '1' },
   '940GZZLUHNX': { rent: '1' },
-  '940GZZLUMPK': { rent: '1', buy: '3' },
-  '940GZZLUAGL': { buy: '3' },
-  '940GZZLUBBN': { buy: '3' },
-  '940GZZLUBOR': { buy: '3' },
-  '940GZZLUBSC': { buy: '3' },
-  '940GZZLUBST': { buy: '3' },
-  '940GZZLUBWT': { buy: '3' },
-  '940GZZLUBZP': { buy: '3' },
-  '940GZZLUCFM': { buy: '3' },
-  '940GZZLUCGN': { buy: '3' },
-  '940GZZLUCHL': { buy: '3' },
-  '940GZZLUCTN': { buy: '3' },
-  '940GZZLUCWP': { buy: '3' },
-  '940GZZLUECT': { buy: '3' },
-  '940GZZLUEMB': { buy: '3' },
-  '940GZZLUERB': { buy: '3' },
-  '940GZZLUERC': { buy: '3' },
-  '940GZZLUESQ': { buy: '3' },
-  '940GZZLUFBY': { buy: '3' },
-  '940GZZLUGDG': { buy: '3' },
-  '940GZZLUGPK': { buy: '3' },
-  '940GZZLUGPS': { buy: '3' },
-  '940GZZLUGTR': { buy: '3' },
-  '940GZZLUHBN': { buy: '3' },
-  '940GZZLUHGT': { buy: '3' },
-  '940GZZLUHPC': { buy: '3' },
-  '940GZZLUHPK': { buy: '3' },
-  '940GZZLUHSK': { buy: '3' },
-  '940GZZLUHTD': { buy: '3' },
-  '940GZZLUKNB': { buy: '3' },
-  '940GZZLUKNG': { buy: '3' },
-  '940GZZLULBN': { buy: '3' },
-  '940GZZLULGT': { buy: '3' },
-  '940GZZLULSQ': { buy: '3' },
-  '940GZZLUMBA': { buy: '3' },
-  '940GZZLUMMT': { buy: '3' },
+  '940GZZLUMPK': { rent: '1' },
   '940GZZLUMRH': { buy: '3' },
   '940GZZLUMSH': { buy: '3' },
   '940GZZLUMTC': { buy: '3' },
@@ -316,12 +283,12 @@ function toRightmoveDisplayLocationIdentifier(displayName: string): string {
 }
 
 function toRightmoveBuyLabel(label?: string): string {
-  if (!label) return 'Rightmove buy search'
+  if (!label) return 'Rightmove'
   if (label.startsWith('Rightmove:')) {
-    return label.replace(/^Rightmove:/, 'Rightmove buy:')
+    return label
   }
 
-  return `Rightmove buy: ${label}`
+  return `Rightmove: ${label}`
 }
 
 function buildRightmoveUrlFromMapping(
@@ -426,7 +393,7 @@ export function buildRightmoveStationUrls(station?: Station, fallbackName?: stri
             radius
           )
           return url
-            ? { label: override.label ?? 'Rightmove rental search', url }
+            ? { label: override.label ?? 'Rightmove', url }
             : null
         })
         .filter((link): link is RightmoveStationLink => link !== null)
@@ -445,7 +412,7 @@ export function buildRightmoveStationUrls(station?: Station, fallbackName?: stri
   )
   if (!url) return []
 
-  return [{ label: 'Rightmove rental search', url }]
+  return [{ label: 'Rightmove', url }]
 }
 
 export function buildRightmoveStationBuyUrls(station?: Station, fallbackName?: string): RightmoveStationLink[] {
@@ -488,7 +455,7 @@ export function buildRightmoveStationBuyUrls(station?: Station, fallbackName?: s
   )
   if (!url) return []
 
-  return [{ label: 'Rightmove buy search', url }]
+  return [{ label: 'Rightmove', url }]
 }
 
 export function buildZooplaStationUrl(station?: Station, fallbackName?: string): string | null {
@@ -532,10 +499,11 @@ export function buildZooplaStationBuyUrl(station?: Station, fallbackName?: strin
   if (!searchLocation) return null
 
   const { override, baseSearchLocation } = searchLocation
-  const areaSearchLocation = baseSearchLocation
-    .replace(/\s+Station$/i, '')
-    .replace(/\s+(Rail|Underground|DLR)$/i, '')
-    .trim()
+  const areaSearchLocation = override?.buySearchLocation
+    ?? baseSearchLocation
+      .replace(/\s+Station$/i, '')
+      .replace(/\s+(Rail|Underground|DLR)$/i, '')
+      .trim()
   const slug = override?.buyPath ?? override?.path ?? buildZooplaSlug(baseSearchLocation, override)
 
   const baseUrl = new URL(`https://www.zoopla.co.uk/for-sale/map/property/${slug}/`)

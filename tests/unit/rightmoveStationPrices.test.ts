@@ -38,8 +38,23 @@ describe('rightmoveStationPrices helpers', () => {
     const summary = buildStationPropertySummary('ABC', 'Example Station', [], saleSamples)
 
     expect(summary.medianRentPcm).toBeNull()
-    expect(summary.averageSalePrice).toBe(687500)
+    expect(summary.medianSalePrice).toBe(687500)
     expect(summary.saleListingCount).toBe(2)
+  })
+
+  it('calculates the median sale sample price', () => {
+    expect(calculateMedianPrice([
+      { listingId: 'a', normalizedPrice: 550000 },
+      { listingId: 'b', normalizedPrice: 675000 },
+      { listingId: 'c', normalizedPrice: 825000 },
+    ])).toBe(675000)
+
+    expect(calculateMedianPrice([
+      { listingId: 'a', normalizedPrice: 500000 },
+      { listingId: 'b', normalizedPrice: 600000 },
+      { listingId: 'c', normalizedPrice: 700000 },
+      { listingId: 'd', normalizedPrice: 900000 },
+    ])).toBe(650000)
   })
 
   it('calculates the median rental sample price', () => {

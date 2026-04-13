@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-13T20:25:20.176Z",
+  "generatedAt": "2026-04-13T21:38:16.751Z",
   "radiusMiles": 0.5,
   "source": {
     "provider": "Rightmove",
@@ -10,7 +10,7 @@
       "stationId": "940GZZLUBST",
       "stationName": "Baker Street Underground Station",
       "medianRentPcm": 1733,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 48,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -19,7 +19,7 @@
       "stationId": "940GZZLUEMB",
       "stationName": "Embankment Underground Station",
       "medianRentPcm": 1875,
-      "averageSalePrice": 683750,
+      "medianSalePrice": 697500,
       "rentListingCount": 6,
       "saleListingCount": 8,
       "source": "rightmove"
@@ -28,7 +28,7 @@
       "stationId": "940GZZLUERB",
       "stationName": "Edgware Road (Bakerloo) Underground Station",
       "medianRentPcm": 1733,
-      "averageSalePrice": 625000,
+      "medianSalePrice": 625000,
       "rentListingCount": 63,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -37,7 +37,7 @@
       "stationId": "940GZZLUKPK",
       "stationName": "Kilburn Park Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 41,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -46,7 +46,7 @@
       "stationId": "940GZZLULBN",
       "stationName": "Lambeth North Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 657500,
+      "medianSalePrice": 675000,
       "rentListingCount": 7,
       "saleListingCount": 14,
       "source": "rightmove"
@@ -55,7 +55,7 @@
       "stationId": "940GZZLUMVL",
       "stationName": "Maida Vale Underground Station",
       "medianRentPcm": 1751,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 36,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -64,7 +64,7 @@
       "stationId": "940GZZLUOXC",
       "stationName": "Oxford Circus Underground Station",
       "medianRentPcm": 1875,
-      "averageSalePrice": 691667,
+      "medianSalePrice": 700000,
       "rentListingCount": 4,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -73,7 +73,7 @@
       "stationId": "940GZZLUPCC",
       "stationName": "Piccadilly Circus Underground Station",
       "medianRentPcm": 1950,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 7,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -82,7 +82,7 @@
       "stationId": "940GZZLURGP",
       "stationName": "Regent's Park Underground Station",
       "medianRentPcm": 1950,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 16,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -91,7 +91,7 @@
       "stationId": "940GZZLUWKA",
       "stationName": "Warwick Avenue Underground Station",
       "medianRentPcm": 1796,
-      "averageSalePrice": 628000,
+      "medianSalePrice": 625000,
       "rentListingCount": 22,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -100,7 +100,7 @@
       "stationId": "HUBCHX",
       "stationName": "Charing Cross",
       "medianRentPcm": 1875,
-      "averageSalePrice": 693750,
+      "medianSalePrice": 700000,
       "rentListingCount": 6,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -109,7 +109,7 @@
       "stationId": "HUBEPH",
       "stationName": "Elephant & Castle",
       "medianRentPcm": 1750,
-      "averageSalePrice": 659792,
+      "medianSalePrice": 675000,
       "rentListingCount": 22,
       "saleListingCount": 24,
       "source": "rightmove"
@@ -118,7 +118,7 @@
       "stationId": "HUBHDN",
       "stationName": "Harlesden",
       "medianRentPcm": 1538,
-      "averageSalePrice": 601429,
+      "medianSalePrice": 595000,
       "rentListingCount": 38,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -127,7 +127,7 @@
       "stationId": "HUBHRW",
       "stationName": "Harrow & Wealdstone",
       "medianRentPcm": 1400,
-      "averageSalePrice": 600147,
+      "medianSalePrice": 600000,
       "rentListingCount": 57,
       "saleListingCount": 91,
       "source": "rightmove"
@@ -136,7 +136,7 @@
       "stationId": "HUBKNL",
       "stationName": "Kensal Green",
       "medianRentPcm": 1831,
-      "averageSalePrice": 613445,
+      "medianSalePrice": 625000,
       "rentListingCount": 18,
       "saleListingCount": 78,
       "source": "rightmove"
@@ -145,7 +145,7 @@
       "stationId": "HUBKNT",
       "stationName": "Kenton",
       "medianRentPcm": 1650,
-      "averageSalePrice": 619495,
+      "medianSalePrice": 625000,
       "rentListingCount": 17,
       "saleListingCount": 40,
       "source": "rightmove"
@@ -154,7 +154,7 @@
       "stationId": "HUBMYB",
       "stationName": "Marylebone",
       "medianRentPcm": 1750,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 62,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -163,7 +163,7 @@
       "stationId": "HUBNWB",
       "stationName": "North Wembley",
       "medianRentPcm": 1573,
-      "averageSalePrice": 625419,
+      "medianSalePrice": 635000,
       "rentListingCount": 10,
       "saleListingCount": 59,
       "source": "rightmove"
@@ -172,7 +172,7 @@
       "stationId": "HUBPAD",
       "stationName": "Paddington",
       "medianRentPcm": 1717,
-      "averageSalePrice": 625000,
+      "medianSalePrice": 625000,
       "rentListingCount": 32,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -181,7 +181,7 @@
       "stationId": "HUBQPW",
       "stationName": "Queen's Park",
       "medianRentPcm": 1850,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 24,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -190,7 +190,7 @@
       "stationId": "HUBSBP",
       "stationName": "Stonebridge Park",
       "medianRentPcm": 1550,
-      "averageSalePrice": 616661,
+      "medianSalePrice": 625000,
       "rentListingCount": 17,
       "saleListingCount": 27,
       "source": "rightmove"
@@ -199,7 +199,7 @@
       "stationId": "HUBSOK",
       "stationName": "South Kenton",
       "medianRentPcm": 1825,
-      "averageSalePrice": 631917,
+      "medianSalePrice": 640000,
       "rentListingCount": 4,
       "saleListingCount": 52,
       "source": "rightmove"
@@ -208,7 +208,7 @@
       "stationId": "HUBWAT",
       "stationName": "Waterloo",
       "medianRentPcm": 1566,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 12,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -217,7 +217,7 @@
       "stationId": "HUBWIJ",
       "stationName": "Willesden Junction",
       "medianRentPcm": 1588,
-      "averageSalePrice": 616250,
+      "medianSalePrice": 610000,
       "rentListingCount": 30,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -226,7 +226,7 @@
       "stationId": "HUBWMB",
       "stationName": "Wembley Central",
       "medianRentPcm": 1675,
-      "averageSalePrice": 629549,
+      "medianSalePrice": 644975,
       "rentListingCount": 40,
       "saleListingCount": 56,
       "source": "rightmove"
@@ -235,7 +235,7 @@
       "stationId": "940GZZLUBKE",
       "stationName": "Barkingside Underground Station",
       "medianRentPcm": 1625,
-      "averageSalePrice": 591604,
+      "medianSalePrice": 600000,
       "rentListingCount": 14,
       "saleListingCount": 81,
       "source": "rightmove"
@@ -244,7 +244,7 @@
       "stationId": "940GZZLUBKH",
       "stationName": "Buckhurst Hill Underground Station",
       "medianRentPcm": 1695,
-      "averageSalePrice": 671538,
+      "medianSalePrice": 695000,
       "rentListingCount": 11,
       "saleListingCount": 13,
       "source": "rightmove"
@@ -253,7 +253,7 @@
       "stationId": "940GZZLUBLG",
       "stationName": "Bethnal Green Underground Station",
       "medianRentPcm": 1825,
-      "averageSalePrice": 695000,
+      "medianSalePrice": 695000,
       "rentListingCount": 18,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -262,7 +262,7 @@
       "stationId": "940GZZLUCHL",
       "stationName": "Chancery Lane Underground Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 680714,
+      "medianSalePrice": 695000,
       "rentListingCount": 5,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -271,7 +271,7 @@
       "stationId": "940GZZLUCWL",
       "stationName": "Chigwell Underground Station",
       "medianRentPcm": 1388,
-      "averageSalePrice": 593421,
+      "medianSalePrice": 625000,
       "rentListingCount": 2,
       "saleListingCount": 19,
       "source": "rightmove"
@@ -280,7 +280,7 @@
       "stationId": "940GZZLUDBN",
       "stationName": "Debden Underground Station",
       "medianRentPcm": 1795,
-      "averageSalePrice": 546551,
+      "medianSalePrice": 550000,
       "rentListingCount": 9,
       "saleListingCount": 29,
       "source": "rightmove"
@@ -289,7 +289,7 @@
       "stationId": "940GZZLUEAN",
       "stationName": "East Acton Underground Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 633333,
+      "medianSalePrice": 625000,
       "rentListingCount": 10,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -298,7 +298,7 @@
       "stationId": "940GZZLUEPG",
       "stationName": "Epping Underground Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 606764,
+      "medianSalePrice": 625000,
       "rentListingCount": 7,
       "saleListingCount": 17,
       "source": "rightmove"
@@ -307,7 +307,7 @@
       "stationId": "940GZZLUFLP",
       "stationName": "Fairlop Underground Station",
       "medianRentPcm": 1550,
-      "averageSalePrice": 578135,
+      "medianSalePrice": 575000,
       "rentListingCount": 8,
       "saleListingCount": 59,
       "source": "rightmove"
@@ -316,7 +316,7 @@
       "stationId": "940GZZLUGGH",
       "stationName": "Grange Hill Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 537875,
+      "medianSalePrice": 550000,
       "rentListingCount": 5,
       "saleListingCount": 40,
       "source": "rightmove"
@@ -325,7 +325,7 @@
       "stationId": "940GZZLUGTH",
       "stationName": "Gants Hill Underground Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 607333,
+      "medianSalePrice": 600000,
       "rentListingCount": 18,
       "saleListingCount": 90,
       "source": "rightmove"
@@ -333,9 +333,9 @@
     {
       "stationId": "940GZZLUHBN",
       "stationName": "Holborn Underground Station",
-      "medianRentPcm": 1708,
-      "averageSalePrice": 692500,
-      "rentListingCount": 8,
+      "medianRentPcm": 1898,
+      "medianSalePrice": 697500,
+      "rentListingCount": 9,
       "saleListingCount": 4,
       "source": "rightmove"
     },
@@ -343,7 +343,7 @@
       "stationId": "940GZZLUHGR",
       "stationName": "Hanger Lane Underground Station",
       "medianRentPcm": 1786,
-      "averageSalePrice": 610000,
+      "medianSalePrice": 632500,
       "rentListingCount": 56,
       "saleListingCount": 12,
       "source": "rightmove"
@@ -352,7 +352,7 @@
       "stationId": "940GZZLUHLT",
       "stationName": "Hainault Underground Station",
       "medianRentPcm": 1625,
-      "averageSalePrice": 557542,
+      "medianSalePrice": 550000,
       "rentListingCount": 8,
       "saleListingCount": 59,
       "source": "rightmove"
@@ -361,7 +361,7 @@
       "stationId": "940GZZLUHPK",
       "stationName": "Holland Park Underground Station",
       "medianRentPcm": 1788,
-      "averageSalePrice": 642143,
+      "medianSalePrice": 625000,
       "rentListingCount": 18,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -370,7 +370,7 @@
       "stationId": "940GZZLULGN",
       "stationName": "Loughton Underground Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 585454,
+      "medianSalePrice": 582500,
       "rentListingCount": 7,
       "saleListingCount": 22,
       "source": "rightmove"
@@ -379,7 +379,7 @@
       "stationId": "940GZZLULGT",
       "stationName": "Lancaster Gate Underground Station",
       "medianRentPcm": 1733,
-      "averageSalePrice": 625000,
+      "medianSalePrice": 625000,
       "rentListingCount": 23,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -388,7 +388,7 @@
       "stationId": "940GZZLULYN",
       "stationName": "Leyton Underground Station",
       "medianRentPcm": 1400,
-      "averageSalePrice": 602143,
+      "medianSalePrice": 600000,
       "rentListingCount": 13,
       "saleListingCount": 14,
       "source": "rightmove"
@@ -397,7 +397,7 @@
       "stationId": "940GZZLULYS",
       "stationName": "Leytonstone Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 628636,
+      "medianSalePrice": 600000,
       "rentListingCount": 11,
       "saleListingCount": 11,
       "source": "rightmove"
@@ -406,7 +406,7 @@
       "stationId": "940GZZLUMBA",
       "stationName": "Marble Arch Underground Station",
       "medianRentPcm": 1885,
-      "averageSalePrice": 687500,
+      "medianSalePrice": 687500,
       "rentListingCount": 9,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -415,7 +415,7 @@
       "stationId": "940GZZLUMED",
       "stationName": "Mile End Underground Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 640000,
+      "medianSalePrice": 625000,
       "rentListingCount": 17,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -424,7 +424,7 @@
       "stationId": "940GZZLUNAN",
       "stationName": "North Acton Underground Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 657500,
+      "medianSalePrice": 662500,
       "rentListingCount": 45,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -433,7 +433,7 @@
       "stationId": "940GZZLUNBP",
       "stationName": "Newbury Park Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 585189,
+      "medianSalePrice": 575000,
       "rentListingCount": 13,
       "saleListingCount": 79,
       "source": "rightmove"
@@ -442,7 +442,7 @@
       "stationId": "940GZZLUNHG",
       "stationName": "Notting Hill Gate Underground Station",
       "medianRentPcm": 1670,
-      "averageSalePrice": 643750,
+      "medianSalePrice": 650000,
       "rentListingCount": 34,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -451,16 +451,16 @@
       "stationId": "940GZZLUNHT",
       "stationName": "Northolt Underground Station",
       "medianRentPcm": 1450,
-      "averageSalePrice": 585195,
+      "medianSalePrice": 575000,
       "rentListingCount": 5,
-      "saleListingCount": 85,
+      "saleListingCount": 84,
       "source": "rightmove"
     },
     {
       "stationId": "940GZZLUPVL",
       "stationName": "Perivale Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 598505,
+      "medianSalePrice": 587500,
       "rentListingCount": 15,
       "saleListingCount": 54,
       "source": "rightmove"
@@ -469,7 +469,7 @@
       "stationId": "940GZZLUQWY",
       "stationName": "Queensway Underground Station",
       "medianRentPcm": 1663,
-      "averageSalePrice": 625000,
+      "medianSalePrice": 625000,
       "rentListingCount": 60,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -478,7 +478,7 @@
       "stationId": "940GZZLURBG",
       "stationName": "Redbridge Underground Station",
       "medianRentPcm": 1088,
-      "averageSalePrice": 631000,
+      "medianSalePrice": 625000,
       "rentListingCount": 6,
       "saleListingCount": 30,
       "source": "rightmove"
@@ -487,7 +487,7 @@
       "stationId": "940GZZLURSG",
       "stationName": "Ruislip Gardens Underground Station",
       "medianRentPcm": 1350,
-      "averageSalePrice": 620126,
+      "medianSalePrice": 625000,
       "rentListingCount": 5,
       "saleListingCount": 47,
       "source": "rightmove"
@@ -496,7 +496,7 @@
       "stationId": "940GZZLURVY",
       "stationName": "Roding Valley Underground Station",
       "medianRentPcm": 1675,
-      "averageSalePrice": 641905,
+      "medianSalePrice": 650000,
       "rentListingCount": 3,
       "saleListingCount": 21,
       "source": "rightmove"
@@ -505,7 +505,7 @@
       "stationId": "940GZZLUSNB",
       "stationName": "Snaresbrook Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 662500,
+      "medianSalePrice": 675000,
       "rentListingCount": 12,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -514,7 +514,7 @@
       "stationId": "940GZZLUSPU",
       "stationName": "St. Paul's Underground Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 668750,
+      "medianSalePrice": 685000,
       "rentListingCount": 5,
       "saleListingCount": 12,
       "source": "rightmove"
@@ -523,7 +523,7 @@
       "stationId": "940GZZLUSWF",
       "stationName": "South Woodford Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 640277,
+      "medianSalePrice": 650000,
       "rentListingCount": 28,
       "saleListingCount": 18,
       "source": "rightmove"
@@ -532,7 +532,7 @@
       "stationId": "940GZZLUTHB",
       "stationName": "Theydon Bois Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 630000,
+      "medianSalePrice": 625000,
       "rentListingCount": 1,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -541,7 +541,7 @@
       "stationId": "940GZZLUWCY",
       "stationName": "White City Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 575000,
+      "medianSalePrice": 575000,
       "rentListingCount": 20,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -550,7 +550,7 @@
       "stationId": "940GZZLUWOF",
       "stationName": "Woodford Underground Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 619807,
+      "medianSalePrice": 637500,
       "rentListingCount": 7,
       "saleListingCount": 26,
       "source": "rightmove"
@@ -559,7 +559,7 @@
       "stationId": "940GZZLUWSD",
       "stationName": "Wanstead Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 653125,
+      "medianSalePrice": 675000,
       "rentListingCount": 7,
       "saleListingCount": 8,
       "source": "rightmove"
@@ -568,7 +568,7 @@
       "stationId": "940GZZLUWTA",
       "stationName": "West Acton Underground Station",
       "medianRentPcm": 1566,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 12,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -577,7 +577,7 @@
       "stationId": "HUBBAN",
       "stationName": "Bank",
       "medianRentPcm": 798,
-      "averageSalePrice": 268500,
+      "medianSalePrice": 228500,
       "rentListingCount": 4,
       "saleListingCount": 9,
       "source": "rightmove"
@@ -586,7 +586,7 @@
       "stationId": "HUBBDS",
       "stationName": "Bond Street",
       "medianRentPcm": 1993,
-      "averageSalePrice": 687500,
+      "medianSalePrice": 687500,
       "rentListingCount": 5,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -595,7 +595,7 @@
       "stationId": "HUBEAL",
       "stationName": "Ealing Broadway",
       "medianRentPcm": 1650,
-      "averageSalePrice": 619983,
+      "medianSalePrice": 625000,
       "rentListingCount": 29,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -604,16 +604,16 @@
       "stationId": "HUBGFD",
       "stationName": "Greenford",
       "medianRentPcm": 1642,
-      "averageSalePrice": 575483,
+      "medianSalePrice": 575000,
       "rentListingCount": 22,
-      "saleListingCount": 86,
+      "saleListingCount": 85,
       "source": "rightmove"
     },
     {
       "stationId": "HUBLST",
       "stationName": "Liverpool Street",
       "medianRentPcm": 1950,
-      "averageSalePrice": 637059,
+      "medianSalePrice": 625000,
       "rentListingCount": 10,
       "saleListingCount": 17,
       "source": "rightmove"
@@ -622,7 +622,7 @@
       "stationId": "HUBSPB",
       "stationName": "Shepherd's Bush",
       "medianRentPcm": 1713,
-      "averageSalePrice": 575000,
+      "medianSalePrice": 575000,
       "rentListingCount": 94,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -631,7 +631,7 @@
       "stationId": "HUBSRA",
       "stationName": "Stratford",
       "medianRentPcm": 1890,
-      "averageSalePrice": 575769,
+      "medianSalePrice": 575000,
       "rentListingCount": 13,
       "saleListingCount": 13,
       "source": "rightmove"
@@ -640,7 +640,7 @@
       "stationId": "HUBSRU",
       "stationName": "South Ruislip",
       "medianRentPcm": 1725,
-      "averageSalePrice": 611941,
+      "medianSalePrice": 625000,
       "rentListingCount": 7,
       "saleListingCount": 54,
       "source": "rightmove"
@@ -649,8 +649,8 @@
       "stationId": "HUBTCR",
       "stationName": "Tottenham Court Road",
       "medianRentPcm": 1950,
-      "averageSalePrice": 700000,
-      "rentListingCount": 8,
+      "medianSalePrice": 700000,
+      "rentListingCount": 9,
       "saleListingCount": 2,
       "source": "rightmove"
     },
@@ -658,7 +658,7 @@
       "stationId": "HUBWRU",
       "stationName": "West Ruislip",
       "medianRentPcm": 1550,
-      "averageSalePrice": 601842,
+      "medianSalePrice": 600000,
       "rentListingCount": 7,
       "saleListingCount": 19,
       "source": "rightmove"
@@ -667,7 +667,7 @@
       "stationId": "940GZZLUALD",
       "stationName": "Aldgate Underground Station",
       "medianRentPcm": 1925,
-      "averageSalePrice": 695000,
+      "medianSalePrice": 695000,
       "rentListingCount": 26,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -676,7 +676,7 @@
       "stationId": "940GZZLUBBN",
       "stationName": "Barbican Underground Station",
       "medianRentPcm": 1674,
-      "averageSalePrice": 667857,
+      "medianSalePrice": 695000,
       "rentListingCount": 4,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -685,7 +685,7 @@
       "stationId": "940GZZLUBWT",
       "stationName": "Bayswater Underground Station",
       "medianRentPcm": 1690,
-      "averageSalePrice": 643750,
+      "medianSalePrice": 650000,
       "rentListingCount": 66,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -694,7 +694,7 @@
       "stationId": "940GZZLUERC",
       "stationName": "Edgware Road (Circle Line) Underground Station",
       "medianRentPcm": 1733,
-      "averageSalePrice": 625000,
+      "medianSalePrice": 625000,
       "rentListingCount": 62,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -703,7 +703,7 @@
       "stationId": "940GZZLUESQ",
       "stationName": "Euston Square Underground Station",
       "medianRentPcm": 1950,
-      "averageSalePrice": 637500,
+      "medianSalePrice": 637500,
       "rentListingCount": 24,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -712,7 +712,7 @@
       "stationId": "940GZZLUGHK",
       "stationName": "Goldhawk Road Underground Station",
       "medianRentPcm": 1746,
-      "averageSalePrice": 575000,
+      "medianSalePrice": 575000,
       "rentListingCount": 68,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -721,7 +721,7 @@
       "stationId": "940GZZLUGPS",
       "stationName": "Great Portland Street Underground Station",
       "medianRentPcm": 1950,
-      "averageSalePrice": 637500,
+      "medianSalePrice": 637500,
       "rentListingCount": 14,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -730,7 +730,7 @@
       "stationId": "940GZZLUGTR",
       "stationName": "Gloucester Road Underground Station",
       "medianRentPcm": 1680,
-      "averageSalePrice": 640000,
+      "medianSalePrice": 625000,
       "rentListingCount": 78,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -739,7 +739,7 @@
       "stationId": "940GZZLUHSK",
       "stationName": "High Street Kensington Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 635000,
+      "medianSalePrice": 625000,
       "rentListingCount": 78,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -748,7 +748,7 @@
       "stationId": "940GZZLULAD",
       "stationName": "Ladbroke Grove Underground Station",
       "medianRentPcm": 1795,
-      "averageSalePrice": 575000,
+      "medianSalePrice": 575000,
       "rentListingCount": 15,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -757,7 +757,7 @@
       "stationId": "940GZZLULRD",
       "stationName": "Latimer Road Underground Station",
       "medianRentPcm": 1731,
-      "averageSalePrice": 575000,
+      "medianSalePrice": 575000,
       "rentListingCount": 22,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -766,7 +766,7 @@
       "stationId": "940GZZLUMMT",
       "stationName": "Monument Underground Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 657105,
+      "medianSalePrice": 675000,
       "rentListingCount": 2,
       "saleListingCount": 19,
       "source": "rightmove"
@@ -775,7 +775,7 @@
       "stationId": "940GZZLUMSH",
       "stationName": "Mansion House Underground Station",
       "medianRentPcm": 1925,
-      "averageSalePrice": 652333,
+      "medianSalePrice": 675000,
       "rentListingCount": 2,
       "saleListingCount": 15,
       "source": "rightmove"
@@ -784,7 +784,7 @@
       "stationId": "940GZZLURYO",
       "stationName": "Royal Oak Underground Station",
       "medianRentPcm": 1603,
-      "averageSalePrice": 655000,
+      "medianSalePrice": 675000,
       "rentListingCount": 55,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -793,7 +793,7 @@
       "stationId": "940GZZLUSBM",
       "stationName": "Shepherd's Bush Market Underground Station",
       "medianRentPcm": 1725,
-      "averageSalePrice": 575000,
+      "medianSalePrice": 575000,
       "rentListingCount": 67,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -802,7 +802,7 @@
       "stationId": "940GZZLUSJP",
       "stationName": "St. James's Park Underground Station",
       "medianRentPcm": 1835,
-      "averageSalePrice": 662500,
+      "medianSalePrice": 675000,
       "rentListingCount": 12,
       "saleListingCount": 8,
       "source": "rightmove"
@@ -811,7 +811,7 @@
       "stationId": "940GZZLUSKS",
       "stationName": "South Kensington Underground Station",
       "medianRentPcm": 1699,
-      "averageSalePrice": 643750,
+      "medianSalePrice": 650000,
       "rentListingCount": 39,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -820,7 +820,7 @@
       "stationId": "940GZZLUSSQ",
       "stationName": "Sloane Square Underground Station",
       "medianRentPcm": 1846,
-      "averageSalePrice": 662000,
+      "medianSalePrice": 700000,
       "rentListingCount": 17,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -829,7 +829,7 @@
       "stationId": "940GZZLUTMP",
       "stationName": "Temple Underground Station",
       "medianRentPcm": 1900,
-      "averageSalePrice": 670909,
+      "medianSalePrice": 695000,
       "rentListingCount": 2,
       "saleListingCount": 11,
       "source": "rightmove"
@@ -838,7 +838,7 @@
       "stationId": "940GZZLUTWH",
       "stationName": "Tower Hill Underground Station",
       "medianRentPcm": 1900,
-      "averageSalePrice": 695000,
+      "medianSalePrice": 695000,
       "rentListingCount": 26,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -847,7 +847,7 @@
       "stationId": "940GZZLUWLA",
       "stationName": "Wood Lane Underground Station",
       "medianRentPcm": 1665,
-      "averageSalePrice": 575000,
+      "medianSalePrice": 575000,
       "rentListingCount": 38,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -856,7 +856,7 @@
       "stationId": "940GZZLUWSP",
       "stationName": "Westbourne Park Underground Station",
       "medianRentPcm": 1844,
-      "averageSalePrice": 618000,
+      "medianSalePrice": 610000,
       "rentListingCount": 32,
       "saleListingCount": 10,
       "source": "rightmove"
@@ -865,7 +865,7 @@
       "stationId": "HUBBFR",
       "stationName": "Blackfriars",
       "medianRentPcm": 1900,
-      "averageSalePrice": 670455,
+      "medianSalePrice": 695000,
       "rentListingCount": 5,
       "saleListingCount": 11,
       "source": "rightmove"
@@ -874,7 +874,7 @@
       "stationId": "HUBCST",
       "stationName": "Cannon Street",
       "medianRentPcm": 1900,
-      "averageSalePrice": 658889,
+      "medianSalePrice": 675000,
       "rentListingCount": 1,
       "saleListingCount": 18,
       "source": "rightmove"
@@ -883,7 +883,7 @@
       "stationId": "HUBHMS",
       "stationName": "Hammersmith",
       "medianRentPcm": 1625,
-      "averageSalePrice": 636661,
+      "medianSalePrice": 650000,
       "rentListingCount": 52,
       "saleListingCount": 9,
       "source": "rightmove"
@@ -892,7 +892,7 @@
       "stationId": "HUBKGX",
       "stationName": "King's Cross & St Pancras International",
       "medianRentPcm": 700,
-      "averageSalePrice": 235000,
+      "medianSalePrice": 235000,
       "rentListingCount": 7,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -901,7 +901,7 @@
       "stationId": "HUBVIC",
       "stationName": "Victoria",
       "medianRentPcm": 1950,
-      "averageSalePrice": 637500,
+      "medianSalePrice": 637500,
       "rentListingCount": 20,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -910,7 +910,7 @@
       "stationId": "HUBWSM",
       "stationName": "Westminster",
       "medianRentPcm": 1750,
-      "averageSalePrice": 666667,
+      "medianSalePrice": 675000,
       "rentListingCount": 39,
       "saleListingCount": 9,
       "source": "rightmove"
@@ -919,7 +919,7 @@
       "stationId": "HUBZFD",
       "stationName": "Farringdon",
       "medianRentPcm": 1700,
-      "averageSalePrice": 666429,
+      "medianSalePrice": 695000,
       "rentListingCount": 7,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -928,7 +928,7 @@
       "stationId": "HUBZMG",
       "stationName": "Moorgate",
       "medianRentPcm": 1763,
-      "averageSalePrice": 659444,
+      "medianSalePrice": 675000,
       "rentListingCount": 4,
       "saleListingCount": 9,
       "source": "rightmove"
@@ -937,7 +937,7 @@
       "stationId": "940GZZLUACT",
       "stationName": "Acton Town Underground Station",
       "medianRentPcm": 1624,
-      "averageSalePrice": 653317,
+      "medianSalePrice": 635000,
       "rentListingCount": 26,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -946,7 +946,7 @@
       "stationId": "940GZZLUADE",
       "stationName": "Aldgate East Underground Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 695000,
+      "medianSalePrice": 695000,
       "rentListingCount": 45,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -955,7 +955,7 @@
       "stationId": "940GZZLUBBB",
       "stationName": "Bromley-by-Bow Underground Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 595625,
+      "medianSalePrice": 612500,
       "rentListingCount": 37,
       "saleListingCount": 8,
       "source": "rightmove"
@@ -964,7 +964,7 @@
       "stationId": "940GZZLUBEC",
       "stationName": "Becontree Underground Station",
       "medianRentPcm": 1740,
-      "averageSalePrice": 469571,
+      "medianSalePrice": 435000,
       "rentListingCount": 13,
       "saleListingCount": 35,
       "source": "rightmove"
@@ -973,7 +973,7 @@
       "stationId": "940GZZLUBSC",
       "stationName": "Barons Court Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 609541,
+      "medianSalePrice": 600000,
       "rentListingCount": 95,
       "saleListingCount": 11,
       "source": "rightmove"
@@ -982,7 +982,7 @@
       "stationId": "940GZZLUBWR",
       "stationName": "Bow Road Underground Station",
       "medianRentPcm": 1780,
-      "averageSalePrice": 616250,
+      "medianSalePrice": 612500,
       "rentListingCount": 34,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -991,7 +991,7 @@
       "stationId": "940GZZLUCWP",
       "stationName": "Chiswick Park Underground Station",
       "medianRentPcm": 1748,
-      "averageSalePrice": 634680,
+      "medianSalePrice": 650000,
       "rentListingCount": 20,
       "saleListingCount": 35,
       "source": "rightmove"
@@ -1000,7 +1000,7 @@
       "stationId": "940GZZLUDGE",
       "stationName": "Dagenham East Underground Station",
       "medianRentPcm": 1400,
-      "averageSalePrice": 458108,
+      "medianSalePrice": 450000,
       "rentListingCount": 11,
       "saleListingCount": 37,
       "source": "rightmove"
@@ -1009,7 +1009,7 @@
       "stationId": "940GZZLUDGY",
       "stationName": "Dagenham Heathway Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 460238,
+      "medianSalePrice": 430000,
       "rentListingCount": 9,
       "saleListingCount": 42,
       "source": "rightmove"
@@ -1018,7 +1018,7 @@
       "stationId": "940GZZLUECM",
       "stationName": "Ealing Common Underground Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 664988,
+      "medianSalePrice": 667475,
       "rentListingCount": 29,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1027,7 +1027,7 @@
       "stationId": "940GZZLUECT",
       "stationName": "Earl's Court Underground Station",
       "medianRentPcm": 1699,
-      "averageSalePrice": 617850,
+      "medianSalePrice": 625000,
       "rentListingCount": 85,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -1036,7 +1036,7 @@
       "stationId": "940GZZLUEHM",
       "stationName": "East Ham Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 545333,
+      "medianSalePrice": 525000,
       "rentListingCount": 15,
       "saleListingCount": 30,
       "source": "rightmove"
@@ -1045,7 +1045,7 @@
       "stationId": "940GZZLUEPK",
       "stationName": "Elm Park Underground Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 526059,
+      "medianSalePrice": 500000,
       "rentListingCount": 3,
       "saleListingCount": 85,
       "source": "rightmove"
@@ -1054,7 +1054,7 @@
       "stationId": "940GZZLUEPY",
       "stationName": "East Putney Underground Station",
       "medianRentPcm": 1625,
-      "averageSalePrice": 591667,
+      "medianSalePrice": 600000,
       "rentListingCount": 10,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -1063,7 +1063,7 @@
       "stationId": "940GZZLUFBY",
       "stationName": "Fulham Broadway Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 612913,
+      "medianSalePrice": 612500,
       "rentListingCount": 14,
       "saleListingCount": 12,
       "source": "rightmove"
@@ -1072,7 +1072,7 @@
       "stationId": "940GZZLUHCH",
       "stationName": "Hornchurch Underground Station",
       "medianRentPcm": 1425,
-      "averageSalePrice": 560774,
+      "medianSalePrice": 550000,
       "rentListingCount": 2,
       "saleListingCount": 84,
       "source": "rightmove"
@@ -1081,7 +1081,7 @@
       "stationId": "940GZZLUPLW",
       "stationName": "Plaistow Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 538123,
+      "medianSalePrice": 525000,
       "rentListingCount": 19,
       "saleListingCount": 24,
       "source": "rightmove"
@@ -1090,7 +1090,7 @@
       "stationId": "940GZZLUPSG",
       "stationName": "Parsons Green Underground Station",
       "medianRentPcm": 1875,
-      "averageSalePrice": 598177,
+      "medianSalePrice": 600000,
       "rentListingCount": 24,
       "saleListingCount": 11,
       "source": "rightmove"
@@ -1099,7 +1099,7 @@
       "stationId": "940GZZLUPYB",
       "stationName": "Putney Bridge Underground Station",
       "medianRentPcm": 1775,
-      "averageSalePrice": 615622,
+      "medianSalePrice": 625000,
       "rentListingCount": 8,
       "saleListingCount": 16,
       "source": "rightmove"
@@ -1108,7 +1108,7 @@
       "stationId": "940GZZLURVP",
       "stationName": "Ravenscourt Park Underground Station",
       "medianRentPcm": 1825,
-      "averageSalePrice": 641806,
+      "medianSalePrice": 642500,
       "rentListingCount": 20,
       "saleListingCount": 16,
       "source": "rightmove"
@@ -1117,7 +1117,7 @@
       "stationId": "940GZZLUSFB",
       "stationName": "Stamford Brook Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 645229,
+      "medianSalePrice": 650000,
       "rentListingCount": 11,
       "saleListingCount": 17,
       "source": "rightmove"
@@ -1126,7 +1126,7 @@
       "stationId": "940GZZLUSFS",
       "stationName": "Southfields Underground Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 610000,
+      "medianSalePrice": 625000,
       "rentListingCount": 12,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -1135,7 +1135,7 @@
       "stationId": "940GZZLUSGN",
       "stationName": "Stepney Green Underground Station",
       "medianRentPcm": 1725,
-      "averageSalePrice": 695000,
+      "medianSalePrice": 695000,
       "rentListingCount": 18,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -1144,7 +1144,7 @@
       "stationId": "940GZZLUTNG",
       "stationName": "Turnham Green Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 638359,
+      "medianSalePrice": 650000,
       "rentListingCount": 14,
       "saleListingCount": 22,
       "source": "rightmove"
@@ -1153,7 +1153,7 @@
       "stationId": "940GZZLUUPB",
       "stationName": "Upminster Bridge Underground Station",
       "medianRentPcm": 1525,
-      "averageSalePrice": 589818,
+      "medianSalePrice": 600000,
       "rentListingCount": 2,
       "saleListingCount": 55,
       "source": "rightmove"
@@ -1162,7 +1162,7 @@
       "stationId": "940GZZLUUPK",
       "stationName": "Upton Park Underground Station",
       "medianRentPcm": 1740,
-      "averageSalePrice": 544231,
+      "medianSalePrice": 525000,
       "rentListingCount": 19,
       "saleListingCount": 26,
       "source": "rightmove"
@@ -1171,7 +1171,7 @@
       "stationId": "940GZZLUUPY",
       "stationName": "Upney Underground Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 541250,
+      "medianSalePrice": 550000,
       "rentListingCount": 5,
       "saleListingCount": 48,
       "source": "rightmove"
@@ -1180,7 +1180,7 @@
       "stationId": "940GZZLUWIP",
       "stationName": "Wimbledon Park Underground Station",
       "medianRentPcm": 1900,
-      "averageSalePrice": 640833,
+      "medianSalePrice": 637500,
       "rentListingCount": 5,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -1189,7 +1189,7 @@
       "stationId": "940GZZLUWKN",
       "stationName": "West Kensington Underground Station",
       "medianRentPcm": 1699,
-      "averageSalePrice": 609541,
+      "medianSalePrice": 600000,
       "rentListingCount": 87,
       "saleListingCount": 11,
       "source": "rightmove"
@@ -1198,7 +1198,7 @@
       "stationId": "HUBBKG",
       "stationName": "Barking",
       "medianRentPcm": 1680,
-      "averageSalePrice": 552630,
+      "medianSalePrice": 532500,
       "rentListingCount": 56,
       "saleListingCount": 38,
       "source": "rightmove"
@@ -1207,7 +1207,7 @@
       "stationId": "HUBGUN",
       "stationName": "Gunnersbury",
       "medianRentPcm": 1763,
-      "averageSalePrice": 643633,
+      "medianSalePrice": 650000,
       "rentListingCount": 10,
       "saleListingCount": 45,
       "source": "rightmove"
@@ -1216,7 +1216,7 @@
       "stationId": "HUBKPA",
       "stationName": "Kensington (Olympia)",
       "medianRentPcm": 1750,
-      "averageSalePrice": 633325,
+      "medianSalePrice": 637500,
       "rentListingCount": 55,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -1225,7 +1225,7 @@
       "stationId": "HUBKWG",
       "stationName": "Kew Gardens",
       "medianRentPcm": 1850,
-      "averageSalePrice": 636472,
+      "medianSalePrice": 650000,
       "rentListingCount": 3,
       "saleListingCount": 69,
       "source": "rightmove"
@@ -1234,7 +1234,7 @@
       "stationId": "HUBRMD",
       "stationName": "Richmond",
       "medianRentPcm": 1775,
-      "averageSalePrice": 660015,
+      "medianSalePrice": 650000,
       "rentListingCount": 8,
       "saleListingCount": 95,
       "source": "rightmove"
@@ -1243,7 +1243,7 @@
       "stationId": "HUBUPM",
       "stationName": "Upminster",
       "medianRentPcm": 1600,
-      "averageSalePrice": 572273,
+      "medianSalePrice": 575000,
       "rentListingCount": 3,
       "saleListingCount": 44,
       "source": "rightmove"
@@ -1252,7 +1252,7 @@
       "stationId": "HUBWBP",
       "stationName": "West Brompton",
       "medianRentPcm": 1645,
-      "averageSalePrice": 612495,
+      "medianSalePrice": 612500,
       "rentListingCount": 51,
       "saleListingCount": 10,
       "source": "rightmove"
@@ -1261,7 +1261,7 @@
       "stationId": "HUBWEH",
       "stationName": "West Ham",
       "medianRentPcm": 1675,
-      "averageSalePrice": 530309,
+      "medianSalePrice": 517500,
       "rentListingCount": 10,
       "saleListingCount": 16,
       "source": "rightmove"
@@ -1270,7 +1270,7 @@
       "stationId": "HUBWIM",
       "stationName": "Wimbledon",
       "medianRentPcm": 1750,
-      "averageSalePrice": 660833,
+      "medianSalePrice": 680000,
       "rentListingCount": 17,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -1279,7 +1279,7 @@
       "stationId": "HUBZWL",
       "stationName": "Whitechapel",
       "medianRentPcm": 1800,
-      "averageSalePrice": 695000,
+      "medianSalePrice": 695000,
       "rentListingCount": 52,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -1288,7 +1288,7 @@
       "stationId": "940GZZDLABR",
       "stationName": "Abbey Road DLR Station",
       "medianRentPcm": 1844,
-      "averageSalePrice": 549997,
+      "medianSalePrice": 550000,
       "rentListingCount": 10,
       "saleListingCount": 17,
       "source": "rightmove"
@@ -1297,7 +1297,7 @@
       "stationId": "940GZZDLALL",
       "stationName": "All Saints DLR Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 612500,
+      "medianSalePrice": 612500,
       "rentListingCount": 42,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1306,7 +1306,7 @@
       "stationId": "940GZZDLBEC",
       "stationName": "Beckton DLR Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 508132,
+      "medianSalePrice": 500000,
       "rentListingCount": 6,
       "saleListingCount": 19,
       "source": "rightmove"
@@ -1315,7 +1315,7 @@
       "stationId": "940GZZDLBLA",
       "stationName": "Blackwall DLR Station",
       "medianRentPcm": 1848,
-      "averageSalePrice": 610000,
+      "medianSalePrice": 600000,
       "rentListingCount": 40,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -1324,7 +1324,7 @@
       "stationId": "940GZZDLBOW",
       "stationName": "Bow Church DLR Station",
       "medianRentPcm": 1780,
-      "averageSalePrice": 616250,
+      "medianSalePrice": 612500,
       "rentListingCount": 38,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1333,7 +1333,7 @@
       "stationId": "940GZZDLBPK",
       "stationName": "Beckton Park DLR Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 494380,
+      "medianSalePrice": 475000,
       "rentListingCount": 5,
       "saleListingCount": 25,
       "source": "rightmove"
@@ -1342,7 +1342,7 @@
       "stationId": "940GZZDLCLA",
       "stationName": "Crossharbour DLR Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 642500,
+      "medianSalePrice": 650000,
       "rentListingCount": 94,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -1351,7 +1351,7 @@
       "stationId": "940GZZDLCYP",
       "stationName": "Cyprus DLR Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 505806,
+      "medianSalePrice": 487500,
       "rentListingCount": 20,
       "saleListingCount": 18,
       "source": "rightmove"
@@ -1360,7 +1360,7 @@
       "stationId": "940GZZDLDEP",
       "stationName": "Deptford Bridge DLR Station",
       "medianRentPcm": 1725,
-      "averageSalePrice": 661250,
+      "medianSalePrice": 675000,
       "rentListingCount": 59,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1369,7 +1369,7 @@
       "stationId": "940GZZDLDEV",
       "stationName": "Devons Road DLR Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 611250,
+      "medianSalePrice": 612500,
       "rentListingCount": 45,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1378,8 +1378,8 @@
       "stationId": "940GZZDLEIN",
       "stationName": "East India DLR Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 614286,
-      "rentListingCount": 60,
+      "medianSalePrice": 625000,
+      "rentListingCount": 62,
       "saleListingCount": 7,
       "source": "rightmove"
     },
@@ -1387,7 +1387,7 @@
       "stationId": "940GZZDLELV",
       "stationName": "Elverson Road DLR Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 670000,
+      "medianSalePrice": 692500,
       "rentListingCount": 49,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1396,7 +1396,7 @@
       "stationId": "940GZZDLGAL",
       "stationName": "Gallions Reach DLR Station",
       "medianRentPcm": 1765,
-      "averageSalePrice": 496885,
+      "medianSalePrice": 500000,
       "rentListingCount": 29,
       "saleListingCount": 13,
       "source": "rightmove"
@@ -1405,7 +1405,7 @@
       "stationId": "940GZZDLHEQ",
       "stationName": "Heron Quays DLR Station",
       "medianRentPcm": 1900,
-      "averageSalePrice": 638333,
+      "medianSalePrice": 640000,
       "rentListingCount": 60,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -1414,7 +1414,7 @@
       "stationId": "940GZZDLISL",
       "stationName": "Island Gardens DLR Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 622143,
+      "medianSalePrice": 650000,
       "rentListingCount": 40,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -1423,7 +1423,7 @@
       "stationId": "940GZZDLKGV",
       "stationName": "King George V DLR Station",
       "medianRentPcm": 1625,
-      "averageSalePrice": 528808,
+      "medianSalePrice": 500000,
       "rentListingCount": 16,
       "saleListingCount": 13,
       "source": "rightmove"
@@ -1432,7 +1432,7 @@
       "stationId": "940GZZDLLDP",
       "stationName": "Langdon Park DLR Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 609000,
+      "medianSalePrice": 600000,
       "rentListingCount": 44,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -1441,7 +1441,7 @@
       "stationId": "940GZZDLMUD",
       "stationName": "Mudchute DLR Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 635833,
+      "medianSalePrice": 640000,
       "rentListingCount": 64,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -1450,7 +1450,7 @@
       "stationId": "940GZZDLPDK",
       "stationName": "Pontoon Dock DLR Station",
       "medianRentPcm": 1777,
-      "averageSalePrice": 497079,
+      "medianSalePrice": 487475,
       "rentListingCount": 31,
       "saleListingCount": 12,
       "source": "rightmove"
@@ -1459,7 +1459,7 @@
       "stationId": "940GZZDLPOP",
       "stationName": "Poplar DLR Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 610000,
+      "medianSalePrice": 600000,
       "rentListingCount": 41,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -1468,7 +1468,7 @@
       "stationId": "940GZZDLPRE",
       "stationName": "Prince Regent DLR Station",
       "medianRentPcm": 1729,
-      "averageSalePrice": 501576,
+      "medianSalePrice": 499950,
       "rentListingCount": 12,
       "saleListingCount": 19,
       "source": "rightmove"
@@ -1477,7 +1477,7 @@
       "stationId": "940GZZDLPUD",
       "stationName": "Pudding Mill Lane DLR Station",
       "medianRentPcm": 1895,
-      "averageSalePrice": 582500,
+      "medianSalePrice": 587500,
       "rentListingCount": 24,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1486,7 +1486,7 @@
       "stationId": "940GZZDLRAL",
       "stationName": "Royal Albert DLR Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 494239,
+      "medianSalePrice": 475000,
       "rentListingCount": 6,
       "saleListingCount": 27,
       "source": "rightmove"
@@ -1495,7 +1495,7 @@
       "stationId": "940GZZDLSHS",
       "stationName": "Stratford High Street DLR Station",
       "medianRentPcm": 1895,
-      "averageSalePrice": 562500,
+      "medianSalePrice": 537500,
       "rentListingCount": 16,
       "saleListingCount": 12,
       "source": "rightmove"
@@ -1504,7 +1504,7 @@
       "stationId": "940GZZDLSIT",
       "stationName": "Stratford International DLR Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 592500,
+      "medianSalePrice": 619998,
       "rentListingCount": 7,
       "saleListingCount": 10,
       "source": "rightmove"
@@ -1513,7 +1513,7 @@
       "stationId": "940GZZDLSOQ",
       "stationName": "South Quay DLR Station",
       "medianRentPcm": 1900,
-      "averageSalePrice": 640000,
+      "medianSalePrice": 650000,
       "rentListingCount": 68,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -1522,7 +1522,7 @@
       "stationId": "940GZZDLSTL",
       "stationName": "Star Lane DLR Station",
       "medianRentPcm": 1826,
-      "averageSalePrice": 539372,
+      "medianSalePrice": 562500,
       "rentListingCount": 18,
       "saleListingCount": 16,
       "source": "rightmove"
@@ -1531,7 +1531,7 @@
       "stationId": "940GZZDLWFE",
       "stationName": "Westferry DLR Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 617500,
+      "medianSalePrice": 612500,
       "rentListingCount": 38,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1540,7 +1540,7 @@
       "stationId": "940GZZDLWIQ",
       "stationName": "West India Quay DLR Station",
       "medianRentPcm": 1879,
-      "averageSalePrice": 620000,
+      "medianSalePrice": 625000,
       "rentListingCount": 24,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -1549,7 +1549,7 @@
       "stationId": "940GZZDLWSV",
       "stationName": "West Silvertown DLR Station",
       "medianRentPcm": 1875,
-      "averageSalePrice": 476869,
+      "medianSalePrice": 467500,
       "rentListingCount": 30,
       "saleListingCount": 8,
       "source": "rightmove"
@@ -1557,9 +1557,9 @@
     {
       "stationId": "HUBCAN",
       "stationName": "Canning Town",
-      "medianRentPcm": 1898,
-      "averageSalePrice": 536658,
-      "rentListingCount": 52,
+      "medianRentPcm": 1890,
+      "medianSalePrice": 537500,
+      "rentListingCount": 54,
       "saleListingCount": 12,
       "source": "rightmove"
     },
@@ -1567,7 +1567,7 @@
       "stationId": "HUBCAW",
       "stationName": "Canary Wharf",
       "medianRentPcm": 1900,
-      "averageSalePrice": 638333,
+      "medianSalePrice": 640000,
       "rentListingCount": 60,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -1576,7 +1576,7 @@
       "stationId": "HUBCUS",
       "stationName": "Custom House",
       "medianRentPcm": 1846,
-      "averageSalePrice": 501383,
+      "medianSalePrice": 494975,
       "rentListingCount": 29,
       "saleListingCount": 18,
       "source": "rightmove"
@@ -1585,7 +1585,7 @@
       "stationId": "HUBCUT",
       "stationName": "Cutty Sark",
       "medianRentPcm": 1950,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 26,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -1594,7 +1594,7 @@
       "stationId": "HUBGNW",
       "stationName": "Greenwich",
       "medianRentPcm": 1842,
-      "averageSalePrice": 664000,
+      "medianSalePrice": 675000,
       "rentListingCount": 40,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -1603,7 +1603,7 @@
       "stationId": "HUBLCY",
       "stationName": "London City Airport",
       "medianRentPcm": 1700,
-      "averageSalePrice": 507378,
+      "medianSalePrice": 499950,
       "rentListingCount": 9,
       "saleListingCount": 25,
       "source": "rightmove"
@@ -1612,7 +1612,7 @@
       "stationId": "HUBLEW",
       "stationName": "Lewisham",
       "medianRentPcm": 1750,
-      "averageSalePrice": 656000,
+      "medianSalePrice": 685000,
       "rentListingCount": 45,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -1621,7 +1621,7 @@
       "stationId": "HUBLHS",
       "stationName": "Limehouse",
       "medianRentPcm": 1750,
-      "averageSalePrice": 653000,
+      "medianSalePrice": 650000,
       "rentListingCount": 36,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -1630,7 +1630,7 @@
       "stationId": "HUBRVC",
       "stationName": "Royal Victoria",
       "medianRentPcm": 1900,
-      "averageSalePrice": 505876,
+      "medianSalePrice": 499950,
       "rentListingCount": 44,
       "saleListingCount": 17,
       "source": "rightmove"
@@ -1639,7 +1639,7 @@
       "stationId": "HUBSDE",
       "stationName": "Shadwell",
       "medianRentPcm": 1755,
-      "averageSalePrice": 672500,
+      "medianSalePrice": 695000,
       "rentListingCount": 59,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1648,7 +1648,7 @@
       "stationId": "HUBTOG",
       "stationName": "Tower Gateway",
       "medianRentPcm": 1950,
-      "averageSalePrice": 695000,
+      "medianSalePrice": 695000,
       "rentListingCount": 27,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -1657,7 +1657,7 @@
       "stationId": "HUBWWA",
       "stationName": "Woolwich Arsenal",
       "medianRentPcm": 1800,
-      "averageSalePrice": 560894,
+      "medianSalePrice": 550000,
       "rentListingCount": 55,
       "saleListingCount": 19,
       "source": "rightmove"
@@ -1666,7 +1666,7 @@
       "stationId": "910GACTONML",
       "stationName": "Acton Main Line Rail Station",
       "medianRentPcm": 1582,
-      "averageSalePrice": 681250,
+      "medianSalePrice": 700000,
       "rentListingCount": 49,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1675,7 +1675,7 @@
       "stationId": "910GBNHAM",
       "stationName": "Burnham (Berks) Rail Station",
       "medianRentPcm": 1425,
-      "averageSalePrice": 555447,
+      "medianSalePrice": 550000,
       "rentListingCount": 16,
       "saleListingCount": 95,
       "source": "rightmove"
@@ -1684,7 +1684,7 @@
       "stationId": "910GBRTWOOD",
       "stationName": "Brentwood Rail Station",
       "medianRentPcm": 1373,
-      "averageSalePrice": 575917,
+      "medianSalePrice": 575000,
       "rentListingCount": 30,
       "saleListingCount": 60,
       "source": "rightmove"
@@ -1693,7 +1693,7 @@
       "stationId": "910GCHDWLHT",
       "stationName": "Chadwell Heath Rail Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 525223,
+      "medianSalePrice": 525000,
       "rentListingCount": 15,
       "saleListingCount": 85,
       "source": "rightmove"
@@ -1702,7 +1702,7 @@
       "stationId": "910GFRSTGT",
       "stationName": "Forest Gate Rail Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 577778,
+      "medianSalePrice": 600000,
       "rentListingCount": 19,
       "saleListingCount": 18,
       "source": "rightmove"
@@ -1711,7 +1711,7 @@
       "stationId": "910GGIDEAPK",
       "stationName": "Gidea Park Rail Station",
       "medianRentPcm": 1550,
-      "averageSalePrice": 559308,
+      "medianSalePrice": 575000,
       "rentListingCount": 6,
       "saleListingCount": 73,
       "source": "rightmove"
@@ -1720,7 +1720,7 @@
       "stationId": "910GGODMAYS",
       "stationName": "Goodmayes Rail Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 551236,
+      "medianSalePrice": 550000,
       "rentListingCount": 15,
       "saleListingCount": 76,
       "source": "rightmove"
@@ -1729,7 +1729,7 @@
       "stationId": "910GHANWELL",
       "stationName": "Hanwell Rail Station",
       "medianRentPcm": 1790,
-      "averageSalePrice": 618666,
+      "medianSalePrice": 625000,
       "rentListingCount": 10,
       "saleListingCount": 19,
       "source": "rightmove"
@@ -1738,16 +1738,16 @@
       "stationId": "910GHAYESAH",
       "stationName": "Hayes & Harlington Rail Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 599022,
+      "medianSalePrice": 600000,
       "rentListingCount": 78,
-      "saleListingCount": 55,
+      "saleListingCount": 54,
       "source": "rightmove"
     },
     {
       "stationId": "910GHRLDWOD",
       "stationName": "Harold Wood Rail Station",
       "medianRentPcm": 1450,
-      "averageSalePrice": 536590,
+      "medianSalePrice": 550000,
       "rentListingCount": 2,
       "saleListingCount": 78,
       "source": "rightmove"
@@ -1756,7 +1756,7 @@
       "stationId": "910GILFORD",
       "stationName": "Ilford Rail Station",
       "medianRentPcm": 1453,
-      "averageSalePrice": 572446,
+      "medianSalePrice": 550000,
       "rentListingCount": 54,
       "saleListingCount": 47,
       "source": "rightmove"
@@ -1765,7 +1765,7 @@
       "stationId": "910GIVER",
       "stationName": "Iver Rail Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 550455,
+      "medianSalePrice": 550000,
       "rentListingCount": 3,
       "saleListingCount": 22,
       "source": "rightmove"
@@ -1774,7 +1774,7 @@
       "stationId": "910GLANGLEY",
       "stationName": "Langley (Berks) Rail Station",
       "medianRentPcm": 1200,
-      "averageSalePrice": 541790,
+      "medianSalePrice": 540000,
       "rentListingCount": 10,
       "saleListingCount": 53,
       "source": "rightmove"
@@ -1783,7 +1783,7 @@
       "stationId": "910GMANRPK",
       "stationName": "Manor Park Rail Station",
       "medianRentPcm": 1825,
-      "averageSalePrice": 547000,
+      "medianSalePrice": 537500,
       "rentListingCount": 12,
       "saleListingCount": 20,
       "source": "rightmove"
@@ -1792,7 +1792,7 @@
       "stationId": "910GMDNHEAD",
       "stationName": "Maidenhead Rail Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 574446,
+      "medianSalePrice": 600000,
       "rentListingCount": 73,
       "saleListingCount": 55,
       "source": "rightmove"
@@ -1801,7 +1801,7 @@
       "stationId": "910GMRYLAND",
       "stationName": "Maryland Rail Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 580000,
+      "medianSalePrice": 575000,
       "rentListingCount": 28,
       "saleListingCount": 17,
       "source": "rightmove"
@@ -1809,9 +1809,9 @@
     {
       "stationId": "910GRDNGSTN",
       "stationName": "Reading Rail Station",
-      "medianRentPcm": 1450,
-      "averageSalePrice": 464923,
-      "rentListingCount": 95,
+      "medianRentPcm": 1425,
+      "medianSalePrice": 435000,
+      "rentListingCount": 96,
       "saleListingCount": 65,
       "source": "rightmove"
     },
@@ -1819,7 +1819,7 @@
       "stationId": "910GROMFORD",
       "stationName": "Romford Rail Station",
       "medianRentPcm": 1575,
-      "averageSalePrice": 542267,
+      "medianSalePrice": 550000,
       "rentListingCount": 37,
       "saleListingCount": 86,
       "source": "rightmove"
@@ -1828,16 +1828,16 @@
       "stationId": "910GSHENFLD",
       "stationName": "Shenfield Rail Station",
       "medianRentPcm": 1513,
-      "averageSalePrice": 525391,
+      "medianSalePrice": 537500,
       "rentListingCount": 8,
-      "saleListingCount": 23,
+      "saleListingCount": 22,
       "source": "rightmove"
     },
     {
       "stationId": "910GSLOUGH",
       "stationName": "Slough Rail Station",
       "medianRentPcm": 1350,
-      "averageSalePrice": 537153,
+      "medianSalePrice": 545000,
       "rentListingCount": 95,
       "saleListingCount": 51,
       "source": "rightmove"
@@ -1846,7 +1846,7 @@
       "stationId": "910GSTHALL",
       "stationName": "Southall Rail Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 564971,
+      "medianSalePrice": 575000,
       "rentListingCount": 69,
       "saleListingCount": 50,
       "source": "rightmove"
@@ -1855,7 +1855,7 @@
       "stationId": "910GSVNKNGS",
       "stationName": "Seven Kings Rail Station",
       "medianRentPcm": 1475,
-      "averageSalePrice": 583470,
+      "medianSalePrice": 575000,
       "rentListingCount": 22,
       "saleListingCount": 85,
       "source": "rightmove"
@@ -1864,7 +1864,7 @@
       "stationId": "910GTAPLOW",
       "stationName": "Taplow Rail Station",
       "medianRentPcm": 1400,
-      "averageSalePrice": 564728,
+      "medianSalePrice": 580000,
       "rentListingCount": 3,
       "saleListingCount": 37,
       "source": "rightmove"
@@ -1873,7 +1873,7 @@
       "stationId": "910GTWYFORD",
       "stationName": "Twyford Rail Station",
       "medianRentPcm": 1450,
-      "averageSalePrice": 608000,
+      "medianSalePrice": 587500,
       "rentListingCount": 3,
       "saleListingCount": 10,
       "source": "rightmove"
@@ -1882,7 +1882,7 @@
       "stationId": "910GWDRYTON",
       "stationName": "West Drayton Rail Station",
       "medianRentPcm": 1675,
-      "averageSalePrice": 556861,
+      "medianSalePrice": 550000,
       "rentListingCount": 24,
       "saleListingCount": 66,
       "source": "rightmove"
@@ -1891,7 +1891,7 @@
       "stationId": "910GWEALING",
       "stationName": "West Ealing Rail Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 624967,
+      "medianSalePrice": 625000,
       "rentListingCount": 46,
       "saleListingCount": 9,
       "source": "rightmove"
@@ -1900,7 +1900,7 @@
       "stationId": "910GWOLWXR",
       "stationName": "Woolwich",
       "medianRentPcm": 1838,
-      "averageSalePrice": 561063,
+      "medianSalePrice": 550000,
       "rentListingCount": 54,
       "saleListingCount": 16,
       "source": "rightmove"
@@ -1909,7 +1909,7 @@
       "stationId": "HUBABW",
       "stationName": "Abbey Wood",
       "medianRentPcm": 1775,
-      "averageSalePrice": 491282,
+      "medianSalePrice": 475000,
       "rentListingCount": 10,
       "saleListingCount": 39,
       "source": "rightmove"
@@ -1918,7 +1918,7 @@
       "stationId": "HUBH13",
       "stationName": "Heathrow Terminals 2 & 3",
       "medianRentPcm": 1375,
-      "averageSalePrice": 450000,
+      "medianSalePrice": 450000,
       "rentListingCount": 3,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -1927,7 +1927,7 @@
       "stationId": "HUBHX4",
       "stationName": "Heathrow Airport Terminal 4",
       "medianRentPcm": 1295,
-      "averageSalePrice": 508835,
+      "medianSalePrice": 500000,
       "rentListingCount": 3,
       "saleListingCount": 13,
       "source": "rightmove"
@@ -1936,7 +1936,7 @@
       "stationId": "HUBHX5",
       "stationName": "Heathrow Airport Terminal 5",
       "medianRentPcm": 1200,
-      "averageSalePrice": 480000,
+      "medianSalePrice": 470000,
       "rentListingCount": 8,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -1945,7 +1945,7 @@
       "stationId": "940GZZLUBMY",
       "stationName": "Bermondsey Underground Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 646250,
+      "medianSalePrice": 642500,
       "rentListingCount": 17,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1954,7 +1954,7 @@
       "stationId": "940GZZLUCPK",
       "stationName": "Canons Park Underground Station",
       "medianRentPcm": 1625,
-      "averageSalePrice": 616154,
+      "medianSalePrice": 610000,
       "rentListingCount": 12,
       "saleListingCount": 77,
       "source": "rightmove"
@@ -1963,7 +1963,7 @@
       "stationId": "940GZZLUDOH",
       "stationName": "Dollis Hill Underground Station",
       "medianRentPcm": 1499,
-      "averageSalePrice": 618790,
+      "medianSalePrice": 635000,
       "rentListingCount": 37,
       "saleListingCount": 29,
       "source": "rightmove"
@@ -1971,8 +1971,8 @@
     {
       "stationId": "940GZZLUFYR",
       "stationName": "Finchley Road Underground Station",
-      "medianRentPcm": 1700,
-      "averageSalePrice": 675000,
+      "medianRentPcm": 1695,
+      "medianSalePrice": 675000,
       "rentListingCount": 42,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -1981,7 +1981,7 @@
       "stationId": "940GZZLUGPK",
       "stationName": "Green Park Underground Station",
       "medianRentPcm": 1791,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 700000,
       "rentListingCount": 2,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -1990,7 +1990,7 @@
       "stationId": "940GZZLUKBN",
       "stationName": "Kilburn Underground Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 91,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -1999,7 +1999,7 @@
       "stationId": "940GZZLUKBY",
       "stationName": "Kingsbury Underground Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 616867,
+      "medianSalePrice": 600000,
       "rentListingCount": 3,
       "saleListingCount": 64,
       "source": "rightmove"
@@ -2008,7 +2008,7 @@
       "stationId": "940GZZLUNDN",
       "stationName": "Neasden Underground Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 613134,
+      "medianSalePrice": 625000,
       "rentListingCount": 16,
       "saleListingCount": 43,
       "source": "rightmove"
@@ -2017,7 +2017,7 @@
       "stationId": "940GZZLUQBY",
       "stationName": "Queensbury Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 610042,
+      "medianSalePrice": 600000,
       "rentListingCount": 11,
       "saleListingCount": 93,
       "source": "rightmove"
@@ -2026,7 +2026,7 @@
       "stationId": "940GZZLUSJW",
       "stationName": "St. John's Wood Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 29,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2035,7 +2035,7 @@
       "stationId": "940GZZLUSTM",
       "stationName": "Stanmore Underground Station",
       "medianRentPcm": 1710,
-      "averageSalePrice": 637364,
+      "medianSalePrice": 635000,
       "rentListingCount": 14,
       "saleListingCount": 21,
       "source": "rightmove"
@@ -2044,7 +2044,7 @@
       "stationId": "940GZZLUSWC",
       "stationName": "Swiss Cottage Underground Station",
       "medianRentPcm": 1779,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 30,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2053,7 +2053,7 @@
       "stationId": "940GZZLUSWK",
       "stationName": "Southwark Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 663462,
+      "medianSalePrice": 695000,
       "rentListingCount": 8,
       "saleListingCount": 13,
       "source": "rightmove"
@@ -2062,7 +2062,7 @@
       "stationId": "940GZZLUWIG",
       "stationName": "Willesden Green Underground Station",
       "medianRentPcm": 1569,
-      "averageSalePrice": 565000,
+      "medianSalePrice": 565000,
       "rentListingCount": 95,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2071,7 +2071,7 @@
       "stationId": "940GZZLUWYP",
       "stationName": "Wembley Park Underground Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 637851,
+      "medianSalePrice": 649950,
       "rentListingCount": 95,
       "saleListingCount": 35,
       "source": "rightmove"
@@ -2080,7 +2080,7 @@
       "stationId": "HUBLBG",
       "stationName": "London Bridge",
       "medianRentPcm": 1825,
-      "averageSalePrice": 659792,
+      "medianSalePrice": 675000,
       "rentListingCount": 6,
       "saleListingCount": 24,
       "source": "rightmove"
@@ -2089,7 +2089,7 @@
       "stationId": "HUBNGW",
       "stationName": "North Greenwich",
       "medianRentPcm": 1931,
-      "averageSalePrice": 643000,
+      "medianSalePrice": 650000,
       "rentListingCount": 18,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -2098,7 +2098,7 @@
       "stationId": "HUBWHD",
       "stationName": "West Hampstead",
       "medianRentPcm": 1600,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 675000,
       "rentListingCount": 105,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2107,7 +2107,7 @@
       "stationId": "HUBZCW",
       "stationName": "Canada Water",
       "medianRentPcm": 1950,
-      "averageSalePrice": 635000,
+      "medianSalePrice": 610000,
       "rentListingCount": 10,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -2116,7 +2116,7 @@
       "stationId": "940GZZLUCSM",
       "stationName": "Chesham Underground Station",
       "medianRentPcm": 1323,
-      "averageSalePrice": 551058,
+      "medianSalePrice": 550000,
       "rentListingCount": 10,
       "saleListingCount": 33,
       "source": "rightmove"
@@ -2125,7 +2125,7 @@
       "stationId": "940GZZLUCXY",
       "stationName": "Croxley Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 616862,
+      "medianSalePrice": 625000,
       "rentListingCount": 1,
       "saleListingCount": 29,
       "source": "rightmove"
@@ -2134,7 +2134,7 @@
       "stationId": "940GZZLUEAE",
       "stationName": "Eastcote Underground Station",
       "medianRentPcm": 1450,
-      "averageSalePrice": 628887,
+      "medianSalePrice": 635000,
       "rentListingCount": 6,
       "saleListingCount": 63,
       "source": "rightmove"
@@ -2143,7 +2143,7 @@
       "stationId": "940GZZLUHGD",
       "stationName": "Hillingdon Underground Station",
       "medianRentPcm": 1473,
-      "averageSalePrice": 564070,
+      "medianSalePrice": 565000,
       "rentListingCount": 4,
       "saleListingCount": 57,
       "source": "rightmove"
@@ -2152,7 +2152,7 @@
       "stationId": "940GZZLUICK",
       "stationName": "Ickenham Underground Station",
       "medianRentPcm": 1473,
-      "averageSalePrice": 580619,
+      "medianSalePrice": 575000,
       "rentListingCount": 4,
       "saleListingCount": 21,
       "source": "rightmove"
@@ -2161,7 +2161,7 @@
       "stationId": "940GZZLUMPK",
       "stationName": "Moor Park Underground Station",
       "medianRentPcm": 1400,
-      "averageSalePrice": 647690,
+      "medianSalePrice": 650000,
       "rentListingCount": 5,
       "saleListingCount": 95,
       "source": "rightmove"
@@ -2170,7 +2170,7 @@
       "stationId": "940GZZLUNHA",
       "stationName": "North Harrow Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 629233,
+      "medianSalePrice": 650000,
       "rentListingCount": 8,
       "saleListingCount": 75,
       "source": "rightmove"
@@ -2179,7 +2179,7 @@
       "stationId": "940GZZLUNKP",
       "stationName": "Northwick Park Underground Station",
       "medianRentPcm": 1625,
-      "averageSalePrice": 620133,
+      "medianSalePrice": 625000,
       "rentListingCount": 16,
       "saleListingCount": 36,
       "source": "rightmove"
@@ -2188,7 +2188,7 @@
       "stationId": "940GZZLUNOW",
       "stationName": "Northwood Underground Station",
       "medianRentPcm": 1475,
-      "averageSalePrice": 654158,
+      "medianSalePrice": 650000,
       "rentListingCount": 10,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -2197,7 +2197,7 @@
       "stationId": "940GZZLUNWH",
       "stationName": "Northwood Hills Underground Station",
       "medianRentPcm": 1413,
-      "averageSalePrice": 613959,
+      "medianSalePrice": 612500,
       "rentListingCount": 2,
       "saleListingCount": 16,
       "source": "rightmove"
@@ -2206,7 +2206,7 @@
       "stationId": "940GZZLUPNR",
       "stationName": "Pinner Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 643934,
+      "medianSalePrice": 650000,
       "rentListingCount": 18,
       "saleListingCount": 25,
       "source": "rightmove"
@@ -2215,7 +2215,7 @@
       "stationId": "940GZZLUPRD",
       "stationName": "Preston Road Underground Station",
       "medianRentPcm": 1788,
-      "averageSalePrice": 634690,
+      "medianSalePrice": 640000,
       "rentListingCount": 12,
       "saleListingCount": 49,
       "source": "rightmove"
@@ -2224,7 +2224,7 @@
       "stationId": "940GZZLURSM",
       "stationName": "Ruislip Manor Underground Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 628909,
+      "medianSalePrice": 635000,
       "rentListingCount": 9,
       "saleListingCount": 45,
       "source": "rightmove"
@@ -2233,7 +2233,7 @@
       "stationId": "940GZZLURSP",
       "stationName": "Ruislip Underground Station",
       "medianRentPcm": 1695,
-      "averageSalePrice": 592756,
+      "medianSalePrice": 600000,
       "rentListingCount": 13,
       "saleListingCount": 33,
       "source": "rightmove"
@@ -2242,7 +2242,7 @@
       "stationId": "940GZZLURYL",
       "stationName": "Rayners Lane Underground Station",
       "medianRentPcm": 1588,
-      "averageSalePrice": 615539,
+      "medianSalePrice": 625000,
       "rentListingCount": 12,
       "saleListingCount": 81,
       "source": "rightmove"
@@ -2251,7 +2251,7 @@
       "stationId": "940GZZLUUXB",
       "stationName": "Uxbridge Underground Station",
       "medianRentPcm": 1550,
-      "averageSalePrice": 643235,
+      "medianSalePrice": 650000,
       "rentListingCount": 31,
       "saleListingCount": 17,
       "source": "rightmove"
@@ -2260,7 +2260,7 @@
       "stationId": "940GZZLUWAF",
       "stationName": "Watford Underground Station",
       "medianRentPcm": 1300,
-      "averageSalePrice": 598757,
+      "medianSalePrice": 625000,
       "rentListingCount": 15,
       "saleListingCount": 38,
       "source": "rightmove"
@@ -2269,7 +2269,7 @@
       "stationId": "940GZZLUWHW",
       "stationName": "West Harrow Underground Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 626406,
+      "medianSalePrice": 627500,
       "rentListingCount": 11,
       "saleListingCount": 70,
       "source": "rightmove"
@@ -2278,7 +2278,7 @@
       "stationId": "HUBAMR",
       "stationName": "Amersham",
       "medianRentPcm": 1550,
-      "averageSalePrice": 619990,
+      "medianSalePrice": 625000,
       "rentListingCount": 5,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -2287,7 +2287,7 @@
       "stationId": "HUBCFO",
       "stationName": "Chalfont & Latimer",
       "medianRentPcm": 1825,
-      "averageSalePrice": 645000,
+      "medianSalePrice": 657500,
       "rentListingCount": 6,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -2296,7 +2296,7 @@
       "stationId": "HUBCLW",
       "stationName": "Chorleywood",
       "medianRentPcm": null,
-      "averageSalePrice": 575000,
+      "medianSalePrice": 575000,
       "rentListingCount": 0,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2305,7 +2305,7 @@
       "stationId": "HUBHOH",
       "stationName": "Harrow-on-the-Hill",
       "medianRentPcm": 1450,
-      "averageSalePrice": 603328,
+      "medianSalePrice": 600000,
       "rentListingCount": 95,
       "saleListingCount": 42,
       "source": "rightmove"
@@ -2314,7 +2314,7 @@
       "stationId": "HUBRIC",
       "stationName": "Rickmansworth",
       "medianRentPcm": 1425,
-      "averageSalePrice": 596364,
+      "medianSalePrice": 590000,
       "rentListingCount": 13,
       "saleListingCount": 11,
       "source": "rightmove"
@@ -2323,7 +2323,7 @@
       "stationId": "940GZZBPSUST",
       "stationName": "Battersea Power Station Underground Station",
       "medianRentPcm": 1785,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 10,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2332,7 +2332,7 @@
       "stationId": "940GZZLUACY",
       "stationName": "Archway Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 600000,
+      "medianSalePrice": 600000,
       "rentListingCount": 23,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2341,7 +2341,7 @@
       "stationId": "940GZZLUAGL",
       "stationName": "Angel Underground Station",
       "medianRentPcm": 1950,
-      "averageSalePrice": 663333,
+      "medianSalePrice": 695000,
       "rentListingCount": 12,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -2350,7 +2350,7 @@
       "stationId": "940GZZLUBOR",
       "stationName": "Borough Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 659792,
+      "medianSalePrice": 675000,
       "rentListingCount": 18,
       "saleListingCount": 24,
       "source": "rightmove"
@@ -2359,7 +2359,7 @@
       "stationId": "940GZZLUBTK",
       "stationName": "Burnt Oak Underground Station",
       "medianRentPcm": 1500,
-      "averageSalePrice": 578825,
+      "medianSalePrice": 577500,
       "rentListingCount": 14,
       "saleListingCount": 64,
       "source": "rightmove"
@@ -2368,7 +2368,7 @@
       "stationId": "940GZZLUBTX",
       "stationName": "Brent Cross Underground Station",
       "medianRentPcm": 1450,
-      "averageSalePrice": 633385,
+      "medianSalePrice": 650000,
       "rentListingCount": 13,
       "saleListingCount": 13,
       "source": "rightmove"
@@ -2377,7 +2377,7 @@
       "stationId": "940GZZLUBZP",
       "stationName": "Belsize Park Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 617833,
+      "medianSalePrice": 637500,
       "rentListingCount": 23,
       "saleListingCount": 12,
       "source": "rightmove"
@@ -2386,7 +2386,7 @@
       "stationId": "940GZZLUCFM",
       "stationName": "Chalk Farm Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 635833,
+      "medianSalePrice": 650000,
       "rentListingCount": 15,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -2395,7 +2395,7 @@
       "stationId": "940GZZLUCND",
       "stationName": "Colindale Underground Station",
       "medianRentPcm": 1885,
-      "averageSalePrice": 602438,
+      "medianSalePrice": 600000,
       "rentListingCount": 75,
       "saleListingCount": 61,
       "source": "rightmove"
@@ -2404,7 +2404,7 @@
       "stationId": "940GZZLUCPC",
       "stationName": "Clapham Common Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 636667,
+      "medianSalePrice": 610000,
       "rentListingCount": 5,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -2413,7 +2413,7 @@
       "stationId": "940GZZLUCPN",
       "stationName": "Clapham North Underground Station",
       "medianRentPcm": 1825,
-      "averageSalePrice": 670000,
+      "medianSalePrice": 700000,
       "rentListingCount": 20,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -2422,7 +2422,7 @@
       "stationId": "940GZZLUCPS",
       "stationName": "Clapham South Underground Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 610000,
+      "medianSalePrice": 610000,
       "rentListingCount": 5,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2431,7 +2431,7 @@
       "stationId": "940GZZLUCSD",
       "stationName": "Colliers Wood Underground Station",
       "medianRentPcm": 1900,
-      "averageSalePrice": 594998,
+      "medianSalePrice": 600000,
       "rentListingCount": 23,
       "saleListingCount": 25,
       "source": "rightmove"
@@ -2440,7 +2440,7 @@
       "stationId": "940GZZLUCTN",
       "stationName": "Camden Town Underground Station",
       "medianRentPcm": 1775,
-      "averageSalePrice": 637500,
+      "medianSalePrice": 637500,
       "rentListingCount": 34,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2449,7 +2449,7 @@
       "stationId": "940GZZLUEFY",
       "stationName": "East Finchley Underground Station",
       "medianRentPcm": 1775,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 10,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2458,7 +2458,7 @@
       "stationId": "940GZZLUEGW",
       "stationName": "Edgware Underground Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 597048,
+      "medianSalePrice": 599950,
       "rentListingCount": 25,
       "saleListingCount": 56,
       "source": "rightmove"
@@ -2467,7 +2467,7 @@
       "stationId": "940GZZLUFYC",
       "stationName": "Finchley Central Underground Station",
       "medianRentPcm": 1556,
-      "averageSalePrice": 685833,
+      "medianSalePrice": 700000,
       "rentListingCount": 46,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -2476,8 +2476,8 @@
       "stationId": "940GZZLUGDG",
       "stationName": "Goodge Street Underground Station",
       "medianRentPcm": 1950,
-      "averageSalePrice": 687500,
-      "rentListingCount": 19,
+      "medianSalePrice": 687500,
+      "rentListingCount": 20,
       "saleListingCount": 2,
       "source": "rightmove"
     },
@@ -2485,7 +2485,7 @@
       "stationId": "940GZZLUGGN",
       "stationName": "Golders Green Underground Station",
       "medianRentPcm": 1620,
-      "averageSalePrice": 625000,
+      "medianSalePrice": 650000,
       "rentListingCount": 19,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -2494,7 +2494,7 @@
       "stationId": "940GZZLUHBT",
       "stationName": "High Barnet Underground Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 604245,
+      "medianSalePrice": 600000,
       "rentListingCount": 20,
       "saleListingCount": 20,
       "source": "rightmove"
@@ -2503,7 +2503,7 @@
       "stationId": "940GZZLUHCL",
       "stationName": "Hendon Central Underground Station",
       "medianRentPcm": 1395,
-      "averageSalePrice": 620907,
+      "medianSalePrice": 625000,
       "rentListingCount": 37,
       "saleListingCount": 22,
       "source": "rightmove"
@@ -2512,7 +2512,7 @@
       "stationId": "940GZZLUHGT",
       "stationName": "Highgate Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 636408,
+      "medianSalePrice": 650000,
       "rentListingCount": 9,
       "saleListingCount": 44,
       "source": "rightmove"
@@ -2521,7 +2521,7 @@
       "stationId": "940GZZLUHTD",
       "stationName": "Hampstead Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 624430,
+      "medianSalePrice": 625000,
       "rentListingCount": 10,
       "saleListingCount": 37,
       "source": "rightmove"
@@ -2530,7 +2530,7 @@
       "stationId": "940GZZLUKNG",
       "stationName": "Kennington Underground Station",
       "medianRentPcm": 1773,
-      "averageSalePrice": 654808,
+      "medianSalePrice": 675000,
       "rentListingCount": 28,
       "saleListingCount": 26,
       "source": "rightmove"
@@ -2538,9 +2538,9 @@
     {
       "stationId": "940GZZLULSQ",
       "stationName": "Leicester Square Underground Station",
-      "medianRentPcm": 1924,
-      "averageSalePrice": 693750,
-      "rentListingCount": 8,
+      "medianRentPcm": 1950,
+      "medianSalePrice": 700000,
+      "rentListingCount": 9,
       "saleListingCount": 4,
       "source": "rightmove"
     },
@@ -2548,7 +2548,7 @@
       "stationId": "940GZZLUMDN",
       "stationName": "Morden Underground Station",
       "medianRentPcm": 1675,
-      "averageSalePrice": 614206,
+      "medianSalePrice": 630000,
       "rentListingCount": 14,
       "saleListingCount": 34,
       "source": "rightmove"
@@ -2557,7 +2557,7 @@
       "stationId": "940GZZLUMHL",
       "stationName": "Mill Hill East Underground Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 656667,
+      "medianSalePrice": 657500,
       "rentListingCount": 17,
       "saleListingCount": 12,
       "source": "rightmove"
@@ -2566,7 +2566,7 @@
       "stationId": "940GZZLUMTC",
       "stationName": "Mornington Crescent Underground Station",
       "medianRentPcm": 1841,
-      "averageSalePrice": 637500,
+      "medianSalePrice": 637500,
       "rentListingCount": 28,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2575,7 +2575,7 @@
       "stationId": "940GZZLUOVL",
       "stationName": "Oval Underground Station",
       "medianRentPcm": 1795,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 27,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2584,7 +2584,7 @@
       "stationId": "940GZZLUSKW",
       "stationName": "Stockwell Underground Station",
       "medianRentPcm": 1658,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 28,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2593,7 +2593,7 @@
       "stationId": "940GZZLUSWN",
       "stationName": "South Wimbledon Underground Station",
       "medianRentPcm": 1925,
-      "averageSalePrice": 599330,
+      "medianSalePrice": 600000,
       "rentListingCount": 12,
       "saleListingCount": 15,
       "source": "rightmove"
@@ -2602,7 +2602,7 @@
       "stationId": "940GZZLUTAW",
       "stationName": "Totteridge & Whetstone Underground Station",
       "medianRentPcm": 1768,
-      "averageSalePrice": 644992,
+      "medianSalePrice": 654975,
       "rentListingCount": 18,
       "saleListingCount": 6,
       "source": "rightmove"
@@ -2611,7 +2611,7 @@
       "stationId": "940GZZLUTBC",
       "stationName": "Tooting Bec Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 630000,
+      "medianSalePrice": 630000,
       "rentListingCount": 9,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2620,7 +2620,7 @@
       "stationId": "940GZZLUTBY",
       "stationName": "Tooting Broadway Underground Station",
       "medianRentPcm": 1675,
-      "averageSalePrice": 625309,
+      "medianSalePrice": 649975,
       "rentListingCount": 15,
       "saleListingCount": 16,
       "source": "rightmove"
@@ -2629,7 +2629,7 @@
       "stationId": "940GZZLUTFP",
       "stationName": "Tufnell Park Underground Station",
       "medianRentPcm": 1675,
-      "averageSalePrice": 633333,
+      "medianSalePrice": 625000,
       "rentListingCount": 20,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -2638,7 +2638,7 @@
       "stationId": "940GZZLUWFN",
       "stationName": "West Finchley Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 684375,
+      "medianSalePrice": 700000,
       "rentListingCount": 28,
       "saleListingCount": 8,
       "source": "rightmove"
@@ -2647,7 +2647,7 @@
       "stationId": "940GZZLUWOP",
       "stationName": "Woodside Park Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 671875,
+      "medianSalePrice": 692500,
       "rentListingCount": 46,
       "saleListingCount": 8,
       "source": "rightmove"
@@ -2656,7 +2656,7 @@
       "stationId": "940GZZLUWRR",
       "stationName": "Warren Street Underground Station",
       "medianRentPcm": 1950,
-      "averageSalePrice": 637500,
+      "medianSalePrice": 637500,
       "rentListingCount": 20,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2665,7 +2665,7 @@
       "stationId": "940GZZNEUGST",
       "stationName": "Nine Elms Underground Station",
       "medianRentPcm": 1950,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 11,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2674,7 +2674,7 @@
       "stationId": "HUBBAL",
       "stationName": "Balham",
       "medianRentPcm": 1800,
-      "averageSalePrice": 637947,
+      "medianSalePrice": 635000,
       "rentListingCount": 9,
       "saleListingCount": 95,
       "source": "rightmove"
@@ -2683,7 +2683,7 @@
       "stationId": "HUBEUS",
       "stationName": "Euston",
       "medianRentPcm": 1950,
-      "averageSalePrice": 637500,
+      "medianSalePrice": 637500,
       "rentListingCount": 32,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2692,7 +2692,7 @@
       "stationId": "HUBKTN",
       "stationName": "Kentish Town",
       "medianRentPcm": 1850,
-      "averageSalePrice": 637500,
+      "medianSalePrice": 637500,
       "rentListingCount": 9,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2701,7 +2701,7 @@
       "stationId": "HUBOLD",
       "stationName": "Old Street",
       "medianRentPcm": 1869,
-      "averageSalePrice": 647500,
+      "medianSalePrice": 662500,
       "rentListingCount": 10,
       "saleListingCount": 10,
       "source": "rightmove"
@@ -2710,7 +2710,7 @@
       "stationId": "940GZZLUALP",
       "stationName": "Alperton Underground Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 628968,
+      "medianSalePrice": 650000,
       "rentListingCount": 23,
       "saleListingCount": 34,
       "source": "rightmove"
@@ -2719,7 +2719,7 @@
       "stationId": "940GZZLUASG",
       "stationName": "Arnos Grove Underground Station",
       "medianRentPcm": 1700,
-      "averageSalePrice": 639000,
+      "medianSalePrice": 650000,
       "rentListingCount": 17,
       "saleListingCount": 23,
       "source": "rightmove"
@@ -2728,7 +2728,7 @@
       "stationId": "940GZZLUASL",
       "stationName": "Arsenal Underground Station",
       "medianRentPcm": 1517,
-      "averageSalePrice": 600000,
+      "medianSalePrice": 600000,
       "rentListingCount": 39,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2737,7 +2737,7 @@
       "stationId": "940GZZLUBDS",
       "stationName": "Bounds Green Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 639848,
+      "medianSalePrice": 612500,
       "rentListingCount": 25,
       "saleListingCount": 20,
       "source": "rightmove"
@@ -2746,7 +2746,7 @@
       "stationId": "940GZZLUBOS",
       "stationName": "Boston Manor Underground Station",
       "medianRentPcm": 1937,
-      "averageSalePrice": 647494,
+      "medianSalePrice": 650000,
       "rentListingCount": 2,
       "saleListingCount": 8,
       "source": "rightmove"
@@ -2755,7 +2755,7 @@
       "stationId": "940GZZLUCAR",
       "stationName": "Caledonian Road Underground Station",
       "medianRentPcm": 1498,
-      "averageSalePrice": 600000,
+      "medianSalePrice": 600000,
       "rentListingCount": 34,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2763,9 +2763,9 @@
     {
       "stationId": "940GZZLUCGN",
       "stationName": "Covent Garden Underground Station",
-      "medianRentPcm": 1898,
-      "averageSalePrice": 694000,
-      "rentListingCount": 7,
+      "medianRentPcm": 1924,
+      "medianSalePrice": 700000,
+      "rentListingCount": 8,
       "saleListingCount": 5,
       "source": "rightmove"
     },
@@ -2773,7 +2773,7 @@
       "stationId": "940GZZLUCKS",
       "stationName": "Cockfosters Underground Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 649995,
+      "medianSalePrice": 650000,
       "rentListingCount": 9,
       "saleListingCount": 11,
       "source": "rightmove"
@@ -2782,7 +2782,7 @@
       "stationId": "940GZZLUHNX",
       "stationName": "Hatton Cross Underground Station",
       "medianRentPcm": 1125,
-      "averageSalePrice": 526158,
+      "medianSalePrice": 525000,
       "rentListingCount": 8,
       "saleListingCount": 12,
       "source": "rightmove"
@@ -2791,7 +2791,7 @@
       "stationId": "940GZZLUHPC",
       "stationName": "Hyde Park Corner Underground Station",
       "medianRentPcm": 2000,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 700000,
       "rentListingCount": 1,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -2800,7 +2800,7 @@
       "stationId": "940GZZLUHWC",
       "stationName": "Hounslow Central Underground Station",
       "medianRentPcm": 1448,
-      "averageSalePrice": 602933,
+      "medianSalePrice": 600000,
       "rentListingCount": 74,
       "saleListingCount": 81,
       "source": "rightmove"
@@ -2809,7 +2809,7 @@
       "stationId": "940GZZLUHWE",
       "stationName": "Hounslow East Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 604056,
+      "medianSalePrice": 607475,
       "rentListingCount": 50,
       "saleListingCount": 64,
       "source": "rightmove"
@@ -2818,7 +2818,7 @@
       "stationId": "940GZZLUHWT",
       "stationName": "Hounslow West Underground Station",
       "medianRentPcm": 1460,
-      "averageSalePrice": 579176,
+      "medianSalePrice": 575000,
       "rentListingCount": 8,
       "saleListingCount": 44,
       "source": "rightmove"
@@ -2827,7 +2827,7 @@
       "stationId": "940GZZLUHWY",
       "stationName": "Holloway Road Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 600000,
+      "medianSalePrice": 600000,
       "rentListingCount": 51,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2836,7 +2836,7 @@
       "stationId": "940GZZLUKNB",
       "stationName": "Knightsbridge Underground Station",
       "medianRentPcm": 1600,
-      "averageSalePrice": 675000,
+      "medianSalePrice": 700000,
       "rentListingCount": 5,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -2845,7 +2845,7 @@
       "stationId": "940GZZLUMRH",
       "stationName": "Manor House Underground Station",
       "medianRentPcm": 1775,
-      "averageSalePrice": 610846,
+      "medianSalePrice": 600000,
       "rentListingCount": 10,
       "saleListingCount": 46,
       "source": "rightmove"
@@ -2854,7 +2854,7 @@
       "stationId": "940GZZLUNEN",
       "stationName": "North Ealing Underground Station",
       "medianRentPcm": 1591,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 24,
       "saleListingCount": 2,
       "source": "rightmove"
@@ -2863,7 +2863,7 @@
       "stationId": "940GZZLUNFD",
       "stationName": "Northfields Underground Station",
       "medianRentPcm": 1300,
-      "averageSalePrice": 658613,
+      "medianSalePrice": 655000,
       "rentListingCount": 9,
       "saleListingCount": 8,
       "source": "rightmove"
@@ -2872,7 +2872,7 @@
       "stationId": "940GZZLUOAK",
       "stationName": "Oakwood Underground Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 642143,
+      "medianSalePrice": 650000,
       "rentListingCount": 7,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -2881,7 +2881,7 @@
       "stationId": "940GZZLUOSY",
       "stationName": "Osterley Underground Station",
       "medianRentPcm": 1550,
-      "averageSalePrice": 606168,
+      "medianSalePrice": 600000,
       "rentListingCount": 8,
       "saleListingCount": 34,
       "source": "rightmove"
@@ -2890,7 +2890,7 @@
       "stationId": "940GZZLUPKR",
       "stationName": "Park Royal Underground Station",
       "medianRentPcm": 1850,
-      "averageSalePrice": 616875,
+      "medianSalePrice": 637500,
       "rentListingCount": 35,
       "saleListingCount": 8,
       "source": "rightmove"
@@ -2898,9 +2898,9 @@
     {
       "stationId": "940GZZLURSQ",
       "stationName": "Russell Square Underground Station",
-      "medianRentPcm": 1874,
-      "averageSalePrice": 650000,
-      "rentListingCount": 20,
+      "medianRentPcm": 1898,
+      "medianSalePrice": 650000,
+      "rentListingCount": 21,
       "saleListingCount": 2,
       "source": "rightmove"
     },
@@ -2908,7 +2908,7 @@
       "stationId": "940GZZLUSEA",
       "stationName": "South Ealing Underground Station",
       "medianRentPcm": 1463,
-      "averageSalePrice": 659843,
+      "medianSalePrice": 660000,
       "rentListingCount": 14,
       "saleListingCount": 7,
       "source": "rightmove"
@@ -2917,7 +2917,7 @@
       "stationId": "940GZZLUSGT",
       "stationName": "Southgate Underground Station",
       "medianRentPcm": 1688,
-      "averageSalePrice": 673846,
+      "medianSalePrice": 675000,
       "rentListingCount": 16,
       "saleListingCount": 13,
       "source": "rightmove"
@@ -2926,7 +2926,7 @@
       "stationId": "940GZZLUSHH",
       "stationName": "South Harrow Underground Station",
       "medianRentPcm": 1350,
-      "averageSalePrice": 591819,
+      "medianSalePrice": 590000,
       "rentListingCount": 10,
       "saleListingCount": 82,
       "source": "rightmove"
@@ -2935,7 +2935,7 @@
       "stationId": "940GZZLUSUH",
       "stationName": "Sudbury Hill Underground Station",
       "medianRentPcm": 1650,
-      "averageSalePrice": 598124,
+      "medianSalePrice": 599950,
       "rentListingCount": 11,
       "saleListingCount": 69,
       "source": "rightmove"
@@ -2944,7 +2944,7 @@
       "stationId": "940GZZLUSUT",
       "stationName": "Sudbury Town Underground Station",
       "medianRentPcm": 1625,
-      "averageSalePrice": 617244,
+      "medianSalePrice": 625000,
       "rentListingCount": 16,
       "saleListingCount": 74,
       "source": "rightmove"
@@ -2953,7 +2953,7 @@
       "stationId": "940GZZLUTPN",
       "stationName": "Turnpike Lane Underground Station",
       "medianRentPcm": 1750,
-      "averageSalePrice": 613000,
+      "medianSalePrice": 625000,
       "rentListingCount": 52,
       "saleListingCount": 5,
       "source": "rightmove"
@@ -2962,7 +2962,7 @@
       "stationId": "940GZZLUWOG",
       "stationName": "Wood Green Underground Station",
       "medianRentPcm": 1800,
-      "averageSalePrice": 614905,
+      "medianSalePrice": 600000,
       "rentListingCount": 35,
       "saleListingCount": 11,
       "source": "rightmove"
@@ -2971,7 +2971,7 @@
       "stationId": "HUBFPK",
       "stationName": "Finsbury Park",
       "medianRentPcm": 1550,
-      "averageSalePrice": 600000,
+      "medianSalePrice": 600000,
       "rentListingCount": 27,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2980,7 +2980,7 @@
       "stationId": "940GZZLUPCO",
       "stationName": "Pimlico Underground Station",
       "medianRentPcm": 1774,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 44,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -2989,7 +2989,7 @@
       "stationId": "HUBBHO",
       "stationName": "Blackhorse Road",
       "medianRentPcm": 1775,
-      "averageSalePrice": 627778,
+      "medianSalePrice": 650000,
       "rentListingCount": 18,
       "saleListingCount": 9,
       "source": "rightmove"
@@ -2998,7 +2998,7 @@
       "stationId": "HUBBRX",
       "stationName": "Brixton",
       "medianRentPcm": 1800,
-      "averageSalePrice": 658750,
+      "medianSalePrice": 662500,
       "rentListingCount": 21,
       "saleListingCount": 4,
       "source": "rightmove"
@@ -3007,7 +3007,7 @@
       "stationId": "HUBHHY",
       "stationName": "Highbury & Islington",
       "medianRentPcm": 1800,
-      "averageSalePrice": 615000,
+      "medianSalePrice": 600000,
       "rentListingCount": 17,
       "saleListingCount": 3,
       "source": "rightmove"
@@ -3016,7 +3016,7 @@
       "stationId": "HUBSVS",
       "stationName": "Seven Sisters",
       "medianRentPcm": 1421,
-      "averageSalePrice": 623177,
+      "medianSalePrice": 600000,
       "rentListingCount": 33,
       "saleListingCount": 11,
       "source": "rightmove"
@@ -3025,7 +3025,7 @@
       "stationId": "HUBTOM",
       "stationName": "Tottenham Hale",
       "medianRentPcm": 1538,
-      "averageSalePrice": 613330,
+      "medianSalePrice": 600000,
       "rentListingCount": 6,
       "saleListingCount": 15,
       "source": "rightmove"
@@ -3034,7 +3034,7 @@
       "stationId": "HUBVXH",
       "stationName": "Vauxhall",
       "medianRentPcm": 1876,
-      "averageSalePrice": 700000,
+      "medianSalePrice": 700000,
       "rentListingCount": 22,
       "saleListingCount": 1,
       "source": "rightmove"
@@ -3043,7 +3043,7 @@
       "stationId": "HUBWHC",
       "stationName": "Walthamstow Central",
       "medianRentPcm": 1557,
-      "averageSalePrice": 646176,
+      "medianSalePrice": 650000,
       "rentListingCount": 30,
       "saleListingCount": 17,
       "source": "rightmove"

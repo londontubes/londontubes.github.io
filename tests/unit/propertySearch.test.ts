@@ -149,6 +149,20 @@ const ealingBroadway: Station = {
   order: 0,
 }
 
+const eustonSquare: Station = {
+  stationId: '940GZZLUESQ',
+  displayName: 'Euston Square Underground Station',
+  position: {
+    type: 'Point',
+    coordinates: [-0.135829, 51.525604],
+  },
+  lineCodes: ['circle', 'hammersmith-city', 'metropolitan'],
+  isInterchange: true,
+  markerIcon: 'default',
+  tooltipSummary: 'Euston Square Underground Station',
+  order: 0,
+}
+
 const stratford: Station = {
   stationId: 'HUBSRA',
   displayName: 'Stratford',
@@ -160,6 +174,20 @@ const stratford: Station = {
   isInterchange: true,
   markerIcon: 'default',
   tooltipSummary: 'Stratford',
+  order: 0,
+}
+
+const kingsCrossStPancras: Station = {
+  stationId: 'HUBKGX',
+  displayName: "King's Cross & St Pancras International",
+  position: {
+    type: 'Point',
+    coordinates: [-0.1236, 51.5308],
+  },
+  lineCodes: ['circle', 'hammersmith-city', 'metropolitan', 'northern', 'piccadilly', 'victoria'],
+  isInterchange: true,
+  markerIcon: 'default',
+  tooltipSummary: "King's Cross & St Pancras International",
   order: 0,
 }
 
@@ -243,7 +271,7 @@ describe('propertySearch helpers', () => {
       'farms_land',
     ])
     expect(parsed.searchParams.get('q')).toBe('Baker Street, London')
-    expect(parsed.searchParams.get('radius')).toBe('3')
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
     expect(parsed.searchParams.get('search_source')).toBe('for-sale')
     expect(parsed.searchParams.get('map_app')).toBe('true')
   })
@@ -260,7 +288,7 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('displayLocationIdentifier')).toBe('Baker-Street-Station')
     expect(parsed.searchParams.get('useLocationIdentifier')).toBe('true')
     expect(parsed.searchParams.get('buy')).toBe('For sale')
-    expect(parsed.searchParams.get('radius')).toBe('3.0')
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
     expect(parsed.searchParams.get('maxPrice')).toBe('700000')
     expect(parsed.searchParams.get('minBedrooms')).toBe('3')
     expect(parsed.searchParams.get('_includeSSTC')).toBe('on')
@@ -302,6 +330,21 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('map_app')).toBeNull()
   })
 
+  it('uses the Fitzrovia Zoopla buy area for Euston Square', () => {
+    const url = buildZooplaStationBuyUrl(eustonSquare)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+    expect(parsed.pathname).toBe('/for-sale/map/property/fitzrovia/')
+    expect(parsed.searchParams.get('q')).toBe('Fitzrovia, London')
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
+    expect(parsed.searchParams.get('search_source')).toBe('for-sale')
+    expect(parsed.searchParams.getAll('feature')).toEqual([])
+    expect(parsed.searchParams.getAll('property_sub_type')).toEqual([])
+    expect(parsed.searchParams.get('map_app')).toBeNull()
+  })
+
   it('uses a minimal area-based Zoopla buy search for Southall', () => {
     const url = buildZooplaStationBuyUrl(southall)
 
@@ -312,11 +355,23 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('beds_min')).toBe('3')
     expect(parsed.searchParams.get('price_max')).toBe('700000')
     expect(parsed.searchParams.get('q')).toBe('Southall, London')
-    expect(parsed.searchParams.get('radius')).toBe('1')
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
     expect(parsed.searchParams.get('search_source')).toBe('for-sale')
     expect(parsed.searchParams.getAll('feature')).toEqual([])
     expect(parsed.searchParams.getAll('property_sub_type')).toEqual([])
     expect(parsed.searchParams.get('map_app')).toBeNull()
+  })
+
+  it('uses the Kings Cross Zoopla buy area for Kings Cross St Pancras', () => {
+    const url = buildZooplaStationBuyUrl(kingsCrossStPancras)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+    expect(parsed.pathname).toBe('/for-sale/map/property/london/kings-cross/')
+    expect(parsed.searchParams.get('q')).toBe('Kings Cross, London')
+    expect(parsed.searchParams.get('radius')).toBe('0.5')
+    expect(parsed.searchParams.get('search_source')).toBe('for-sale')
   })
 
   it('builds a Rightmove URL for Charing Cross via the fallback override mapping', () => {
@@ -374,6 +429,18 @@ describe('propertySearch helpers', () => {
     expect(new URL(buyUrl!).searchParams.get('locationIdentifier')).toBe('STATION^8813')
   })
 
+  it('uses the corrected Rightmove station identifier for Kings Cross St Pancras', () => {
+    const rentUrl = buildRightmoveStationUrl(kingsCrossStPancras)
+    const buyUrl = buildRightmoveStationBuyUrl(kingsCrossStPancras)
+
+    expect(rentUrl).not.toBeNull()
+    expect(buyUrl).not.toBeNull()
+
+    expect(new URL(rentUrl!).searchParams.get('locationIdentifier')).toBe('STATION^5165')
+    expect(new URL(buyUrl!).searchParams.get('locationIdentifier')).toBe('STATION^5165')
+    expect(new URL(buyUrl!).searchParams.get('displayLocationIdentifier')).toBe("King's-Cross-St.-Pancras-Station")
+  })
+
   it('returns both Rightmove station searches for Hammersmith', () => {
     const urls = buildRightmoveStationUrls(hammersmith)
 
@@ -397,8 +464,8 @@ describe('propertySearch helpers', () => {
 
     expect(urls).toHaveLength(2)
     expect(urls.map((item) => item.label)).toEqual([
-      'Rightmove buy: Hammersmith District & Piccadilly',
-      'Rightmove buy: Hammersmith Hammersmith & City',
+      'Rightmove: Hammersmith District & Piccadilly',
+      'Rightmove: Hammersmith Hammersmith & City',
     ])
 
     const first = new URL(urls[0].url)

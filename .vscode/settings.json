@@ -12,6 +12,7 @@
         ".specify/scripts/powershell/": true
     },
     "git.ignoreLimitWarning": true,
-    "chat.agent.maxRequests": 300
+    "chat.agent.maxRequests": 300,
+    "python-envs.defaultEnvManager": "ms-python.python:pyenv"
 }
 

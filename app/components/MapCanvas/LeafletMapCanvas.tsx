@@ -12,7 +12,7 @@ import type { TravelTimeResult } from '@/app/lib/map/travelTime'
 import { calculateDistance, WALK_SPEED_MPH, WALK_OVERHEAD_MINUTES, WALK_ROUTE_FACTOR } from '@/app/lib/map/proximity'
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
 import { getStaticTubeJourney } from '@/app/lib/map/staticTubeTimes'
-import { formatRentPcmLabel } from '@/app/lib/property/rightmoveStationPrices'
+import { formatCompactPounds, formatRentPcmLabel } from '@/app/lib/property/rightmoveStationPrices'
 import {
   buildRightmoveStationBuyUrls,
   buildRightmoveStationUrls,
@@ -22,6 +22,20 @@ import {
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
 const DEFAULT_ZOOM = 11
+
+function getContrastTextColor(backgroundColor: string) {
+  const normalized = backgroundColor.trim().replace('#', '')
+  if (!/^[0-9a-fA-F]{6}$/.test(normalized)) {
+    return '#ffffff'
+  }
+
+  const r = parseInt(normalized.slice(0, 2), 16)
+  const g = parseInt(normalized.slice(2, 4), 16)
+  const b = parseInt(normalized.slice(4, 6), 16)
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000
+
+  return brightness > 150 ? '#111827' : '#ffffff'
+}
 
 // Per-university Amber affiliate URLs (set in environment variables)
 const AMBER_URLS: Record<string, string | undefined> = {
@@ -180,6 +194,7 @@ interface StationCardContentProps {
   lineLabels: Record<string, string>
   lineColorMap: Record<string, string>
   includePurpleDetails: boolean
+  isFiltered?: boolean
   isPurple: boolean
   purpleReachInfo?: Record<string, { originStationId: string; minutes: number }>
   selectedStation: Station | null
@@ -192,11 +207,85 @@ interface StationCardContentProps {
   propertySummary?: StationPropertySummary
 }
 
+type PurplePropertySearchPanel = 'rent' | 'sale' | null
+
+interface PurplePropertySearchAction {
+  key: string
+  label: string
+  url: string
+  partner: 'zoopla' | 'rightmove'
+  placement: string
+}
+
+function PurplePropertySearchActions({
+  stationName,
+  revenueIntentSegment,
+  actions,
+}: {
+  stationName: string
+  revenueIntentSegment: string
+  actions: PurplePropertySearchAction[]
+}) {
+  if (actions.length === 0) {
+    return (
+      <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '8px' }}>
+        No property portal link available for this station yet.
+      </div>
+    )
+  }
+
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '8px' }}>
+      {actions.map((action) => (
+        <a
+          key={action.key}
+          href={action.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            if (action.partner === 'zoopla') {
+              trackZooplaClick(stationName, {
+                placement: action.placement,
+                intentSegment: revenueIntentSegment,
+                href: action.url,
+              })
+              return
+            }
+
+            trackRightmoveClick(stationName, {
+              placement: action.placement,
+              intentSegment: revenueIntentSegment,
+              href: action.url,
+            })
+          }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: '34px',
+            padding: '8px 12px',
+            borderRadius: '999px',
+            fontSize: '12px',
+            fontWeight: 700,
+            letterSpacing: '0.01em',
+            textDecoration: 'none',
+            background: action.partner === 'zoopla' ? '#6f2cff' : '#00deb6',
+            color: action.partner === 'zoopla' ? '#ffffff' : '#05231d',
+          }}
+        >
+          {action.label}
+        </a>
+      ))}
+    </div>
+  )
+}
+
 function StationCardContent({
   station,
   lineLabels,
   lineColorMap,
   includePurpleDetails,
+  isFiltered = false,
   isPurple,
   purpleReachInfo,
   selectedStation,
@@ -208,6 +297,25 @@ function StationCardContent({
   universityName,
   propertySummary,
 }: StationCardContentProps) {
+  const [openPropertyPanel, setOpenPropertyPanel] = useState<PurplePropertySearchPanel>(null)
+  const showInlinePropertyMetrics = isPurple || isFiltered
+  const metricPanelTone = isPurple
+    ? {
+        panelBackground: '#f5f3ff',
+        panelBorder: '#ddd6fe',
+        buttonBorder: '#ddd6fe',
+        rentAccent: '#6d28d9',
+        saleAccent: '#047857',
+        placementPrefix: 'station-purple',
+      }
+    : {
+        panelBackground: '#f0fdf4',
+        panelBorder: '#bbf7d0',
+        buttonBorder: '#bbf7d0',
+        rentAccent: '#166534',
+        saleAccent: '#047857',
+        placementPrefix: 'station-green',
+      }
   const { preview } = useHoverJourneyPreview(
     selectedStation,
     showHoverJourney ? station : null,
@@ -231,6 +339,16 @@ function StationCardContent({
   const purpleStaticLabel = purpleOriginInfo && typeof purpleOriginInfo.minutes === 'number' && purpleOriginInfo.minutes > 0
     ? formatMinutes(purpleOriginInfo.minutes)
     : null
+  const purpleDirectLineCode = purpleOriginStation
+    ? purpleOriginStation.lineCodes.find((code) => station.lineCodes.includes(code)) ?? null
+    : null
+  const shouldShowPurpleViaLabel = station.lineCodes.length > 1
+  const purpleDirectLineLabel = purpleDirectLineCode ? lineLabels[purpleDirectLineCode] ?? purpleDirectLineCode : null
+  const purpleViaLabel = shouldShowPurpleViaLabel && purpleDirectLineLabel
+    ? purpleDirectLineLabel.replace(/\s+line$/i, '')
+    : null
+  const purpleViaColor = purpleDirectLineCode ? lineColorMap[purpleDirectLineCode] ?? '#6d28d9' : '#6d28d9'
+  const purpleViaTextColor = getContrastTextColor(purpleViaColor)
 
   const summaryText = (() => {
     if (!showHoverJourney || !selectedStation) return ''
@@ -255,14 +373,122 @@ function StationCardContent({
   const rightmoveLinks = useMemo(() => buildRightmoveStationUrls(station), [station])
   const zooplaBuyUrl = useMemo(() => buildZooplaStationBuyUrl(station), [station])
   const rightmoveBuyLinks = useMemo(() => buildRightmoveStationBuyUrls(station), [station])
-  const hasCallToAction = Boolean(
+  const hasPropertyCallToAction = Boolean(
     zooplaUrl
     || rightmoveLinks.length > 0
     || zooplaBuyUrl
     || rightmoveBuyLinks.length > 0
-    || amberUrl
   )
+  const hasCallToAction = Boolean(hasPropertyCallToAction || amberUrl)
   const revenueIntentSegment = universityName ? 'student-housing' : 'commuter-rentals'
+
+  const rentActions = useMemo<PurplePropertySearchAction[]>(() => {
+    const actions: PurplePropertySearchAction[] = []
+
+    if (zooplaUrl) {
+      actions.push({
+        key: 'purple-rent-zoopla',
+        label: 'Zoopla',
+        url: zooplaUrl,
+        partner: 'zoopla',
+        placement: `${metricPanelTone.placementPrefix}-rent`,
+      })
+    }
+
+    rightmoveLinks.forEach((link, index) => {
+      actions.push({
+        key: `purple-rent-rightmove-${index}`,
+        label: link.label,
+        url: link.url,
+        partner: 'rightmove',
+        placement: `${metricPanelTone.placementPrefix}-rent`,
+      })
+    })
+
+    return actions
+  }, [metricPanelTone.placementPrefix, rightmoveLinks, zooplaUrl])
+
+  const saleActions = useMemo<PurplePropertySearchAction[]>(() => {
+    const actions: PurplePropertySearchAction[] = []
+
+    if (zooplaBuyUrl) {
+      actions.push({
+        key: 'purple-sale-zoopla',
+        label: 'Zoopla',
+        url: zooplaBuyUrl,
+        partner: 'zoopla',
+        placement: `${metricPanelTone.placementPrefix}-sale`,
+      })
+    }
+
+    rightmoveBuyLinks.forEach((link, index) => {
+      actions.push({
+        key: `purple-sale-rightmove-${index}`,
+        label: link.label,
+        url: link.url,
+        partner: 'rightmove',
+        placement: `${metricPanelTone.placementPrefix}-sale`,
+      })
+    })
+
+    return actions
+  }, [metricPanelTone.placementPrefix, rightmoveBuyLinks, zooplaBuyUrl])
+
+  const renderPurpleMetricCard = ({
+    panel,
+    label,
+    value,
+    description,
+    accentColor,
+    actions,
+  }: {
+    panel: Exclude<PurplePropertySearchPanel, null>
+    label: string
+    value: string
+    description: string
+    accentColor: string
+    actions: PurplePropertySearchAction[]
+  }) => (
+    <div>
+      <button
+        type="button"
+        onClick={() => setOpenPropertyPanel((current) => (current === panel ? null : panel))}
+        aria-expanded={openPropertyPanel === panel}
+        style={{
+          width: '100%',
+          textAlign: 'left',
+          marginTop: '8px',
+          padding: '10px 12px',
+          borderRadius: '8px',
+          background: '#ffffff',
+          border: `1px solid ${metricPanelTone.buttonBorder}`,
+          cursor: 'pointer',
+        }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px', alignItems: 'center' }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: accentColor }}>
+            {label}
+          </div>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: '#475569' }}>
+            {openPropertyPanel === panel ? 'Hide links' : 'Search links'}
+          </div>
+        </div>
+        <div style={{ marginTop: '4px', fontSize: '16px', fontWeight: 700, color: '#111827' }}>
+          {value}
+        </div>
+        <div style={{ marginTop: '4px', fontSize: '12px', color: '#4b5563' }}>
+          {description}
+        </div>
+      </button>
+      {openPropertyPanel === panel && (
+        <PurplePropertySearchActions
+          stationName={station.displayName}
+          revenueIntentSegment={revenueIntentSegment}
+          actions={actions}
+        />
+      )}
+    </div>
+  )
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -310,8 +536,45 @@ function StationCardContent({
         ))}
       </div>
       {isPurple && purpleOriginInfo && purpleOriginName && (
-        <p style={{ fontSize: '12px', lineHeight: '1.4', color: '#374151', margin: '10px 0 0 0' }}>
-          From {purpleOriginLabel}{purpleStaticLabel ? ` (${purpleStaticLabel})` : ''}
+        <p
+          style={{
+            fontSize: '12px',
+            lineHeight: '1.4',
+            color: '#374151',
+            margin: '10px 0 0 0',
+          }}
+        >
+          <span>
+            {purpleStaticLabel ? `${purpleStaticLabel} from ${purpleOriginLabel}` : `From ${purpleOriginLabel}`}
+          </span>
+          {purpleViaLabel && (
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                whiteSpace: 'nowrap',
+                marginLeft: '6px',
+              }}
+            >
+              <span>via</span>
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  minHeight: '22px',
+                  padding: '2px 8px',
+                  borderRadius: '999px',
+                  backgroundColor: purpleViaColor,
+                  color: purpleViaTextColor,
+                  fontSize: '11px',
+                  fontWeight: 700,
+                }}
+              >
+                {purpleViaLabel}
+              </span>
+            </span>
+          )}
         </p>
       )}
       {includePurpleDetails && isPurple && purpleReachInfo && purpleReachInfo[station.stationId] && (
@@ -324,32 +587,41 @@ function StationCardContent({
           />
         </div>
       )}
-      {includePurpleDetails && isPurple && (
+      {showInlinePropertyMetrics && (
         <div
           style={{
             marginTop: '10px',
             padding: '10px 12px',
             borderRadius: '8px',
-            background: '#f5f3ff',
-            border: '1px solid #ddd6fe',
+            background: metricPanelTone.panelBackground,
+            border: `1px solid ${metricPanelTone.panelBorder}`,
           }}
         >
-          <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: '#6d28d9' }}>
-            Median rent
-          </div>
-          <div style={{ marginTop: '4px', fontSize: '16px', fontWeight: 700, color: '#111827' }}>
-            {formatRentPcmLabel(propertySummary?.medianRentPcm ?? null)}
-          </div>
-          <div style={{ marginTop: '4px', fontSize: '12px', color: '#4b5563' }}>
-            {propertySummary && propertySummary.rentListingCount > 0
+          {renderPurpleMetricCard({
+            panel: 'rent',
+            label: 'Median rent',
+            value: formatRentPcmLabel(propertySummary?.medianRentPcm ?? null),
+            description: propertySummary && propertySummary.rentListingCount > 0
               ? `${propertySummary.rentListingCount} rental listing${propertySummary.rentListingCount === 1 ? '' : 's'} within 0.5 miles`
-              : 'No rental listings sampled within 0.5 miles'}
-          </div>
+              : 'No rental listings sampled within 0.5 miles',
+            accentColor: metricPanelTone.rentAccent,
+            actions: rentActions,
+          })}
+          {renderPurpleMetricCard({
+            panel: 'sale',
+            label: 'Median sale',
+            value: formatCompactPounds(propertySummary?.medianSalePrice ?? null),
+            description: propertySummary && propertySummary.saleListingCount > 0
+              ? `${propertySummary.saleListingCount} sale listing${propertySummary.saleListingCount === 1 ? '' : 's'} within 0.5 miles`
+              : 'No sale listings sampled within 0.5 miles',
+            accentColor: metricPanelTone.saleAccent,
+            actions: saleActions,
+          })}
         </div>
       )}
       {hasCallToAction && (
         <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-          {zooplaUrl && (
+          {!showInlinePropertyMetrics && zooplaUrl && (
             <a
               href={zooplaUrl}
               target="_blank"
@@ -372,10 +644,10 @@ function StationCardContent({
                 cursor: 'pointer',
               }}
             >
-              Zoopla rental search
+              Zoopla
             </a>
           )}
-          {rightmoveLinks.map((rightmoveLink) => (
+          {!showInlinePropertyMetrics && rightmoveLinks.map((rightmoveLink) => (
             <a
               key={rightmoveLink.url}
               href={rightmoveLink.url}
@@ -402,7 +674,7 @@ function StationCardContent({
               {rightmoveLink.label}
             </a>
           ))}
-          {zooplaBuyUrl && (
+          {!showInlinePropertyMetrics && zooplaBuyUrl && (
             <a
               href={zooplaBuyUrl}
               target="_blank"
@@ -425,10 +697,10 @@ function StationCardContent({
                 cursor: 'pointer',
               }}
             >
-              Zoopla buy search
+              Zoopla
             </a>
           )}
-          {rightmoveBuyLinks.map((rightmoveLink) => (
+          {!showInlinePropertyMetrics && rightmoveBuyLinks.map((rightmoveLink) => (
             <a
               key={rightmoveLink.url}
               href={rightmoveLink.url}
@@ -639,7 +911,7 @@ function StationMarkers({
         const amberUrl = universityMode && selectedUniversityId
           ? AMBER_URLS[selectedUniversityId]
           : undefined
-        const renderStationCard = (includePurpleDetails: boolean) => {
+        const renderStationCard = () => {
           if (renderStationCardContent) {
             return renderStationCardContent(station)
           }
@@ -649,7 +921,8 @@ function StationMarkers({
               station={station}
               lineLabels={lineLabels}
               lineColorMap={lineColorMap}
-              includePurpleDetails={includePurpleDetails}
+              includePurpleDetails={false}
+              isFiltered={!!isFiltered}
               isPurple={isPurple}
               purpleReachInfo={purpleReachInfo}
               selectedStation={selectedStation}
@@ -675,15 +948,17 @@ function StationMarkers({
               },
             }}
           >
-            <Tooltip
-              direction="top"
-              offset={[0, -radius]}
-              opacity={1}
-              className="station-hover-tooltip"
-              interactive
-            >
-              {renderStationCard(false)}
-            </Tooltip>
+            {!isSelected && (
+              <Tooltip
+                direction="top"
+                offset={[0, -radius]}
+                opacity={1}
+                className="station-hover-tooltip"
+                interactive
+              >
+                {renderStationCard()}
+              </Tooltip>
+            )}
             {isSelected && (
               <Popup
                 offset={[0, -radius]}
@@ -692,7 +967,7 @@ function StationMarkers({
                 autoClose={false}
                 closeOnClick={false}
               >
-                {renderStationCard(true)}
+                {renderStationCard()}
               </Popup>
             )}
           </Marker>

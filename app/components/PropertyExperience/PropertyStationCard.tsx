@@ -106,7 +106,7 @@ export default function PropertyStationCard({ station, summary, lineLabels, line
     if (zooplaUrl) {
       actions.push({
         key: 'rent-zoopla',
-        label: 'Zoopla rent',
+        label: 'Zoopla',
         url: zooplaUrl,
         partner: 'zoopla',
         placement: 'property-card-rent',
@@ -132,7 +132,7 @@ export default function PropertyStationCard({ station, summary, lineLabels, line
     if (zooplaUrl) {
       actions.push({
         key: 'sale-zoopla',
-        label: 'Zoopla buy',
+        label: 'Zoopla',
         url: zooplaUrl,
         partner: 'zoopla',
         placement: 'property-card-sale',
@@ -259,8 +259,8 @@ export default function PropertyStationCard({ station, summary, lineLabels, line
             border: '#a7f3d0',
             labelColor: '#047857',
           },
-          label: 'Average sale',
-          value: formatCompactPounds(summary?.averageSalePrice ?? null),
+          label: 'Median sale',
+          value: formatCompactPounds(summary?.medianSalePrice ?? null),
           description: saleCount > 0 ? sampleLabel(saleCount, 'sale') : 'No sale listings sampled',
           panel: 'sale',
           actions: saleActions,
@@ -268,7 +268,7 @@ export default function PropertyStationCard({ station, summary, lineLabels, line
       </div>
       {!hasAnyData && (
         <p style={{ margin: '10px 0 0', fontSize: '12px', lineHeight: 1.45, color: '#6b7280' }}>
-          This station does not currently have enough Rightmove map results to calculate an average.
+          This station does not currently have enough Rightmove map results to calculate median prices.
         </p>
       )}
     </div>

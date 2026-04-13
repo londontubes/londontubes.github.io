@@ -234,7 +234,7 @@ export function buildStationPropertySummary(
     stationId,
     stationName,
     medianRentPcm: calculateMedianPrice(rentSamples),
-    averageSalePrice: calculateAveragePrice(saleSamples),
+    medianSalePrice: calculateMedianPrice(saleSamples),
     rentListingCount: rentSamples.length,
     saleListingCount: saleSamples.length,
     source: 'rightmove',
