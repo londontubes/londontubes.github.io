@@ -161,6 +161,7 @@ interface ZooplaOverride {
 const ZOOPLA_SLUG_OVERRIDES: Record<string, ZooplaOverride> = {
   '910GBNHAM': { slug: 'burnham-bucks' },
   '910GWEALING': { slug: 'west-ealing', type: 'rail' },
+  '910GSTHALL': { slug: 'southall', buyPath: 'southall', buyMode: 'minimal' },
   '910GWOLWXR': { slug: 'woolwich-arsenal', type: 'rail' },
   '940GZZDLCLA': { slug: 'crossharbour-and-london-arena' },
   '940GZZLUERC': { slug: 'edgware-road-circle' },
@@ -173,6 +174,109 @@ const ZOOPLA_SLUG_OVERRIDES: Record<string, ZooplaOverride> = {
   'HUBCUS': { slug: 'custom-house', type: 'dlr' },
 }
 
+type PropertySearchMode = 'rent' | 'buy'
+
+interface PropertySearchRadiusOverride {
+  rent?: string
+  buy?: string
+}
+
+const PROPERTY_SEARCH_RADIUS_OVERRIDES: Record<string, PropertySearchRadiusOverride> = {
+  '940GZZLUTHB': { rent: '1' },
+  '940GZZLUHNX': { rent: '1' },
+  '940GZZLUMPK': { rent: '1', buy: '3' },
+  '940GZZLUAGL': { buy: '3' },
+  '940GZZLUBBN': { buy: '3' },
+  '940GZZLUBOR': { buy: '3' },
+  '940GZZLUBSC': { buy: '3' },
+  '940GZZLUBST': { buy: '3' },
+  '940GZZLUBWT': { buy: '3' },
+  '940GZZLUBZP': { buy: '3' },
+  '940GZZLUCFM': { buy: '3' },
+  '940GZZLUCGN': { buy: '3' },
+  '940GZZLUCHL': { buy: '3' },
+  '940GZZLUCTN': { buy: '3' },
+  '940GZZLUCWP': { buy: '3' },
+  '940GZZLUECT': { buy: '3' },
+  '940GZZLUEMB': { buy: '3' },
+  '940GZZLUERB': { buy: '3' },
+  '940GZZLUERC': { buy: '3' },
+  '940GZZLUESQ': { buy: '3' },
+  '940GZZLUFBY': { buy: '3' },
+  '940GZZLUGDG': { buy: '3' },
+  '940GZZLUGPK': { buy: '3' },
+  '940GZZLUGPS': { buy: '3' },
+  '940GZZLUGTR': { buy: '3' },
+  '940GZZLUHBN': { buy: '3' },
+  '940GZZLUHGT': { buy: '3' },
+  '940GZZLUHPC': { buy: '3' },
+  '940GZZLUHPK': { buy: '3' },
+  '940GZZLUHSK': { buy: '3' },
+  '940GZZLUHTD': { buy: '3' },
+  '940GZZLUKNB': { buy: '3' },
+  '940GZZLUKNG': { buy: '3' },
+  '940GZZLULBN': { buy: '3' },
+  '940GZZLULGT': { buy: '3' },
+  '940GZZLULSQ': { buy: '3' },
+  '940GZZLUMBA': { buy: '3' },
+  '940GZZLUMMT': { buy: '3' },
+  '940GZZLUMRH': { buy: '3' },
+  '940GZZLUMSH': { buy: '3' },
+  '940GZZLUMTC': { buy: '3' },
+  '940GZZLUNHG': { buy: '3' },
+  '940GZZLUOXC': { buy: '3' },
+  '940GZZLUPCC': { buy: '3' },
+  '940GZZLUPSG': { buy: '3' },
+  '940GZZLUPYB': { buy: '3' },
+  '940GZZLUQWY': { buy: '3' },
+  '940GZZLURGP': { buy: '3' },
+  '940GZZLURVP': { buy: '3' },
+  '940GZZLURSQ': { buy: '3' },
+  '940GZZLURYO': { buy: '3' },
+  '940GZZLUSFB': { buy: '3' },
+  '940GZZLUSJP': { buy: '3' },
+  '940GZZLUSKS': { buy: '3' },
+  '940GZZLUSPU': { buy: '3' },
+  '940GZZLUSSQ': { buy: '3' },
+  '940GZZLUSWK': { buy: '3' },
+  '940GZZLUTMP': { buy: '3' },
+  '940GZZLUTNG': { buy: '3' },
+  '940GZZLUTFP': { buy: '3' },
+  '940GZZLUWKA': { buy: '3' },
+  '940GZZLUWKN': { buy: '3' },
+  '940GZZLUWRR': { buy: '3' },
+  '940GZZLUWSP': { buy: '3' },
+  HUBBAL: { buy: '3' },
+  HUBBDS: { buy: '3' },
+  HUBBFR: { buy: '3' },
+  HUBCHX: { buy: '3' },
+  HUBCST: { buy: '3' },
+  HUBEUS: { buy: '3' },
+  HUBEPH: { buy: '3' },
+  HUBGUN: { buy: '3' },
+  HUBH13: { rent: '1' },
+  HUBHHY: { buy: '3' },
+  HUBHMS: { buy: '3' },
+  HUBHX5: { rent: '1' },
+  HUBKGX: { rent: '10' },
+  HUBKNL: { buy: '3' },
+  HUBKPA: { buy: '3' },
+  HUBKTN: { buy: '3' },
+  HUBKWG: { buy: '3' },
+  HUBLBG: { buy: '3' },
+  HUBLST: { buy: '3' },
+  HUBMYB: { buy: '3' },
+  HUBOLD: { buy: '3' },
+  HUBPAD: { buy: '3' },
+  HUBRMD: { buy: '3' },
+  HUBTCR: { buy: '3' },
+  HUBVIC: { buy: '3' },
+  HUBWBP: { buy: '3' },
+  HUBWSM: { rent: '1', buy: '3' },
+  HUBZFD: { buy: '3' },
+  HUBZMG: { buy: '3' },
+}
+
 function normalizeStationSearchLocation(rawName: string): string {
   return rawName
     .replace(/underground/gi, '')
@@ -180,6 +284,19 @@ function normalizeStationSearchLocation(rawName: string): string {
     .replace(/\brail\b/gi, '')
     .replace(/\s+/g, ' ')
     .trim()
+}
+
+function getPropertySearchRadius(stationId: string | undefined, mode: PropertySearchMode, defaultRadius: string): string {
+  if (!stationId) return defaultRadius
+  return PROPERTY_SEARCH_RADIUS_OVERRIDES[stationId]?.[mode] ?? defaultRadius
+}
+
+function formatRightmoveRadius(radius: string, mode: PropertySearchMode): string {
+  if (mode === 'buy' && /^\d+$/.test(radius)) {
+    return `${radius}.0`
+  }
+
+  return radius
 }
 
 function normalizeRightmoveLocationIdentifier(locationIdentifier: string): string | null {
@@ -204,7 +321,8 @@ function toRightmoveBuyLabel(label?: string): string {
 function buildRightmoveUrlFromMapping(
   locationIdentifier: string,
   displayLocationIdentifier: string,
-  searchConfig: RightmoveSearchConfig
+  searchConfig: RightmoveSearchConfig,
+  radiusOverride?: string
 ): string | null {
   const normalizedLocationIdentifier = normalizeRightmoveLocationIdentifier(locationIdentifier)
   if (!normalizedLocationIdentifier) return null
@@ -216,6 +334,9 @@ function buildRightmoveUrlFromMapping(
   Object.entries(searchConfig.params).forEach(([key, value]) => {
     params.set(key, value)
   })
+  if (radiusOverride) {
+    params.set('radius', radiusOverride)
+  }
   return baseUrl.toString()
 }
 
@@ -259,6 +380,10 @@ export function buildRightmoveStationUrls(station?: Station, fallbackName?: stri
   if (!rawName) return []
 
   const stationId = station?.stationId
+  const radius = formatRightmoveRadius(
+    getPropertySearchRadius(stationId, 'rent', RIGHTMOVE_RENT_SEARCH_CONFIG.params.radius),
+    'rent'
+  )
   if (stationId) {
     const overrideLinks = RIGHTMOVE_STATION_LINK_OVERRIDES[stationId]
     if (overrideLinks) {
@@ -267,7 +392,8 @@ export function buildRightmoveStationUrls(station?: Station, fallbackName?: stri
           const url = buildRightmoveUrlFromMapping(
             override.locationIdentifier,
             toRightmoveDisplayLocationIdentifier(override.displayName),
-            RIGHTMOVE_RENT_SEARCH_CONFIG
+            RIGHTMOVE_RENT_SEARCH_CONFIG,
+            radius
           )
           return url
             ? { label: override.label ?? 'Rightmove rental search', url }
@@ -284,7 +410,8 @@ export function buildRightmoveStationUrls(station?: Station, fallbackName?: stri
   const url = buildRightmoveUrlFromMapping(
     mappingEntry.locationIdentifier,
     mappingEntry.displayLocationIdentifier,
-    RIGHTMOVE_RENT_SEARCH_CONFIG
+    RIGHTMOVE_RENT_SEARCH_CONFIG,
+    radius
   )
   if (!url) return []
 
@@ -296,6 +423,10 @@ export function buildRightmoveStationBuyUrls(station?: Station, fallbackName?: s
   if (!rawName) return []
 
   const stationId = station?.stationId
+  const radius = formatRightmoveRadius(
+    getPropertySearchRadius(stationId, 'buy', RIGHTMOVE_BUY_SEARCH_CONFIG.params.radius.replace(/\.0$/, '')),
+    'buy'
+  )
   if (stationId) {
     const overrideLinks = RIGHTMOVE_STATION_LINK_OVERRIDES[stationId]
     if (overrideLinks) {
@@ -304,7 +435,8 @@ export function buildRightmoveStationBuyUrls(station?: Station, fallbackName?: s
           const url = buildRightmoveUrlFromMapping(
             override.locationIdentifier,
             toRightmoveDisplayLocationIdentifier(override.displayName),
-            RIGHTMOVE_BUY_SEARCH_CONFIG
+            RIGHTMOVE_BUY_SEARCH_CONFIG,
+            radius
           )
           return url
             ? { label: toRightmoveBuyLabel(override.label), url }
@@ -321,7 +453,8 @@ export function buildRightmoveStationBuyUrls(station?: Station, fallbackName?: s
   const url = buildRightmoveUrlFromMapping(
     mappingEntry.locationIdentifier,
     mappingEntry.displayLocationIdentifier,
-    RIGHTMOVE_BUY_SEARCH_CONFIG
+    RIGHTMOVE_BUY_SEARCH_CONFIG,
+    radius
   )
   if (!url) return []
 
@@ -356,7 +489,7 @@ export function buildZooplaStationUrl(station?: Station, fallbackName?: string):
   params.set('price_max', ZOOPLA_RENT_SEARCH_LIMITS.maxPrice)
   params.set('price_frequency', 'per_month')
   params.set('q', `${baseSearchLocation}, London`)
-  params.set('radius', ZOOPLA_RENT_SEARCH_LIMITS.radius)
+  params.set('radius', getPropertySearchRadius(station?.stationId, 'rent', ZOOPLA_RENT_SEARCH_LIMITS.radius))
   params.set('search_source', 'to-rent')
   params.set('results_sort', 'lowest_price')
   params.set('pn', '1')
@@ -369,7 +502,10 @@ export function buildZooplaStationBuyUrl(station?: Station, fallbackName?: strin
   if (!searchLocation) return null
 
   const { override, baseSearchLocation } = searchLocation
-  const areaSearchLocation = baseSearchLocation.replace(/\s+Station$/i, '')
+  const areaSearchLocation = baseSearchLocation
+    .replace(/\s+Station$/i, '')
+    .replace(/\s+(Rail|Underground|DLR)$/i, '')
+    .trim()
   const slug = override?.buyPath ?? override?.path ?? buildZooplaSlug(baseSearchLocation, override)
 
   const baseUrl = new URL(`https://www.zoopla.co.uk/for-sale/map/property/${slug}/`)
@@ -377,7 +513,10 @@ export function buildZooplaStationBuyUrl(station?: Station, fallbackName?: strin
   params.set('beds_min', ZOOPLA_BUY_SEARCH_LIMITS.minBedrooms)
   params.set('price_max', ZOOPLA_BUY_SEARCH_LIMITS.maxPrice)
   params.set('q', `${areaSearchLocation}, London`)
-  params.set('radius', override?.buyRadius ?? ZOOPLA_BUY_SEARCH_LIMITS.radius)
+  params.set(
+    'radius',
+    getPropertySearchRadius(station?.stationId, 'buy', override?.buyRadius ?? ZOOPLA_BUY_SEARCH_LIMITS.radius)
+  )
   params.set('search_source', 'for-sale')
 
   if (override?.buyMode !== 'minimal') {

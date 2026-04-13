@@ -11,6 +11,7 @@
     "start:static": "npx serve@latest out",
     "lint": "next lint",
     "rightmove:enrich": "tsx scripts/enrich-rightmove-station-template.ts",
+    "verify:property-links": "tsx scripts/verify-property-search-results.ts",
     "verify:tube-times": "tsx scripts/verify-static-tube-times.ts",
     "audit:accessibility": "lighthouse-ci autorun",
     "data:refresh": "tsx scripts/data/fetch-tfl.ts && tsx scripts/data/transform.ts",

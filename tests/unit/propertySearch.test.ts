@@ -93,6 +93,20 @@ const hammersmith: Station = {
   order: 0,
 }
 
+const westminster: Station = {
+  stationId: 'HUBWSM',
+  displayName: 'Westminster',
+  position: {
+    type: 'Point',
+    coordinates: [-0.1247, 51.501],
+  },
+  lineCodes: ['circle', 'district', 'jubilee'],
+  isInterchange: true,
+  markerIcon: 'default',
+  tooltipSummary: 'Westminster',
+  order: 0,
+}
+
 const westEaling: Station = {
   stationId: '910GWEALING',
   displayName: 'West Ealing Rail Station',
@@ -104,6 +118,20 @@ const westEaling: Station = {
   isInterchange: false,
   markerIcon: 'default',
   tooltipSummary: 'West Ealing Rail Station',
+  order: 0,
+}
+
+const southall: Station = {
+  stationId: '910GSTHALL',
+  displayName: 'Southall Rail Station',
+  position: {
+    type: 'Point',
+    coordinates: [-0.37861, 51.505957],
+  },
+  lineCodes: ['elizabeth'],
+  isInterchange: false,
+  markerIcon: 'default',
+  tooltipSummary: 'Southall Rail Station',
   order: 0,
 }
 
@@ -156,6 +184,17 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('q')).toBe('Baker Street Station, London')
   })
 
+  it('increases the rental radius for Westminster across property portals', () => {
+    const rightmoveUrl = buildRightmoveStationUrl(westminster)
+    const zooplaUrl = buildZooplaStationUrl(westminster)
+
+    expect(rightmoveUrl).not.toBeNull()
+    expect(zooplaUrl).not.toBeNull()
+
+    expect(new URL(rightmoveUrl!).searchParams.get('radius')).toBe('1')
+    expect(new URL(zooplaUrl!).searchParams.get('radius')).toBe('1')
+  })
+
   it('builds a Rightmove station search URL for mapped stations', () => {
     const url = buildRightmoveStationUrl(bakerStreet)
 
@@ -204,7 +243,7 @@ describe('propertySearch helpers', () => {
       'farms_land',
     ])
     expect(parsed.searchParams.get('q')).toBe('Baker Street, London')
-    expect(parsed.searchParams.get('radius')).toBe('1')
+    expect(parsed.searchParams.get('radius')).toBe('3')
     expect(parsed.searchParams.get('search_source')).toBe('for-sale')
     expect(parsed.searchParams.get('map_app')).toBe('true')
   })
@@ -221,7 +260,7 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('displayLocationIdentifier')).toBe('Baker-Street-Station')
     expect(parsed.searchParams.get('useLocationIdentifier')).toBe('true')
     expect(parsed.searchParams.get('buy')).toBe('For sale')
-    expect(parsed.searchParams.get('radius')).toBe('1.0')
+    expect(parsed.searchParams.get('radius')).toBe('3.0')
     expect(parsed.searchParams.get('maxPrice')).toBe('700000')
     expect(parsed.searchParams.get('minBedrooms')).toBe('3')
     expect(parsed.searchParams.get('_includeSSTC')).toBe('on')
@@ -257,6 +296,23 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('price_max')).toBe('700000')
     expect(parsed.searchParams.get('q')).toBe('Ealing Broadway, London')
     expect(parsed.searchParams.get('radius')).toBe('0.5')
+    expect(parsed.searchParams.get('search_source')).toBe('for-sale')
+    expect(parsed.searchParams.getAll('feature')).toEqual([])
+    expect(parsed.searchParams.getAll('property_sub_type')).toEqual([])
+    expect(parsed.searchParams.get('map_app')).toBeNull()
+  })
+
+  it('uses a minimal area-based Zoopla buy search for Southall', () => {
+    const url = buildZooplaStationBuyUrl(southall)
+
+    expect(url).not.toBeNull()
+
+    const parsed = new URL(url!)
+    expect(parsed.pathname).toBe('/for-sale/map/property/southall/')
+    expect(parsed.searchParams.get('beds_min')).toBe('3')
+    expect(parsed.searchParams.get('price_max')).toBe('700000')
+    expect(parsed.searchParams.get('q')).toBe('Southall, London')
+    expect(parsed.searchParams.get('radius')).toBe('1')
     expect(parsed.searchParams.get('search_source')).toBe('for-sale')
     expect(parsed.searchParams.getAll('feature')).toEqual([])
     expect(parsed.searchParams.getAll('property_sub_type')).toEqual([])
