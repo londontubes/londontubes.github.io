@@ -25,7 +25,7 @@ export function ConsentBanner() {
     } else {
       // Apply stored consent
       if (existing === 'granted') {
-        setAnalyticsConsent({ analytics_storage: 'granted', ad_storage: 'denied' })
+        setAnalyticsConsent({ analytics_storage: 'granted', ad_storage: 'granted' })
       } else {
         setAnalyticsConsent({ analytics_storage: 'denied', ad_storage: 'denied' })
       }
@@ -37,7 +37,7 @@ export function ConsentBanner() {
   function handle(choice: 'granted' | 'denied') {
     localStorage.setItem(CONSENT_KEY, choice)
     if (choice === 'granted') {
-      setAnalyticsConsent({ analytics_storage: 'granted', ad_storage: 'denied' })
+      setAnalyticsConsent({ analytics_storage: 'granted', ad_storage: 'granted' })
     } else {
       setAnalyticsConsent({ analytics_storage: 'denied', ad_storage: 'denied' })
     }
@@ -62,7 +62,7 @@ export function ConsentBanner() {
       fontSize: '0.8rem'
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'nowrap' }}>
-        <span style={{ fontSize: '0.74rem', lineHeight: 1.2, whiteSpace: 'nowrap' }}>Analytics?</span>
+        <span style={{ fontSize: '0.74rem', lineHeight: 1.2, whiteSpace: 'nowrap' }}>Analytics & ads?</span>
         <button onClick={() => handle('granted')} style={btnStyle}>Allow</button>
         <button onClick={() => handle('denied')} style={btnOutlineStyle}>Decline</button>
       </div>

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import 'leaflet/dist/leaflet.css'
 import './globals.css'
 
@@ -261,6 +262,13 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <Script
+          id="adsense-loader"
+          async
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2691145261785175"
+        />
         {/* Basic SSR shell to avoid empty HTML responses */}
         <div id="app-shell">
           <NavigationTabs />

@@ -210,7 +210,7 @@ export function SEOContent() {
             with Oyster card and contactless payment offering the best value.
           </p>
 
-          <AdUnit style={{ margin: '1.5rem 0' }} />
+          <AdUnit style={{ margin: '1.5rem 0', minHeight: '120px' }} />
 
           <h3>Night Tube Services</h3>
           

@@ -20,7 +20,9 @@ function loadAdSenseScript(): Promise<void> {
   }
 
   adSenseLoadPromise = new Promise((resolve, reject) => {
-    const existingScript = document.querySelector<HTMLScriptElement>('script[data-adsense-loader="true"]')
+    const existingScript = document.querySelector<HTMLScriptElement>(
+      'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]',
+    )
 
     if (existingScript?.dataset.loaded === 'true') {
       resolve()
@@ -61,6 +63,11 @@ function loadAdSenseScript(): Promise<void> {
   return adSenseLoadPromise
 }
 
+function isNearViewport(node: HTMLElement) {
+  const rect = node.getBoundingClientRect()
+  return rect.top <= window.innerHeight + 300 && rect.bottom >= -300
+}
+
 interface AdUnitProps {
   style?: React.CSSProperties
 }
@@ -78,12 +85,13 @@ export default function AdUnit({ style }: AdUnitProps) {
 
     let cancelled = false
     let observer: IntersectionObserver | null = null
+    let fallbackTimer: number | null = null
 
     const pushAd = async () => {
       try {
         await loadAdSenseScript()
 
-        if (cancelled || pushed.current) {
+        if (cancelled || pushed.current || !node.isConnected) {
           return
         }
 
@@ -95,7 +103,13 @@ export default function AdUnit({ style }: AdUnitProps) {
       }
     }
 
-    if ('IntersectionObserver' in window) {
+    void loadAdSenseScript()
+
+    if (isNearViewport(node)) {
+      void pushAd()
+    }
+
+    if ('IntersectionObserver' in window && !pushed.current) {
       observer = new IntersectionObserver(
         (entries) => {
           if (!entries[0]?.isIntersecting) {
@@ -108,13 +122,19 @@ export default function AdUnit({ style }: AdUnitProps) {
         { rootMargin: '300px 0px' },
       )
       observer.observe(node)
-    } else {
+      fallbackTimer = window.setTimeout(() => {
+        void pushAd()
+      }, 2500)
+    } else if (!pushed.current) {
       void pushAd()
     }
 
     return () => {
       cancelled = true
       observer?.disconnect()
+      if (fallbackTimer !== null) {
+        window.clearTimeout(fallbackTimer)
+      }
     }
   }, [])
 
@@ -122,7 +142,7 @@ export default function AdUnit({ style }: AdUnitProps) {
     <ins
       ref={ref}
       className="adsbygoogle"
-      style={{ display: 'block', ...style }}
+      style={{ display: 'block', minHeight: '120px', ...style }}
       data-ad-client="ca-pub-2691145261785175"
       data-ad-slot="4220798337"
       data-ad-format="auto"
