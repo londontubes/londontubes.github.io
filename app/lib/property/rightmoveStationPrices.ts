@@ -186,6 +186,23 @@ export function calculateAveragePrice(samples: RightmoveListingSample[]): number
   return Math.round(total / samples.length)
 }
 
+export function calculateMedianPrice(samples: RightmoveListingSample[]): number | null {
+  if (!samples.length) {
+    return null
+  }
+
+  const sortedPrices = samples
+    .map((sample) => sample.normalizedPrice)
+    .sort((left, right) => left - right)
+  const midpoint = Math.floor(sortedPrices.length / 2)
+
+  if (sortedPrices.length % 2 === 1) {
+    return sortedPrices[midpoint]
+  }
+
+  return Math.round((sortedPrices[midpoint - 1] + sortedPrices[midpoint]) / 2)
+}
+
 export function formatCompactPounds(value: number | null): string {
   if (value === null || !Number.isFinite(value)) {
     return 'Unavailable'
@@ -216,7 +233,7 @@ export function buildStationPropertySummary(
   return {
     stationId,
     stationName,
-    averageRentPcm: calculateAveragePrice(rentSamples),
+    medianRentPcm: calculateMedianPrice(rentSamples),
     averageSalePrice: calculateAveragePrice(saleSamples),
     rentListingCount: rentSamples.length,
     saleListingCount: saleSamples.length,

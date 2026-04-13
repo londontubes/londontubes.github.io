@@ -1,5 +1,6 @@
 import {
   buildStationPropertySummary,
+  calculateMedianPrice,
   extractRightmoveListingSamples,
   formatCompactPounds,
   formatRentPcmLabel,
@@ -36,9 +37,24 @@ describe('rightmoveStationPrices helpers', () => {
     const saleSamples = extractRightmoveListingSamples(html, 'buy')
     const summary = buildStationPropertySummary('ABC', 'Example Station', [], saleSamples)
 
-    expect(summary.averageRentPcm).toBeNull()
+    expect(summary.medianRentPcm).toBeNull()
     expect(summary.averageSalePrice).toBe(687500)
     expect(summary.saleListingCount).toBe(2)
+  })
+
+  it('calculates the median rental sample price', () => {
+    expect(calculateMedianPrice([
+      { listingId: 'a', normalizedPrice: 1200 },
+      { listingId: 'b', normalizedPrice: 1500 },
+      { listingId: 'c', normalizedPrice: 2400 },
+    ])).toBe(1500)
+
+    expect(calculateMedianPrice([
+      { listingId: 'a', normalizedPrice: 1200 },
+      { listingId: 'b', normalizedPrice: 1500 },
+      { listingId: 'c', normalizedPrice: 2100 },
+      { listingId: 'd', normalizedPrice: 2400 },
+    ])).toBe(1800)
   })
 
   it('formats compact sale and rent labels for the UI', () => {

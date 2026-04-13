@@ -18,6 +18,7 @@ import { CampusSelector } from '@/app/components/CampusSelector'
 import { RadiusSlider } from '@/app/components/RadiusSlider'
 import { TimeSlider } from '@/app/components/TimeSlider'
 import { UniversitySelector } from '@/app/components/UniversitySelector'
+import type { StationPropertyDataset } from '@/app/types/property'
 import type { Station, TransitDataset } from '@/app/types/transit'
 import type { UniversitiesDataset, University } from '@/app/types/university'
 import { createLineLabelMap } from '@/app/lib/data/load-static-data'
@@ -39,11 +40,13 @@ const STEP_WALK_MINUTES = 1
 interface UniversityExperienceProps {
   transitDataset: TransitDataset
   universitiesDataset: UniversitiesDataset
+  propertyDataset: StationPropertyDataset
 }
 
 export default function UniversityExperience({ 
   transitDataset,
-  universitiesDataset 
+  universitiesDataset,
+  propertyDataset,
 }: UniversityExperienceProps) {
   const { lines, stations } = transitDataset
   
@@ -455,6 +458,12 @@ export default function UniversityExperience({
   }, [filterMode, filteredStationIds, selectedUniversityId])
 
   const lineLabels = useMemo(() => createLineLabelMap(lines), [lines])
+  const propertySummariesByStationId = useMemo(() => {
+    return propertyDataset.stations.reduce<Record<string, StationPropertyDataset['stations'][number]>>((acc, summary) => {
+      acc[summary.stationId] = summary
+      return acc
+    }, {})
+  }, [propertyDataset.stations])
 
   const radiusSliderValue = walkMinutes
   const radiusMinValue = MIN_WALK_MINUTES
@@ -569,6 +578,7 @@ export default function UniversityExperience({
     campusCoordinates={campusCoordinates || undefined}
         purpleStationIds={purpleStationIds}
         purpleReachInfo={purpleReachInfo}
+        stationPropertySummaries={propertySummariesByStationId}
       />
 
       {showCampusSelector && campusSelectorUniversity && (

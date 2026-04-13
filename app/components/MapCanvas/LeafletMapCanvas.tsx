@@ -5,12 +5,14 @@ import type { MutableRefObject, ReactNode } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker, Tooltip } from 'react-leaflet'
 import { trackStationSelect, trackMapZoom, trackZooplaClick, trackRightmoveClick, trackAmberClick } from '@/app/lib/analytics'
 import L from 'leaflet'
+import type { StationPropertySummary } from '@/app/types/property'
 import type { Station, TransitLine } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
 import type { TravelTimeResult } from '@/app/lib/map/travelTime'
 import { calculateDistance, WALK_SPEED_MPH, WALK_OVERHEAD_MINUTES, WALK_ROUTE_FACTOR } from '@/app/lib/map/proximity'
 import { stationMarkerAriaLabel } from '@/app/lib/a11y'
 import { getStaticTubeJourney } from '@/app/lib/map/staticTubeTimes'
+import { formatRentPcmLabel } from '@/app/lib/property/rightmoveStationPrices'
 import {
   buildRightmoveStationBuyUrls,
   buildRightmoveStationUrls,
@@ -54,6 +56,7 @@ export interface MapCanvasProps {
   campusCoordinates?: [number, number] // [lng, lat] of selected campus
   purpleStationIds?: string[] // multi-source tube-time reachable (layered over walk mode)
   purpleReachInfo?: Record<string, { originStationId: string; minutes: number }>
+  stationPropertySummaries?: Record<string, StationPropertySummary>
   renderStationCardContent?: (station: Station) => ReactNode
 }
 
@@ -186,6 +189,7 @@ interface StationCardContentProps {
   journeyCache: MutableRefObject<Map<string, HoverJourneyPreview>>
   amberUrl?: string
   universityName?: string
+  propertySummary?: StationPropertySummary
 }
 
 function StationCardContent({
@@ -202,6 +206,7 @@ function StationCardContent({
   journeyCache,
   amberUrl,
   universityName,
+  propertySummary,
 }: StationCardContentProps) {
   const { preview } = useHoverJourneyPreview(
     selectedStation,
@@ -317,6 +322,29 @@ function StationCardContent({
             stations={stations}
             lines={lines}
           />
+        </div>
+      )}
+      {includePurpleDetails && isPurple && (
+        <div
+          style={{
+            marginTop: '10px',
+            padding: '10px 12px',
+            borderRadius: '8px',
+            background: '#f5f3ff',
+            border: '1px solid #ddd6fe',
+          }}
+        >
+          <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: '#6d28d9' }}>
+            Median rent
+          </div>
+          <div style={{ marginTop: '4px', fontSize: '16px', fontWeight: 700, color: '#111827' }}>
+            {formatRentPcmLabel(propertySummary?.medianRentPcm ?? null)}
+          </div>
+          <div style={{ marginTop: '4px', fontSize: '12px', color: '#4b5563' }}>
+            {propertySummary && propertySummary.rentListingCount > 0
+              ? `${propertySummary.rentListingCount} rental listing${propertySummary.rentListingCount === 1 ? '' : 's'} within 0.5 miles`
+              : 'No rental listings sampled within 0.5 miles'}
+          </div>
         </div>
       )}
       {hasCallToAction && (
@@ -475,6 +503,7 @@ function StationMarkers({
   selectedUniversityId,
   universityDisplayName,
   renderStationCardContent,
+  stationPropertySummaries,
 }: {
   stations: Station[]
   activeSet: Set<string> | null
@@ -492,6 +521,7 @@ function StationMarkers({
   selectedUniversityId?: string | null
   universityDisplayName?: string
   renderStationCardContent?: (station: Station) => ReactNode
+  stationPropertySummaries?: Record<string, StationPropertySummary>
 }) {
   const map = useMap()
   const [zoomLevel, setZoomLevel] = useState(map.getZoom())
@@ -629,6 +659,7 @@ function StationMarkers({
               journeyCache={journeyCache}
               amberUrl={amberUrl}
               universityName={universityDisplayName}
+              propertySummary={stationPropertySummaries?.[station.stationId]}
             />
           )
         }
@@ -789,6 +820,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
     campusCoordinates,
     filterMode,
     purpleStationIds = [],
+    stationPropertySummaries,
     renderStationCardContent,
   } = props
 
@@ -1300,6 +1332,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
             purpleStationSet={purpleStationSet}
             universityMode={props.universityMode}
             purpleReachInfo={props.purpleReachInfo}
+            stationPropertySummaries={stationPropertySummaries}
             selectedStationVisible={selectedStationVisible}
             selectedUniversityId={selectedUniversityId}
             universityDisplayName={

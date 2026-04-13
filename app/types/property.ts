@@ -1,7 +1,7 @@
 export interface StationPropertySummary {
   stationId: string
   stationName: string
-  averageRentPcm: number | null
+  medianRentPcm: number | null
   averageSalePrice: number | null
   rentListingCount: number
   saleListingCount: number

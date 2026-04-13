@@ -1,14 +1,16 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import type { StationPropertyDataset } from '@/app/types/property'
 import type { TransitDataset } from '@/app/types/transit'
 import type { UniversitiesDataset } from '@/app/types/university'
-import { loadPublicTransitData, loadPublicUniversitiesData } from '@/app/lib/data/load-public-data'
+import { loadPublicStationPropertyData, loadPublicTransitData, loadPublicUniversitiesData } from '@/app/lib/data/load-public-data'
 import UniversityExperience from './UniversityExperience'
 
 export default function UniversityExperienceLoader() {
   const [transitDataset, setTransitDataset] = useState<TransitDataset | null>(null)
   const [universitiesDataset, setUniversitiesDataset] = useState<UniversitiesDataset | null>(null)
+  const [propertyDataset, setPropertyDataset] = useState<StationPropertyDataset | null>(null)
   const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
@@ -16,9 +18,10 @@ export default function UniversityExperienceLoader() {
 
     async function loadDatasets() {
       try {
-        const [nextTransitDataset, nextUniversitiesDataset] = await Promise.all([
+        const [nextTransitDataset, nextUniversitiesDataset, nextPropertyDataset] = await Promise.all([
           loadPublicTransitData(),
           loadPublicUniversitiesData(),
+          loadPublicStationPropertyData(),
         ])
 
         if (cancelled) {
@@ -27,6 +30,7 @@ export default function UniversityExperienceLoader() {
 
         setTransitDataset(nextTransitDataset)
         setUniversitiesDataset(nextUniversitiesDataset)
+        setPropertyDataset(nextPropertyDataset)
       } catch {
         if (!cancelled) {
           setLoadError(true)
@@ -41,11 +45,12 @@ export default function UniversityExperienceLoader() {
     }
   }, [])
 
-  if (transitDataset && universitiesDataset) {
+  if (transitDataset && universitiesDataset && propertyDataset) {
     return (
       <UniversityExperience
         transitDataset={transitDataset}
         universitiesDataset={universitiesDataset}
+        propertyDataset={propertyDataset}
       />
     )
   }
