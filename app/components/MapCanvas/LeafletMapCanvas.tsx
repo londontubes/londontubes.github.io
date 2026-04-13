@@ -656,6 +656,7 @@ function StationMarkers({
             {isSelected && (
               <Popup
                 offset={[0, -radius]}
+                className={renderStationCardContent ? 'station-card-popup' : undefined}
                 closeButton={true}
                 autoClose={false}
                 closeOnClick={false}

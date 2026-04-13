@@ -29,6 +29,12 @@ export default function PropertyExperience({ dataset, propertyDataset }: Propert
   }, [lines])
 
   const lineLabels = useMemo(() => createLineLabelMap(lines), [lines])
+  const lineColorMap = useMemo(() => {
+    return lines.reduce<Record<string, string>>((acc, line) => {
+      acc[line.lineCode] = line.brandColor
+      return acc
+    }, {})
+  }, [lines])
   const summariesByStationId = useMemo(() => {
     return propertyDataset.stations.reduce<Record<string, StationPropertyDataset['stations'][number]>>((acc, summary) => {
       acc[summary.stationId] = summary
@@ -74,9 +80,6 @@ export default function PropertyExperience({ dataset, propertyDataset }: Propert
           {stationsWithAnyData} priced stations · {propertyDataset.radiusMiles} mile radius · {activeLineSummary}
         </span>
       </header>
-      <p className="map-experience__meta">
-        Compare sampled Rightmove asking rents and sale prices around each Tube, DLR, and Elizabeth line station.
-      </p>
 
       <LineFilter
         lines={lines}
@@ -97,6 +100,8 @@ export default function PropertyExperience({ dataset, propertyDataset }: Propert
           <PropertyStationCard
             station={station}
             summary={summariesByStationId[station.stationId]}
+            lineLabels={lineLabels}
+            lineColorMap={lineColorMap}
           />
         )}
       />

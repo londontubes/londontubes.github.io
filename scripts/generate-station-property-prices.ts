@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import type { Station } from '@/app/types/transit'
 import type { StationPropertyDataset } from '@/app/types/property'
-import { getRightmoveStationTargets } from '@/app/lib/map/propertySearch'
+import { buildRightmoveStationBuyUrls, buildRightmoveStationUrls } from '@/app/lib/map/propertySearch'
 import { buildStationPropertySummary, extractRightmoveListingSamples, type RightmoveListingSample } from '@/app/lib/property/rightmoveStationPrices'
 
 const ROOT = process.cwd()
@@ -16,35 +16,6 @@ const REQUEST_HEADERS = {
 } as const
 const REQUEST_TIMEOUT_MS = 20000
 const CONCURRENCY = 5
-
-function buildRightmoveSearchUrl(
-  mode: 'rent' | 'buy',
-  locationIdentifier: string,
-  displayLocationIdentifier: string,
-): string {
-  const pathname = mode === 'rent' ? '/property-to-rent/map.html' : '/property-for-sale/map.html'
-  const url = new URL(`https://www.rightmove.co.uk${pathname}`)
-  url.searchParams.set('locationIdentifier', `STATION^${locationIdentifier}`)
-  url.searchParams.set('displayLocationIdentifier', displayLocationIdentifier)
-  url.searchParams.set('radius', '0.5')
-  url.searchParams.set('viewType', 'MAP')
-  url.searchParams.set('index', '0')
-  url.searchParams.set('numberOfPropertiesPerPage', '95')
-
-  if (mode === 'rent') {
-    url.searchParams.set('channel', 'RENT')
-    url.searchParams.set('sortType', '6')
-    url.searchParams.set('includeLetAgreed', 'false')
-  } else {
-    url.searchParams.set('channel', 'BUY')
-    url.searchParams.set('transactionType', 'BUY')
-    url.searchParams.set('sortType', '2')
-    url.searchParams.set('useLocationIdentifier', 'true')
-    url.searchParams.set('_includeSSTC', 'on')
-  }
-
-  return url.toString()
-}
 
 async function fetchHtml(url: string): Promise<string> {
   const response = await fetch(url, {
@@ -60,23 +31,26 @@ async function fetchHtml(url: string): Promise<string> {
 }
 
 async function collectSamplesForMode(station: Station, mode: 'rent' | 'buy'): Promise<RightmoveListingSample[]> {
-  const targets = getRightmoveStationTargets(station.stationId)
-  if (!targets.length) {
+  const links = mode === 'rent'
+    ? buildRightmoveStationUrls(station)
+    : buildRightmoveStationBuyUrls(station)
+
+  if (!links.length) {
     return []
   }
 
   const samples = new Map<string, RightmoveListingSample>()
 
-  for (const target of targets) {
+  for (const link of links) {
     try {
-      const html = await fetchHtml(buildRightmoveSearchUrl(mode, target.locationIdentifier, target.displayLocationIdentifier))
+      const html = await fetchHtml(link.url)
       const nextSamples = extractRightmoveListingSamples(html, mode)
 
       nextSamples.forEach((sample) => {
         samples.set(sample.listingId, sample)
       })
     } catch (error) {
-      console.warn(`${station.stationId} ${mode} failed for ${target.displayLocationIdentifier}:`, error)
+      console.warn(`${station.stationId} ${mode} failed for ${link.label}:`, error)
     }
   }
 

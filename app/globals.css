@@ -245,9 +245,24 @@ main {
   border: none;
   box-shadow: none;
   padding: 0;
+  max-width: none;
 }
 
 .leaflet-tooltip.station-hover-tooltip::before {
+  display: none;
+}
+
+.leaflet-popup.station-card-popup .leaflet-popup-content-wrapper {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.leaflet-popup.station-card-popup .leaflet-popup-content {
+  margin: 0;
+}
+
+.leaflet-popup.station-card-popup .leaflet-popup-tip {
   display: none;
 }
 
