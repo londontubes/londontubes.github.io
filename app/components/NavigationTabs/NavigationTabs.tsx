@@ -22,6 +22,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
   const pathname = usePathname()
 
   const isLinesActive = pathname === '/'
+  const isPropertyActive = pathname?.startsWith('/property') ?? false
   const isBusActive = pathname?.startsWith('/bus') ?? false
   const isUniversitiesActive = pathname?.startsWith('/universities') ?? false
   const isBlogActive = pathname?.startsWith('/blog') ?? false
@@ -37,6 +38,15 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
             aria-current={isLinesActive ? 'page' : undefined}
           >
             Tube Filter
+          </Link>
+        </li>
+        <li className={styles.tabItem}>
+          <Link
+            href="/property/"
+            className={`${styles.tab} ${isPropertyActive ? styles.active : ''}`}
+            aria-current={isPropertyActive ? 'page' : undefined}
+          >
+            Property Filter
           </Link>
         </li>
         <li className={styles.tabItem}>
