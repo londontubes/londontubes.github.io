@@ -8,59 +8,52 @@ declare global {
   }
 }
 
-let adSenseLoadPromise: Promise<void> | null = null
+// Resolves when window.adsbygoogle is available (handles the case where the
+// global script in layout.tsx already loaded before this component mounted).
+function waitForAdSense(): Promise<void> {
+  if (typeof window === 'undefined') return Promise.resolve()
 
-function loadAdSenseScript(): Promise<void> {
-  if (typeof window === 'undefined') {
+  // Already loaded
+  if (Array.isArray((window as Window & { adsbygoogle?: unknown[] }).adsbygoogle)) {
     return Promise.resolve()
   }
 
-  if (adSenseLoadPromise) {
-    return adSenseLoadPromise
-  }
-
-  adSenseLoadPromise = new Promise((resolve, reject) => {
-    const existingScript = document.querySelector<HTMLScriptElement>(
+  return new Promise((resolve, reject) => {
+    const script = document.querySelector<HTMLScriptElement>(
       'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]',
     )
 
-    if (existingScript?.dataset.loaded === 'true') {
+    if (!script) {
+      reject(new Error('AdSense script not found'))
+      return
+    }
+
+    // Script already executed but adsbygoogle not yet an array — poll briefly
+    if (script.dataset.loaded === 'true') {
       resolve()
       return
     }
 
     const handleLoad = () => {
-      if (existingScript) {
-        existingScript.dataset.loaded = 'true'
-      }
-      resolve()
-    }
-
-    const handleError = () => {
-      adSenseLoadPromise = null
-      reject(new Error('Failed to load AdSense script'))
-    }
-
-    if (existingScript) {
-      existingScript.addEventListener('load', handleLoad, { once: true })
-      existingScript.addEventListener('error', handleError, { once: true })
-      return
-    }
-
-    const script = document.createElement('script')
-    script.async = true
-    script.crossOrigin = 'anonymous'
-    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2691145261785175'
-    script.dataset.adsenseLoader = 'true'
-    script.addEventListener('load', () => {
       script.dataset.loaded = 'true'
       resolve()
-    }, { once: true })
-    script.addEventListener('error', handleError, { once: true })
-    document.head.appendChild(script)
-  })
+    }
+    const handleError = () => reject(new Error('AdSense script failed to load'))
 
-  return adSenseLoadPromise
+    script.addEventListener('load', handleLoad, { once: true })
+    script.addEventListener('error', handleError, { once: true })
+
+    // Safety fallback: if load already fired but flag not set, resolve anyway
+    const timer = window.setTimeout(() => {
+      if (Array.isArray((window as Window & { adsbygoogle?: unknown[] }).adsbygoogle)) {
+        resolve()
+      }
+    }, 3000)
+
+    // Clean up timer if the normal path resolves first
+    script.addEventListener('load', () => window.clearTimeout(timer), { once: true })
+    script.addEventListener('error', () => window.clearTimeout(timer), { once: true })
+  })
 }
 
 function isNearViewport(node: HTMLElement) {
@@ -70,9 +63,10 @@ function isNearViewport(node: HTMLElement) {
 
 interface AdUnitProps {
   style?: React.CSSProperties
+  slot?: string
 }
 
-export default function AdUnit({ style }: AdUnitProps) {
+export default function AdUnit({ style, slot = '4220798337' }: AdUnitProps) {
   const ref = useRef<HTMLModElement>(null)
   const pushed = useRef(false)
 
@@ -89,7 +83,7 @@ export default function AdUnit({ style }: AdUnitProps) {
 
     const pushAd = async () => {
       try {
-        await loadAdSenseScript()
+        await waitForAdSense()
 
         if (cancelled || pushed.current || !node.isConnected) {
           return
@@ -103,7 +97,7 @@ export default function AdUnit({ style }: AdUnitProps) {
       }
     }
 
-    void loadAdSenseScript()
+    void waitForAdSense()
 
     if (isNearViewport(node)) {
       void pushAd()
@@ -144,7 +138,7 @@ export default function AdUnit({ style }: AdUnitProps) {
       className="adsbygoogle"
       style={{ display: 'block', minHeight: '120px', ...style }}
       data-ad-client="ca-pub-2691145261785175"
-      data-ad-slot="4220798337"
+      data-ad-slot={slot}
       data-ad-format="auto"
       data-full-width-responsive="true"
     />
