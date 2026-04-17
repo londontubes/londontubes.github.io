@@ -42,3 +42,6 @@ logs/
 
 # Data cache
 scripts/cache/
+
+# Claude Code local config (hooks, permissions)
+.claude/
