@@ -76,6 +76,8 @@ export function SEOContent() {
             useful <strong>London tube map</strong> for daily commuters, tourists, and students alike.
           </p>
 
+          <AdUnit layout="in-article" />
+
           <div className={styles.cta}>
             <h3>Need rent-focused guides instead of general map browsing?</h3>
             <p>
@@ -210,8 +212,6 @@ export function SEOContent() {
             with Oyster card and contactless payment offering the best value.
           </p>
 
-          <AdUnit style={{ margin: '1.5rem 0', minHeight: '120px' }} />
-
           <h3>Night Tube Services</h3>
           
           <p>
@@ -248,7 +248,7 @@ export function SEOContent() {
             </p>
           </div>
 
-          <AdUnit style={{ margin: '2rem 0 0', minHeight: '120px' }} />
+          <AdUnit layout="in-article" style={{ marginTop: '2rem' }} />
         </article>
 
         <aside className={styles.keywords}>

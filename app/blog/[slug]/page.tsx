@@ -199,7 +199,7 @@ export default function BlogArticlePage({ params }: PageProps) {
       ) : null}
 
       <section style={{ maxWidth: '760px', marginTop: '2.5rem' }}>
-        <AdUnit style={{ minHeight: '120px' }} />
+        <AdUnit layout="in-article" />
       </section>
     </main>
   )

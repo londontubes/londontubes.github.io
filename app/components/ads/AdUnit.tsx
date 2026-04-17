@@ -64,9 +64,14 @@ function isNearViewport(node: HTMLElement) {
 interface AdUnitProps {
   style?: React.CSSProperties
   slot?: string
+  /** Use 'in-article' for ads embedded inside editorial content.
+   *  Sets data-ad-layout="in-article" and data-ad-format="fluid",
+   *  which unlocks higher-paying in-article creatives from AdSense. */
+  layout?: 'in-article'
 }
 
-export default function AdUnit({ style, slot = '4220798337' }: AdUnitProps) {
+export default function AdUnit({ style, slot = '4220798337', layout }: AdUnitProps) {
+  const isInArticle = layout === 'in-article'
   const ref = useRef<HTMLModElement>(null)
   const pushed = useRef(false)
 
@@ -136,11 +141,13 @@ export default function AdUnit({ style, slot = '4220798337' }: AdUnitProps) {
     <ins
       ref={ref}
       className="adsbygoogle"
-      style={{ display: 'block', minHeight: '120px', ...style }}
+      style={{ display: 'block', ...(isInArticle ? {} : { minHeight: '120px' }), ...style }}
       data-ad-client="ca-pub-2691145261785175"
       data-ad-slot={slot}
-      data-ad-format="auto"
-      data-full-width-responsive="true"
+      data-ad-format={isInArticle ? 'fluid' : 'auto'}
+      {...(isInArticle
+        ? { 'data-ad-layout': 'in-article' }
+        : { 'data-full-width-responsive': 'true' })}
     />
   )
 }

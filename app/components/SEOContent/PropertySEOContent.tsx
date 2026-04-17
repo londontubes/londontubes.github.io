@@ -22,6 +22,8 @@ export function PropertySEOContent() {
             the page keeps them in the same workflow.
           </p>
 
+          <AdUnit layout="in-article" />
+
           <h3>What the property filter helps you answer</h3>
 
           <ul className={styles.features}>
@@ -104,7 +106,7 @@ export function PropertySEOContent() {
             </p>
           </div>
 
-          <AdUnit style={{ margin: '2rem 0 0', minHeight: '120px' }} />
+          <AdUnit layout="in-article" style={{ marginTop: '2rem' }} />
         </article>
 
         <aside className={styles.keywords}>
