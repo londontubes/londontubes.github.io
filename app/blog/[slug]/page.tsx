@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
+import AdUnit from '@/app/components/ads/AdUnit'
 import RevenueSurface from '@/app/components/revenue/RevenueSurface'
 import { getHeathrowExpressAffiliateUrl, getAmberAffiliateUrl, withRevenueAttribution } from '@/app/lib/revenue'
 import styles from '../BlogArticle.module.css'
@@ -196,6 +197,10 @@ export default function BlogArticlePage({ params }: PageProps) {
           ))}
         </section>
       ) : null}
+
+      <section style={{ maxWidth: '760px', marginTop: '2.5rem' }}>
+        <AdUnit style={{ minHeight: '120px' }} />
+      </section>
     </main>
   )
 }

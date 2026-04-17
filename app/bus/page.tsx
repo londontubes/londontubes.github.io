@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import BusExperienceLoader from '@/app/components/BusExperience/BusExperienceLoader'
+import AdUnit from '@/app/components/ads/AdUnit'
 import { FAQ } from '@/app/components/FAQ'
 
 export const metadata: Metadata = {
@@ -39,6 +40,9 @@ export default function BusPage() {
         <p>Interactive map requires JavaScript. Enable it to view London bus routes.</p>
       </noscript>
       <BusExperienceLoader />
+      <section style={{ padding: '0 0 0.5rem' }}>
+        <AdUnit style={{ minHeight: '120px' }} />
+      </section>
       <FAQ />
     </main>
   )

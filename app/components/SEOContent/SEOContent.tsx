@@ -247,6 +247,8 @@ export function SEOContent() {
               <a href="/universities/">View our Universities Tube Map →</a>
             </p>
           </div>
+
+          <AdUnit style={{ margin: '2rem 0 0', minHeight: '120px' }} />
         </article>
 
         <aside className={styles.keywords}>
@@ -263,6 +265,9 @@ export function SEOContent() {
               heathrow tube, university tube stations
             </small>
           </p>
+          <div className={styles.sidebarAd}>
+            <AdUnit style={{ minHeight: '250px' }} />
+          </div>
         </aside>
       </div>
     </section>
