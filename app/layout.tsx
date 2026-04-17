@@ -149,6 +149,38 @@ const websiteStructuredData = {
   description:
     'Interactive London Tube map with Underground, Elizabeth line, DLR, station travel times and London university commute planning.',
   inLanguage: 'en-GB',
+  hasPart: [
+    {
+      '@type': 'WebPage',
+      name: 'London Tube Map homepage',
+      url: 'https://londontubes.co.uk/',
+    },
+    {
+      '@type': 'WebPage',
+      name: 'Universities commute finder',
+      url: 'https://londontubes.co.uk/universities/',
+    },
+    {
+      '@type': 'WebPage',
+      name: 'Property filter',
+      url: 'https://londontubes.co.uk/property/',
+    },
+    {
+      '@type': 'WebPage',
+      name: 'London bus map',
+      url: 'https://londontubes.co.uk/bus/',
+    },
+    {
+      '@type': 'WebPage',
+      name: 'Student accommodation hub',
+      url: 'https://londontubes.co.uk/student-accommodation/',
+    },
+    {
+      '@type': 'WebPage',
+      name: 'London blog and guides',
+      url: 'https://londontubes.co.uk/blog/',
+    },
+  ],
 }
 
 const organizationStructuredData = {
@@ -229,6 +261,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://region1.google-analytics.com" crossOrigin="" />
         <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM summary" />
         <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="LLM full summary" />
+        <link rel="alternate" type="application/json" href="/site-index.json" title="Machine-readable site index" />
         {/* Structured Data for SEO — non-blocking JSON-LD */}
         <script
           type="application/ld+json"

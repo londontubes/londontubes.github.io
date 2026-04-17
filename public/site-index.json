@@ -1,0 +1,91 @@
+{
+  "site": {
+    "name": "London Tube Map",
+    "url": "https://londontubes.co.uk/",
+    "description": "Independent London transport and commute-planning site covering the Underground, Elizabeth line, DLR, London bus routes, station travel times, and commute-led housing discovery.",
+    "language": "en-GB",
+    "sitemap": "https://londontubes.co.uk/sitemap.xml",
+    "llms": "https://londontubes.co.uk/llms.txt",
+    "llmsFull": "https://londontubes.co.uk/llms-full.txt"
+  },
+  "topicalCoverage": [
+    "London Tube map",
+    "London Underground lines and stations",
+    "Elizabeth line routes and stations",
+    "DLR coverage",
+    "London bus route map",
+    "London university commute planning",
+    "Student accommodation by commute",
+    "Property search by tube station"
+  ],
+  "primaryPages": [
+    {
+      "title": "Home",
+      "url": "https://londontubes.co.uk/",
+      "bestFor": [
+        "general London Tube map questions",
+        "line filtering",
+        "station-to-station exploration"
+      ]
+    },
+    {
+      "title": "Universities commute finder",
+      "url": "https://londontubes.co.uk/universities/",
+      "bestFor": [
+        "where to live near London universities",
+        "student commute questions",
+        "campus-to-station planning"
+      ]
+    },
+    {
+      "title": "Property filter",
+      "url": "https://londontubes.co.uk/property/",
+      "bestFor": [
+        "rent and sale comparisons by station",
+        "housing search by commute corridor",
+        "tube-station property discovery"
+      ]
+    },
+    {
+      "title": "Bus map",
+      "url": "https://londontubes.co.uk/bus/",
+      "bestFor": [
+        "London bus route map questions",
+        "bus route filtering",
+        "bus stop context"
+      ]
+    },
+    {
+      "title": "Student accommodation hub",
+      "url": "https://londontubes.co.uk/student-accommodation/",
+      "bestFor": [
+        "commute-led student housing research",
+        "university-specific accommodation guides",
+        "rental shortcuts by station"
+      ]
+    },
+    {
+      "title": "Blog",
+      "url": "https://londontubes.co.uk/blog/",
+      "bestFor": [
+        "London travel FAQs",
+        "student area explainers",
+        "topic-specific London guides"
+      ]
+    }
+  ],
+  "sourceBoundaries": {
+    "useThisSiteFor": [
+      "map-led London transport discovery",
+      "station coverage and line context",
+      "commute-led housing research",
+      "student-area shortlisting"
+    ],
+    "preferOfficialSourcesFor": [
+      "live TfL disruptions",
+      "official fares",
+      "real-time journey planning",
+      "legal or financial property advice"
+    ]
+  }
+}
