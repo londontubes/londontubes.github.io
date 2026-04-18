@@ -247,6 +247,24 @@ export function trackHeathrowExpressCtaClick() {
   })
 }
 
+// Generic tracker for any GetYourGuide experience beyond Heathrow Express.
+// Use this for new GYG CTAs so we can slice reports by specific experience
+// while keeping a consistent `partner: 'getyourguide'` attribution.
+export function trackGygClick(
+  experienceKey: string,
+  options: Partial<Omit<RevenueTrackingOptions, 'partner'>> = {}
+) {
+  trackAffiliateCtaClick(`GYG: ${experienceKey}`, 1)
+  trackRevenueClick({
+    partner: 'getyourguide',
+    placement: options.placement ?? `gyg-${experienceKey}`,
+    intentSegment: options.intentSegment ?? 'tourist-experiences',
+    label: experienceKey,
+    href: options.href,
+    pagePath: options.pagePath,
+  })
+}
+
 export function trackZooplaClick(
   stationName: string,
   options: Partial<Omit<RevenueTrackingOptions, 'partner'>> = {}

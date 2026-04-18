@@ -3,6 +3,33 @@ export type RevenueIntentSegment =
   | 'commuter-rentals'
   | 'airport-transfer'
   | 'travel-essentials'
+  | 'tourist-experiences'
+
+export type GygExperienceKey =
+  | 'heathrow-express'
+  | 'stansted-express'
+  | 'gatwick-transfer'
+  | 'london-pass'
+  | 'tower-of-london'
+  | 'thames-cruise'
+  | 'harry-potter-tour'
+  | 'frameless'
+
+const GYG_EXPERIENCE_URLS: Record<GygExperienceKey, string | undefined> = {
+  'heathrow-express': process.env.NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL,
+  'stansted-express': process.env.NEXT_PUBLIC_GYG_STANSTED_EXPRESS_AFFILIATE_URL,
+  'gatwick-transfer': process.env.NEXT_PUBLIC_GYG_GATWICK_TRANSFER_AFFILIATE_URL,
+  'london-pass': process.env.NEXT_PUBLIC_GYG_LONDON_PASS_AFFILIATE_URL,
+  'tower-of-london': process.env.NEXT_PUBLIC_GYG_TOWER_OF_LONDON_AFFILIATE_URL,
+  'thames-cruise': process.env.NEXT_PUBLIC_GYG_THAMES_CRUISE_AFFILIATE_URL,
+  'harry-potter-tour': process.env.NEXT_PUBLIC_GYG_HARRY_POTTER_TOUR_AFFILIATE_URL,
+  'frameless': process.env.NEXT_PUBLIC_GYG_FRAMELESS_AFFILIATE_URL,
+}
+
+export function getGygExperienceUrl(key: GygExperienceKey): string | null {
+  const url = GYG_EXPERIENCE_URLS[key]
+  return url && url.trim() ? url : null
+}
 
 const AMBER_AFFILIATE_URLS: Record<string, string | undefined> = {
   UCL: process.env.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL,
@@ -21,7 +48,7 @@ export function getAmberAffiliateUrl(universityId?: string | null): string | nul
 }
 
 export function getHeathrowExpressAffiliateUrl(): string | null {
-  return process.env.NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL ?? null
+  return getGygExperienceUrl('heathrow-express')
 }
 
 export function getAmazonAssociatesTag(): string | null {

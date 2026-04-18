@@ -3,8 +3,80 @@
 import type { MouseEvent } from 'react'
 import styles from './SEOContent.module.css'
 import AdUnit from '@/app/components/ads/AdUnit'
-import { trackAmazonClick, trackAmberClick, trackHeathrowExpressCtaClick } from '@/app/lib/analytics'
-import { buildAmazonSearchUrl, withRevenueAttribution } from '@/app/lib/revenue'
+import { trackAmazonClick, trackAmberClick, trackGygClick, trackHeathrowExpressCtaClick } from '@/app/lib/analytics'
+import { buildAmazonSearchUrl, getGygExperienceUrl, withRevenueAttribution } from '@/app/lib/revenue'
+import type { GygExperienceKey, RevenueIntentSegment } from '@/app/lib/revenue'
+
+interface GygCtaConfig {
+  key: GygExperienceKey
+  label: string
+  description: string
+  intentSegment: RevenueIntentSegment
+  placement: string
+  envVarName: string
+}
+
+const AIRPORT_TRANSFER_CTAS: GygCtaConfig[] = [
+  {
+    key: 'stansted-express',
+    label: 'Stansted Express',
+    description: 'London Liverpool Street in 45 minutes',
+    intentSegment: 'airport-transfer',
+    placement: 'seo-content-stansted',
+    envVarName: 'NEXT_PUBLIC_GYG_STANSTED_EXPRESS_AFFILIATE_URL',
+  },
+  {
+    key: 'gatwick-transfer',
+    label: 'Gatwick Airport bus transfer',
+    description: 'Direct coach to central London, budget-friendly',
+    intentSegment: 'airport-transfer',
+    placement: 'seo-content-gatwick',
+    envVarName: 'NEXT_PUBLIC_GYG_GATWICK_TRANSFER_AFFILIATE_URL',
+  },
+]
+
+const LONDON_EXPERIENCE_CTAS: GygCtaConfig[] = [
+  {
+    key: 'london-pass',
+    label: 'The London Pass',
+    description: 'Entry to 100+ attractions including the London Eye',
+    intentSegment: 'tourist-experiences',
+    placement: 'seo-content-london-pass',
+    envVarName: 'NEXT_PUBLIC_GYG_LONDON_PASS_AFFILIATE_URL',
+  },
+  {
+    key: 'tower-of-london',
+    label: 'Tower of London & Crown Jewels',
+    description: 'Skip-the-line entry to one of London\u2019s most iconic sights',
+    intentSegment: 'tourist-experiences',
+    placement: 'seo-content-tower-of-london',
+    envVarName: 'NEXT_PUBLIC_GYG_TOWER_OF_LONDON_AFFILIATE_URL',
+  },
+  {
+    key: 'thames-cruise',
+    label: 'Westminster \u2192 Greenwich Thames cruise',
+    description: 'See the city from the river on the way to Greenwich',
+    intentSegment: 'tourist-experiences',
+    placement: 'seo-content-thames-cruise',
+    envVarName: 'NEXT_PUBLIC_GYG_THAMES_CRUISE_AFFILIATE_URL',
+  },
+  {
+    key: 'harry-potter-tour',
+    label: 'Harry Potter guided London tour',
+    description: 'Half-day tour of filming locations across the city',
+    intentSegment: 'tourist-experiences',
+    placement: 'seo-content-harry-potter',
+    envVarName: 'NEXT_PUBLIC_GYG_HARRY_POTTER_TOUR_AFFILIATE_URL',
+  },
+  {
+    key: 'frameless',
+    label: 'Frameless immersive art',
+    description: 'Digital art gallery at Marble Arch',
+    intentSegment: 'tourist-experiences',
+    placement: 'seo-content-frameless',
+    envVarName: 'NEXT_PUBLIC_GYG_FRAMELESS_AFFILIATE_URL',
+  },
+]
 
 interface AmazonEssential {
   label: string
@@ -229,6 +301,82 @@ export function SEOContent() {
                 Browse UCL Rooms on Amber →
               </a>
             </p>
+          </div>
+
+          <div className={styles.cta}>
+            <h3>Other Airport Transfers</h3>
+            <p>
+              Not flying into Heathrow? These alternative airport transfers skip the stress of unfamiliar public transit after a long flight.
+            </p>
+            <ul>
+              {AIRPORT_TRANSFER_CTAS.map((cta) => {
+                const rawUrl = getGygExperienceUrl(cta.key)
+                const url = rawUrl
+                  ? withRevenueAttribution(rawUrl, {
+                      partner: 'getyourguide',
+                      placement: cta.placement,
+                      intentSegment: cta.intentSegment,
+                    })
+                  : null
+                return (
+                  <li key={cta.key}>
+                    <a
+                      {...affiliateLinkProps(
+                        url,
+                        cta.envVarName,
+                        () =>
+                          trackGygClick(cta.key, {
+                            placement: cta.placement,
+                            intentSegment: cta.intentSegment,
+                            href: url ?? undefined,
+                          }),
+                      )}
+                    >
+                      {cta.label} &rarr;
+                    </a>
+                    <span> {cta.description}</span>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+
+          <div className={styles.cta}>
+            <h3>Popular London Experiences</h3>
+            <p>
+              The highest-value London experiences by visitor reviews &mdash; skip-the-line passes for icons, Thames cruises for the classic skyline view, and a few distinctive tours.
+            </p>
+            <ul>
+              {LONDON_EXPERIENCE_CTAS.map((cta) => {
+                const rawUrl = getGygExperienceUrl(cta.key)
+                const url = rawUrl
+                  ? withRevenueAttribution(rawUrl, {
+                      partner: 'getyourguide',
+                      placement: cta.placement,
+                      intentSegment: cta.intentSegment,
+                    })
+                  : null
+                return (
+                  <li key={cta.key}>
+                    <a
+                      {...affiliateLinkProps(
+                        url,
+                        cta.envVarName,
+                        () =>
+                          trackGygClick(cta.key, {
+                            placement: cta.placement,
+                            intentSegment: cta.intentSegment,
+                            href: url ?? undefined,
+                          }),
+                      )}
+                    >
+                      {cta.label} &rarr;
+                    </a>
+                    <span> {cta.description}</span>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
 
           <div className={styles.cta}>
