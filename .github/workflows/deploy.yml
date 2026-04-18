@@ -26,8 +26,45 @@ jobs:
           node-version: 22
           cache: npm
       - name: Prepare environment file
+        # Pass secrets via env: (not shell interpolation) so values containing
+        # special chars like & or $ are not shell-expanded. Only non-empty
+        # secrets are written; missing secrets simply stay unset in the build.
+        env:
+          NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}
+          NEXT_PUBLIC_GA4_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA4_MEASUREMENT_ID }}
+          NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ secrets.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
+          NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL: ${{ secrets.NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL }}
+          NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL: ${{ secrets.NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL }}
+          NEXT_PUBLIC_AMBER_IMPERIAL_AFFILIATE_URL: ${{ secrets.NEXT_PUBLIC_AMBER_IMPERIAL_AFFILIATE_URL }}
+          NEXT_PUBLIC_AMBER_LSE_AFFILIATE_URL: ${{ secrets.NEXT_PUBLIC_AMBER_LSE_AFFILIATE_URL }}
+          NEXT_PUBLIC_AMBER_KINGS_AFFILIATE_URL: ${{ secrets.NEXT_PUBLIC_AMBER_KINGS_AFFILIATE_URL }}
+          NEXT_PUBLIC_AMBER_QMUL_AFFILIATE_URL: ${{ secrets.NEXT_PUBLIC_AMBER_QMUL_AFFILIATE_URL }}
+          NEXT_PUBLIC_AMBER_CITY_AFFILIATE_URL: ${{ secrets.NEXT_PUBLIC_AMBER_CITY_AFFILIATE_URL }}
+          NEXT_PUBLIC_AMBER_SOAS_AFFILIATE_URL: ${{ secrets.NEXT_PUBLIC_AMBER_SOAS_AFFILIATE_URL }}
+          NEXT_PUBLIC_AMBER_WESTMINSTER_AFFILIATE_URL: ${{ secrets.NEXT_PUBLIC_AMBER_WESTMINSTER_AFFILIATE_URL }}
         run: |
-          echo "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}" > .env.local
+          : > .env.local
+          for var in \
+            NEXT_PUBLIC_GOOGLE_MAPS_API_KEY \
+            NEXT_PUBLIC_GA4_MEASUREMENT_ID \
+            NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION \
+            NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL \
+            NEXT_PUBLIC_AMBER_UCL_AFFILIATE_URL \
+            NEXT_PUBLIC_AMBER_IMPERIAL_AFFILIATE_URL \
+            NEXT_PUBLIC_AMBER_LSE_AFFILIATE_URL \
+            NEXT_PUBLIC_AMBER_KINGS_AFFILIATE_URL \
+            NEXT_PUBLIC_AMBER_QMUL_AFFILIATE_URL \
+            NEXT_PUBLIC_AMBER_CITY_AFFILIATE_URL \
+            NEXT_PUBLIC_AMBER_SOAS_AFFILIATE_URL \
+            NEXT_PUBLIC_AMBER_WESTMINSTER_AFFILIATE_URL
+          do
+            value="${!var}"
+            if [ -n "$value" ]; then
+              printf '%s=%s\n' "$var" "$value" >> .env.local
+            fi
+          done
+          echo "Wrote .env.local with keys:"
+          cut -d= -f1 .env.local | sed 's/^/  /'
       - name: Install dependencies
         run: npm ci
       - name: Validate data
