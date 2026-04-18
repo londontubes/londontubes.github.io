@@ -3,8 +3,37 @@
 import type { MouseEvent } from 'react'
 import styles from './SEOContent.module.css'
 import AdUnit from '@/app/components/ads/AdUnit'
-import { trackAmberClick, trackHeathrowExpressCtaClick } from '@/app/lib/analytics'
-import { withRevenueAttribution } from '@/app/lib/revenue'
+import { trackAmazonClick, trackAmberClick, trackHeathrowExpressCtaClick } from '@/app/lib/analytics'
+import { buildAmazonSearchUrl, withRevenueAttribution } from '@/app/lib/revenue'
+
+interface AmazonEssential {
+  label: string
+  query: string
+  description: string
+}
+
+const AMAZON_ESSENTIALS: AmazonEssential[] = [
+  {
+    label: 'UK travel adapter',
+    query: 'uk travel adapter type g',
+    description: 'Safe mains adapters for anyone landing from a non-UK plug',
+  },
+  {
+    label: 'RFID-blocking contactless wallet',
+    query: 'rfid blocking contactless wallet slim',
+    description: 'Protects contactless cards used as Tube/bus fares',
+  },
+  {
+    label: 'Foldable London Tube map',
+    query: 'london tube map poster a3',
+    description: 'Printed map to pair with the interactive one',
+  },
+  {
+    label: 'Packable rain jacket',
+    query: 'packable rain jacket men women lightweight',
+    description: 'Because this is London',
+  },
+]
 
 const HEATHROW_EXPRESS_AFFILIATE_URL =
   process.env.NEXT_PUBLIC_GYG_HEATHROW_EXPRESS_AFFILIATE_URL
@@ -200,6 +229,37 @@ export function SEOContent() {
                 Browse UCL Rooms on Amber →
               </a>
             </p>
+          </div>
+
+          <div className={styles.cta}>
+            <h3>London Travel Essentials on Amazon</h3>
+            <p>
+              A short list of what most visitors and new arrivals end up buying in their first week — contactless-safe wallets, UK plug adapters, a printed Tube map, and a packable raincoat.
+            </p>
+            <ul>
+              {AMAZON_ESSENTIALS.map((item) => {
+                const url = buildAmazonSearchUrl(item.query)
+                return (
+                  <li key={item.label}>
+                    <a
+                      {...affiliateLinkProps(
+                        url,
+                        'NEXT_PUBLIC_AMAZON_ASSOCIATES_TAG',
+                        () =>
+                          trackAmazonClick(item.label, {
+                            placement: 'seo-content-amazon',
+                            intentSegment: 'travel-essentials',
+                            href: url ?? undefined,
+                          }),
+                      )}
+                    >
+                      {item.label} →
+                    </a>
+                    <span> {item.description}</span>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
 
           <h3>London Tube Zones Explained</h3>

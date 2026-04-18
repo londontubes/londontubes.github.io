@@ -292,6 +292,21 @@ export function trackAmberClick(
   })
 }
 
+export function trackAmazonClick(
+  context: string,
+  options: Partial<Omit<RevenueTrackingOptions, 'partner'>> = {}
+) {
+  trackAffiliateCtaClick(`Amazon: ${context}`, 1)
+  trackRevenueClick({
+    partner: 'amazon',
+    placement: options.placement ?? 'legacy-cta',
+    intentSegment: options.intentSegment ?? 'travel-essentials',
+    label: context,
+    href: options.href,
+    pagePath: options.pagePath,
+  })
+}
+
 export function trackNewsletterSignup() {
   trackEvent({
     action: 'newsletter_signup',
