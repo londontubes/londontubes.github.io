@@ -14,13 +14,30 @@ declare global {
 }
 
 let gaLoadPromise: Promise<void> | null = null
+let gaScriptInitialized = false
+
+// Install the gtag/dataLayer shim synchronously on mount so trackEvent()
+// calls made before googletagmanager.com/gtag/js finishes downloading are
+// queued in window.dataLayer instead of dropped. When the real script
+// loads, it reads dataLayer and processes queued commands.
+function installGtagShim(gaId: string) {
+  if (typeof window === 'undefined') return
+  window.dataLayer = window.dataLayer || []
+  if (typeof window.gtag !== 'function') {
+    window.gtag = (...args: unknown[]) => {
+      window.dataLayer?.push(args)
+    }
+    window.gtag('js', new Date())
+    window.gtag('config', gaId)
+  }
+}
 
 function loadGoogleAnalytics(gaId: string): Promise<void> {
   if (typeof window === 'undefined') {
     return Promise.resolve()
   }
 
-  if (typeof window.gtag === 'function') {
+  if (gaScriptInitialized) {
     return Promise.resolve()
   }
 
@@ -31,13 +48,8 @@ function loadGoogleAnalytics(gaId: string): Promise<void> {
   gaLoadPromise = new Promise((resolve, reject) => {
     const existingScript = document.querySelector<HTMLScriptElement>('script[data-gtag-loader="true"]')
 
-    const initialize = () => {
-      window.dataLayer = window.dataLayer || []
-      window.gtag = (...args: unknown[]) => {
-        window.dataLayer?.push(args)
-      }
-      window.gtag('js', new Date())
-      window.gtag('config', gaId)
+    const onReady = () => {
+      gaScriptInitialized = true
       resolve()
     }
 
@@ -48,7 +60,7 @@ function loadGoogleAnalytics(gaId: string): Promise<void> {
 
     if (existingScript) {
       if (existingScript.dataset.loaded === 'true') {
-        initialize()
+        onReady()
         return
       }
 
@@ -56,7 +68,7 @@ function loadGoogleAnalytics(gaId: string): Promise<void> {
         'load',
         () => {
           existingScript.dataset.loaded = 'true'
-          initialize()
+          onReady()
         },
         { once: true },
       )
@@ -72,7 +84,7 @@ function loadGoogleAnalytics(gaId: string): Promise<void> {
       'load',
       () => {
         script.dataset.loaded = 'true'
-        initialize()
+        onReady()
       },
       { once: true },
     )
@@ -89,6 +101,9 @@ export function Analytics() {
       return
     }
 
+    // Shim installed synchronously so events queue from the first paint.
+    installGtagShim(GA_ID)
+
     let started = false
 
     const startLoading = () => {
@@ -100,7 +115,9 @@ export function Analytics() {
       void loadGoogleAnalytics(GA_ID)
     }
 
-    const timeoutId = window.setTimeout(startLoading, 5000)
+    // 1s idle timeout (was 5s) — dramatically shrinks the window in which
+    // an affiliate click can land before gtag.js is in flight.
+    const timeoutId = window.setTimeout(startLoading, 1000)
 
     const interactionOptions: AddEventListenerOptions = { once: true, passive: true }
     window.addEventListener('pointerdown', startLoading, interactionOptions)
