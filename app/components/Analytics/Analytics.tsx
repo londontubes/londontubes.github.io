@@ -20,12 +20,16 @@ let gaScriptInitialized = false
 // calls made before googletagmanager.com/gtag/js finishes downloading are
 // queued in window.dataLayer instead of dropped. When the real script
 // loads, it reads dataLayer and processes queued commands.
-function installGtagShim(gaId: string) {
+export function installGtagShim(gaId: string) {
   if (typeof window === 'undefined') return
   window.dataLayer = window.dataLayer || []
   if (typeof window.gtag !== 'function') {
-    window.gtag = (...args: unknown[]) => {
-      window.dataLayer?.push(args)
+    // gtag.js only processes `arguments` objects from dataLayer. Pushing a
+    // plain array (e.g. from `(...args) => push(args)`) is silently ignored,
+    // so no config is applied and no hits are ever sent.
+    window.gtag = function gtag() {
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer?.push(arguments)
     }
     window.gtag('js', new Date())
     window.gtag('config', gaId)
