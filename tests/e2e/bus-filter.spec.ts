@@ -10,8 +10,8 @@ test.describe('Bus page', () => {
     await expect(page.locator('h1')).toContainText('London Bus Routes')
   })
 
-  test('marks Bus Filter link as current page', async ({ page }) => {
-    const tab = page.getByRole('link', { name: 'Bus Filter' })
+  test('marks Bus link as current page', async ({ page }) => {
+    const tab = page.getByRole('link', { name: 'Bus', exact: true })
     await expect(tab).toHaveAttribute('aria-current', 'page')
   })
 

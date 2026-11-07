@@ -26,13 +26,13 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Which tube lines serve London universities?',
     answer:
-      "Visit our Universities Filter page to see all major London universities and their nearest tube stations. UCL is near Euston Square (Circle/Hammersmith & City/Metropolitan), Imperial College near South Kensington (Circle/District/Piccadilly), LSE near Holborn (Central/Piccadilly), and King's College near Temple (Circle/District).",
+      "Visit our Universities page to see all major London universities and their nearest tube stations. UCL is near Euston Square (Circle/Hammersmith & City/Metropolitan), Imperial College near South Kensington (Circle/District/Piccadilly), LSE near Holborn (Central/Piccadilly), and King's College near Temple (Circle/District).",
     keywords: ['university stations', 'student travel', 'uni tube'],
   },
   {
     question: 'Where should I live as a London university student?',
     answer:
-      "Use our Universities Filter map to explore student-friendly areas to live near your London university. Select your campus, adjust the green walking-time control, then add purple tube time to see which neighbourhoods and stations are within a short walk or single tube ride on the same lines. This makes it easier to compare areas like Camden, Kentish Town, Earl's Court, Hammersmith, Waterloo, London Bridge and Mile End by actual travel time to UCL, Imperial, LSE, King's and other universities.",
+      "Use our Universities map to explore student-friendly areas to live near your London university. Select your campus, adjust the green walking-time control, then add purple tube time to see which neighbourhoods and stations are within a short walk or single tube ride on the same lines. This makes it easier to compare areas like Camden, Kentish Town, Earl's Court, Hammersmith, Waterloo, London Bridge and Mile End by actual travel time to UCL, Imperial, LSE, King's and other universities.",
     keywords: [
       'where to live in london as students',
       'best areas to live near london universities',

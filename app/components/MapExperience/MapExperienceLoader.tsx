@@ -39,10 +39,11 @@ export default function MapExperienceLoader() {
   return (
     <div className="map-experience">
       <header className="map-experience__header-inline">
-        <h1 className="map-title">London Tube, Overground &amp; DLR Map</h1>
+        <h1 className="map-title">London Tube Map</h1>
         <span className="map-stats" data-testid="network-stats">
           {loadError ? 'Network dataset unavailable' : 'Loading network...'}
         </span>
+        <p className="map-subtitle">Underground, Elizabeth line, DLR, Overground &amp; Trams</p>
       </header>
       <section
         className="map-shell"

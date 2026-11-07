@@ -21,8 +21,8 @@ test.describe('Home page — line filter', () => {
   test('renders navigation tabs', async ({ page }) => {
     const nav = page.getByRole('navigation', { name: 'Main navigation' })
     await expect(nav).toBeVisible()
-    await expect(nav.getByRole('link', { name: 'Tube Filter' })).toBeVisible()
-    await expect(nav.getByRole('link', { name: 'Universities Filter' })).toBeVisible()
+    await expect(nav.getByRole('link', { name: 'Tube Map', exact: true })).toBeVisible()
+    await expect(nav.getByRole('link', { name: 'Universities', exact: true })).toBeVisible()
   })
 
   test('line filter nav is present with All Lines button pressed by default', async ({ page }) => {
@@ -34,14 +34,14 @@ test.describe('Home page — line filter', () => {
     await expect(allLinesBtn).toHaveAttribute('aria-pressed', 'true')
 
     // At least one individual line button should exist
-    const lineButtons = filterNav.getByRole('button').filter({ hasNotText: 'All Lines' })
+    const lineButtons = filterNav.locator('button[data-line-code]')
     await expect(lineButtons.first()).toBeVisible()
   })
 
   test('clicking a line button selects it and deactivates All Lines', async ({ page }) => {
     const filterNav = page.getByRole('navigation', { name: 'Line filter' })
     const allLinesBtn = filterNav.getByRole('button', { name: 'All Lines' })
-    const firstLine = filterNav.getByRole('button').filter({ hasNotText: 'All Lines' }).first()
+    const firstLine = filterNav.locator('button[data-line-code]').first()
 
     await firstLine.click()
 
@@ -55,7 +55,7 @@ test.describe('Home page — line filter', () => {
 
     await expect(stats).toContainText('All lines')
 
-    await filterNav.getByRole('button').filter({ hasNotText: 'All Lines' }).first().click()
+    await filterNav.locator('button[data-line-code]').first().click()
 
     await expect(stats).not.toContainText('All lines')
   })
@@ -64,7 +64,7 @@ test.describe('Home page — line filter', () => {
     const filterNav = page.getByRole('navigation', { name: 'Line filter' })
     const allLinesBtn = filterNav.getByRole('button', { name: 'All Lines' })
 
-    await filterNav.getByRole('button').filter({ hasNotText: 'All Lines' }).first().click()
+    await filterNav.locator('button[data-line-code]').first().click()
     await expect(allLinesBtn).toHaveAttribute('aria-pressed', 'false')
 
     await allLinesBtn.click()
@@ -74,7 +74,7 @@ test.describe('Home page — line filter', () => {
 
   test('selecting two lines shows "2 lines selected" in stats', async ({ page }) => {
     const filterNav = page.getByRole('navigation', { name: 'Line filter' })
-    const lineButtons = filterNav.getByRole('button').filter({ hasNotText: 'All Lines' })
+    const lineButtons = filterNav.locator('button[data-line-code]')
 
     await lineButtons.nth(0).click()
     await lineButtons.nth(1).click()
@@ -82,8 +82,21 @@ test.describe('Home page — line filter', () => {
     await expect(page.getByTestId('network-stats')).toContainText('2 lines selected')
   })
 
-  test('Tube Filter link is marked as current page', async ({ page }) => {
-    const tab = page.getByRole('link', { name: 'Tube Filter' })
+  test('network toggle selects and clears every line in that network', async ({ page }) => {
+    const filterNav = page.getByRole('navigation', { name: 'Line filter' })
+    const overground = filterNav.getByRole('button', { name: /Overground/ })
+
+    await overground.click()
+    await expect(overground).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.getByTestId('network-stats')).toContainText('6 lines selected')
+
+    await overground.click()
+    await expect(overground).toHaveAttribute('aria-pressed', 'false')
+    await expect(page.getByTestId('network-stats')).toContainText('All lines')
+  })
+
+  test('Tube Map link is marked as current page', async ({ page }) => {
+    const tab = page.getByRole('link', { name: 'Tube Map', exact: true })
     await expect(tab).toHaveAttribute('aria-current', 'page')
   })
 })
@@ -97,8 +110,8 @@ test.describe('Universities page', () => {
     await expect(page).toHaveTitle(/universit/i)
   })
 
-  test('Universities Filter link is marked as current page', async ({ page }) => {
-    const tab = page.getByRole('link', { name: 'Universities Filter' })
+  test('Universities link is marked as current page', async ({ page }) => {
+    const tab = page.getByRole('link', { name: 'Universities', exact: true })
     await expect(tab).toHaveAttribute('aria-current', 'page')
   })
 
@@ -120,18 +133,18 @@ test.describe('Universities page', () => {
 test.describe('Navigation', () => {
   test('navigates from home to universities page', async ({ page }) => {
     await page.goto('/')
-    await page.getByRole('link', { name: 'Universities Filter' }).click()
+    await page.getByRole('link', { name: 'Universities', exact: true }).click()
     await expect(page).toHaveURL('/universities/')
-    await expect(page.getByRole('link', { name: 'Universities Filter' })).toHaveAttribute('aria-current', 'page')
+    await expect(page.getByRole('link', { name: 'Universities', exact: true })).toHaveAttribute('aria-current', 'page')
   })
 
   test('navigates from universities back to home', async ({ page }) => {
     await page.goto('/universities/')
-    const homeTab = page.getByRole('link', { name: 'Tube Filter' })
+    const homeTab = page.getByRole('link', { name: 'Tube Map', exact: true })
     await homeTab.scrollIntoViewIfNeeded()
     await homeTab.click()
     await expect(page).toHaveURL('/')
-    await expect(page.getByRole('link', { name: 'Tube Filter' })).toHaveAttribute('aria-current', 'page')
+    await expect(page.getByRole('link', { name: 'Tube Map', exact: true })).toHaveAttribute('aria-current', 'page')
   })
 
   test('feedback link is present in navigation', async ({ page }) => {
