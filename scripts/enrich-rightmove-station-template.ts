@@ -33,7 +33,10 @@ function parseArgs() {
 
   return {
     limit: Number.parseInt(getValue('--limit') ?? '', 10) || null,
-    stationId: getValue('--station-id') ?? null,
+    // One id or a comma-separated list.
+    stationIds: getValue('--station-id')?.split(',').map((id) => id.trim()).filter(Boolean) ?? null,
+    // Re-try every entry whose last lookup was ambiguous.
+    retryAmbiguous: args.includes('--retry-ambiguous'),
     force: args.includes('--force'),
     // Only look up stations that have no entry in the template yet.
     newOnly: args.includes('--new-only'),
@@ -180,10 +183,22 @@ function pickBestMatch(searchLocation: string, matches: RightmoveTypeaheadMatch[
     }
   }
 
-  if (matches.length === 1) {
+  // Looser comparison: ignore apostrophes, full stops and bracketed county
+  // qualifiers ("King's Nympton" = "Kings Nympton", "Whitchurch (Hants.)").
+  // A lone result whose name differs is NOT accepted: that is how Kempton
+  // Park was matched to Dumpton Park and Cambridge North to North Fambridge.
+  const loose = (value: string) => normalizeStationName(value.replace(/['’.]/g, '').replace(/\([^)]*\)/g, ' '))
+  const qualifier = (value: string) => normalizeName((value.match(/\(([^)]*)\)/)?.[1] ?? '').replace(/[.]/g, ''))
+  const looseMatches = matches.filter(match => loose(match.displayName ?? '') === loose(searchLocation))
+  const pick = looseMatches.length === 1
+    ? looseMatches[0]
+    : looseMatches.filter(match => qualifier(match.displayName ?? '') === qualifier(searchLocation)).length === 1
+      ? looseMatches.find(match => qualifier(match.displayName ?? '') === qualifier(searchLocation))
+      : undefined
+  if (pick) {
     return {
-      locationIdentifier: normalizeLocationIdentifier(matches[0].id),
-      displayName: matches[0].displayName ?? searchLocation,
+      locationIdentifier: normalizeLocationIdentifier(pick.id),
+      displayName: pick.displayName ?? searchLocation,
       matchStatus: 'matched',
     }
   }
@@ -245,7 +260,8 @@ async function main() {
   const now = new Date().toISOString()
 
   const selectedStations = stations.filter(station => {
-    if (args.stationId && station.stationId !== args.stationId) return false
+    if (args.stationIds && !args.stationIds.includes(station.stationId)) return false
+    if (args.retryAmbiguous && existingByStationId.get(station.stationId)?.matchStatus !== 'ambiguous') return false
     if (args.newOnly && existingByStationId.has(station.stationId)) return false
     return true
   })

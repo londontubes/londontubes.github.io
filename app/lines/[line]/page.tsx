@@ -17,7 +17,17 @@ function lineName(data: LinePageData) {
   return data.line.mode === 'tube' ? `${data.line.displayName} line` : data.line.displayName
 }
 
+// "the Victoria line" / "the DLR", but plain operator names ("Southern").
+function theName(data: LinePageData, capital = false) {
+  if (data.line.mode === 'national-rail') return lineName(data)
+  return `${capital ? 'The' : 'the'} ${lineName(data)}`
+}
+
 function summary(data: LinePageData) {
+  if (data.line.mode === 'national-rail') {
+    const inZones = data.stations.filter((s) => s.zone).length
+    return `${lineName(data)} is a National Rail operator serving ${data.stations.length} stations${inZones ? `, ${inZones} of them inside the TfL fare zones` : ''}, on ${data.routes.length === 1 ? `one route: ${data.routes[0].name}` : `${data.routes.length} routes`}. ${data.interchangeCount} stations connect with other lines.`
+  }
   if (data.line.mode === 'tram') {
     return `London Trams runs ${data.stations.length} stops across south London, centred on Croydon, on ${data.routes.length} routes: ${data.routes.map((r) => r.name).join('; ')}. Trams charge a flat fare, the same as buses, so there are no fare zones.`
   }
@@ -27,13 +37,15 @@ function summary(data: LinePageData) {
   const routes = data.routes.length
     ? `${zones ? ', with' : ' It has'} ${data.routes.length === 1 ? `one route: ${data.routes[0].name}` : `${data.routes.length} routes`}.`
     : zones ? '.' : ''
-  return `The ${lineName(data)} is part of ${getModeLabel(data.line.mode)} with ${data.stations.length} stations, ${data.interchangeCount} of them interchanges with other lines.${zones}${routes}`
+  return `${theName(data, true)} is part of ${getModeLabel(data.line.mode)} with ${data.stations.length} stations, ${data.interchangeCount} of them interchanges with other lines.${zones}${routes}`
 }
 
 export function generateMetadata({ params }: PageProps): Metadata {
   const data = getLinePageData(params.line)
   if (!data) return { title: 'Line not found' }
-  const title = `${lineName(data)} map & stations: all ${data.stations.length} stops in order`
+  const title = data.line.mode === 'national-rail'
+    ? `${lineName(data)} route map & all ${data.stations.length} stations`
+    : `${lineName(data)} map & stations: all ${data.stations.length} stops in order`
   const description = `${summary(data)} See every station, fare zone and interchange on the interactive map.`
   return {
     title,
@@ -49,17 +61,19 @@ export default function LinePage({ params }: PageProps) {
 
   const url = `${SITE_URL}/lines/${data.line.lineCode}/`
   const name = lineName(data)
+  const the = theName(data)
+  const The = theName(data, true)
   const faq = [
-    { q: `How many stations are on the ${name}?`, a: `The ${name} has ${data.stations.length} stations.` },
+    { q: `How many stations are on ${the}?`, a: `${The} has ${data.stations.length} stations.` },
     ...(data.routes.length
-      ? [{ q: `Where does the ${name} go?`, a: `The ${name} runs ${data.routes.map((r) => r.name).join('; ')}.` }]
+      ? [{ q: `Where does ${the} go?`, a: `${The} runs ${data.routes.map((r) => r.name).join('; ')}.` }]
       : []),
     ...(data.zones.length && data.line.mode !== 'tram'
-      ? [{ q: `Which fare zones does the ${name} serve?`, a: `The ${name} serves ${data.zones.length === 1 ? `Zone ${data.zones[0]}` : `Zones ${data.zones.join(', ')}`}.` }]
+      ? [{ q: `Which fare zones does ${the} serve?`, a: `${The} serves ${data.zones.length === 1 ? `Zone ${data.zones[0]}` : `Zones ${data.zones.join(', ')}`}.` }]
       : []),
     {
-      q: `Where can I change from the ${name}?`,
-      a: `${data.interchangeCount} stations on the ${name} connect with other lines, including ${data.stations
+      q: `Where can I change from ${the}?`,
+      a: `${data.interchangeCount} stations on ${the} connect with other lines, including ${data.stations
         .filter((s) => s.otherLines.length > 0)
         .sort((a, b) => b.otherLines.length - a.otherLines.length)
         .slice(0, 5)
@@ -124,7 +138,7 @@ export default function LinePage({ params }: PageProps) {
         )}
 
         <section className={styles.section}>
-          <h2>All {data.stations.length} stations on the {name}</h2>
+          <h2>All {data.stations.length} stations on {the}</h2>
           <div className={styles.tableWrap}>
             <table className={styles.table}>
               <thead>
@@ -160,8 +174,8 @@ export default function LinePage({ params }: PageProps) {
         </section>
 
         <section className={styles.section}>
-          <h2>See the {name} on the map</h2>
-          <p>Filter the interactive map to the {name} to see its route alongside every other London line.</p>
+          <h2>See {the} on the map</h2>
+          <p>Filter the interactive map to {the} to see its route alongside every other London line.</p>
           <div className={styles.actions}>
             <Link className={styles.button} href="/">Open the interactive map</Link>
             <Link className={styles.buttonGhost} href="/lines/">All London lines</Link>

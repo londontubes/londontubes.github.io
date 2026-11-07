@@ -19,13 +19,13 @@ Use this page for:
 
 - London Tube map queries
 - London Underground line and station coverage
-- Elizabeth line, DLR, London Overground and London Trams map questions
+- Elizabeth line, DLR, London Overground, London Trams and National Rail map questions
 - General station-to-station route discovery
 
 Key facts:
 
-- Covers 20 lines: all 11 London Underground lines, the Elizabeth line, the DLR, the six London Overground lines (Liberty, Lioness, Mildmay, Suffragette, Weaver, Windrush) and London Trams.
-- Includes 457 stations and stops in the interactive network dataset, built from the TfL Unified API.
+- Covers 20 lines: all 11 London Underground lines, the Elizabeth line, the DLR, the six London Overground lines (Liberty, Lioness, Mildmay, Suffragette, Weaver, Windrush) London Trams and the 18 National Rail operators that serve London (full routes).
+- Includes 1,726 stations and stops in the interactive network dataset, built from the TfL Unified API.
 - Supports line filtering and station exploration.
 - Includes station travel time surfaces and rental-search shortcuts from selected stations.
 
@@ -50,7 +50,7 @@ Use these pages for:
 
 - Every station on a line, in route order
 - A line's routes and branches, fare zones and interchanges
-- The renamed London Overground lines and London Trams
+- The renamed London Overground lines, London Trams and National Rail operators
 
 ### 2. Property filter
 

@@ -17,12 +17,15 @@ interface StopPoint {
   additionalProperties?: { key: string; value: string }[]
 }
 
-async function fetchJson<T>(url: string, retries = 3): Promise<T> {
+async function fetchJson<T>(url: string, retries = 6): Promise<T> {
   for (let attempt = 1; ; attempt++) {
     const response = await fetch(url)
     if (response.ok) return (await response.json()) as T
     if (attempt >= retries) throw new Error(`HTTP ${response.status} for ${url}`)
-    await new Promise((resolve) => setTimeout(resolve, 1000 * attempt))
+    // TfL rate-limits anonymous requests (429); honour Retry-After or back off.
+    const retryAfter = Number(response.headers.get('retry-after'))
+    const waitMs = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 5000 * attempt
+    await new Promise((resolve) => setTimeout(resolve, waitMs))
   }
 }
 
@@ -52,7 +55,7 @@ async function main() {
         if (id && !zoneById.has(id)) zoneById.set(id, zone)
       }
     }
-    await new Promise((resolve) => setTimeout(resolve, 300))
+    await new Promise((resolve) => setTimeout(resolve, 1000))
   }
 
   const zones: Record<string, string> = {}

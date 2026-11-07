@@ -386,6 +386,7 @@ main {
 }
 
 .line-filter__button--all {
+  white-space: nowrap;
   background: var(--surface-3) !important;
   color: var(--text-1) !important;
   border: 1px solid var(--border-md) !important;
@@ -406,6 +407,81 @@ main {
 .line-filter__name {
   font-weight: 650;
   white-space: nowrap;
+}
+
+/* Grouped by network: Underground, Elizabeth line, DLR, Overground, Trams */
+.line-filter--grouped .line-filter__list {
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.line-filter__group {
+  /* Contain the absolutely positioned visually-hidden labels so they can't
+     escape the horizontally scrolling row and widen the page. */
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.line-filter__group-lines {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  padding: 0;
+  margin: 0;
+  /* Sit beside the network label and wrap within the group. */
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.line-filter__group {
+  flex: 0 1 auto;
+  flex-wrap: nowrap;
+}
+
+.line-filter__group-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px dashed var(--border-md);
+  background: transparent;
+  color: var(--text-2);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.line-filter__group-toggle:hover,
+.line-filter__group-toggle:focus-visible {
+  color: var(--text-1);
+  border-style: solid;
+  outline: none;
+}
+
+.line-filter__group-toggle[aria-pressed="true"] {
+  color: var(--text-1);
+  border-style: solid;
+  background: var(--surface-3);
+}
+
+.line-filter__group-count {
+  font-size: 0.6rem;
+  opacity: 0.75;
+}
+
+.map-subtitle {
+  margin: 0;
+  flex-basis: 100%;
+  font-size: 0.85rem;
+  color: var(--text-2);
 }
 
 .line-filter__count {
@@ -694,8 +770,40 @@ main {
     font-size: 0.7rem;
   }
 
-  .map-experience__header-inline {
+  /* Keep a compact one-line heading on phones; hide the extras. */
+  .map-experience__header-inline .map-stats,
+  .map-experience__header-inline .map-subtitle {
     display: none;
+  }
+
+  .map-title {
+    font-size: 1rem;
+  }
+
+  .line-filter--grouped .line-filter__list,
+  .line-filter__group,
+  .line-filter__group-lines {
+    flex-wrap: nowrap;
+  }
+
+  /* Let the row scroll inside the screen instead of widening the page. */
+  .line-filter--grouped,
+  .line-filter--grouped .line-filter__list {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .line-filter__group {
+    flex-shrink: 0;
+  }
+
+  .line-filter__group-lines {
+    flex: 0 0 auto;
+  }
+
+  .line-filter__group-toggle {
+    flex-shrink: 0;
+    font-size: 0.62rem;
   }
 
   .map-shell {

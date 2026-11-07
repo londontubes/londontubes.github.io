@@ -44,6 +44,15 @@ const RIGHTMOVE_STATION_LINK_OVERRIDES: Record<string, RightmoveOverrideOption[]
   '910GCLDNNRB': [{ locationIdentifier: '1682', displayName: 'Caledonian Road & Barnsbury Station' }],
   '910GFNCHLYR': [{ locationIdentifier: '3512', displayName: 'Finchley Road & Frognal Station' }],
   '910GSTJMSST': [{ locationIdentifier: '8615', displayName: 'St. James Street Station' }],
+  // London National Rail stations the typeahead can't pick automatically;
+  // each id checked on Rightmove to open the London station.
+  '910GFENCHRS': [{ locationIdentifier: '3470', displayName: 'Fenchurch Street Station' }],
+  '910GRNHAME': [{ locationIdentifier: '7556', displayName: 'Rainham (Essex) Station' }],
+  '910GSDBRYHR': [{ locationIdentifier: '8870', displayName: 'Sudbury & Harrow Road Station' }],
+  '910GWLOE': [{ locationIdentifier: '9671', displayName: 'Waterloo East Station' }],
+  '910GSTMGTS': [{ locationIdentifier: '8552', displayName: 'St. Margarets Station' }],
+  '910GCTMSLNK': [{ locationIdentifier: '2138', displayName: 'City Thameslink Station' }],
+  '910GELTR': [{ locationIdentifier: '3236', displayName: 'Elstree & Borehamwood Station' }],
   // The Overground station, ~500 m from the Underground one (908).
   '910GBTHNLGR': [{ locationIdentifier: '905', displayName: 'Bethnal Green (Mainline) Station' }],
   HUBSPB: [
@@ -171,7 +180,21 @@ const RAIL_LINE_CODES = new Set([
   'windrush',
   'tram',
 ])
-const NON_TUBE_LINE_CODES = new Set(['dlr', ...RAIL_LINE_CODES])
+// Listed explicitly: anything else (DLR, Overground, Trams, National Rail
+// operators) is not a Zoopla "tube" station.
+const TUBE_LINE_CODES = new Set([
+  'bakerloo',
+  'central',
+  'circle',
+  'district',
+  'hammersmith-city',
+  'jubilee',
+  'metropolitan',
+  'northern',
+  'piccadilly',
+  'victoria',
+  'waterloo-city',
+])
 
 interface ZooplaOverride {
   slug?: string
@@ -307,6 +330,18 @@ const ZOOPLA_LOCATION_IDS: Record<string, string> = {
   '910GWDRYTON': 'station/rail/west-drayton',
   '910GCAMHTH': 'station/rail/cambridge-heath',
   '910GSTJMSST': 'station/rail/st-james-street-walthamstow',
+  // National Rail: Zoopla qualifies some names by (old) county.
+  '910GASCOT': 'station/rail/ascot-berks',
+  '910GEPSM': 'station/rail/epsom-surrey',
+  '910GFSHBORN': 'station/rail/fishbourne-sussex',
+  '910GLEEE': 'station/rail/lee-london',
+  '910GRNHAME': 'station/rail/rainham-essex',
+  '910GSHLIER': 'station/rail/st-helier-surrey',
+  '910GSTRETHM': 'station/rail/streatham-greater-london',
+  '910GSUTTON': 'station/rail/sutton-surrey',
+  '910GWHTTON': 'station/rail/whitton-london',
+  // Meridian Water replaced Angel Road (2019); Zoopla still uses the old name.
+  '910GMWRWSTN': 'station/rail/angel-road',
 }
 
 // Stations Zoopla has no page for at all; search around the nearest postcode.
@@ -317,6 +352,7 @@ const ZOOPLA_STATION_POSTCODES: Record<string, string> = {
   '940GZZBPSUST': 'SW11 8AL', // Battersea Power Station
   '940GZZNEUGST': 'SW8 2GE', // Nine Elms
   '910GBARKRIV': 'IG11 0YP', // Barking Riverside
+  '910GBRENTX': 'NW2 8AU', // Brent Cross West (opened 2023)
 }
 
 const ZOOPLA_SLUG_OVERRIDES: Record<string, ZooplaOverride> = {
@@ -631,10 +667,10 @@ function buildZooplaLocationSegment(station: Station | undefined, baseSearchLoca
   if (override?.postcode) return toZooplaPostcodeSlug(override.postcode)
 
   const slug = buildZooplaSlug(baseSearchLocation, override)
-  const hasTubeLine = station?.lineCodes.some(code => !NON_TUBE_LINE_CODES.has(code))
+  const hasTubeLine = station?.lineCodes.some(code => TUBE_LINE_CODES.has(code))
   const isDlr = station?.lineCodes.includes('dlr')
   // Elizabeth line, Overground and Tram stops have no Zoopla "tube" page; use the rail station type.
-  const isRail = station?.lineCodes.some(code => RAIL_LINE_CODES.has(code))
+  const isRail = station?.lineCodes.some(code => RAIL_LINE_CODES.has(code) || !TUBE_LINE_CODES.has(code) && code !== 'dlr')
   const stationType = override?.type
     ?? (hasTubeLine ? 'tube' : isRail && !isDlr ? 'rail' : isDlr ? 'dlr' : 'tube')
   return `station/${stationType}/${slug}`

@@ -8,7 +8,7 @@ import { faqItems } from '@/app/data/faqData'
 export const metadata: Metadata = {
   title: 'London Tube Map 2026 | Underground, Overground, Elizabeth Line & DLR',
   description:
-    'Explore an interactive London Tube map with Underground, Overground, Elizabeth line, DLR and Tram routes, station travel times, and university commute tools across 450+ stations.',
+    'Explore an interactive London Tube map with Underground, Overground, Elizabeth line, DLR, Tram and National Rail routes, station travel times, and university commute tools across 450+ stations.',
   keywords:
     'london tube map, london underground map, interactive tube map london, elizabeth line map, dlr map london, london station travel times, london transport map',
   alternates: {

@@ -128,7 +128,7 @@ export const blogQuestions: BlogQuestion[] = [
     universityId: 'UCL',
     question: 'How to use the university filter for flat search',
     shortAnswer:
-      'Open the Universities Filter, pick your campus, then use the green walking time and purple tube time sliders to find good areas and jump straight into Zoopla and Rightmove rental searches from promising stations.',
+      'Open the Universities map, pick your campus, then use the green walking time and purple tube time sliders to find good areas and jump straight into Zoopla and Rightmove rental searches from promising stations.',
     body: [
       'The Universities Filter is designed to turn your campus into the centre of your search. Start by opening the Universities tab at the top of the map, then choose your university and, if needed, the specific campus you are based at.',
       'Next, set a realistic walking time using the green slider. Green stations show places where you can comfortably walk from your front door to campus each day without needing to get on a tube.',

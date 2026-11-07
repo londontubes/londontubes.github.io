@@ -61,7 +61,7 @@ export default function OpenGraphImage() {
               Interactive Underground, Overground, Elizabeth line, DLR and Tram map
             </div>
             <div style={{ fontSize: 26, color: '#17324a', marginTop: 28 }}>
-              Station travel times. University commute finder. 450+ stations.
+              Station travel times. University commute finder. 1,700+ stations.
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>

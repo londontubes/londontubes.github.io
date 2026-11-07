@@ -22,6 +22,9 @@ import {
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
 const DEFAULT_ZOOM = 11
+// Below this zoom, National Rail-only station markers are hidden unless one
+// of their lines is selected (their lines are still drawn).
+const NATIONAL_RAIL_MARKER_MIN_ZOOM = 11
 
 function getContrastTextColor(backgroundColor: string) {
   const normalized = backgroundColor.trim().replace('#', '')
@@ -829,7 +832,35 @@ function StationMarkers({
     }
   }, [selectedStation])
 
-  const visibleStations = stations.filter(s => stationVisible(s, activeSet, filteredStationSet, purpleStationSet))
+  // With National Rail the network has ~1,700 stations, so only draw markers
+  // inside (a padded) viewport, and hide National Rail-only stations when
+  // zoomed out unless one of their lines is selected.
+  const [viewBounds, setViewBounds] = useState(() => map.getBounds().pad(0.25))
+  useEffect(() => {
+    const handler = () => setViewBounds(map.getBounds().pad(0.25))
+    map.on('moveend', handler)
+    map.on('zoomend', handler)
+    return () => {
+      map.off('moveend', handler)
+      map.off('zoomend', handler)
+    }
+  }, [map])
+  const nationalRailCodes = useMemo(
+    () => new Set(lines.filter(l => l.mode === 'national-rail').map(l => l.lineCode)),
+    [lines]
+  )
+  const isHiddenRailOnlyStation = (station: Station) => {
+    if (zoomLevel >= NATIONAL_RAIL_MARKER_MIN_ZOOM) return false
+    if (!station.lineCodes.every(code => nationalRailCodes.has(code))) return false
+    return !station.lineCodes.some(code => activeSet?.has(code))
+  }
+
+  const visibleStations = stations.filter(s => {
+    if (!stationVisible(s, activeSet, filteredStationSet, purpleStationSet)) return false
+    if (selectedStation?.stationId === s.stationId) return true
+    if (isHiddenRailOnlyStation(s)) return false
+    return viewBounds.contains([s.position.coordinates[1], s.position.coordinates[0]])
+  })
 
   // Build simple circular icon (white default)
   const buildStationIcon = (

@@ -39,7 +39,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
             className={`${styles.tab} ${isLinesActive ? styles.active : ''}`}
             aria-current={isLinesActive ? 'page' : undefined}
           >
-            Tube Filter
+            Tube Map
           </Link>
         </li>
         <li className={styles.tabItem}>
@@ -48,7 +48,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
             className={`${styles.tab} ${isPropertyActive ? styles.active : ''}`}
             aria-current={isPropertyActive ? 'page' : undefined}
           >
-            Property Filter
+            Property
           </Link>
         </li>
         <li className={styles.tabItem}>
@@ -57,7 +57,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
             className={`${styles.tab} ${isUniversitiesActive ? styles.active : ''}`}
             aria-current={isUniversitiesActive ? 'page' : undefined}
           >
-            Universities Filter
+            Universities
           </Link>
         </li>
         <li className={styles.tabItem}>
@@ -66,7 +66,7 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
             className={`${styles.tab} ${isBusActive ? styles.active : ''}`}
             aria-current={isBusActive ? 'page' : undefined}
           >
-            Bus Filter
+            Bus
           </Link>
         </li>
         <li className={styles.blogItem}>

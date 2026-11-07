@@ -33,10 +33,22 @@ function stationNoun(data: StationPageData) {
   return isTramOnly(data) ? 'tram stop' : 'station'
 }
 
-function listLines(data: StationPageData) {
-  const names = data.lines.map((l) => (l.mode === 'tube' ? `${l.displayName} line` : l.displayName))
+function joinNames(names: string[]) {
   if (names.length <= 1) return names.join('')
   return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`
+}
+
+// "the Central line, DLR and Northern line" for TfL lines, then "National
+// Rail services from Southern and Thameslink" for operators.
+function listLines(data: StationPageData) {
+  const tfl = data.lines.filter((l) => l.mode !== 'national-rail')
+    .map((l) => (l.mode === 'tube' ? `${l.displayName} line` : l.displayName))
+  const rail = data.lines.filter((l) => l.mode === 'national-rail').map((l) => l.displayName)
+  const parts = [
+    tfl.length ? `the ${joinNames(tfl)}` : '',
+    rail.length ? `National Rail services from ${joinNames(rail)}` : '',
+  ].filter(Boolean)
+  return parts.join(tfl.length && rail.length ? ', plus ' : '')
 }
 
 function summary(data: StationPageData) {
@@ -46,14 +58,14 @@ function summary(data: StationPageData) {
   }
   const lineCount = data.lines.length
   const served = lineCount === 1
-    ? `served by the ${listLines(data)}`
-    : `an interchange served by ${lineCount} lines: the ${listLines(data)}`
+    ? `served by ${listLines(data)}`
+    : `an interchange served by ${listLines(data)}`
   return `${data.name} is a ${data.modes.join(' and ')} ${stationNoun(data)}${zone}, ${served}.`
 }
 
 function buildFaq(data: StationPageData) {
   const faq: { q: string; a: string }[] = [
-    { q: `Which lines serve ${data.name}?`, a: `${data.name} is served by the ${listLines(data)}.` },
+    { q: `Which lines serve ${data.name}?`, a: `${data.name} is served by ${listLines(data)}.` },
   ]
   if (data.zone) {
     faq.push({ q: `What zone is ${data.name} in?`, a: `${data.name} is in ${formatZone(data.zone)} of the TfL fare zones.` })

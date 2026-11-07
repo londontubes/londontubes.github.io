@@ -55,10 +55,11 @@ export default function MapExperience({ dataset }: MapExperienceProps) {
   return (
     <div className="map-experience">
       <header className="map-experience__header-inline">
-        <h1 className="map-title">London Tube, Overground &amp; DLR Map</h1>
+        <h1 className="map-title">London Tube Map</h1>
         <span className="map-stats" data-testid="network-stats">
           {stations.length} stations · {lines.length} lines · {activeLineSummary}
         </span>
+        <p className="map-subtitle">Underground, Elizabeth line, DLR, Overground, Trams &amp; National Rail</p>
       </header>
 
       <LineFilter
