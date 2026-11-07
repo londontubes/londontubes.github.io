@@ -256,7 +256,7 @@ describe('propertySearch helpers', () => {
 
     const parsed = new URL(url!)
     expect(parsed.origin).toBe('https://www.zoopla.co.uk')
-    expect(parsed.pathname).toBe('/for-sale/map/property/baker-street/')
+    expect(parsed.pathname).toBe('/for-sale/map/property/station/tube/baker-street/')
     expect(parsed.searchParams.get('beds_min')).toBe('3')
     expect(parsed.searchParams.getAll('feature')).toEqual(['has_garden', 'has_parking_garage'])
     expect(parsed.searchParams.get('is_auction')).toBe('false')
@@ -313,13 +313,13 @@ describe('propertySearch helpers', () => {
     expect(parsed.searchParams.get('q')).toBe('West Ealing Rail Station, London')
   })
 
-  it('uses the specific Zoopla buy area for Ealing Broadway', () => {
+  it('uses the Ealing Broadway station page for Zoopla buy searches', () => {
     const url = buildZooplaStationBuyUrl(ealingBroadway)
 
     expect(url).not.toBeNull()
 
     const parsed = new URL(url!)
-    expect(parsed.pathname).toBe('/for-sale/map/property/london/the-broadway/ealing-broadway-centre/')
+    expect(parsed.pathname).toBe('/for-sale/map/property/station/tube/ealing-broadway/')
     expect(parsed.searchParams.get('beds_min')).toBe('3')
     expect(parsed.searchParams.get('price_max')).toBe('700000')
     expect(parsed.searchParams.get('q')).toBe('Ealing Broadway, London')
@@ -494,5 +494,97 @@ describe('propertySearch helpers', () => {
     expect(missingRightmove).toEqual([])
     expect(missingZooplaBuy).toEqual([])
     expect(missingRightmoveBuy).toEqual([])
+  })
+})
+describe('Rightmove station identifiers', () => {
+  const stations = (Array.isArray(stationsData) ? stationsData : stationsData.stations) as Station[]
+  const primaryId = (station: Station) => {
+    const url = buildRightmoveStationUrls(station)[0]?.url
+    return url ? new URL(url).searchParams.get('locationIdentifier') : null
+  }
+
+  // Hand-entered IDs once pointed Waterloo at West Acton, Bank at Barrhead,
+  // Victoria at Warren Street and Uxbridge at Walthamstow Queens Road. Each
+  // wrong ID was a duplicate of another station's, so duplicates are a bug.
+  it('never sends two different stations to the same Rightmove station', () => {
+    // Shepherd's Bush Market is the H&C platform the Shepherd's Bush hub also offers.
+    const allowedShared = new Set(['STATION^8156'])
+    const byId = new Map<string, string[]>()
+    stations.forEach((station) => {
+      const id = primaryId(station)
+      if (!id || allowedShared.has(id)) return
+      byId.set(id, [...(byId.get(id) ?? []), station.displayName])
+    })
+    const duplicates = [...byId.entries()].filter(([, names]) => names.length > 1)
+    expect(duplicates).toEqual([])
+  })
+
+  it.each([
+    ['HUBWAT', 'STATION^9662'], // Waterloo
+    ['HUBBAN', 'STATION^551'], // Bank
+    ['HUBVIC', 'STATION^9491'], // Victoria
+    ['940GZZLUUXB', 'STATION^9473'], // Uxbridge
+    ['910GBTHNLGR', 'STATION^905'], // Bethnal Green (Overground)
+  ])('maps %s to the verified Rightmove station %s', (stationId, expected) => {
+    const station = stations.find((s) => s.stationId === stationId)
+    expect(station).toBeDefined()
+    expect(primaryId(station!)).toBe(expected)
+  })
+})
+
+describe('Zoopla station targets', () => {
+  const stations = (Array.isArray(stationsData) ? stationsData : stationsData.stations) as Station[]
+  const byId = (id: string) => {
+    const station = stations.find((s) => s.stationId === id)
+    if (!station) throw new Error(`missing station ${id}`)
+    return station
+  }
+  const rentPath = (id: string) => new URL(buildZooplaStationUrl(byId(id))!).pathname
+  const buyPath = (id: string) => new URL(buildZooplaStationBuyUrl(byId(id))!).pathname
+  const postcodePath = /^[a-z]{1,2}\d[a-z\d]?-\d[a-z]{2}$/
+
+  // Buy links used bare area slugs, which Zoopla resolves by place name:
+  // /for-sale/map/property/bank/ opened Bank, a village in Hampshire.
+  it('sends buy links to the same station page as rent links', () => {
+    expect(buyPath('HUBBAN')).toBe('/for-sale/map/property/station/tube/bank/')
+    expect(rentPath('HUBBAN')).toBe('/to-rent/map/property/station/tube/bank/')
+  })
+
+  it('never builds a bare area slug for a buy link', () => {
+    // Deliberate area searches for stations without a usable station page.
+    const areaOverrides = new Set(['940GZZLUESQ', '910GSTHALL', 'HUBKGX'])
+    const bare = stations
+      .filter((s) => !areaOverrides.has(s.stationId))
+      .map((s) => ({ name: s.displayName, segment: new URL(buildZooplaStationBuyUrl(s)!).pathname.replace('/for-sale/map/property/', '').replace(/\/$/, '') }))
+      .filter(({ segment }) => !segment.startsWith('station/') && !postcodePath.test(segment))
+    expect(bare).toEqual([])
+  })
+
+  // Zoopla has no tram stop pages; "station/rail/sandilands-tram-stop" fell
+  // through to a fuzzy match in Cheshunt.
+  it('searches around a postcode for tram-only stops', () => {
+    // Tram-only stops (940GZZCR…). National Rail interchanges such as
+    // Beckenham Junction keep their Zoopla station pages.
+    const tramOnly = stations.filter((s) => s.stationId.startsWith('940GZZCR') && s.lineCodes.join() === 'tram')
+    expect(tramOnly.length).toBeGreaterThan(30)
+    tramOnly.forEach((s) => {
+      const url = new URL(buildZooplaStationUrl(s)!)
+      const segment = url.pathname.replace('/to-rent/map/property/', '').replace(/\/$/, '')
+      expect(segment).toMatch(postcodePath)
+      expect(url.searchParams.get('q')).toMatch(/^[A-Z]{1,2}\d[A-Z\d]? \d[A-Z]{2}$/)
+    })
+    expect(rentPath('940GZZCRSAN')).toBe('/to-rent/map/property/cr0-5pn/')
+  })
+
+  it.each([
+    ['940GZZDLABR', '/to-rent/map/property/station/dlr/abbey-road/'], // no "-dlr" suffix
+    ['940GZZLUECT', '/to-rent/map/property/station/tube/earls-court/'], // apostrophe dropped
+    ['HUBSYD', '/to-rent/map/property/station/rail/sydenham-london/'],
+    ['910GILFORD', '/to-rent/map/property/station/rail/ilford/'],
+    ['HUBZFD', '/to-rent/map/property/station/farringdon/'],
+    ['HUBCFO', '/to-rent/map/property/station/chalfont-and-latimer/'],
+    ['HUBHX5', '/to-rent/map/property/tw6-2ga/'],
+  ])('uses the verified Zoopla location for %s', (stationId, expected) => {
+    expect(rentPath(stationId)).toBe(expected)
   })
 })

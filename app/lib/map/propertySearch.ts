@@ -44,6 +44,8 @@ const RIGHTMOVE_STATION_LINK_OVERRIDES: Record<string, RightmoveOverrideOption[]
   '910GCLDNNRB': [{ locationIdentifier: '1682', displayName: 'Caledonian Road & Barnsbury Station' }],
   '910GFNCHLYR': [{ locationIdentifier: '3512', displayName: 'Finchley Road & Frognal Station' }],
   '910GSTJMSST': [{ locationIdentifier: '8615', displayName: 'St. James Street Station' }],
+  // The Overground station, ~500 m from the Underground one (908).
+  '910GBTHNLGR': [{ locationIdentifier: '905', displayName: 'Bethnal Green (Mainline) Station' }],
   HUBSPB: [
     {
       locationIdentifier: '8153',
@@ -179,22 +181,166 @@ interface ZooplaOverride {
   buySearchLocation?: string
   buyRadius?: string
   buyMode?: 'default' | 'minimal'
+  // Exact Zoopla location id, as its search box returns it (e.g.
+  // "station/rail/sydenham-london", "station/chorleywood"). Use when the
+  // generated station/<type>/<slug> is not a real Zoopla page.
+  zooplaId?: string
+  // Search around this postcode instead of a station page. Zoopla has no
+  // station pages for London Trams stops: a "station/rail/<name>-tram-stop"
+  // URL falls through to a fuzzy match (Sandilands landed in Cheshunt).
+  postcode?: string
+}
+
+// Nearest postcode to each tram-only stop (postcodes.io reverse lookup of the
+// TfL stop coordinates, all within 150 m). Interchanges with National Rail,
+// e.g. East Croydon, keep their Zoopla station pages.
+const ZOOPLA_TRAM_STOP_POSTCODES: Record<string, string> = {
+  '940GZZCRADD': 'CR0 7AA', // Addiscombe
+  '940GZZCRADV': 'CR0 5AR', // Addington Village
+  '940GZZCRAMP': 'CR0 3JX', // Ampere Way
+  '940GZZCRARA': 'SE25 4RY', // Arena
+  '940GZZCRAVE': 'BR3 4NJ', // Avenue Road
+  '940GZZCRBED': 'CR0 4TS', // Beddington Lane
+  '940GZZCRBGV': 'CR4 3FU', // Belgrave Walk
+  '940GZZCRBLA': 'CR0 6NL', // Blackhorse Lane
+  '940GZZCRBRD': 'BR3 4RR', // Beckenham Road
+  '940GZZCRCEN': 'CR0 1LA', // George Street
+  '940GZZCRCHR': 'CR0 1RN', // Church Street
+  '940GZZCRCOO': 'CR0 5RF', // Coombe Lane
+  '940GZZCRCTR': 'CR0 1XZ', // Centrale
+  '940GZZCRDDR': 'SW19 3SA', // Dundonald Road
+  '940GZZCRFLD': 'CR0 0QA', // Fieldway
+  '940GZZCRGRA': 'CR0 5BJ', // Gravel Hill
+  '940GZZCRHAR': 'SE25 4NG', // Harrington Road
+  '940GZZCRKGH': 'CR0 0LA', // King Henry's Drive
+  '940GZZCRLEB': 'CR0 6SF', // Lebanon Road
+  '940GZZCRLOY': 'CR0 5RA', // Lloyd Park
+  '940GZZCRMCH': 'CR4 4BD', // Mitcham
+  '940GZZCRMDN': 'SW19 3BX', // Morden Road
+  '940GZZCRMTP': 'SW19 3AL', // Merton Park
+  '940GZZCRNWA': 'CR0 0DE', // New Addington
+  '940GZZCRPHI': 'CR4 3PH', // Phipps Bridge
+  '940GZZCRRVC': 'CR0 1GE', // Reeves Corner
+  '940GZZCRSAN': 'CR0 5PN', // Sandilands
+  '940GZZCRTPA': 'CR0 3DD', // Therapia Lane
+  '940GZZCRWAD': 'CR0 4XT', // Waddon Marsh
+  '940GZZCRWAN': 'CR0 4FN', // Wandle Park
+  '940GZZCRWEL': 'CR0 2DD', // Wellesley Road
+  '940GZZCRWOD': 'SE25 5DP', // Woodside
+}
+
+function toZooplaPostcodeSlug(postcode: string): string {
+  return postcode.trim().toLowerCase().replace(/\s+/g, '-')
+}
+
+// Stations whose generated station/<type>/<slug> is not a Zoopla page. The ids
+// come from Zoopla's own location search and were each checked to resolve to
+// the named station (e.g. DLR stations have no "-dlr" suffix, apostrophes are
+// dropped rather than hyphenated, some ids have no type segment at all).
+const ZOOPLA_LOCATION_IDS: Record<string, string> = {
+  '940GZZLURGP': 'station/tube/regents-park',
+  'HUBQPW': 'station/tube/queens-park',
+  '940GZZLUSPU': 'station/tube/st-pauls',
+  'HUBSPB': 'station/rail/shepherds-bush',
+  '940GZZLUSJP': 'station/tube/st-jamess-park',
+  'HUBZFD': 'station/farringdon',
+  '940GZZLUECT': 'station/tube/earls-court',
+  '940GZZLUSJW': 'station/tube/st-johns-wood',
+  'HUBCLW': 'station/chorleywood',
+  'HUBWHC': 'station/walthamstow-central',
+  'HUBNXG': 'station/new-cross-gate',
+  'HUBGNW': 'station/greenwich',
+  'HUBSDE': 'station/rail/shadwell',
+  'HUBSYD': 'station/rail/sydenham-london',
+  'HUBCFO': 'station/chalfont-and-latimer',
+  '940GZZDLABR': 'station/dlr/abbey-road',
+  '940GZZDLALL': 'station/dlr/all-saints',
+  '940GZZDLBEC': 'station/dlr/beckton',
+  '940GZZDLBLA': 'station/dlr/blackwall',
+  '940GZZDLBOW': 'station/dlr/bow-church',
+  '940GZZDLBPK': 'station/dlr/beckton-park',
+  '940GZZDLCYP': 'station/dlr/cyprus',
+  '940GZZDLDEP': 'station/dlr/deptford-bridge',
+  '940GZZDLDEV': 'station/dlr/devons-road',
+  '940GZZDLEIN': 'station/dlr/east-india',
+  '940GZZDLELV': 'station/dlr/elverson-road',
+  '940GZZDLGAL': 'station/dlr/gallions-reach',
+  '940GZZDLHEQ': 'station/dlr/heron-quays',
+  '940GZZDLISL': 'station/dlr/island-gardens',
+  '940GZZDLKGV': 'station/dlr/king-george-v',
+  '940GZZDLLDP': 'station/dlr/langdon-park',
+  '940GZZDLMUD': 'station/dlr/mudchute',
+  '940GZZDLPDK': 'station/dlr/pontoon-dock',
+  '940GZZDLPOP': 'station/dlr/poplar',
+  '940GZZDLPRE': 'station/dlr/prince-regent',
+  '940GZZDLPUD': 'station/dlr/pudding-mill-lane',
+  '940GZZDLRAL': 'station/dlr/royal-albert',
+  '940GZZDLSHS': 'station/dlr/stratford-high-street',
+  '940GZZDLSIT': 'station/dlr/stratford-international',
+  '940GZZDLSOQ': 'station/dlr/south-quay',
+  '940GZZDLSTL': 'station/dlr/star-lane',
+  '940GZZDLWFE': 'station/dlr/westferry',
+  '940GZZDLWIQ': 'station/dlr/west-india-quay',
+  '940GZZDLWSV': 'station/dlr/west-silvertown',
+  '910GACTONML': 'station/rail/acton-main-line',
+  '910GBRTWOOD': 'station/rail/brentwood',
+  '910GCHDWLHT': 'station/rail/chadwell-heath',
+  '910GFRSTGT': 'station/rail/forest-gate',
+  '910GGIDEAPK': 'station/rail/gidea-park',
+  '910GGODMAYS': 'station/rail/goodmayes',
+  '910GHANWELL': 'station/rail/hanwell',
+  '910GHAYESAH': 'station/rail/hayes-and-harlington',
+  '910GHRLDWOD': 'station/rail/harold-wood',
+  '910GILFORD': 'station/rail/ilford',
+  '910GIVER': 'station/rail/iver',
+  '910GLANGLEY': 'station/rail/langley-berks',
+  '910GMANRPK': 'station/rail/manor-park',
+  '910GMDNHEAD': 'station/rail/maidenhead',
+  '910GMRYLAND': 'station/rail/maryland',
+  '910GRDNGSTN': 'station/rail/reading',
+  '910GROMFORD': 'station/rail/romford',
+  '910GSHENFLD': 'station/rail/shenfield',
+  '910GSLOUGH': 'station/rail/slough',
+  '910GSVNKNGS': 'station/rail/seven-kings',
+  '910GTAPLOW': 'station/rail/taplow',
+  '910GTWYFORD': 'station/rail/twyford',
+  '910GWDRYTON': 'station/rail/west-drayton',
+  '910GCAMHTH': 'station/rail/cambridge-heath',
+  '910GSTJMSST': 'station/rail/st-james-street-walthamstow',
+}
+
+// Stations Zoopla has no page for at all; search around the nearest postcode.
+const ZOOPLA_STATION_POSTCODES: Record<string, string> = {
+  '940GZZLUSBM': 'W12 7JS', // Shepherd's Bush Market
+  '940GZZLUWLA': 'W12 7FX', // Wood Lane
+  '910GCLDNNRB': 'N1 1DN', // Caledonian Road & Barnsbury
+  '940GZZBPSUST': 'SW11 8AL', // Battersea Power Station
+  '940GZZNEUGST': 'SW8 2GE', // Nine Elms
+  '910GBARKRIV': 'IG11 0YP', // Barking Riverside
 }
 
 const ZOOPLA_SLUG_OVERRIDES: Record<string, ZooplaOverride> = {
+  ...Object.fromEntries(
+    Object.entries({ ...ZOOPLA_TRAM_STOP_POSTCODES, ...ZOOPLA_STATION_POSTCODES })
+      .map(([stationId, postcode]) => [stationId, { postcode }])
+  ),
+  ...Object.fromEntries(
+    Object.entries(ZOOPLA_LOCATION_IDS).map(([stationId, zooplaId]) => [stationId, { zooplaId }])
+  ),
   '910GBNHAM': { slug: 'burnham-bucks' },
   '910GWEALING': { slug: 'west-ealing', type: 'rail' },
   '910GSTHALL': { slug: 'southall', buyPath: 'southall', buyMode: 'minimal' },
-  '910GWOLWXR': { slug: 'woolwich-arsenal', type: 'rail' },
+  // No Zoopla page for the Elizabeth line's Woolwich station; search around it.
+  '910GWOLWXR': { postcode: 'SE18 6ZF' },
   '940GZZDLCLA': { slug: 'crossharbour-and-london-arena' },
   '940GZZLUERC': { slug: 'edgware-road-circle' },
   '940GZZLUESQ': { buyPath: 'fitzrovia', buySearchLocation: 'Fitzrovia', buyMode: 'minimal' },
-  'HUBCFO': { path: 'chalfont-st-giles' },
-  'HUBEAL': { buyPath: 'london/the-broadway/ealing-broadway-centre', buyRadius: '0.5', buyMode: 'minimal' },
+  'HUBEAL': { buyRadius: '0.5', buyMode: 'minimal' },
   'HUBKGX': { slug: 'kings-cross-st-pancras', buyPath: 'london/kings-cross', buySearchLocation: 'Kings Cross' },
   'HUBH13': { slug: 'heathrow-terminals-1-2-3' },
   'HUBHX4': { slug: 'heathrow-terminal-4' },
-  'HUBHX5': { slug: 'heathrow-terminal-4' },
+  // No Zoopla page for Terminal 5 (Terminal 4 is ~2 miles away).
+  'HUBHX5': { postcode: 'TW6 2GA' },
   'HUBCUS': { slug: 'custom-house', type: 'dlr' },
 }
 
@@ -474,6 +620,26 @@ export function buildRightmoveStationBuyUrls(station?: Station, fallbackName?: s
   return [{ label: 'Rightmove', url }]
 }
 
+/**
+ * The Zoopla location segment shared by rent and buy links: a station page
+ * (`station/<type>/<slug>`) or, for stops Zoopla has no station page for, a
+ * postcode. Plain area slugs are avoided because Zoopla resolves them by
+ * place name: "bank" is a village in Hampshire, not Bank station.
+ */
+function buildZooplaLocationSegment(station: Station | undefined, baseSearchLocation: string, override?: ZooplaOverride) {
+  if (override?.zooplaId) return override.zooplaId
+  if (override?.postcode) return toZooplaPostcodeSlug(override.postcode)
+
+  const slug = buildZooplaSlug(baseSearchLocation, override)
+  const hasTubeLine = station?.lineCodes.some(code => !NON_TUBE_LINE_CODES.has(code))
+  const isDlr = station?.lineCodes.includes('dlr')
+  // Elizabeth line, Overground and Tram stops have no Zoopla "tube" page; use the rail station type.
+  const isRail = station?.lineCodes.some(code => RAIL_LINE_CODES.has(code))
+  const stationType = override?.type
+    ?? (hasTubeLine ? 'tube' : isRail && !isDlr ? 'rail' : isDlr ? 'dlr' : 'tube')
+  return `station/${stationType}/${slug}`
+}
+
 export function buildZooplaStationUrl(station?: Station, fallbackName?: string): string | null {
   const searchLocation = buildZooplaSearchLocation(station, fallbackName)
   if (!searchLocation) return null
@@ -485,15 +651,8 @@ export function buildZooplaStationUrl(station?: Station, fallbackName?: string):
     return baseUrl.toString()
   }
 
-  const slug = buildZooplaSlug(baseSearchLocation, override)
-
-  const hasTubeLine = station?.lineCodes.some(code => !NON_TUBE_LINE_CODES.has(code))
-  const isDlr = station?.lineCodes.includes('dlr')
-  // Elizabeth line, Overground and Tram stops have no Zoopla "tube" page; use the rail station type.
-  const isRail = station?.lineCodes.some(code => RAIL_LINE_CODES.has(code))
-  const stationType = override?.type
-    ?? (hasTubeLine ? 'tube' : isRail && !isDlr ? 'rail' : isDlr ? 'dlr' : 'tube')
-  const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/property/station/${stationType}/${slug}/`)
+  const segment = buildZooplaLocationSegment(station, baseSearchLocation, override)
+  const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/property/${segment}/`)
   const params = baseUrl.searchParams
   params.set('beds_max', ZOOPLA_RENT_SEARCH_LIMITS.maxBedrooms)
   params.set('beds_min', ZOOPLA_RENT_SEARCH_LIMITS.minBedrooms)
@@ -502,7 +661,7 @@ export function buildZooplaStationUrl(station?: Station, fallbackName?: string):
   params.set('property_sub_type', ZOOPLA_RENT_SEARCH_LIMITS.zooplaPropertySubType)
   params.set('price_max', ZOOPLA_RENT_SEARCH_LIMITS.maxPrice)
   params.set('price_frequency', 'per_month')
-  params.set('q', `${baseSearchLocation}, London`)
+  params.set('q', override?.postcode ?? `${baseSearchLocation}, London`)
   params.set('radius', getPropertySearchRadius(station?.stationId, 'rent', ZOOPLA_RENT_SEARCH_LIMITS.radius))
   params.set('search_source', 'to-rent')
   params.set('results_sort', 'lowest_price')
@@ -521,13 +680,15 @@ export function buildZooplaStationBuyUrl(station?: Station, fallbackName?: strin
       .replace(/\s+Station$/i, '')
       .replace(/\s+(Rail|Underground|DLR)$/i, '')
       .trim()
-  const slug = override?.buyPath ?? override?.path ?? buildZooplaSlug(baseSearchLocation, override)
+  const segment = override?.buyPath
+    ?? override?.path
+    ?? buildZooplaLocationSegment(station, baseSearchLocation, override)
 
-  const baseUrl = new URL(`https://www.zoopla.co.uk/for-sale/map/property/${slug}/`)
+  const baseUrl = new URL(`https://www.zoopla.co.uk/for-sale/map/property/${segment}/`)
   const params = baseUrl.searchParams
   params.set('beds_min', ZOOPLA_BUY_SEARCH_LIMITS.minBedrooms)
   params.set('price_max', ZOOPLA_BUY_SEARCH_LIMITS.maxPrice)
-  params.set('q', `${areaSearchLocation}, London`)
+  params.set('q', override?.postcode ?? `${areaSearchLocation}, London`)
   params.set(
     'radius',
     getPropertySearchRadius(station?.stationId, 'buy', override?.buyRadius ?? ZOOPLA_BUY_SEARCH_LIMITS.radius)
