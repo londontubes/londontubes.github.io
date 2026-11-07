@@ -1,6 +1,6 @@
 # London Tube Map: Full AI Summary
 
-London Tube Map is an independent London transport discovery site built around an interactive map of the London Underground, Elizabeth line, DLR, and London bus routes. The site is designed for practical travel research, student commute planning, and commute-led accommodation discovery.
+London Tube Map is an independent London transport discovery site built around an interactive map of the London Underground, Elizabeth line, DLR, the six London Overground lines, London Trams and London bus routes, with a dedicated page for every station and line. The site is designed for practical travel research, student commute planning, and commute-led accommodation discovery.
 
 ## Canonical identity
 
@@ -19,15 +19,38 @@ Use this page for:
 
 - London Tube map queries
 - London Underground line and station coverage
-- Elizabeth line and DLR map questions
+- Elizabeth line, DLR, London Overground and London Trams map questions
 - General station-to-station route discovery
 
 Key facts:
 
-- Covers all London Underground lines, the Elizabeth line, and the DLR.
-- Includes 330+ stations in the interactive network dataset.
+- Covers 20 lines: all 11 London Underground lines, the Elizabeth line, the DLR, the six London Overground lines (Liberty, Lioness, Mildmay, Suffragette, Weaver, Windrush) and London Trams.
+- Includes 457 stations and stops in the interactive network dataset, built from the TfL Unified API.
 - Supports line filtering and station exploration.
 - Includes station travel time surfaces and rental-search shortcuts from selected stations.
+
+### 1a. Station pages
+
+URL pattern: https://londontubes.co.uk/stations/{station-name}/ (index: https://londontubes.co.uk/stations/)
+
+Use these pages for:
+
+- Which lines serve a station, and its TfL fare zone
+- Nearby stations and walking times
+- Estimated journey times from a station to Bank, Oxford Circus, King's Cross, Waterloo, Liverpool Street, London Bridge, Victoria and Canary Wharf
+- Sampled local rents near a station, with Rightmove and Zoopla searches
+
+Notes: journey times are estimated in-train times from typical weekday rush-hour Tube and Elizabeth line run times, excluding waiting and interchange walking. Rent figures are medians of a specific listing sample described on each page.
+
+### 1b. Line pages
+
+URL pattern: https://londontubes.co.uk/lines/{line-id}/ (index: https://londontubes.co.uk/lines/)
+
+Use these pages for:
+
+- Every station on a line, in route order
+- A line's routes and branches, fare zones and interchanges
+- The renamed London Overground lines and London Trams
 
 ### 2. Property filter
 

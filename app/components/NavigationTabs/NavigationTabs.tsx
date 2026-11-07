@@ -26,6 +26,8 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
   const isBusActive = pathname?.startsWith('/bus') ?? false
   const isUniversitiesActive = pathname?.startsWith('/universities') ?? false
   const isBlogActive = pathname?.startsWith('/blog') ?? false
+  const isStationsActive = pathname?.startsWith('/stations') ?? false
+  const isLinesPageActive = pathname?.startsWith('/lines') ?? false
   const isFeedbackActive = pathname?.startsWith('/contact-us') ?? false
 
   return (
@@ -68,6 +70,24 @@ export function NavigationTabs({ className }: NavigationTabsProps) {
           </Link>
         </li>
         <li className={styles.blogItem}>
+          <Link
+            href="/stations/"
+            className={`${styles.tab} ${isStationsActive ? styles.active : ''}`}
+            aria-current={isStationsActive ? 'page' : undefined}
+          >
+            Stations
+          </Link>
+        </li>
+        <li className={styles.tabItem}>
+          <Link
+            href="/lines/"
+            className={`${styles.tab} ${isLinesPageActive ? styles.active : ''}`}
+            aria-current={isLinesPageActive ? 'page' : undefined}
+          >
+            Lines
+          </Link>
+        </li>
+        <li className={styles.tabItem}>
           <Link
             href="/blog/"
             className={`${styles.tab} ${isBlogActive ? styles.active : ''}`}

@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next'
 import { blogQuestions } from '@/app/blog/content'
 import { revenueLandingPages } from '@/app/data/revenuePages'
+import { getAllLines, getAllStationSlugs } from '@/app/lib/seo/stationPages'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://londontubes.co.uk'
-  const lastModified = new Date('2026-04-11T00:00:00.000Z')
+  const lastModified = new Date('2026-11-07T00:00:00.000Z')
   
   return [
     {
@@ -44,6 +45,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.84,
     },
     {
+      url: `${baseUrl}/stations/`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/lines/`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/contact-us/`,
       lastModified,
       changeFrequency: 'yearly',
@@ -51,6 +64,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...blogQuestions.map((entry) => ({
       url: `${baseUrl}/blog/${entry.slug}/`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...getAllLines().map((line) => ({
+      url: `${baseUrl}/lines/${line.lineCode}/`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+    ...getAllStationSlugs().map((slug) => ({
+      url: `${baseUrl}/stations/${slug}/`,
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.7,

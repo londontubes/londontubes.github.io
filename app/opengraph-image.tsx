@@ -58,10 +58,10 @@ export default function OpenGraphImage() {
               London Tube Map
             </div>
             <div style={{ fontSize: 30, fontWeight: 600, color: '#d9e6f2', marginTop: 18 }}>
-              Interactive Underground, Elizabeth line and DLR map
+              Interactive Underground, Overground, Elizabeth line, DLR and Tram map
             </div>
             <div style={{ fontSize: 26, color: '#17324a', marginTop: 28 }}>
-              Station travel times. University commute finder. 330+ stations.
+              Station travel times. University commute finder. 450+ stations.
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
