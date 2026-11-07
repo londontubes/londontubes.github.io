@@ -2,7 +2,7 @@
   "site": {
     "name": "London Tube Map",
     "url": "https://londontubes.co.uk/",
-    "description": "Independent London transport and commute-planning site covering the Underground, Elizabeth line, DLR, London bus routes, station travel times, and commute-led housing discovery.",
+    "description": "Independent London transport and commute-planning site covering the Underground, Overground, Elizabeth line, DLR, Trams, London bus routes, station pages with fare zones and journey times, and commute-led housing discovery.",
     "language": "en-GB",
     "sitemap": "https://londontubes.co.uk/sitemap.xml",
     "llms": "https://londontubes.co.uk/llms.txt",
@@ -13,6 +13,9 @@
     "London Underground lines and stations",
     "Elizabeth line routes and stations",
     "DLR coverage",
+    "Station fare zones and journey times",
+    "London Trams stops",
+    "London Overground lines and stations",
     "London bus route map",
     "London university commute planning",
     "Student accommodation by commute",
@@ -27,6 +30,26 @@
         "line filtering",
         "station-to-station exploration"
       ]
+    },
+    {
+      "title": "Stations A–Z",
+      "url": "https://londontubes.co.uk/stations/",
+      "bestFor": [
+        "which lines serve a London station",
+        "what zone a station is in",
+        "nearby stations and journey times"
+      ],
+      "pattern": "https://londontubes.co.uk/stations/{station-name}/"
+    },
+    {
+      "title": "Lines",
+      "url": "https://londontubes.co.uk/lines/",
+      "bestFor": [
+        "stations on a line in order",
+        "line routes, branches and zones",
+        "London Overground line names"
+      ],
+      "pattern": "https://londontubes.co.uk/lines/{line-id}/"
     },
     {
       "title": "Universities commute finder",
