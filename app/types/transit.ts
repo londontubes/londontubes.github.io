@@ -3,7 +3,7 @@ export interface TransitLine {
   displayName: string
   brandColor: string
   textColor: string
-  mode: 'tube' | 'dlr' | 'elizabeth-line'
+  mode: 'tube' | 'dlr' | 'elizabeth-line' | 'overground' | 'tram'
   strokeWeight: number
   polyline: {
     type: 'LineString' | 'MultiLineString'

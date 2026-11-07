@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T18:56:03.437Z",
+  "generatedAt": "2026-11-07T19:52:21.216Z",
   "stations": [
     {
       "stationId": "940GZZLUBST",
@@ -240,9 +240,10 @@
         ]
       },
       "lineCodes": [
-        "bakerloo"
+        "bakerloo",
+        "lioness"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Harlesden",
       "order": 0
@@ -258,9 +259,10 @@
         ]
       },
       "lineCodes": [
-        "bakerloo"
+        "bakerloo",
+        "lioness"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Harrow & Wealdstone",
       "order": 0
@@ -276,9 +278,10 @@
         ]
       },
       "lineCodes": [
-        "bakerloo"
+        "bakerloo",
+        "lioness"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Kensal Green",
       "order": 0
@@ -294,9 +297,10 @@
         ]
       },
       "lineCodes": [
-        "bakerloo"
+        "bakerloo",
+        "lioness"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Kenton",
       "order": 0
@@ -330,9 +334,10 @@
         ]
       },
       "lineCodes": [
-        "bakerloo"
+        "bakerloo",
+        "lioness"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "North Wembley",
       "order": 0
@@ -370,9 +375,10 @@
         ]
       },
       "lineCodes": [
-        "bakerloo"
+        "bakerloo",
+        "lioness"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Queen's Park",
       "order": 0
@@ -388,9 +394,10 @@
         ]
       },
       "lineCodes": [
-        "bakerloo"
+        "bakerloo",
+        "lioness"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Stonebridge Park",
       "order": 0
@@ -406,9 +413,10 @@
         ]
       },
       "lineCodes": [
-        "bakerloo"
+        "bakerloo",
+        "lioness"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "South Kenton",
       "order": 0
@@ -445,9 +453,11 @@
         ]
       },
       "lineCodes": [
-        "bakerloo"
+        "bakerloo",
+        "lioness",
+        "mildmay"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Willesden Junction",
       "order": 0
@@ -463,9 +473,10 @@
         ]
       },
       "lineCodes": [
-        "bakerloo"
+        "bakerloo",
+        "lioness"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Wembley Central",
       "order": 0
@@ -1253,7 +1264,8 @@
         "circle",
         "elizabeth",
         "hammersmith-city",
-        "metropolitan"
+        "metropolitan",
+        "weaver"
       ],
       "isInterchange": true,
       "markerIcon": "default",
@@ -1271,9 +1283,10 @@
         ]
       },
       "lineCodes": [
-        "central"
+        "central",
+        "mildmay"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Shepherd's Bush",
       "order": 0
@@ -1292,7 +1305,8 @@
         "central",
         "dlr",
         "elizabeth",
-        "jubilee"
+        "jubilee",
+        "mildmay"
       ],
       "isInterchange": true,
       "markerIcon": "default",
@@ -2489,7 +2503,8 @@
       },
       "lineCodes": [
         "district",
-        "hammersmith-city"
+        "hammersmith-city",
+        "suffragette"
       ],
       "isInterchange": true,
       "markerIcon": "default",
@@ -2507,9 +2522,10 @@
         ]
       },
       "lineCodes": [
-        "district"
+        "district",
+        "mildmay"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Gunnersbury",
       "order": 0
@@ -2525,9 +2541,10 @@
         ]
       },
       "lineCodes": [
-        "district"
+        "district",
+        "mildmay"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Kensington (Olympia)",
       "order": 0
@@ -2543,9 +2560,10 @@
         ]
       },
       "lineCodes": [
-        "district"
+        "district",
+        "mildmay"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Kew Gardens",
       "order": 0
@@ -2561,9 +2579,10 @@
         ]
       },
       "lineCodes": [
-        "district"
+        "district",
+        "mildmay"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Richmond",
       "order": 0
@@ -2579,9 +2598,10 @@
         ]
       },
       "lineCodes": [
-        "district"
+        "district",
+        "liberty"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Upminster",
       "order": 0
@@ -2597,9 +2617,10 @@
         ]
       },
       "lineCodes": [
-        "district"
+        "district",
+        "mildmay"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "West Brompton",
       "order": 0
@@ -2636,9 +2657,10 @@
         ]
       },
       "lineCodes": [
-        "district"
+        "district",
+        "tram"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Wimbledon",
       "order": 0
@@ -2656,7 +2678,8 @@
       "lineCodes": [
         "district",
         "elizabeth",
-        "hammersmith-city"
+        "hammersmith-city",
+        "windrush"
       ],
       "isInterchange": true,
       "markerIcon": "default",
@@ -3380,9 +3403,10 @@
         ]
       },
       "lineCodes": [
-        "dlr"
+        "dlr",
+        "windrush"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Shadwell",
       "order": 0
@@ -3740,9 +3764,10 @@
         ]
       },
       "lineCodes": [
-        "elizabeth"
+        "elizabeth",
+        "liberty"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Romford Rail Station",
       "order": 0
@@ -3897,8 +3922,8 @@
       "position": {
         "type": "Point",
         "coordinates": [
-          0.07138,
-          51.4914
+          0.070593,
+          51.492168
         ]
       },
       "lineCodes": [
@@ -4307,9 +4332,10 @@
         ]
       },
       "lineCodes": [
-        "jubilee"
+        "jubilee",
+        "mildmay"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "West Hampstead",
       "order": 0
@@ -4325,11 +4351,194 @@
         ]
       },
       "lineCodes": [
-        "jubilee"
+        "jubilee",
+        "windrush"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Canada Water",
+      "order": 0
+    },
+    {
+      "stationId": "910GEMRSPKH",
+      "displayName": "Emerson Park Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.220113,
+          51.568642
+        ]
+      },
+      "lineCodes": [
+        "liberty"
       ],
       "isInterchange": false,
       "markerIcon": "default",
-      "tooltipSummary": "Canada Water",
+      "tooltipSummary": "Emerson Park Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GCRPNDPK",
+      "displayName": "Carpenders Park Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.385939,
+          51.628351
+        ]
+      },
+      "lineCodes": [
+        "lioness"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Carpenders Park Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHEDSTNL",
+      "displayName": "Headstone Lane Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.35722,
+          51.602649
+        ]
+      },
+      "lineCodes": [
+        "lioness"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Headstone Lane Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHTCHEND",
+      "displayName": "Hatch End Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.368601,
+          51.609417
+        ]
+      },
+      "lineCodes": [
+        "lioness"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hatch End Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GKLBRNHR",
+      "displayName": "Kilburn High Road Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.192237,
+          51.537277
+        ]
+      },
+      "lineCodes": [
+        "lioness"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kilburn High Road Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSHMPSTD",
+      "displayName": "South Hampstead Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.178878,
+          51.541432
+        ]
+      },
+      "lineCodes": [
+        "lioness"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "South Hampstead Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWATFDHS",
+      "displayName": "Watford High Street Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.391711,
+          51.652655
+        ]
+      },
+      "lineCodes": [
+        "lioness"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Watford High Street Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBSH",
+      "displayName": "Bushey",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.384752,
+          51.645582
+        ]
+      },
+      "lineCodes": [
+        "lioness"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Bushey",
+      "order": 0
+    },
+    {
+      "stationId": "HUBEUS",
+      "displayName": "Euston",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.132754,
+          51.527365
+        ]
+      },
+      "lineCodes": [
+        "lioness",
+        "northern",
+        "victoria"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Euston",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWFJ",
+      "displayName": "Watford Junction",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.395928,
+          51.663908
+        ]
+      },
+      "lineCodes": [
+        "lioness"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Watford Junction",
       "order": 0
     },
     {
@@ -4412,8 +4621,8 @@
       "position": {
         "type": "Point",
         "coordinates": [
-          -0.442001,
-          51.561992
+          -0.442225,
+          51.56177
         ]
       },
       "lineCodes": [
@@ -4754,6 +4963,353 @@
       "order": 0
     },
     {
+      "stationId": "910GACTNCTL",
+      "displayName": "Acton Central Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.262971,
+          51.508716
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Acton Central Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GBRBY",
+      "displayName": "Brondesbury Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.202309,
+          51.545166
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Brondesbury Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GBRBYPK",
+      "displayName": "Brondesbury Park Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.210054,
+          51.540734
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Brondesbury Park Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GCLDNNRB",
+      "displayName": "Caledonian Road & Barnsbury Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.116729,
+          51.543041
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Caledonian Road & Barnsbury Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GCMDNRD",
+      "displayName": "Camden Road Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.138701,
+          51.541791
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Camden Road Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GCNNB",
+      "displayName": "Canonbury Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.092191,
+          51.548732
+        ]
+      },
+      "lineCodes": [
+        "mildmay",
+        "windrush"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Canonbury Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GDALSKLD",
+      "displayName": "Dalston Kingsland Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.075701,
+          51.548148
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Dalston Kingsland Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GFNCHLYR",
+      "displayName": "Finchley Road & Frognal Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.183141,
+          51.550266
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Finchley Road & Frognal Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GGOSPLOK",
+      "displayName": "Gospel Oak Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.15077,
+          51.555335
+        ]
+      },
+      "lineCodes": [
+        "mildmay",
+        "suffragette"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Gospel Oak Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHACKNYC",
+      "displayName": "Hackney Central Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.056058,
+          51.547105
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hackney Central Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHACKNYW",
+      "displayName": "Hackney Wick Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.02492,
+          51.54341
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hackney Wick Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHMPSTDH",
+      "displayName": "Hampstead Heath Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.165705,
+          51.55521
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hampstead Heath Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHOMRTON",
+      "displayName": "Homerton Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.04236,
+          51.547012
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Homerton Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GKENR",
+      "displayName": "Kensal Rise Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.219957,
+          51.534554
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kensal Rise Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GKNTSHTW",
+      "displayName": "Kentish Town West Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.146655,
+          51.546548
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Kentish Town West Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSACTON",
+      "displayName": "South Acton Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.270157,
+          51.499695
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "South Acton Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBCLJ",
+      "displayName": "Clapham Junction",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.168997,
+          51.463724
+        ]
+      },
+      "lineCodes": [
+        "mildmay",
+        "windrush"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Clapham Junction",
+      "order": 0
+    },
+    {
+      "stationId": "HUBHHY",
+      "displayName": "Highbury & Islington",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.103538,
+          51.546269
+        ]
+      },
+      "lineCodes": [
+        "mildmay",
+        "victoria",
+        "windrush"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Highbury & Islington",
+      "order": 0
+    },
+    {
+      "stationId": "HUBIMP",
+      "displayName": "Imperial Wharf",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.183084,
+          51.47555
+        ]
+      },
+      "lineCodes": [
+        "mildmay"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Imperial Wharf",
+      "order": 0
+    },
+    {
       "stationId": "940GZZBPSUST",
       "displayName": "Battersea Power Station Underground Station",
       "position": {
@@ -4795,8 +5351,8 @@
       "position": {
         "type": "Point",
         "coordinates": [
-          -0.105898,
-          51.532624
+          -0.10635,
+          51.53184
         ]
       },
       "lineCodes": [
@@ -4867,8 +5423,8 @@
       "position": {
         "type": "Point",
         "coordinates": [
-          -0.164783,
-          51.550529
+          -0.164648,
+          51.550311
         ]
       },
       "lineCodes": [
@@ -5477,25 +6033,6 @@
       "order": 0
     },
     {
-      "stationId": "HUBEUS",
-      "displayName": "Euston",
-      "position": {
-        "type": "Point",
-        "coordinates": [
-          -0.132754,
-          51.527365
-        ]
-      },
-      "lineCodes": [
-        "northern",
-        "victoria"
-      ],
-      "isInterchange": true,
-      "markerIcon": "default",
-      "tooltipSummary": "Euston",
-      "order": 0
-    },
-    {
       "stationId": "HUBKTN",
       "displayName": "Kentish Town",
       "position": {
@@ -6073,6 +6610,890 @@
       "order": 0
     },
     {
+      "stationId": "910GBARKRIV",
+      "displayName": "Barking Riverside",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.11596,
+          51.51953
+        ]
+      },
+      "lineCodes": [
+        "suffragette"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Barking Riverside",
+      "order": 0
+    },
+    {
+      "stationId": "910GCROUCHH",
+      "displayName": "Crouch Hill Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.117149,
+          51.571302
+        ]
+      },
+      "lineCodes": [
+        "suffragette"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Crouch Hill Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHRGYGL",
+      "displayName": "Harringay Green Lanes Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.098144,
+          51.577182
+        ]
+      },
+      "lineCodes": [
+        "suffragette"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Harringay Green Lanes Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GLEYTNMR",
+      "displayName": "Leyton Midland Road Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.008051,
+          51.569725
+        ]
+      },
+      "lineCodes": [
+        "suffragette"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Leyton Midland Road Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GLYTNSHR",
+      "displayName": "Leytonstone High Road Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.008416,
+          51.563554
+        ]
+      },
+      "lineCodes": [
+        "suffragette"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Leytonstone High Road Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSTOTNHM",
+      "displayName": "South Tottenham Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.072103,
+          51.580372
+        ]
+      },
+      "lineCodes": [
+        "suffragette"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "South Tottenham Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GUPRHLWY",
+      "displayName": "Upper Holloway Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.129513,
+          51.563631
+        ]
+      },
+      "lineCodes": [
+        "suffragette"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Upper Holloway Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWDGRNPK",
+      "displayName": "Woodgrange Park Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.044423,
+          51.549264
+        ]
+      },
+      "lineCodes": [
+        "suffragette"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Woodgrange Park Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWLTHQRD",
+      "displayName": "Walthamstow Queens Road Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.023846,
+          51.581503
+        ]
+      },
+      "lineCodes": [
+        "suffragette"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Walthamstow Queens Road Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWNSTDPK",
+      "displayName": "Wanstead Park Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.026213,
+          51.551693
+        ]
+      },
+      "lineCodes": [
+        "suffragette"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wanstead Park Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBHO",
+      "displayName": "Blackhorse Road",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.041185,
+          51.586768
+        ]
+      },
+      "lineCodes": [
+        "suffragette",
+        "victoria"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Blackhorse Road",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRADD",
+      "displayName": "Addiscombe Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.073242,
+          51.37981
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Addiscombe Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRADV",
+      "displayName": "Addington Village Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.032694,
+          51.356241
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Addington Village Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRAMP",
+      "displayName": "Ampere Way Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.123654,
+          51.382238
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Ampere Way Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRARA",
+      "displayName": "Arena Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.058347,
+          51.391525
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Arena Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRAVE",
+      "displayName": "Avenue Road Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.049476,
+          51.4068
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Avenue Road Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRBED",
+      "displayName": "Beddington Lane Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.142167,
+          51.389242
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Beddington Lane Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRBGV",
+      "displayName": "Belgrave Walk Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.17774,
+          51.4011
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Belgrave Walk Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRBLA",
+      "displayName": "Blackhorse Lane Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.070562,
+          51.384757
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Blackhorse Lane Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRBRD",
+      "displayName": "Beckenham Road Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.043421,
+          51.409532
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Beckenham Road Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRCEN",
+      "displayName": "George Street Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.098746,
+          51.373977
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "George Street Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRCHR",
+      "displayName": "Church Street Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.104361,
+          51.373708
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Church Street Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRCOO",
+      "displayName": "Coombe Lane Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.05956,
+          51.359791
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Coombe Lane Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRCTR",
+      "displayName": "Centrale Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.103917,
+          51.375769
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Centrale Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRDDR",
+      "displayName": "Dundonald Road Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.207679,
+          51.417555
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Dundonald Road Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRFLD",
+      "displayName": "Fieldway Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.024532,
+          51.351319
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Fieldway Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRGRA",
+      "displayName": "Gravel Hill Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.04315,
+          51.354545
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Gravel Hill Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRHAR",
+      "displayName": "Harrington Road Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.060729,
+          51.399793
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Harrington Road Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRKGH",
+      "displayName": "King Henry's Drive Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.01998,
+          51.34508
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "King Henry's Drive Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRLEB",
+      "displayName": "Lebanon Road Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.085002,
+          51.375201
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Lebanon Road Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRLOY",
+      "displayName": "Lloyd Park Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.080775,
+          51.364278
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Lloyd Park Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRMCH",
+      "displayName": "Mitcham Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.1709,
+          51.39749
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Mitcham Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRMDN",
+      "displayName": "Morden Road Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.192834,
+          51.408874
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Morden Road Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRMTP",
+      "displayName": "Merton Park Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.201219,
+          51.413589
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Merton Park Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRNWA",
+      "displayName": "New Addington Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.017412,
+          51.342593
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "New Addington Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRPHI",
+      "displayName": "Phipps Bridge Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.18164,
+          51.403979
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Phipps Bridge Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRRVC",
+      "displayName": "Reeves Corner Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.106408,
+          51.375279
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Reeves Corner Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRSAN",
+      "displayName": "Sandilands Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.078041,
+          51.375024
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Sandilands Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRTPA",
+      "displayName": "Therapia Lane Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.129045,
+          51.385697
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Therapia Lane Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRWAD",
+      "displayName": "Waddon Marsh Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.118016,
+          51.377076
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Waddon Marsh Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRWAN",
+      "displayName": "Wandle Park Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.113282,
+          51.373403
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wandle Park Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRWEL",
+      "displayName": "Wellesley Road Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.097554,
+          51.37537
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wellesley Road Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "940GZZCRWOD",
+      "displayName": "Woodside Tram Stop",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.065361,
+          51.3871
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Woodside Tram Stop",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBEK",
+      "displayName": "Beckenham Junction",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.026016,
+          51.411175
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Beckenham Junction",
+      "order": 0
+    },
+    {
+      "stationId": "HUBBIR",
+      "displayName": "Birkbeck",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.055733,
+          51.403893
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Birkbeck",
+      "order": 0
+    },
+    {
+      "stationId": "HUBECY",
+      "displayName": "East Croydon",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.091172,
+          51.375995
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "East Croydon",
+      "order": 0
+    },
+    {
+      "stationId": "HUBELM",
+      "displayName": "Elmers End",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.049429,
+          51.398302
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Elmers End",
+      "order": 0
+    },
+    {
+      "stationId": "HUBMJT",
+      "displayName": "Mitcham Junction",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.158738,
+          51.393147
+        ]
+      },
+      "lineCodes": [
+        "tram"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Mitcham Junction",
+      "order": 0
+    },
+    {
+      "stationId": "HUBWCY",
+      "displayName": "West Croydon",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.101939,
+          51.378786
+        ]
+      },
+      "lineCodes": [
+        "tram",
+        "windrush"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "West Croydon",
+      "order": 0
+    },
+    {
       "stationId": "940GZZLUPCO",
       "displayName": "Pimlico Underground Station",
       "position": {
@@ -6088,24 +7509,6 @@
       "isInterchange": false,
       "markerIcon": "default",
       "tooltipSummary": "Pimlico Underground Station",
-      "order": 0
-    },
-    {
-      "stationId": "HUBBHO",
-      "displayName": "Blackhorse Road",
-      "position": {
-        "type": "Point",
-        "coordinates": [
-          -0.041185,
-          51.586768
-        ]
-      },
-      "lineCodes": [
-        "victoria"
-      ],
-      "isInterchange": false,
-      "markerIcon": "default",
-      "tooltipSummary": "Blackhorse Road",
       "order": 0
     },
     {
@@ -6127,24 +7530,6 @@
       "order": 0
     },
     {
-      "stationId": "HUBHHY",
-      "displayName": "Highbury & Islington",
-      "position": {
-        "type": "Point",
-        "coordinates": [
-          -0.103538,
-          51.546269
-        ]
-      },
-      "lineCodes": [
-        "victoria"
-      ],
-      "isInterchange": false,
-      "markerIcon": "default",
-      "tooltipSummary": "Highbury & Islington",
-      "order": 0
-    },
-    {
       "stationId": "HUBSVS",
       "displayName": "Seven Sisters",
       "position": {
@@ -6155,9 +7540,10 @@
         ]
       },
       "lineCodes": [
-        "victoria"
+        "victoria",
+        "weaver"
       ],
-      "isInterchange": false,
+      "isInterchange": true,
       "markerIcon": "default",
       "tooltipSummary": "Seven Sisters",
       "order": 0
@@ -6209,11 +7595,804 @@
         ]
       },
       "lineCodes": [
-        "victoria"
+        "victoria",
+        "weaver"
+      ],
+      "isInterchange": true,
+      "markerIcon": "default",
+      "tooltipSummary": "Walthamstow Central",
+      "order": 0
+    },
+    {
+      "stationId": "910GBHILLPK",
+      "displayName": "Bush Hill Park Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.069221,
+          51.641519
+        ]
+      },
+      "lineCodes": [
+        "weaver"
       ],
       "isInterchange": false,
       "markerIcon": "default",
-      "tooltipSummary": "Walthamstow Central",
+      "tooltipSummary": "Bush Hill Park Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GBRUCGRV",
+      "displayName": "Bruce Grove Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.069867,
+          51.593959
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Bruce Grove Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GBTHNLGR",
+      "displayName": "Bethnal Green Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.059568,
+          51.523917
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Bethnal Green Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GCAMHTH",
+      "displayName": "Cambridge Heath (London) Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.057279,
+          51.531973
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Cambridge Heath (London) Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GCHESHNT",
+      "displayName": "Cheshunt Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.02396,
+          51.702876
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Cheshunt Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GCHINGFD",
+      "displayName": "Chingford Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.009897,
+          51.633087
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Chingford Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GCLAPTON",
+      "displayName": "Clapton Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.057025,
+          51.561644
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Clapton Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GEDMNGRN",
+      "displayName": "Edmonton Green Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.061112,
+          51.624929
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Edmonton Green Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GENFLDTN",
+      "displayName": "Enfield Town Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.079328,
+          51.652026
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Enfield Town Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHAKNYNM",
+      "displayName": "Hackney Downs Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.060819,
+          51.548757
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hackney Downs Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHGHMSPK",
+      "displayName": "Highams Park Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.000222,
+          51.60835
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Highams Park Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GLONFLDS",
+      "displayName": "London Fields Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.057753,
+          51.541153
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "London Fields Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GRCTRYRD",
+      "displayName": "Rectory Road Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.068267,
+          51.558502
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Rectory Road Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSBURY",
+      "displayName": "Southbury Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.052437,
+          51.648705
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Southbury Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSIVRST",
+      "displayName": "Silver Street Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.06724,
+          51.614688
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Silver Street Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSTJMSST",
+      "displayName": "St James Street (London) Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.032918,
+          51.580981
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "St James Street (London) Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSTKNWNG",
+      "displayName": "Stoke Newington Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.072887,
+          51.565233
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Stoke Newington Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSTMFDHL",
+      "displayName": "Stamford Hill Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.076682,
+          51.574467
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Stamford Hill Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GTHBLDSG",
+      "displayName": "Theobalds Grove Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.034831,
+          51.692457
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Theobalds Grove Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GTURKYST",
+      "displayName": "Turkey Street Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.047217,
+          51.672628
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Turkey Street Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWDST",
+      "displayName": "Wood Street Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.002405,
+          51.58658
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wood Street Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWHHRTLA",
+      "displayName": "White Hart Lane Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.070914,
+          51.605037
+        ]
+      },
+      "lineCodes": [
+        "weaver"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "White Hart Lane Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GANERLEY",
+      "displayName": "Anerley Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.065886,
+          51.412153
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Anerley Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GBROCKLY",
+      "displayName": "Brockley Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.037537,
+          51.464649
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Brockley Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GCLPHHS",
+      "displayName": "Clapham High Street Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.132522,
+          51.465481
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Clapham High Street Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GDALS",
+      "displayName": "Dalston Junction Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.075137,
+          51.546116
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Dalston Junction Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GDENMRKH",
+      "displayName": "Denmark Hill Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.089361,
+          51.468203
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Denmark Hill Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GFORESTH",
+      "displayName": "Forest Hill Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.053157,
+          51.43928
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Forest Hill Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHAGGERS",
+      "displayName": "Haggerston Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.075666,
+          51.538705
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Haggerston Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHONROPK",
+      "displayName": "Honor Oak Park Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.045505,
+          51.449989
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Honor Oak Park Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GHOXTON",
+      "displayName": "Hoxton Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.075681,
+          51.531512
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Hoxton Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GPCKHMQD",
+      "displayName": "Queens Road Peckham Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.057313,
+          51.473566
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Queens Road Peckham Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GPCKHMRY",
+      "displayName": "Peckham Rye Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.069414,
+          51.470034
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Peckham Rye Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GPENEW",
+      "displayName": "Penge West Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.06084,
+          51.417555
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Penge West Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GRTHERHI",
+      "displayName": "Rotherhithe Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.052048,
+          51.500817
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Rotherhithe Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSHRDHST",
+      "displayName": "Shoreditch High Street Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.075246,
+          51.523375
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Shoreditch High Street Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GSURREYQ",
+      "displayName": "Surrey Quays Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.047519,
+          51.493196
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Surrey Quays Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWAPPING",
+      "displayName": "Wapping Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.055931,
+          51.504388
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wapping Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "910GWNDSWRD",
+      "displayName": "Wandsworth Road Rail Station",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.13852,
+          51.470216
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Wandsworth Road Rail Station",
+      "order": 0
+    },
+    {
+      "stationId": "HUBCYP",
+      "displayName": "Crystal Palace",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.072605,
+          51.418111
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Crystal Palace",
+      "order": 0
+    },
+    {
+      "stationId": "HUBNWD",
+      "displayName": "Norwood Junction",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.075216,
+          51.39702
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Norwood Junction",
+      "order": 0
+    },
+    {
+      "stationId": "HUBNWX",
+      "displayName": "New Cross",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.032427,
+          51.476347
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "New Cross",
+      "order": 0
+    },
+    {
+      "stationId": "HUBNXG",
+      "displayName": "New Cross Gate",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.040399,
+          51.475132
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "New Cross Gate",
+      "order": 0
+    },
+    {
+      "stationId": "HUBSYD",
+      "displayName": "Sydenham",
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          -0.055268,
+          51.427375
+        ]
+      },
+      "lineCodes": [
+        "windrush"
+      ],
+      "isInterchange": false,
+      "markerIcon": "default",
+      "tooltipSummary": "Sydenham",
       "order": 0
     }
   ]

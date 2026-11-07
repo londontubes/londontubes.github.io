@@ -20,6 +20,36 @@ const LINE_COLORS: Record<string, { brand: string; text: string }> = {
   'victoria': { brand: '#0098D4', text: '#FFFFFF' },
   'waterloo-city': { brand: '#95CDBA', text: '#000000' },
   'elizabeth': { brand: '#6950A1', text: '#FFFFFF' },
+  // London Overground lines (named in 2024). Liberty/Lioness/Mildmay follow the
+  // TfL digital colour standard; Suffragette/Weaver/Windrush and Tram are
+  // commonly used values not yet checked against an official TfL source.
+  'liberty': { brand: '#61686B', text: '#FFFFFF' },
+  'lioness': { brand: '#FFA600', text: '#000000' },
+  'mildmay': { brand: '#006FE6', text: '#FFFFFF' },
+  'suffragette': { brand: '#18A95D', text: '#000000' },
+  'weaver': { brand: '#9B0058', text: '#FFFFFF' },
+  'windrush': { brand: '#DC241F', text: '#FFFFFF' },
+  'tram': { brand: '#5FB526', text: '#000000' },
+}
+
+// TfL returns bare names for these ("Liberty", "Tram"); make them read like
+// the other entries in the line filter ("Elizabeth line").
+const DISPLAY_NAME_OVERRIDES: Record<string, string> = {
+  'liberty': 'Liberty line',
+  'lioness': 'Lioness line',
+  'mildmay': 'Mildmay line',
+  'suffragette': 'Suffragette line',
+  'weaver': 'Weaver line',
+  'windrush': 'Windrush line',
+  'tram': 'London Trams',
+}
+
+const MODE_MAP: Record<string, TransformedLine['mode']> = {
+  'tube': 'tube',
+  'dlr': 'dlr',
+  'elizabeth-line': 'elizabeth-line',
+  'overground': 'overground',
+  'tram': 'tram',
 }
 
 /**
@@ -266,7 +296,7 @@ interface TransformedLine {
   displayName: string
   brandColor: string
   textColor: string
-  mode: 'tube' | 'dlr' | 'elizabeth-line'
+  mode: 'tube' | 'dlr' | 'elizabeth-line' | 'overground' | 'tram'
   strokeWeight: number
   polyline: {
     type: 'LineString' | 'MultiLineString'
@@ -294,14 +324,24 @@ interface TransformedStation {
 async function loadRawData() {
   const linesRaw = await fs.readFile(path.join(CACHE_DIR, 'lines.raw.json'), 'utf-8')
   const routesRaw = await fs.readFile(path.join(CACHE_DIR, 'routes.raw.json'), 'utf-8')
-  const busLinesRaw = await fs.readFile(path.join(CACHE_DIR, 'bus-lines.raw.json'), 'utf-8')
-  const busRoutesRaw = await fs.readFile(path.join(CACHE_DIR, 'bus-routes.raw.json'), 'utf-8')
-  
+  // Bus cache is optional: `fetch-tfl.ts --rail-only` doesn't write it, and in
+  // that case the existing public/data bus files are left as they are.
+  const readOptional = async (file: string) => {
+    try {
+      return await fs.readFile(path.join(CACHE_DIR, file), 'utf-8')
+    } catch {
+      return null
+    }
+  }
+  const busLinesRaw = await readOptional('bus-lines.raw.json')
+  const busRoutesRaw = await readOptional('bus-routes.raw.json')
+  const hasBusCache = busLinesRaw !== null && busRoutesRaw !== null
+
   return {
     lines: JSON.parse(linesRaw) as RawLine[],
     routes: JSON.parse(routesRaw) as Record<string, RawRoute>,
-    busLines: JSON.parse(busLinesRaw) as RawLine[],
-    busRoutes: JSON.parse(busRoutesRaw) as Record<string, RawRoute>,
+    busLines: hasBusCache ? (JSON.parse(busLinesRaw) as RawLine[]) : null,
+    busRoutes: hasBusCache ? (JSON.parse(busRoutesRaw) as Record<string, RawRoute>) : null,
   }
 }
 
@@ -455,10 +495,10 @@ function transformLines(lines: RawLine[], routes: Record<string, RawRoute>) {
     
     return {
       lineCode: line.id,
-      displayName: line.name,
+      displayName: DISPLAY_NAME_OVERRIDES[line.id] ?? line.name,
       brandColor: colors.brand,
       textColor: colors.text,
-      mode: line.modeName === 'dlr' ? 'dlr' : line.modeName === 'elizabeth-line' ? 'elizabeth-line' : 'tube',
+      mode: MODE_MAP[line.modeName] ?? 'tube',
       strokeWeight: 4,
       polyline: {
         type: polylineType,
@@ -636,9 +676,9 @@ async function main() {
     // Transform to our schema
     const linesData = transformLines(lines, routes)
     const stationsData = transformStations(routes)
-    const busRoutesData = transformBusRoutes(busLines, busRoutes)
-    const busStopsData = transformBusStops(busRoutes)
-    
+    const busRoutesData = busLines && busRoutes ? transformBusRoutes(busLines, busRoutes) : null
+    const busStopsData = busRoutes ? transformBusStops(busRoutes) : null
+
     // Ensure output directory exists
     await fs.mkdir(OUTPUT_DIR, { recursive: true })
     
@@ -653,15 +693,19 @@ async function main() {
       JSON.stringify(stationsData, null, 2)
     )
 
-    await fs.writeFile(
-      path.join(OUTPUT_DIR, 'buses.json'),
-      JSON.stringify(busRoutesData, null, 2)
-    )
+    if (busRoutesData && busStopsData) {
+      await fs.writeFile(
+        path.join(OUTPUT_DIR, 'buses.json'),
+        JSON.stringify(busRoutesData, null, 2)
+      )
 
-    await fs.writeFile(
-      path.join(OUTPUT_DIR, 'bus-stops.json'),
-      JSON.stringify(busStopsData, null, 2)
-    )
+      await fs.writeFile(
+        path.join(OUTPUT_DIR, 'bus-stops.json'),
+        JSON.stringify(busStopsData, null, 2)
+      )
+    } else {
+      console.log('   No bus cache found — keeping existing buses.json / bus-stops.json')
+    }
     
     // Write metadata
     const metadata = {
@@ -669,7 +713,7 @@ async function main() {
       source: {
         provider: 'Transport for London',
         apiEndpoints: [
-          'https://api.tfl.gov.uk/Line/Mode/tube,dlr',
+          'https://api.tfl.gov.uk/Line/Mode/tube,dlr,elizabeth-line,overground,tram',
           'https://api.tfl.gov.uk/Line/Mode/bus',
           'https://api.tfl.gov.uk/Line/{id}/Route/Sequence/all',
         ],
@@ -688,8 +732,8 @@ async function main() {
     console.log('✅ Data transformation complete')
     console.log(`   Lines: ${linesData.lines.length}`)
     console.log(`   Stations: ${stationsData.stations.length}`)
-    console.log(`   Bus routes: ${busRoutesData.routes.length}`)
-    console.log(`   Bus stops: ${busStopsData.stops.length}`)
+    console.log(`   Bus routes: ${busRoutesData ? busRoutesData.routes.length : 'unchanged'}`)
+    console.log(`   Bus stops: ${busStopsData ? busStopsData.stops.length : 'unchanged'}`)
     
   } catch (error) {
     console.error('❌ Transformation failed:', error)

@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-04-11T18:56:03.641Z",
+  "generatedAt": "2026-11-07T19:52:21.218Z",
   "source": {
     "provider": "Transport for London",
     "apiEndpoints": [
-      "https://api.tfl.gov.uk/Line/Mode/tube,dlr",
+      "https://api.tfl.gov.uk/Line/Mode/tube,dlr,elizabeth-line,overground,tram",
       "https://api.tfl.gov.uk/Line/Mode/bus",
       "https://api.tfl.gov.uk/Line/{id}/Route/Sequence/all"
     ]
   },
   "datasetVersion": "1.0.0",
-  "lineCount": 13,
-  "stationCount": 338,
-  "lastRefresh": "2026-04-11T18:56:03.641Z"
+  "lineCount": 20,
+  "stationCount": 457,
+  "lastRefresh": "2026-11-07T19:52:21.218Z"
 }

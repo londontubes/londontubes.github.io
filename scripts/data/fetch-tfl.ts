@@ -75,22 +75,28 @@ async function main() {
   try {
     await ensureCacheDir()
 
-    const railModes = ['tube', 'dlr', 'elizabeth-line']
+    // --rail-only skips the slow bus fetch (~700 routes) and leaves any
+    // existing bus cache untouched, so transform.ts keeps the current bus data.
+    const railOnly = process.argv.includes('--rail-only')
+
+    const railModes = ['tube', 'dlr', 'elizabeth-line', 'overground', 'tram']
     const busModes = ['bus']
 
     const lines = await fetchTfLLines(railModes)
-    const busLines = await fetchTfLLines(busModes)
-    
+    const busLines = railOnly ? [] : await fetchTfLLines(busModes)
+
     // Cache raw line data
     await fs.writeFile(
       path.join(CACHE_DIR, 'lines.raw.json'),
       JSON.stringify(lines, null, 2)
     )
 
-    await fs.writeFile(
-      path.join(CACHE_DIR, 'bus-lines.raw.json'),
-      JSON.stringify(busLines, null, 2)
-    )
+    if (!railOnly) {
+      await fs.writeFile(
+        path.join(CACHE_DIR, 'bus-lines.raw.json'),
+        JSON.stringify(busLines, null, 2)
+      )
+    }
     
     // Fetch route sequences for each line
     const routeData: Record<string, TfLRouteSequence> = {}
@@ -125,10 +131,12 @@ async function main() {
       JSON.stringify(routeData, null, 2)
     )
 
-    await fs.writeFile(
-      path.join(CACHE_DIR, 'bus-routes.raw.json'),
-      JSON.stringify(busRouteData, null, 2)
-    )
+    if (!railOnly) {
+      await fs.writeFile(
+        path.join(CACHE_DIR, 'bus-routes.raw.json'),
+        JSON.stringify(busRouteData, null, 2)
+      )
+    }
     
     console.log('✅ TfL data cached successfully')
     console.log(`   Lines: ${lines.length}`)

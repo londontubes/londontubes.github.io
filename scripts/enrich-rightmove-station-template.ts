@@ -35,6 +35,8 @@ function parseArgs() {
     limit: Number.parseInt(getValue('--limit') ?? '', 10) || null,
     stationId: getValue('--station-id') ?? null,
     force: args.includes('--force'),
+    // Only look up stations that have no entry in the template yet.
+    newOnly: args.includes('--new-only'),
   }
 }
 
@@ -75,8 +77,9 @@ function buildCandidateQueries(searchLocation: string): string[] {
   const withoutParens = asciiSafe.replace(/\([^)]*\)/g, '').replace(/\s+/g, ' ').trim()
   const stationless = asciiSafe.replace(/\s+(rail|dlr|underground)\s+station$/i, ' Station').replace(/\s+station$/i, '').trim()
   const simplified = withoutParens.replace(/\s+(rail|dlr|underground)\s+station$/i, '').replace(/\s+station$/i, '').trim()
+  const tramless = withoutParens.replace(/\s+tram\s+stop$/i, '').trim()
 
-  for (const candidate of [searchLocation, asciiSafe, withoutParens, stationless, simplified]) {
+  for (const candidate of [searchLocation, asciiSafe, withoutParens, stationless, simplified, tramless]) {
     if (candidate) {
       candidates.add(candidate)
     }
@@ -243,6 +246,7 @@ async function main() {
 
   const selectedStations = stations.filter(station => {
     if (args.stationId && station.stationId !== args.stationId) return false
+    if (args.newOnly && existingByStationId.has(station.stationId)) return false
     return true
   })
 
@@ -254,7 +258,9 @@ async function main() {
 
   for (const station of stations) {
     const existingEntry = existingByStationId.get(station.stationId)
-    const fallbackSearchLocation = station.displayName.replace(/ Underground Station$/i, ' Station').trim()
+    const fallbackSearchLocation = station.displayName
+      .replace(/ (Underground|Rail|DLR) Station$/i, ' Station')
+      .trim()
     let nextEntry: RightmoveStationTemplateEntry = existingEntry
       ? { ...existingEntry }
       : {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import type { MutableRefObject, ReactNode } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker, Tooltip } from 'react-leaflet'
 import { trackStationSelect, trackMapZoom, trackZooplaClick, trackRightmoveClick, trackAmberClick } from '@/app/lib/analytics'
@@ -1062,7 +1062,6 @@ function UniversityMarkers({
               },
             }}
           >
-            <title>{uni.displayName}</title>
             <Tooltip
               direction="top"
               offset={[0, -12]}
@@ -1524,7 +1523,7 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
               const innerWeight = line.strokeWeight || 4
               const outlineWeight = innerWeight + 2
               return (
-                <>
+                <Fragment key={`${line.lineCode}-${line.segmentIndex}`}>
                   <Polyline
                     key={`${line.lineCode}-outline-${line.segmentIndex}`}
                     positions={line.positions}
@@ -1542,10 +1541,8 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
                       weight: innerWeight,
                       opacity: 1.0,
                     }}
-                  >
-                    <title>{line.displayName}</title>
-                  </Polyline>
-                </>
+                  />
+                </Fragment>
               )
             })}
 
@@ -1573,7 +1570,6 @@ export default function LeafletMapCanvas(props: MapCanvasProps) {
               dashArray: '2,6',
             }}
           >
-            <title>{selectedStation ? `Walking route to ${selectedStation.displayName}` : 'Walking route'}</title>
             {selectedStation && (
               <Popup autoClose={false} closeButton={true}>
                 <div style={{ fontSize: '13px' }}>

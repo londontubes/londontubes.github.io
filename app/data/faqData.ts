@@ -14,7 +14,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'What is the nearest tube station to my location?',
     answer:
-      'Use our interactive map to find the nearest tube station. Click on any location on the map, or search for universities to see nearby stations within walking distance. The map shows all 270+ London Underground and DLR stations with real-time filtering.',
+      'Use our interactive map to find the nearest tube station. Click on any location on the map, or search for universities to see nearby stations within walking distance. The map shows all 450+ London Underground, Elizabeth line, DLR, Overground and Tram stations with real-time filtering.',
     keywords: ['nearest station', 'closest tube', 'tube near me'],
   },
   {
@@ -59,7 +59,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Is the London tube map free to use?',
     answer:
-      'Yes! This interactive London tube map is completely free to use. No registration or payment required. Access the full London Underground, DLR, and Overground network map with real-time filtering, university locations, and station information.',
+      'Yes! This interactive London tube map is completely free to use. No registration or payment required. Access the full London Underground, Elizabeth line, DLR, London Overground and London Trams network map with real-time filtering, university locations, and station information.',
     keywords: ['free tube map', 'cost', 'price'],
   },
   {
@@ -95,7 +95,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'Where can I find a free London Tube map?',
     answer:
-      'You can view and use the free interactive London Tube map right here at londontubes.co.uk. It shows all 11 Underground lines plus the DLR with real-time filtering — no download required. For a printable PDF version, Transport for London (TfL) offers the official static tube map at tfl.gov.uk.',
+      'You can view and use the free interactive London Tube map right here at londontubes.co.uk. It shows all 11 Underground lines plus the Elizabeth line, DLR, the six London Overground lines and London Trams with real-time filtering — no download required. For a printable PDF version, Transport for London (TfL) offers the official static tube map at tfl.gov.uk.',
     keywords: ['free london tube map', 'download tube map', 'london underground map free'],
   },
   {

@@ -40,6 +40,10 @@ const RIGHTMOVE_STATION_LINK_OVERRIDES: Record<string, RightmoveOverrideOption[]
   HUBSOK: [{ locationIdentifier: '8420', displayName: 'South Kenton Station' }],
   '940GZZLUBLG': [{ locationIdentifier: '908', displayName: 'Bethnal Green (Underground) Station' }],
   HUBGFD: [{ locationIdentifier: '3986', displayName: 'Greenford Station' }],
+  // Overground stations the Rightmove typeahead can't pick automatically.
+  '910GCLDNNRB': [{ locationIdentifier: '1682', displayName: 'Caledonian Road & Barnsbury Station' }],
+  '910GFNCHLYR': [{ locationIdentifier: '3512', displayName: 'Finchley Road & Frognal Station' }],
+  '910GSTJMSST': [{ locationIdentifier: '8615', displayName: 'St. James Street Station' }],
   HUBSPB: [
     {
       locationIdentifier: '8153',
@@ -154,6 +158,18 @@ const ZOOPLA_BUY_SEARCH_LIMITS = {
 function sanitizeZooplaSearchLocation(value: string): string {
   return value.replace(/[\u2018\u2019]/g, '')
 }
+
+const RAIL_LINE_CODES = new Set([
+  'elizabeth',
+  'liberty',
+  'lioness',
+  'mildmay',
+  'suffragette',
+  'weaver',
+  'windrush',
+  'tram',
+])
+const NON_TUBE_LINE_CODES = new Set(['dlr', ...RAIL_LINE_CODES])
 
 interface ZooplaOverride {
   slug?: string
@@ -471,11 +487,12 @@ export function buildZooplaStationUrl(station?: Station, fallbackName?: string):
 
   const slug = buildZooplaSlug(baseSearchLocation, override)
 
-  const hasTubeLine = station?.lineCodes.some(code => code !== 'dlr' && code !== 'elizabeth')
+  const hasTubeLine = station?.lineCodes.some(code => !NON_TUBE_LINE_CODES.has(code))
   const isDlr = station?.lineCodes.includes('dlr')
-  const isElizabeth = station?.lineCodes.includes('elizabeth')
+  // Elizabeth line, Overground and Tram stops have no Zoopla "tube" page; use the rail station type.
+  const isRail = station?.lineCodes.some(code => RAIL_LINE_CODES.has(code))
   const stationType = override?.type
-    ?? (hasTubeLine ? 'tube' : isElizabeth && !isDlr ? 'rail' : isDlr ? 'dlr' : 'tube')
+    ?? (hasTubeLine ? 'tube' : isRail && !isDlr ? 'rail' : isDlr ? 'dlr' : 'tube')
   const baseUrl = new URL(`https://www.zoopla.co.uk/to-rent/map/property/station/${stationType}/${slug}/`)
   const params = baseUrl.searchParams
   params.set('beds_max', ZOOPLA_RENT_SEARCH_LIMITS.maxBedrooms)
