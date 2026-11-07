@@ -6,6 +6,7 @@ import {
   buildRightmoveStationUrls,
   buildZooplaStationBuyUrl,
   buildZooplaStationUrl,
+  shortRightmoveLabel,
 } from '@/app/lib/map/propertySearch'
 import stationsData from '@/public/data/stations.json'
 import linesData from '@/public/data/lines.json'
@@ -598,5 +599,18 @@ describe('Zoopla station targets', () => {
     ['HUBHX5', '/to-rent/map/property/tw6-2ga/'],
   ])('uses the verified Zoopla location for %s', (stationId, expected) => {
     expect(rentPath(stationId)).toBe(expected)
+  })
+})
+
+describe('shortRightmoveLabel', () => {
+  it.each([
+    ['Rightmove', 'Baker Street Underground Station', 'Rightmove'],
+    ['Rightmove: West Hampstead', 'West Hampstead', 'Rightmove'],
+    ['Rightmove: West Hampstead Thameslink', 'West Hampstead', 'Rightmove · Thameslink'],
+    ["Rightmove: Shepherd's Bush Central", "Shepherd's Bush", 'Rightmove · Central'],
+    ['Rightmove: Hammersmith Hammersmith & City', 'Hammersmith', 'Rightmove · Hammersmith & City'],
+    ['Rightmove: Greenwich Rail', 'Greenwich', 'Rightmove · Rail'],
+  ])('%s at %s → %s', (label, station, expected) => {
+    expect(shortRightmoveLabel(label, station)).toBe(expected)
   })
 })
