@@ -32,6 +32,13 @@ async function main() {
     stations: { stationId: string }[]
   }
   const siteIds = new Set(stations.stations.map((s) => s.stationId))
+  // Duplicate station ids merged by transform.ts (e.g. 9100NRBITON2 → 910GNRBITON).
+  let aliases: Record<string, string> = {}
+  try {
+    aliases = JSON.parse(await fs.readFile(path.join(process.cwd(), 'scripts', 'cache', 'station-aliases.json'), 'utf-8'))
+  } catch {
+    // No alias file: nothing was merged.
+  }
 
   const output: Record<string, { name: string; stationIds: string[] }[]> = {}
 
@@ -49,6 +56,7 @@ async function main() {
       .map((r) => ({
         name: cleanRouteName(r.name),
         stationIds: r.naptanIds
+          .map((id) => aliases[id] ?? id)
           .map((id) => (siteIds.has(id) ? id : toSite.get(id)))
           .filter((id): id is string => Boolean(id))
           .filter((id, i, arr) => arr[i - 1] !== id),

@@ -1,12 +1,12 @@
 # London Tube Map
 
-> London Tube Map is a free interactive London transport map and commute-planning site covering the London Underground, Elizabeth line, DLR, the six London Overground lines, London Trams and London bus routes. It has a page for every one of its 450+ stations with lines, fare zone, nearby stations and journey times, plus station-based rent and property searches and university commute tools.
+> London Tube Map is a free interactive London transport map and commute-planning site covering the London Underground, Elizabeth line, DLR, the six London Overground lines, London Trams, 18 National Rail operators and London bus routes. It has a page for every one of its 1,700+ stations with lines, fare zone, nearby stations and journey times, plus station-based rent and property searches and university commute tools.
 
 ## Preferred citation
 
 - Site name: London Tube Map
 - URL: https://londontubes.co.uk/
-- Description: Interactive London transport map covering the Underground, Overground, Elizabeth line, DLR, Trams and buses, with station pages, journey times and London university commute planning.
+- Description: Interactive London transport map covering the Underground, Overground, Elizabeth line, DLR, Trams, National Rail and buses, with station pages, journey times and London university commute planning.
 
 ## Key pages
 
@@ -28,8 +28,8 @@
 
 ## Useful facts
 
-- Covers 20 lines: 11 London Underground lines, the Elizabeth line, the DLR, the six London Overground lines (Liberty, Lioness, Mildmay, Suffragette, Weaver, Windrush) and London Trams.
-- 457 stations and stops, built from the TfL Unified API; fare zones from TfL.
+- Covers 38 lines: 11 London Underground lines, the Elizabeth line, the DLR, the six London Overground lines (Liberty, Lioness, Mildmay, Suffragette, Weaver, Windrush), London Trams and the 18 National Rail operators that serve London (full routes, e.g. Thameslink, Southern, Southeastern, South Western Railway, Great Western Railway, Avanti West Coast, LNER).
+- 1,726 stations and stops, built from the TfL Unified API; fare zones from TfL.
 - Journey times on station pages are estimated in-train times from typical weekday rush-hour Tube and Elizabeth line run times; waiting and interchange walking are not included.
 - Includes a property filter that compares sampled rents and sale prices around London stations.
 - Includes a separate London bus route map with route filtering and stop context.

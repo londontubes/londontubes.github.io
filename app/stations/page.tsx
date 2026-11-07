@@ -6,7 +6,7 @@ import styles from './Stations.module.css'
 
 const title = 'All London stations A–Z: Tube, Elizabeth line, DLR, Overground & Tram'
 const description =
-  'Every London Underground, Elizabeth line, DLR, London Overground and London Trams station from A to Z, with lines, fare zones, journey times and nearby stations.'
+  'Every London Underground, Elizabeth line, DLR, London Overground, London Trams and National Rail station from A to Z, with lines, fare zones, journey times and nearby stations.'
 
 export const metadata: Metadata = {
   title,

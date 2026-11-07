@@ -53,7 +53,7 @@
             "minItems": 1,
             "items": {
               "type": "string",
-              "pattern": "^[a-z\\-]+$"
+              "pattern": "^[a-z0-9\\-]+$"
             }
           },
           "isInterchange": {

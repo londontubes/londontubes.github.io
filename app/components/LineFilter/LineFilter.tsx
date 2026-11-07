@@ -19,6 +19,7 @@ const NETWORKS: { mode: TransitLine['mode']; label: string }[] = [
   { mode: 'dlr', label: 'DLR' },
   { mode: 'overground', label: 'Overground' },
   { mode: 'tram', label: 'Trams' },
+  { mode: 'national-rail', label: 'National Rail' },
 ]
 
 // Multi-select toggle: user can enable/disable individual lines; none selected => all visible

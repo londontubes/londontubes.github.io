@@ -43,7 +43,7 @@ export default function MapExperienceLoader() {
         <span className="map-stats" data-testid="network-stats">
           {loadError ? 'Network dataset unavailable' : 'Loading network...'}
         </span>
-        <p className="map-subtitle">Underground, Elizabeth line, DLR, Overground &amp; Trams</p>
+        <p className="map-subtitle">Underground, Elizabeth line, DLR, Overground, Trams &amp; National Rail</p>
       </header>
       <section
         className="map-shell"

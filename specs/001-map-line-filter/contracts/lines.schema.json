@@ -47,7 +47,7 @@
         "properties": {
           "lineCode": {
             "type": "string",
-            "pattern": "^[a-z\\-]+$"
+            "pattern": "^[a-z0-9\\-]+$"
           },
           "displayName": {
             "type": "string",
@@ -63,7 +63,7 @@
           },
           "mode": {
             "type": "string",
-            "enum": ["tube", "dlr", "elizabeth-line", "overground", "tram"]
+            "enum": ["tube", "dlr", "elizabeth-line", "overground", "tram", "national-rail"]
           },
           "strokeWeight": {
             "type": "integer",

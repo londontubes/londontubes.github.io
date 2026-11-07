@@ -8,6 +8,8 @@ import {
   buildZooplaStationUrl,
 } from '@/app/lib/map/propertySearch'
 import stationsData from '@/public/data/stations.json'
+import linesData from '@/public/data/lines.json'
+import zonesData from '@/public/data/station-zones.json'
 
 const bakerStreet: Station = {
   stationId: '940GZZLUBST',
@@ -486,9 +488,17 @@ describe('propertySearch helpers', () => {
   it('provides both Zoopla and Rightmove links for every station in the dataset', () => {
     const stations = (Array.isArray(stationsData) ? stationsData : stationsData.stations) as Station[]
     const missingZoopla = stations.filter((station) => !buildZooplaStationUrl(station))
-    const missingRightmove = stations.filter((station) => buildRightmoveStationUrls(station).length === 0)
+    // National Rail stations outside the TfL zones may have no verified
+    // Rightmove match; no link is better than one to the wrong station.
+    const tflLineCodes = new Set(
+      (linesData.lines as { lineCode: string; mode: string }[]).filter((l) => l.mode !== 'national-rail').map((l) => l.lineCode)
+    )
+    const zones = zonesData.zones as Record<string, string>
+    const needsRightmove = (station: Station) =>
+      Boolean(zones[station.stationId]) || station.lineCodes.some((code) => tflLineCodes.has(code))
+    const missingRightmove = stations.filter((station) => needsRightmove(station) && buildRightmoveStationUrls(station).length === 0)
     const missingZooplaBuy = stations.filter((station) => !buildZooplaStationBuyUrl(station))
-    const missingRightmoveBuy = stations.filter((station) => buildRightmoveStationBuyUrls(station).length === 0)
+    const missingRightmoveBuy = stations.filter((station) => needsRightmove(station) && buildRightmoveStationBuyUrls(station).length === 0)
 
     expect(missingZoopla).toEqual([])
     expect(missingRightmove).toEqual([])
@@ -508,7 +518,9 @@ describe('Rightmove station identifiers', () => {
   // wrong ID was a duplicate of another station's, so duplicates are a bug.
   it('never sends two different stations to the same Rightmove station', () => {
     // Shepherd's Bush Market is the H&C platform the Shepherd's Bush hub also offers.
-    const allowedShared = new Set(['STATION^8156'])
+    // Shepherd's Bush Market / Shepherd's Bush hub (H&C platform), and the
+    // DLR and National Rail sides of Stratford International.
+    const allowedShared = new Set(['STATION^8156', 'STATION^15135'])
     const byId = new Map<string, string[]>()
     stations.forEach((station) => {
       const id = primaryId(station)

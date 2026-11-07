@@ -79,10 +79,22 @@ async function main() {
     // existing bus cache untouched, so transform.ts keeps the current bus data.
     const railOnly = process.argv.includes('--rail-only')
 
-    const railModes = ['tube', 'dlr', 'elizabeth-line', 'overground', 'tram']
+    const railModes = ['tube', 'dlr', 'elizabeth-line', 'overground', 'tram', 'national-rail']
     const busModes = ['bus']
 
-    const lines = await fetchTfLLines(railModes)
+    // TfL lists every GB operator under national-rail; keep the ones that
+    // serve London. These have no station in Greater London.
+    const NATIONAL_RAIL_EXCLUDED = new Set([
+      'crosscountry',
+      'island-line',
+      'merseyrail',
+      'northern-rail',
+      'scotrail',
+      'transpennine-express',
+      'transport-for-wales',
+    ])
+
+    const lines = (await fetchTfLLines(railModes)).filter((line) => !NATIONAL_RAIL_EXCLUDED.has(line.id))
     const busLines = railOnly ? [] : await fetchTfLLines(busModes)
 
     // Cache raw line data

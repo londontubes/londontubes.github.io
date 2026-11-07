@@ -22,6 +22,7 @@ const MODE_LABELS: Record<TransitLine['mode'], string> = {
   'elizabeth-line': 'Elizabeth line',
   'overground': 'London Overground',
   'tram': 'London Trams',
+  'national-rail': 'National Rail',
 }
 
 // Hubs used for "journey time to central London" tables.
@@ -137,9 +138,13 @@ function getBase() {
     const base = slugify(cleanStationName(station.displayName))
     let slug = base
     if (idBySlug.has(slug)) {
+      // Name the station's TfL network if it has one, so slugs stay stable
+      // when National Rail operators are added ("bethnal-green-overground").
+      const modes = station.lineCodes.map((code) => lines.find((l) => l.lineCode === code)?.mode)
+      const tflMode = modes.find((mode) => mode && mode !== 'national-rail')
       const qualifier = station.lineCodes.length === 1 && station.lineCodes[0] === 'tram'
         ? 'tram-stop'
-        : (lines.find((l) => l.lineCode === station.lineCodes[0])?.mode ?? 'station')
+        : (tflMode ?? modes[0] ?? 'station')
       slug = `${base}-${qualifier}`
       let n = 2
       while (idBySlug.has(slug)) slug = `${base}-${qualifier}-${n++}`

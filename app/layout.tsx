@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: '%s | London Tube Map',
   },
   description:
-    'Free interactive London Tube map 2026 with all Underground lines, the Elizabeth line, DLR, London Overground, Trams and 450+ stations. Explore London transport, compare student commute areas, and check station-to-station travel times.',
+    'Free interactive London Tube map 2026 with all Underground lines, the Elizabeth line, DLR, London Overground, Trams, National Rail and 1,700+ stations. Explore London transport, compare student commute areas, and check station-to-station travel times.',
   keywords:
     'london tube map 2026, london underground map, interactive tube map, london overground map, elizabeth line map, london tram map, london railway map, dlr map, london station zones, london university commute map, london station travel times, london transport map, tfl map',
   authors: [{ name: 'London Tube Map', url: 'https://londontubes.co.uk' }],
@@ -92,7 +92,7 @@ const webAppStructuredData = {
   alternateName: ['London Underground Map', 'TfL Tube Map', 'London Metro Map', 'Mapa Metro Londres', 'London Subway Map'],
   url: 'https://londontubes.co.uk',
   description:
-    'Free interactive London Tube map 2026 showing all 11 Underground lines, the Elizabeth line, DLR, 6 Overground lines, Trams & 450+ stations. Filter by line, plan journeys, and find university connections.',
+    'Free interactive London Tube map 2026 showing all 11 Underground lines, the Elizabeth line, DLR, 6 Overground lines, Trams, 18 National Rail operators & 1,700+ stations. Filter by line, plan journeys, and find university connections.',
   applicationCategory: 'TravelApplication',
   operatingSystem: 'Any',
   isAccessibleForFree: true,
@@ -114,11 +114,11 @@ const webAppStructuredData = {
     },
   },
   featureList: [
-    'Interactive line filtering for all 11 Underground lines, the Elizabeth line, DLR, 6 Overground lines and London Trams',
+    'Interactive line filtering for all 11 Underground lines, the Elizabeth line, DLR, 6 Overground lines, London Trams and 18 National Rail operators',
     'Elizabeth line (Crossrail) with 41 stations from Reading to Shenfield',
     'DLR Docklands Light Railway network',
     'University proximity finder',
-    '450+ station pages with lines, fare zones and journey times',
+    '1,700+ station pages with lines, fare zones and journey times',
     'Mobile optimised',
     'Free to use',
   ],

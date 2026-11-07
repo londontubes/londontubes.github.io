@@ -30,6 +30,26 @@ const LINE_COLORS: Record<string, { brand: string; text: string }> = {
   'weaver': { brand: '#9B0058', text: '#FFFFFF' },
   'windrush': { brand: '#DC241F', text: '#FFFFFF' },
   'tram': { brand: '#5FB526', text: '#000000' },
+  // National Rail operators. Approximate brand colours (TfL publishes none
+  // for operators); adjust here if an operator's livery colour differs.
+  'avanti-west-coast': { brand: '#004354', text: '#FFFFFF' },
+  'c2c': { brand: '#B7007C', text: '#FFFFFF' },
+  'chiltern-railways': { brand: '#00BFFF', text: '#000000' },
+  'east-midlands-railway': { brand: '#713563', text: '#FFFFFF' },
+  'gatwick-express': { brand: '#EB1E2D', text: '#FFFFFF' },
+  'grand-central': { brand: '#1D1D1B', text: '#FFFFFF' },
+  'greater-anglia': { brand: '#D70428', text: '#FFFFFF' },
+  'great-northern': { brand: '#0077C8', text: '#FFFFFF' },
+  'great-western-railway': { brand: '#0A493E', text: '#FFFFFF' },
+  'heathrow-express': { brand: '#532E63', text: '#FFFFFF' },
+  'hull-trains': { brand: '#DE005C', text: '#FFFFFF' },
+  'london-north-eastern-railway': { brand: '#CE0E2D', text: '#FFFFFF' },
+  'lumo': { brand: '#2B6EF5', text: '#FFFFFF' },
+  'southeastern': { brand: '#1E3A8A', text: '#FFFFFF' },
+  'southern': { brand: '#8CC63E', text: '#000000' },
+  'south-western-railway': { brand: '#24398C', text: '#FFFFFF' },
+  'thameslink': { brand: '#E9438D', text: '#000000' },
+  'west-midlands-trains': { brand: '#FF8300', text: '#000000' },
 }
 
 // TfL returns bare names for these ("Liberty", "Tram"); make them read like
@@ -50,6 +70,7 @@ const MODE_MAP: Record<string, TransformedLine['mode']> = {
   'elizabeth-line': 'elizabeth-line',
   'overground': 'overground',
   'tram': 'tram',
+  'national-rail': 'national-rail',
 }
 
 /**
@@ -296,7 +317,7 @@ interface TransformedLine {
   displayName: string
   brandColor: string
   textColor: string
-  mode: 'tube' | 'dlr' | 'elizabeth-line' | 'overground' | 'tram'
+  mode: 'tube' | 'dlr' | 'elizabeth-line' | 'overground' | 'tram' | 'national-rail'
   strokeWeight: number
   polyline: {
     type: 'LineString' | 'MultiLineString'
@@ -389,6 +410,61 @@ function calculateBounds(allCoordinates: [number, number][][]): [[number, number
     [Math.min(...lons), Math.min(...lats)],
     [Math.max(...lons), Math.max(...lats)],
   ]
+}
+
+// Stations TfL lists under more than one id. National Rail routes sometimes
+// use platform-level "9100…" ids next to the station's usual id (Norbiton:
+// 910GNRBITON and 9100NRBITON2), which would draw two markers metres apart.
+const STATION_ID_ALIASES: Record<string, string> = {
+  // St Pancras International (Southeastern high speed) is part of the
+  // King's Cross St Pancras interchange.
+  '9100STPANCI1': 'HUBKGX',
+}
+
+function cleanRawStationName(name = ''): string {
+  return name
+    .replace(/\s+(Rail|Underground|DLR)\s+Station$/i, '')
+    .replace(/\s+Station$/i, '')
+    .trim()
+    .toLowerCase()
+}
+
+function mergeDuplicateStations(routes: Record<string, RawRoute>) {
+  const byId = new Map<string, RawRouteStation>()
+  Object.values(routes).forEach((route) => route?.stations?.forEach((s) => byId.set(s.id, s)))
+
+  const aliases: Record<string, string> = { ...STATION_ID_ALIASES }
+  const all = [...byId.values()]
+  for (const station of all) {
+    if (!station.id.startsWith('9100') || aliases[station.id]) continue
+    if (typeof station.lat !== 'number' || typeof station.lon !== 'number') continue
+    const name = cleanRawStationName(station.name)
+    const twin = all
+      .filter((other) => other.id !== station.id && !aliases[other.id])
+      .filter((other) => cleanRawStationName(other.name) === name && typeof other.lat === 'number' && typeof other.lon === 'number')
+      .map((other) => ({ other, d: Math.hypot((other.lat! - station.lat!) * 111320, (other.lon! - station.lon!) * 69000) }))
+      .filter(({ d }) => d < 100)
+      // Prefer the usual 910G…/HUB… id, then the lower-numbered platform id.
+      .sort((a, b) => Number(a.other.id.startsWith('9100')) - Number(b.other.id.startsWith('9100')) || a.other.id.localeCompare(b.other.id))[0]
+    if (twin && (!twin.other.id.startsWith('9100') || twin.other.id < station.id)) {
+      aliases[station.id] = twin.other.id
+    }
+  }
+
+  const resolve = (id: string) => aliases[id] ?? id
+  const merged: Record<string, RawRoute> = {}
+  for (const [lineId, route] of Object.entries(routes)) {
+    if (!route?.stations) {
+      merged[lineId] = route
+      continue
+    }
+    const seen = new Set<string>()
+    const stations = route.stations
+      .map((s) => (aliases[s.id] ? { ...(byId.get(resolve(s.id)) ?? s), id: resolve(s.id) } : s))
+      .filter((s) => (seen.has(s.id) ? false : (seen.add(s.id), true)))
+    merged[lineId] = { ...route, stations }
+  }
+  return { routes: merged, aliases }
 }
 
 function transformLines(lines: RawLine[], routes: Record<string, RawRoute>) {
@@ -499,7 +575,8 @@ function transformLines(lines: RawLine[], routes: Record<string, RawRoute>) {
       brandColor: colors.brand,
       textColor: colors.text,
       mode: MODE_MAP[line.modeName] ?? 'tube',
-      strokeWeight: 4,
+      // National Rail is drawn thinner so TfL lines stay the most prominent.
+      strokeWeight: line.modeName === 'national-rail' ? 3 : 4,
       polyline: {
         type: polylineType,
         coordinates: polylineCoords,
@@ -671,8 +748,16 @@ async function main() {
     console.log('Transforming TfL data...')
     
     // Load raw data
-    const { lines, routes, busLines, busRoutes } = await loadRawData()
-    
+    const { lines, routes: rawRoutes, busLines, busRoutes } = await loadRawData()
+
+    // Merge duplicate station records (see mergeDuplicateStations) and keep
+    // the alias map for build-line-routes.ts.
+    const { routes, aliases } = mergeDuplicateStations(rawRoutes)
+    await fs.writeFile(path.join(CACHE_DIR, 'station-aliases.json'), JSON.stringify(aliases, null, 2))
+    if (Object.keys(aliases).length) {
+      console.log(`   Merged ${Object.keys(aliases).length} duplicate station records`)
+    }
+
     // Transform to our schema
     const linesData = transformLines(lines, routes)
     const stationsData = transformStations(routes)
@@ -713,7 +798,7 @@ async function main() {
       source: {
         provider: 'Transport for London',
         apiEndpoints: [
-          'https://api.tfl.gov.uk/Line/Mode/tube,dlr,elizabeth-line,overground,tram',
+          'https://api.tfl.gov.uk/Line/Mode/tube,dlr,elizabeth-line,overground,tram,national-rail',
           'https://api.tfl.gov.uk/Line/Mode/bus',
           'https://api.tfl.gov.uk/Line/{id}/Route/Sequence/all',
         ],

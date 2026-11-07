@@ -7,7 +7,7 @@ import styles from '../stations/Stations.module.css'
 
 const title = 'London lines: Tube, Elizabeth line, DLR, Overground & Tram'
 const description =
-  'Every London Underground line, the Elizabeth line, DLR, the six London Overground lines and London Trams, with station lists in order, fare zones and interchanges.'
+  'Every London Underground line, the Elizabeth line, DLR, the six London Overground lines, London Trams and 18 National Rail operators, with station lists in order, fare zones and interchanges.'
 
 export const metadata: Metadata = {
   title,
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: { title, description, type: 'website', url: `${SITE_URL}/lines/` },
 }
 
-const MODE_ORDER: TransitLine['mode'][] = ['tube', 'elizabeth-line', 'dlr', 'overground', 'tram']
+const MODE_ORDER: TransitLine['mode'][] = ['tube', 'elizabeth-line', 'dlr', 'overground', 'tram', 'national-rail']
 
 export default function LinesIndexPage() {
   const lines = getAllLines()
@@ -47,7 +47,7 @@ export default function LinesIndexPage() {
         </nav>
         <h1 className={styles.title}>London lines</h1>
         <p className={styles.lead}>
-          {lines.length} lines across the London Underground, Elizabeth line, DLR, London Overground and London Trams. Pick a
+          {lines.length} lines across the London Underground, Elizabeth line, DLR, London Overground, London Trams and National Rail. Pick a
           line to see every station in order, its fare zones and where to change.
         </p>
         <p><Link href="/stations/" className={styles.buttonGhost}>Browse stations A–Z</Link></p>

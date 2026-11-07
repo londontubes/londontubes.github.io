@@ -59,7 +59,7 @@ export default function MapExperience({ dataset }: MapExperienceProps) {
         <span className="map-stats" data-testid="network-stats">
           {stations.length} stations · {lines.length} lines · {activeLineSummary}
         </span>
-        <p className="map-subtitle">Underground, Elizabeth line, DLR, Overground &amp; Trams</p>
+        <p className="map-subtitle">Underground, Elizabeth line, DLR, Overground, Trams &amp; National Rail</p>
       </header>
 
       <LineFilter
