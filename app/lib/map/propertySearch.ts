@@ -754,3 +754,19 @@ export function buildRightmoveStationUrl(station?: Station, fallbackName?: strin
 export function buildRightmoveStationBuyUrl(station?: Station, fallbackName?: string): string | null {
   return buildRightmoveStationBuyUrls(station, fallbackName)[0]?.url ?? null
 }
+
+/**
+ * "Rightmove" for a station's own Rightmove location; "Rightmove · Thameslink"
+ * when a station has a second, differently named one. Labels arrive as
+ * "Rightmove: West Hampstead Thameslink" or just "Rightmove".
+ */
+export function shortRightmoveLabel(label: string, stationName: string): string {
+  const place = label.replace(/^Rightmove:?\s*/i, '').trim()
+  const base = stationName
+    .replace(/\s+(Underground|Rail|DLR)\s+Station$/i, '')
+    .replace(/\s+Station$/i, '')
+    .trim()
+  if (!place || place.toLowerCase() === base.toLowerCase()) return 'Rightmove'
+  const rest = place.toLowerCase().startsWith(`${base.toLowerCase()} `) ? place.slice(base.length).trim() : place
+  return rest ? `Rightmove · ${rest}` : 'Rightmove'
+}

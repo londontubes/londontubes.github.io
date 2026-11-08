@@ -1,7 +1,7 @@
 'use client'
 
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
-import type { MutableRefObject, ReactNode } from 'react'
+import type { CSSProperties, MutableRefObject, ReactNode } from 'react'
 import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap, useMapEvents, Marker, Tooltip } from 'react-leaflet'
 import { trackStationSelect, trackMapZoom, trackZooplaClick, trackRightmoveClick, trackAmberClick } from '@/app/lib/analytics'
 import L from 'leaflet'
@@ -18,6 +18,7 @@ import {
   buildRightmoveStationUrls,
   buildZooplaStationBuyUrl,
   buildZooplaStationUrl,
+  shortRightmoveLabel,
 } from '@/app/lib/map/propertySearch'
 
 const LONDON_CENTER: [number, number] = [51.5074, -0.1278]
@@ -385,6 +386,79 @@ function StationCardContent({
   const hasCallToAction = Boolean(hasPropertyCallToAction || amberUrl)
   const revenueIntentSegment = universityName ? 'student-housing' : 'commuter-rentals'
 
+  // One row per intent ("Rent", "Buy"), each with Zoopla then Rightmove.
+  // Stations with two Rightmove locations (e.g. West Hampstead and West
+  // Hampstead Thameslink) get "Rightmove · Thameslink" for the second.
+  const renderPropertyRow = (
+    intent: 'Rent' | 'Buy',
+    zoopla: string | null,
+    rightmove: { label: string; url: string }[],
+    placement: string
+  ) => {
+    if (!zoopla && rightmove.length === 0) return null
+    const buttonStyle = (background: string, color: string): CSSProperties => ({
+      background,
+      color,
+      borderRadius: '6px',
+      padding: '6px 10px',
+      fontSize: '13px',
+      fontWeight: 600,
+      lineHeight: 1.2,
+      textDecoration: 'none',
+      display: 'inline-block',
+      cursor: 'pointer',
+      whiteSpace: 'nowrap',
+    })
+    const suffix = intent === 'Buy' ? ': buy' : ''
+    return (
+      <div style={{ display: 'grid', gridTemplateColumns: '2.4rem 1fr', alignItems: 'start', columnGap: '6px' }}>
+        <span style={{ fontSize: '12px', fontWeight: 600, color: '#475569', paddingTop: '7px' }}>{intent}</span>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+        {zoopla && (
+          <a
+            href={zoopla}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Zoopla: homes to ${intent === 'Rent' ? 'rent' : 'buy'} near ${station.displayName}`}
+            onClick={() =>
+              trackZooplaClick(`${station.displayName}${suffix}`, {
+                placement,
+                intentSegment: revenueIntentSegment,
+                href: zoopla,
+              })
+            }
+            style={buttonStyle('#6f2cff', '#ffffff')}
+          >
+            Zoopla
+          </a>
+        )}
+        {rightmove.map((link) => {
+          const label = shortRightmoveLabel(link.label, station.displayName)
+          return (
+            <a
+              key={link.url}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${label}: homes to ${intent === 'Rent' ? 'rent' : 'buy'} near ${station.displayName}`}
+              onClick={() =>
+                trackRightmoveClick(`${station.displayName}: ${link.label}${suffix}`, {
+                  placement,
+                  intentSegment: revenueIntentSegment,
+                  href: link.url,
+                })
+              }
+              style={buttonStyle('#00deb6', '#05231d')}
+            >
+              {label}
+            </a>
+          )
+        })}
+        </div>
+      </div>
+    )
+  }
+
   const rentActions = useMemo<PurplePropertySearchAction[]>(() => {
     const actions: PurplePropertySearchAction[] = []
 
@@ -401,7 +475,7 @@ function StationCardContent({
     rightmoveLinks.forEach((link, index) => {
       actions.push({
         key: `purple-rent-rightmove-${index}`,
-        label: link.label,
+        label: shortRightmoveLabel(link.label, station.displayName),
         url: link.url,
         partner: 'rightmove',
         placement: `${metricPanelTone.placementPrefix}-rent`,
@@ -409,7 +483,7 @@ function StationCardContent({
     })
 
     return actions
-  }, [metricPanelTone.placementPrefix, rightmoveLinks, zooplaUrl])
+  }, [metricPanelTone.placementPrefix, rightmoveLinks, zooplaUrl, station.displayName])
 
   const saleActions = useMemo<PurplePropertySearchAction[]>(() => {
     const actions: PurplePropertySearchAction[] = []
@@ -427,7 +501,7 @@ function StationCardContent({
     rightmoveBuyLinks.forEach((link, index) => {
       actions.push({
         key: `purple-sale-rightmove-${index}`,
-        label: link.label,
+        label: shortRightmoveLabel(link.label, station.displayName),
         url: link.url,
         partner: 'rightmove',
         placement: `${metricPanelTone.placementPrefix}-sale`,
@@ -435,7 +509,7 @@ function StationCardContent({
     })
 
     return actions
-  }, [metricPanelTone.placementPrefix, rightmoveBuyLinks, zooplaBuyUrl])
+  }, [metricPanelTone.placementPrefix, rightmoveBuyLinks, zooplaBuyUrl, station.displayName])
 
   const renderPurpleMetricCard = ({
     panel,
@@ -624,112 +698,12 @@ function StationCardContent({
       )}
       {hasCallToAction && (
         <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-          {!showInlinePropertyMetrics && zooplaUrl && (
-            <a
-              href={zooplaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                trackZooplaClick(station.displayName, {
-                  placement: 'station-popup',
-                  intentSegment: revenueIntentSegment,
-                  href: zooplaUrl,
-                })
-              }
-              style={{
-                background: '#6f2cff',
-                color: 'white',
-                borderRadius: '4px',
-                padding: '6px 10px',
-                fontSize: '13px',
-                textDecoration: 'none',
-                display: 'inline-block',
-                cursor: 'pointer',
-              }}
-            >
-              Zoopla
-            </a>
+          {!showInlinePropertyMetrics && hasPropertyCallToAction && (
+            <div style={{ display: 'grid', gap: '6px', width: '100%' }}>
+              {renderPropertyRow('Rent', zooplaUrl, rightmoveLinks, 'station-popup')}
+              {renderPropertyRow('Buy', zooplaBuyUrl, rightmoveBuyLinks, 'station-popup-buy')}
+            </div>
           )}
-          {!showInlinePropertyMetrics && rightmoveLinks.map((rightmoveLink) => (
-            <a
-              key={rightmoveLink.url}
-              href={rightmoveLink.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                trackRightmoveClick(`${station.displayName}: ${rightmoveLink.label}`, {
-                  placement: 'station-popup',
-                  intentSegment: revenueIntentSegment,
-                  href: rightmoveLink.url,
-                })
-              }
-              style={{
-                background: '#00deb6',
-                color: '#05231d',
-                borderRadius: '4px',
-                padding: '6px 10px',
-                fontSize: '13px',
-                textDecoration: 'none',
-                display: 'inline-block',
-                cursor: 'pointer',
-              }}
-            >
-              {rightmoveLink.label}
-            </a>
-          ))}
-          {!showInlinePropertyMetrics && zooplaBuyUrl && (
-            <a
-              href={zooplaBuyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                trackZooplaClick(`${station.displayName}: buy`, {
-                  placement: 'station-popup-buy',
-                  intentSegment: revenueIntentSegment,
-                  href: zooplaBuyUrl,
-                })
-              }
-              style={{
-                background: '#4c1d95',
-                color: 'white',
-                borderRadius: '4px',
-                padding: '6px 10px',
-                fontSize: '13px',
-                textDecoration: 'none',
-                display: 'inline-block',
-                cursor: 'pointer',
-              }}
-            >
-              Zoopla
-            </a>
-          )}
-          {!showInlinePropertyMetrics && rightmoveBuyLinks.map((rightmoveLink) => (
-            <a
-              key={rightmoveLink.url}
-              href={rightmoveLink.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                trackRightmoveClick(`${station.displayName}: ${rightmoveLink.label}`, {
-                  placement: 'station-popup-buy',
-                  intentSegment: revenueIntentSegment,
-                  href: rightmoveLink.url,
-                })
-              }
-              style={{
-                background: '#2dd4bf',
-                color: '#042f2e',
-                borderRadius: '4px',
-                padding: '6px 10px',
-                fontSize: '13px',
-                textDecoration: 'none',
-                display: 'inline-block',
-                cursor: 'pointer',
-              }}
-            >
-              {rightmoveLink.label}
-            </a>
-          ))}
           {amberUrl && (
             <a
               href={amberUrl}
